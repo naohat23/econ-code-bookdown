@@ -1,0 +1,11 @@
+---
+title: "index"
+author: "Naoki Hattori"
+date: '2022-05-03'
+output: 
+  bookdown::gitbook: default
+  toc: true
+  toc_depth: 2
+  toc_float: true
+site: bookdown::bookdown_site
+---
