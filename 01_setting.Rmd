@@ -9,24 +9,114 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# first
+# Rの設定
 
-## R Markdown
+Rを使用する際の各種設定です。パッケージのインストールやプロキシサーバーの設定（プロキシ環境のみ）など、Rの使用に欠かせない様々な設定について記載しています。
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## 設定全般
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+### Rのバージョン確認
 
 ```{r}
-summary(cars)
+version
 ```
 
-## Including Plots
+### セッション情報の確認
 
-You can also embed plots, for example:
+```{r}
+sessionInfo()
+```
+
+### 警告の非表示
+
+```{r}
+options(warn = -1)
+```
+
+### 関数が出力する警告やメッセージの非表示
+
+関数が出力する警告やメッセージは`options(warn = -1)`で非表示にできないため、`suppressWarnings()`関数や`suppressMessages()`関数を使用します。
+
+```{r, eval=FALSE}
+suppressWarnings(警告を出力する関数)
+suppressMessages(メッセージを出力する関数)
+```
+
+## パッケージのインストールとインポート
+
+### 使用するパッケージ一覧
+
+-   tidyverse系
+    -   lubridate：日付処理
+    -   magrittr：パイプ処理
+    -   tidyverse：モダンなデータ分析用パッケージセット
+    -   readxl：Excelファイルの読み込み
+-   図表系
+    -   esquisse：shanyを使用したインタラクティブな図表作成
+    -   geofacet：地図形式のファセット図配置
+    -   ggpubr：論文形式の図表作成
+    -   ggsci：科学系論文の雑誌別カラーパレット
+    -   ggrepel：散布図のラベル付与
+    -   lemon：ファセット図の軸・目盛り表示
+    -   RColorBrewer：カラーパレット
+-   統計系
+    -   mgcv：一般化加法モデル（GAM）
+    -   plm：パネルデータモデル
+    -   sigmoid：シグモイド関数
+    -   tidyquant：金融時系列データ分析
+-   その他
+    -   openxlsx：Excelのxlsxファイルの読み込み・編集・書き出し
+
+### パッケージのインストールとインポート
+
+パッケージのインストールは`install.packages()`関数、インストールしたパッケージのインポートは`library()`で実行します。
 
 ```{r, echo=FALSE}
-plot(pressure)
+## パッケージ一覧
+packages <- c(
+  "lubridate", "magrittr", "tidyverse", "readxl",
+  "esquisse", "geofacet", "ggpubr", "ggsci", "ggrepel", "lemon", "RColorBrewer",
+  "mgcv", "plm", "sigmoid", "tidyquant",
+  "openxlsx"
+)
+
+## インストールしていないパッケージがあればインストール
+new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
+
+if(length(new_packages)) {
+  install.packages(new_packages)
+}
+
+## パッケージをインポート
+for (pkg in packages) {
+  library(pkg, character.only = TRUE)
+}
+
+## 変数を削除
+rm(
+  new_packages,
+  packages,
+  pkg
+)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## グラフの設定
+
+レポートやスライドに掲載するためのグラフは、主にRのggplot2パッケージで作成します。
+
+### グラフのテーマ設定
+
+実務上、Excelと併用することを想定しているため、Excelで出力されるグラフに似たテーマを設定します。ggplot2にデフォルトで用意されている様々なテーマについては、[こちら](https://ggplot2.tidyverse.org/reference/ggtheme.html)を参照してください。
+
+```{r}
+theme_set(theme_light())
+```
+
+### グラフのフォント設定
+
+Windows上でRを使用する場合は、日本語フォントをグラフ上で表示するために以下の設定が必要です。ここでは代表的なフォントとしてMeiryo UIとYu Gothic UIを設定します。それぞれのフォントに`MEIRYO`、`YUGO`というキーを割り当て、ggplot2でグラフを作成する際にキーを指定します。
+
+```{r}
+windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
+windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
+```
