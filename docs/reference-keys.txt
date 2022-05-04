@@ -1,3 +1,0 @@
-first
-r-markdown
-including-plots
