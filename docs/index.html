@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Rの基本的な使用方法 | エコノミストのためのRコード</title>
-  <meta name="description" content="2 Rの基本的な使用方法 | エコノミストのためのRコード" />
+  <title>エコノミストのためのRコード</title>
+  <meta name="description" content="エコノミストのためのRコード" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Rの基本的な使用方法 | エコノミストのためのRコード" />
+  <meta property="og:title" content="エコノミストのためのRコード" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="naohat23/econ-code-bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Rの基本的な使用方法 | エコノミストのためのRコード" />
+  <meta name="twitter:title" content="エコノミストのためのRコード" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rの設定.html"/>
-<link rel="next" href="tidyverseによるデータベース操作.html"/>
+
+<link rel="next" href="rの設定.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -186,82 +186,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rの基本的な使用方法" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">2</span> Rの基本的な使用方法<a href="rの基本的な使用方法.html#rの基本的な使用方法" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="基本操作" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> 基本操作<a href="rの基本的な使用方法.html#基本操作" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="header">
+<h1 class="title">エコノミストのためのRコード</h1>
+<p class="author"><em>服部直樹</em></p>
+<p class="date"><em>2022-05-05</em></p>
 </div>
-<div id="ベクトル" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> ベクトル<a href="rの基本的な使用方法.html#ベクトル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="リスト" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> リスト<a href="rの基本的な使用方法.html#リスト" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="演算子と関数" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> 演算子と関数<a href="rの基本的な使用方法.html#演算子と関数" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="制御構文" class="section level2 hasAnchor" number="2.5">
-<h2><span class="header-section-number">2.5</span> 制御構文<a href="rの基本的な使用方法.html#制御構文" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="データの読み込み書き出し" class="section level2 hasAnchor" number="2.6">
-<h2><span class="header-section-number">2.6</span> データの読み込み・書き出し<a href="rの基本的な使用方法.html#データの読み込み書き出し" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="csvデータ" class="section level3 unnumbered hasAnchor">
-<h3>CSVデータ<a href="rの基本的な使用方法.html#csvデータ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="rの基本的な使用方法.html#cb39-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;directory/file.csv&quot;</span>, <span class="co"># ファイルパス／URL（拡張子が必要）</span></span>
-<span id="cb39-2"><a href="rの基本的な使用方法.html#cb39-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="co"># ヘッダー（列名データ）の有無</span></span>
-<span id="cb39-3"><a href="rの基本的な使用方法.html#cb39-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="co"># 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）</span></span>
-<span id="cb39-4"><a href="rの基本的な使用方法.html#cb39-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">skip =</span> <span class="dv">0</span>) <span class="co"># 読み込み時に上からスキップする行数</span></span></code></pre></div>
-</div>
-<div id="excelデータxls形式" class="section level3 unnumbered hasAnchor">
-<h3>Excelデータ（xls形式）<a href="rの基本的な使用方法.html#excelデータxls形式" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><code>readr</code>パッケージの<code>read_excel()</code>関数はExcelのxls形式、xlsx形式どちらも読み込み可能です。ただし、読み込みができるのはローカルネットワーク内のファイルパスだけで、URLからの読み込みはできません。</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="rの基本的な使用方法.html#cb40-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">&quot;directory/file.xls&quot;</span>, <span class="co"># ファイルパス（拡張子が必要、URLは不可）</span></span>
-<span id="cb40-2"><a href="rの基本的な使用方法.html#cb40-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">sheet =</span> <span class="cn">NULL</span>, <span class="co"># シートインデックス／シート名</span></span>
-<span id="cb40-3"><a href="rの基本的な使用方法.html#cb40-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="co"># ヘッダー（列名データ）の有無</span></span>
-<span id="cb40-4"><a href="rの基本的な使用方法.html#cb40-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="co"># 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）</span></span>
-<span id="cb40-5"><a href="rの基本的な使用方法.html#cb40-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">skip =</span> <span class="dv">0</span>) <span class="co"># 読み込み時に上からスキップする行数</span></span></code></pre></div>
-</div>
-<div id="excelデータxlsx形式" class="section level3 unnumbered hasAnchor">
-<h3>Excelデータ（xlsx形式）<a href="rの基本的な使用方法.html#excelデータxlsx形式" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><code>openxlsx</code>パッケージの<code>read.xlsx()</code>関数であれば、ローカルネットワーク内のファイルパスとURLどちらからでも読み込みが可能です。ただし、読み込めるファイル形式はxlsx形式のみで、xls形式には対応していません。</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="rの基本的な使用方法.html#cb41-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;directory/file.xlsx&quot;</span>, <span class="co"># ファイルパス／URL（拡張子が必要）</span></span>
-<span id="cb41-2"><a href="rの基本的な使用方法.html#cb41-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sheet =</span> <span class="dv">1</span>, <span class="co"># シートインデックス／シート名</span></span>
-<span id="cb41-3"><a href="rの基本的な使用方法.html#cb41-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">startRow =</span> <span class="dv">5</span>, <span class="co"># 読み込み開始行</span></span>
-<span id="cb41-4"><a href="rの基本的な使用方法.html#cb41-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">colNames =</span> <span class="cn">TRUE</span>, <span class="co"># 列名データの有無</span></span>
-<span id="cb41-5"><a href="rの基本的な使用方法.html#cb41-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">rowNames =</span> <span class="cn">FALSE</span>, <span class="co"># 行名データの有無</span></span>
-<span id="cb41-6"><a href="rの基本的な使用方法.html#cb41-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">rows =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">53</span>, <span class="co"># 読み込む列（NULLですべて読み込み）</span></span>
-<span id="cb41-7"><a href="rの基本的な使用方法.html#cb41-7" aria-hidden="true" tabindex="-1"></a>                            <span class="at">cols =</span> <span class="cn">NULL</span>) <span class="co"># 読み込む行（NULLですべて読み込み）</span></span></code></pre></div>
-</div>
-<div id="csvデータの書き出し" class="section level3 unnumbered hasAnchor">
-<h3>CSVデータの書き出し<a href="rの基本的な使用方法.html#csvデータの書き出し" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="rの基本的な使用方法.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(..., <span class="co"># 書き出すオブジェクト名（クオーテーションは不要）</span></span>
-<span id="cb42-2"><a href="rの基本的な使用方法.html#cb42-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">file =</span> <span class="st">&quot;directory/file.csv&quot;</span>, <span class="co"># 書き出し先のファイルパス（拡張子が必要）</span></span>
-<span id="cb42-3"><a href="rの基本的な使用方法.html#cb42-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">row.names =</span> <span class="cn">FALSE</span>) <span class="co"># 行番号を付与するか</span></span></code></pre></div>
-</div>
-</div>
-<div id="オブジェクトのセーブロード" class="section level2 hasAnchor" number="2.7">
-<h2><span class="header-section-number">2.7</span> オブジェクトのセーブ・ロード<a href="rの基本的な使用方法.html#オブジェクトのセーブロード" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="セーブ" class="section level3 unnumbered hasAnchor">
-<h3>セーブ<a href="rの基本的な使用方法.html#セーブ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>RのオブジェクトをRData形式で保存します。</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="rの基本的な使用方法.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(..., <span class="co"># セーブするオブジェクト名（クオーテーションは不要）</span></span>
-<span id="cb43-2"><a href="rの基本的な使用方法.html#cb43-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">file =</span> <span class="st">&quot;directory/file.RData&quot;</span>) <span class="co"># セーブ先のファイルパス（拡張子が必要）</span></span></code></pre></div>
-</div>
-<div id="ロード" class="section level3 unnumbered hasAnchor">
-<h3>ロード<a href="rの基本的な使用方法.html#ロード" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>保存したRData形式のオブジェクトを呼び出します。</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="rの基本的な使用方法.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">&quot;directory/file.RData&quot;</span>) <span class="co"># ロード元ファイルパス（拡張子が必要）</span></span></code></pre></div>
+<div id="はじめに" class="section level1 unnumbered hasAnchor">
+<h1>はじめに<a href="index.html#はじめに" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>経済・金融分析で使用するRのコード集です。</p>
 
-</div>
-</div>
+<hr />
+<hr />
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="rの設定.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tidyverseによるデータベース操作.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="rの設定.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

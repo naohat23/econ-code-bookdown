@@ -1,0 +1,677 @@
+# tidyverseによるデータベース操作
+
+`tidyverse`は、Rでデータベースを効率的に操作・可視化するために開発された様々なパッケージをひとまとめにしたものです。本節では、データベース操作に関わる`dplyr`パッケージと`tidyr`パッケージを主に使用します。
+
+-   `dplyr`：データベースに様々な操作を加えるパッケージ
+-   `tidyr`：データベースをtidy dataに変形するためのパッケージ
+
+**tidy data**とは、`tidyverse`の開発者であるHadley Wickham氏が提唱した概念で、機械処理しやすいデータ形式のことを言います。その要件は次の通りです。
+
+-   1つの列が1つの変数を表す
+-   1つの行が1つのレコードを表す
+-   1つのテーブルが1つのデータセットだけを含む
+
+例えば、国別・産業別GDPの時系列データであれば、国の列、産業の列、時点の列、データ（GDP）の列、の4列で構成されるデータがtidy dataです。こうしたデータを縦型データとも呼びます。これに対し、国や産業が横方向に並んでいる場合（日本・製造業のGDPの列、日本・飲食業のGDPの列、米国・金融業のGDPの列など）は、tidy dataではありません（こちらは横型データと呼びます）。tidy dataは属性条件によるフィルタがかけやすいなど、データ処理が列方向に一括して行えるため、機械処理に適しています。
+
+tidy dataの詳細については、松村優哉・湯谷啓明・紀ノ定保礼・前田和寛（2021）『改訂2版 Rユーザのための RStudio［実践］入門』を参照してください。 (<https://gihyo.jp/book/2021/978-4-297-12170-9>)
+
+## パッケージのインポート
+
+```{r, results='hide'}
+library(magrittr)
+library(tidyverse)
+library(tidyquant)
+```
+
+## tidyverseの基礎
+
+`dplyr`や`tidyr`は、もとのデータベースに対して変更を一切加えません。データベースを操作した結果を残しておくためには、オブジェクトに代入する必要があります。代入先をもとのデータベースのオブジェクトにすると、データベースの内容が書き換えられます。
+
+`tidyverse`ではパイプ`%>%`が多用されます。パイプは、データベースのある処理の結果を次の処理へと受け渡すものです。パイプを連続して使用することで、処理の途中の結果をいちいちオブジェクトに代入することなく、一括して複数の処理を行うことができます。
+
+```{r}
+# mpgデータベースからmanufacturer変数とcty変数を選択し、manufacturer変数でフィルタしたうえで、cty変数を10倍し、結果をresultオブジェクトに保存する例
+result <- mpg %>% 
+  dplyr::select(manufacturer, cty) %>% 
+  dplyr::filter(manufacturer == "toyota") %>% 
+  dplyr::mutate(cty_10 = cty * 10)
+
+print(result)
+```
+
+## サンプルデータの読み込み
+
+本節で使用するサンプルデータをWebから直接読み込みます。プロキシ環境では、プロキシサーバーの設定が必要です。
+
+ここでは、Our World in Dataの新型コロナウイルス関連データセットを使用します。データの詳細は[こちら](https://ourworldindata.org/coronavirus)を参照してください。
+
+Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Giattino, Esteban Ortiz-Ospina, Joe Hasell, Bobbie Macdonald, Diana Beltekian and Max Roser (2020) - "Coronavirus Pandemic (COVID-19)". Published online at OurWorldInData.org. Retrieved from: '<https://ourworldindata.org/coronavirus>' [Online Resource]
+
+```{r}
+# Our World in Dataの新型コロナデータをtibble型で読み込み
+data_owid <- readr::read_csv(file = "https://covid.ourworldindata.org/data/owid-covid-data.csv", # ファイルパス／URL
+                             col_names = TRUE, # ヘッダー（列名データ）の有無
+                             col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                             skip = 0) # 読み込み時に上からスキップする行数
+
+# データをコンソールに出力
+print(data_owid)
+
+# データをR Studioの新規タブで閲覧
+View(data_owid)
+```
+
+## 列の選択
+
+データベースから列（変数）を選択するには、`dplyr::select()`関数を使用します。
+
+### 列名で選択 {.unnumbered}
+
+```{r}
+data_owid %>% 
+  dplyr::select(location, date, new_cases)
+```
+
+### 列名を格納したベクトルで選択 {.unnumbered}
+
+```{r}
+cols <- c("location", "date", "new_cases")
+data_owid %>% 
+  dplyr::select(cols) 
+```
+
+### 列を非選択（削除） {.unnumbered}
+
+```{r}
+data_owid %>% 
+  dplyr::select(-location) 
+```
+
+### 列名に特定の文字列を含む列を選択 {.unnumbered}
+
+```{r}
+data_owid %>% 
+  dplyr::select(location, date, contains("cases"))
+```
+
+### 列名が特定の文字列から始まる列を選択 {.unnumbered}
+
+```{r}
+data_owid %>% 
+  dplyr::select(location, date, starts_with("new_cases")) 
+```
+
+### 列名が特定の文字列で終わる列を選択 {.unnumbered}
+
+```{r}
+data_owid %>% 
+  dplyr::select(location, date, ends_with(c("cases", "deaths"))) 
+```
+
+### 特定の型の列を選択 {.unnumbered}
+
+```{r}
+data_owid %>% 
+  dplyr::select(where(is.character) | where(is.logical)) 
+```
+
+## 列名の変更
+
+データベースの列名（変数名）を変更するときは、`dplyr::rename()`関数を使用します。
+
+```{r}
+data_owid %>% 
+  dplyr::rename(country = location)
+```
+
+## 行のフィルタ
+
+データベースの行のフィルタ（特定の条件を満たすデータの抽出）を行うには、`dpoyr::filter()`関数を使用します。
+
+### 条件に一致する行 {.unnumbered}
+
+```{r}
+data_owid %>% dplyr::filter(location == "Japan")
+```
+
+### 条件に一致しない行（NOT条件） {.unnumbered}
+
+NOT条件は`!=`演算子を使用します。
+
+```{r}
+data_owid %>% dplyr::filter(continent != "Asia")
+```
+
+### 複数条件 {.unnumbered}
+
+`dplyr::filter()`関数内で複数条件を指定すると、左から順番に条件を適用します。
+
+```{r}
+data_owid %>% dplyr::filter(location == "Japan", date >= "2021-01-01", date <= "2021-01-07")
+```
+
+### AND・OR条件を明示的に指定した複数条件 {.unnumbered}
+
+左から順番に条件を適用しないためには、`&`演算子と`|`演算子で明示的にAND条件とOR条件を指定します。
+
+```{r}
+data_owid %>% dplyr::filter((date == "2022-01-01") & (location == "Japan" | location == "United States"))
+```
+
+### `%in%`演算子によるOR条件 {.unnumbered}
+
+複数の値が格納されたベクトルと`%in%`演算子を用いて、OR条件で行をフィルタします。この場合は、日本と米国のレコードを抽出しています。
+
+```{r}
+locations <- c("Japan", "United States")
+
+data_owid %>% dplyr::filter(location %in% locations, date == "2021-01-01")
+```
+
+### OR条件の否定 {.unnumbered}
+
+`%in%`演算子によるOR条件を`!`で否定します。この場合は、日本・米国以外を抽出しています。
+
+```{r}
+data_owid %>% dplyr::filter(!location %in% locations, date == "2021-01-01")
+```
+
+### 関数による条件指定 {.unnumbered}
+
+```{r}
+data_owid %>% dplyr::filter(date == max(date))
+```
+
+### 論理値を返す関数による条件指定 {.unnumbered}
+
+`is.na()`関数のように倫理値を返す関数は、`==`演算子がなくてもフィルタ条件として使用することができます。
+
+```{r}
+data_owid %>% dplyr::filter(is.na(new_cases))
+```
+
+## 行の並べ替え
+
+データベースの行を並べ替えるには、`dplyr::arrange()`関数を使用します。
+
+### 昇順ソート {.unnumbered}
+
+```{r}
+data_owid %>% 
+  dplyr::arrange(new_cases) 
+```
+
+### 降順ソート {.unnumbered}
+
+```{r}
+data_owid %>% 
+  dplyr::arrange(-new_cases) 
+```
+
+### 降順ソート（日付型） {.unnumbered}
+
+日付型の変数は`-`演算子で降順ソートができないため、`desc()`関数を使用します。
+
+```{r}
+data_owid %>% 
+  dplyr::arrange(desc(date)) 
+```
+
+### 複数条件によるソート {.unnumbered}
+
+`dplyr::arrange()`関数内で複数条件を指定すると、左から順番に適用します。
+
+```{r}
+data_owid %>% 
+  dplyr::arrange(desc(date), -new_cases) 
+```
+
+## 列の追加・修正
+
+データベースの列を追加・修正するには、`dplyr::mutate()`関数を使用します。
+
+まず、使用するサンプルデータを作成します。
+
+```{r}
+# サンプルデータの作成
+data_owid_jp <- data_owid %>% 
+  dplyr::select(location, date, new_cases, new_deaths) %>% 
+  dplyr::filter(location == "Japan",
+                date >= "2022-01-01")
+```
+
+### 新たな変数の作成 {.unnumbered}
+
+既存の変数の計算結果として、新たな変数を追加します。その際、`.before`引数もしくは`.after`引数に既存の列名を指定すると、指定した列の前後に新たな変数を挿入します。`.before`引数、`.after`引数を指定しなければ、新たな変数は最右列に追加されます。
+
+```{r}
+data_owid_jp %>% 
+  dplyr::mutate(death_rate = new_deaths / new_cases,
+                .after = "date") 
+```
+
+### 既存の列の修正 {.unnumbered}
+
+```{r}
+data_owid %>% 
+  dplyr::mutate(location = factor(location))
+```
+
+### ラグ・リード系列の作成 {.unnumbered}
+
+`dplyr::lag()`関数と`dplyr::leag()`関数で、既存の変数のラグ・リード系列を作成します。
+
+```{r}
+# 1期ラグの変数を追加
+data_owid_jp %>% 
+  dplyr::mutate(new_cases_lag = dplyr::lag(new_cases, n = 1)) 
+```
+
+### 変化率系列の作成 {.unnumbered}
+
+`dplyr::lag()`関数で、既存の変数の変化率の系列を作成します。
+
+```{r}
+# 前期比変化率の系列を追加
+data_owid_jp %>% 
+  dplyr::mutate(new_cases_chg = new_cases / dplyr::lag(new_cases, n = 1)) 
+```
+
+### 移動平均系列の作成 {.unnumbered}
+
+`zoo::rollmean()`関数で、移動平均系列を作成します。
+
+```{r}
+# 後方7日移動平均の系列を追加
+data_owid_jp %>% 
+  dplyr::mutate(new_cases_7dma = zoo::rollmean(new_cases, # 移動平均を作成するもとの系列名
+                                               k = 7, # 移動平均の期間
+                                               na.pad = TRUE, # 系列の先端部分で移動平均を計算できない箇所をNAで埋めるか
+                                               align = "right")) # left：前方移動平均、center：中央移動平均、right：後方移動平均
+```
+
+### 条件付き系列の作成 {.unnumbered}
+
+`dplyr::case_when()`関数で、既存の変数が特定の条件を満たす場合にとる値を指定し、新たな系列を作成します。ダミー変数の作成に活用できます。複数条件を指定した場合、左から順番に適用します。「その他すべて」は`TRUE`で指定します。
+
+```{r}
+data_owid_jp %>% 
+  dplyr::mutate(case = dplyr::case_when(new_cases < 1000 ~ "A",
+                                        (new_cases >= 5000 & new_cases < 8000) ~ "B",
+                                        TRUE ~ "other"))
+```
+
+### 複数変数の一括処理 {.unnumbered}
+
+`dplyr::mutate()`関数内で`across()`関数を用い、対象になる変数と処理方法を指定し、一括処理します。`~ {}`は無名関数（ラムダ式）を表し、波括弧の中のドットはチルダの左側の値を代入することを意味します。
+
+```{r}
+# new_casesからnew_deathまでのすべての変数を1000で除す
+data_owid_jp %>% 
+  dplyr::mutate(across(new_cases:new_deaths, ~ {. / 1000}))
+
+# new_casesからnew_deathまでのすべての変数の前期比変化率を計算
+data_owid_jp %>% 
+  dplyr::mutate(across(new_cases:new_deaths, ~ {. / dplyr::lag(., n = 1)})) 
+```
+
+## グループ化
+
+データベースを属性ごとにグループ化するには、`dplyr::group_by()`関数を使用します。グループ化するだけでは変化はありませんが、`dplyr::filter()`関数や、次の`dplyr::summarise()`関数とあわせて使用することで、より柔軟なデータベース操作が可能になります。
+
+### 単一変数でグループ化 {.unnumbered}
+
+見た目は変わりませんが、データを出力すると2行目にGroupsが追加されています。
+
+```{r}
+
+data_owid %>% 
+  dplyr::group_by(location) 
+```
+
+### 複数変数でグループ化 {.unnumbered}
+
+```{r}
+data_owid %>% 
+  dplyr::group_by(continent, location)
+```
+
+### グループ化＆フィルタ {.unnumbered}
+
+グループ化と行のフィルタを組み合わせて、グループ別にフィルタを適用します。ここでは、グループ別の最大値を抽出しています。
+
+```{r}
+data_owid %>% 
+  dplyr::group_by(location) %>% 
+  dplyr::filter(new_cases == max(new_cases))
+```
+
+### グループ化の解除 {.unnumbered}
+
+`dplyr::ungroup()`関数でグループ化を解除します。グループ化の有無でフィルタや集計の結果が変わるため、思わぬ事故を防ぐためにも、所定の結果を得た後はグループ化を解除しておくことを推奨します。
+
+```{r}
+data_owid %>% 
+  dplyr::group_by(location) %>% 
+  dplyr::ungroup()
+```
+
+## 集計
+
+グループ化したデータベースに対して`dplyr::summarise()`関数を使用すると、グループ別に集計操作を行うことができます。
+
+### グループ別の集計 {.unnumbered}
+
+```{r}
+# 指定した列のグループ別の平均値を計算
+data_owid %>% 
+  dplyr::group_by(location) %>% 
+  dplyr::summarise(new_cases_mean = mean(new_cases, na.rm = TRUE))
+
+# 指定した列のグループ別の最大値を計算
+data_owid %>% 
+  dplyr::group_by(location) %>% 
+  dplyr::summarise(new_cases_max = max(new_cases, na.rm = TRUE))
+```
+
+### クロス集計 {.unnumbered}
+
+`dplyr::group_by()`関数で複数条件を指定してグループ化すると、クロス集計を行うことができます。
+
+```{r}
+data_owid %>% 
+  dplyr::group_by(location, lubridate::year(date)) %>% 
+  dplyr::summarise(new_cases_mean = mean(new_cases, na.rm = TRUE))
+```
+
+### 複数変数の一括処理 {.unnumbered}
+
+`dplyr::summarise()`関数内で`across()`関数を用い、対象になる変数と処理方法を指定し、一括処理します。
+
+```{r}
+# new_cases変数とnew_deaths変数について、グループ別の合計値を計算
+data_owid %>% 
+  dplyr::group_by(location) %>% 
+  dplyr::summarise(across(c(new_cases, new_deaths), sum, na.rm = TRUE)) 
+
+# casesで終わる変数すべてについて、グループ別の合計値を計算
+# per_millionで終わる変数すべてについて、グループ別の平均値を計算
+data_owid %>% 
+  dplyr::group_by(location) %>% 
+  dplyr::summarise(across(ends_with("cases"), sum, na.rm = TRUE),
+                   across(ends_with("per_million"), mean, na.rm = TRUE))
+
+# 数値型の変数すべてについて、グループ別の平均値を計算
+data_owid %>% 
+  dplyr::group_by(location) %>% 
+  dplyr::summarise(across(is.double, mean, na.rm = TRUE))
+```
+
+## 縦型・横型の変換
+
+`tidyr`パッケージの`pivot_longer()`関数と`pivot_wider()`関数を使用して、縦型データ（tidy data）と横型データの変換を行います。縦型データは、`ggplot2`パッケージによるグラフ作成で多用します。
+
+まず、使用するサンプルデータを作成します。
+
+```{r}
+# サンプルデータの作成
+data_owid_cases <- data_owid %>% 
+  dplyr::select(location, date, new_cases) %>% 
+  dplyr::filter(date >= "2021-01-01") %>% 
+  dplyr::arrange(date)
+
+print(data_owid_cases)
+```
+
+### 縦型データを横型データに変換 {.unnumbered}
+
+```{r}
+data_owid_cases_wide <- data_owid_cases %>% 
+  tidyr::pivot_wider(id_cols = "date", names_from = "location", values_from = "new_cases") 
+
+print(data_owid_cases_wide)
+```
+
+### 横型データを縦型データに変換 {.unnumbered}
+
+```{r}
+data_owid_cases_long <- data_owid_cases_wide %>% 
+  tidyr::pivot_longer(cols = -"date", names_to = "location", values_to = "new_cases") 
+
+print(data_owid_cases_long)
+```
+
+## データの結合
+
+複数のデータベースのオブジェクトを結合して一つのデータベースにするには、`dplyr`パッケージの`join()`関数ファミリーを使用します。`join()`関数は、結合方法によって4種類に分かれています。
+
+まず、使用するサンプルデータを確認します。
+
+```{r}
+print(band_members)
+print(band_instruments)
+```
+
+### 内部結合 {.unnumbered}
+
+`dplyr::inner_join()`関数は、両方のデータにある行のみ結合し、その他の行は削除します。
+
+```{r}
+band_members %>% 
+  dplyr::inner_join(band_instruments, by = "name")
+```
+
+### 左外部結合 {.unnumbered}
+
+`dplyr::left_join()`関数は、左のデータにある行のみ結合し、その他の行は削除します。
+
+```{r}
+band_members %>% 
+  dplyr::left_join(band_instruments, by = "name")
+```
+
+### 右外部結合 {.unnumbered}
+
+`dplyr::right_join()`関数は、右のデータにある行のみ結合し、その他の行は削除します。
+
+```{r}
+band_members %>% 
+  dplyr::right_join(band_instruments, by = "name")
+```
+
+### 完全外部結合 {.unnumbered}
+
+`dplyr::full_join()`関数は、両方のデータのすべての行を結合し、行を削除しません。
+
+```{r}
+band_members %>% 
+  dplyr::full_join(band_instruments, by = "name")
+```
+
+## 重複処理
+
+重複している行を削除し、一意なレコードにするには、`dplyr::distinct()`関数を使用します。
+
+```{r}
+# すべての列が重複している行を削除
+data_owid %>% 
+  dplyr::distinct()
+
+# 指定した列が重複している行を削除
+data_owid %>% 
+  dplyr::distinct(iso_code, location)
+```
+
+## 欠損値処理
+
+欠損値（NA）がある行を削除したり、NAのレコードを他の値で置き換えたりするには、`tidyr`パッケージの`drop_na()`関数、`replace_na()`関数、`fill()`関数を使用します。
+
+まず、使用するサンプルデータを作成します。
+
+```{r}
+# サンプルデータの作成
+data_owid_vaccinated <- data_owid %>% 
+  dplyr::select(location, date, people_fully_vaccinated) %>% 
+  dplyr::filter(location %in% c("Japan", "United States", "United Kingdom"),
+                date >= "2021-01-01") %>% 
+  dplyr::arrange(date) %>% 
+  tidyr::pivot_wider(id_cols = "date", names_from = "location", values_from = "people_fully_vaccinated")
+
+tail(data_owid_vaccinated)
+```
+
+### NAの削除 {.unnumbered}
+
+指定した変数にNAが含まれている行を削除するには、`tidyr::drop_na()`関数で変数名を指定します。
+
+```{r}
+data_owid_vaccinated %>% 
+  tidyr::drop_na(Japan) %>%  
+  tail()
+```
+
+少なくとも1つの変数にNAが含まれている行を削除するには、`tidyr::drop_na()`関数の中で`everything()`関数を使用します。
+
+```{r}
+data_owid_vaccinated %>% 
+  tidyr::drop_na(everything()) %>%  
+  tail()
+```
+
+### NAの置換 {.unnumbered}
+
+ある変数のNAを別の値に置換するには、`tidyr::replace_na()`関数で変数と置換する値を指定します。
+
+```{r}
+data_owid_vaccinated %>% 
+  dplyr::mutate(Japan = tidyr::replace_na(data = Japan, replace = 0)) %>%  
+  tail()
+```
+
+置換対象の変数が複数ある場合は、`dplyr::mutate_at()`関数で変数を複数指定して一括処理します。
+
+```{r}
+data_owid_vaccinated %>% 
+  dplyr::mutate_at(vars(-date), tidyr::replace_na, replace = 0) %>% 
+  tail()
+```
+
+### NAのフィル {.unnumbered}
+
+ある変数のNAを同じ変数の前後の値でフィルするには、`tidyr::fill()`関数で変数を指定します。`.direction`引数が`"down"`なら上の値でフィル、`"up"`なら下の値でフィルします。
+
+```{r}
+data_owid_vaccinated %>% 
+  tidyr::fill(Japan, .direction = "down") %>% 
+  tail()
+```
+
+すべての列のNAの値をフィルする場合は、`tidyr::fill()`関数の中で`everything()`関数を使用します。
+
+```{r}
+data_owid_vaccinated %>% 
+  tidyr::fill(c(-date, everything()), .direction = "down") %>% 
+  tail()
+```
+
+## 補完処理
+
+データベースに複数の属性があり、特定の属性の組み合わせのレコードが含まれていない（欠損している）場合、`tidyr::complete()`関数で補完することができます。
+
+まず、使用するサンプルデータを作成します。
+
+```{r}
+# サンプルデータの作成
+data_complete_1 <- tibble(
+  group = c(1:2, 1, 2),
+  item_id = c(1:2, 2, 3),
+  item_name = c("a", "a", "b", "b"),
+  value1 = c(1, NA, 3, 4),
+  value2 = 4:7
+)
+
+print(data_complete_1)
+
+data_complete_2 <- tibble(
+  date = as.Date(c("2022-01-01", "2022-01-03", "2022-01-04")),
+  value = c(11, 13, 14)
+)
+
+print(data_complete_2)
+```
+
+### 組み合わせ候補の補完 {.unnumbered}
+
+`tidyr::complete()`関数の中で変数を指定し、当該変数のすべての組み合わせ候補を補完します。補完した行の値はNAになります。
+
+```{r}
+data_complete_1 %>% 
+  tidyr::complete(group, item_id, item_name)
+```
+
+`tidyr::nesting()`関数に複数の変数を指定すると、それらの変数について実現値のユニークな組み合わせをあらかじめ求め、それと別の変数のすべての組み合わせ候補を補完します。
+
+```{r}
+data_complete_1 %>% 
+  tidyr::complete(group, tidyr::nesting(item_id, item_name))
+```
+
+### 時系列データの補完 {.unnumbered}
+
+時系列データの欠損期間を補完するには、`full_seq()`関数を使用します。
+
+```{r}
+# 日次データの欠損日を補完
+data_complete_2 %>% 
+  tidyr::complete(date = full_seq(date, period = 1))
+```
+
+## 時系列データの頻度変換
+
+`tidyverse`と整合性がある金融時系列データ分析用のパッケージである`tidyquant`パッケージの`tq_transmute()`関数を用いて、時系列データの頻度変換（高頻度データから低頻度データへの変換）を行います。なお、tidyquantは頻度変換以外にも様々な分析機能があります。詳しくは[こちら](https://business-science.github.io/tidyquant/)をご参照ください。
+
+まず、使用するサンプルデータを作成します。
+
+```{r}
+# サンプルデータを作成（日次データ）
+data_owid_cases_wide <- data_owid %>% 
+  dplyr::select(location, date, new_cases) %>% 
+  dplyr::filter(date >= "2021-01-01") %>% 
+  dplyr::arrange(date) %>% 
+  tidyr::pivot_wider(id_cols = "date", names_from = "location", values_from = "new_cases")
+```
+
+### 日次データを週次データに変換 {.unnumbered}
+
+`tidyquant::tq_transmute()`関数を使用して日次データを週次データに変換すると、月曜～日曜のデータがFUNに指定した関数で集計され、日曜の日付で記録されます。
+
+```{r}
+data_owid_cases_wide %>% 
+  tidyquant::tq_transmute(select = -date, mutate_fun = apply.weekly, FUN = mean, na.rm = TRUE)
+```
+
+なお、日曜～土曜のデータを集計し日曜の日付で記録したい場合は、`rollmean()`関数を使用して前方7日移動平均を計算し、日曜の値を抽出します。
+
+```{r}
+data_owid_cases_wide %>%
+  dplyr::mutate(across(-date, rollmean, k = 7, na.pad = TRUE, align = "left")) %>% 
+  dplyr::filter(lubridate::wday(date) == 1)
+```
+
+### 日次データを月次データに変換 {.unnumbered}
+
+`tidyquant::tq_transmute()`関数を使用して日次データを月次データに変換すると、月初～月末のデータがFUNに指定した関数で集計され、月末の日付で記録されます。
+
+```{r}
+data_owid_cases_wide %>% 
+  tidyquant::tq_transmute(select = -date, mutate_fun = apply.monthly, FUN = mean, na.rm = TRUE)
+```
+
+### 日次データを四半期データに変換 {.unnumbered}
+
+`tidyquant::tq_transmute()`関数を使用して日次データを四半期データに変換すると、期初～期末のデータがFUNに指定した関数で集計され、期末の日付で記録されます。
+
+```{r}
+data_owid_cases_wide %>% 
+  tidyquant::tq_transmute(select = -date, mutate_fun = apply.quarterly, FUN = mean, na.rm = TRUE)
+```

@@ -1,7 +1,7 @@
 ---
 title: "エコノミストのためのRコード"
 author: "服部直樹"
-date: '2022-05-03'
+date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: 
   bookdown::gitbook:

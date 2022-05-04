@@ -8,11 +8,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Rの設定
 
-Rを使用する際の各種設定です。パッケージのインストールやプロキシサーバーの設定（プロキシ環境のみ）など、Rの使用に欠かせない様々な設定について記載しています。
+Rを使用する際の各種設定です。パッケージのインストール・インポートや、プロキシサーバーの設定（プロキシ環境のみ）など、Rの使用に欠かせない様々な設定について記載しています。
 
 ## 設定全般
 
 ### Rのバージョン確認 {.unnumbered}
+
+Rのバージョン情報を出力します。
 
 ```{r}
 version
@@ -20,17 +22,21 @@ version
 
 ### セッション情報の確認 {.unnumbered}
 
+Rのバージョンに加え、使用環境、パッケージ情報を出力します。
+
 ```{r}
 sessionInfo()
 ```
 
 ### 警告の非表示 {.unnumbered}
 
+Rが出力する警告（Warning）を非表示にします。
+
 ```{r}
 options(warn = -1)
 ```
 
-### 関数が出力する警告やメッセージの非表示 {-}
+### 関数が出力する警告やメッセージの非表示 {.unnumbered}
 
 関数が出力する警告やメッセージは`options(warn = -1)`で非表示にできないため、`suppressWarnings()`関数や`suppressMessages()`関数を使用します。
 
@@ -41,7 +47,7 @@ suppressMessages(メッセージを出力する関数)
 
 ## パッケージのインストールとインポート
 
-### 使用するパッケージ一覧 {-}
+### 使用するパッケージ一覧 {.unnumbered}
 
 -   tidyverse系
     -   lubridate：日付処理
@@ -64,12 +70,12 @@ suppressMessages(メッセージを出力する関数)
 -   その他
     -   openxlsx：Excelのxlsxファイルの読み込み・編集・書き出し
 
-### パッケージのインストールとインポート {-}
+### パッケージのインストールとインポート {.unnumbered}
 
-パッケージのインストールは`install.packages()`関数、インストールしたパッケージのインポートは`library()`で実行します。
+パッケージのインストールは`install.packages()`関数、インストールしたパッケージのインポート（呼び出し）は`library()`関数で実行します。一度インストールすれば、その後はインポートするだけでパッケージを使用することができます。
 
-```{r, echo=FALSE}
-## パッケージ一覧
+```{r, results='hide'}
+# パッケージ一覧
 packages <- c(
   "lubridate", "magrittr", "tidyverse", "readxl",
   "esquisse", "geofacet", "ggpubr", "ggsci", "ggrepel", "lemon", "RColorBrewer",
@@ -77,19 +83,19 @@ packages <- c(
   "openxlsx"
 )
 
-## インストールしていないパッケージがあればインストール
+# インストールしていないパッケージがあればインストール
 new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
 
 if(length(new_packages)) {
   install.packages(new_packages)
 }
 
-## パッケージをインポート
+# パッケージをインポート
 for (pkg in packages) {
   library(pkg, character.only = TRUE)
 }
 
-## 変数を削除
+# 変数を削除
 rm(
   new_packages,
   packages,
@@ -97,11 +103,24 @@ rm(
 )
 ```
 
+Rのパッケージは開発者が随時アップデートしていますが、自動で反映されることはありません。パッケージをアップデートする場合は、次のコードを実行してください。
+
+```{r, eval=FALSE}
+# パッケージをすべてアップデート
+update.packages()
+
+# アップデートの対象になる古いバージョンのパッケージ一覧を出力
+old.packages()
+
+# パッケージを指定してアップデート
+install.packages("tidyverse")
+```
+
 ## グラフの設定
 
 レポートやスライドに掲載するためのグラフは、主にRのggplot2パッケージで作成します。
 
-### グラフのテーマ設定 {-}
+### グラフのテーマ設定 {.unnumbered}
 
 実務上、Excelと併用することを想定しているため、Excelで出力されるグラフに似たテーマを設定します。ggplot2にデフォルトで用意されている様々なテーマについては、[こちら](https://ggplot2.tidyverse.org/reference/ggtheme.html)を参照してください。
 
@@ -109,7 +128,7 @@ rm(
 theme_set(theme_light())
 ```
 
-### グラフのフォント設定 {-}
+### グラフのフォント設定 {.unnumbered}
 
 Windows上でRを使用する場合は、日本語フォントをグラフ上で表示するために以下の設定が必要です。ここでは代表的なフォントとしてMeiryo UIとYu Gothic UIを設定します。それぞれのフォントに`MEIRYO`、`YUGO`というキーを割り当て、ggplot2でグラフを作成する際にキーを指定します。
 
