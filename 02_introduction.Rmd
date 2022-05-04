@@ -1,0 +1,83 @@
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Rの基本的な使用方法
+
+## 基本操作
+
+## ベクトル
+
+## リスト
+
+## 演算子と関数
+
+## 制御構文
+
+## データの読み込み・書き出し
+
+### CSVデータ
+
+```{r, eval=FALSE}
+data <- readr::read_csv(file = "directory/file.csv", # ファイルパス／URL（拡張子が必要）
+                        col_names = TRUE, # ヘッダー（列名データ）の有無
+                        col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                        skip = 0) # 読み込み時に上からスキップする行数
+```
+
+### Excelデータ
+
+`readr`パッケージの`read_excel()`関数はExcelのxls形式、xlsx形式どちらも読み込み可能です。ただし、読み込みができるのはローカルネットワーク内のファイルパスだけで、URLからの読み込みはできません。
+
+```{r, eval=FALSE}
+data <- readxl::read_excel(path = "directory/file.xls", # ファイルパス（拡張子が必要、URLは不可）
+                           sheet = NULL, # シートインデックス／シート名
+                           col_names = TRUE, # ヘッダー（列名データ）の有無
+                           col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                           skip = 0) # 読み込み時に上からスキップする行数
+```
+
+### Excelデータ
+
+`openxlsx`パッケージの`read.xlsx()`関数であれば、ローカルネットワーク内のファイルパスとURLどちらからでも読み込みが可能です。ただし、読み込めるファイル形式はxlsx形式のみで、xls形式には対応していません。
+
+```{r, eval=FALSE}
+data <- openxlsx::read.xlsx(xlsxFile = "directory/file.xlsx", # ファイルパス／URL（拡張子が必要）
+                            sheet = 1, # シートインデックス／シート名
+                            startRow = 5, # 読み込み開始行
+                            colNames = TRUE, # 列名データの有無
+                            rowNames = FALSE, # 行名データの有無
+                            rows = 5:53, # 読み込む列（NULLですべて読み込み）
+                            cols = NULL) # 読み込む行（NULLですべて読み込み）
+```
+
+### CSVデータの書き出し
+
+```{r, eval=FALSE}
+write.csv(..., # 書き出すオブジェクト名（クオーテーションは不要）
+          file = "directory/file.csv", # 書き出し先のファイルパス（拡張子が必要）
+          row.names = FALSE) # 行番号を付与するか
+```
+
+## オブジェクトのセーブ・ロード
+
+### セーブ
+
+RのオブジェクトをRData形式で保存します。
+
+```{r, eval=FALSE}
+save(..., # セーブするオブジェクト名（クオーテーションは不要）
+     file = "directory/file.RData") # セーブ先のファイルパス（拡張子が必要）
+```
+
+### ロード
+
+保存したRData形式のオブジェクトを呼び出します。
+
+```{r, eval=FALSE}
+load(file = "directory/file.RData") # ロード元ファイルパス（拡張子が必要）
+```
