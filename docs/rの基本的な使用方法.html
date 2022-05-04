@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Rの基本的な使用方法 | 01_setting</title>
+  <meta name="description" content="2 Rの基本的な使用方法 | 01_setting" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Rの基本的な使用方法 | 01_setting" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Rの基本的な使用方法 | 01_setting" />
+  
+  
+  
+
+<meta name="author" content="Naoki Hattori" />
+
+
+<meta name="date" content="2022-05-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="rの設定.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="rの設定.html"><a href="rの設定.html"><i class="fa fa-check"></i><b>1</b> Rの設定</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="rの設定.html"><a href="rの設定.html#設定全般"><i class="fa fa-check"></i><b>1.1</b> 設定全般</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="rの設定.html"><a href="rの設定.html#rのバージョン確認"><i class="fa fa-check"></i><b>1.1.1</b> Rのバージョン確認</a></li>
+<li class="chapter" data-level="1.1.2" data-path="rの設定.html"><a href="rの設定.html#セッション情報の確認"><i class="fa fa-check"></i><b>1.1.2</b> セッション情報の確認</a></li>
+<li class="chapter" data-level="1.1.3" data-path="rの設定.html"><a href="rの設定.html#警告の非表示"><i class="fa fa-check"></i><b>1.1.3</b> 警告の非表示</a></li>
+<li class="chapter" data-level="1.1.4" data-path="rの設定.html"><a href="rの設定.html#関数が出力する警告やメッセージの非表示"><i class="fa fa-check"></i><b>1.1.4</b> 関数が出力する警告やメッセージの非表示</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="rの設定.html"><a href="rの設定.html#パッケージのインストールとインポート"><i class="fa fa-check"></i><b>1.2</b> パッケージのインストールとインポート</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="rの設定.html"><a href="rの設定.html#使用するパッケージ一覧"><i class="fa fa-check"></i><b>1.2.1</b> 使用するパッケージ一覧</a></li>
+<li class="chapter" data-level="1.2.2" data-path="rの設定.html"><a href="rの設定.html#パッケージのインストールとインポート-1"><i class="fa fa-check"></i><b>1.2.2</b> パッケージのインストールとインポート</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="rの設定.html"><a href="rの設定.html#グラフの設定"><i class="fa fa-check"></i><b>1.3</b> グラフの設定</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="rの設定.html"><a href="rの設定.html#グラフのテーマ設定"><i class="fa fa-check"></i><b>1.3.1</b> グラフのテーマ設定</a></li>
+<li class="chapter" data-level="1.3.2" data-path="rの設定.html"><a href="rの設定.html#グラフのフォント設定"><i class="fa fa-check"></i><b>1.3.2</b> グラフのフォント設定</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html"><i class="fa fa-check"></i><b>2</b> Rの基本的な使用方法</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#基本操作"><i class="fa fa-check"></i><b>2.1</b> 基本操作</a></li>
+<li class="chapter" data-level="2.2" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ベクトル"><i class="fa fa-check"></i><b>2.2</b> ベクトル</a></li>
+<li class="chapter" data-level="2.3" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#リスト"><i class="fa fa-check"></i><b>2.3</b> リスト</a></li>
+<li class="chapter" data-level="2.4" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#演算子と関数"><i class="fa fa-check"></i><b>2.4</b> 演算子と関数</a></li>
+<li class="chapter" data-level="2.5" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#制御構文"><i class="fa fa-check"></i><b>2.5</b> 制御構文</a></li>
+<li class="chapter" data-level="2.6" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データの読み込み書き出し"><i class="fa fa-check"></i><b>2.6</b> データの読み込み・書き出し</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#csvデータ"><i class="fa fa-check"></i><b>2.6.1</b> CSVデータ</a></li>
+<li class="chapter" data-level="2.6.2" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#excelデータ"><i class="fa fa-check"></i><b>2.6.2</b> Excelデータ</a></li>
+<li class="chapter" data-level="2.6.3" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#excelデータ-1"><i class="fa fa-check"></i><b>2.6.3</b> Excelデータ</a></li>
+<li class="chapter" data-level="2.6.4" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#csvデータの書き出し"><i class="fa fa-check"></i><b>2.6.4</b> CSVデータの書き出し</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#オブジェクトのセーブロード"><i class="fa fa-check"></i><b>2.7</b> オブジェクトのセーブ・ロード</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#セーブ"><i class="fa fa-check"></i><b>2.7.1</b> セーブ</a></li>
+<li class="chapter" data-level="2.7.2" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ロード"><i class="fa fa-check"></i><b>2.7.2</b> ロード</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">01_setting</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rの基本的な使用方法" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Rの基本的な使用方法<a href="rの基本的な使用方法.html#rの基本的な使用方法" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="基本操作" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> 基本操作<a href="rの基本的な使用方法.html#基本操作" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="ベクトル" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> ベクトル<a href="rの基本的な使用方法.html#ベクトル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="リスト" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> リスト<a href="rの基本的な使用方法.html#リスト" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="演算子と関数" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> 演算子と関数<a href="rの基本的な使用方法.html#演算子と関数" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="制御構文" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> 制御構文<a href="rの基本的な使用方法.html#制御構文" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="データの読み込み書き出し" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> データの読み込み・書き出し<a href="rの基本的な使用方法.html#データの読み込み書き出し" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="csvデータ" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> CSVデータ<a href="rの基本的な使用方法.html#csvデータ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="rの基本的な使用方法.html#cb36-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;directory/file.csv&quot;</span>, <span class="co"># ファイルパス／URL（拡張子が必要）</span></span>
+<span id="cb36-2"><a href="rの基本的な使用方法.html#cb36-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="co"># ヘッダー（列名データ）の有無</span></span>
+<span id="cb36-3"><a href="rの基本的な使用方法.html#cb36-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="co"># 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）</span></span>
+<span id="cb36-4"><a href="rの基本的な使用方法.html#cb36-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">skip =</span> <span class="dv">0</span>) <span class="co"># 読み込み時に上からスキップする行数</span></span></code></pre></div>
+</div>
+<div id="excelデータ" class="section level3 hasAnchor" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Excelデータ<a href="rの基本的な使用方法.html#excelデータ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>readr</code>パッケージの<code>read_excel()</code>関数はExcelのxls形式、xlsx形式どちらも読み込み可能です。ただし、読み込みができるのはローカルネットワーク内のファイルパスだけで、URLからの読み込みはできません。</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="rの基本的な使用方法.html#cb37-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">&quot;directory/file.xls&quot;</span>, <span class="co"># ファイルパス（拡張子が必要、URLは不可）</span></span>
+<span id="cb37-2"><a href="rの基本的な使用方法.html#cb37-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">sheet =</span> <span class="cn">NULL</span>, <span class="co"># シートインデックス／シート名</span></span>
+<span id="cb37-3"><a href="rの基本的な使用方法.html#cb37-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="co"># ヘッダー（列名データ）の有無</span></span>
+<span id="cb37-4"><a href="rの基本的な使用方法.html#cb37-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="co"># 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）</span></span>
+<span id="cb37-5"><a href="rの基本的な使用方法.html#cb37-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">skip =</span> <span class="dv">0</span>) <span class="co"># 読み込み時に上からスキップする行数</span></span></code></pre></div>
+</div>
+<div id="excelデータ-1" class="section level3 hasAnchor" number="2.6.3">
+<h3><span class="header-section-number">2.6.3</span> Excelデータ<a href="rの基本的な使用方法.html#excelデータ-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>openxlsx</code>パッケージの<code>read.xlsx()</code>関数であれば、ローカルネットワーク内のファイルパスとURLどちらからでも読み込みが可能です。ただし、読み込めるファイル形式はxlsx形式のみで、xls形式には対応していません。</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="rの基本的な使用方法.html#cb38-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;directory/file.xlsx&quot;</span>, <span class="co"># ファイルパス／URL（拡張子が必要）</span></span>
+<span id="cb38-2"><a href="rの基本的な使用方法.html#cb38-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sheet =</span> <span class="dv">1</span>, <span class="co"># シートインデックス／シート名</span></span>
+<span id="cb38-3"><a href="rの基本的な使用方法.html#cb38-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">startRow =</span> <span class="dv">5</span>, <span class="co"># 読み込み開始行</span></span>
+<span id="cb38-4"><a href="rの基本的な使用方法.html#cb38-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">colNames =</span> <span class="cn">TRUE</span>, <span class="co"># 列名データの有無</span></span>
+<span id="cb38-5"><a href="rの基本的な使用方法.html#cb38-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">rowNames =</span> <span class="cn">FALSE</span>, <span class="co"># 行名データの有無</span></span>
+<span id="cb38-6"><a href="rの基本的な使用方法.html#cb38-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">rows =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">53</span>, <span class="co"># 読み込む列（NULLですべて読み込み）</span></span>
+<span id="cb38-7"><a href="rの基本的な使用方法.html#cb38-7" aria-hidden="true" tabindex="-1"></a>                            <span class="at">cols =</span> <span class="cn">NULL</span>) <span class="co"># 読み込む行（NULLですべて読み込み）</span></span></code></pre></div>
+</div>
+<div id="csvデータの書き出し" class="section level3 hasAnchor" number="2.6.4">
+<h3><span class="header-section-number">2.6.4</span> CSVデータの書き出し<a href="rの基本的な使用方法.html#csvデータの書き出し" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="rの基本的な使用方法.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(..., <span class="co"># 書き出すオブジェクト名（クオーテーションは不要）</span></span>
+<span id="cb39-2"><a href="rの基本的な使用方法.html#cb39-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">file =</span> <span class="st">&quot;directory/file.csv&quot;</span>, <span class="co"># 書き出し先のファイルパス（拡張子が必要）</span></span>
+<span id="cb39-3"><a href="rの基本的な使用方法.html#cb39-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">row.names =</span> <span class="cn">FALSE</span>) <span class="co"># 行番号を付与するか</span></span></code></pre></div>
+</div>
+</div>
+<div id="オブジェクトのセーブロード" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> オブジェクトのセーブ・ロード<a href="rの基本的な使用方法.html#オブジェクトのセーブロード" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="セーブ" class="section level3 hasAnchor" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> セーブ<a href="rの基本的な使用方法.html#セーブ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>RのオブジェクトをRData形式で保存します。</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="rの基本的な使用方法.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(..., <span class="co"># セーブするオブジェクト名（クオーテーションは不要）</span></span>
+<span id="cb40-2"><a href="rの基本的な使用方法.html#cb40-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">file =</span> <span class="st">&quot;directory/file.RData&quot;</span>) <span class="co"># セーブ先のファイルパス（拡張子が必要）</span></span></code></pre></div>
+</div>
+<div id="ロード" class="section level3 hasAnchor" number="2.7.2">
+<h3><span class="header-section-number">2.7.2</span> ロード<a href="rの基本的な使用方法.html#ロード" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>保存したRData形式のオブジェクトを呼び出します。</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="rの基本的な使用方法.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">&quot;directory/file.RData&quot;</span>) <span class="co"># ロード元ファイルパス（拡張子が必要）</span></span></code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rの設定.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
