@@ -1,11 +1,24 @@
 ---
-title: "index"
-author: "Naoki Hattori"
+title: "エコノミストのためのRコード"
+author: "服部直樹"
 date: '2022-05-03'
-output: 
-  bookdown::gitbook: default
-  toc: true
-  toc_depth: 2
-  toc_float: true
 site: bookdown::bookdown_site
+output: 
+  bookdown::gitbook:
+    toc_depth: 2
+    config:
+      toc:
+        collapse: subsection
+        scroll_highlights: yes
+      sharing:
+        github: yes
+        facebook: yes
+        linkedin: yes
+        twitter: yes
+    highlight: default
+github-repo: "naohat23/econ-code-bookdown"
 ---
+
+# はじめに {-}
+
+経済・金融分析で使用するRのコード集です。
