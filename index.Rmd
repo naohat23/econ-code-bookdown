@@ -5,6 +5,8 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: 
   bookdown::gitbook:
+    #df_print: "paged"
+    highlight: default
     toc_depth: 2
     config:
       toc:
@@ -15,9 +17,14 @@ output:
         facebook: yes
         linkedin: yes
         twitter: yes
-    highlight: default
 github-repo: "naohat23/econ-code-bookdown"
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
 
 # はじめに {-}
 

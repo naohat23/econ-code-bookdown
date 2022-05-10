@@ -1,11 +1,3 @@
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-```{r, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # Rの設定
 
 Rを使用する際の各種設定です。パッケージのインストール・インポートや、プロキシサーバーの設定（プロキシ環境のみ）など、Rの使用に欠かせない様々な設定について記載しています。
@@ -45,40 +37,61 @@ suppressWarnings(警告を出力する関数)
 suppressMessages(メッセージを出力する関数)
 ```
 
+## プロキシサーバーの設定
+
+Webからデータを直接読み込むため、企業や大学などのプロキシ環境ではプロキシサーバーの設定を行ってください。なお、下記のコードは認証プロキシには非対応です。
+
+```{r, eval=FALSE}
+## プロキシサーバーとポートを記入
+proxy_url <- "http://proxyserver:port/"
+
+
+## Rのシステム環境変数を設定
+Sys.setenv("http_proxy" = proxy_url)
+Sys.setenv("https_proxy" = proxy_url)
+
+
+## Rのダウンロードオプションを設定
+options(download.file.method = "libcurl")
+options(timeout = NA)
+```
+
+
 ## パッケージのインストールとインポート
 
 ### 使用するパッケージ一覧 {.unnumbered}
 
 -   tidyverse系
-    -   lubridate：日付処理
-    -   magrittr：パイプ処理
-    -   tidyverse：モダンなデータ分析用パッケージセット
-    -   readxl：Excelファイルの読み込み
+    -   [lubridate](https://lubridate.tidyverse.org/)：日付処理
+    -   [magrittr](https://magrittr.tidyverse.org/)：パイプ処理
+    -   [tidyverse](https://www.tidyverse.org/)：モダンなデータ分析用パッケージセット
+    -   [readxl](https://readxl.tidyverse.org/)：Excelファイルの読み込み
 -   図表系
-    -   esquisse：shanyを使用したインタラクティブな図表作成
-    -   geofacet：地図形式のファセット図配置
-    -   ggpubr：論文形式の図表作成
-    -   ggsci：科学系論文の雑誌別カラーパレット
-    -   ggrepel：散布図のラベル付与
-    -   lemon：ファセット図の軸・目盛り表示
-    -   RColorBrewer：カラーパレット
+    -   [esquisse](https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html)：shanyを使用した直感的な図表作成
+    -   [geofacet](https://cran.r-project.org/web/packages/geofacet/vignettes/geofacet.html)：地図形式のファセット図配置
+    -   [ggplotgui](https://cran.r-project.org/web/packages/ggplotgui/README.html)：shanyを使用した直感的な図表作成
+    -   [ggpubr](https://rpkgs.datanovia.com/ggpubr/)：論文形式の図表作成
+    -   [ggsci](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html)：科学系論文の雑誌別カラーパレット
+    -   [ggrepel](https://ggrepel.slowkow.com/index.html)：散布図のラベル付与
+    -   [lemon](https://github.com/stefanedwards/lemon)：ファセット図の軸・目盛り表示
+    -   [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/index.html)：カラーパレット
 -   統計系
     -   mgcv：一般化加法モデル（GAM）
     -   plm：パネルデータモデル
     -   sigmoid：シグモイド関数
-    -   tidyquant：金融時系列データ分析
+    -   [tidyquant](https://business-science.github.io/tidyquant/index.html)：金融時系列データ分析
 -   その他
-    -   openxlsx：Excelのxlsxファイルの読み込み・編集・書き出し
+    -   [openxlsx](https://ycphs.github.io/openxlsx/)：Excelのxlsxファイルの読み込み・編集・書き出し
 
 ### パッケージのインストールとインポート {.unnumbered}
 
 パッケージのインストールは`install.packages()`関数、インストールしたパッケージのインポート（呼び出し）は`library()`関数で実行します。一度インストールすれば、その後はインポートするだけでパッケージを使用することができます。
 
-```{r, results='hide'}
+```{r, results='hide', warning=FALSE, message=FALSE}
 # パッケージ一覧
 packages <- c(
   "lubridate", "magrittr", "tidyverse", "readxl",
-  "esquisse", "geofacet", "ggpubr", "ggsci", "ggrepel", "lemon", "RColorBrewer",
+  "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "lemon", "RColorBrewer",
   "mgcv", "plm", "sigmoid", "tidyquant",
   "openxlsx"
 )
@@ -122,7 +135,7 @@ install.packages("tidyverse")
 
 ### グラフのテーマ設定 {.unnumbered}
 
-実務上、Excelと併用することを想定しているため、Excelで出力されるグラフに似たテーマを設定します。ggplot2にデフォルトで用意されている様々なテーマについては、[こちら](https://ggplot2.tidyverse.org/reference/ggtheme.html)を参照してください。
+実務上、Excelと併用することを想定しているため、Excelで出力されるグラフに似たテーマを設定します。ggplot2にデフォルトで用意されている様々なテーマについては、[公式ウェブサイト](https://ggplot2.tidyverse.org/reference/ggtheme.html)を参照してください。
 
 ```{r}
 theme_set(theme_light())
