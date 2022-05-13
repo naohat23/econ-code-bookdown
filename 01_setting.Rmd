@@ -56,7 +56,6 @@ options(download.file.method = "libcurl")
 options(timeout = NA)
 ```
 
-
 ## パッケージのインストールとインポート
 
 ### 使用するパッケージ一覧 {.unnumbered}
@@ -149,8 +148,3 @@ Windows上でRを使用する場合は、日本語フォントをグラフ上で
 windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
 windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
 ```
-
-```{r}
-plot(economics$unemploy, type = "l")
-```
-

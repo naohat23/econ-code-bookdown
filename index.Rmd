@@ -12,6 +12,14 @@ output:
       toc:
         collapse: subsection
         scroll_highlights: yes
+        before: |
+          <li><a href="https://naohat23.github.io/econ-code-bookdown">エコノミストのためのRコード</a></li>
+        after: |
+          <li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
+      toolbar:
+        position: fixed
+      edit: null
+      download: false
       sharing:
         github: yes
         facebook: yes
@@ -24,8 +32,12 @@ github-repo: "naohat23/econ-code-bookdown"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# はじめに {.unnumbered}
 
+エコノミストが経済・金融分析で使用するRのコードをまとめました。
 
-# はじめに {-}
-
-経済・金融分析で使用するRのコード集です。
+1.  Rの設定
+2.  Rの基本的な使用方法
+3.  tidyverseによるデータ操作
+4.  ggplot2によるグラフ作成
+5.  作成中...

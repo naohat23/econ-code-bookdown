@@ -132,6 +132,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="https://naohat23.github.io/econ-code-bookdown">エコノミストのためのRコード</a></li>
+
+<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>はじめに</a></li>
 <li class="chapter" data-level="1" data-path="rの設定.html"><a href="rの設定.html"><i class="fa fa-check"></i><b>1</b> Rの設定</a>
 <ul>
@@ -198,6 +201,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#その他設定保存"><i class="fa fa-check"></i><b>4.22</b> その他設定・保存</a></li>
 <li class="chapter" data-level="4.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>4.23</b> 実例</a></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -220,9 +226,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>本節では、<code>tidyverse</code>の<code>dplyr</code>パッケージと<code>tidyr</code>パッケージを使用した効率的なデータ操作のコードについて解説します。</p>
 <div id="パッケージのインポート" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> パッケージのインポート<a href="tidyverseによるデータ操作.html#パッケージのインポート" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="tidyverseによるデータ操作.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
-<span id="cb182-2"><a href="tidyverseによるデータ操作.html#cb182-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb182-3"><a href="tidyverseによるデータ操作.html#cb182-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="tidyverseによるデータ操作.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb181-2"><a href="tidyverseによるデータ操作.html#cb181-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb181-3"><a href="tidyverseによるデータ操作.html#cb181-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span></code></pre></div>
 </div>
 <div id="tidyverseとは" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> tidyverseとは<a href="tidyverseによるデータ操作.html#tidyverseとは" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -231,24 +237,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>dplyr</code>：データセットに様々な操作を加えるパッケージ</li>
 <li><code>tidyr</code>：データセットをtidy dataに変形するためのパッケージ</li>
 </ul>
-<p><strong>tidy data</strong>とは、<code>tidyverse</code>の開発者であるHadley Wickham氏が提唱した概念で、機械処理しやすいデータ形式のことを言います。その要件は次の通りです。</p>
+<p><strong>tidy data</strong>とは、<code>tidyverse</code>の開発者であるHadley Wickham氏が提唱した概念で、機械処理しやすいデータ形式のことを言います。具体的には、以下の条件を満たすデータをtidy dataと定義します。</p>
 <ul>
 <li>1つの列が1つの変数を表す</li>
 <li>1つの行が1つのレコードを表す</li>
 <li>1つのテーブルが1つのデータセットだけを含む</li>
 </ul>
-<p>例えば、国別・産業別GDPの時系列データであれば、国の列、産業の列、時点の列、データ（GDP）の列、の4列で構成されるデータがtidy dataです。こうしたデータを縦型データとも呼びます。これに対して、国や産業が横方向に並んでいる場合（日本・製造業のGDPの列、日本・飲食業のGDPの列、米国・金融業のGDPの列…など）は、tidy data（縦型データ）ではなく、横型データと呼ばれます。tidy dataは属性条件によるフィルタがかけやすいなど、データ処理が列方向に一括して行えるため、機械処理に適しています。</p>
+<p>例えば、国別・産業別GDPの時系列データであれば、国の列、産業の列、時点の列、データ（GDP）の列、の4列で構成されるデータがtidy dataです。こうしたデータを縦型データとも呼びます。</p>
+<p>これに対して、国や産業が横方向に並んでいる場合（日本・製造業のGDPの列、日本・飲食業のGDPの列、米国・金融業のGDPの列…など）は、tidy data（縦型データ）ではなく、横型データと呼ばれます。</p>
+<p>tidy dataは属性条件によるフィルタがかけやすいなど、データ処理が列方向に一括して行えるため、機械処理に適しています。</p>
 <p>tidy dataの詳細については、<a href="https://gihyo.jp/book/2021/978-4-297-12170-9">松村優哉、湯谷啓明、紀ノ定保礼、前田和寛（2021）『改訂2版 Rユーザのための RStudio［実践］入門』</a>を参照してください。</p>
 <p><code>dplyr</code>パッケージや<code>tidyr</code>パッケージの関数は、もとのデータセットに対して変更を一切加えません。データセットを操作した結果を残しておくためには、結果をオブジェクトに代入する必要があります。なお、代入先をもとのデータセットのオブジェクトにすると、データセットの内容が書き換えられます。</p>
-<p><code>tidyverse</code>ではパイプ<code>%&gt;%</code>が多用されます。パイプは、データセットに対して適用した関数の結果を、次の関数へと受け渡すものです。パイプを連続して使用することで、処理の途中の結果をいちいちオブジェクトに代入することなく、一括して複数の処理を行うことができます。以下はmpgデータセットに対する複数の関数の処理をパイプでつなげたものです。</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="tidyverseによるデータ操作.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mpgデータセットからmanufacturer列とcty列を選択し、manufacturer列でフィルタしたうえで、</span></span>
-<span id="cb183-2"><a href="tidyverseによるデータ操作.html#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cty列を10倍し、結果をresultオブジェクトに保存する例</span></span>
-<span id="cb183-3"><a href="tidyverseによるデータ操作.html#cb183-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
-<span id="cb183-4"><a href="tidyverseによるデータ操作.html#cb183-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(manufacturer, cty) <span class="sc">%&gt;%</span> </span>
-<span id="cb183-5"><a href="tidyverseによるデータ操作.html#cb183-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(manufacturer <span class="sc">==</span> <span class="st">&quot;toyota&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb183-6"><a href="tidyverseによるデータ操作.html#cb183-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">cty_10 =</span> cty <span class="sc">*</span> <span class="dv">10</span>)</span>
-<span id="cb183-7"><a href="tidyverseによるデータ操作.html#cb183-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb183-8"><a href="tidyverseによるデータ操作.html#cb183-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
+<p><code>tidyverse</code>ではパイプ<code>%&gt;%</code>が多用されます。パイプは、データセットに対して適用した関数の結果を、次の関数へと受け渡すものです。パイプを連続して使用することで、処理の途中の結果をいちいちオブジェクトに代入することなく、一括して複数の処理を行うことができます。</p>
+<p>以下はmpgデータセットに対する複数の関数の処理をパイプでつなげたものです。</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="tidyverseによるデータ操作.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mpgデータセットからmanufacturer列とcty列を選択し、manufacturer列でフィルタしたうえで、</span></span>
+<span id="cb182-2"><a href="tidyverseによるデータ操作.html#cb182-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cty列を10倍し、結果をresultオブジェクトに保存する例</span></span>
+<span id="cb182-3"><a href="tidyverseによるデータ操作.html#cb182-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb182-4"><a href="tidyverseによるデータ操作.html#cb182-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(manufacturer, cty) <span class="sc">%&gt;%</span> </span>
+<span id="cb182-5"><a href="tidyverseによるデータ操作.html#cb182-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(manufacturer <span class="sc">==</span> <span class="st">&quot;toyota&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb182-6"><a href="tidyverseによるデータ操作.html#cb182-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">cty_10 =</span> cty <span class="sc">*</span> <span class="dv">10</span>)</span>
+<span id="cb182-7"><a href="tidyverseによるデータ操作.html#cb182-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb182-8"><a href="tidyverseによるデータ操作.html#cb182-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
 <pre><code>## # A tibble: 34 x 3
 ##    manufacturer   cty cty_10
 ##    &lt;chr&gt;        &lt;int&gt;  &lt;dbl&gt;
@@ -267,36 +276,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="サンプルデータの読み込み" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> サンプルデータの読み込み<a href="tidyverseによるデータ操作.html#サンプルデータの読み込み" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>本節で使用するサンプルデータをWebから直接読み込みます。プロキシ環境では、プロキシサーバーの設定が必要です。</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="tidyverseによるデータ操作.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="do">## プロキシサーバーとポートを記入</span></span>
-<span id="cb185-2"><a href="tidyverseによるデータ操作.html#cb185-2" aria-hidden="true" tabindex="-1"></a>proxy_url <span class="ot">&lt;-</span> <span class="st">&quot;http://proxyserver:port/&quot;</span></span>
-<span id="cb185-3"><a href="tidyverseによるデータ操作.html#cb185-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb185-4"><a href="tidyverseによるデータ操作.html#cb185-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb185-5"><a href="tidyverseによるデータ操作.html#cb185-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Rのシステム環境変数を設定</span></span>
-<span id="cb185-6"><a href="tidyverseによるデータ操作.html#cb185-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;http_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
-<span id="cb185-7"><a href="tidyverseによるデータ操作.html#cb185-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;https_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
-<span id="cb185-8"><a href="tidyverseによるデータ操作.html#cb185-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb185-9"><a href="tidyverseによるデータ操作.html#cb185-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb185-10"><a href="tidyverseによるデータ操作.html#cb185-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Rのダウンロードオプションを設定</span></span>
-<span id="cb185-11"><a href="tidyverseによるデータ操作.html#cb185-11" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">download.file.method =</span> <span class="st">&quot;libcurl&quot;</span>)</span>
-<span id="cb185-12"><a href="tidyverseによるデータ操作.html#cb185-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">timeout =</span> <span class="cn">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="tidyverseによるデータ操作.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="do">## プロキシサーバーとポートを記入</span></span>
+<span id="cb184-2"><a href="tidyverseによるデータ操作.html#cb184-2" aria-hidden="true" tabindex="-1"></a>proxy_url <span class="ot">&lt;-</span> <span class="st">&quot;http://proxyserver:port/&quot;</span></span>
+<span id="cb184-3"><a href="tidyverseによるデータ操作.html#cb184-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-4"><a href="tidyverseによるデータ操作.html#cb184-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-5"><a href="tidyverseによるデータ操作.html#cb184-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Rのシステム環境変数を設定</span></span>
+<span id="cb184-6"><a href="tidyverseによるデータ操作.html#cb184-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;http_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
+<span id="cb184-7"><a href="tidyverseによるデータ操作.html#cb184-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;https_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
+<span id="cb184-8"><a href="tidyverseによるデータ操作.html#cb184-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-9"><a href="tidyverseによるデータ操作.html#cb184-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-10"><a href="tidyverseによるデータ操作.html#cb184-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Rのダウンロードオプションを設定</span></span>
+<span id="cb184-11"><a href="tidyverseによるデータ操作.html#cb184-11" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">download.file.method =</span> <span class="st">&quot;libcurl&quot;</span>)</span>
+<span id="cb184-12"><a href="tidyverseによるデータ操作.html#cb184-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">timeout =</span> <span class="cn">NA</span>)</span></code></pre></div>
 <p>ここでは、Our World in Dataの新型コロナウイルス関連データセットを使用します。データの詳細は<a href="https://ourworldindata.org/coronavirus">こちら</a>を参照してください。</p>
 <p>Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Giattino, Esteban Ortiz-Ospina, Joe Hasell, Bobbie Macdonald, Diana Beltekian and Max Roser (2020) - “Coronavirus Pandemic (COVID-19)”. Published online at OurWorldInData.org. Retrieved from: ‘<a href="https://ourworldindata.org/coronavirus" class="uri">https://ourworldindata.org/coronavirus</a>’ [Online Resource]</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="tidyverseによるデータ操作.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our World in Dataの新型コロナデータをtibble型で読み込み</span></span>
-<span id="cb186-2"><a href="tidyverseによるデータ操作.html#cb186-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;https://covid.ourworldindata.org/data/owid-covid-data.csv&quot;</span>, <span class="co"># ファイルパス／URL</span></span>
-<span id="cb186-3"><a href="tidyverseによるデータ操作.html#cb186-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="co"># ヘッダー（列名データ）の有無</span></span>
-<span id="cb186-4"><a href="tidyverseによるデータ操作.html#cb186-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="co"># 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）</span></span>
-<span id="cb186-5"><a href="tidyverseによるデータ操作.html#cb186-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">skip =</span> <span class="dv">0</span>) <span class="co"># 読み込み時に上からスキップする行数</span></span>
-<span id="cb186-6"><a href="tidyverseによるデータ操作.html#cb186-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb186-7"><a href="tidyverseによるデータ操作.html#cb186-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用するデータを絞り込み</span></span>
-<span id="cb186-8"><a href="tidyverseによるデータ操作.html#cb186-8" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&lt;&gt;%</span> </span>
-<span id="cb186-9"><a href="tidyverseによるデータ操作.html#cb186-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(continent, location, date, </span>
-<span id="cb186-10"><a href="tidyverseによるデータ操作.html#cb186-10" aria-hidden="true" tabindex="-1"></a>                total_cases, new_cases, total_deaths, new_deaths, </span>
-<span id="cb186-11"><a href="tidyverseによるデータ操作.html#cb186-11" aria-hidden="true" tabindex="-1"></a>                total_cases_per_million, new_cases_per_million, total_deaths_per_million, new_deaths_per_million,</span>
-<span id="cb186-12"><a href="tidyverseによるデータ操作.html#cb186-12" aria-hidden="true" tabindex="-1"></a>                people_fully_vaccinated) <span class="sc">%&gt;%</span> </span>
-<span id="cb186-13"><a href="tidyverseによるデータ操作.html#cb186-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Japan&quot;</span>, <span class="st">&quot;United States&quot;</span>, <span class="st">&quot;United Kingdom&quot;</span>, <span class="st">&quot;Germany&quot;</span>))</span>
-<span id="cb186-14"><a href="tidyverseによるデータ操作.html#cb186-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb186-15"><a href="tidyverseによるデータ操作.html#cb186-15" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
-<span id="cb186-16"><a href="tidyverseによるデータ操作.html#cb186-16" aria-hidden="true" tabindex="-1"></a>data_owid</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="tidyverseによるデータ操作.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our World in Dataの新型コロナデータをtibble型で読み込み</span></span>
+<span id="cb185-2"><a href="tidyverseによるデータ操作.html#cb185-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;https://covid.ourworldindata.org/data/owid-covid-data.csv&quot;</span>, <span class="co"># ファイルパス／URL</span></span>
+<span id="cb185-3"><a href="tidyverseによるデータ操作.html#cb185-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="co"># ヘッダー（列名データ）の有無</span></span>
+<span id="cb185-4"><a href="tidyverseによるデータ操作.html#cb185-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="co"># 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）</span></span>
+<span id="cb185-5"><a href="tidyverseによるデータ操作.html#cb185-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">skip =</span> <span class="dv">0</span>) <span class="co"># 読み込み時に上からスキップする行数</span></span>
+<span id="cb185-6"><a href="tidyverseによるデータ操作.html#cb185-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb185-7"><a href="tidyverseによるデータ操作.html#cb185-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用するデータを絞り込み</span></span>
+<span id="cb185-8"><a href="tidyverseによるデータ操作.html#cb185-8" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb185-9"><a href="tidyverseによるデータ操作.html#cb185-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(continent, location, date, </span>
+<span id="cb185-10"><a href="tidyverseによるデータ操作.html#cb185-10" aria-hidden="true" tabindex="-1"></a>                total_cases, new_cases, total_deaths, new_deaths, </span>
+<span id="cb185-11"><a href="tidyverseによるデータ操作.html#cb185-11" aria-hidden="true" tabindex="-1"></a>                total_cases_per_million, new_cases_per_million, total_deaths_per_million, new_deaths_per_million,</span>
+<span id="cb185-12"><a href="tidyverseによるデータ操作.html#cb185-12" aria-hidden="true" tabindex="-1"></a>                people_fully_vaccinated) <span class="sc">%&gt;%</span> </span>
+<span id="cb185-13"><a href="tidyverseによるデータ操作.html#cb185-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Japan&quot;</span>, <span class="st">&quot;United States&quot;</span>, <span class="st">&quot;United Kingdom&quot;</span>, <span class="st">&quot;Germany&quot;</span>))</span>
+<span id="cb185-14"><a href="tidyverseによるデータ操作.html#cb185-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb185-15"><a href="tidyverseによるデータ操作.html#cb185-15" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
+<span id="cb185-16"><a href="tidyverseによるデータ操作.html#cb185-16" aria-hidden="true" tabindex="-1"></a>data_owid</span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 12
 ##    continent location date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -320,8 +329,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>データセットから列（変数）を選択するには、<code>dplyr::select()</code>関数を使用します。</p>
 <div id="列名で選択" class="section level3 unnumbered hasAnchor">
 <h3>列名で選択<a href="tidyverseによるデータ操作.html#列名で選択" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="tidyverseによるデータ操作.html#cb188-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb188-2"><a href="tidyverseによるデータ操作.html#cb188-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, new_cases)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="tidyverseによるデータ操作.html#cb187-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb187-2"><a href="tidyverseによるデータ操作.html#cb187-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, new_cases)</span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 3
 ##    location date       new_cases
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;
@@ -339,9 +348,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="列名を格納したベクトルで選択" class="section level3 unnumbered hasAnchor">
 <h3>列名を格納したベクトルで選択<a href="tidyverseによるデータ操作.html#列名を格納したベクトルで選択" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="tidyverseによるデータ操作.html#cb190-1" aria-hidden="true" tabindex="-1"></a>cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;location&quot;</span>, <span class="st">&quot;date&quot;</span>, <span class="st">&quot;new_cases&quot;</span>)</span>
-<span id="cb190-2"><a href="tidyverseによるデータ操作.html#cb190-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb190-3"><a href="tidyverseによるデータ操作.html#cb190-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(cols) </span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="tidyverseによるデータ操作.html#cb189-1" aria-hidden="true" tabindex="-1"></a>cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;location&quot;</span>, <span class="st">&quot;date&quot;</span>, <span class="st">&quot;new_cases&quot;</span>)</span>
+<span id="cb189-2"><a href="tidyverseによるデータ操作.html#cb189-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb189-3"><a href="tidyverseによるデータ操作.html#cb189-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(cols) </span></code></pre></div>
 <pre><code>## Note: Using an external vector in selections is ambiguous.
 ## i Use `all_of(cols)` instead of `cols` to silence this message.
 ## i See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
@@ -363,8 +372,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="列を非選択削除" class="section level3 unnumbered hasAnchor">
 <h3>列を非選択（削除）<a href="tidyverseによるデータ操作.html#列を非選択削除" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="tidyverseによるデータ操作.html#cb193-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb193-2"><a href="tidyverseによるデータ操作.html#cb193-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>location) </span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="tidyverseによるデータ操作.html#cb192-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb192-2"><a href="tidyverseによるデータ操作.html#cb192-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>location) </span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 11
 ##    continent date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;     &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -385,8 +394,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="列名に特定の文字列を含む列を選択" class="section level3 unnumbered hasAnchor">
 <h3>列名に特定の文字列を含む列を選択<a href="tidyverseによるデータ操作.html#列名に特定の文字列を含む列を選択" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="tidyverseによるデータ操作.html#cb195-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb195-2"><a href="tidyverseによるデータ操作.html#cb195-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, <span class="fu">contains</span>(<span class="st">&quot;cases&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="tidyverseによるデータ操作.html#cb194-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb194-2"><a href="tidyverseによるデータ操作.html#cb194-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, <span class="fu">contains</span>(<span class="st">&quot;cases&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 6
 ##    location date       total_cases new_cases total_cases_per_m~ new_cases_per_m~
 ##    &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;            &lt;dbl&gt;
@@ -404,8 +413,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="列名が特定の文字列から始まる列を選択" class="section level3 unnumbered hasAnchor">
 <h3>列名が特定の文字列から始まる列を選択<a href="tidyverseによるデータ操作.html#列名が特定の文字列から始まる列を選択" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="tidyverseによるデータ操作.html#cb197-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb197-2"><a href="tidyverseによるデータ操作.html#cb197-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, <span class="fu">starts_with</span>(<span class="st">&quot;new_cases&quot;</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="tidyverseによるデータ操作.html#cb196-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb196-2"><a href="tidyverseによるデータ操作.html#cb196-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, <span class="fu">starts_with</span>(<span class="st">&quot;new_cases&quot;</span>)) </span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 4
 ##    location date       new_cases new_cases_per_million
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;                 &lt;dbl&gt;
@@ -423,8 +432,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="列名が特定の文字列で終わる列を選択" class="section level3 unnumbered hasAnchor">
 <h3>列名が特定の文字列で終わる列を選択<a href="tidyverseによるデータ操作.html#列名が特定の文字列で終わる列を選択" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="tidyverseによるデータ操作.html#cb199-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb199-2"><a href="tidyverseによるデータ操作.html#cb199-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, <span class="fu">ends_with</span>(<span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;deaths&quot;</span>))) </span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="tidyverseによるデータ操作.html#cb198-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb198-2"><a href="tidyverseによるデータ操作.html#cb198-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, <span class="fu">ends_with</span>(<span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;deaths&quot;</span>))) </span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 6
 ##    location date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -442,8 +451,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="特定の型の列を選択" class="section level3 unnumbered hasAnchor">
 <h3>特定の型の列を選択<a href="tidyverseによるデータ操作.html#特定の型の列を選択" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="tidyverseによるデータ操作.html#cb201-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb201-2"><a href="tidyverseによるデータ操作.html#cb201-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">where</span>(is.character) <span class="sc">|</span> <span class="fu">where</span>(is.Date)) </span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="tidyverseによるデータ操作.html#cb200-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb200-2"><a href="tidyverseによるデータ操作.html#cb200-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">where</span>(is.character) <span class="sc">|</span> <span class="fu">where</span>(is.Date)) </span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 3
 ##    continent location date      
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;    
@@ -463,8 +472,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="列名の変更" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> 列名の変更<a href="tidyverseによるデータ操作.html#列名の変更" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>データセットの列名（変数名）を変更するときは、<code>dplyr::rename()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="tidyverseによるデータ操作.html#cb203-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb203-2"><a href="tidyverseによるデータ操作.html#cb203-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">country =</span> location)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="tidyverseによるデータ操作.html#cb202-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb202-2"><a href="tidyverseによるデータ操作.html#cb202-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">country =</span> location)</span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 12
 ##    continent country date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;     &lt;chr&gt;   &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -488,7 +497,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>データセットの行のフィルタ（特定の条件を満たすデータの抽出）を行うには、<code>dpoyr::filter()</code>関数を使用します。</p>
 <div id="条件に一致する行" class="section level3 unnumbered hasAnchor">
 <h3>条件に一致する行<a href="tidyverseによるデータ操作.html#条件に一致する行" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="tidyverseによるデータ操作.html#cb205-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">==</span> <span class="st">&quot;Japan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="tidyverseによるデータ操作.html#cb204-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">==</span> <span class="st">&quot;Japan&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 842 x 12
 ##    continent location date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -509,7 +518,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="条件に一致しない行not条件" class="section level3 unnumbered hasAnchor">
 <h3>条件に一致しない行（NOT条件）<a href="tidyverseによるデータ操作.html#条件に一致しない行not条件" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>NOT条件は<code>!=</code>演算子を使用します。</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="tidyverseによるデータ操作.html#cb207-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(continent <span class="sc">!=</span> <span class="st">&quot;Asia&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="tidyverseによるデータ操作.html#cb206-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(continent <span class="sc">!=</span> <span class="st">&quot;Asia&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2,512 x 12
 ##    continent location date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -531,7 +540,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="複数条件" class="section level3 unnumbered hasAnchor">
 <h3>複数条件<a href="tidyverseによるデータ操作.html#複数条件" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::filter()</code>関数内で複数条件を指定すると、左から順番に条件が適用されます。</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="tidyverseによるデータ操作.html#cb209-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">==</span> <span class="st">&quot;Japan&quot;</span>, date <span class="sc">&gt;=</span> <span class="st">&quot;2021-01-01&quot;</span>, date <span class="sc">&lt;=</span> <span class="st">&quot;2021-01-07&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="tidyverseによるデータ操作.html#cb208-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">==</span> <span class="st">&quot;Japan&quot;</span>, date <span class="sc">&gt;=</span> <span class="st">&quot;2021-01-01&quot;</span>, date <span class="sc">&lt;=</span> <span class="st">&quot;2021-01-07&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 7 x 12
 ##   continent location date       total_cases new_cases total_deaths new_deaths
 ##   &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -549,7 +558,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="andor条件を明示的に指定した複数条件" class="section level3 unnumbered hasAnchor">
 <h3>AND・OR条件を明示的に指定した複数条件<a href="tidyverseによるデータ操作.html#andor条件を明示的に指定した複数条件" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>左から順番に条件を適用しないためには、<code>&amp;</code>演算子と<code>|</code>演算子で明示的にAND条件とOR条件を指定します。</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="tidyverseによるデータ操作.html#cb211-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>((date <span class="sc">==</span> <span class="st">&quot;2022-01-01&quot;</span>) <span class="sc">&amp;</span> (location <span class="sc">==</span> <span class="st">&quot;Japan&quot;</span> <span class="sc">|</span> location <span class="sc">==</span> <span class="st">&quot;United States&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="tidyverseによるデータ操作.html#cb210-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>((date <span class="sc">==</span> <span class="st">&quot;2022-01-01&quot;</span>) <span class="sc">&amp;</span> (location <span class="sc">==</span> <span class="st">&quot;Japan&quot;</span> <span class="sc">|</span> location <span class="sc">==</span> <span class="st">&quot;United States&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 12
 ##   continent    location date       total_cases new_cases total_deaths new_deaths
 ##   &lt;chr&gt;        &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -562,9 +571,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="in演算子によるor条件" class="section level3 unnumbered hasAnchor">
 <h3><code>%in%</code>演算子によるOR条件<a href="tidyverseによるデータ操作.html#in演算子によるor条件" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>複数の値が格納されたベクトルと<code>%in%</code>演算子を用いて、OR条件で行をフィルタします。この場合は、日本と米国のレコードを抽出しています。</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="tidyverseによるデータ操作.html#cb213-1" aria-hidden="true" tabindex="-1"></a>locations <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Japan&quot;</span>, <span class="st">&quot;United States&quot;</span>)</span>
-<span id="cb213-2"><a href="tidyverseによるデータ操作.html#cb213-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb213-3"><a href="tidyverseによるデータ操作.html#cb213-3" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">%in%</span> locations, date <span class="sc">==</span> <span class="st">&quot;2021-01-01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="tidyverseによるデータ操作.html#cb212-1" aria-hidden="true" tabindex="-1"></a>locations <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Japan&quot;</span>, <span class="st">&quot;United States&quot;</span>)</span>
+<span id="cb212-2"><a href="tidyverseによるデータ操作.html#cb212-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb212-3"><a href="tidyverseによるデータ操作.html#cb212-3" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">%in%</span> locations, date <span class="sc">==</span> <span class="st">&quot;2021-01-01&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 12
 ##   continent    location date       total_cases new_cases total_deaths new_deaths
 ##   &lt;chr&gt;        &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -577,7 +586,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="or条件の否定" class="section level3 unnumbered hasAnchor">
 <h3>OR条件の否定<a href="tidyverseによるデータ操作.html#or条件の否定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>%in%</code>演算子によるOR条件を<code>!</code>で否定します。この場合は、日本・米国以外を抽出しています。</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="tidyverseによるデータ操作.html#cb215-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span>location <span class="sc">%in%</span> locations, date <span class="sc">==</span> <span class="st">&quot;2021-01-01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="tidyverseによるデータ操作.html#cb214-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span>location <span class="sc">%in%</span> locations, date <span class="sc">==</span> <span class="st">&quot;2021-01-01&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 12
 ##   continent location    date       total_cases new_cases total_deaths new_deaths
 ##   &lt;chr&gt;     &lt;chr&gt;       &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -589,7 +598,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="関数による条件指定" class="section level3 unnumbered hasAnchor">
 <h3>関数による条件指定<a href="tidyverseによるデータ操作.html#関数による条件指定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="tidyverseによるデータ操作.html#cb217-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(date <span class="sc">==</span> <span class="fu">max</span>(date))</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="tidyverseによるデータ操作.html#cb216-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(date <span class="sc">==</span> <span class="fu">max</span>(date))</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 12
 ##   continent    location date       total_cases new_cases total_deaths new_deaths
 ##   &lt;chr&gt;        &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -604,7 +613,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="論理値を返す関数による条件指定" class="section level3 unnumbered hasAnchor">
 <h3>論理値を返す関数による条件指定<a href="tidyverseによるデータ操作.html#論理値を返す関数による条件指定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>is.na()</code>関数のように倫理値を返す関数は、<code>==</code>演算子がなくてもフィルタ条件として使用することができます。</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="tidyverseによるデータ操作.html#cb219-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">is.na</span>(new_cases))</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="tidyverseによるデータ操作.html#cb218-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">is.na</span>(new_cases))</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 12
 ##   continent    location date       total_cases new_cases total_deaths new_deaths
 ##   &lt;chr&gt;        &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -624,8 +633,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>データセットの行を並べ替えるには、<code>dplyr::arrange()</code>関数を使用します。</p>
 <div id="昇順ソート" class="section level3 unnumbered hasAnchor">
 <h3>昇順ソート<a href="tidyverseによるデータ操作.html#昇順ソート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="tidyverseによるデータ操作.html#cb221-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb221-2"><a href="tidyverseによるデータ操作.html#cb221-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(new_cases) </span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="tidyverseによるデータ操作.html#cb220-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb220-2"><a href="tidyverseによるデータ操作.html#cb220-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(new_cases) </span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 12
 ##    continent location date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -646,8 +655,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="降順ソート" class="section level3 unnumbered hasAnchor">
 <h3>降順ソート<a href="tidyverseによるデータ操作.html#降順ソート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="tidyverseによるデータ操作.html#cb223-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb223-2"><a href="tidyverseによるデータ操作.html#cb223-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="sc">-</span>new_cases) </span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="tidyverseによるデータ操作.html#cb222-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb222-2"><a href="tidyverseによるデータ操作.html#cb222-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="sc">-</span>new_cases) </span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 12
 ##    continent   location date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;       &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -669,8 +678,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="降順ソート日付型" class="section level3 unnumbered hasAnchor">
 <h3>降順ソート（日付型）<a href="tidyverseによるデータ操作.html#降順ソート日付型" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>日付型のデータは<code>-</code>演算子で降順ソートができないため、<code>desc()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="tidyverseによるデータ操作.html#cb225-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb225-2"><a href="tidyverseによるデータ操作.html#cb225-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(date)) </span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="tidyverseによるデータ操作.html#cb224-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb224-2"><a href="tidyverseによるデータ操作.html#cb224-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(date)) </span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 12
 ##    continent   location date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;       &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -692,8 +701,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="複数条件によるソート" class="section level3 unnumbered hasAnchor">
 <h3>複数条件によるソート<a href="tidyverseによるデータ操作.html#複数条件によるソート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::arrange()</code>関数内で複数条件を指定すると、左から順番に適用します。</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="tidyverseによるデータ操作.html#cb227-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb227-2"><a href="tidyverseによるデータ操作.html#cb227-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(date), <span class="sc">-</span>new_cases) </span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="tidyverseによるデータ操作.html#cb226-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb226-2"><a href="tidyverseによるデータ操作.html#cb226-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(date), <span class="sc">-</span>new_cases) </span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 12
 ##    continent   location date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;       &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -717,16 +726,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.8</span> 列の追加・修正<a href="tidyverseによるデータ操作.html#列の追加修正" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>データセットの列を追加・修正するには、<code>dplyr::mutate()</code>関数を使用します。</p>
 <p>まず、使用するサンプルデータを作成します。</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="tidyverseによるデータ操作.html#cb229-1" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="ot">&lt;-</span> data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb229-2"><a href="tidyverseによるデータ操作.html#cb229-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, new_cases, new_deaths) <span class="sc">%&gt;%</span> </span>
-<span id="cb229-3"><a href="tidyverseによるデータ操作.html#cb229-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">==</span> <span class="st">&quot;Japan&quot;</span>,</span>
-<span id="cb229-4"><a href="tidyverseによるデータ操作.html#cb229-4" aria-hidden="true" tabindex="-1"></a>                date <span class="sc">&gt;=</span> <span class="st">&quot;2022-01-01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="tidyverseによるデータ操作.html#cb228-1" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="ot">&lt;-</span> data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb228-2"><a href="tidyverseによるデータ操作.html#cb228-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, new_cases, new_deaths) <span class="sc">%&gt;%</span> </span>
+<span id="cb228-3"><a href="tidyverseによるデータ操作.html#cb228-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">==</span> <span class="st">&quot;Japan&quot;</span>,</span>
+<span id="cb228-4"><a href="tidyverseによるデータ操作.html#cb228-4" aria-hidden="true" tabindex="-1"></a>                date <span class="sc">&gt;=</span> <span class="st">&quot;2022-01-01&quot;</span>)</span></code></pre></div>
 <div id="新たな列の作成" class="section level3 unnumbered hasAnchor">
 <h3>新たな列の作成<a href="tidyverseによるデータ操作.html#新たな列の作成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>既存の列（変数）の計算結果として、新たな列を追加します。<code>=</code>演算子の左側が新たに作成する列名、右側が計算式です。作成する際、<code>.before</code>引数もしくは<code>.after</code>引数に既存の列名を指定すると、指定した列の前後に新たな列を挿入します。<code>.before</code>引数、<code>.after</code>引数を指定しなければ、新たな列は最右列に追加されます。</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="tidyverseによるデータ操作.html#cb230-1" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
-<span id="cb230-2"><a href="tidyverseによるデータ操作.html#cb230-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">death_rate =</span> new_deaths <span class="sc">/</span> new_cases,</span>
-<span id="cb230-3"><a href="tidyverseによるデータ操作.html#cb230-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">.after =</span> <span class="st">&quot;date&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="tidyverseによるデータ操作.html#cb229-1" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
+<span id="cb229-2"><a href="tidyverseによるデータ操作.html#cb229-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">death_rate =</span> new_deaths <span class="sc">/</span> new_cases,</span>
+<span id="cb229-3"><a href="tidyverseによるデータ操作.html#cb229-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">.after =</span> <span class="st">&quot;date&quot;</span>) </span></code></pre></div>
 <pre><code>## # A tibble: 132 x 5
 ##    location date       death_rate new_cases new_deaths
 ##    &lt;chr&gt;    &lt;date&gt;          &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -745,8 +754,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="既存の列の修正" class="section level3 unnumbered hasAnchor">
 <h3>既存の列の修正<a href="tidyverseによるデータ操作.html#既存の列の修正" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>=</code>演算子の左側に既存の列名を指定すると、当該列を修正します。</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="tidyverseによるデータ操作.html#cb232-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb232-2"><a href="tidyverseによるデータ操作.html#cb232-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">location =</span> <span class="fu">factor</span>(location))</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="tidyverseによるデータ操作.html#cb231-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb231-2"><a href="tidyverseによるデータ操作.html#cb231-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">location =</span> <span class="fu">factor</span>(location))</span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 12
 ##    continent location date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;     &lt;fct&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -768,9 +777,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ラグリード系列の作成" class="section level3 unnumbered hasAnchor">
 <h3>ラグ・リード系列の作成<a href="tidyverseによるデータ操作.html#ラグリード系列の作成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::lag()</code>関数と<code>dplyr::leag()</code>関数で、既存の列のラグ・リード系列を作成します。</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="tidyverseによるデータ操作.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1期ラグの系列を追加</span></span>
-<span id="cb234-2"><a href="tidyverseによるデータ操作.html#cb234-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
-<span id="cb234-3"><a href="tidyverseによるデータ操作.html#cb234-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">new_cases_lag =</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(new_cases, <span class="at">n =</span> <span class="dv">1</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="tidyverseによるデータ操作.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1期ラグの系列を追加</span></span>
+<span id="cb233-2"><a href="tidyverseによるデータ操作.html#cb233-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
+<span id="cb233-3"><a href="tidyverseによるデータ操作.html#cb233-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">new_cases_lag =</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(new_cases, <span class="at">n =</span> <span class="dv">1</span>)) </span></code></pre></div>
 <pre><code>## # A tibble: 132 x 5
 ##    location date       new_cases new_deaths new_cases_lag
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
@@ -789,9 +798,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="変化率系列の作成" class="section level3 unnumbered hasAnchor">
 <h3>変化率系列の作成<a href="tidyverseによるデータ操作.html#変化率系列の作成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::lag()</code>関数で、既存の列の変化率系列を作成します。</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="tidyverseによるデータ操作.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 前期比変化率（％表示）の系列を追加</span></span>
-<span id="cb236-2"><a href="tidyverseによるデータ操作.html#cb236-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
-<span id="cb236-3"><a href="tidyverseによるデータ操作.html#cb236-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">new_cases_chg =</span> <span class="dv">100</span> <span class="sc">*</span> (new_cases <span class="sc">/</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(new_cases, <span class="at">n =</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="dv">1</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="tidyverseによるデータ操作.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 前期比変化率（％表示）の系列を追加</span></span>
+<span id="cb235-2"><a href="tidyverseによるデータ操作.html#cb235-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
+<span id="cb235-3"><a href="tidyverseによるデータ操作.html#cb235-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">new_cases_chg =</span> <span class="dv">100</span> <span class="sc">*</span> (new_cases <span class="sc">/</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(new_cases, <span class="at">n =</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="dv">1</span>)) </span></code></pre></div>
 <pre><code>## # A tibble: 132 x 5
 ##    location date       new_cases new_deaths new_cases_chg
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
@@ -810,12 +819,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="移動平均系列の作成" class="section level3 unnumbered hasAnchor">
 <h3>移動平均系列の作成<a href="tidyverseによるデータ操作.html#移動平均系列の作成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>zoo::rollmean()</code>関数で、移動平均系列を作成します。</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="tidyverseによるデータ操作.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 後方7日移動平均の系列を追加</span></span>
-<span id="cb238-2"><a href="tidyverseによるデータ操作.html#cb238-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
-<span id="cb238-3"><a href="tidyverseによるデータ操作.html#cb238-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">new_cases_7dma =</span> zoo<span class="sc">::</span><span class="fu">rollmean</span>(new_cases, <span class="co"># 移動平均を作成するもとの系列名</span></span>
-<span id="cb238-4"><a href="tidyverseによるデータ操作.html#cb238-4" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">k =</span> <span class="dv">7</span>, <span class="co"># 移動平均の期間</span></span>
-<span id="cb238-5"><a href="tidyverseによるデータ操作.html#cb238-5" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">na.pad =</span> <span class="cn">TRUE</span>, <span class="co"># 系列の先端部分で移動平均を計算できない箇所をNAで埋めるか</span></span>
-<span id="cb238-6"><a href="tidyverseによるデータ操作.html#cb238-6" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">align =</span> <span class="st">&quot;right&quot;</span>)) <span class="co"># left：前方移動平均、center：中央移動平均、right：後方移動平均</span></span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="tidyverseによるデータ操作.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 後方7日移動平均の系列を追加</span></span>
+<span id="cb237-2"><a href="tidyverseによるデータ操作.html#cb237-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
+<span id="cb237-3"><a href="tidyverseによるデータ操作.html#cb237-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">new_cases_7dma =</span> zoo<span class="sc">::</span><span class="fu">rollmean</span>(new_cases, <span class="co"># 移動平均を作成するもとの系列名</span></span>
+<span id="cb237-4"><a href="tidyverseによるデータ操作.html#cb237-4" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">k =</span> <span class="dv">7</span>, <span class="co"># 移動平均の期間</span></span>
+<span id="cb237-5"><a href="tidyverseによるデータ操作.html#cb237-5" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">na.pad =</span> <span class="cn">TRUE</span>, <span class="co"># 系列の先端部分で移動平均を計算できない箇所をNAで埋めるか</span></span>
+<span id="cb237-6"><a href="tidyverseによるデータ操作.html#cb237-6" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">align =</span> <span class="st">&quot;right&quot;</span>)) <span class="co"># left：前方移動平均、center：中央移動平均、right：後方移動平均</span></span></code></pre></div>
 <pre><code>## # A tibble: 132 x 5
 ##    location date       new_cases new_deaths new_cases_7dma
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;
@@ -834,10 +843,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="条件付き系列の作成" class="section level3 unnumbered hasAnchor">
 <h3>条件付き系列の作成<a href="tidyverseによるデータ操作.html#条件付き系列の作成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::case_when()</code>関数の中に、<code>既存の系列を用いた条件 ~ 条件を満たす場合にとる値</code>の形で条件式を書き、新たな系列を作成します。複数条件を指定した場合、左から順番に条件が適用されます。「その他すべて」の条件は<code>TRUE</code>で指定します。</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="tidyverseによるデータ操作.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 単一条件を指定してダミー変数を作成</span></span>
-<span id="cb240-2"><a href="tidyverseによるデータ操作.html#cb240-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
-<span id="cb240-3"><a href="tidyverseによるデータ操作.html#cb240-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dummy =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(new_cases <span class="sc">&lt;</span> <span class="dv">3000</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb240-4"><a href="tidyverseによるデータ操作.html#cb240-4" aria-hidden="true" tabindex="-1"></a>                                         <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="tidyverseによるデータ操作.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 単一条件を指定してダミー変数を作成</span></span>
+<span id="cb239-2"><a href="tidyverseによるデータ操作.html#cb239-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
+<span id="cb239-3"><a href="tidyverseによるデータ操作.html#cb239-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dummy =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(new_cases <span class="sc">&lt;</span> <span class="dv">3000</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb239-4"><a href="tidyverseによるデータ操作.html#cb239-4" aria-hidden="true" tabindex="-1"></a>                                         <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 132 x 5
 ##    location date       new_cases new_deaths dummy
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
@@ -852,11 +861,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Japan    2022-01-09      8071          1     0
 ## 10 Japan    2022-01-10      6265          2     0
 ## # ... with 122 more rows</code></pre>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="tidyverseによるデータ操作.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 複数条件を指定</span></span>
-<span id="cb242-2"><a href="tidyverseによるデータ操作.html#cb242-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
-<span id="cb242-3"><a href="tidyverseによるデータ操作.html#cb242-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">case =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(new_cases <span class="sc">&lt;</span> <span class="dv">1000</span> <span class="sc">~</span> <span class="st">&quot;A&quot;</span>,</span>
-<span id="cb242-4"><a href="tidyverseによるデータ操作.html#cb242-4" aria-hidden="true" tabindex="-1"></a>                                        (new_cases <span class="sc">&gt;=</span> <span class="dv">5000</span> <span class="sc">&amp;</span> new_cases <span class="sc">&lt;</span> <span class="dv">8000</span>) <span class="sc">~</span> <span class="st">&quot;B&quot;</span>,</span>
-<span id="cb242-5"><a href="tidyverseによるデータ操作.html#cb242-5" aria-hidden="true" tabindex="-1"></a>                                        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;other&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="tidyverseによるデータ操作.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 複数条件を指定</span></span>
+<span id="cb241-2"><a href="tidyverseによるデータ操作.html#cb241-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
+<span id="cb241-3"><a href="tidyverseによるデータ操作.html#cb241-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">case =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(new_cases <span class="sc">&lt;</span> <span class="dv">1000</span> <span class="sc">~</span> <span class="st">&quot;A&quot;</span>,</span>
+<span id="cb241-4"><a href="tidyverseによるデータ操作.html#cb241-4" aria-hidden="true" tabindex="-1"></a>                                        (new_cases <span class="sc">&gt;=</span> <span class="dv">5000</span> <span class="sc">&amp;</span> new_cases <span class="sc">&lt;</span> <span class="dv">8000</span>) <span class="sc">~</span> <span class="st">&quot;B&quot;</span>,</span>
+<span id="cb241-5"><a href="tidyverseによるデータ操作.html#cb241-5" aria-hidden="true" tabindex="-1"></a>                                        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;other&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 132 x 5
 ##    location date       new_cases new_deaths case 
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;
@@ -875,9 +884,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="複数列の一括処理" class="section level3 unnumbered hasAnchor">
 <h3>複数列の一括処理<a href="tidyverseによるデータ操作.html#複数列の一括処理" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::mutate()</code>関数内で<code>across()</code>関数を用い、対象の列と処理方法を指定して一括処理します。<code>~ {}</code>は無名関数（ラムダ式）を表し、波括弧の中のドットはチルダの左側の値を代入することを意味します。</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="tidyverseによるデータ操作.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new_casesからnew_deathまでのすべての列を1000で除す</span></span>
-<span id="cb244-2"><a href="tidyverseによるデータ操作.html#cb244-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
-<span id="cb244-3"><a href="tidyverseによるデータ操作.html#cb244-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(new_cases<span class="sc">:</span>new_deaths, <span class="sc">~</span> {. <span class="sc">/</span> <span class="dv">1000</span>}))</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="tidyverseによるデータ操作.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new_casesからnew_deathまでのすべての列を1000で除す</span></span>
+<span id="cb243-2"><a href="tidyverseによるデータ操作.html#cb243-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
+<span id="cb243-3"><a href="tidyverseによるデータ操作.html#cb243-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(new_cases<span class="sc">:</span>new_deaths, <span class="sc">~</span> {. <span class="sc">/</span> <span class="dv">1000</span>}))</span></code></pre></div>
 <pre><code>## # A tibble: 132 x 4
 ##    location date       new_cases new_deaths
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;
@@ -892,9 +901,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 Japan    2022-01-09     8.07       0.001
 ## 10 Japan    2022-01-10     6.26       0.002
 ## # ... with 122 more rows</code></pre>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="tidyverseによるデータ操作.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new_casesからnew_deathまでのすべての列の前期比変化率を計算</span></span>
-<span id="cb246-2"><a href="tidyverseによるデータ操作.html#cb246-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
-<span id="cb246-3"><a href="tidyverseによるデータ操作.html#cb246-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(new_cases<span class="sc">:</span>new_deaths, <span class="sc">~</span> {. <span class="sc">/</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(., <span class="at">n =</span> <span class="dv">1</span>)})) </span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="tidyverseによるデータ操作.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new_casesからnew_deathまでのすべての列の前期比変化率を計算</span></span>
+<span id="cb245-2"><a href="tidyverseによるデータ操作.html#cb245-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
+<span id="cb245-3"><a href="tidyverseによるデータ操作.html#cb245-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(new_cases<span class="sc">:</span>new_deaths, <span class="sc">~</span> {. <span class="sc">/</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(., <span class="at">n =</span> <span class="dv">1</span>)})) </span></code></pre></div>
 <pre><code>## # A tibble: 132 x 4
 ##    location date       new_cases new_deaths
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;
@@ -917,9 +926,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="単一の列でグループ化" class="section level3 unnumbered hasAnchor">
 <h3>単一の列でグループ化<a href="tidyverseによるデータ操作.html#単一の列でグループ化" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>見た目は変わりませんが、データを<code>print()</code>関数で出力するとデータの属性を示す冒頭箇所の2行目にGroupsが追加されています。</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="tidyverseによるデータ操作.html#cb248-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb248-2"><a href="tidyverseによるデータ操作.html#cb248-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
-<span id="cb248-3"><a href="tidyverseによるデータ操作.html#cb248-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="tidyverseによるデータ操作.html#cb247-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb247-2"><a href="tidyverseによるデータ操作.html#cb247-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
+<span id="cb247-3"><a href="tidyverseによるデータ操作.html#cb247-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 12
 ## # Groups:   location [4]
 ##    continent location date       total_cases new_cases total_deaths new_deaths
@@ -941,9 +950,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="複数の列でグループ化" class="section level3 unnumbered hasAnchor">
 <h3>複数の列でグループ化<a href="tidyverseによるデータ操作.html#複数の列でグループ化" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="tidyverseによるデータ操作.html#cb250-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span></span>
-<span id="cb250-2"><a href="tidyverseによるデータ操作.html#cb250-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(continent, location) <span class="sc">%&gt;%</span> </span>
-<span id="cb250-3"><a href="tidyverseによるデータ操作.html#cb250-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="tidyverseによるデータ操作.html#cb249-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span></span>
+<span id="cb249-2"><a href="tidyverseによるデータ操作.html#cb249-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(continent, location) <span class="sc">%&gt;%</span> </span>
+<span id="cb249-3"><a href="tidyverseによるデータ操作.html#cb249-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 12
 ## # Groups:   continent, location [4]
 ##    continent location date       total_cases new_cases total_deaths new_deaths
@@ -966,9 +975,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="グループ化フィルタ" class="section level3 unnumbered hasAnchor">
 <h3>グループ化＆フィルタ<a href="tidyverseによるデータ操作.html#グループ化フィルタ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>グループ化と行のフィルタを組み合わせて、グループ別にフィルタを適用します。ここでは、グループ別の最大値を抽出しています。</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="tidyverseによるデータ操作.html#cb252-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb252-2"><a href="tidyverseによるデータ操作.html#cb252-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
-<span id="cb252-3"><a href="tidyverseによるデータ操作.html#cb252-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(new_cases <span class="sc">==</span> <span class="fu">max</span>(new_cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="tidyverseによるデータ操作.html#cb251-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb251-2"><a href="tidyverseによるデータ操作.html#cb251-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
+<span id="cb251-3"><a href="tidyverseによるデータ操作.html#cb251-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(new_cases <span class="sc">==</span> <span class="fu">max</span>(new_cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 12
 ## # Groups:   location [4]
 ##   continent    location date       total_cases new_cases total_deaths new_deaths
@@ -984,9 +993,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="グループ化の解除" class="section level3 unnumbered hasAnchor">
 <h3>グループ化の解除<a href="tidyverseによるデータ操作.html#グループ化の解除" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::ungroup()</code>関数でグループ化を解除します。グループ化の有無でフィルタや集計の結果が変わるため、思わぬ事故を防ぐためにも、所定の結果を得た後はグループ化を解除しておくことを推奨します。</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="tidyverseによるデータ操作.html#cb254-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb254-2"><a href="tidyverseによるデータ操作.html#cb254-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
-<span id="cb254-3"><a href="tidyverseによるデータ操作.html#cb254-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="tidyverseによるデータ操作.html#cb253-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb253-2"><a href="tidyverseによるデータ操作.html#cb253-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
+<span id="cb253-3"><a href="tidyverseによるデータ操作.html#cb253-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 12
 ##    continent location date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -1011,10 +1020,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>グループ化したデータセットに対して<code>dplyr::summarise()</code>関数を使用すると、グループ別に集計操作を行うことができます。</p>
 <div id="グループ別の集計" class="section level3 unnumbered hasAnchor">
 <h3>グループ別の集計<a href="tidyverseによるデータ操作.html#グループ別の集計" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="tidyverseによるデータ操作.html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 指定した列のグループ別の平均値を計算</span></span>
-<span id="cb256-2"><a href="tidyverseによるデータ操作.html#cb256-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb256-3"><a href="tidyverseによるデータ操作.html#cb256-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
-<span id="cb256-4"><a href="tidyverseによるデータ操作.html#cb256-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">new_cases_mean =</span> <span class="fu">mean</span>(new_cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="tidyverseによるデータ操作.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 指定した列のグループ別の平均値を計算</span></span>
+<span id="cb255-2"><a href="tidyverseによるデータ操作.html#cb255-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb255-3"><a href="tidyverseによるデータ操作.html#cb255-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
+<span id="cb255-4"><a href="tidyverseによるデータ操作.html#cb255-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">new_cases_mean =</span> <span class="fu">mean</span>(new_cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##   location       new_cases_mean
 ##   &lt;chr&gt;                   &lt;dbl&gt;
@@ -1022,10 +1031,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 Japan                   9817.
 ## 3 United Kingdom         25793.
 ## 4 United States          97890.</code></pre>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="tidyverseによるデータ操作.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 指定した列のグループ別の最大値を計算</span></span>
-<span id="cb258-2"><a href="tidyverseによるデータ操作.html#cb258-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb258-3"><a href="tidyverseによるデータ操作.html#cb258-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
-<span id="cb258-4"><a href="tidyverseによるデータ操作.html#cb258-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">new_cases_max =</span> <span class="fu">max</span>(new_cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="tidyverseによるデータ操作.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 指定した列のグループ別の最大値を計算</span></span>
+<span id="cb257-2"><a href="tidyverseによるデータ操作.html#cb257-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb257-3"><a href="tidyverseによるデータ操作.html#cb257-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
+<span id="cb257-4"><a href="tidyverseによるデータ操作.html#cb257-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">new_cases_max =</span> <span class="fu">max</span>(new_cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##   location       new_cases_max
 ##   &lt;chr&gt;                  &lt;dbl&gt;
@@ -1037,9 +1046,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="クロス集計" class="section level3 unnumbered hasAnchor">
 <h3>クロス集計<a href="tidyverseによるデータ操作.html#クロス集計" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::group_by()</code>関数で複数条件を指定してグループ化すると、クロス集計を行うことができます。</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="tidyverseによるデータ操作.html#cb260-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb260-2"><a href="tidyverseによるデータ操作.html#cb260-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location, lubridate<span class="sc">::</span><span class="fu">year</span>(date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb260-3"><a href="tidyverseによるデータ操作.html#cb260-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">new_cases_mean =</span> <span class="fu">mean</span>(new_cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="tidyverseによるデータ操作.html#cb259-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb259-2"><a href="tidyverseによるデータ操作.html#cb259-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location, lubridate<span class="sc">::</span><span class="fu">year</span>(date)) <span class="sc">%&gt;%</span> </span>
+<span id="cb259-3"><a href="tidyverseによるデータ操作.html#cb259-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">new_cases_mean =</span> <span class="fu">mean</span>(new_cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;location&#39;. You can override using the
 ## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 12 x 3
@@ -1062,10 +1071,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="複数列の一括処理-1" class="section level3 unnumbered hasAnchor">
 <h3>複数列の一括処理<a href="tidyverseによるデータ操作.html#複数列の一括処理-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::summarise()</code>関数内で<code>across()</code>関数を用い、対象の列と処理方法を指定して一括処理します。</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="tidyverseによるデータ操作.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new_casesとnew_deathsの列について、グループ別の合計値を計算</span></span>
-<span id="cb263-2"><a href="tidyverseによるデータ操作.html#cb263-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb263-3"><a href="tidyverseによるデータ操作.html#cb263-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
-<span id="cb263-4"><a href="tidyverseによるデータ操作.html#cb263-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(new_cases, new_deaths), sum, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="tidyverseによるデータ操作.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new_casesとnew_deathsの列について、グループ別の合計値を計算</span></span>
+<span id="cb262-2"><a href="tidyverseによるデータ操作.html#cb262-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb262-3"><a href="tidyverseによるデータ操作.html#cb262-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
+<span id="cb262-4"><a href="tidyverseによるデータ操作.html#cb262-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(new_cases, new_deaths), sum, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) </span></code></pre></div>
 <pre><code>## # A tibble: 4 x 3
 ##   location       new_cases new_deaths
 ##   &lt;chr&gt;              &lt;dbl&gt;      &lt;dbl&gt;
@@ -1073,12 +1082,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 Japan            8255957      29971
 ## 3 United Kingdom  21408236     173206
 ## 4 United States   82325686     999125</code></pre>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="tidyverseによるデータ操作.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 列名がcasesで終わる列すべてについて、グループ別の合計値を計算</span></span>
-<span id="cb265-2"><a href="tidyverseによるデータ操作.html#cb265-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 列名per_millionで終わる列すべてについて、グループ別の平均値を計算</span></span>
-<span id="cb265-3"><a href="tidyverseによるデータ操作.html#cb265-3" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb265-4"><a href="tidyverseによるデータ操作.html#cb265-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
-<span id="cb265-5"><a href="tidyverseによるデータ操作.html#cb265-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">ends_with</span>(<span class="st">&quot;cases&quot;</span>), sum, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb265-6"><a href="tidyverseによるデータ操作.html#cb265-6" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">across</span>(<span class="fu">ends_with</span>(<span class="st">&quot;per_million&quot;</span>), mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="tidyverseによるデータ操作.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 列名がcasesで終わる列すべてについて、グループ別の合計値を計算</span></span>
+<span id="cb264-2"><a href="tidyverseによるデータ操作.html#cb264-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 列名per_millionで終わる列すべてについて、グループ別の平均値を計算</span></span>
+<span id="cb264-3"><a href="tidyverseによるデータ操作.html#cb264-3" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb264-4"><a href="tidyverseによるデータ操作.html#cb264-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
+<span id="cb264-5"><a href="tidyverseによるデータ操作.html#cb264-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">ends_with</span>(<span class="st">&quot;cases&quot;</span>), sum, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb264-6"><a href="tidyverseによるデータ操作.html#cb264-6" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">across</span>(<span class="fu">ends_with</span>(<span class="st">&quot;per_million&quot;</span>), mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 7
 ##   location       total_cases new_cases total_cases_per_million new_cases_per_mi~
 ##   &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;                   &lt;dbl&gt;             &lt;dbl&gt;
@@ -1088,10 +1097,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 United States  25078991871  82325686                  89467.             294. 
 ## # ... with 2 more variables: total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="tidyverseによるデータ操作.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 数値型の列すべてについて、グループ別の平均値を計算</span></span>
-<span id="cb267-2"><a href="tidyverseによるデータ操作.html#cb267-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb267-3"><a href="tidyverseによるデータ操作.html#cb267-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
-<span id="cb267-4"><a href="tidyverseによるデータ操作.html#cb267-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="fu">across</span>(is.double, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="tidyverseによるデータ操作.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 数値型の列すべてについて、グループ別の平均値を計算</span></span>
+<span id="cb266-2"><a href="tidyverseによるデータ操作.html#cb266-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb266-3"><a href="tidyverseによるデータ操作.html#cb266-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
+<span id="cb266-4"><a href="tidyverseによるデータ操作.html#cb266-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="fu">across</span>(is.double, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 11
 ##   location       date       total_cases new_cases total_deaths new_deaths
 ##   &lt;chr&gt;          &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -1108,12 +1117,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.11</span> 縦型・横型の変換<a href="tidyverseによるデータ操作.html#縦型横型の変換" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>tidyr</code>パッケージの<code>pivot_longer()</code>関数と<code>pivot_wider()</code>関数を使用して、縦型データ（tidy data）と横型データの変換を行います。縦型データは、<code>ggplot2</code>パッケージによるグラフ作成で多用します。</p>
 <p>まず、使用するサンプルデータを作成します。</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="tidyverseによるデータ操作.html#cb269-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases <span class="ot">&lt;-</span> data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb269-2"><a href="tidyverseによるデータ操作.html#cb269-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, new_cases) <span class="sc">%&gt;%</span> </span>
-<span id="cb269-3"><a href="tidyverseによるデータ操作.html#cb269-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="st">&quot;2021-01-01&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb269-4"><a href="tidyverseによるデータ操作.html#cb269-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(date)</span>
-<span id="cb269-5"><a href="tidyverseによるデータ操作.html#cb269-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb269-6"><a href="tidyverseによるデータ操作.html#cb269-6" aria-hidden="true" tabindex="-1"></a>data_owid_cases</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="tidyverseによるデータ操作.html#cb268-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases <span class="ot">&lt;-</span> data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb268-2"><a href="tidyverseによるデータ操作.html#cb268-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, new_cases) <span class="sc">%&gt;%</span> </span>
+<span id="cb268-3"><a href="tidyverseによるデータ操作.html#cb268-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="st">&quot;2021-01-01&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb268-4"><a href="tidyverseによるデータ操作.html#cb268-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(date)</span>
+<span id="cb268-5"><a href="tidyverseによるデータ操作.html#cb268-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb268-6"><a href="tidyverseによるデータ操作.html#cb268-6" aria-hidden="true" tabindex="-1"></a>data_owid_cases</span></code></pre></div>
 <pre><code>## # A tibble: 1,988 x 3
 ##    location       date       new_cases
 ##    &lt;chr&gt;          &lt;date&gt;         &lt;dbl&gt;
@@ -1130,10 +1139,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ... with 1,978 more rows</code></pre>
 <div id="縦型データを横型データに変換" class="section level3 unnumbered hasAnchor">
 <h3>縦型データを横型データに変換<a href="tidyverseによるデータ操作.html#縦型データを横型データに変換" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="tidyverseによるデータ操作.html#cb271-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="ot">&lt;-</span> data_owid_cases <span class="sc">%&gt;%</span> </span>
-<span id="cb271-2"><a href="tidyverseによるデータ操作.html#cb271-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">&quot;date&quot;</span>, <span class="at">names_from =</span> <span class="st">&quot;location&quot;</span>, <span class="at">values_from =</span> <span class="st">&quot;new_cases&quot;</span>) </span>
-<span id="cb271-3"><a href="tidyverseによるデータ操作.html#cb271-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb271-4"><a href="tidyverseによるデータ操作.html#cb271-4" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="tidyverseによるデータ操作.html#cb270-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="ot">&lt;-</span> data_owid_cases <span class="sc">%&gt;%</span> </span>
+<span id="cb270-2"><a href="tidyverseによるデータ操作.html#cb270-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">&quot;date&quot;</span>, <span class="at">names_from =</span> <span class="st">&quot;location&quot;</span>, <span class="at">values_from =</span> <span class="st">&quot;new_cases&quot;</span>) </span>
+<span id="cb270-3"><a href="tidyverseによるデータ操作.html#cb270-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb270-4"><a href="tidyverseによるデータ操作.html#cb270-4" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide</span></code></pre></div>
 <pre><code>## # A tibble: 497 x 5
 ##    date       Germany Japan `United Kingdom` `United States`
 ##    &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -1151,10 +1160,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="横型データを縦型データに変換" class="section level3 unnumbered hasAnchor">
 <h3>横型データを縦型データに変換<a href="tidyverseによるデータ操作.html#横型データを縦型データに変換" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="tidyverseによるデータ操作.html#cb273-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_long <span class="ot">&lt;-</span> data_owid_cases_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb273-2"><a href="tidyverseによるデータ操作.html#cb273-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="st">&quot;date&quot;</span>, <span class="at">names_to =</span> <span class="st">&quot;location&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;new_cases&quot;</span>) </span>
-<span id="cb273-3"><a href="tidyverseによるデータ操作.html#cb273-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb273-4"><a href="tidyverseによるデータ操作.html#cb273-4" aria-hidden="true" tabindex="-1"></a>data_owid_cases_long</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="tidyverseによるデータ操作.html#cb272-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_long <span class="ot">&lt;-</span> data_owid_cases_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb272-2"><a href="tidyverseによるデータ操作.html#cb272-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="st">&quot;date&quot;</span>, <span class="at">names_to =</span> <span class="st">&quot;location&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;new_cases&quot;</span>) </span>
+<span id="cb272-3"><a href="tidyverseによるデータ操作.html#cb272-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb272-4"><a href="tidyverseによるデータ操作.html#cb272-4" aria-hidden="true" tabindex="-1"></a>data_owid_cases_long</span></code></pre></div>
 <pre><code>## # A tibble: 1,988 x 3
 ##    date       location       new_cases
 ##    &lt;date&gt;     &lt;chr&gt;              &lt;dbl&gt;
@@ -1175,14 +1184,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.12</span> データの結合<a href="tidyverseによるデータ操作.html#データの結合" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>複数のデータセットのオブジェクトを結合して一つのデータセットにするには、<code>dplyr</code>パッケージの<code>join()</code>関数ファミリーを使用します。<code>join()</code>関数は、結合方法によって4種類に分かれています。</p>
 <p>まず、使用するサンプルデータを確認します。</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="tidyverseによるデータ操作.html#cb275-1" aria-hidden="true" tabindex="-1"></a>band_members</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="tidyverseによるデータ操作.html#cb274-1" aria-hidden="true" tabindex="-1"></a>band_members</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   name  band   
 ##   &lt;chr&gt; &lt;chr&gt;  
 ## 1 Mick  Stones 
 ## 2 John  Beatles
 ## 3 Paul  Beatles</code></pre>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="tidyverseによるデータ操作.html#cb277-1" aria-hidden="true" tabindex="-1"></a>band_instruments</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="tidyverseによるデータ操作.html#cb276-1" aria-hidden="true" tabindex="-1"></a>band_instruments</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   name  plays 
 ##   &lt;chr&gt; &lt;chr&gt; 
@@ -1192,7 +1201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="内部結合" class="section level3 unnumbered hasAnchor">
 <h3>内部結合<a href="tidyverseによるデータ操作.html#内部結合" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::inner_join()</code>関数は、両方のデータに共通して存在する行のみ結合し、その他の行は削除します。</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="tidyverseによるデータ操作.html#cb279-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(band_members, band_instruments, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="tidyverseによるデータ操作.html#cb278-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">inner_join</span>(band_members, band_instruments, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 3
 ##   name  band    plays 
 ##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
@@ -1202,7 +1211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="左外部結合" class="section level3 unnumbered hasAnchor">
 <h3>左外部結合<a href="tidyverseによるデータ操作.html#左外部結合" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::left_join()</code>関数は、左側のデータに存在する行のみ結合し、その他の行は削除します。</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="tidyverseによるデータ操作.html#cb281-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(band_members, band_instruments, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="tidyverseによるデータ操作.html#cb280-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">left_join</span>(band_members, band_instruments, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   name  band    plays 
 ##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
@@ -1213,7 +1222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="右外部結合" class="section level3 unnumbered hasAnchor">
 <h3>右外部結合<a href="tidyverseによるデータ操作.html#右外部結合" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::right_join()</code>関数は、右側のデータに存在する行のみ結合し、その他の行は削除します。</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="tidyverseによるデータ操作.html#cb283-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(band_members, band_instruments, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="tidyverseによるデータ操作.html#cb282-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">right_join</span>(band_members, band_instruments, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   name  band    plays 
 ##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
@@ -1224,7 +1233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="完全外部結合" class="section level3 unnumbered hasAnchor">
 <h3>完全外部結合<a href="tidyverseによるデータ操作.html#完全外部結合" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>dplyr::full_join()</code>関数は、両方のデータのすべての行を結合し、行を削除しません。</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="tidyverseによるデータ操作.html#cb285-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">full_join</span>(band_members, band_instruments, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="tidyverseによるデータ操作.html#cb284-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">full_join</span>(band_members, band_instruments, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 3
 ##   name  band    plays 
 ##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
@@ -1237,9 +1246,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="重複処理" class="section level2 hasAnchor" number="3.13">
 <h2><span class="header-section-number">3.13</span> 重複処理<a href="tidyverseによるデータ操作.html#重複処理" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>重複している行を削除するには、<code>dplyr::distinct()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="tidyverseによるデータ操作.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="co"># すべての列を対象にして、重複している行を削除</span></span>
-<span id="cb287-2"><a href="tidyverseによるデータ操作.html#cb287-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb287-3"><a href="tidyverseによるデータ操作.html#cb287-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="tidyverseによるデータ操作.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="co"># すべての列を対象にして、重複している行を削除</span></span>
+<span id="cb286-2"><a href="tidyverseによるデータ操作.html#cb286-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb286-3"><a href="tidyverseによるデータ操作.html#cb286-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 3,354 x 12
 ##    continent location date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
@@ -1257,9 +1266,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   total_cases_per_million &lt;dbl&gt;, new_cases_per_million &lt;dbl&gt;,
 ## #   total_deaths_per_million &lt;dbl&gt;, new_deaths_per_million &lt;dbl&gt;,
 ## #   people_fully_vaccinated &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="tidyverseによるデータ操作.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 指定した列を対象にして、重複している行を削除</span></span>
-<span id="cb289-2"><a href="tidyverseによるデータ操作.html#cb289-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb289-3"><a href="tidyverseによるデータ操作.html#cb289-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(continent, location)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="tidyverseによるデータ操作.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 指定した列を対象にして、重複している行を削除</span></span>
+<span id="cb288-2"><a href="tidyverseによるデータ操作.html#cb288-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb288-3"><a href="tidyverseによるデータ操作.html#cb288-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(continent, location)</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##   continent     location      
 ##   &lt;chr&gt;         &lt;chr&gt;         
@@ -1272,14 +1281,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.14</span> 欠損値処理<a href="tidyverseによるデータ操作.html#欠損値処理" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>欠損値（NA）がある行を削除したり、NAのレコードを他の値で置き換えたりするには、<code>tidyr</code>パッケージの<code>drop_na()</code>関数、<code>replace_na()</code>関数、<code>fill()</code>関数を使用します。</p>
 <p>まず、使用するサンプルデータを作成します。</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="tidyverseによるデータ操作.html#cb291-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="ot">&lt;-</span> data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb291-2"><a href="tidyverseによるデータ操作.html#cb291-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, people_fully_vaccinated) <span class="sc">%&gt;%</span> </span>
-<span id="cb291-3"><a href="tidyverseによるデータ操作.html#cb291-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Japan&quot;</span>, <span class="st">&quot;United States&quot;</span>, <span class="st">&quot;United Kingdom&quot;</span>),</span>
-<span id="cb291-4"><a href="tidyverseによるデータ操作.html#cb291-4" aria-hidden="true" tabindex="-1"></a>                date <span class="sc">&gt;=</span> <span class="st">&quot;2021-01-01&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb291-5"><a href="tidyverseによるデータ操作.html#cb291-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
-<span id="cb291-6"><a href="tidyverseによるデータ操作.html#cb291-6" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">&quot;date&quot;</span>, <span class="at">names_from =</span> <span class="st">&quot;location&quot;</span>, <span class="at">values_from =</span> <span class="st">&quot;people_fully_vaccinated&quot;</span>)</span>
-<span id="cb291-7"><a href="tidyverseによるデータ操作.html#cb291-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb291-8"><a href="tidyverseによるデータ操作.html#cb291-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data_owid_vaccinated)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="tidyverseによるデータ操作.html#cb290-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="ot">&lt;-</span> data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb290-2"><a href="tidyverseによるデータ操作.html#cb290-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, people_fully_vaccinated) <span class="sc">%&gt;%</span> </span>
+<span id="cb290-3"><a href="tidyverseによるデータ操作.html#cb290-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Japan&quot;</span>, <span class="st">&quot;United States&quot;</span>, <span class="st">&quot;United Kingdom&quot;</span>),</span>
+<span id="cb290-4"><a href="tidyverseによるデータ操作.html#cb290-4" aria-hidden="true" tabindex="-1"></a>                date <span class="sc">&gt;=</span> <span class="st">&quot;2021-01-01&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb290-5"><a href="tidyverseによるデータ操作.html#cb290-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
+<span id="cb290-6"><a href="tidyverseによるデータ操作.html#cb290-6" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">&quot;date&quot;</span>, <span class="at">names_from =</span> <span class="st">&quot;location&quot;</span>, <span class="at">values_from =</span> <span class="st">&quot;people_fully_vaccinated&quot;</span>)</span>
+<span id="cb290-7"><a href="tidyverseによるデータ操作.html#cb290-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb290-8"><a href="tidyverseによるデータ操作.html#cb290-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(data_owid_vaccinated)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -1292,9 +1301,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="naの削除" class="section level3 unnumbered hasAnchor">
 <h3>NAの削除<a href="tidyverseによるデータ操作.html#naの削除" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>特定の列を対象にして、NAが含まれている行を削除するには、<code>tidyr::drop_na()</code>関数で列名を指定します。</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="tidyverseによるデータ操作.html#cb293-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
-<span id="cb293-2"><a href="tidyverseによるデータ操作.html#cb293-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>(Japan) <span class="sc">%&gt;%</span>  </span>
-<span id="cb293-3"><a href="tidyverseによるデータ操作.html#cb293-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="tidyverseによるデータ操作.html#cb292-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
+<span id="cb292-2"><a href="tidyverseによるデータ操作.html#cb292-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>(Japan) <span class="sc">%&gt;%</span>  </span>
+<span id="cb292-3"><a href="tidyverseによるデータ操作.html#cb292-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -1305,9 +1314,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 2022-05-11 101711917               NA       220461007
 ## 6 2022-05-12 101730582               NA              NA</code></pre>
 <p>すべての列を対象にして、NAが含まれている行を削除するには、<code>tidyr::drop_na()</code>関数の中で<code>everything()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="tidyverseによるデータ操作.html#cb295-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
-<span id="cb295-2"><a href="tidyverseによるデータ操作.html#cb295-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>(<span class="fu">everything</span>()) <span class="sc">%&gt;%</span>  </span>
-<span id="cb295-3"><a href="tidyverseによるデータ操作.html#cb295-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="tidyverseによるデータ操作.html#cb294-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
+<span id="cb294-2"><a href="tidyverseによるデータ操作.html#cb294-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>(<span class="fu">everything</span>()) <span class="sc">%&gt;%</span>  </span>
+<span id="cb294-3"><a href="tidyverseによるデータ操作.html#cb294-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -1321,9 +1330,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="naの置換" class="section level3 unnumbered hasAnchor">
 <h3>NAの置換<a href="tidyverseによるデータ操作.html#naの置換" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>特定の列のNAを別の値に置き換えるには、<code>tidyr::replace_na()</code>関数で列名と置換する値を指定します。</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="tidyverseによるデータ操作.html#cb297-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
-<span id="cb297-2"><a href="tidyverseによるデータ操作.html#cb297-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Japan =</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="at">data =</span> Japan, <span class="at">replace =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span>  </span>
-<span id="cb297-3"><a href="tidyverseによるデータ操作.html#cb297-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="tidyverseによるデータ操作.html#cb296-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
+<span id="cb296-2"><a href="tidyverseによるデータ操作.html#cb296-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Japan =</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="at">data =</span> Japan, <span class="at">replace =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb296-3"><a href="tidyverseによるデータ操作.html#cb296-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -1334,9 +1343,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 2022-05-11 101711917               NA       220461007
 ## 6 2022-05-12 101730582               NA              NA</code></pre>
 <p>NAを他の値に置き換える列が複数ある場合は、<code>dplyr::mutate_at()</code>関数で列名を複数指定して一括処理します。</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="tidyverseによるデータ操作.html#cb299-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
-<span id="cb299-2"><a href="tidyverseによるデータ操作.html#cb299-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span>date), tidyr<span class="sc">::</span>replace_na, <span class="at">replace =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb299-3"><a href="tidyverseによるデータ操作.html#cb299-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="tidyverseによるデータ操作.html#cb298-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
+<span id="cb298-2"><a href="tidyverseによるデータ操作.html#cb298-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span>date), tidyr<span class="sc">::</span>replace_na, <span class="at">replace =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb298-3"><a href="tidyverseによるデータ操作.html#cb298-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -1350,9 +1359,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="naのフィル" class="section level3 unnumbered hasAnchor">
 <h3>NAのフィル<a href="tidyverseによるデータ操作.html#naのフィル" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>特定の列のNAを同じ列の前後の値でフィルするには、<code>tidyr::fill()</code>関数で列名を指定します。<code>.direction</code>引数が<code>"down"</code>なら上の値でフィル、<code>"up"</code>なら下の値でフィルします。</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="tidyverseによるデータ操作.html#cb301-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
-<span id="cb301-2"><a href="tidyverseによるデータ操作.html#cb301-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">fill</span>(Japan, <span class="at">.direction =</span> <span class="st">&quot;down&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb301-3"><a href="tidyverseによるデータ操作.html#cb301-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="tidyverseによるデータ操作.html#cb300-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
+<span id="cb300-2"><a href="tidyverseによるデータ操作.html#cb300-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">fill</span>(Japan, <span class="at">.direction =</span> <span class="st">&quot;down&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb300-3"><a href="tidyverseによるデータ操作.html#cb300-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -1363,9 +1372,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 2022-05-11 101711917               NA       220461007
 ## 6 2022-05-12 101730582               NA              NA</code></pre>
 <p>すべての列のNAの値をフィルする場合は、<code>tidyr::fill()</code>関数の中で<code>everything()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="tidyverseによるデータ操作.html#cb303-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
-<span id="cb303-2"><a href="tidyverseによるデータ操作.html#cb303-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">fill</span>(<span class="fu">c</span>(<span class="sc">-</span>date, <span class="fu">everything</span>()), <span class="at">.direction =</span> <span class="st">&quot;down&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb303-3"><a href="tidyverseによるデータ操作.html#cb303-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="tidyverseによるデータ操作.html#cb302-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
+<span id="cb302-2"><a href="tidyverseによるデータ操作.html#cb302-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">fill</span>(<span class="fu">c</span>(<span class="sc">-</span>date, <span class="fu">everything</span>()), <span class="at">.direction =</span> <span class="st">&quot;down&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb302-3"><a href="tidyverseによるデータ操作.html#cb302-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -1381,16 +1390,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.15</span> 補完処理<a href="tidyverseによるデータ操作.html#補完処理" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>データセットが特定の属性の組み合わせのレコード（行）を欠いている場合や、時系列データで特定の時点のレコード（行）が含まれていない場合は、<code>tidyr::complete()</code>関数で補完することができます。</p>
 <p>まず、使用するサンプルデータを作成します。</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="tidyverseによるデータ操作.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="co"># サンプルデータ1</span></span>
-<span id="cb305-2"><a href="tidyverseによるデータ操作.html#cb305-2" aria-hidden="true" tabindex="-1"></a>data_complete_1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb305-3"><a href="tidyverseによるデータ操作.html#cb305-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb305-4"><a href="tidyverseによるデータ操作.html#cb305-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">item_id =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
-<span id="cb305-5"><a href="tidyverseによるデータ操作.html#cb305-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">item_name =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;b&quot;</span>),</span>
-<span id="cb305-6"><a href="tidyverseによるデータ操作.html#cb305-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">value1 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
-<span id="cb305-7"><a href="tidyverseによるデータ操作.html#cb305-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">value2 =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">7</span></span>
-<span id="cb305-8"><a href="tidyverseによるデータ操作.html#cb305-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb305-9"><a href="tidyverseによるデータ操作.html#cb305-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb305-10"><a href="tidyverseによるデータ操作.html#cb305-10" aria-hidden="true" tabindex="-1"></a>data_complete_1</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="tidyverseによるデータ操作.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="co"># サンプルデータ1</span></span>
+<span id="cb304-2"><a href="tidyverseによるデータ操作.html#cb304-2" aria-hidden="true" tabindex="-1"></a>data_complete_1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb304-3"><a href="tidyverseによるデータ操作.html#cb304-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb304-4"><a href="tidyverseによるデータ操作.html#cb304-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">item_id =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb304-5"><a href="tidyverseによるデータ操作.html#cb304-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">item_name =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;b&quot;</span>),</span>
+<span id="cb304-6"><a href="tidyverseによるデータ操作.html#cb304-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">value1 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
+<span id="cb304-7"><a href="tidyverseによるデータ操作.html#cb304-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">value2 =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">7</span></span>
+<span id="cb304-8"><a href="tidyverseによるデータ操作.html#cb304-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb304-9"><a href="tidyverseによるデータ操作.html#cb304-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb304-10"><a href="tidyverseによるデータ操作.html#cb304-10" aria-hidden="true" tabindex="-1"></a>data_complete_1</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 5
 ##   group item_id item_name value1 value2
 ##   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;  &lt;int&gt;
@@ -1398,13 +1407,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2     2       2 a             NA      5
 ## 3     1       2 b              3      6
 ## 4     2       3 b              4      7</code></pre>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="tidyverseによるデータ操作.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="co"># サンプルデータ2</span></span>
-<span id="cb307-2"><a href="tidyverseによるデータ操作.html#cb307-2" aria-hidden="true" tabindex="-1"></a>data_complete_2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb307-3"><a href="tidyverseによるデータ操作.html#cb307-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2022-01-01&quot;</span>, <span class="st">&quot;2022-01-03&quot;</span>, <span class="st">&quot;2022-01-04&quot;</span>)),</span>
-<span id="cb307-4"><a href="tidyverseによるデータ操作.html#cb307-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
-<span id="cb307-5"><a href="tidyverseによるデータ操作.html#cb307-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb307-6"><a href="tidyverseによるデータ操作.html#cb307-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb307-7"><a href="tidyverseによるデータ操作.html#cb307-7" aria-hidden="true" tabindex="-1"></a>data_complete_2</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="tidyverseによるデータ操作.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="co"># サンプルデータ2</span></span>
+<span id="cb306-2"><a href="tidyverseによるデータ操作.html#cb306-2" aria-hidden="true" tabindex="-1"></a>data_complete_2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb306-3"><a href="tidyverseによるデータ操作.html#cb306-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2022-01-01&quot;</span>, <span class="st">&quot;2022-01-03&quot;</span>, <span class="st">&quot;2022-01-04&quot;</span>)),</span>
+<span id="cb306-4"><a href="tidyverseによるデータ操作.html#cb306-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb306-5"><a href="tidyverseによるデータ操作.html#cb306-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb306-6"><a href="tidyverseによるデータ操作.html#cb306-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb306-7"><a href="tidyverseによるデータ操作.html#cb306-7" aria-hidden="true" tabindex="-1"></a>data_complete_2</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   date       value
 ##   &lt;date&gt;     &lt;dbl&gt;
@@ -1414,8 +1423,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="組み合わせ候補の補完" class="section level3 unnumbered hasAnchor">
 <h3>組み合わせ候補の補完<a href="tidyverseによるデータ操作.html#組み合わせ候補の補完" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>tidyr::complete()</code>関数の中で列名を指定し、当該変数のすべての組み合わせ候補を補完します。補完した行の値はNAになります。</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="tidyverseによるデータ操作.html#cb309-1" aria-hidden="true" tabindex="-1"></a>data_complete_1 <span class="sc">%&gt;%</span> </span>
-<span id="cb309-2"><a href="tidyverseによるデータ操作.html#cb309-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">complete</span>(group, item_id, item_name)</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="tidyverseによるデータ操作.html#cb308-1" aria-hidden="true" tabindex="-1"></a>data_complete_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb308-2"><a href="tidyverseによるデータ操作.html#cb308-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">complete</span>(group, item_id, item_name)</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 5
 ##    group item_id item_name value1 value2
 ##    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;  &lt;int&gt;
@@ -1432,8 +1441,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11     2       3 a             NA     NA
 ## 12     2       3 b              4      7</code></pre>
 <p><code>tidyr::nesting()</code>関数に複数の列名を指定すると、それらの列について実現値のユニークな組み合わせをあらかじめ求め、それと別の列とのすべての組み合わせ候補を補完します。</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="tidyverseによるデータ操作.html#cb311-1" aria-hidden="true" tabindex="-1"></a>data_complete_1 <span class="sc">%&gt;%</span> </span>
-<span id="cb311-2"><a href="tidyverseによるデータ操作.html#cb311-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">complete</span>(group, tidyr<span class="sc">::</span><span class="fu">nesting</span>(item_id, item_name))</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="tidyverseによるデータ操作.html#cb310-1" aria-hidden="true" tabindex="-1"></a>data_complete_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb310-2"><a href="tidyverseによるデータ操作.html#cb310-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">complete</span>(group, tidyr<span class="sc">::</span><span class="fu">nesting</span>(item_id, item_name))</span></code></pre></div>
 <pre><code>## # A tibble: 8 x 5
 ##   group item_id item_name value1 value2
 ##   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;  &lt;int&gt;
@@ -1449,9 +1458,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="時系列データの補完" class="section level3 unnumbered hasAnchor">
 <h3>時系列データの補完<a href="tidyverseによるデータ操作.html#時系列データの補完" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>時系列データの欠損期間を補完するには、<code>full_seq()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="tidyverseによるデータ操作.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 日次データの欠損日を補完</span></span>
-<span id="cb313-2"><a href="tidyverseによるデータ操作.html#cb313-2" aria-hidden="true" tabindex="-1"></a>data_complete_2 <span class="sc">%&gt;%</span> </span>
-<span id="cb313-3"><a href="tidyverseによるデータ操作.html#cb313-3" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">complete</span>(<span class="at">date =</span> <span class="fu">full_seq</span>(date, <span class="at">period =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="tidyverseによるデータ操作.html#cb312-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 日次データの欠損日を補完</span></span>
+<span id="cb312-2"><a href="tidyverseによるデータ操作.html#cb312-2" aria-hidden="true" tabindex="-1"></a>data_complete_2 <span class="sc">%&gt;%</span> </span>
+<span id="cb312-3"><a href="tidyverseによるデータ操作.html#cb312-3" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">complete</span>(<span class="at">date =</span> <span class="fu">full_seq</span>(date, <span class="at">period =</span> <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##   date       value
 ##   &lt;date&gt;     &lt;dbl&gt;
@@ -1465,17 +1474,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.16</span> 時系列データの頻度変換<a href="tidyverseによるデータ操作.html#時系列データの頻度変換" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>tidyverse</code>と整合性がある金融時系列データ分析用のパッケージである<code>tidyquant</code>パッケージの<code>tq_transmute()</code>関数を用いて、時系列データの頻度変換（高頻度データから低頻度データへの変換）を行います。なお、<code>tidyquant</code>は頻度変換以外にも様々な分析機能があります。詳しくは<a href="https://business-science.github.io/tidyquant/">公式ウェブサイト</a>を参照してください。</p>
 <p>まず、使用するサンプルデータを作成します。<code>tq_transmute()</code>関数にわたす時系列データは、原則として横型データである点に留意してください。</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="tidyverseによるデータ操作.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="co"># サンプルデータ（日次）</span></span>
-<span id="cb315-2"><a href="tidyverseによるデータ操作.html#cb315-2" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="ot">&lt;-</span> data_owid <span class="sc">%&gt;%</span> </span>
-<span id="cb315-3"><a href="tidyverseによるデータ操作.html#cb315-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, new_cases) <span class="sc">%&gt;%</span> </span>
-<span id="cb315-4"><a href="tidyverseによるデータ操作.html#cb315-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="st">&quot;2021-01-01&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb315-5"><a href="tidyverseによるデータ操作.html#cb315-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
-<span id="cb315-6"><a href="tidyverseによるデータ操作.html#cb315-6" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">&quot;date&quot;</span>, <span class="at">names_from =</span> <span class="st">&quot;location&quot;</span>, <span class="at">values_from =</span> <span class="st">&quot;new_cases&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="tidyverseによるデータ操作.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="co"># サンプルデータ（日次）</span></span>
+<span id="cb314-2"><a href="tidyverseによるデータ操作.html#cb314-2" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="ot">&lt;-</span> data_owid <span class="sc">%&gt;%</span> </span>
+<span id="cb314-3"><a href="tidyverseによるデータ操作.html#cb314-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, new_cases) <span class="sc">%&gt;%</span> </span>
+<span id="cb314-4"><a href="tidyverseによるデータ操作.html#cb314-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="st">&quot;2021-01-01&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb314-5"><a href="tidyverseによるデータ操作.html#cb314-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
+<span id="cb314-6"><a href="tidyverseによるデータ操作.html#cb314-6" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">&quot;date&quot;</span>, <span class="at">names_from =</span> <span class="st">&quot;location&quot;</span>, <span class="at">values_from =</span> <span class="st">&quot;new_cases&quot;</span>)</span></code></pre></div>
 <div id="日次データを週次データに変換" class="section level3 unnumbered hasAnchor">
 <h3>日次データを週次データに変換<a href="tidyverseによるデータ操作.html#日次データを週次データに変換" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>tidyquant::tq_transmute()</code>関数を使用して日次データを週次データに変換すると、月曜～日曜のデータが<code>FUN</code>に指定した関数で集計され、日曜の日付で記録されます。</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="tidyverseによるデータ操作.html#cb316-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb316-2"><a href="tidyverseによるデータ操作.html#cb316-2" aria-hidden="true" tabindex="-1"></a>  tidyquant<span class="sc">::</span><span class="fu">tq_transmute</span>(<span class="at">select =</span> <span class="sc">-</span>date, <span class="at">mutate_fun =</span> apply.weekly, <span class="at">FUN =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="tidyverseによるデータ操作.html#cb315-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb315-2"><a href="tidyverseによるデータ操作.html#cb315-2" aria-hidden="true" tabindex="-1"></a>  tidyquant<span class="sc">::</span><span class="fu">tq_transmute</span>(<span class="at">select =</span> <span class="sc">-</span>date, <span class="at">mutate_fun =</span> apply.weekly, <span class="at">FUN =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 72 x 5
 ##    date       Germany Japan `United Kingdom` `United States`
 ##    &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -1491,9 +1500,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 2021-03-07   8264. 1037.            5996           59339 
 ## # ... with 62 more rows</code></pre>
 <p>なお、日曜～土曜のデータを集計し日曜の日付で記録したい場合は、<code>rollmean()</code>関数を使用して前方7日移動平均を計算し、日曜の値を抽出します。</p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="tidyverseによるデータ操作.html#cb318-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span></span>
-<span id="cb318-2"><a href="tidyverseによるデータ操作.html#cb318-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>date, rollmean, <span class="at">k =</span> <span class="dv">7</span>, <span class="at">na.pad =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="st">&quot;left&quot;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb318-3"><a href="tidyverseによるデータ操作.html#cb318-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(lubridate<span class="sc">::</span><span class="fu">wday</span>(date) <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="tidyverseによるデータ操作.html#cb317-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span></span>
+<span id="cb317-2"><a href="tidyverseによるデータ操作.html#cb317-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>date, rollmean, <span class="at">k =</span> <span class="dv">7</span>, <span class="at">na.pad =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="st">&quot;left&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb317-3"><a href="tidyverseによるデータ操作.html#cb317-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(lubridate<span class="sc">::</span><span class="fu">wday</span>(date) <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 71 x 5
 ##    date       Germany Japan `United Kingdom` `United States`
 ##    &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -1512,8 +1521,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="日次データを月次データに変換" class="section level3 unnumbered hasAnchor">
 <h3>日次データを月次データに変換<a href="tidyverseによるデータ操作.html#日次データを月次データに変換" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>tidyquant::tq_transmute()</code>関数を使用して日次データを月次データに変換すると、月初～月末のデータが<code>FUN</code>に指定した関数で集計され、月末の日付で記録されます。</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="tidyverseによるデータ操作.html#cb320-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb320-2"><a href="tidyverseによるデータ操作.html#cb320-2" aria-hidden="true" tabindex="-1"></a>  tidyquant<span class="sc">::</span><span class="fu">tq_transmute</span>(<span class="at">select =</span> <span class="sc">-</span>date, <span class="at">mutate_fun =</span> apply.monthly, <span class="at">FUN =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="tidyverseによるデータ操作.html#cb319-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb319-2"><a href="tidyverseによるデータ操作.html#cb319-2" aria-hidden="true" tabindex="-1"></a>  tidyquant<span class="sc">::</span><span class="fu">tq_transmute</span>(<span class="at">select =</span> <span class="sc">-</span>date, <span class="at">mutate_fun =</span> apply.monthly, <span class="at">FUN =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 17 x 5
 ##    date       Germany  Japan `United Kingdom` `United States`
 ##    &lt;date&gt;       &lt;dbl&gt;  &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -1538,8 +1547,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="日次データを四半期データに変換" class="section level3 unnumbered hasAnchor">
 <h3>日次データを四半期データに変換<a href="tidyverseによるデータ操作.html#日次データを四半期データに変換" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>tidyquant::tq_transmute()</code>関数を使用して日次データを四半期データに変換すると、期初～期末のデータが<code>FUN</code>に指定した関数で集計され、期末の日付で記録されます。</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="tidyverseによるデータ操作.html#cb322-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb322-2"><a href="tidyverseによるデータ操作.html#cb322-2" aria-hidden="true" tabindex="-1"></a>  tidyquant<span class="sc">::</span><span class="fu">tq_transmute</span>(<span class="at">select =</span> <span class="sc">-</span>date, <span class="at">mutate_fun =</span> apply.quarterly, <span class="at">FUN =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="tidyverseによるデータ操作.html#cb321-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb321-2"><a href="tidyverseによるデータ操作.html#cb321-2" aria-hidden="true" tabindex="-1"></a>  tidyquant<span class="sc">::</span><span class="fu">tq_transmute</span>(<span class="at">select =</span> <span class="sc">-</span>date, <span class="at">mutate_fun =</span> apply.quarterly, <span class="at">FUN =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##   date       Germany  Japan `United Kingdom` `United States`
 ##   &lt;date&gt;       &lt;dbl&gt;  &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
@@ -1589,10 +1598,7 @@ gitbook.start({
 "family": "sans",
 "size": 2
 },
-"edit": {
-"link": null,
-"text": null
-},
+"edit": null,
 "history": {
 "link": null,
 "text": null
@@ -1609,6 +1615,9 @@ gitbook.start({
 "toc": {
 "collapse": "subsection",
 "scroll_highlights": true
+},
+"toolbar": {
+"position": "fixed"
 }
 });
 });

@@ -18,6 +18,7 @@ library(RColorBrewer)
 library(readxl)
 library(tidyverse)
 ```
+
 ## ggplot2とは
 
 `ggplot2`パッケージでは、最初に`ggplot()`関数でグラフを作成するデータセットと変数を指定します。その後に、`geom_histogram()`などのグラフの種類を指定する関数や、`scale_x_date`などの軸設定の関数、`theme()`などの各種設定の関数を`+`で追加していきます。
@@ -41,14 +42,13 @@ windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
 
 ## サンプルデータの確認・読み込み
 
-### Rのサンプルデータセット {-}
+### Rのサンプルデータセット {.unnumbered}
 
 ```{r}
 # irisデータセット
 iris_tbl <- as.tibble(iris)
 iris_tbl
 ```
-
 
 ```{r}
 # mpgデータセット
@@ -60,7 +60,7 @@ mpg
 economics
 ```
 
-### 外部データセット {-}
+### 外部データセット {.unnumbered}
 
 Webからデータを直接読み込むため、プロキシ環境ではプロキシサーバーの設定が必要です。
 
@@ -127,7 +127,7 @@ data_gdp_pref
 
 本節では`ggplot2`パッケージによるグラフ作成を行いますが、`ggplot2`はすべてコードを書いてグラフを作成するため、探索的データ分析（EDA）には不向きです。そこで、`ggplot2`によるグラフ作成を行う前に、GUIによるノーコードのグラフ作成パッケージを用い、どのようなグラフを作成するべきか検討します。
 
-### esquisseパッケージ {-}
+### esquisseパッケージ {.unnumbered}
 
 `esquisse`パッケージは、ドラッグ＆ドロップでX軸・Y軸の変数や色・サイズを変化させる属性の変数を指定し、グラフを作成します。`esquisse`は便利なパッケージですが、データセットの規模が大きいと起動に時間がかかるため、変数の数が多い場合は、あらかじめ注目する変数を絞るといった前処理が必要です。
 
@@ -144,7 +144,7 @@ data_owid %>%
   esquisse::esquisser()
 ```
 
-### ggplotguiパッケージ {-}
+### ggplotguiパッケージ {.unnumbered}
 
 その他のGUIによるノーコードのグラフ作成パッケージには、`ggplotgui`があります。
 
@@ -165,10 +165,10 @@ data_owid %>%
 
 ヒストグラムは`geom_histogram()`関数で作成します。
 
-* X軸：連続型変数
-* Y軸：なし
+-   X軸：連続型変数
+-   Y軸：なし
 
-### ヒストグラムの基本形 {-}
+### ヒストグラムの基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -179,7 +179,7 @@ ggplot(data = mpg,
                  size = 0.5) # 線の太さ
 ```
 
-### 横並びヒストグラム {-}
+### 横並びヒストグラム {.unnumbered}
 
 グループ別のヒストグラムを横並び形式で作成するには、`position`引数に`"dodge"`を指定します。
 
@@ -192,7 +192,7 @@ ggplot(data = mpg,
                  size = 0.5) # 線の太さ
 ```
 
-### 積み上げヒストグラム {-}
+### 積み上げヒストグラム {.unnumbered}
 
 グループ別のヒストグラムを積み上げ形式で作成するには、`position`引数に`"stack"`を指定します。
 
@@ -209,10 +209,10 @@ ggplot(data = mpg,
 
 密度グラフは`geom_density()`関数で作成します。
 
-* X軸：連続型変数
-* Y軸：なし
+-   X軸：連続型変数
+-   Y軸：なし
 
-### 密度グラフの基本形 {-}
+### 密度グラフの基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -223,7 +223,7 @@ ggplot(data = mpg,
                size = 1.0) # 線の太さ
 ```
 
-### 横並び密度グラフ {-}
+### 横並び密度グラフ {.unnumbered}
 
 グループ別の密度グラフを横並び形式で作成するには、`position`引数に`"dodge"`を指定します。
 
@@ -236,7 +236,7 @@ ggplot(data = mpg,
                size = 1.0) # 線の太さ
 ```
 
-### 積み上げ密度グラフ {-}
+### 積み上げ密度グラフ {.unnumbered}
 
 グループ別の密度グラフを積み上げ形式で作成するには、`position`引数に`"stack"`を指定します。
 
@@ -254,10 +254,10 @@ ggplot(data = mpg,
 
 頻度棒グラフは`geom_bar()`関数で作成します。
 
-* X軸：離散型変数
-* Y軸：なし
+-   X軸：離散型変数
+-   Y軸：なし
 
-### 頻度棒グラフの基本形 {-}
+### 頻度棒グラフの基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -273,10 +273,10 @@ ggplot(data = mpg,
 
 頻度バブルチャートは`geom_count()`関数で作成します。
 
-* X軸：離散型変数
-* Y軸：離散型変数
+-   X軸：離散型変数
+-   Y軸：離散型変数
 
-### 頻度バブルチャートの基本形 {-}
+### 頻度バブルチャートの基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -294,8 +294,8 @@ ggplot(data = mpg,
 
 散布図とバブルチャートは`geom_point()`関数で作成します。バブルチャートの上に`geom_smooth()`関数で近似曲線を重ねることができます。
 
-* X軸：連続型変数
-* Y軸：連続型変数
+-   X軸：連続型変数
+-   Y軸：連続型変数
 
 まず、プロット用のデータを作成します。
 
@@ -307,7 +307,7 @@ data_mpg_point <- mpg %>%
 data_mpg_point
 ```
 
-### 散布図の基本形 {-}
+### 散布図の基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -320,7 +320,7 @@ ggplot(data = mpg,
              stroke = 0.5) # 線の太さ
 ```
 
-### バブルチャートの基本形 {-}
+### バブルチャートの基本形 {.unnumbered}
 
 バブルチャートを作成するには、`ggplot()`関数の`mapping = aes()`関数で`size`引数にバブルのサイズを変化させたい変数を指定します。
 
@@ -334,7 +334,7 @@ ggplot(data = data_mpg_point,
              stroke = 0.5) # 線の太さ
 ```
 
-### 散布図に補助線を追加 {-}
+### 散布図に補助線を追加 {.unnumbered}
 
 水平線、垂直線、傾き・切片のある直線といった補助線を追加するには、それぞれ`geom_hline()`関数、`geom_vline()`関数、`geom_abline()`関数を使用します。
 
@@ -359,7 +359,7 @@ ggplot(data = mpg,
              stroke = 0.5) # 線の太さ
 ```
 
-### 散布図にコネクタ線を追加 {-}
+### 散布図にコネクタ線を追加 {.unnumbered}
 
 散布図のマーカー間をつなぐコネクタ線を追加するには、`geom_path()`関数を追加します。折れ線グラフを作成する`geom_line()`関数とは異なるので注意してください。
 
@@ -380,7 +380,7 @@ economics %>%
              stroke = 0.5) # 線の太さ
 ```
 
-### 散布図に近似曲線を追加 {-}
+### 散布図に近似曲線を追加 {.unnumbered}
 
 散布図に近似曲線を追加するには、`geom_smooth()`関数を使用します。
 
@@ -402,7 +402,7 @@ ggplot(data = mpg,
               size = 1.0) # 近似曲線の太さ
 ```
 
-### 散布図にラベルを追加 {-}
+### 散布図にラベルを追加 {.unnumbered}
 
 散布図にラベルを追加するには、`ggrepel`パッケージの`geom_text_repel()`関数を使用します。`geom_text_repel()`関数は、散布図のマーカーとラベルが重ならないようにラベルの位置を自動で調整します。
 
@@ -468,8 +468,8 @@ ggplot(data = data_mpg_point,
 
 棒グラフは`geom_col()`関数で作成します。
 
-* X軸：離散型変数
-* Y軸：連続型変数
+-   X軸：離散型変数
+-   Y軸：連続型変数
 
 まず、プロット用のデータを作成します。
 
@@ -492,7 +492,7 @@ data_owid_col <- data_owid %>%
 data_owid_col
 ```
 
-### 縦棒グラフの基本形 {-}
+### 縦棒グラフの基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = data_mpg_col,
@@ -505,7 +505,7 @@ ggplot(data = data_mpg_col,
   theme(axis.text.x = element_text(angle = 45, hjust = 1.0))
 ```
 
-### 横棒グラフ {-}
+### 横棒グラフ {.unnumbered}
 
 横棒グラフを作成するには、縦棒グラフを作成した後に`coord_flip()`関数で横棒グラフに転換します。そのため、X軸とY軸の変数指定は縦棒グラフの場合と同じです。
 
@@ -520,7 +520,7 @@ ggplot(data = data_mpg_col,
   coord_flip()
 ```
 
-### 縦棒グラフの順序並べ替え {-}
+### 縦棒グラフの順序並べ替え {.unnumbered}
 
 縦棒グラフのX軸の順番を並べ替えるには、X軸の変数を指定する際に`fct_reorder()`関数を使用します。
 
@@ -535,7 +535,7 @@ ggplot(data = data_mpg_col,
   theme(axis.text.x = element_text(angle = 45, hjust = 1.0))
 ```
 
-### 縦棒グラフにラベルを追加 {-}
+### 縦棒グラフにラベルを追加 {.unnumbered}
 
 縦棒グラフにデータラベルを追加するには、`geom_text()`関数を使用します。
 
@@ -556,7 +556,7 @@ ggplot(data = data_mpg_col,
   theme(axis.text.x = element_text(angle = 45, hjust = 1.0))
 ```
 
-### 横並び縦棒グラフ {-}
+### 横並び縦棒グラフ {.unnumbered}
 
 複数の縦棒グラフを横並び形式で作成するには、`position`引数に`position_dodge()`関数を指定します。
 
@@ -569,7 +569,7 @@ ggplot(data = data_owid_col,
            width = 0.9) # 棒の幅 (0-1)
 ```
 
-### 積み上げ縦棒グラフ {-}
+### 積み上げ縦棒グラフ {.unnumbered}
 
 複数の縦棒グラフを積み上げ形式で作成するには、`position`引数に`position_stack()`関数を指定します。
 
@@ -583,7 +583,7 @@ ggplot(data = data_owid_col,
   guides(fill = guide_legend(reverse = TRUE))
 ```
 
-### 積み上げ縦棒グラフにラベルを追加 {-}
+### 積み上げ縦棒グラフにラベルを追加 {.unnumbered}
 
 ```{r}
 ggplot(data = data_owid_col,
@@ -601,7 +601,7 @@ ggplot(data = data_owid_col,
   guides(fill = guide_legend(reverse = TRUE))
 ```
 
-### シェア縦棒グラフ {-}
+### シェア縦棒グラフ {.unnumbered}
 
 複数の縦棒グラフを合計が100％になるシェア積み上げ形式で作成するには、`position`引数に`position_fill()`関数を指定します。
 
@@ -615,7 +615,7 @@ ggplot(data = data_owid_col,
   guides(fill = guide_legend(reverse = TRUE))
 ```
 
-### シェア縦棒グラフにラベルを追加 {-}
+### シェア縦棒グラフにラベルを追加 {.unnumbered}
 
 ```{r}
 data_owid_col %>% 
@@ -639,8 +639,8 @@ data_owid_col %>%
 
 円グラフを作成するには、`geom_col()`関数で積み上げ棒グラフを作成した後に`coord_polar()`関数で円グラフに転換します。
 
-* X軸：単一の値
-* Y軸：連続型変数
+-   X軸：単一の値
+-   Y軸：連続型変数
 
 まず、プロット用のデータを作成します。
 
@@ -652,7 +652,7 @@ data_mpg_circle <- mpg %>%
 data_mpg_circle
 ```
 
-### 円グラフの基本形 {-}
+### 円グラフの基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = data_mpg_circle,
@@ -681,8 +681,8 @@ ggplot(data = data_mpg_circle,
 
 折れ線グラフは時系列的に変化するデータを可視化する最も基本的なグラフで、`geom_line()`関数で作成します。
 
-* X軸：日付型変数
-* Y軸：連続型変数
+-   X軸：日付型変数
+-   Y軸：連続型変数
 
 まず、プロット用のデータを作成します。
 
@@ -696,7 +696,7 @@ data_owid_line <- data_owid %>%
 data_owid_line
 ```
 
-### 折れ線グラフの基本形 {-}
+### 折れ線グラフの基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = economics,
@@ -707,7 +707,7 @@ ggplot(data = economics,
             size = 1.0) # 線の太さ
 ```
 
-### 折れ線グラフにマーカーを追加 {-}
+### 折れ線グラフにマーカーを追加 {.unnumbered}
 
 折れ線グラフを作成する`geom_line()`関数と、散布図を作成する`geom_point()`関数を併用します。
 
@@ -726,7 +726,7 @@ ggplot(data = economics,
              stroke = 0.5) # 線の太さ
 ```
 
-### 折れ線グラフに系列ラベルを追加 {-}
+### 折れ線グラフに系列ラベルを追加 {.unnumbered}
 
 折れ線グラフの数が多く凡例が分かりにくい場合などに、折れ線グラフの右側に系列名のラベルを追加します。ラベルを追加するには、`ggrepel`パッケージの`geom_text_repel`関数を使用します。
 
@@ -766,8 +766,8 @@ ggplot(data = data_owid_line,
 
 ステップグラフは折れ線グラフの特殊形です。政策金利のように、段階的に値が変化するデータに適しています。ステップグラフは`geom_step()`関数で作成します。
 
-* X軸：日付型変数
-* Y軸：連続型変数
+-   X軸：日付型変数
+-   Y軸：連続型変数
 
 まず、サンプルデータを作成します。ここでは、Our World in Dataが提供する新型コロナウイルス感染対策の厳格度を示すStringency Indexを用います。
 
@@ -778,7 +778,8 @@ data_owid_step <- data_owid %>%
 
 data_owid_step
 ```
-### ステップグラフの基本形 {-}
+
+### ステップグラフの基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = data_owid_step,
@@ -792,8 +793,8 @@ ggplot(data = data_owid_step,
 
 面グラフは折れ線グラフの特殊形です。面グラフには2種類あり、折れ線グラフとX軸で挟まれた範囲を塗りつぶすグラフは`geom_area()`関数、2つの折れ線グラフで挟まれた範囲を塗りつぶすグラフは`geom_ribbon()`関数で作成します。後者は特にリボングラフと呼ばれ、信頼区間の可視化に用いることができます。
 
-* X軸：日付型変数
-* Y軸：連続型変数
+-   X軸：日付型変数
+-   Y軸：連続型変数
 
 まず、プロット用のデータを作成します。
 
@@ -807,7 +808,7 @@ data_owid_line <- data_owid %>%
 data_owid_line
 ```
 
-### 面グラフの基本形 {-}
+### 面グラフの基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = economics,
@@ -819,7 +820,7 @@ ggplot(data = economics,
             size = 1.0) # 線の太さ
 ```
 
-### 積み上げ面グラフ {-}
+### 積み上げ面グラフ {.unnumbered}
 
 複数の面グラフを積み上げ形式で作成するには、`position`引数に`position_stack()`関数を指定します。
 
@@ -834,7 +835,7 @@ data_owid_line %>%
             size = 1.0) # 線の太さ
 ```
 
-### リボングラフの基本形 {-}
+### リボングラフの基本形 {.unnumbered}
 
 リボングラフでは、`aes()`関数の中で塗りつぶし範囲の下端を`ymin`引数、上端を`ymax`引数に指定します。
 
@@ -851,7 +852,7 @@ data_owid_line %>%
               size = 0.5) # 線の太さ
 ```
 
-### リボングラフに折れ線グラフを追加 {-}
+### リボングラフに折れ線グラフを追加 {.unnumbered}
 
 リボングラフに折れ線グラフを追加する際は、まず`geom_ribbon()`関数でリボングラフを作成し、そのあとに`+`で`geom_line()`関数をつなげて折れ線グラフを追加します。
 
@@ -877,10 +878,10 @@ data_owid_line %>%
 
 データの分布範囲を可視化するには箱ひげグラフやヴァイオリングラフを用います。箱ひげグラフは`geom_boxplot()`関数、ヴァイオリングラフは`geom_violin()`関数で作成します。`geom_jitter()`関数を併用し、箱ひげグラフやヴァイオリングラフに個別データの位置をプロットすると、データの分布がより具体的に分かりやすくなります。
 
-* X軸：離散型変数
-* Y軸：連続型変数
+-   X軸：離散型変数
+-   Y軸：連続型変数
 
-### 箱ひげグラフの基本形 {-}
+### 箱ひげグラフの基本形 {.unnumbered}
 
 箱ひげグラフは一般的に、ひげの下端が最小値、箱の下端が第1四分位数、箱内部の横線が中央値、箱の上端が第3四分位数、ひげの上端が最大値を表します。しかし、`ggplot2`パッケージの`geom_boxplot()`で作成すると、ひげの下端・上端は箱の下端・上端から1.5×IQRの範囲内にある最小・最大のサンプルの位置を表すことに注意が必要です。その範囲外にあるサンプルは外れ値として扱われます。なお、IQRは四分位範囲（第3四分位数-第1四分位数）を意味します。
 
@@ -899,7 +900,7 @@ ggplot(data = mpg,
                size = 0.5) # 箱ひげの線の太さ
 ```
 
-### 箱ひげグラフに個別サンプルを追加 {-}
+### 箱ひげグラフに個別サンプルを追加 {.unnumbered}
 
 箱ひげグラフに個別サンプルを追加する場合は、データの重複表示を避けるため、`geom_boxplot()`関数の`outlier.shape`引数にNAを指定して、箱ひげグラフによる外れ値のマーカーを非表示にします。
 
@@ -921,7 +922,7 @@ ggplot(data = mpg,
               stroke = 0.5) # マーカーの線の太さ
 ```
 
-### ヴァイオリングラフの基本形 {-}
+### ヴァイオリングラフの基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -934,7 +935,7 @@ ggplot(data = mpg,
               size = 0.5) # ヴァイオリンの線の太さ
 ```
 
-### ヴァイオリングラフに個別サンプルを追加 {-}
+### ヴァイオリングラフに個別サンプルを追加 {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -959,10 +960,10 @@ ggplot(data = mpg,
 
 ドットプロットは`geom_dotplot()`関数で作成します。FOMCで示される参加者の政策金利予想を可視化する際に使用されます。
 
-* X軸：離散型変数
-* Y軸：離散型変数
+-   X軸：離散型変数
+-   Y軸：離散型変数
 
-### ドットプロットの基本形 {-}
+### ドットプロットの基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -990,7 +991,7 @@ data_mpg_color <- mpg %>%
 data_mpg_color
 ```
 
-### 色の手動指定（離散型変数） {-}
+### 色の手動指定（離散型変数） {.unnumbered}
 
 自分で色の割り当てを決める方法です。Rで使用できる色の種類については、[こちら](http://www.okadajp.org/RWiki/?%E8%89%B2%E8%A6%8B%E6%9C%AC)を参照してください。
 
@@ -1002,7 +1003,7 @@ ggplot(data = mpg,
   scale_fill_manual(values = c("Red", "Salmon", "Gold", "Forestgreen", "Darkblue")) # fillで指定した変数の離散値と同数の色を指定
 ```
 
-### Brewerカラーパレット（離散型変数） {-}
+### Brewerカラーパレット（離散型変数） {.unnumbered}
 
 `RColorBrewer`パッケージで提供される様々な種類の美麗なプリセットカラーパレットが利用できます。
 
@@ -1021,7 +1022,7 @@ ggplot(data = mpg,
                     direction = 1) # 色の順序（-1で逆順）
 ```
 
-### Viridisカラーパレット（離散型変数） {-}
+### Viridisカラーパレット（離散型変数） {.unnumbered}
 
 色覚障害に対応したカラーパレットです。パレットの種類などの詳細は[こちら](https://ggplot2.tidyverse.org/reference/scale_viridis.html)を参照してください。
 
@@ -1035,7 +1036,7 @@ ggplot(data = mpg,
                        direction = 1) # 色の順序（-1で逆順）
 ```
 
-### ggsciカラーパレット（離散型変数） {-}
+### ggsciカラーパレット（離散型変数） {.unnumbered}
 
 様々な科学ジャーナルで使用されるカラーパレットです。パレットの種類などの詳細は[こちら](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html)をご覧ください。
 
@@ -1047,7 +1048,7 @@ ggplot(data = mpg,
   scale_fill_npg()
 ```
 
-### distillerカラーパレット（連続型変数） {-}
+### distillerカラーパレット（連続型変数） {.unnumbered}
 
 `RColorBrewer`パッケージで提供される様々な種類の美麗なプリセットカラーパレットが利用できます。
 
@@ -1064,7 +1065,7 @@ ggplot(data = mpg,
                        direction = 1) # 色の順序（-1で逆順）
 ```
 
-### Viridisカラーパレット（連続型変数） {-}
+### Viridisカラーパレット（連続型変数） {.unnumbered}
 
 色覚障害に対応したカラーパレットです。パレットの種類などの詳細は[こちら](https://ggplot2.tidyverse.org/reference/scale_viridis.html)を参照してください。
 
@@ -1076,7 +1077,7 @@ ggplot(data = mpg,
                        direction = 1) # 色の順序（-1で逆順）
 ```
 
-### gradientカラーパレット（連続型変数） {-}
+### gradientカラーパレット（連続型変数） {.unnumbered}
 
 自分で色を指定してグラデーションを作成するカラーパレットです。2色グラデーション、3色グラデーション、n色グラデーションの3種類の関数があります。n色グラデーションでは、事前にベースとなるカラーパレットを`RColorBrewer::display.brewer.all()`関数などで確認して使用します。
 
@@ -1123,7 +1124,7 @@ data_owid_scale <- data_owid %>%
 summary(data_owid_scale)
 ```
 
-### X軸：連続型、Y軸：連続型 {-}
+### X軸：連続型、Y軸：連続型 {.unnumbered}
 
 ```{r}
 ggplot(data = data_owid_scale,
@@ -1149,7 +1150,7 @@ ggplot(data = data_owid_scale,
                                    vjust = 0.5)) # Y軸ラベルの縦整列位置（0-1）
 ```
 
-### 対数目盛 {-}
+### 対数目盛 {.unnumbered}
 
 ```{r}
 ggplot(data = data_owid_scale,
@@ -1175,7 +1176,7 @@ ggplot(data = data_owid_scale,
                                    vjust = 0.5)) # Y軸ラベルの縦整列位置（0-1）
 ```
 
-### X軸：日付型、Y軸：連続型 {-}
+### X軸：日付型、Y軸：連続型 {.unnumbered}
 
 ```{r}
 # date_breaks引数を使用する場合
@@ -1229,7 +1230,7 @@ ggplot(data = economics,
 
 複数のグラフをまとめたファセットを作成するには、`facet`関数ファミリーを使用します。どのようなファセットにするかで使用する関数が異なります。
 
-### 行方向の複合グラフ {-}
+### 行方向の複合グラフ {.unnumbered}
 
 行方向に複合グラフを並べる場合は、`facet_rep_grid()`関数の`rows`引数に`vars(離散型変数)`の形でグラフを分けて作成したい変数名を指定します。
 
@@ -1242,7 +1243,7 @@ ggplot(data = mpg,
                  repeat.tick.labels = FALSE) # 目盛表示（TRUE：すべてのグラフに表示、FALSE：端のグラフのみ表示
 ```
 
-### 列方向の複合グラフ {-}
+### 列方向の複合グラフ {.unnumbered}
 
 列方向に複合グラフを並べる場合は、`facet_rep_grid()`関数の`cols`引数に`vars(離散型変数)`の形でグラフを分けて作成したい変数名を指定します。
 
@@ -1255,7 +1256,7 @@ ggplot(data = mpg,
                  repeat.tick.labels = FALSE) # 目盛表示（TRUE：すべてのグラフに表示、FALSE：端のグラフのみ表示
 ```
 
-### 行・列方向の複合グラフ {-}
+### 行・列方向の複合グラフ {.unnumbered}
 
 行・列方向に複合グラフを並べる場合は、`facet_rep_grid()`関数の`rows`引数と`cols`引数にそれぞれ`vars(離散型変数)`の形でグラフを分けて作成したい変数名を指定します。
 
@@ -1269,7 +1270,7 @@ ggplot(data = mpg,
                  repeat.tick.labels = TRUE) # 目盛表示（TRUE：すべてのグラフに表示、FALSE：端のグラフのみ表示
 ```
 
-### 行数・列数を指定した複合グラフ {-}
+### 行数・列数を指定した複合グラフ {.unnumbered}
 
 行数と列数を指定してグラフを順番に並べるには、`facet_rep_wrap()`関数の`facets`引数に`~ 離散型変数`の形でグラフを分けて作成したい変数名を指定し、`nrow`引数と`ncol`引数に行数・列数を指定します。
 
@@ -1284,7 +1285,7 @@ ggplot(data = mpg,
                  repeat.tick.labels = TRUE) # 目盛表示（TRUE：すべてのグラフに表示、FALSE：端のグラフのみ表示
 ```
 
-### 複合グラフの設定 {-}
+### 複合グラフの設定 {.unnumbered}
 
 ファセットの各種設定を行うには、`theme()`関数内に必要事項を記入します。
 
@@ -1353,7 +1354,7 @@ ggplot(data = data_gdp_pref,
 
 タイトル、目盛線、凡例、図表全体のフォント、マージンなどの各種設定を行います。
 
-### タイトル・キャプション {-}
+### タイトル・キャプション {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -1371,7 +1372,7 @@ ggplot(data = mpg,
                                     hjust = 0.0)) # キャプションの横整列位置
 ```
 
-### パネル目盛線 {-}
+### パネル目盛線 {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -1384,7 +1385,7 @@ ggplot(data = mpg,
         panel.grid.minor = element_blank()) # 補助目盛り線は表示しない
 ```
 
-### 凡例 {-}
+### 凡例 {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -1412,7 +1413,7 @@ ggplot(data = mpg,
                              reverse = FALSE)) # 凡例順序の逆転
 ```
 
-### フォント・マージン設定 {-}
+### フォント・マージン設定 {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -1428,7 +1429,7 @@ ggplot(data = mpg,
                              unit = "mm")) # 図表マージンの単位
 ```
 
-### 保存 {-}
+### 保存 {.unnumbered}
 
 `ggplot2`パッケージで作成した図表を画像形式で保存するには、`ggsave()`関数を使用します。
 
@@ -1442,7 +1443,7 @@ ggsave(filename = "directory/filename.png", # 図表のファイル名
 
 ## 実例
 
-### 実例1：世界の新型コロナ死亡率の箱ひげ図 {-}
+### 実例1：世界の新型コロナ死亡率の箱ひげ図 {.unnumbered}
 
 ```{r, results='hide', warning=FALSE, message=FALSE}
 # プロット用のデータの作成
@@ -1495,14 +1496,10 @@ ggplot(data = data_plot,
 ```
 
 ```{r, eval=FALSE}
-保存
+# 保存
 ggsave(filename = "directory/filename.png", # 図表のファイル名
        width = 12.00, # 図表の横サイズ
        height = 9.00, # 図表の縦サイズ
        units = "cm", # 図表のサイズ単位
        dpi = 600) # 図表の解像度
 ```
-
-
-
-
