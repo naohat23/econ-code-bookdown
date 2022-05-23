@@ -1,6 +1,6 @@
 # tidyverseによるデータ操作
 
-本節では、`tidyverse`の`dplyr`パッケージと`tidyr`パッケージを使用した効率的なデータ操作のコードについて解説します。
+第3章「tidyverseによるデータ操作」では、`tidyverse`の`dplyr`パッケージと`tidyr`パッケージを使用した効率的なデータ操作のコードについて解説します。
 
 ## パッケージのインポート
 
@@ -523,6 +523,20 @@ dplyr::full_join(band_members, band_instruments, by = "name")
 
 ## 重複処理
 
+### 重複業の抽出
+
+重複している行を抽出するには、`dplyr::group_by()`関数、`dplyr::filter()`関数、`dplyr::n()`関数を組み合わせて使用します。`dplyr::n()`関数は、`dplyr::group_by()`関数で指定したグループのサイズを返す関数です。
+
+```{r}
+# 指定した列を対象にして、重複している行を抽出
+mpg %>% 
+  dplyr::group_by(manufacturer, model, displ, year, cyl, trans, cty, hwy) %>% 
+  dplyr::filter(dplyr::n() > 1)
+```
+
+
+### 重複行の削除 {-}
+
 重複している行を削除するには、`dplyr::distinct()`関数を使用します。
 
 ```{r}
@@ -659,6 +673,28 @@ data_complete_1 %>%
 # 日次データの欠損日を補完
 data_complete_2 %>% 
   tidyr::complete(date = full_seq(date, period = 1))
+```
+
+## サンプリング
+
+データセットからデータをサンプリングするには、`dplyr::sample`関数ファミリーを使用します。ここでは、53940サンプルあるdiamondsデータセットからサンプリングを行います。
+
+```{r}
+diamonds
+```
+
+サンプル数を決めてサンプリングするには、`dplyr::sample_n()`関数を使用します。
+
+```{r}
+diamonds %>% 
+  dplyr::sample_n(size = 1000)
+```
+
+サンプル数をオリジナルデータセットのサンプル数の比率で決定する場合は、`dplyr::sample_frac()`関数を使用します。
+
+```{r}
+diamonds %>% 
+  dplyr::sample_frac(size = 0.1)
 ```
 
 ## 時系列データの頻度変換

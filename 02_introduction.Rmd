@@ -1,6 +1,6 @@
 # Rの基本的な使用方法
 
-本節では、Rの基本的な使用方法について解説します。本節の内容は基礎部分のみのため、詳細は、[馬場真哉（2020）『R言語ではじめるプログラミングとデータ分析』](https://www.socym.co.jp/book/1238)や、[Hadley Wickham、Garrett Grolemund（2017）『Rではじめるデータサイエンス』](https://www.oreilly.co.jp/books/9784873118147/)などを参照してください。
+第2章「Rの基本的な使用方法」では、Rの基本的な使用方法について解説します。本節の内容は基礎部分のみのため、詳細は、[馬場真哉（2020）『R言語ではじめるプログラミングとデータ分析』](https://www.socym.co.jp/book/1238)や、[Hadley Wickham、Garrett Grolemund（2017）『Rではじめるデータサイエンス』](https://www.oreilly.co.jp/books/9784873118147/)などを参照してください。なお、『Rではじめるデータサイエンス』の原著版である"R for Data Science"は、[こちらのウェブサイト](https://r4ds.had.co.nz/index.html)で全文閲覧できます。
 
 RStudioでコードを編集するパネルをソース（Source）と呼びます。RStudioの左上のパネルがソースで、コンソール（Console）パネルの上にあります。ソースが表示されていない場合は、FileメニューからNew Fileに進み、R Scriptを選択すると、ソースが表示されます。
 

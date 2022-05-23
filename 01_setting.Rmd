@@ -1,6 +1,6 @@
 # Rの設定
 
-Rを使用する際の各種設定です。パッケージのインストール・インポートや、プロキシサーバーの設定（プロキシ環境のみ）など、Rの使用に欠かせない様々な設定について記載しています。
+第1章「Rの設定」では、Rを使用する際の各種設定について解説します。パッケージのインストール・インポートや、プロキシサーバーの設定（プロキシ環境のみ）など、Rの使用に欠かせない様々な設定について記載しています。
 
 ## 設定全般
 
@@ -72,11 +72,13 @@ options(timeout = NA)
     -   [ggpubr](https://rpkgs.datanovia.com/ggpubr/)：論文形式の図表作成
     -   [ggsci](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html)：科学系論文の雑誌別カラーパレット
     -   [ggrepel](https://ggrepel.slowkow.com/index.html)：散布図のラベル付与
+    -   hexbin：`geom_hex()`関数を使用するために必要なパッケージ
     -   [lemon](https://github.com/stefanedwards/lemon)：ファセット図の軸・目盛り表示
     -   [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/index.html)：カラーパレット
 -   統計系
     -   mgcv：一般化加法モデル（GAM）
     -   plm：パネルデータモデル
+    -   [psych](https://personality-project.org/r/psych/)：心理統計パッケージ
     -   sigmoid：シグモイド関数
     -   [tidyquant](https://business-science.github.io/tidyquant/index.html)：金融時系列データ分析
 -   その他
@@ -90,8 +92,8 @@ options(timeout = NA)
 # パッケージ一覧
 packages <- c(
   "lubridate", "magrittr", "tidyverse", "readxl",
-  "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "lemon", "RColorBrewer",
-  "mgcv", "plm", "sigmoid", "tidyquant",
+  "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
+  "mgcv", "plm", "psych", "sigmoid", "tidyquant",
   "openxlsx"
 )
 

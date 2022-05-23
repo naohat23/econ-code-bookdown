@@ -1,0 +1,175 @@
+# 探索的データ分析
+
+第5章「探索的データ分析（Exploratory Data Analysis）」では、データの内容を理解するための方法を解説します。これは、本格的な統計モデルを構築する方針を立てるための重要なプロセスです。
+
+["R for Data Science"](https://r4ds.had.co.nz/index.html)によれば、探索的データ分析は厳密なルールに基づく形式的なプロセスではなく、分析対象であるデータについて、
+
+-   問いを提示する。
+-   可視化、変換、モデル化により、問いに対する解を探る。
+-   得た知見をもとに、問いを洗練させるか、新たな問いを提示する。
+
+を繰り返すことであるとされています。
+
+とはいえ、問いの立て方や解の考え方にはよく利用される手法があるため、それらを学んでおくことは有用です。
+
+## パッケージのインポート
+
+```{r, results='hide', warning=FALSE, message=FALSE}
+library(magrittr)
+library(tidyverse)
+library(psych)
+```
+
+## ggplot2の設定
+
+```{r}
+## ggplotのテーマ設定（Excelのグラフと類似したテーマを選択）
+theme_set(theme_light())
+
+## Windowsにおけるggplot2の日本語フォント設定
+windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
+windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
+```
+
+## データの中身
+
+まず、データが何を含んでいるかを確認します。
+
+`summary()`関数は、各変数の記述統計量を出力する関数です。数値型の変数は、平均、中央値、最大値、最小値、四分位数を、文字列等のカテゴリカル変数は、要素毎のサンプル数が出力されます。
+
+`psych::describe()`関数は、各変数の記述統計量や分布に関する情報を出力する関数です。平均、中央値、標準偏差に加え、刈り込み平均（trimmed）、中央絶対偏差（mad）、レンジ（最大値と最小値の差）、歪度（skew）、尖度（kurtosis）、標準誤差（se）が出力されます。
+
+```{r}
+# データをコンソールに出力
+diamonds
+
+# データの変数名を出力
+colnames(diamonds)
+
+# データの記述統計量を出力
+summary(diamonds)
+
+# データの記述統計量や分布に関する情報を出力
+psych::describe(diamonds)
+```
+
+## データの分布
+
+次に、データに含まれる変数がどのように分布しているかを、`ggplot2`パッケージの関数を使用して可視化します。
+
+### 離散型変数の度数分布
+
+離散型変数の度数分布を出力するには`dplyr::count()`関数を使用します。
+
+```{r}
+diamonds %>% 
+  dplyr::count(cut)
+```
+
+離散型変数の度数分布を可視化するには、頻度棒グラフを使用します。
+
+```{r}
+diamonds %>% 
+  ggplot(mapping = aes(x = cut)) +
+  geom_bar()
+```
+
+### 連続型変数の度数分布 {-}
+
+連続型変数の度数分布を出力するには、`dplyr::count()`関数と`ggplot2::cut_width()`関数を使用します。
+
+```{r}
+diamonds %>% 
+  dplyr::count(ggplot2::cut_width(carat, 0.5))
+```
+
+連続型変数の度数分布を可視化するには、ヒストグラムを使用します。
+
+```{r}
+diamonds %>% 
+  ggplot(mapping = aes(x = carat)) +
+  geom_histogram(binwidth = 0.5)
+```
+
+連続型変数の度数分布をグループ別に可視化するには、`geom_freqpoly()`関数を使用します。
+
+```{r}
+diamonds %>% 
+  ggplot(mapping = aes(x = carat, color = cut)) +
+  geom_freqpoly(binwidth = 0.1)
+```
+
+連続型変数の度数を標準化して密度をグループ別に可視化するには、`mapping = aes(y = ..density..)`を指定して、`geom_fredpoly()`関数を使用します。
+
+```{r}
+diamonds %>% 
+  ggplot(mapping = aes(x = price, y = ..density.., color = cut)) +
+  geom_freqpoly(binwidth = 500)
+```
+
+
+### 外れ値 {-}
+
+外れ値や異常値を可視化するにはヒストグラムを使用し、`coord_cartesian()`関数の`ylim`引数にY軸の下限・上限値を指定して、Y軸方向に図表を拡大します。
+なお、`scale_y_continuous()`関数の`limits`引数に下限・上限を指定する方法でもY軸の表示範囲を変えることができますが、下限・上限の範囲外にあるデータが表示されなくなるため、単に拡大するだけであれば`coord_cartesian()`関数を用いるほうが良いでしょう。
+
+```{r}
+diamonds %>% 
+  ggplot(mapping = aes(x = y)) +
+  geom_histogram() +
+  coord_cartesian(ylim = c(0, 50))
+```
+
+グループ別に外れ値を可視化する場合は、箱ひげ図を使用します。
+
+```{r}
+diamonds %>% 
+  ggplot(mapping = aes(x = cut, y = carat)) +
+  geom_boxplot()
+```
+
+## データの関係性
+
+データに含まれる変数が互いにどのような関係にあるかを、`ggplot2`パッケージの関数を使用して可視化します。
+
+### 離散型変数の関係性 {-}
+
+離散型変数の観測値の組み合わせの分布を可視化するには、`geom_count()`関数の頻度バブルチャートや、`geom_tile()`関数のヒートマップを使用します。
+
+```{r}
+diamonds %>% 
+  ggplot(mapping = aes(x = cut, y = color)) +
+  geom_count()
+```
+
+```{r}
+diamonds %>% 
+  dplyr::count(cut, color) %>% 
+  ggplot(mapping = aes(x = cut, y = color, fill = n)) +
+  geom_tile()
+```
+
+### 連続型変数の関係性 {-}
+
+連続型変数の観測値の組み合わせの分布を可視化するには、`geom_point()`関数の散布図や、`geom_bin2d()`関数、`geom_hex()`関数のヒートマップを使用します。特にデータサイズが大きい場合は、`geom_point()`関数の実行に時間がかかるため、`geom_bin2d()`関数や`geom_hex()`関数を用いるのが効果的です。
+
+```{r}
+diamonds %>% 
+  ggplot(mapping = aes(x = carat, y = price)) +
+  geom_point(alpha = 0.05)
+```
+
+```{r}
+diamonds %>% 
+  ggplot(mapping = aes(x = carat, y = price)) +
+  geom_bin2d(bins = 100) # X軸・Y軸の階級数（デフォルトは30）
+```
+
+```{r}
+diamonds %>% 
+  ggplot(mapping = aes(x = carat, y = price)) +
+  geom_hex(bins = 50) # X軸・Y軸の階級数（デフォルトは30）
+```
+
+
+

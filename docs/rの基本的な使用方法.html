@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2022-05-14" />
+<meta name="date" content="2022-05-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -173,7 +173,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.13" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複処理"><i class="fa fa-check"></i><b>3.13</b> 重複処理</a></li>
 <li class="chapter" data-level="3.14" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#欠損値処理"><i class="fa fa-check"></i><b>3.14</b> 欠損値処理</a></li>
 <li class="chapter" data-level="3.15" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#補完処理"><i class="fa fa-check"></i><b>3.15</b> 補完処理</a></li>
-<li class="chapter" data-level="3.16" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#時系列データの頻度変換"><i class="fa fa-check"></i><b>3.16</b> 時系列データの頻度変換</a></li>
+<li class="chapter" data-level="3.16" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#サンプリング"><i class="fa fa-check"></i><b>3.16</b> サンプリング</a></li>
+<li class="chapter" data-level="3.17" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#時系列データの頻度変換"><i class="fa fa-check"></i><b>3.17</b> 時系列データの頻度変換</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html"><i class="fa fa-check"></i><b>4</b> ggplot2によるグラフ作成</a>
 <ul>
@@ -182,24 +183,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplot2の設定"><i class="fa fa-check"></i><b>4.3</b> ggplot2の設定</a></li>
 <li class="chapter" data-level="4.4" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#サンプルデータの確認読み込み"><i class="fa fa-check"></i><b>4.4</b> サンプルデータの確認・読み込み</a></li>
 <li class="chapter" data-level="4.5" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#gui形式の直感的なグラフ作成"><i class="fa fa-check"></i><b>4.5</b> GUI形式の直感的なグラフ作成</a></li>
-<li class="chapter" data-level="4.6" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ヒストグラム"><i class="fa fa-check"></i><b>4.6</b> ヒストグラム</a></li>
-<li class="chapter" data-level="4.7" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#密度グラフ"><i class="fa fa-check"></i><b>4.7</b> 密度グラフ</a></li>
-<li class="chapter" data-level="4.8" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#頻度棒グラフ"><i class="fa fa-check"></i><b>4.8</b> 頻度棒グラフ</a></li>
-<li class="chapter" data-level="4.9" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#頻度バブルチャート"><i class="fa fa-check"></i><b>4.9</b> 頻度バブルチャート</a></li>
-<li class="chapter" data-level="4.10" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図バブルチャート"><i class="fa fa-check"></i><b>4.10</b> 散布図・バブルチャート</a></li>
-<li class="chapter" data-level="4.11" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#棒グラフ"><i class="fa fa-check"></i><b>4.11</b> 棒グラフ</a></li>
-<li class="chapter" data-level="4.12" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#円グラフ"><i class="fa fa-check"></i><b>4.12</b> 円グラフ</a></li>
-<li class="chapter" data-level="4.13" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフ"><i class="fa fa-check"></i><b>4.13</b> 折れ線グラフ</a></li>
-<li class="chapter" data-level="4.14" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ステップグラフ"><i class="fa fa-check"></i><b>4.14</b> ステップグラフ</a></li>
-<li class="chapter" data-level="4.15" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#面グラフ"><i class="fa fa-check"></i><b>4.15</b> 面グラフ</a></li>
-<li class="chapter" data-level="4.16" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげグラフヴァイオリングラフ"><i class="fa fa-check"></i><b>4.16</b> 箱ひげグラフ・ヴァイオリングラフ</a></li>
-<li class="chapter" data-level="4.17" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロット"><i class="fa fa-check"></i><b>4.17</b> ドットプロット</a></li>
-<li class="chapter" data-level="4.18" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の設定"><i class="fa fa-check"></i><b>4.18</b> 色の設定</a></li>
-<li class="chapter" data-level="4.19" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#軸の設定"><i class="fa fa-check"></i><b>4.19</b> 軸の設定</a></li>
-<li class="chapter" data-level="4.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複数グラフファセット"><i class="fa fa-check"></i><b>4.20</b> 複数グラフ（ファセット）</a></li>
-<li class="chapter" data-level="4.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>4.21</b> 地図ファセット</a></li>
-<li class="chapter" data-level="4.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#その他設定保存"><i class="fa fa-check"></i><b>4.22</b> その他設定・保存</a></li>
-<li class="chapter" data-level="4.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>4.23</b> 実例</a></li>
+<li class="chapter" data-level="4.6" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布離散型"><i class="fa fa-check"></i><b>4.6</b> 1次元の度数分布（離散型）</a></li>
+<li class="chapter" data-level="4.7" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布連続型"><i class="fa fa-check"></i><b>4.7</b> 1次元の度数分布（連続型）</a></li>
+<li class="chapter" data-level="4.8" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の密度グラフ"><i class="fa fa-check"></i><b>4.8</b> 1次元の密度グラフ</a></li>
+<li class="chapter" data-level="4.9" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布離散型-1"><i class="fa fa-check"></i><b>4.9</b> 2次元の度数分布（離散型）</a></li>
+<li class="chapter" data-level="4.10" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布連続型-1"><i class="fa fa-check"></i><b>4.10</b> 2次元の度数分布（連続型）</a></li>
+<li class="chapter" data-level="4.11" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の密度グラフ-1"><i class="fa fa-check"></i><b>4.11</b> 2次元の密度グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#qqプロット"><i class="fa fa-check"></i>QQプロット</a></li>
+<li class="chapter" data-level="4.12" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図バブルチャート"><i class="fa fa-check"></i><b>4.12</b> 散布図・バブルチャート</a></li>
+<li class="chapter" data-level="4.13" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#棒グラフ"><i class="fa fa-check"></i><b>4.13</b> 棒グラフ</a></li>
+<li class="chapter" data-level="4.14" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#円グラフ"><i class="fa fa-check"></i><b>4.14</b> 円グラフ</a></li>
+<li class="chapter" data-level="4.15" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフ"><i class="fa fa-check"></i><b>4.15</b> 折れ線グラフ</a></li>
+<li class="chapter" data-level="4.16" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ステップグラフ"><i class="fa fa-check"></i><b>4.16</b> ステップグラフ</a></li>
+<li class="chapter" data-level="4.17" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#面グラフ"><i class="fa fa-check"></i><b>4.17</b> 面グラフ</a></li>
+<li class="chapter" data-level="4.18" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげ図ヴァイオリングラフ"><i class="fa fa-check"></i><b>4.18</b> 箱ひげ図・ヴァイオリングラフ</a></li>
+<li class="chapter" data-level="4.19" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロット"><i class="fa fa-check"></i><b>4.19</b> ドットプロット</a></li>
+<li class="chapter" data-level="4.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の設定"><i class="fa fa-check"></i><b>4.20</b> 色の設定</a></li>
+<li class="chapter" data-level="4.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#軸の設定"><i class="fa fa-check"></i><b>4.21</b> 軸の設定</a></li>
+<li class="chapter" data-level="4.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複数グラフファセット"><i class="fa fa-check"></i><b>4.22</b> 複数グラフ（ファセット）</a></li>
+<li class="chapter" data-level="4.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>4.23</b> 地図ファセット</a></li>
+<li class="chapter" data-level="4.24" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#その他設定保存"><i class="fa fa-check"></i><b>4.24</b> その他設定・保存</a></li>
+<li class="chapter" data-level="4.25" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>4.25</b> 実例</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="探索的データ分析.html"><a href="探索的データ分析.html"><i class="fa fa-check"></i><b>5</b> 探索的データ分析</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="探索的データ分析.html"><a href="探索的データ分析.html#パッケージのインポート-2"><i class="fa fa-check"></i><b>5.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="5.2" data-path="探索的データ分析.html"><a href="探索的データ分析.html#ggplot2の設定-1"><i class="fa fa-check"></i><b>5.2</b> ggplot2の設定</a></li>
+<li class="chapter" data-level="5.3" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの中身"><i class="fa fa-check"></i><b>5.3</b> データの中身</a></li>
+<li class="chapter" data-level="5.4" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの分布"><i class="fa fa-check"></i><b>5.4</b> データの分布</a></li>
+<li class="chapter" data-level="5.5" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの関係性"><i class="fa fa-check"></i><b>5.5</b> データの関係性</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
@@ -223,7 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="rの基本的な使用方法" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">2</span> Rの基本的な使用方法<a href="rの基本的な使用方法.html#rの基本的な使用方法" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>本節では、Rの基本的な使用方法について解説します。本節の内容は基礎部分のみのため、詳細は、<a href="https://www.socym.co.jp/book/1238">馬場真哉（2020）『R言語ではじめるプログラミングとデータ分析』</a>や、<a href="https://www.oreilly.co.jp/books/9784873118147/">Hadley Wickham、Garrett Grolemund（2017）『Rではじめるデータサイエンス』</a>などを参照してください。</p>
+<p>第2章「Rの基本的な使用方法」では、Rの基本的な使用方法について解説します。本節の内容は基礎部分のみのため、詳細は、<a href="https://www.socym.co.jp/book/1238">馬場真哉（2020）『R言語ではじめるプログラミングとデータ分析』</a>や、<a href="https://www.oreilly.co.jp/books/9784873118147/">Hadley Wickham、Garrett Grolemund（2017）『Rではじめるデータサイエンス』</a>などを参照してください。なお、『Rではじめるデータサイエンス』の原著版である”R for Data Science”は、<a href="https://r4ds.had.co.nz/index.html">こちらのウェブサイト</a>で全文閲覧できます。</p>
 <p>RStudioでコードを編集するパネルをソース（Source）と呼びます。RStudioの左上のパネルがソースで、コンソール（Console）パネルの上にあります。ソースが表示されていない場合は、FileメニューからNew Fileに進み、R Scriptを選択すると、ソースが表示されます。</p>
 <p>ソースにコードを記述し、記述したコードの行にカーソルがある状態で<code>Ctrl + Enter</code>を押すと、コンソールに実行結果が表示されます。</p>
 <div id="主要ショートカットキー" class="section level2 hasAnchor" number="2.1">

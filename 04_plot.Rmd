@@ -1,6 +1,6 @@
 # ggplot2によるグラフ作成
 
-本節では、`tidyverse`の`ggplot2`パッケージを使用したグラフ作成のコードについて解説します。
+第4章「ggplot2によるグラフ作成」では、`tidyverse`の`ggplot2`パッケージを使用したグラフ作成のコードについて解説します。
 
 ## パッケージのインポート
 
@@ -53,6 +53,11 @@ iris_tbl
 ```{r}
 # mpgデータセット
 mpg
+```
+
+```{r}
+# diamondsデータセット
+diamonds
 ```
 
 ```{r}
@@ -131,6 +136,8 @@ data_gdp_pref
 
 `esquisse`パッケージは、ドラッグ＆ドロップでX軸・Y軸の変数や色・サイズを変化させる属性の変数を指定し、グラフを作成します。`esquisse`は便利なパッケージですが、データセットの規模が大きいと起動に時間がかかるため、変数の数が多い場合は、あらかじめ注目する変数を絞るといった前処理が必要です。
 
+Rで下記のコードを実行すると別のウィンドウで`esquisse`の画面が立ち上がり、インタラクティブな図表作成を行うことができます。ここではコードを示すのみにとどめており、実行していませんので、各自で試してみてください。
+
 ```{r, eval=FALSE}
 # irisデータ
 esquisse::esquisser(data = iris)
@@ -161,9 +168,29 @@ data_owid %>%
   ggplotgui::ggplot_shiny()
 ```
 
-## ヒストグラム
+## 1次元の度数分布（離散型）
 
-ヒストグラムは`geom_histogram()`関数で作成します。
+離散型変数の1次元の度数分布を作成するには、度数棒グラフを用います。度数棒グラフを作成するには`geom_bar()`関数を使用します。
+
+-   X軸：離散型変数
+-   Y軸：なし
+
+### 度数棒グラフの基本形 {.unnumbered}
+
+```{r}
+ggplot(data = mpg,
+       mapping = aes(x = manufacturer)) + 
+  geom_bar(alpha = 1.0, # 塗りつぶしの透明度
+           color = "darkblue", # 線の色
+           fill = "lightblue", # 塗りつぶしの色
+           size = 0.5, # 線の太さ
+           width = 0.9) # 棒の幅 (0-1)
+```
+
+
+## 1次元の度数分布（連続型）
+
+連続型変数の1次元の度数分布を作成するには、ヒストグラムを用います。ヒストグラムを作成するには`geom_histogram()`関数や`geom_freqpoly()`関数を使用します。
 
 -   X軸：連続型変数
 -   Y軸：なし
@@ -192,6 +219,15 @@ ggplot(data = mpg,
                  size = 0.5) # 線の太さ
 ```
 
+グループ別の度数分布は`geom_freqpoly()`関数でも可視化することができます。
+
+```{r}
+ggplot(data = mpg,
+       mapping = aes(x = hwy, color = class)) +
+  geom_freqpoly(binwidth = 5, # 階級幅
+                size = 0.5) # 線の太さ
+```
+
 ### 積み上げヒストグラム {.unnumbered}
 
 グループ別のヒストグラムを積み上げ形式で作成するには、`position`引数に`"stack"`を指定します。
@@ -205,7 +241,7 @@ ggplot(data = mpg,
                  size = 0.5) # 線の太さ
 ```
 
-## 密度グラフ
+## 1次元の密度グラフ
 
 密度グラフは`geom_density()`関数で作成します。
 
@@ -236,6 +272,15 @@ ggplot(data = mpg,
                size = 1.0) # 線の太さ
 ```
 
+横並びの密度グラフは`geom_freqpoly()`関数でも作成できます。`geom_freqpoly()`関数で`mapping = aes(y = ..density..)`を指定すると、各グループの度数を標準化して密度グラフに変換します。
+
+```{r}
+ggplot(data = mpg,
+       mapping = aes(x = hwy, y = ..density.., color = class)) +
+  geom_freqpoly(binwidth = 5, # 階級幅
+                size = 0.5) # 線の太さ
+```
+
 ### 積み上げ密度グラフ {.unnumbered}
 
 グループ別の密度グラフを積み上げ形式で作成するには、`position`引数に`"stack"`を指定します。
@@ -250,33 +295,15 @@ ggplot(data = mpg,
                size = 0.5) # 線の太さ
 ```
 
-## 頻度棒グラフ
 
-頻度棒グラフは`geom_bar()`関数で作成します。
+## 2次元の度数分布（離散型）
 
--   X軸：離散型変数
--   Y軸：なし
-
-### 頻度棒グラフの基本形 {.unnumbered}
-
-```{r}
-ggplot(data = mpg,
-       mapping = aes(x = manufacturer)) + 
-  geom_bar(alpha = 1.0, # 塗りつぶしの透明度
-           color = "darkblue", # 線の色
-           fill = "lightblue", # 塗りつぶしの色
-           size = 0.5, # 線の太さ
-           width = 0.9) # 棒の幅 (0-1)
-```
-
-## 頻度バブルチャート
-
-頻度バブルチャートは`geom_count()`関数で作成します。
+離散型変数の2次元の度数分布を作成するには、度数バブルチャートや度数ヒートマップを用います。度数バブルチャートを作成するには`geom_count()`関数を使用します。また、離散型変数の度数ヒートマップを作成するには`geom_tile()`関数を使用します。
 
 -   X軸：離散型変数
 -   Y軸：離散型変数
 
-### 頻度バブルチャートの基本形 {.unnumbered}
+### 度数バブルチャートの基本形 {.unnumbered}
 
 ```{r}
 ggplot(data = mpg,
@@ -288,6 +315,105 @@ ggplot(data = mpg,
              stroke = 0.5) + # 線の太さ
   scale_size_area(max_size = 15) + # 変量とマーカーの面積を比例させる
   theme(axis.text.x = element_text(angle = 45, hjust = 1.0))
+```
+
+### 度数ヒートマップの基本形 {.unnumbered}
+
+```{r}
+ggplot(data = mpg %>% 
+         dplyr::count(manufacturer, class), # データの度数を格納した変数を作成
+       mapping = aes(x = manufacturer, y = class, fill = n)) +
+  geom_tile(height = 1.0, # タイルの高さ
+            width = 1.0, # タイルの幅
+            alpha = 1.0, # 塗りつぶしの色の透明度
+            color = "grey", # 線の色
+            linetype = "solid", # 線の種類（solid / dashed / dotted / dotdash / twodash / longdash）
+            size = 0.5) + # 線の太さ
+  scale_fill_viridis_c() + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1.0))
+```
+
+## 2次元の度数分布（連続型）
+
+連続型変数の2次元の度数分布を作成するには、度数ヒートマップを用います。連続型変数の度数ヒートマップを作成するには`geom_bin2d()`関数を使用します。
+
+-   X軸：離散型変数
+-   Y軸：離散型変数
+
+### 度数ヒートマップの基本形 {.unnumbered}
+
+```{r}
+ggplot(data = diamonds,
+       mapping = aes(x = carat, y = price)) +
+  geom_bin2d(bins = c(100, 75), # X軸・Y軸の階級数（デフォルトは30）
+             alpha = 1.0, # 塗りつぶしの色の透明度
+             color = NA, # 線の色
+             linetype = "solid", # 線の種類
+             size = 0.2) + # 線の太さ
+  scale_fill_viridis_c()
+```
+
+## 2次元の密度グラフ
+
+2次元の密度グラフを作成するには、`geom_density2d()`関数ファミリーを使用します。
+
+-   X軸：連続型変数
+-   Y軸：連続型変数
+
+まず、使用するサンプルデータを作成します。データサイズが大きい場合、2次元密度グラフを作成するために時間を要するため、`dplyr::sample_n()`関数でサンプリングします。
+
+```{r}
+diamonds_small <- diamonds %>% 
+  dplyr::sample_n(size = 5000)
+```
+
+### 2次元密度グラフの基本形 {-}
+
+```{r}
+ggplot(data = diamonds_small,
+       mapping = aes(x = carat, y = price)) + 
+  geom_density2d()
+```
+
+### 2次元密度グラフの塗りつぶし版 {-}
+
+```{r}
+ggplot(data = diamonds_small,
+       mapping = aes(x = carat, y = price)) + 
+  geom_density2d_filled() +
+  scale_fill_brewer(palette = "Reds",
+                    direction = 1)
+```
+
+
+## QQプロット {-}
+
+QQプロットは`geom_qq()`関数で作成します。他のグラフと異なり、`mapping = aes(sample = 変数)`で変数を指定します。
+
+* X軸・Y軸：連続型変数
+
+QQ（Quantile-Quantile）プロットは、データが正規分布にどの程度近いかを検証するグラフです。Y軸にはデータを順番に並べた値、X軸にはデータが正規分布に従うと仮定した場合にとりうる期待値を標準化した値をとり、散布図を描いたものです。
+
+QQプロットが直線上にある場合、データは正規分布に従うと解釈できます。一方、QQプロットが直線から乖離している場合は、正規分布に従っておらず、分布にゆがみがあると解釈できます。
+
+例えば、QQプロットが**右下に凸**な形状の場合は、データは**右に長い裾（テール）**をもちます。一方、QQプロットが**左上に凸**な形状の場合は、データの分布は**左に長い裾（テール）**をもちます。
+
+また、QQプロットが**S字状**（前半は右下に凸、後半は左上に凸）の場合は、データの両裾が重い、いわゆる**ファット・テールの分布**になります。一方、**逆S字状**（前半は左上に凸、後半は右下に凸）の場合は、**ピーク部分が突出した分布**になります。
+
+```{r}
+# 右に長い裾をもつデータのQQプロット
+ggplot(data = iris,
+       mapping = aes(sample = Sepal.Length)) +
+  geom_qq_line() +
+  geom_qq()
+```
+
+```{r}
+# ファット・テールをもつデータのQQプロット
+ggplot(data = economics,
+       mapping = aes(sample = unemploy)) +
+  geom_qq_line() +
+  geom_qq()
 ```
 
 ## 散布図・バブルチャート
@@ -556,7 +682,7 @@ ggplot(data = data_mpg_col,
   theme(axis.text.x = element_text(angle = 45, hjust = 1.0))
 ```
 
-### 横並び縦棒グラフ {.unnumbered}
+### 集合縦棒グラフ {.unnumbered}
 
 複数の縦棒グラフを横並び形式で作成するには、`position`引数に`position_dodge()`関数を指定します。
 
@@ -601,9 +727,9 @@ ggplot(data = data_owid_col,
   guides(fill = guide_legend(reverse = TRUE))
 ```
 
-### シェア縦棒グラフ {.unnumbered}
+### 100％積み上げ縦棒グラフ {.unnumbered}
 
-複数の縦棒グラフを合計が100％になるシェア積み上げ形式で作成するには、`position`引数に`position_fill()`関数を指定します。
+複数の縦棒グラフを合計が100％になる積み上げ形式で作成するには、`position`引数に`position_fill()`関数を指定します。
 
 ```{r}
 ggplot(data = data_owid_col,
@@ -615,7 +741,7 @@ ggplot(data = data_owid_col,
   guides(fill = guide_legend(reverse = TRUE))
 ```
 
-### シェア縦棒グラフにラベルを追加 {.unnumbered}
+### 100％積み上げ縦棒グラフにラベルを追加 {.unnumbered}
 
 ```{r}
 data_owid_col %>% 
@@ -874,16 +1000,16 @@ data_owid_line %>%
             size = 1.0) # 線の太さ
 ```
 
-## 箱ひげグラフ・ヴァイオリングラフ
+## 箱ひげ図・ヴァイオリングラフ
 
-データの分布範囲を可視化するには箱ひげグラフやヴァイオリングラフを用います。箱ひげグラフは`geom_boxplot()`関数、ヴァイオリングラフは`geom_violin()`関数で作成します。`geom_jitter()`関数を併用し、箱ひげグラフやヴァイオリングラフに個別データの位置をプロットすると、データの分布がより具体的に分かりやすくなります。
+データの分布範囲を可視化するには箱ひげ図やヴァイオリングラフを用います。箱ひげ図は`geom_boxplot()`関数、ヴァイオリングラフは`geom_violin()`関数で作成します。`geom_jitter()`関数を併用し、箱ひげ図やヴァイオリングラフに個別データの位置をプロットすると、データの分布がより具体的に分かりやすくなります。
 
 -   X軸：離散型変数
 -   Y軸：連続型変数
 
-### 箱ひげグラフの基本形 {.unnumbered}
+### 箱ひげ図の基本形 {.unnumbered}
 
-箱ひげグラフは一般的に、ひげの下端が最小値、箱の下端が第1四分位数、箱内部の横線が中央値、箱の上端が第3四分位数、ひげの上端が最大値を表します。しかし、`ggplot2`パッケージの`geom_boxplot()`で作成すると、ひげの下端・上端は箱の下端・上端から1.5×IQRの範囲内にある最小・最大のサンプルの位置を表すことに注意が必要です。その範囲外にあるサンプルは外れ値として扱われます。なお、IQRは四分位範囲（第3四分位数-第1四分位数）を意味します。
+箱ひげ図は一般的に、ひげの下端が最小値、箱の下端が第1四分位数、箱内部の横線が中央値、箱の上端が第3四分位数、ひげの上端が最大値を表します。しかし、`ggplot2`パッケージの`geom_boxplot()`で作成すると、ひげの下端・上端は箱の下端・上端から1.5×IQRの範囲内にある最小・最大のサンプルの位置を表すことに注意が必要です。その範囲外にあるサンプルは外れ値として扱われます。なお、IQRは四分位範囲（第3四分位数-第1四分位数）を意味します。
 
 ```{r}
 ggplot(data = mpg,
@@ -900,9 +1026,9 @@ ggplot(data = mpg,
                size = 0.5) # 箱ひげの線の太さ
 ```
 
-### 箱ひげグラフに個別サンプルを追加 {.unnumbered}
+### 箱ひげ図に個別サンプルを追加 {.unnumbered}
 
-箱ひげグラフに個別サンプルを追加する場合は、データの重複表示を避けるため、`geom_boxplot()`関数の`outlier.shape`引数にNAを指定して、箱ひげグラフによる外れ値のマーカーを非表示にします。
+箱ひげ図に個別サンプルを追加する場合は、データの重複表示を避けるため、`geom_boxplot()`関数の`outlier.shape`引数にNAを指定して、箱ひげ図による外れ値のマーカーを非表示にします。
 
 ```{r}
 ggplot(data = mpg,
