@@ -76,6 +76,9 @@ options(timeout = NA)
     -   [lemon](https://github.com/stefanedwards/lemon)：ファセット図の軸・目盛り表示
     -   [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/index.html)：カラーパレット
 -   統計系
+    -   [corrplot](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)：相関係数行列を計算・可視化
+    -   [corrr](https://corrr.tidymodels.org/)：相関係数行列を計算・可視化
+    -   [GGally](https://ggobi.github.io/ggally/index.html)：ペアプロットなどのデータ可視化
     -   mgcv：一般化加法モデル（GAM）
     -   plm：パネルデータモデル
     -   [psych](https://personality-project.org/r/psych/)：心理統計パッケージ
@@ -93,7 +96,7 @@ options(timeout = NA)
 packages <- c(
   "lubridate", "magrittr", "tidyverse", "readxl",
   "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
-  "mgcv", "plm", "psych", "sigmoid", "tidyquant",
+  "corrplot", "corrr", "mgcv", "plm", "psych", "sigmoid", "tidyquant",
   "openxlsx"
 )
 

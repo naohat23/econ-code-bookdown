@@ -15,6 +15,9 @@
 ## パッケージのインポート
 
 ```{r, results='hide', warning=FALSE, message=FALSE}
+library(corrplot)
+library(corrr)
+library(GGally)
 library(magrittr)
 library(tidyverse)
 library(psych)
@@ -30,6 +33,21 @@ theme_set(theme_light())
 windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
 windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
 ```
+
+## サンプルデータの確認・読み込み
+
+### Rのサンプルデータセット {.unnumbered}
+
+```{r}
+# diamondsデータセット
+diamonds
+```
+
+```{r}
+# mtcarsデータセット
+mtcars
+```
+
 
 ## データの中身
 
@@ -66,7 +84,7 @@ diamonds %>%
   dplyr::count(cut)
 ```
 
-離散型変数の度数分布を可視化するには、頻度棒グラフを使用します。
+離散型変数の度数分布を可視化するには、度数棒グラフを使用します。
 
 ```{r}
 diamonds %>% 
@@ -134,7 +152,7 @@ diamonds %>%
 
 ### 離散型変数の関係性 {-}
 
-離散型変数の観測値の組み合わせの分布を可視化するには、`geom_count()`関数の頻度バブルチャートや、`geom_tile()`関数のヒートマップを使用します。
+離散型変数の観測値の組み合わせの分布を可視化するには、`geom_count()`関数の度数バブルチャートや、`geom_tile()`関数のヒートマップを使用します。
 
 ```{r}
 diamonds %>% 
@@ -171,5 +189,103 @@ diamonds %>%
   geom_hex(bins = 50) # X軸・Y軸の階級数（デフォルトは30）
 ```
 
+## 相関関係・ペアプロット
 
+### 相関係数行列 {-}
 
+`cor()`関数で相関係数行列を出力します。ここではサンプルデータセットとして`mtcars`データセットを使用しています。
+
+```{r}
+cor(mtcars)
+```
+
+### corrplotパッケージ {-}
+
+R標準の`cor()`関数の出力結果では見にくいため、`corrplot`パッケージを使用して相関係数行列を可視化します。
+
+```{r}
+# cor()関数で相関係数行列を計算し、その結果をcorrplot::corrplot()関数に渡す
+mtcars %>% 
+  cor() %>% 
+  corrplot::corrplot(method = "square", # 可視化方法（"circle", "square", "ellipse", "number", "shade", "color", "pie"）
+                     type = "full", # 表示形式（"full", "upper", "lower"）
+                     addCoef.col = "black", # 相関係数の値の色
+                     diag = FALSE, # 対角要素を表示するか
+                     number.cex = 0.8, # 相関係数の値のフォントサイズ
+                     number.digits = 2) # 相関係数の値の小数点以下桁数
+```
+
+`corrplot::cor.mtest()`関数を使用すると、「相関係数が0である」との帰無仮説に対するp値を計算し、その結果を可視化することができます。
+
+```{r}
+# 相関係数の検定を行いp値を計算
+mtcars_p <- corrplot::cor.mtest(mtcars)
+
+# p値の計算結果を指定して検定結果を可視化
+mtcars %>% 
+  cor() %>% 
+  corrplot::corrplot(method = "square", # 可視化方法（"circle", "square", "ellipse", "number", "shade", "color", "pie"）
+                     type = "full", # 表示形式（"full", "upper", "lower"）
+                     p.mat = mtcars_p$p, # p値の計算結果
+                     sig.level = 0.05, # 有意水準
+                     addCoef.col = "black", # 相関係数の値の色
+                     diag = FALSE, # 対角要素を表示するか
+                     number.cex = 0.8, # 相関係数の値のフォントサイズ
+                     number.digits = 2) # 相関係数の値の小数点以下桁数
+```
+
+### corrrパッケージ {-}
+
+次に、`corrr`パッケージを使用して相関係数を可視化します。
+
+`corrr::correlate()`関数で相関係数行列を格納した`cor_df`オブジェクトを作成します。
+
+```{r}
+mtcars_cor <- corrr::correlate(mtcars,
+                               method = "pearson") # 相関係数の算出法（"pearson", "kendall", "spearman"）
+
+mtcars_cor
+```
+
+`corrr::rearrange()`関数を使用すると、高い相関を持つ変数を近くにするよう変数の順序を自動で変更します。
+
+```{r}
+mtcars_cor %>% 
+  corrr::rearrange()
+```
+
+`corrr::rplot()`関数を使用して、相関係数行列を散布図で可視化します。ここで、`corrr::shave()`関数は相関係数行列の左下半分のみを抽出する関数です。
+
+```{r}
+mtcars_cor %>% 
+  corrr::rearrange() %>% 
+  corrr::shave() %>% 
+  corrr::rplot(print_cor = TRUE) # 散布図上に相関係数の値を表示する
+```
+
+`corrr::network_plot()`関数を使用すると、変数の相関関係をネットワーク図で可視化することができます。ネットワーク図では相関が強い変数が近くに配置されます。
+
+```{r}
+mtcars_cor %>% 
+  corrr::network_plot(min_cor = 0.6) # 表示する最小の相関係数の値
+```
+
+### GGallyパッケージ {-}
+
+`GGally`パッケージの`GGally::ggpairs()`関数を使用すると、変数のペアプロット（pairwise plot）を簡単に出力することができます。なお、`GGally`パッケージにはペアプロット以外にも様々な機能があります。詳細は[公式ウェブサイト](https://ggobi.github.io/ggally/index.html)を参照してください。
+
+```{r}
+mtcars %>% 
+  dplyr::select(mpg, cyl, disp, hp, gear) %>% 
+  GGally::ggpairs(progress = FALSE) # コンソールにプログラスバーを表示するか
+```
+
+また、`mapping = aes()`内の引数にグループ化する変数を指定することで、グループ別のペアプロットを出力できます。ここではサンプルデータセットとして`iris`データセットを用いています。
+
+```{r}
+iris %>% 
+  GGally::ggpairs(mapping = aes(color = Species, alpha = 0.5),
+                  progress = FALSE) # コンソールにプログラスバーを表示するか
+```
+
+## EDAの一括実行
