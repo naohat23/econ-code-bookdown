@@ -40,4 +40,10 @@ knitr::opts_chunk$set(echo = TRUE)
 2.  Rの基本的な使用方法
 3.  tidyverseによるデータ操作
 4.  ggplot2によるグラフ作成
-5.  作成中...
+5.  探索的データ分析（EDA）
+6.  作成中・・・
+
+# 参考文献 {-}
+
+[Hadley Wickham、Garrett Grolemund（2017）『Rではじめるデータサイエンス』](https://www.oreilly.co.jp/books/9784873118147/)
+[馬場真哉（2020）『R言語ではじめるプログラミングとデータ分析』](https://www.socym.co.jp/book/1238)

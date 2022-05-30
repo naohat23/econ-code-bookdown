@@ -76,13 +76,15 @@ options(timeout = NA)
     -   [lemon](https://github.com/stefanedwards/lemon)：ファセット図の軸・目盛り表示
     -   [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/index.html)：カラーパレット
 -   統計系
-    -   [corrplot](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)：相関係数行列を計算・可視化
-    -   [corrr](https://corrr.tidymodels.org/)：相関係数行列を計算・可視化
+    -   [corrplot](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)：相関係数行列の計算・可視化
+    -   [corrr](https://corrr.tidymodels.org/)：相関係数行列の計算・可視化
+    -   [DataExplorer](https://cran.r-project.org/web/packages/DataExplorer/vignettes/dataexplorer-intro.html)：探索的データ分析の一括実行
     -   [GGally](https://ggobi.github.io/ggally/index.html)：ペアプロットなどのデータ可視化
     -   mgcv：一般化加法モデル（GAM）
     -   plm：パネルデータモデル
     -   [psych](https://personality-project.org/r/psych/)：心理統計パッケージ
     -   sigmoid：シグモイド関数
+    -   [SmartEDA](https://daya6489.github.io/SmartEDA/)：探索的データ分析の一括実行
     -   [tidyquant](https://business-science.github.io/tidyquant/index.html)：金融時系列データ分析
 -   その他
     -   [openxlsx](https://ycphs.github.io/openxlsx/)：Excelのxlsxファイルの読み込み・編集・書き出し
@@ -96,7 +98,7 @@ options(timeout = NA)
 packages <- c(
   "lubridate", "magrittr", "tidyverse", "readxl",
   "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
-  "corrplot", "corrr", "mgcv", "plm", "psych", "sigmoid", "tidyquant",
+  "corrplot", "corrr", "DataExplorer", "GGally", "mgcv", "plm", "psych", "sigmoid", "SmartEDA", "tidyquant",
   "openxlsx"
 )
 

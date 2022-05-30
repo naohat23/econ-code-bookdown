@@ -17,8 +17,10 @@
 ```{r, results='hide', warning=FALSE, message=FALSE}
 library(corrplot)
 library(corrr)
+library(DataExplorer)
 library(GGally)
 library(magrittr)
+library(SmartEDA)
 library(tidyverse)
 library(psych)
 ```
@@ -48,8 +50,13 @@ diamonds
 mtcars
 ```
 
+```{r}
+# irisデータセット
+iris %>% tibble::as_tibble()
+```
 
-## データの中身
+
+## データの中身（記述統計量）
 
 まず、データが何を含んでいるかを確認します。
 
@@ -289,3 +296,49 @@ iris %>%
 ```
 
 ## EDAの一括実行
+
+これまで一つずつ実施してきた探索的データ分析を一括して実行するパッケージを紹介します。
+
+### DataExplorerパッケージ {-}
+
+`DataExplorer`パッケージの`create_report()`関数を使用すると、データセットに含まれる変数、データ構造、欠損値、ヒストグラム、QQプロット、相関係数行列、主成分分析（PCA）などを自動で作成して、HTML形式のレポートをブラウザに出力します。ここではコードを実行していないため、各自で試してみてください。
+
+```{r, eval=FALSE}
+# irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施
+DataExplorer::create_report(data = iris)
+```
+
+```{r, eval=FALSE}
+# diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施
+DataExplorer::create_report(data = diamonds,
+                            y = "price")
+```
+
+### SmartEDAパッケージ {-}
+
+`SmartEDA`パッケージの`ExpReport()`関数を使用すると、データセットに含まれる変数、ヒストグラム、QQプロット、相関係数行列などを自動で作成して、HTML形式のレポートファイルを作成します。ここではコードを実行していないため、各自で試してみてください。
+
+なお、データセットのサイズが大きい場合は処理に時間がかかるため、注意が必要です。
+
+```{r, eval=FALSE}
+# irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施
+SmartEDA::ExpReport(data = iris,
+                    op_file = "report.html")
+```
+
+```{r, eval=FALSE}
+# diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施
+SmartEDA::ExpReport(data = diamonds,
+                    Target = "price",
+                    op_file = "report.html")
+```
+
+また、`SmartEDA::ExpCatStat()`では、`Target`引数で指定した被説明変数に対する各変数の予測力を計算することができます。
+
+```{r}
+# mtcarsデータセットに対し被説明変数をamに指定して各変数の予測力を計算
+SmartEDA::ExpCatStat(data = mtcars,
+                     Target = "am",
+                     plot = TRUE)
+```
+
