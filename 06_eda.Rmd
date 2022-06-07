@@ -1,6 +1,6 @@
 # 探索的データ分析
 
-第5章「探索的データ分析（Exploratory Data Analysis）」では、データの内容を理解するための方法を解説します。これは、本格的な統計モデルを構築する方針を立てるための重要なプロセスです。
+第6章「探索的データ分析（Exploratory Data Analysis）」では、データの内容を理解するための方法を解説します。これは、本格的な統計モデルを構築する方針を立てるための重要なプロセスです。
 
 ["R for Data Science"](https://r4ds.had.co.nz/index.html)によれば、探索的データ分析は厳密なルールに基づく形式的なプロセスではなく、分析対象であるデータについて、
 
@@ -35,26 +35,6 @@ theme_set(theme_light())
 windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
 windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
 ```
-
-## サンプルデータの確認・読み込み
-
-### Rのサンプルデータセット {.unnumbered}
-
-```{r}
-# diamondsデータセット
-diamonds
-```
-
-```{r}
-# mtcarsデータセット
-mtcars
-```
-
-```{r}
-# irisデータセット
-iris %>% tibble::as_tibble()
-```
-
 
 ## データの中身（記述統計量）
 

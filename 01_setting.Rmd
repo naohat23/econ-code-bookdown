@@ -42,21 +42,21 @@ suppressMessages(メッセージを出力する関数)
 Webからデータを直接読み込むため、企業や大学などのプロキシ環境ではプロキシサーバーの設定を行ってください。なお、下記のコードは認証プロキシには非対応です。
 
 ```{r, eval=FALSE}
-## プロキシサーバーとポートを記入
+# プロキシサーバーとポートを記入
 proxy_url <- "http://proxyserver:port/"
 
 
-## Rのシステム環境変数を設定
+# Rのシステム環境変数を設定
 Sys.setenv("http_proxy" = proxy_url)
 Sys.setenv("https_proxy" = proxy_url)
 
 
-## Rのダウンロードオプションを設定
+# Rのダウンロードオプションを設定
 options(download.file.method = "libcurl")
 options(timeout = NA)
 ```
 
-## パッケージのインストールとインポート
+## パッケージ
 
 ### 使用するパッケージ一覧 {.unnumbered}
 
@@ -79,15 +79,19 @@ options(timeout = NA)
     -   [corrplot](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)：相関係数行列の計算・可視化
     -   [corrr](https://corrr.tidymodels.org/)：相関係数行列の計算・可視化
     -   [DataExplorer](https://cran.r-project.org/web/packages/DataExplorer/vignettes/dataexplorer-intro.html)：探索的データ分析の一括実行
+    -   [fpp2](https://otexts.com/fpp2/)：時系列データ予測テキスト用に開発されたパッケージ
     -   [GGally](https://ggobi.github.io/ggally/index.html)：ペアプロットなどのデータ可視化
     -   mgcv：一般化加法モデル（GAM）
     -   plm：パネルデータモデル
     -   [psych](https://personality-project.org/r/psych/)：心理統計パッケージ
+    -   [seasonal](https://cran.r-project.org/web/packages/seasonal/readme/README.html)：コマンド形式の季節調整
+    -   [seasonalview](https://cran.r-project.org/web/packages/seasonalview/README.html)：GUI形式の季節調整
     -   sigmoid：シグモイド関数
     -   [SmartEDA](https://daya6489.github.io/SmartEDA/)：探索的データ分析の一括実行
     -   [tidyquant](https://business-science.github.io/tidyquant/index.html)：金融時系列データ分析
 -   その他
     -   [openxlsx](https://ycphs.github.io/openxlsx/)：Excelのxlsxファイルの読み込み・編集・書き出し
+    -   [pblapply](https://www.rdocumentation.org/packages/pbapply/versions/1.4-3/topics/pbapply)：プログレスバーを表示する`apply()`関数ファミリー
 
 ### パッケージのインストールとインポート {.unnumbered}
 
@@ -98,8 +102,8 @@ options(timeout = NA)
 packages <- c(
   "lubridate", "magrittr", "tidyverse", "readxl",
   "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
-  "corrplot", "corrr", "DataExplorer", "GGally", "mgcv", "plm", "psych", "sigmoid", "SmartEDA", "tidyquant",
-  "openxlsx"
+  "corrplot", "corrr", "DataExplorer", "fpp2", "GGally", "mgcv", "plm", "psych", "seasonal", "seasonalview", "sigmoid", "SmartEDA", "tidyquant",
+  "openxlsx", "pbapply"
 )
 
 # インストールしていないパッケージがあればインストール
@@ -133,6 +137,187 @@ old.packages()
 
 # パッケージを指定してアップデート
 install.packages("tidyverse")
+```
+
+## サンプルデータセット
+
+本書で使用するサンプルデータセットを読み込みもしくは確認します。
+
+### Rのサンプルデータセット {-}
+
+#### unemp {-}
+
+`Seasonal`パッケージに含まれる`unemp`データセットです。1990年1月から2016年11月までの米国の失業者数（単位：千人）の月次データであり、データ形式はts型です。
+
+```{r}
+seasonal::unemp
+```
+
+#### gasoline {-}
+
+`fpp2`パッケージに含まれる`gasoline`データセットです。1991年2月2日から2017年１月20日までの米国ガソリン生産量（単位：百万バレル／日）の週次データであり、データ形式はts型です。
+
+#### iris {.unnumbered}
+
+```{r}
+iris_tbl <- as.tibble(iris)
+iris_tbl
+```
+
+#### mpg {-}
+
+```{r}
+mpg
+```
+
+#### diamonds {-}
+
+```{r}
+diamonds
+```
+
+#### economics {-}
+
+```{r}
+economics
+```
+
+#### mtcars {-}
+
+```{r}
+mtcars
+```
+
+### 外部データセット
+
+外部データセットはWebから直接読み込むため、プロキシ環境ではプロキシサーバーの設定が必要です。
+
+```{r, eval=FALSE}
+# プロキシサーバーとポートを記入
+proxy_url <- "http://proxyserver:port/"
+
+
+# Rのシステム環境変数を設定
+Sys.setenv("http_proxy" = proxy_url)
+Sys.setenv("https_proxy" = proxy_url)
+
+
+# Rのダウンロードオプションを設定
+options(download.file.method = "libcurl")
+options(timeout = NA)
+```
+
+#### OWIDのCOVID-19データセット {-}
+
+Our World in Dataの新型コロナウイルス関連データセットです。データの詳細は[こちら](https://ourworldindata.org/coronavirus)を参照してください。
+
+Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Giattino, Esteban Ortiz-Ospina, Joe Hasell, Bobbie Macdonald, Diana Beltekian and Max Roser (2020) - "Coronavirus Pandemic (COVID-19)". Published online at OurWorldInData.org. Retrieved from: '<https://ourworldindata.org/coronavirus>' [Online Resource]
+
+```{r, warning=FALSE, message=FALSE}
+# Our World in Dataの新型コロナデータをtibble型で読み込み
+data_owid <- readr::read_csv(file = "https://covid.ourworldindata.org/data/owid-covid-data.csv", # ファイルパス／URL
+                             col_names = TRUE, # ヘッダー（列名データ）の有無
+                             col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                             skip = 0) # 読み込み時に上からスキップする行数
+
+# 使用するデータを絞り込み
+data_owid %<>% 
+  dplyr::select(continent, location, date, 
+                total_cases, new_cases, total_deaths, new_deaths, 
+                total_cases_per_million, new_cases_per_million, total_deaths_per_million, new_deaths_per_million,
+                people_fully_vaccinated) %>% 
+  dplyr::filter(location %in% c("Japan", "United States", "United Kingdom", "Germany"))
+
+# データをコンソールに出力
+data_owid
+```
+
+#### 日本の産業別就業者数 {-}
+
+総務省が公表する労働力調査の長期時系列データのうち、2002年1月以降の産業別就業者数（表番号：1-c-3）を格納したデータセットです。
+
+```{r}
+# 総務省の労働力調査データをdata.frame形式で読み込み
+data_labor <- openxlsx::read.xlsx(xlsxFile = "https://www.e-stat.go.jp/stat-search/file-download?statInfId=000031831374&fileKind=0", # ファイルパス／URL
+                                  sheet = 1, # シートインデックス／シート名
+                                  startRow = 10, # 読み込み開始行
+                                  colNames = FALSE, # 列名データの有無
+                                  rowNames = FALSE, # 行名データの有無
+                                  rows = NULL, # 読み込む列（NULLですべて読み込み）
+                                  cols = NULL) # 読み込む行（NULLですべて読み込み）
+
+# 不要な列を削除
+data_labor %<>%
+  dplyr::select(-X1, -X2, -X3, -X6)
+
+# 列名を追加
+colnames(data_labor) <- c("総数", 
+                          "農林", 
+                          "建設", 
+                          "製造", 
+                          "情報通信", 
+                          "運輸・郵便", 
+                          "卸・小売", 
+                          "金融・保険", 
+                          "不動産・物品賃貸",
+                          "学術・専門・技術",
+                          "宿泊・飲食",
+                          "生活関連・娯楽",
+                          "教育",
+                          "医療・福祉",
+                          "複合サービス",
+                          "その他サービス",
+                          "公務")
+
+# NAを含む行を削除
+data_labor %<>% 
+  tidyr::drop_na(everything())
+
+# すべての列を数値型に変換
+data_labor %<>% 
+  dplyr::mutate(across(everything(), as.double))
+
+# 日付列を追加
+data_labor %<>% 
+  dplyr::mutate(date = seq(from = as.Date("2002-01-01"), to = as.Date("2002-01-01") + months(dim(data_labor)[1] - 1), by = "1 month"),
+                .before = "総数")
+
+# tibble形式に変換
+data_labor %<>% tibble::as_tibble()
+
+# データをコンソールに出力
+data_labor
+```
+
+#### 日本の県内総生産 {.unnumbered}
+
+内閣府が公表する県内総生産データセットです（生産側、名目、2008SNA、平成23年基準計数）。詳細は[こちら](https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/main_2018.html)を参照してください。ここではデータをdata.frame形式で読み込み、前処理して縦型のtibble形式に変換します。
+
+```{r}
+# 内閣府の県内総生産データをdata.frame形式で読み込み
+data_gdp_pref <- openxlsx::read.xlsx(xlsxFile = "https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/tables/2018/soukatu1.xlsx", # ファイルパス／URL
+                                     sheet = 1, # シートインデックス／シート名
+                                     startRow = 5, # 読み込み開始行
+                                     colNames = TRUE, # 列名データの有無
+                                     rowNames = FALSE, # 行名データの有無
+                                     rows = 5:53, # 読み込む列（NULLですべて読み込み）
+                                     cols = NULL) # 読み込む行（NULLですべて読み込み）
+
+# データの型変換等を行い、縦型に変形したうえで、変化率系列を作成し、tibble形式に変換
+data_gdp_pref %<>% 
+  dplyr::mutate(across(`2006`:`2018`, as.double)) %>% 
+  dplyr::rename(pref_code = X1,
+                pref_name = X2) %>% 
+  dplyr::select(-X16) %>% 
+  tidyr::pivot_longer(cols = c(-"pref_code", -"pref_name"), names_to = "year", values_to = "gdp_nominal") %>% 
+  dplyr::mutate(across(c(pref_code, year), as.double)) %>% 
+  dplyr::arrange(pref_code, year) %>% 
+  dplyr::group_by(pref_name) %>% 
+  dplyr::mutate(gdp_nominal_pchg = 100 * (gdp_nominal / dplyr::lag(gdp_nominal, n = 1) - 1)) %>% 
+  dplyr::ungroup() %>% 
+  tibble::as_tibble()
+
+data_gdp_pref
 ```
 
 ## グラフの設定

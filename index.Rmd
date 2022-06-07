@@ -36,14 +36,20 @@ knitr::opts_chunk$set(echo = TRUE)
 
 エコノミストが経済・金融分析で使用するRのコードをまとめました。
 
+## 目次 {.unnumbered}
+
 1.  Rの設定
 2.  Rの基本的な使用方法
 3.  tidyverseによるデータ操作
-4.  ggplot2によるグラフ作成
-5.  探索的データ分析（EDA）
-6.  作成中・・・
+4.  時系列データ操作
+5.  ggplot2によるグラフ作成
+6.  探索的データ分析（EDA）
+7.  作成中・・・
 
-# 参考文献 {-}
+## 参考文献 {.unnumbered}
 
-[Hadley Wickham、Garrett Grolemund（2017）『Rではじめるデータサイエンス』](https://www.oreilly.co.jp/books/9784873118147/)
-[馬場真哉（2020）『R言語ではじめるプログラミングとデータ分析』](https://www.socym.co.jp/book/1238)
+[Hyndman, R.J., & Athanasopoulos, G. (2018) Forecasting: principles and practice, 2nd edition, OTexts: Melbourne, Australia.](https://otexts.com/fpp2/)
+
+[Wickham, H., & Grolemund, G. (2017) 『Rではじめるデータサイエンス』](https://www.oreilly.co.jp/books/9784873118147/)
+
+[馬場真哉 (2020) 『R言語ではじめるプログラミングとデータ分析』](https://www.socym.co.jp/book/1238)

@@ -1,6 +1,6 @@
 # ggplot2によるグラフ作成
 
-第4章「ggplot2によるグラフ作成」では、`tidyverse`の`ggplot2`パッケージを使用したグラフ作成のコードについて解説します。
+第5章「ggplot2によるグラフ作成」では、`tidyverse`の`ggplot2`パッケージを使用したグラフ作成のコードについて解説します。
 
 ## パッケージのインポート
 
@@ -38,94 +38,6 @@ theme_set(theme_light())
 ## Windowsにおけるggplot2の日本語フォント設定
 windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
 windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
-```
-
-## サンプルデータの確認・読み込み
-
-### Rのサンプルデータセット {.unnumbered}
-
-```{r}
-# irisデータセット
-iris_tbl <- as.tibble(iris)
-iris_tbl
-```
-
-```{r}
-# mpgデータセット
-mpg
-```
-
-```{r}
-# diamondsデータセット
-diamonds
-```
-
-```{r}
-# economicsデータセット
-economics
-```
-
-### 外部データセット {.unnumbered}
-
-Webからデータを直接読み込むため、プロキシ環境ではプロキシサーバーの設定が必要です。
-
-```{r, eval=FALSE}
-## プロキシサーバーとポートを記入
-proxy_url <- "http://proxyserver:port/"
-
-
-## Rのシステム環境変数を設定
-Sys.setenv("http_proxy" = proxy_url)
-Sys.setenv("https_proxy" = proxy_url)
-
-
-## Rのダウンロードオプションを設定
-options(download.file.method = "libcurl")
-options(timeout = NA)
-```
-
-まず、Our World in Dataの新型コロナウイルス関連データを読み込みます。データの詳細は[こちら](https://ourworldindata.org/coronavirus)を参照してください。
-
-Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Giattino, Esteban Ortiz-Ospina, Joe Hasell, Bobbie Macdonald, Diana Beltekian and Max Roser (2020) - "Coronavirus Pandemic (COVID-19)". Published online at OurWorldInData.org. Retrieved from: '<https://ourworldindata.org/coronavirus>' [Online Resource]
-
-```{r}
-# Our World in Dataの新型コロナデータをtibble型で読み込み
-data_owid <- readr::read_csv(file = "https://covid.ourworldindata.org/data/owid-covid-data.csv", # ファイルパス／URL
-                             col_names = TRUE, # ヘッダー（列名データ）の有無
-                             col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
-                             skip = 0) # 読み込み時に上からスキップする行数
-
-# データをコンソールに出力
-data_owid
-```
-
-次に、内閣府の県内総生産データを読み込みます（生産側、名目、2008SNA、平成23年基準計数）。詳細は[こちら](https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/main_2018.html)を参照してください。ここではデータをdata.frame形式で読み込み、前処理して縦型のtibble形式に変換します。
-
-```{r}
-# 内閣府の県内総生産データをdata.frame形式で読み込み
-data_gdp_pref <- openxlsx::read.xlsx(xlsxFile = "https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/tables/2018/soukatu1.xlsx", # ファイルパス／URL
-                                     sheet = 1, # シートインデックス／シート名
-                                     startRow = 5, # 読み込み開始行
-                                     colNames = TRUE, # 列名データの有無
-                                     rowNames = FALSE, # 行名データの有無
-                                     rows = 5:53, # 読み込む列（NULLですべて読み込み）
-                                     cols = NULL) # 読み込む行（NULLですべて読み込み）
-
-# データの型変換等を行い、縦型に変形したうえで、変化率系列を作成し、tibble形式に変換
-data_gdp_pref %<>% 
-  dplyr::mutate(across(`2006`:`2018`, as.double)) %>% 
-  dplyr::rename(pref_code = X1,
-                pref_name = X2) %>% 
-  dplyr::select(-X16) %>% 
-  tidyr::pivot_longer(cols = c(-"pref_code", -"pref_name"), names_to = "year", values_to = "gdp_nominal") %>% 
-  dplyr::mutate(across(c(pref_code, year), as.double)) %>% 
-  dplyr::arrange(pref_code, year) %>% 
-  dplyr::group_by(pref_name) %>% 
-  dplyr::mutate(gdp_nominal_pchg = 100 * (gdp_nominal / dplyr::lag(gdp_nominal, n = 1) - 1)) %>% 
-  dplyr::ungroup() %>% 
-  tibble::as_tibble()
-
-data_gdp_pref
 ```
 
 ## GUI形式の直感的なグラフ作成

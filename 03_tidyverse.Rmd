@@ -48,48 +48,6 @@ result <- mpg %>%
 print(result)
 ```
 
-## サンプルデータの読み込み
-
-本節で使用するサンプルデータをWebから直接読み込みます。プロキシ環境では、プロキシサーバーの設定が必要です。
-
-```{r, eval=FALSE}
-## プロキシサーバーとポートを記入
-proxy_url <- "http://proxyserver:port/"
-
-
-## Rのシステム環境変数を設定
-Sys.setenv("http_proxy" = proxy_url)
-Sys.setenv("https_proxy" = proxy_url)
-
-
-## Rのダウンロードオプションを設定
-options(download.file.method = "libcurl")
-options(timeout = NA)
-```
-
-ここでは、Our World in Dataの新型コロナウイルス関連データセットを使用します。データの詳細は[こちら](https://ourworldindata.org/coronavirus)を参照してください。
-
-Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Giattino, Esteban Ortiz-Ospina, Joe Hasell, Bobbie Macdonald, Diana Beltekian and Max Roser (2020) - "Coronavirus Pandemic (COVID-19)". Published online at OurWorldInData.org. Retrieved from: '<https://ourworldindata.org/coronavirus>' [Online Resource]
-
-```{r, warning=FALSE, message=FALSE}
-# Our World in Dataの新型コロナデータをtibble型で読み込み
-data_owid <- readr::read_csv(file = "https://covid.ourworldindata.org/data/owid-covid-data.csv", # ファイルパス／URL
-                             col_names = TRUE, # ヘッダー（列名データ）の有無
-                             col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
-                             skip = 0) # 読み込み時に上からスキップする行数
-
-# 使用するデータを絞り込み
-data_owid %<>% 
-  dplyr::select(continent, location, date, 
-                total_cases, new_cases, total_deaths, new_deaths, 
-                total_cases_per_million, new_cases_per_million, total_deaths_per_million, new_deaths_per_million,
-                people_fully_vaccinated) %>% 
-  dplyr::filter(location %in% c("Japan", "United States", "United Kingdom", "Germany"))
-
-# データをコンソールに出力
-data_owid
-```
-
 ## 列の選択
 
 データセットから列（変数）を選択するには、`dplyr::select()`関数を使用します。
@@ -255,7 +213,7 @@ data_owid %>%
   dplyr::arrange(desc(date), -new_cases) 
 ```
 
-## 列の追加・修正
+## 列の作成・修正
 
 データセットの列を追加・修正するには、`dplyr::mutate()`関数を使用します。
 
@@ -287,39 +245,6 @@ data_owid %>%
   dplyr::mutate(location = factor(location))
 ```
 
-### ラグ・リード系列の作成 {.unnumbered}
-
-`dplyr::lag()`関数と`dplyr::leag()`関数で、既存の列のラグ・リード系列を作成します。
-
-```{r}
-# 1期ラグの系列を追加
-data_owid_jp %>% 
-  dplyr::mutate(new_cases_lag = dplyr::lag(new_cases, n = 1)) 
-```
-
-### 変化率系列の作成 {.unnumbered}
-
-`dplyr::lag()`関数で、既存の列の変化率系列を作成します。
-
-```{r}
-# 前期比変化率（％表示）の系列を追加
-data_owid_jp %>% 
-  dplyr::mutate(new_cases_chg = 100 * (new_cases / dplyr::lag(new_cases, n = 1) - 1)) 
-```
-
-### 移動平均系列の作成 {.unnumbered}
-
-`zoo::rollmean()`関数で、移動平均系列を作成します。
-
-```{r}
-# 後方7日移動平均の系列を追加
-data_owid_jp %>% 
-  dplyr::mutate(new_cases_7dma = zoo::rollmean(new_cases, # 移動平均を作成するもとの系列名
-                                               k = 7, # 移動平均の期間
-                                               na.pad = TRUE, # 系列の先端部分で移動平均を計算できない箇所をNAで埋めるか
-                                               align = "right")) # left：前方移動平均、center：中央移動平均、right：後方移動平均
-```
-
 ### 条件付き系列の作成 {.unnumbered}
 
 `dplyr::case_when()`関数の中に、`既存の系列を用いた条件 ~ 条件を満たす場合にとる値`の形で条件式を書き、新たな系列を作成します。複数条件を指定した場合、左から順番に条件が適用されます。「その他すべて」の条件は`TRUE`で指定します。
@@ -348,7 +273,11 @@ data_owid_jp %>%
 
 # new_casesからnew_deathまでのすべての列の前期比変化率を計算
 data_owid_jp %>% 
-  dplyr::mutate(across(new_cases:new_deaths, ~ {. / dplyr::lag(., n = 1)})) 
+  dplyr::mutate(across(new_cases:new_deaths, ~ {. / dplyr::lag(., n = 1)}))
+
+# すべての列を文字列型に変換
+data_owid_jp %>% 
+  dplyr::mutate(across(everything(), as.character))
 ```
 
 ## グループ化
@@ -523,7 +452,7 @@ dplyr::full_join(band_members, band_instruments, by = "name")
 
 ## 重複処理
 
-### 重複業の抽出
+### 重複行の抽出 {-}
 
 重複している行を抽出するには、`dplyr::group_by()`関数、`dplyr::filter()`関数、`dplyr::n()`関数を組み合わせて使用します。`dplyr::n()`関数は、`dplyr::group_by()`関数で指定したグループのサイズを返す関数です。
 
@@ -697,52 +626,3 @@ diamonds %>%
   dplyr::sample_frac(size = 0.1)
 ```
 
-## 時系列データの頻度変換
-
-`tidyverse`と整合性がある金融時系列データ分析用のパッケージである`tidyquant`パッケージの`tq_transmute()`関数を用いて、時系列データの頻度変換（高頻度データから低頻度データへの変換）を行います。なお、`tidyquant`は頻度変換以外にも様々な分析機能があります。詳しくは[公式ウェブサイト](https://business-science.github.io/tidyquant/)を参照してください。
-
-まず、使用するサンプルデータを作成します。`tq_transmute()`関数にわたす時系列データは、原則として横型データである点に留意してください。
-
-```{r}
-# サンプルデータ（日次）
-data_owid_cases_wide <- data_owid %>% 
-  dplyr::select(location, date, new_cases) %>% 
-  dplyr::filter(date >= "2021-01-01") %>% 
-  dplyr::arrange(date) %>% 
-  tidyr::pivot_wider(id_cols = "date", names_from = "location", values_from = "new_cases")
-```
-
-### 日次データを週次データに変換 {.unnumbered}
-
-`tidyquant::tq_transmute()`関数を使用して日次データを週次データに変換すると、月曜～日曜のデータが`FUN`に指定した関数で集計され、日曜の日付で記録されます。
-
-```{r}
-data_owid_cases_wide %>% 
-  tidyquant::tq_transmute(select = -date, mutate_fun = apply.weekly, FUN = mean, na.rm = TRUE)
-```
-
-なお、日曜～土曜のデータを集計し日曜の日付で記録したい場合は、`rollmean()`関数を使用して前方7日移動平均を計算し、日曜の値を抽出します。
-
-```{r}
-data_owid_cases_wide %>%
-  dplyr::mutate(across(-date, rollmean, k = 7, na.pad = TRUE, align = "left")) %>% 
-  dplyr::filter(lubridate::wday(date) == 1)
-```
-
-### 日次データを月次データに変換 {.unnumbered}
-
-`tidyquant::tq_transmute()`関数を使用して日次データを月次データに変換すると、月初～月末のデータが`FUN`に指定した関数で集計され、月末の日付で記録されます。
-
-```{r}
-data_owid_cases_wide %>% 
-  tidyquant::tq_transmute(select = -date, mutate_fun = apply.monthly, FUN = mean, na.rm = TRUE)
-```
-
-### 日次データを四半期データに変換 {.unnumbered}
-
-`tidyquant::tq_transmute()`関数を使用して日次データを四半期データに変換すると、期初～期末のデータが`FUN`に指定した関数で集計され、期末の日付で記録されます。
-
-```{r}
-data_owid_cases_wide %>% 
-  tidyquant::tq_transmute(select = -date, mutate_fun = apply.quarterly, FUN = mean, na.rm = TRUE)
-```
