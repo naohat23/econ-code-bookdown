@@ -7,7 +7,7 @@ output:
   bookdown::gitbook:
     #df_print: "paged"
     highlight: default
-    toc_depth: 2
+    toc_depth: 3
     config:
       toc:
         collapse: subsection
@@ -44,12 +44,27 @@ knitr::opts_chunk$set(echo = TRUE)
 4.  時系列データ操作
 5.  ggplot2によるグラフ作成
 6.  探索的データ分析（EDA）
-7.  作成中・・・
+7.  線形回帰（作成中）
+8.  ベクトル自己回帰モデル（作成中）
+9.  パネルデータ分析（作成中）
+10. 統計的因果推論（作成中）
 
 ## 参考文献 {.unnumbered}
 
-[Hyndman, R.J., & Athanasopoulos, G. (2018) Forecasting: principles and practice, 2nd edition, OTexts: Melbourne, Australia.](https://otexts.com/fpp2/)
+### Rの使用方法 {.unnumbered}
 
-[Wickham, H., & Grolemund, G. (2017) 『Rではじめるデータサイエンス』](https://www.oreilly.co.jp/books/9784873118147/)
+[Wickham, H., & Grolemund, G. (2017) 『Rではじめるデータサイエンス』オライリー・ジャパン](https://www.oreilly.co.jp/books/9784873118147/)
 
-[馬場真哉 (2020) 『R言語ではじめるプログラミングとデータ分析』](https://www.socym.co.jp/book/1238)
+[馬場真哉 (2020) 『R言語ではじめるプログラミングとデータ分析』ソシム株式会社](https://www.socym.co.jp/book/1238)
+
+### 計量経済学 {.unnumbered}
+
+[Hanck, C., Arnold, M., Gerber, A., and Schmelzer, M., (2021) "Introduction to Econometrics with R"](https://www.econometrics-with-r.org/index.html)
+
+[Hyndman, R.J., & Athanasopoulos, G. (2018) "Forecasting: principles and practice, 2nd edition", OTexts: Melbourne, Australia.](https://otexts.com/fpp2/)
+
+[McAlinn, K. (2022) 「再現性問題における統計学の役割と責任」日本評論社『経済セミナー』2022年6・7月号　通巻 726号](https://www.nippyo.co.jp/shop/magazine/8801.html)
+
+[末石直也 (2015) 『計量経済学ーミクロデータ分析へのいざないー』日本評論社](https://www.nippyo.co.jp/shop/book/6899.html)
+
+[西山慶彦・新谷元嗣・川口大司・奥井亮 (2019) 『計量経済学』有斐閣](http://www.yuhikaku.co.jp/books/detail/9784641053854)
