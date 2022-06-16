@@ -68,3 +68,5 @@ knitr::opts_chunk$set(echo = TRUE)
 [末石直也 (2015) 『計量経済学ーミクロデータ分析へのいざないー』日本評論社](https://www.nippyo.co.jp/shop/book/6899.html)
 
 [西山慶彦・新谷元嗣・川口大司・奥井亮 (2019) 『計量経済学』有斐閣](http://www.yuhikaku.co.jp/books/detail/9784641053854)
+
+[山本勲 (2015) 『実証分析のための計量経済学ー正しい手法と結果の読み方ー』中央経済社](https://www.biz-book.jp/isbn/978-4-502-16811-6)
