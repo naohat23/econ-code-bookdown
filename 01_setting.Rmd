@@ -82,7 +82,7 @@ options(timeout = NA)
     -   [estimatr](https://declaredesign.org/r/estimatr/)：線形回帰モデルの推定
     -   [fpp2](https://otexts.com/fpp2/)：時系列データ予測の教科書用に開発されたパッケージ
     -   [GGally](https://ggobi.github.io/ggally/index.html)：ペアプロットなどのデータ可視化
-    -   mgcv：一般化加法モデル（GAM）
+    -   [mgcv](https://cran.r-project.org/web/packages/mgcv/mgcv.pdf)：一般化加法モデル（GAM）
     -   plm：パネルデータモデル
     -   [psych](https://personality-project.org/r/psych/)：心理統計パッケージ
     -   [seasonal](https://cran.r-project.org/web/packages/seasonal/readme/README.html)：コマンド形式の季節調整
@@ -148,7 +148,9 @@ install.packages("tidyverse")
 
 #### unemp {-}
 
-`Seasonal`パッケージに含まれる`unemp`データセットです。1990年1月から2016年11月までの米国の失業者数（単位：千人）の月次データであり、データ形式はts型です。
+`Seasonal`パッケージに含まれる`unemp`データセットです。1990年1月から2016年11月までの米国の失業者数（単位：千人）の月次データ（原数値）であり、データ形式はts型です。
+
+[データ出所リンク](https://fred.stlouisfed.org/series/LNU03000000)
 
 ```{r}
 seasonal::unemp

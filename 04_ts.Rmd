@@ -12,6 +12,7 @@ Rで時系列データを扱う方法には、主に次の2つがあります。
 
 ```{r}
 library(forecast)
+library(mgcv)
 library(pbapply)
 library(seasonal)
 library(seasonalview)
@@ -333,5 +334,54 @@ m <- forecast::mstl(x = data_cases_jp_ts, s.window = "periodic")
 
 # STL分解の結果を可視化
 plot(m)
+```
+
+## トレンド推定
+
+### 一般化加法モデル（GAM）
+
+一般化加法モデル（Generalizes Additive Model、GAM）は、線形モデルがもつ解釈性の良さを保ったまま、非線形モデルのような高い説明力を両立させる手法です。
+
+具体的には次のように、被説明変数$Y$を、説明変数$X$を要素とする非線形関数$f(X)$の和として説明するモデルです。非線形関数を用いることにより、説明変数と被説明変数の間の複雑な関係を説明できる一方で、被説明変数がそれぞれの非線形関数の和になっていることで、被説明変数の変動要因を説明変数毎に分解することができ、高い解釈性を維持している点が特徴です。
+
+$$
+Y_i = \beta_0 + f_1(X_{1i}) + f_2(X_{2i}) + \dots + f_k(X_{ki}) + u_i
+$$
+
+ここでは$X$として時系列インデックスを用いることでトレンドを推定しますが、GAMはトレンド推定以外にも様々な用途に使用可能です。例えば、[服部直樹（2020）「新型コロナウイルス感染症（COVID-19）の感染拡大要因は何か」](https://www.mizuho-rt.co.jp/publication/mhri/research/pdf/report/report20-1021.pdf)では、GAMの拡張版である「交互作用項付き一般化加法モデル（GA2M）」を使用して、新型コロナウイルス感染者数の変動要因の説明を試みています（ただし、同レポートではPythonによるGA2Mの実装を用いています）。
+
+一般化加法モデルは、`mgcv`パッケージの`gam()`関数で推定します。事前に時系列インデックスを作成し、`gem()`関数の`formula`引数で`被説明変数 ~ s(時系列インデックス)`と指定します。
+
+ここでは、`seasonal`パッケージのサンプルデータセット`unemp`（米国の失業者数、原数値）のトレンド推定を行います。
+
+```{r}
+# unempデータをベクトル形式に変換してdataに格納
+data <- tibble::tibble(
+  date = seq(from = as.Date("1990-01-01"), to = as.Date("2016-11-01"), by = "1 month"),
+  unemp = seasonal::unemp %>% as.vector()
+  )
+
+# dataに時系列インデックスtimeを追加
+data %<>% 
+  dplyr::mutate(time = seq_along(date))
+
+# GAMでトレンド推定
+result <- mgcv::gam(formula = unemp ~ s(time),
+                    data = data)
+
+# 推定結果を出力
+summary(result)
+```
+
+
+```{r}
+data %<>% 
+  dplyr::mutate(unemp_fitted = result$fitted.values)
+
+data %>% 
+  dplyr::select(date, unemp, unemp_fitted) %>% 
+  tidyr::pivot_longer(cols = -date) %>% 
+  ggplot(mapping = aes(x = date, y = value, color = name)) +
+  geom_line()
 ```
 

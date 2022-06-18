@@ -8,6 +8,7 @@
 library(estimatr)
 library(GGally)
 library(magrittr)
+library(tidyquant)
 library(tidyverse)
 ```
 
@@ -171,6 +172,18 @@ $$
 
 逆に、被説明変数$Y$がレベル、説明変数$\ln X$が自然対数の場合、係数$\beta_1$は、説明変数$X$が1％変化したときに被説明変数$Y$が$\beta_1/100$単位変化することを示します。
 
+### 変化率モデル
+
+$$
+100 \times \frac{\Delta Y_t}{Y_{t-1}} = \beta_0 + \beta_1 \times 100 \times \frac{\Delta X_t}{X_{t-1}} + u \\
+100 \times \Delta \ln Y_t = \beta_0 + \beta_1 \times 100 \times \Delta \ln X_t + u
+$$
+時系列データについて、ある変数$X_t$と、その1期ラグ付き変数$X_{t-1}$の差$X_t - X_{t-1}$を**階差**と呼び、$\Delta X_t = X_t - X_{t-1}$と表します。階差$\Delta X_t$を1期ラグ付き変数$X_{t-1}$で割り、100を掛けてパーセント表示にした系列$100 \times \Delta X_t / X_{t-1}$を**変化率**と呼びます。
+
+また、上記の対数モデルで見た$\Delta \ln X \approx \Delta X / X$を用いると、時系列データの変数$X_t$について自然対数の階差をとった$\Delta \ln X_t = \ln X_t - \ln X_{t-1}$に100を掛けた系列は、変化率$100 \times \Delta X_t / X_{t-1}$に近似できます。すなわち、$100 \times \Delta \ln X_t \approx 100 \times \Delta X_t / X_{t-1}$です。この$100 \times \Delta \ln X_t$を**対数階差変化率**と呼びます。
+
+被説明変数と説明変数がともに変化率もしくは対数階差変化率のとき、係数$\beta_1$は、説明変数（変化率）が1％ポイント変化したときに、被説明変数（変化率）が$\beta_1$％ポイント変化することを示します。このときの係数$\beta_1$は、対数モデルの係数の解釈である弾力性とは全く異なるものである点に注意してください。
+
 ### 多項式モデル {.unnumbered}
 
 $$
@@ -233,7 +246,7 @@ $$
 
 `lm_robust()`関数が返すオブジェクトを`summary()`関数で出力すると、係数の推定値、標準誤差、t値、p値、信頼区間の下限・上限値、決定係数、F検定の結果が表示されます。
 
-### 実証例4.1 線形単回帰
+### 実証例4.1 線形単回帰 {-}
 
 西山他（2019）P.128～129の実証例4.1のデータを用い、実質賃金（wage）を被説明変数、労働生産性（productivity）を説明変数として、線形単回帰モデルを推定します。標準誤差は`se_type = "HC1"`と設定し、不均一分散に対して頑健な標準誤差（ホワイトの標準誤差）を使用します。
 
@@ -265,6 +278,58 @@ summary(result)
 # 回帰した結果をデータフレーム形式で出力
 estimatr::tidy(result)
 ```
+
+### 対数・変化率モデルの推定 {-}
+
+実証例4.1のデータセットを利用して、両辺が自然対数のモデル、両辺が対数階差変化率のモデル、両辺が変化率のモデルを推定します。
+
+自然対数は`log()`関数で計算します。対数階差変化率は対数変換した値に`tidyquant::CHANGE()`関数を適用して対数階差を計算します。変化率は`tidyquant::PCT_CHANGE()`関数で求めることができます。
+
+```{r}
+# 自然対数、対数階差変化率、変化率を計算
+data %<>% 
+  dplyr::mutate(ln_wage = log(wage),
+                ln_productivity = log(productivity),
+                dlog_wage = 100 * tidyquant::CHANGE(ln_wage),
+                dlog_productivity = 100 * tidyquant::CHANGE(ln_productivity),
+                pch_wage = 100 * tidyquant::PCT_CHANGE(wage),
+                pch_productivity = 100 * tidyquant::PCT_CHANGE(productivity))
+```
+
+対数モデルにおける労働生産性の係数0.874は、労働生産性が1％変化すると実質賃金が0.874％変化することを示しています（弾性値）。また、同係数のp値は0.05を下回っており、統計的に有意であるといえます。
+
+```{r}
+# 対数モデル
+result <- estimatr::lm_robust(formula = ln_wage ~ ln_productivity,
+                              data = data,
+                              se_type = "HC1", # 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）
+                              alpha = 0.05) # 有意水準
+
+summary(result)
+```
+
+対数階差変化率は変化率の近似値なので、対数階差変化率モデルと変化率モデルはほぼ同じ推定結果になります。労働生産性の係数のp値はどちらも0.05を上回っており、有意ではありません。
+
+```{r}
+# 対数階差変化率モデル
+result <- estimatr::lm_robust(formula = dlog_wage ~ dlog_productivity,
+                              data = data,
+                              se_type = "HC1", # 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）
+                              alpha = 0.05) # 有意水準
+
+summary(result)
+```
+
+```{r}
+# 変化率モデル
+result <- estimatr::lm_robust(formula = pch_wage ~ pch_productivity,
+                              data = data,
+                              se_type = "HC1", # 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）
+                              alpha = 0.05) # 有意水準
+
+summary(result)
+```
+
 
 ## 重回帰モデル
 
