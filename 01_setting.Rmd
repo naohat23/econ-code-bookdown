@@ -82,6 +82,7 @@ options(timeout = NA)
     -   [estimatr](https://declaredesign.org/r/estimatr/)：線形回帰モデルの推定
     -   [fpp2](https://otexts.com/fpp2/)：時系列データ予測の教科書用に開発されたパッケージ
     -   [GGally](https://ggobi.github.io/ggally/index.html)：ペアプロットなどのデータ可視化
+    -   [mFilter](https://www.rdocumentation.org/packages/mFilter/versions/0.1-5/topics/hpfilter)：HPフィルター
     -   [mgcv](https://cran.r-project.org/web/packages/mgcv/mgcv.pdf)：一般化加法モデル（GAM）
     -   plm：パネルデータモデル
     -   [psych](https://personality-project.org/r/psych/)：心理統計パッケージ
@@ -103,7 +104,7 @@ options(timeout = NA)
 packages <- c(
   "lubridate", "magrittr", "tidyverse", "readxl",
   "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
-  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "mgcv", "plm", "psych", "seasonal", "seasonalview", "sigmoid", "SmartEDA", "tidyquant",
+  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "mfilter", "mgcv", "plm", "psych", "seasonal", "seasonalview", "sigmoid", "SmartEDA", "tidyquant",
   "openxlsx", "pbapply"
 )
 
