@@ -4,6 +4,14 @@
 
 ## 設定全般
 
+### Rのインストール {-}
+
+Rは[The Comprehensive R Archive Network](https://cran.r-project.org/)からダウンロードしてインストールしてください。2020年にバージョン4へメジャーアップデートが行われており、本書でもバージョン4を使用しています。
+
+Rの統合開発環境であるRStudioは、開発元の[rstudio.com](https://www.rstudio.com/)からインストールできます。上部メニューのDOWNLOADからダウンロードページに進み、RStudio DesktopのFree版をダウンロードしてインストールしてください。
+
+Windows環境でRの一部のパッケージを使用する際、Rtoolsというツールが必要な場合がありますので、[こちらのウェブサイト](https://cran.r-project.org/bin/windows/Rtools/)からRのバージョンに合ったものをダウンロードしてインストールします。
+
 ### Rのバージョン確認 {.unnumbered}
 
 Rのバージョン情報を出力します。
