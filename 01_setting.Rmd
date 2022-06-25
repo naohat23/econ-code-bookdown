@@ -1,10 +1,14 @@
 # Rの設定
 
-第1章「Rの設定」では、Rを使用する際の各種設定について解説します。パッケージのインストール・インポートや、プロキシサーバーの設定（プロキシ環境のみ）など、Rの使用に欠かせない様々な設定について記載しています。
+第1章「Rの設定」では、Rを使用する際の各種設定について解説します。Rのインストール、プロキシサーバーの設定、パッケージのインストール・インポート、グラフの設定など、Rの使用に欠かせない様々な設定について記載しています。
+
+また、本書で使用するサンプルデータセットも、この章で紹介しています。特に、ウェブから読み込む外部データセットについては、この章で取得方法を記載していますので、確認してください。
+
+この章の最後に、Rを起動時に実行すべき設定をまとめています。実際にRを使用する際にご利用ください。
 
 ## 設定全般
 
-### Rのインストール {-}
+### Rのインストール {.unnumbered}
 
 Rは[The Comprehensive R Archive Network](https://cran.r-project.org/)からダウンロードしてインストールしてください。2020年にバージョン4へメジャーアップデートが行われており、本書でもバージョン4を使用しています。
 
@@ -28,6 +32,14 @@ Rのバージョンに加え、使用環境、パッケージ情報を出力し�
 sessionInfo()
 ```
 
+### オブジェクトを全削除 {.unnumbered}
+
+変数をすべて削除してワークスペースを初期化します。
+
+```{r}
+rm(list = ls())
+```
+
 ### 警告の非表示 {.unnumbered}
 
 Rが出力する警告（Warning）を非表示にします。
@@ -38,7 +50,7 @@ options(warn = -1)
 
 ### 関数が出力する警告やメッセージの非表示 {.unnumbered}
 
-関数が出力する警告やメッセージは`options(warn = -1)`で非表示にできないため、`suppressWarnings()`関数や`suppressMessages()`関数を使用します。
+関数が出力する警告やメッセージは`options(warn = -1)`で非表示にできないため、関数毎に、必要に応じて`suppressWarnings()`関数や`suppressMessages()`関数を使用します。
 
 ```{r, eval=FALSE}
 suppressWarnings(警告を出力する関数)
@@ -47,7 +59,7 @@ suppressMessages(メッセージを出力する関数)
 
 ## プロキシサーバーの設定
 
-Webからデータを直接読み込むため、企業や大学などのプロキシ環境ではプロキシサーバーの設定を行ってください。なお、下記のコードは認証プロキシには非対応です。
+オフィスや大学などのプロキシ環境ではプロキシサーバーの設定を行ってください。なお、下記のコードは認証プロキシには非対応です。
 
 ```{r, eval=FALSE}
 # プロキシサーバーとポートを記入
@@ -74,14 +86,14 @@ options(timeout = NA)
     -   [tidyverse](https://www.tidyverse.org/)：モダンなデータ分析用パッケージセット
     -   [readxl](https://readxl.tidyverse.org/)：Excelファイルの読み込み
 -   図表系
-    -   [esquisse](https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html)：shanyを使用した直感的な図表作成
-    -   [geofacet](https://cran.r-project.org/web/packages/geofacet/vignettes/geofacet.html)：地図形式のファセット図配置
-    -   [ggplotgui](https://cran.r-project.org/web/packages/ggplotgui/README.html)：shanyを使用した直感的な図表作成
+    -   [esquisse](https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html)：shinyを使用したGUI形式の直感的な図表作成
+    -   [geofacet](https://cran.r-project.org/web/packages/geofacet/vignettes/geofacet.html)：地図形式の複合グラフ（ファセット）配置
+    -   [ggplotgui](https://cran.r-project.org/web/packages/ggplotgui/README.html)：shinyを使用したGUI形式の直感的な図表作成
     -   [ggpubr](https://rpkgs.datanovia.com/ggpubr/)：論文形式の図表作成
     -   [ggsci](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html)：科学系論文の雑誌別カラーパレット
     -   [ggrepel](https://ggrepel.slowkow.com/index.html)：散布図のラベル付与
     -   hexbin：`geom_hex()`関数を使用するために必要なパッケージ
-    -   [lemon](https://github.com/stefanedwards/lemon)：ファセット図の軸・目盛り表示
+    -   [lemon](https://github.com/stefanedwards/lemon)：複合グラフ（ファセット）の軸・目盛り表示
     -   [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/index.html)：カラーパレット
 -   統計系
     -   [corrplot](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)：相関係数行列の計算・可視化
@@ -90,7 +102,7 @@ options(timeout = NA)
     -   [estimatr](https://declaredesign.org/r/estimatr/)：線形回帰モデルの推定
     -   [fpp2](https://otexts.com/fpp2/)：時系列データ予測の教科書用に開発されたパッケージ
     -   [GGally](https://ggobi.github.io/ggally/index.html)：ペアプロットなどのデータ可視化
-    -   [mFilter](https://www.rdocumentation.org/packages/mFilter/versions/0.1-5/topics/hpfilter)：HPフィルター
+    -   [mFilter](https://www.rdocumentation.org/packages/mFilter/versions/0.1-5/topics/hpfilter)：HPフィルタ
     -   [mgcv](https://cran.r-project.org/web/packages/mgcv/mgcv.pdf)：一般化加法モデル（GAM）
     -   plm：パネルデータモデル
     -   [psych](https://personality-project.org/r/psych/)：心理統計パッケージ
@@ -149,13 +161,34 @@ old.packages()
 install.packages("tidyverse")
 ```
 
+## グラフの設定
+
+レポートやスライドに掲載するためのグラフは、主にRの`ggplot2`パッケージで作成します。
+
+### グラフのテーマ設定 {.unnumbered}
+
+実務上、Excelと併用することを想定しているため、Excelで出力されるグラフに似たテーマである`theme_light()`を設定します。`ggplot2`パッケージにデフォルトで用意されている様々なテーマについては、[公式ウェブサイト](https://ggplot2.tidyverse.org/reference/ggtheme.html)を参照してください。
+
+```{r}
+theme_set(theme_light())
+```
+
+### グラフのフォント設定 {.unnumbered}
+
+Windows上でRを使用する場合は、日本語フォントをグラフ上で表示するために以下の設定が必要です。ここでは代表的なフォントとしてMeiryo UIとYu Gothic UIを設定します。それぞれのフォントに`MEIRYO`、`YUGO`というキーを割り当て、`ggplot2`パッケージでグラフを作成する際にキーを指定します。
+
+```{r}
+windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
+windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
+```
+
 ## サンプルデータセット
 
-本書で使用するサンプルデータセットを読み込みもしくは確認します。
+本書で使用するサンプルデータセットの一覧です。Rの本体もしくはパッケージから呼び出せるデータセットと、ウェブから取得する外部データセットがあります。
 
-### Rのサンプルデータセット {-}
+### Rのサンプルデータセット {.unnumbered}
 
-#### unemp {-}
+#### unemp {.unnumbered}
 
 `Seasonal`パッケージに含まれる`unemp`データセットです。1990年1月から2016年11月までの米国の失業者数（単位：千人）の月次データ（原数値）であり、データ形式はts型です。
 
@@ -165,7 +198,7 @@ install.packages("tidyverse")
 seasonal::unemp
 ```
 
-#### gasoline {-}
+#### gasoline {.unnumbered}
 
 `fpp2`パッケージに含まれる`gasoline`データセットです。1991年2月2日から2017年１月20日までの米国ガソリン生産量（単位：百万バレル／日）の週次データであり、データ形式はts型です。
 
@@ -176,25 +209,25 @@ iris_tbl <- as.tibble(iris)
 iris_tbl
 ```
 
-#### mpg {-}
+#### mpg {.unnumbered}
 
 ```{r}
 mpg
 ```
 
-#### diamonds {-}
+#### diamonds {.unnumbered}
 
 ```{r}
 diamonds
 ```
 
-#### economics {-}
+#### economics {.unnumbered}
 
 ```{r}
 economics
 ```
 
-#### mtcars {-}
+#### mtcars {.unnumbered}
 
 ```{r}
 mtcars
@@ -202,7 +235,7 @@ mtcars
 
 ### 外部データセット
 
-外部データセットはWebから直接読み込むため、プロキシ環境ではプロキシサーバーの設定が必要です。
+外部データセットはウェブから読み込むため、プロキシ環境ではプロキシサーバーの設定が必要です。
 
 ```{r, eval=FALSE}
 # プロキシサーバーとポートを記入
@@ -219,9 +252,9 @@ options(download.file.method = "libcurl")
 options(timeout = NA)
 ```
 
-#### OWIDのCOVID-19データセット {-}
+#### OWIDのCOVID-19データセット {.unnumbered}
 
-Our World in Dataの新型コロナウイルス関連データセットです。データの詳細は[こちら](https://ourworldindata.org/coronavirus)を参照してください。
+Our World in Dataの新型コロナウイルス関連データセットです。データの詳細は[Our World in Dataのウェブサイト](https://ourworldindata.org/coronavirus)を参照してください。
 
 Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Giattino, Esteban Ortiz-Ospina, Joe Hasell, Bobbie Macdonald, Diana Beltekian and Max Roser (2020) - "Coronavirus Pandemic (COVID-19)". Published online at OurWorldInData.org. Retrieved from: '<https://ourworldindata.org/coronavirus>' [Online Resource]
 
@@ -244,9 +277,9 @@ data_owid %<>%
 data_owid
 ```
 
-#### 日本の産業別就業者数 {-}
+#### 日本の産業別就業者数 {.unnumbered}
 
-総務省が公表する労働力調査の長期時系列データのうち、2002年1月以降の産業別就業者数（表番号：1-c-3）を格納したデータセットです。
+総務省が公表する労働力調査の長期時系列データのうち、2002年1月以降の産業別就業者数（表番号：1-c-3）を格納したデータセットです。詳細は[e-Statの該当ページ](https://www.e-stat.go.jp/stat-search/files?page=1&toukei=00200531&tstat=000000110001)を参照してください。
 
 ```{r}
 # 総務省の労働力調査データをdata.frame形式で読み込み
@@ -303,7 +336,7 @@ data_labor
 
 #### 日本の県内総生産 {.unnumbered}
 
-内閣府が公表する県内総生産データセットです（生産側、名目、2008SNA、平成23年基準計数）。詳細は[こちら](https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/main_2018.html)を参照してください。ここではデータをdata.frame形式で読み込み、前処理して縦型のtibble形式に変換します。
+内閣府が公表する県内総生産データセットです（生産側、名目、2008SNA、平成23年基準計数）。詳細は[内閣府のウェブサイト](https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/main_2018.html)を参照してください。ここではデータをdata.frame形式で読み込み、前処理して縦型のtibble形式に変換します。
 
 ```{r}
 # 内閣府の県内総生産データをdata.frame形式で読み込み
@@ -332,28 +365,61 @@ data_gdp_pref %<>%
 data_gdp_pref
 ```
 
-#### 西山他（2019） {-}
+#### 西山 他（2019） {.unnumbered}
 
-第7章以降の計量経済学パートでは、西山他（2019）の実証例で使用されているサンプルデータセットを使用します。サンプルデータセットは、[西山他（2019）のサポートウェブサイト](http://www.yuhikaku.co.jp/books/detail/9784641053854)で配布されています。
+本書の第7章以降の計量経済学パートでは、西山 他（2019）の実証例で使用されているサンプルデータセットを使用します。サンプルデータセットは、[西山 他（2019）のサポートウェブサイト](http://www.yuhikaku.co.jp/books/detail/9784641053854)で配布されています。
+
+## R起動時に実行する設定
+
+ここまでに紹介した各種設定のうち、Rを起動したときに毎回実行する必要があるものをひとまとめにしました。
+
+```{r, eval=FALSE}
+# 全変数を削除
+rm(list = ls())
 
 
-## グラフの設定
+# 警告の非表示
+options(warn = -1)
 
-レポートやスライドに掲載するためのグラフは、主にRのggplot2パッケージで作成します。
 
-### グラフのテーマ設定 {.unnumbered}
+# プロキシ設定（使用環境に応じproxyserverとportを記入）
+proxy_url <- "http://proxyserver:port/"
 
-実務上、Excelと併用することを想定しているため、Excelで出力されるグラフに似たテーマを設定します。ggplot2にデフォルトで用意されている様々なテーマについては、[公式ウェブサイト](https://ggplot2.tidyverse.org/reference/ggtheme.html)を参照してください。
+Sys.setenv("http_proxy" = proxy_url)
+Sys.setenv("https_proxy" = proxy_url)
 
-```{r}
+options(download.file.method = "libcurl")
+options(timeout = NA)
+
+
+# パッケージのインストールとインポート
+packages <- c(
+  "lubridate", "magrittr", "tidyverse", "readxl",
+  "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
+  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "mfilter", "mgcv", "plm", "psych", "seasonal", "seasonalview", "sigmoid", "SmartEDA", "tidyquant",
+  "openxlsx", "pbapply"
+)
+
+new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
+
+if(length(new_packages)) {
+  install.packages(new_packages)
+}
+
+for (pkg in packages) {
+  library(pkg, character.only = TRUE)
+}
+
+rm(
+  new_packages,
+  packages,
+  pkg
+)
+
+
+# グラフ設定
 theme_set(theme_light())
-```
 
-### グラフのフォント設定 {.unnumbered}
-
-Windows上でRを使用する場合は、日本語フォントをグラフ上で表示するために以下の設定が必要です。ここでは代表的なフォントとしてMeiryo UIとYu Gothic UIを設定します。それぞれのフォントに`MEIRYO`、`YUGO`というキーを割り当て、ggplot2でグラフを作成する際にキーを指定します。
-
-```{r}
 windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
 windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
 ```
