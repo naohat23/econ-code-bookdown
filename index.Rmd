@@ -118,6 +118,8 @@ Rによるプログラミング、データの取り扱い、計量経済学な�
 
 [Wickham, H., & Grolemund, G. (2017) 『Rではじめるデータサイエンス』オライリー・ジャパン](https://www.oreilly.co.jp/books/9784873118147/)
 
+Wickham & Grolemund (2017) の原著版"R for Data Science"は、[こちらのウェブサイト](https://r4ds.had.co.nz/index.html)で全文閲覧できます。
+
 ### 計量経済学 {.unnumbered}
 
 #### 入門・初級 {.unnumbered}

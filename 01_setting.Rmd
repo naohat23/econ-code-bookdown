@@ -188,9 +188,11 @@ windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
 
 ### Rのサンプルデータセット {.unnumbered}
 
+Rのサンプルデータセットは、`help(データセット名)`を実行するとヘルプ画面で詳細を確認できます。
+
 #### unemp {.unnumbered}
 
-`Seasonal`パッケージに含まれる`unemp`データセットです。1990年1月から2016年11月までの米国の失業者数（単位：千人）の月次データ（原数値）であり、データ形式はts型です。
+`seasonal`パッケージに含まれる`unemp`データセットは、1990年1月から2016年11月までの米国の失業者数（単位：千人）の月次データ（原数値）です。データ形式はts型です。
 
 [データ出所リンク](https://fred.stlouisfed.org/series/LNU03000000)
 
@@ -200,16 +202,30 @@ seasonal::unemp
 
 #### gasoline {.unnumbered}
 
-`fpp2`パッケージに含まれる`gasoline`データセットです。1991年2月2日から2017年１月20日までの米国ガソリン生産量（単位：百万バレル／日）の週次データであり、データ形式はts型です。
+`fpp2`パッケージに含まれる`gasoline`データセットは、1991年2月2日から2017年１月20日までの米国ガソリン生産量（単位：百万バレル／日）の週次データです。データ形式はts型です。
 
 #### iris {.unnumbered}
+
+`datasets`パッケージに含まれる`iris`データセットは、データ分析で良く使用される有名なデータで、3種類のアヤメの萼（がく）と花弁の長さ・幅のデータを格納しています。データ型はdata.frame形式です。
 
 ```{r}
 iris_tbl <- as.tibble(iris)
 iris_tbl
 ```
 
+#### mtcars {.unnumbered}
+
+`datasets`パッケージに含まれる`mtcars`データセットは、米国で1973～1974年に発売された32車種のデザインや諸元に関するデータです。燃費、排気量、馬力、重量などのデータが格納されています。データ型はdata.frame形式です。
+
+```{r}
+mtcars
+```
+
 #### mpg {.unnumbered}
+
+`ggplot2`パッケージに含まれる`mpg`データセットは、米国で1999～2008年に発売された38車種の燃費関連データです。自動車メーカー名、モデル名、排気量、都市部と高速道路の燃費などのデータが格納されています。データ型はtibble形式です。
+
+[データ出所リンク](https://fueleconomy.gov/)
 
 ```{r}
 mpg
@@ -217,20 +233,18 @@ mpg
 
 #### diamonds {.unnumbered}
 
+`ggplot2`パッケージに含まれる`diamonds`データセットは、約54,000個のダイヤモンドの価格、カラット、色、大きさなどの情報を格納しています。データ型はtibble形式です。
+
 ```{r}
 diamonds
 ```
 
 #### economics {.unnumbered}
 
+`ggplot2`パッケージに含まれる`economics`データセットは、米国の消費・雇用関連の時系列データで、日付（date）、[個人消費支出（pce）](https://fred.stlouisfed.org/series/PCE)、[人口（pop）](https://fred.stlouisfed.org/series/POP)、[個人貯蓄率（psavert）](https://fred.stlouisfed.org/series/PSAVERT/)、[失業期間の中央値（uempmed）](https://fred.stlouisfed.org/series/UEMPMED)、[失業者数（unemploy）](https://fred.stlouisfed.org/series/UNEMPLOY)のデータを格納しています。データ型はtibble形式です。
+
 ```{r}
 economics
-```
-
-#### mtcars {.unnumbered}
-
-```{r}
-mtcars
 ```
 
 ### 外部データセット
@@ -259,7 +273,7 @@ Our World in Dataの新型コロナウイルス関連データセットです。
 Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Giattino, Esteban Ortiz-Ospina, Joe Hasell, Bobbie Macdonald, Diana Beltekian and Max Roser (2020) - "Coronavirus Pandemic (COVID-19)". Published online at OurWorldInData.org. Retrieved from: '<https://ourworldindata.org/coronavirus>' [Online Resource]
 
 ```{r, warning=FALSE, message=FALSE}
-# Our World in Dataの新型コロナデータをtibble型で読み込み
+# Our World in Dataの新型コロナデータをtibble形式で読み込み
 data_owid <- readr::read_csv(file = "https://covid.ourworldindata.org/data/owid-covid-data.csv", # ファイルパス／URL
                              col_names = TRUE, # ヘッダー（列名データ）の有無
                              col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
