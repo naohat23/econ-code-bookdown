@@ -482,7 +482,7 @@ ggplot(data = data_mpg_point,
                   size = 4.0) # テキストのサイズ
 ```
 
-### バブルチャートにラベルを追加
+### バブルチャートにラベルを追加 {-}
 
 ```{r}
 ggplot(data = data_mpg_point,

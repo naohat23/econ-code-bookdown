@@ -138,7 +138,7 @@ data_owid_cases_wide %>%
 
 サンプルデータとして、ts型データである`seasonal::unemp`データセットを用い、`seasonal`パッケージの使用方法を確認します。
 
-### ts型データの可視化
+### ts型データの可視化 {-}
 
 季節調整の前に、データを確認します。ts型データは`plot()`関数でグラフを作成できます。
 
@@ -247,7 +247,7 @@ plot(result[[which(names(result) == "情報通信")]])
 
 STL分解とは、Seasonal Decomposition of Time Series by Loessの略で、時系列データを季節変動、トレンド変動、不規則変動に分解する手法です。
 
-### STL分解の実施方法
+### STL分解の実施方法 {-}
 
 STL分解を行うには、ts型の時系列データに対し、`stats`パッケージの`stl()`関数を適用します。`stl()`関数はSTL分解の結果を格納したstl型のオブジェクトを返します。
 
