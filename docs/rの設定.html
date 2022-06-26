@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Rの設定 | エコノミストのためのRコード</title>
-  <meta name="description" content="1 Rの設定 | エコノミストのためのRコード" />
+  <title>1 Rの設定 | エコノミストのためのR</title>
+  <meta name="description" content="1 Rの設定 | エコノミストのためのR" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Rの設定 | エコノミストのためのRコード" />
+  <meta property="og:title" content="1 Rの設定 | エコノミストのためのR" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="naohat23/econ-code-bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Rの設定 | エコノミストのためのRコード" />
+  <meta name="twitter:title" content="1 Rの設定 | エコノミストのためのR" />
   
   
   
@@ -23,14 +23,14 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2022-05-30" />
+<meta name="date" content="2022-06-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="参考文献.html"/>
+<link rel="prev" href="index.html"/>
 <link rel="next" href="rの基本的な使用方法.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -132,90 +132,450 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://naohat23.github.io/econ-code-bookdown">エコノミストのためのRコード</a></li>
+<li><a href="https://naohat23.github.io/econ-code-bookdown">エコノミストのためのR</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>はじめに</a></li>
-<li class="chapter" data-level="" data-path="参考文献.html"><a href="参考文献.html"><i class="fa fa-check"></i>参考文献</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>はじめに</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#なぜrを使うのか"><i class="fa fa-check"></i>なぜRを使うのか？</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#本書で出来ること"><i class="fa fa-check"></i>本書で出来ること　</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#本書で出来ないこと"><i class="fa fa-check"></i>本書で出来ないこと</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#目次"><i class="fa fa-check"></i>目次</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#参考文献ウェブサイト"><i class="fa fa-check"></i>参考文献・ウェブサイト</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rの使用方法"><i class="fa fa-check"></i>Rの使用方法</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#計量経済学"><i class="fa fa-check"></i>計量経済学</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="rの設定.html"><a href="rの設定.html"><i class="fa fa-check"></i><b>1</b> Rの設定</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="rの設定.html"><a href="rの設定.html#設定全般"><i class="fa fa-check"></i><b>1.1</b> 設定全般</a></li>
+<li class="chapter" data-level="1.1" data-path="rの設定.html"><a href="rの設定.html#設定全般"><i class="fa fa-check"></i><b>1.1</b> 設定全般</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#rのインストール"><i class="fa fa-check"></i>Rのインストール</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#rのバージョン確認"><i class="fa fa-check"></i>Rのバージョン確認</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#セッション情報の確認"><i class="fa fa-check"></i>セッション情報の確認</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#オブジェクトを全削除"><i class="fa fa-check"></i>オブジェクトを全削除</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#警告の非表示"><i class="fa fa-check"></i>警告の非表示</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#関数が出力する警告やメッセージの非表示"><i class="fa fa-check"></i>関数が出力する警告やメッセージの非表示</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="rの設定.html"><a href="rの設定.html#プロキシサーバーの設定"><i class="fa fa-check"></i><b>1.2</b> プロキシサーバーの設定</a></li>
-<li class="chapter" data-level="1.3" data-path="rの設定.html"><a href="rの設定.html#パッケージのインストールとインポート"><i class="fa fa-check"></i><b>1.3</b> パッケージのインストールとインポート</a></li>
-<li class="chapter" data-level="1.4" data-path="rの設定.html"><a href="rの設定.html#グラフの設定"><i class="fa fa-check"></i><b>1.4</b> グラフの設定</a></li>
+<li class="chapter" data-level="1.3" data-path="rの設定.html"><a href="rの設定.html#パッケージ"><i class="fa fa-check"></i><b>1.3</b> パッケージ</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#使用するパッケージ一覧"><i class="fa fa-check"></i>使用するパッケージ一覧</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#パッケージのインストールとインポート"><i class="fa fa-check"></i>パッケージのインストールとインポート</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="rの設定.html"><a href="rの設定.html#グラフの設定"><i class="fa fa-check"></i><b>1.4</b> グラフの設定</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#グラフのテーマ設定"><i class="fa fa-check"></i>グラフのテーマ設定</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#グラフのフォント設定"><i class="fa fa-check"></i>グラフのフォント設定</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="rの設定.html"><a href="rの設定.html#サンプルデータセット"><i class="fa fa-check"></i><b>1.5</b> サンプルデータセット</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#rのサンプルデータセット"><i class="fa fa-check"></i>Rのサンプルデータセット</a></li>
+<li class="chapter" data-level="1.5.1" data-path="rの設定.html"><a href="rの設定.html#外部データセット"><i class="fa fa-check"></i><b>1.5.1</b> 外部データセット</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="rの設定.html"><a href="rの設定.html#r起動時に実行する設定"><i class="fa fa-check"></i><b>1.6</b> R起動時に実行する設定</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html"><i class="fa fa-check"></i><b>2</b> Rの基本的な使用方法</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#主要ショートカットキー"><i class="fa fa-check"></i><b>2.1</b> 主要ショートカットキー</a></li>
+<li class="chapter" data-level="2.1" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#主要ショートカットキー"><i class="fa fa-check"></i><b>2.1</b> 主要ショートカットキー</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#編集"><i class="fa fa-check"></i>編集</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#実行"><i class="fa fa-check"></i>実行</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#その他"><i class="fa fa-check"></i>その他</a></li>
+</ul></li>
 <li class="chapter" data-level="2.2" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#基本操作"><i class="fa fa-check"></i><b>2.2</b> 基本操作</a></li>
-<li class="chapter" data-level="2.3" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#演算"><i class="fa fa-check"></i><b>2.3</b> 演算</a></li>
-<li class="chapter" data-level="2.4" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ベクトル"><i class="fa fa-check"></i><b>2.4</b> ベクトル</a></li>
-<li class="chapter" data-level="2.5" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#行列"><i class="fa fa-check"></i><b>2.5</b> 行列</a></li>
-<li class="chapter" data-level="2.6" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データフレーム"><i class="fa fa-check"></i><b>2.6</b> データフレーム</a></li>
-<li class="chapter" data-level="2.7" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#リスト"><i class="fa fa-check"></i><b>2.7</b> リスト</a></li>
-<li class="chapter" data-level="2.8" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#制御構文"><i class="fa fa-check"></i><b>2.8</b> 制御構文</a></li>
-<li class="chapter" data-level="2.9" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データの読み込み書き出し"><i class="fa fa-check"></i><b>2.9</b> データの読み込み・書き出し</a></li>
-<li class="chapter" data-level="2.10" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#オブジェクトのセーブロード"><i class="fa fa-check"></i><b>2.10</b> オブジェクトのセーブ・ロード</a></li>
+<li class="chapter" data-level="2.3" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#演算"><i class="fa fa-check"></i><b>2.3</b> 演算</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#四則計算"><i class="fa fa-check"></i>四則計算</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#数値計算"><i class="fa fa-check"></i>数値計算</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#一致大小関係"><i class="fa fa-check"></i>一致・大小関係</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#包含集合関係"><i class="fa fa-check"></i>包含・集合関係</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ベクトル"><i class="fa fa-check"></i><b>2.4</b> ベクトル</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ベクトルの作成"><i class="fa fa-check"></i>ベクトルの作成</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ベクトル要素へのアクセス"><i class="fa fa-check"></i>ベクトル要素へのアクセス</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#規則性があるベクトルの作成"><i class="fa fa-check"></i>規則性があるベクトルの作成</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ベクトルの演算"><i class="fa fa-check"></i>ベクトルの演算</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#行列"><i class="fa fa-check"></i><b>2.5</b> 行列</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#行列の作成"><i class="fa fa-check"></i>行列の作成</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#行列の要素へのアクセス"><i class="fa fa-check"></i>行列の要素へのアクセス</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#行列の演算"><i class="fa fa-check"></i>行列の演算</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データフレーム"><i class="fa fa-check"></i><b>2.6</b> データフレーム</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データフレームの作成"><i class="fa fa-check"></i>データフレームの作成</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データフレームの要素へのアクセス"><i class="fa fa-check"></i>データフレームの要素へのアクセス</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#その他のデータフレームの機能"><i class="fa fa-check"></i>その他のデータフレームの機能</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#リスト"><i class="fa fa-check"></i><b>2.7</b> リスト</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#リストの作成"><i class="fa fa-check"></i>リストの作成</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#リストの要素へのアクセス"><i class="fa fa-check"></i>リストの要素へのアクセス</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#制御構文"><i class="fa fa-check"></i><b>2.8</b> 制御構文</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ifelse文"><i class="fa fa-check"></i>if/else文</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#forループ"><i class="fa fa-check"></i>forループ</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#whileループ"><i class="fa fa-check"></i>whileループ</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#breakによる繰り返しの終了"><i class="fa fa-check"></i>breakによる繰り返しの終了</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#tryによるエラー処理"><i class="fa fa-check"></i>tryによるエラー処理</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データの読み込み書き出し"><i class="fa fa-check"></i><b>2.9</b> データの読み込み・書き出し</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#csvデータの読み込み"><i class="fa fa-check"></i>CSVデータの読み込み</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#excelデータの読み込みxls形式"><i class="fa fa-check"></i>Excelデータの読み込み（xls形式）</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#excelデータの読み込みxlsx形式"><i class="fa fa-check"></i>Excelデータの読み込み（xlsx形式）</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#csvデータの書き出し"><i class="fa fa-check"></i>CSVデータの書き出し</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#オブジェクトのセーブロード"><i class="fa fa-check"></i><b>2.10</b> オブジェクトのセーブ・ロード</a>
+<ul>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#セーブ"><i class="fa fa-check"></i>セーブ</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ロード"><i class="fa fa-check"></i>ロード</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html"><i class="fa fa-check"></i><b>3</b> tidyverseによるデータ操作</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#パッケージのインポート"><i class="fa fa-check"></i><b>3.1</b> パッケージのインポート</a></li>
-<li class="chapter" data-level="3.2" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#tidyverseとは"><i class="fa fa-check"></i><b>3.2</b> tidyverseとは</a></li>
-<li class="chapter" data-level="3.3" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#サンプルデータの読み込み"><i class="fa fa-check"></i><b>3.3</b> サンプルデータの読み込み</a></li>
-<li class="chapter" data-level="3.4" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列の選択"><i class="fa fa-check"></i><b>3.4</b> 列の選択</a></li>
-<li class="chapter" data-level="3.5" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名の変更"><i class="fa fa-check"></i><b>3.5</b> 列名の変更</a></li>
-<li class="chapter" data-level="3.6" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のフィルタ"><i class="fa fa-check"></i><b>3.6</b> 行のフィルタ</a></li>
-<li class="chapter" data-level="3.7" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行の並べ替え"><i class="fa fa-check"></i><b>3.7</b> 行の並べ替え</a></li>
-<li class="chapter" data-level="3.8" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列の追加修正"><i class="fa fa-check"></i><b>3.8</b> 列の追加・修正</a></li>
-<li class="chapter" data-level="3.9" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化"><i class="fa fa-check"></i><b>3.9</b> グループ化</a></li>
-<li class="chapter" data-level="3.10" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#集計"><i class="fa fa-check"></i><b>3.10</b> 集計</a></li>
-<li class="chapter" data-level="3.11" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型横型の変換"><i class="fa fa-check"></i><b>3.11</b> 縦型・横型の変換</a></li>
-<li class="chapter" data-level="3.12" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#データの結合"><i class="fa fa-check"></i><b>3.12</b> データの結合</a></li>
-<li class="chapter" data-level="3.13" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複処理"><i class="fa fa-check"></i><b>3.13</b> 重複処理</a></li>
-<li class="chapter" data-level="3.14" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#欠損値処理"><i class="fa fa-check"></i><b>3.14</b> 欠損値処理</a></li>
-<li class="chapter" data-level="3.15" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#補完処理"><i class="fa fa-check"></i><b>3.15</b> 補完処理</a></li>
-<li class="chapter" data-level="3.16" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#サンプリング"><i class="fa fa-check"></i><b>3.16</b> サンプリング</a></li>
-<li class="chapter" data-level="3.17" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#時系列データの頻度変換"><i class="fa fa-check"></i><b>3.17</b> 時系列データの頻度変換</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html"><i class="fa fa-check"></i><b>4</b> ggplot2によるグラフ作成</a>
+<li class="chapter" data-level="3.1" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#第3章の準備"><i class="fa fa-check"></i><b>3.1</b> 第3章の準備</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#パッケージのインポート-1"><i class="fa fa-check"></i><b>4.1</b> パッケージのインポート</a></li>
-<li class="chapter" data-level="4.2" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplot2とは"><i class="fa fa-check"></i><b>4.2</b> ggplot2とは</a></li>
-<li class="chapter" data-level="4.3" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplot2の設定"><i class="fa fa-check"></i><b>4.3</b> ggplot2の設定</a></li>
-<li class="chapter" data-level="4.4" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#サンプルデータの確認読み込み"><i class="fa fa-check"></i><b>4.4</b> サンプルデータの確認・読み込み</a></li>
-<li class="chapter" data-level="4.5" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#gui形式の直感的なグラフ作成"><i class="fa fa-check"></i><b>4.5</b> GUI形式の直感的なグラフ作成</a></li>
-<li class="chapter" data-level="4.6" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布離散型"><i class="fa fa-check"></i><b>4.6</b> 1次元の度数分布（離散型）</a></li>
-<li class="chapter" data-level="4.7" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布連続型"><i class="fa fa-check"></i><b>4.7</b> 1次元の度数分布（連続型）</a></li>
-<li class="chapter" data-level="4.8" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の密度グラフ"><i class="fa fa-check"></i><b>4.8</b> 1次元の密度グラフ</a></li>
-<li class="chapter" data-level="4.9" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布離散型-1"><i class="fa fa-check"></i><b>4.9</b> 2次元の度数分布（離散型）</a></li>
-<li class="chapter" data-level="4.10" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布連続型-1"><i class="fa fa-check"></i><b>4.10</b> 2次元の度数分布（連続型）</a></li>
-<li class="chapter" data-level="4.11" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の密度グラフ-1"><i class="fa fa-check"></i><b>4.11</b> 2次元の密度グラフ</a></li>
-<li class="chapter" data-level="4.12" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#qqプロット"><i class="fa fa-check"></i><b>4.12</b> QQプロット</a></li>
-<li class="chapter" data-level="4.13" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図バブルチャート"><i class="fa fa-check"></i><b>4.13</b> 散布図・バブルチャート</a></li>
-<li class="chapter" data-level="4.14" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#棒グラフ"><i class="fa fa-check"></i><b>4.14</b> 棒グラフ</a></li>
-<li class="chapter" data-level="4.15" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#円グラフ"><i class="fa fa-check"></i><b>4.15</b> 円グラフ</a></li>
-<li class="chapter" data-level="4.16" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフ"><i class="fa fa-check"></i><b>4.16</b> 折れ線グラフ</a></li>
-<li class="chapter" data-level="4.17" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ステップグラフ"><i class="fa fa-check"></i><b>4.17</b> ステップグラフ</a></li>
-<li class="chapter" data-level="4.18" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#面グラフ"><i class="fa fa-check"></i><b>4.18</b> 面グラフ</a></li>
-<li class="chapter" data-level="4.19" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげ図ヴァイオリングラフ"><i class="fa fa-check"></i><b>4.19</b> 箱ひげ図・ヴァイオリングラフ</a></li>
-<li class="chapter" data-level="4.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロット"><i class="fa fa-check"></i><b>4.20</b> ドットプロット</a></li>
-<li class="chapter" data-level="4.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の設定"><i class="fa fa-check"></i><b>4.21</b> 色の設定</a></li>
-<li class="chapter" data-level="4.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#軸の設定"><i class="fa fa-check"></i><b>4.22</b> 軸の設定</a></li>
-<li class="chapter" data-level="4.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複数グラフファセット"><i class="fa fa-check"></i><b>4.23</b> 複数グラフ（ファセット）</a></li>
-<li class="chapter" data-level="4.24" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>4.24</b> 地図ファセット</a></li>
-<li class="chapter" data-level="4.25" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#その他設定保存"><i class="fa fa-check"></i><b>4.25</b> その他設定・保存</a></li>
-<li class="chapter" data-level="4.26" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>4.26</b> 実例</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#パッケージのインポート"><i class="fa fa-check"></i>パッケージのインポート</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#外部データセットの取得"><i class="fa fa-check"></i>外部データセットの取得</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="探索的データ分析.html"><a href="探索的データ分析.html"><i class="fa fa-check"></i><b>5</b> 探索的データ分析</a>
+<li class="chapter" data-level="3.2" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#tidyverseとは"><i class="fa fa-check"></i><b>3.2</b> tidyverseとは</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="探索的データ分析.html"><a href="探索的データ分析.html#パッケージのインポート-2"><i class="fa fa-check"></i><b>5.1</b> パッケージのインポート</a></li>
-<li class="chapter" data-level="5.2" data-path="探索的データ分析.html"><a href="探索的データ分析.html#ggplot2の設定-1"><i class="fa fa-check"></i><b>5.2</b> ggplot2の設定</a></li>
-<li class="chapter" data-level="5.3" data-path="探索的データ分析.html"><a href="探索的データ分析.html#サンプルデータの確認読み込み-1"><i class="fa fa-check"></i><b>5.3</b> サンプルデータの確認・読み込み</a></li>
-<li class="chapter" data-level="5.4" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの中身記述統計量"><i class="fa fa-check"></i><b>5.4</b> データの中身（記述統計量）</a></li>
-<li class="chapter" data-level="5.5" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの分布"><i class="fa fa-check"></i><b>5.5</b> データの分布</a></li>
-<li class="chapter" data-level="5.6" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの関係性"><i class="fa fa-check"></i><b>5.6</b> データの関係性</a></li>
-<li class="chapter" data-level="5.7" data-path="探索的データ分析.html"><a href="探索的データ分析.html#相関関係ペアプロット"><i class="fa fa-check"></i><b>5.7</b> 相関関係・ペアプロット</a></li>
-<li class="chapter" data-level="5.8" data-path="探索的データ分析.html"><a href="探索的データ分析.html#edaの一括実行"><i class="fa fa-check"></i><b>5.8</b> EDAの一括実行</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#tidy-data縦型横型データ"><i class="fa fa-check"></i>tidy data（縦型・横型データ）</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#tidyverseの特徴"><i class="fa fa-check"></i>tidyverseの特徴</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列の選択"><i class="fa fa-check"></i><b>3.3</b> 列の選択</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名で選択"><i class="fa fa-check"></i>列名で選択</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名を格納したベクトルで選択"><i class="fa fa-check"></i>列名を格納したベクトルで選択</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列を非選択削除"><i class="fa fa-check"></i>列を非選択（削除）</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名に特定の文字列を含む列を選択"><i class="fa fa-check"></i>列名に特定の文字列を含む列を選択</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名が特定の文字列から始まる列を選択"><i class="fa fa-check"></i>列名が特定の文字列から始まる列を選択</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名が特定の文字列で終わる列を選択"><i class="fa fa-check"></i>列名が特定の文字列で終わる列を選択</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#特定の型の列を選択"><i class="fa fa-check"></i>特定の型の列を選択</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名の変更"><i class="fa fa-check"></i><b>3.4</b> 列名の変更</a></li>
+<li class="chapter" data-level="3.5" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のフィルタ"><i class="fa fa-check"></i><b>3.5</b> 行のフィルタ</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件に一致する行"><i class="fa fa-check"></i>条件に一致する行</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件に一致しない行not条件"><i class="fa fa-check"></i>条件に一致しない行（NOT条件）</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数条件"><i class="fa fa-check"></i>複数条件</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#andor条件を明示的に指定した複数条件"><i class="fa fa-check"></i>AND・OR条件を明示的に指定した複数条件</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#in演算子によるor条件"><i class="fa fa-check"></i><code>%in%</code>演算子によるOR条件</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#or条件の否定"><i class="fa fa-check"></i>OR条件の否定</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#関数による条件指定"><i class="fa fa-check"></i>関数による条件指定</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#論理値を返す関数による条件指定"><i class="fa fa-check"></i>論理値を返す関数による条件指定</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行の並べ替え"><i class="fa fa-check"></i><b>3.6</b> 行の並べ替え</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#昇順ソート"><i class="fa fa-check"></i>昇順ソート</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#降順ソート"><i class="fa fa-check"></i>降順ソート</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#降順ソート日付型"><i class="fa fa-check"></i>降順ソート（日付型）</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数条件によるソート"><i class="fa fa-check"></i>複数条件によるソート</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列の作成修正"><i class="fa fa-check"></i><b>3.7</b> 列の作成・修正</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#新たな列の作成"><i class="fa fa-check"></i>新たな列の作成</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#既存の列の修正"><i class="fa fa-check"></i>既存の列の修正</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件付き系列の作成"><i class="fa fa-check"></i>条件付き系列の作成</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括処理"><i class="fa fa-check"></i>複数列の一括処理</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化"><i class="fa fa-check"></i><b>3.8</b> グループ化</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#単一の列でグループ化"><i class="fa fa-check"></i>単一の列でグループ化</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数の列でグループ化"><i class="fa fa-check"></i>複数の列でグループ化</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化フィルタ"><i class="fa fa-check"></i>グループ化＆フィルタ</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化の解除"><i class="fa fa-check"></i>グループ化の解除</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#集計"><i class="fa fa-check"></i><b>3.9</b> 集計</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ別の集計"><i class="fa fa-check"></i>グループ別の集計</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#クロス集計"><i class="fa fa-check"></i>クロス集計</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括処理-1"><i class="fa fa-check"></i>複数列の一括処理</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型横型の変換"><i class="fa fa-check"></i><b>3.10</b> 縦型・横型の変換</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型データを横型データに変換"><i class="fa fa-check"></i>縦型データを横型データに変換</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#横型データを縦型データに変換"><i class="fa fa-check"></i>横型データを縦型データに変換</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#データの結合"><i class="fa fa-check"></i><b>3.11</b> データの結合</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#内部結合"><i class="fa fa-check"></i>内部結合</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#左外部結合"><i class="fa fa-check"></i>左外部結合</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#右外部結合"><i class="fa fa-check"></i>右外部結合</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#完全外部結合"><i class="fa fa-check"></i>完全外部結合</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複処理"><i class="fa fa-check"></i><b>3.12</b> 重複処理</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の抽出"><i class="fa fa-check"></i>重複行の抽出</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の削除"><i class="fa fa-check"></i>重複行の削除</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#欠損値処理"><i class="fa fa-check"></i><b>3.13</b> 欠損値処理</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naの削除"><i class="fa fa-check"></i>NAの削除</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naの置換"><i class="fa fa-check"></i>NAの置換</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naのフィル"><i class="fa fa-check"></i>NAのフィル</a></li>
+</ul></li>
+<li class="chapter" data-level="3.14" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#補完処理"><i class="fa fa-check"></i><b>3.14</b> 補完処理</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#組み合わせ候補の補完"><i class="fa fa-check"></i>組み合わせ候補の補完</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#時系列データの補完"><i class="fa fa-check"></i>時系列データの補完</a></li>
+</ul></li>
+<li class="chapter" data-level="3.15" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#サンプリング"><i class="fa fa-check"></i><b>3.15</b> サンプリング</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="時系列データ操作.html"><a href="時系列データ操作.html"><i class="fa fa-check"></i><b>4</b> 時系列データ操作</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="時系列データ操作.html"><a href="時系列データ操作.html#第4章の準備"><i class="fa fa-check"></i><b>4.1</b> 第4章の準備</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#パッケージのインポート-1"><i class="fa fa-check"></i>パッケージのインポート</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#外部データセットの取得-1"><i class="fa fa-check"></i>外部データセットの取得</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="時系列データ操作.html"><a href="時系列データ操作.html#データ変換"><i class="fa fa-check"></i><b>4.2</b> データ変換</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ラグリード系列の作成"><i class="fa fa-check"></i>ラグ・リード系列の作成</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#変化率系列の作成"><i class="fa fa-check"></i>変化率系列の作成</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#移動平均系列の作成"><i class="fa fa-check"></i>移動平均系列の作成</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="時系列データ操作.html"><a href="時系列データ操作.html#時系列データの頻度変換"><i class="fa fa-check"></i><b>4.3</b> 時系列データの頻度変換</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データを週次データに変換"><i class="fa fa-check"></i>日次データを週次データに変換</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データを月次データに変換"><i class="fa fa-check"></i>日次データを月次データに変換</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データを四半期データに変換"><i class="fa fa-check"></i>日次データを四半期データに変換</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="時系列データ操作.html"><a href="時系列データ操作.html#季節調整x-13"><i class="fa fa-check"></i><b>4.4</b> 季節調整（X-13）</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts型データの可視化"><i class="fa fa-check"></i><b>4.4.1</b> ts型データの可視化</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#x-13arima-seatsの実施方法"><i class="fa fa-check"></i>X-13ARIMA-SEATSの実施方法</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#実例月次データの季節調整"><i class="fa fa-check"></i>実例：月次データの季節調整</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="時系列データ操作.html"><a href="時系列データ操作.html#季節調整stl分解"><i class="fa fa-check"></i><b>4.5</b> 季節調整（STL分解）</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="時系列データ操作.html"><a href="時系列データ操作.html#stl分解の実施方法"><i class="fa fa-check"></i><b>4.5.1</b> STL分解の実施方法</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#週次データのstl分解"><i class="fa fa-check"></i>週次データのSTL分解</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データのstl分解単一周期"><i class="fa fa-check"></i>日次データのSTL分解（単一周期）</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データのstl分解複数周期"><i class="fa fa-check"></i>日次データのSTL分解（複数周期）</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="時系列データ操作.html"><a href="時系列データ操作.html#トレンド推定"><i class="fa fa-check"></i><b>4.6</b> トレンド推定</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#hpフィルタ"><i class="fa fa-check"></i>HPフィルタ</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#一般化加法モデルgam"><i class="fa fa-check"></i>一般化加法モデル（GAM）</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html"><i class="fa fa-check"></i><b>5</b> ggplot2によるグラフ作成</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#第5章の準備"><i class="fa fa-check"></i><b>5.1</b> 第5章の準備</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#パッケージのインポート-2"><i class="fa fa-check"></i>パッケージのインポート</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#外部データセットの取得-2"><i class="fa fa-check"></i>外部データセットの取得</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplot2とは"><i class="fa fa-check"></i><b>5.2</b> ggplot2とは</a></li>
+<li class="chapter" data-level="5.3" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplot2の設定"><i class="fa fa-check"></i><b>5.3</b> ggplot2の設定</a></li>
+<li class="chapter" data-level="5.4" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#gui形式の直感的なグラフ作成"><i class="fa fa-check"></i><b>5.4</b> GUI形式の直感的なグラフ作成</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#esquisseパッケージ"><i class="fa fa-check"></i>esquisseパッケージ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplotguiパッケージ"><i class="fa fa-check"></i>ggplotguiパッケージ</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布離散型"><i class="fa fa-check"></i><b>5.5</b> 1次元の度数分布（離散型）</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#度数棒グラフの基本形"><i class="fa fa-check"></i>度数棒グラフの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布連続型"><i class="fa fa-check"></i><b>5.6</b> 1次元の度数分布（連続型）</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ヒストグラムの基本形"><i class="fa fa-check"></i>ヒストグラムの基本形</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#横並びヒストグラム"><i class="fa fa-check"></i>横並びヒストグラム</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げヒストグラム"><i class="fa fa-check"></i>積み上げヒストグラム</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の密度グラフ"><i class="fa fa-check"></i><b>5.7</b> 1次元の密度グラフ</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#密度グラフの基本形"><i class="fa fa-check"></i>密度グラフの基本形</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#横並び密度グラフ"><i class="fa fa-check"></i>横並び密度グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ密度グラフ"><i class="fa fa-check"></i>積み上げ密度グラフ</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布離散型-1"><i class="fa fa-check"></i><b>5.8</b> 2次元の度数分布（離散型）</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#度数バブルチャートの基本形"><i class="fa fa-check"></i>度数バブルチャートの基本形</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#度数ヒートマップの基本形"><i class="fa fa-check"></i>度数ヒートマップの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布連続型-1"><i class="fa fa-check"></i><b>5.9</b> 2次元の度数分布（連続型）</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#度数ヒートマップの基本形-1"><i class="fa fa-check"></i>度数ヒートマップの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の密度グラフ-1"><i class="fa fa-check"></i><b>5.10</b> 2次元の密度グラフ</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元密度グラフの基本形"><i class="fa fa-check"></i>2次元密度グラフの基本形</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元密度グラフの塗りつぶし版"><i class="fa fa-check"></i>2次元密度グラフの塗りつぶし版</a></li>
+</ul></li>
+<li class="chapter" data-level="5.11" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#qqプロット"><i class="fa fa-check"></i><b>5.11</b> QQプロット</a></li>
+<li class="chapter" data-level="5.12" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図バブルチャート"><i class="fa fa-check"></i><b>5.12</b> 散布図・バブルチャート</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図の基本形"><i class="fa fa-check"></i>散布図の基本形</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#バブルチャートの基本形"><i class="fa fa-check"></i>バブルチャートの基本形</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図に補助線を追加"><i class="fa fa-check"></i>散布図に補助線を追加</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図にコネクタ線を追加"><i class="fa fa-check"></i>散布図にコネクタ線を追加</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図に近似曲線を追加"><i class="fa fa-check"></i>散布図に近似曲線を追加</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図にラベルを追加"><i class="fa fa-check"></i>散布図にラベルを追加</a></li>
+<li class="chapter" data-level="5.12.1" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#バブルチャートにラベルを追加"><i class="fa fa-check"></i><b>5.12.1</b> バブルチャートにラベルを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="5.13" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#棒グラフ"><i class="fa fa-check"></i><b>5.13</b> 棒グラフ</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#縦棒グラフの基本形"><i class="fa fa-check"></i>縦棒グラフの基本形</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#横棒グラフ"><i class="fa fa-check"></i>横棒グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#縦棒グラフの順序並べ替え"><i class="fa fa-check"></i>縦棒グラフの順序並べ替え</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#縦棒グラフにラベルを追加"><i class="fa fa-check"></i>縦棒グラフにラベルを追加</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#集合縦棒グラフ"><i class="fa fa-check"></i>集合縦棒グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ縦棒グラフ"><i class="fa fa-check"></i>積み上げ縦棒グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ縦棒グラフにラベルを追加"><i class="fa fa-check"></i>積み上げ縦棒グラフにラベルを追加</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ縦棒グラフ-1"><i class="fa fa-check"></i>100％積み上げ縦棒グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ縦棒グラフにラベルを追加-1"><i class="fa fa-check"></i>100％積み上げ縦棒グラフにラベルを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="5.14" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#円グラフ"><i class="fa fa-check"></i><b>5.14</b> 円グラフ</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#円グラフの基本形"><i class="fa fa-check"></i>円グラフの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="5.15" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフ"><i class="fa fa-check"></i><b>5.15</b> 折れ線グラフ</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフの基本形"><i class="fa fa-check"></i>折れ線グラフの基本形</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフにマーカーを追加"><i class="fa fa-check"></i>折れ線グラフにマーカーを追加</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフに系列ラベルを追加"><i class="fa fa-check"></i>折れ線グラフに系列ラベルを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="5.16" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ステップグラフ"><i class="fa fa-check"></i><b>5.16</b> ステップグラフ</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ステップグラフの基本形"><i class="fa fa-check"></i>ステップグラフの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="5.17" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#面グラフ"><i class="fa fa-check"></i><b>5.17</b> 面グラフ</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#面グラフの基本形"><i class="fa fa-check"></i>面グラフの基本形</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ面グラフ"><i class="fa fa-check"></i>積み上げ面グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#リボングラフの基本形"><i class="fa fa-check"></i>リボングラフの基本形</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#リボングラフに折れ線グラフを追加"><i class="fa fa-check"></i>リボングラフに折れ線グラフを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="5.18" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげ図ヴァイオリングラフ"><i class="fa fa-check"></i><b>5.18</b> 箱ひげ図・ヴァイオリングラフ</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげ図の基本形"><i class="fa fa-check"></i>箱ひげ図の基本形</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげ図に個別サンプルを追加"><i class="fa fa-check"></i>箱ひげ図に個別サンプルを追加</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ヴァイオリングラフの基本形"><i class="fa fa-check"></i>ヴァイオリングラフの基本形</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ヴァイオリングラフに個別サンプルを追加"><i class="fa fa-check"></i>ヴァイオリングラフに個別サンプルを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="5.19" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロット"><i class="fa fa-check"></i><b>5.19</b> ドットプロット</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロットの基本形"><i class="fa fa-check"></i>ドットプロットの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="5.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の設定"><i class="fa fa-check"></i><b>5.20</b> 色の設定</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の手動指定離散型変数"><i class="fa fa-check"></i>色の手動指定（離散型変数）</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#brewerカラーパレット離散型変数"><i class="fa fa-check"></i>Brewerカラーパレット（離散型変数）</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#viridisカラーパレット離散型変数"><i class="fa fa-check"></i>Viridisカラーパレット（離散型変数）</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggsciカラーパレット離散型変数"><i class="fa fa-check"></i>ggsciカラーパレット（離散型変数）</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#distillerカラーパレット連続型変数"><i class="fa fa-check"></i>distillerカラーパレット（連続型変数）</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#viridisカラーパレット連続型変数"><i class="fa fa-check"></i>Viridisカラーパレット（連続型変数）</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#gradientカラーパレット連続型変数"><i class="fa fa-check"></i>gradientカラーパレット（連続型変数）</a></li>
+</ul></li>
+<li class="chapter" data-level="5.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#軸の設定"><i class="fa fa-check"></i><b>5.21</b> 軸の設定</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#x軸連続型y軸連続型"><i class="fa fa-check"></i>X軸：連続型、Y軸：連続型</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#対数目盛"><i class="fa fa-check"></i>対数目盛</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#x軸日付型y軸連続型"><i class="fa fa-check"></i>X軸：日付型、Y軸：連続型</a></li>
+</ul></li>
+<li class="chapter" data-level="5.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフファセット"><i class="fa fa-check"></i><b>5.22</b> 複合グラフ（ファセット）</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行方向の複合グラフ"><i class="fa fa-check"></i>行方向の複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#列方向の複合グラフ"><i class="fa fa-check"></i>列方向の複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行列方向の複合グラフ"><i class="fa fa-check"></i>行・列方向の複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行数列数を指定した複合グラフ"><i class="fa fa-check"></i>行数・列数を指定した複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフの設定"><i class="fa fa-check"></i>複合グラフの設定</a></li>
+</ul></li>
+<li class="chapter" data-level="5.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>5.23</b> 地図ファセット</a></li>
+<li class="chapter" data-level="5.24" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#その他設定保存"><i class="fa fa-check"></i><b>5.24</b> その他設定・保存</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#タイトルキャプション"><i class="fa fa-check"></i>タイトル・キャプション</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#パネル目盛線"><i class="fa fa-check"></i>パネル目盛線</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#凡例"><i class="fa fa-check"></i>凡例</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#フォントマージン設定"><i class="fa fa-check"></i>フォント・マージン設定</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#保存"><i class="fa fa-check"></i>保存</a></li>
+</ul></li>
+<li class="chapter" data-level="5.25" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>5.25</b> 実例</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例1世界の新型コロナ死亡率の箱ひげ図"><i class="fa fa-check"></i>実例1：世界の新型コロナ死亡率の箱ひげ図</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="探索的データ分析.html"><a href="探索的データ分析.html"><i class="fa fa-check"></i><b>6</b> 探索的データ分析</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="探索的データ分析.html"><a href="探索的データ分析.html#第6章の準備"><i class="fa fa-check"></i><b>6.1</b> 第6章の準備</a>
+<ul>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#パッケージのインポート-3"><i class="fa fa-check"></i>パッケージのインポート</a></li>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#ggplot2の設定-1"><i class="fa fa-check"></i>ggplot2の設定</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの中身記述統計量"><i class="fa fa-check"></i><b>6.2</b> データの中身（記述統計量）</a></li>
+<li class="chapter" data-level="6.3" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの分布"><i class="fa fa-check"></i><b>6.3</b> データの分布</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="探索的データ分析.html"><a href="探索的データ分析.html#離散型変数の度数分布"><i class="fa fa-check"></i><b>6.3.1</b> 離散型変数の度数分布</a></li>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#連続型変数の度数分布"><i class="fa fa-check"></i>連続型変数の度数分布</a></li>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#外れ値"><i class="fa fa-check"></i>外れ値</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの関係性"><i class="fa fa-check"></i><b>6.4</b> データの関係性</a>
+<ul>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#離散型変数の関係性"><i class="fa fa-check"></i>離散型変数の関係性</a></li>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#連続型変数の関係性"><i class="fa fa-check"></i>連続型変数の関係性</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="探索的データ分析.html"><a href="探索的データ分析.html#相関関係ペアプロット"><i class="fa fa-check"></i><b>6.5</b> 相関関係・ペアプロット</a>
+<ul>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#相関係数行列"><i class="fa fa-check"></i>相関係数行列</a></li>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#corrplotパッケージ"><i class="fa fa-check"></i>corrplotパッケージ</a></li>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#corrrパッケージ"><i class="fa fa-check"></i>corrrパッケージ</a></li>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#ggallyパッケージ"><i class="fa fa-check"></i>GGallyパッケージ</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="探索的データ分析.html"><a href="探索的データ分析.html#探索的データ分析の一括実行"><i class="fa fa-check"></i><b>6.6</b> 探索的データ分析の一括実行</a>
+<ul>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#dataexplorerパッケージ"><i class="fa fa-check"></i>DataExplorerパッケージ</a></li>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#smartedaパッケージ"><i class="fa fa-check"></i>SmartEDAパッケージ</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="線形回帰.html"><a href="線形回帰.html"><i class="fa fa-check"></i><b>7</b> 線形回帰</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="線形回帰.html"><a href="線形回帰.html#第7章の準備"><i class="fa fa-check"></i><b>7.1</b> 第7章の準備</a>
+<ul>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#パッケージのインポート-4"><i class="fa fa-check"></i>パッケージのインポート</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#外部データセットの取得-3"><i class="fa fa-check"></i>外部データセットの取得</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="線形回帰.html"><a href="線形回帰.html#用語の説明"><i class="fa fa-check"></i><b>7.2</b> 用語の説明</a>
+<ul>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#標本と推定"><i class="fa fa-check"></i>標本と推定</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#推定量の望ましい性質"><i class="fa fa-check"></i>推定量の望ましい性質</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="線形回帰.html"><a href="線形回帰.html#最小2乗法ols"><i class="fa fa-check"></i><b>7.3</b> 最小2乗法（OLS）</a>
+<ul>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#最小2乗法の仮定"><i class="fa fa-check"></i>最小2乗法の仮定</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#検定と信頼区間"><i class="fa fa-check"></i>検定と信頼区間</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="線形回帰.html"><a href="線形回帰.html#モデルの種類と係数の解釈"><i class="fa fa-check"></i><b>7.4</b> モデルの種類と係数の解釈</a>
+<ul>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#水準モデル"><i class="fa fa-check"></i>水準モデル</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#対数モデル"><i class="fa fa-check"></i>対数モデル</a></li>
+<li class="chapter" data-level="7.4.1" data-path="線形回帰.html"><a href="線形回帰.html#変化率モデル"><i class="fa fa-check"></i><b>7.4.1</b> 変化率モデル</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#多項式モデル"><i class="fa fa-check"></i>多項式モデル</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#交互作用モデル"><i class="fa fa-check"></i>交互作用モデル</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#ダミー変数"><i class="fa fa-check"></i>ダミー変数</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="線形回帰.html"><a href="線形回帰.html#単回帰モデル"><i class="fa fa-check"></i><b>7.5</b> 単回帰モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例4.1-線形単回帰"><i class="fa fa-check"></i>実証例4.1 線形単回帰</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#対数変化率モデルの推定"><i class="fa fa-check"></i>対数・変化率モデルの推定</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="線形回帰.html"><a href="線形回帰.html#重回帰モデル"><i class="fa fa-check"></i><b>7.6</b> 重回帰モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#欠落変数バイアス"><i class="fa fa-check"></i>欠落変数バイアス</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#多重共線性"><i class="fa fa-check"></i>多重共線性</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#変数選択の指針"><i class="fa fa-check"></i>変数選択の指針</a></li>
+<li class="chapter" data-level="7.6.1" data-path="線形回帰.html"><a href="線形回帰.html#実証例5.15.4-線形重回帰"><i class="fa fa-check"></i><b>7.6.1</b> 実証例5.1・5.4 線形重回帰</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例5.5-多項式モデル"><i class="fa fa-check"></i>実証例5.5 多項式モデル</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例5.6-ダミー交互作用モデル"><i class="fa fa-check"></i>実証例5.6 ダミー・交互作用モデル</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例5.7-ダミー交互作用モデル"><i class="fa fa-check"></i>実証例5.7 ダミー・交互作用モデル</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
@@ -229,7 +589,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">エコノミストのためのRコード</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">エコノミストのためのR</a>
           </h1>
         </div>
 
@@ -239,9 +599,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="rの設定" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">1</span> Rの設定<a href="rの設定.html#rの設定" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>第1章「Rの設定」では、Rを使用する際の各種設定について解説します。パッケージのインストール・インポートや、プロキシサーバーの設定（プロキシ環境のみ）など、Rの使用に欠かせない様々な設定について記載しています。</p>
+<p>第1章「Rの設定」では、Rを使用する際の各種設定について解説します。Rのインストール、プロキシサーバーの設定、パッケージのインストール・インポート、グラフの設定など、Rの使用に欠かせない様々な設定について記載しています。</p>
+<p>また、本書で使用するサンプルデータセットも、この章で紹介しています。特に、ウェブから読み込む外部データセットについては、この章で取得方法を記載していますので、確認してください。</p>
+<p>この章の最後に、Rを起動時に実行すべき設定をまとめています。実際にRを使用する際にご利用ください。</p>
 <div id="設定全般" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> 設定全般<a href="rの設定.html#設定全般" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="rのインストール" class="section level3 unnumbered hasAnchor">
+<h3>Rのインストール<a href="rの設定.html#rのインストール" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rは<a href="https://cran.r-project.org/">The Comprehensive R Archive Network</a>からダウンロードしてインストールしてください。2020年にバージョン4へメジャーアップデートが行われており、本書でもバージョン4を使用しています。</p>
+<p>Rの統合開発環境であるRStudioは、開発元の<a href="https://www.rstudio.com/">rstudio.com</a>からインストールできます。上部メニューのDOWNLOADからダウンロードページに進み、RStudio DesktopのFree版をダウンロードしてインストールしてください。</p>
+<p>Windows環境でRの一部のパッケージを使用する際、Rtoolsというツールが必要な場合がありますので、<a href="https://cran.r-project.org/bin/windows/Rtools/">こちらのウェブサイト</a>からRのバージョンに合ったものをダウンロードしてインストールします。</p>
+</div>
 <div id="rのバージョン確認" class="section level3 unnumbered hasAnchor">
 <h3>Rのバージョン確認<a href="rの設定.html#rのバージョン確認" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Rのバージョン情報を出力します。</p>
@@ -288,36 +656,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [17] yaml_2.3.5      fastmap_1.1.0   compiler_4.1.3  htmltools_0.5.2
 ## [21] knitr_1.38      sass_0.4.1</code></pre>
 </div>
+<div id="オブジェクトを全削除" class="section level3 unnumbered hasAnchor">
+<h3>オブジェクトを全削除<a href="rの設定.html#オブジェクトを全削除" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>変数をすべて削除してワークスペースを初期化します。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="rの設定.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
+</div>
 <div id="警告の非表示" class="section level3 unnumbered hasAnchor">
 <h3>警告の非表示<a href="rの設定.html#警告の非表示" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Rが出力する警告（Warning）を非表示にします。</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="rの設定.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">warn =</span> <span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="rの設定.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">warn =</span> <span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 </div>
 <div id="関数が出力する警告やメッセージの非表示" class="section level3 unnumbered hasAnchor">
 <h3>関数が出力する警告やメッセージの非表示<a href="rの設定.html#関数が出力する警告やメッセージの非表示" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>関数が出力する警告やメッセージは<code>options(warn = -1)</code>で非表示にできないため、<code>suppressWarnings()</code>関数や<code>suppressMessages()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="rの設定.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>(警告を出力する関数)</span>
-<span id="cb6-2"><a href="rの設定.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(メッセージを出力する関数)</span></code></pre></div>
+<p>関数が出力する警告やメッセージは<code>options(warn = -1)</code>で非表示にできないため、関数毎に、必要に応じて<code>suppressWarnings()</code>関数や<code>suppressMessages()</code>関数を使用します。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="rの設定.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>(警告を出力する関数)</span>
+<span id="cb7-2"><a href="rの設定.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(メッセージを出力する関数)</span></code></pre></div>
 </div>
 </div>
 <div id="プロキシサーバーの設定" class="section level2 hasAnchor" number="1.2">
 <h2><span class="header-section-number">1.2</span> プロキシサーバーの設定<a href="rの設定.html#プロキシサーバーの設定" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Webからデータを直接読み込むため、企業や大学などのプロキシ環境ではプロキシサーバーの設定を行ってください。なお、下記のコードは認証プロキシには非対応です。</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="rの設定.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## プロキシサーバーとポートを記入</span></span>
-<span id="cb7-2"><a href="rの設定.html#cb7-2" aria-hidden="true" tabindex="-1"></a>proxy_url <span class="ot">&lt;-</span> <span class="st">&quot;http://proxyserver:port/&quot;</span></span>
-<span id="cb7-3"><a href="rの設定.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="rの設定.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="rの設定.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Rのシステム環境変数を設定</span></span>
-<span id="cb7-6"><a href="rの設定.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;http_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
-<span id="cb7-7"><a href="rの設定.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;https_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
-<span id="cb7-8"><a href="rの設定.html#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="rの設定.html#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="rの設定.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Rのダウンロードオプションを設定</span></span>
-<span id="cb7-11"><a href="rの設定.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">download.file.method =</span> <span class="st">&quot;libcurl&quot;</span>)</span>
-<span id="cb7-12"><a href="rの設定.html#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">timeout =</span> <span class="cn">NA</span>)</span></code></pre></div>
+<p>オフィスや大学などのプロキシ環境ではプロキシサーバーの設定を行ってください。なお、下記のコードは認証プロキシには非対応です。</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="rの設定.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># プロキシサーバーとポートを記入</span></span>
+<span id="cb8-2"><a href="rの設定.html#cb8-2" aria-hidden="true" tabindex="-1"></a>proxy_url <span class="ot">&lt;-</span> <span class="st">&quot;http://proxyserver:port/&quot;</span></span>
+<span id="cb8-3"><a href="rの設定.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="rの設定.html#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="rの設定.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Rのシステム環境変数を設定</span></span>
+<span id="cb8-6"><a href="rの設定.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;http_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
+<span id="cb8-7"><a href="rの設定.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;https_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
+<span id="cb8-8"><a href="rの設定.html#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="rの設定.html#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="rの設定.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Rのダウンロードオプションを設定</span></span>
+<span id="cb8-11"><a href="rの設定.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">download.file.method =</span> <span class="st">&quot;libcurl&quot;</span>)</span>
+<span id="cb8-12"><a href="rの設定.html#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">timeout =</span> <span class="cn">NA</span>)</span></code></pre></div>
 </div>
-<div id="パッケージのインストールとインポート" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> パッケージのインストールとインポート<a href="rの設定.html#パッケージのインストールとインポート" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="パッケージ" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> パッケージ<a href="rの設定.html#パッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="使用するパッケージ一覧" class="section level3 unnumbered hasAnchor">
 <h3>使用するパッケージ一覧<a href="rの設定.html#使用するパッケージ一覧" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -330,14 +703,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>図表系
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html">esquisse</a>：shanyを使用した直感的な図表作成</li>
-<li><a href="https://cran.r-project.org/web/packages/geofacet/vignettes/geofacet.html">geofacet</a>：地図形式のファセット図配置</li>
-<li><a href="https://cran.r-project.org/web/packages/ggplotgui/README.html">ggplotgui</a>：shanyを使用した直感的な図表作成</li>
+<li><a href="https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html">esquisse</a>：shinyを使用したGUI形式の直感的な図表作成</li>
+<li><a href="https://cran.r-project.org/web/packages/geofacet/vignettes/geofacet.html">geofacet</a>：地図形式の複合グラフ（ファセット）配置</li>
+<li><a href="https://cran.r-project.org/web/packages/ggplotgui/README.html">ggplotgui</a>：shinyを使用したGUI形式の直感的な図表作成</li>
 <li><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a>：論文形式の図表作成</li>
 <li><a href="https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html">ggsci</a>：科学系論文の雑誌別カラーパレット</li>
 <li><a href="https://ggrepel.slowkow.com/index.html">ggrepel</a>：散布図のラベル付与</li>
 <li>hexbin：<code>geom_hex()</code>関数を使用するために必要なパッケージ</li>
-<li><a href="https://github.com/stefanedwards/lemon">lemon</a>：ファセット図の軸・目盛り表示</li>
+<li><a href="https://github.com/stefanedwards/lemon">lemon</a>：複合グラフ（ファセット）の軸・目盛り表示</li>
 <li><a href="https://cran.r-project.org/web/packages/RColorBrewer/index.html">RColorBrewer</a>：カラーパレット</li>
 </ul></li>
 <li>統計系
@@ -345,10 +718,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">corrplot</a>：相関係数行列の計算・可視化</li>
 <li><a href="https://corrr.tidymodels.org/">corrr</a>：相関係数行列の計算・可視化</li>
 <li><a href="https://cran.r-project.org/web/packages/DataExplorer/vignettes/dataexplorer-intro.html">DataExplorer</a>：探索的データ分析の一括実行</li>
+<li><a href="https://declaredesign.org/r/estimatr/">estimatr</a>：線形回帰モデルの推定</li>
+<li><a href="https://otexts.com/fpp2/">fpp2</a>：時系列データ予測の教科書用に開発されたパッケージ</li>
 <li><a href="https://ggobi.github.io/ggally/index.html">GGally</a>：ペアプロットなどのデータ可視化</li>
-<li>mgcv：一般化加法モデル（GAM）</li>
+<li><a href="https://www.rdocumentation.org/packages/mFilter/versions/0.1-5/topics/hpfilter">mFilter</a>：HPフィルタ</li>
+<li><a href="https://cran.r-project.org/web/packages/mgcv/mgcv.pdf">mgcv</a>：一般化加法モデル（GAM）</li>
 <li>plm：パネルデータモデル</li>
 <li><a href="https://personality-project.org/r/psych/">psych</a>：心理統計パッケージ</li>
+<li><a href="https://cran.r-project.org/web/packages/seasonal/readme/README.html">seasonal</a>：コマンド形式の季節調整</li>
+<li><a href="https://cran.r-project.org/web/packages/seasonalview/README.html">seasonalview</a>：GUI形式の季節調整</li>
 <li>sigmoid：シグモイド関数</li>
 <li><a href="https://daya6489.github.io/SmartEDA/">SmartEDA</a>：探索的データ分析の一括実行</li>
 <li><a href="https://business-science.github.io/tidyquant/index.html">tidyquant</a>：金融時系列データ分析</li>
@@ -356,64 +734,452 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>その他
 <ul>
 <li><a href="https://ycphs.github.io/openxlsx/">openxlsx</a>：Excelのxlsxファイルの読み込み・編集・書き出し</li>
+<li><a href="https://www.rdocumentation.org/packages/pbapply/versions/1.4-3/topics/pbapply">pblapply</a>：プログレスバーを表示する<code>apply()</code>関数ファミリー</li>
 </ul></li>
 </ul>
 </div>
-<div id="パッケージのインストールとインポート-1" class="section level3 unnumbered hasAnchor">
-<h3>パッケージのインストールとインポート<a href="rの設定.html#パッケージのインストールとインポート-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="パッケージのインストールとインポート" class="section level3 unnumbered hasAnchor">
+<h3>パッケージのインストールとインポート<a href="rの設定.html#パッケージのインストールとインポート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>パッケージのインストールは<code>install.packages()</code>関数、インストールしたパッケージのインポート（呼び出し）は<code>library()</code>関数で実行します。一度インストールすれば、その後はインポートするだけでパッケージを使用することができます。</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="rの設定.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># パッケージ一覧</span></span>
-<span id="cb8-2"><a href="rの設定.html#cb8-2" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb8-3"><a href="rの設定.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;magrittr&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;readxl&quot;</span>,</span>
-<span id="cb8-4"><a href="rの設定.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;esquisse&quot;</span>, <span class="st">&quot;geofacet&quot;</span>, <span class="st">&quot;ggplotgui&quot;</span>, <span class="st">&quot;ggpubr&quot;</span>, <span class="st">&quot;ggsci&quot;</span>, <span class="st">&quot;ggrepel&quot;</span>, <span class="st">&quot;hexbin&quot;</span>, <span class="st">&quot;lemon&quot;</span>, <span class="st">&quot;RColorBrewer&quot;</span>,</span>
-<span id="cb8-5"><a href="rの設定.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;corrplot&quot;</span>, <span class="st">&quot;corrr&quot;</span>, <span class="st">&quot;DataExplorer&quot;</span>, <span class="st">&quot;GGally&quot;</span>, <span class="st">&quot;mgcv&quot;</span>, <span class="st">&quot;plm&quot;</span>, <span class="st">&quot;psych&quot;</span>, <span class="st">&quot;sigmoid&quot;</span>, <span class="st">&quot;SmartEDA&quot;</span>, <span class="st">&quot;tidyquant&quot;</span>,</span>
-<span id="cb8-6"><a href="rの設定.html#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;openxlsx&quot;</span></span>
-<span id="cb8-7"><a href="rの設定.html#cb8-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-8"><a href="rの設定.html#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="rの設定.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># インストールしていないパッケージがあればインストール</span></span>
-<span id="cb8-10"><a href="rの設定.html#cb8-10" aria-hidden="true" tabindex="-1"></a>new_packages <span class="ot">&lt;-</span> packages[<span class="sc">!</span>(packages <span class="sc">%in%</span> <span class="fu">installed.packages</span>()[,<span class="st">&quot;Package&quot;</span>])]</span>
-<span id="cb8-11"><a href="rの設定.html#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="rの設定.html#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(new_packages)) {</span>
-<span id="cb8-13"><a href="rの設定.html#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(new_packages)</span>
-<span id="cb8-14"><a href="rの設定.html#cb8-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-15"><a href="rの設定.html#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="rの設定.html#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># パッケージをインポート</span></span>
-<span id="cb8-17"><a href="rの設定.html#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (pkg <span class="cf">in</span> packages) {</span>
-<span id="cb8-18"><a href="rの設定.html#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-19"><a href="rの設定.html#cb8-19" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-20"><a href="rの設定.html#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-21"><a href="rの設定.html#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 変数を削除</span></span>
-<span id="cb8-22"><a href="rの設定.html#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(</span>
-<span id="cb8-23"><a href="rの設定.html#cb8-23" aria-hidden="true" tabindex="-1"></a>  new_packages,</span>
-<span id="cb8-24"><a href="rの設定.html#cb8-24" aria-hidden="true" tabindex="-1"></a>  packages,</span>
-<span id="cb8-25"><a href="rの設定.html#cb8-25" aria-hidden="true" tabindex="-1"></a>  pkg</span>
-<span id="cb8-26"><a href="rの設定.html#cb8-26" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="rの設定.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># パッケージ一覧</span></span>
+<span id="cb9-2"><a href="rの設定.html#cb9-2" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-3"><a href="rの設定.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;magrittr&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;readxl&quot;</span>,</span>
+<span id="cb9-4"><a href="rの設定.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;esquisse&quot;</span>, <span class="st">&quot;geofacet&quot;</span>, <span class="st">&quot;ggplotgui&quot;</span>, <span class="st">&quot;ggpubr&quot;</span>, <span class="st">&quot;ggsci&quot;</span>, <span class="st">&quot;ggrepel&quot;</span>, <span class="st">&quot;hexbin&quot;</span>, <span class="st">&quot;lemon&quot;</span>, <span class="st">&quot;RColorBrewer&quot;</span>,</span>
+<span id="cb9-5"><a href="rの設定.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;corrplot&quot;</span>, <span class="st">&quot;corrr&quot;</span>, <span class="st">&quot;DataExplorer&quot;</span>, <span class="st">&quot;estimatr&quot;</span>, <span class="st">&quot;fpp2&quot;</span>, <span class="st">&quot;GGally&quot;</span>, <span class="st">&quot;mFilter&quot;</span>, <span class="st">&quot;mgcv&quot;</span>, <span class="st">&quot;plm&quot;</span>, <span class="st">&quot;psych&quot;</span>, <span class="st">&quot;seasonal&quot;</span>, <span class="st">&quot;seasonalview&quot;</span>, <span class="st">&quot;sigmoid&quot;</span>, <span class="st">&quot;SmartEDA&quot;</span>, <span class="st">&quot;tidyquant&quot;</span>,</span>
+<span id="cb9-6"><a href="rの設定.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;openxlsx&quot;</span>, <span class="st">&quot;pbapply&quot;</span></span>
+<span id="cb9-7"><a href="rの設定.html#cb9-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-8"><a href="rの設定.html#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="rの設定.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># インストールしていないパッケージがあればインストール</span></span>
+<span id="cb9-10"><a href="rの設定.html#cb9-10" aria-hidden="true" tabindex="-1"></a>new_packages <span class="ot">&lt;-</span> packages[<span class="sc">!</span>(packages <span class="sc">%in%</span> <span class="fu">installed.packages</span>()[,<span class="st">&quot;Package&quot;</span>])]</span>
+<span id="cb9-11"><a href="rの設定.html#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="rの設定.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(new_packages)) {</span>
+<span id="cb9-13"><a href="rの設定.html#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(new_packages)</span>
+<span id="cb9-14"><a href="rの設定.html#cb9-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-15"><a href="rの設定.html#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="rの設定.html#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co"># パッケージをインポート</span></span>
+<span id="cb9-17"><a href="rの設定.html#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (pkg <span class="cf">in</span> packages) {</span>
+<span id="cb9-18"><a href="rの設定.html#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-19"><a href="rの設定.html#cb9-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-20"><a href="rの設定.html#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="rの設定.html#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 変数を削除</span></span>
+<span id="cb9-22"><a href="rの設定.html#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(</span>
+<span id="cb9-23"><a href="rの設定.html#cb9-23" aria-hidden="true" tabindex="-1"></a>  new_packages,</span>
+<span id="cb9-24"><a href="rの設定.html#cb9-24" aria-hidden="true" tabindex="-1"></a>  packages,</span>
+<span id="cb9-25"><a href="rの設定.html#cb9-25" aria-hidden="true" tabindex="-1"></a>  pkg</span>
+<span id="cb9-26"><a href="rの設定.html#cb9-26" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Rのパッケージは開発者が随時アップデートしていますが、自動で反映されることはありません。パッケージをアップデートする場合は、次のコードを実行してください。</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="rの設定.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># パッケージをすべてアップデート</span></span>
-<span id="cb9-2"><a href="rの設定.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>()</span>
-<span id="cb9-3"><a href="rの設定.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="rの設定.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># アップデートの対象になる古いバージョンのパッケージ一覧を出力</span></span>
-<span id="cb9-5"><a href="rの設定.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">old.packages</span>()</span>
-<span id="cb9-6"><a href="rの設定.html#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="rの設定.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># パッケージを指定してアップデート</span></span>
-<span id="cb9-8"><a href="rの設定.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="rの設定.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># パッケージをすべてアップデート</span></span>
+<span id="cb10-2"><a href="rの設定.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>()</span>
+<span id="cb10-3"><a href="rの設定.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="rの設定.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># アップデートの対象になる古いバージョンのパッケージ一覧を出力</span></span>
+<span id="cb10-5"><a href="rの設定.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">old.packages</span>()</span>
+<span id="cb10-6"><a href="rの設定.html#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="rの設定.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># パッケージを指定してアップデート</span></span>
+<span id="cb10-8"><a href="rの設定.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="グラフの設定" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> グラフの設定<a href="rの設定.html#グラフの設定" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>レポートやスライドに掲載するためのグラフは、主にRのggplot2パッケージで作成します。</p>
+<p>レポートやスライドに掲載するためのグラフは、主にRの<code>ggplot2</code>パッケージで作成します。</p>
 <div id="グラフのテーマ設定" class="section level3 unnumbered hasAnchor">
 <h3>グラフのテーマ設定<a href="rの設定.html#グラフのテーマ設定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>実務上、Excelと併用することを想定しているため、Excelで出力されるグラフに似たテーマを設定します。ggplot2にデフォルトで用意されている様々なテーマについては、<a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">公式ウェブサイト</a>を参照してください。</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="rの設定.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>())</span></code></pre></div>
+<p>本書では、実務上Excelと併用することを想定しているため、Excelで出力されるグラフに似たテーマである<code>theme_light()</code>を設定します。<code>ggplot2</code>パッケージにデフォルトで用意されている様々なテーマについては、<a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">公式ウェブサイト</a>を参照してください。</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="rの設定.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>())</span></code></pre></div>
 </div>
 <div id="グラフのフォント設定" class="section level3 unnumbered hasAnchor">
 <h3>グラフのフォント設定<a href="rの設定.html#グラフのフォント設定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Windows上でRを使用する場合は、日本語フォントをグラフ上で表示するために以下の設定が必要です。ここでは代表的なフォントとしてMeiryo UIとYu Gothic UIを設定します。それぞれのフォントに<code>MEIRYO</code>、<code>YUGO</code>というキーを割り当て、ggplot2でグラフを作成する際にキーを指定します。</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="rの設定.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">windowsFonts</span>(<span class="st">&quot;MEIRYO&quot;</span> <span class="ot">=</span> <span class="fu">windowsFont</span>(<span class="st">&quot;Meiryo UI&quot;</span>))</span>
-<span id="cb11-2"><a href="rの設定.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">windowsFonts</span>(<span class="st">&quot;YUGO&quot;</span> <span class="ot">=</span> <span class="fu">windowsFont</span>(<span class="st">&quot;Yu Gothic UI&quot;</span>))</span></code></pre></div>
-
+<p>Windows上でRを使用する場合は、日本語フォントをグラフ上で表示するために以下の設定が必要です。ここでは代表的なフォントとしてMeiryo UIとYu Gothic UIを設定します。それぞれのフォントに<code>MEIRYO</code>、<code>YUGO</code>というキーを割り当て、<code>ggplot2</code>パッケージでグラフを作成する際にキーを指定します。</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="rの設定.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">windowsFonts</span>(<span class="st">&quot;MEIRYO&quot;</span> <span class="ot">=</span> <span class="fu">windowsFont</span>(<span class="st">&quot;Meiryo UI&quot;</span>))</span>
+<span id="cb12-2"><a href="rの設定.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">windowsFonts</span>(<span class="st">&quot;YUGO&quot;</span> <span class="ot">=</span> <span class="fu">windowsFont</span>(<span class="st">&quot;Yu Gothic UI&quot;</span>))</span></code></pre></div>
 </div>
+</div>
+<div id="サンプルデータセット" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> サンプルデータセット<a href="rの設定.html#サンプルデータセット" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>本書で使用するサンプルデータセットの一覧です。Rの本体もしくはパッケージから呼び出せるデータセットと、ウェブから取得する外部データセットがあります。</p>
+<div id="rのサンプルデータセット" class="section level3 unnumbered hasAnchor">
+<h3>Rのサンプルデータセット<a href="rの設定.html#rのサンプルデータセット" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rのサンプルデータセットは、<code>help(データセット名)</code>を実行するとヘルプ画面で詳細を確認できます。</p>
+<div id="unemp" class="section level4 unnumbered hasAnchor">
+<h4>unemp<a href="rの設定.html#unemp" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>seasonal</code>パッケージに含まれる<code>unemp</code>データセットは、1990年1月から2016年11月までの米国の失業者数（単位：千人）の月次データ（原数値）です。データ形式はts型です。</p>
+<p><a href="https://fred.stlouisfed.org/series/LNU03000000">データ出所リンク</a></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="rの設定.html#cb13-1" aria-hidden="true" tabindex="-1"></a>seasonal<span class="sc">::</span>unemp</span></code></pre></div>
+<pre><code>##        Jan   Feb   Mar   Apr   May   Jun   Jul   Aug   Sep   Oct   Nov   Dec
+## 1990  7413  7296  6852  6620  6533  6884  7137  7008  7003  6892  7396  7525
+## 1991  8787  9121  8995  8226  8435  8992  8792  8439  8270  8232  8494  8755
+## 1992 10186 10401  9913  9135  9389 10366 10099  9605  9316  8813  9086  9045
+## 1993 10158 10004  9478  8835  8807  9473  9223  8655  8302  8296  8094  7959
+## 1994  9492  9262  8874  8078  7656  8251  8281  7868  7379  7155  6973  6690
+## 1995  8101  7685  7480  7378  7185  7727  7892  7457  7167  6884  7024  6872
+## 1996  8270  7858  7700  7124  7166  7377  7693  6868  6700  6577  6816  6680
+## 1997  7933  7647  7399  6551  6398  7094  6981  6594  6403  5995  5914  5957
+## 1998  7069  6804  6816  5643  5764  6534  6567  6173  6039  5831  5711  5565
+## 1999  6604  6563  6119  5688  5507  6271  6319  5826  5661  5372  5380  5245
+## 2000  6316  6284  6069  5212  5460  5959  6028  5863  5359  5153  5336  5264
+## 2001  6647  6523  6509  6004  5901  6816  6858  7017  6766  7175  7617  7773
+## 2002  9051  8823  8776  8255  7969  8758  8693  8271  7790  7769  8170  8209
+## 2003  9395  9260  9018  8501  8500  9649  9319  8830  8436  8169  8269  7945
+## 2004  9144  8770  8834  7837  7792  8616  8518  7940  7545  7531  7665  7599
+## 2005  8444  8549  7986  7335  7287  7870  7839  7327  7259  6964  7271  6956
+## 2006  7608  7692  7255  6804  6655  7341  7602  7086  6625  6272  6576  6491
+## 2007  7649  7400  6913  6532  6486  7295  7556  7088  6952  6773  6917  7371
+## 2008  8221  7953  8027  7287  8076  8933  9433  9479  9199  9469 10015 10999
+## 2009 13009 13699 13895 13248 13973 15095 15201 14823 14538 14547 14407 14740
+## 2010 16147 15991 15678 14609 14369 14885 15137 14759 14140 13903 14282 13997
+## 2011 14937 14542 14060 13237 13421 14409 14428 14008 13520 13102 12613 12692
+## 2012 13541 13430 12904 11910 12271 13184 13400 12696 11742 11741 11404 11844
+## 2013 13181 12500 11815 11014 11302 12248 12083 11462 10885 10773 10271  9984
+## 2014 10855 10893 10537  9079  9443  9893 10307  9787  8962  8680  8630  8331
+## 2015  9498  9095  8682  7966  8370  8638  8805  8162  7628  7597  7573  7542
+## 2016  8309  8219  8116  7413  7207  8144  8267  7996  7658  7447  7066</code></pre>
+</div>
+<div id="gasoline" class="section level4 unnumbered hasAnchor">
+<h4>gasoline<a href="rの設定.html#gasoline" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>fpp2</code>パッケージに含まれる<code>gasoline</code>データセットは、1991年2月2日から2017年１月20日までの米国ガソリン生産量（単位：百万バレル／日）の週次データです。データ形式はts型です。</p>
+</div>
+<div id="iris" class="section level4 unnumbered hasAnchor">
+<h4>iris<a href="rの設定.html#iris" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>datasets</code>パッケージに含まれる<code>iris</code>データセットは、データ分析で良く使用される有名なデータで、3種類のアヤメの萼（がく）と花弁の長さ・幅のデータを格納しています。データ型はdata.frame形式です。</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="rの設定.html#cb15-1" aria-hidden="true" tabindex="-1"></a>iris_tbl <span class="ot">&lt;-</span> <span class="fu">as.tibble</span>(iris)</span>
+<span id="cb15-2"><a href="rの設定.html#cb15-2" aria-hidden="true" tabindex="-1"></a>iris_tbl</span></code></pre></div>
+<pre><code>## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 140 more rows</code></pre>
+</div>
+<div id="mtcars" class="section level4 unnumbered hasAnchor">
+<h4>mtcars<a href="rの設定.html#mtcars" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>datasets</code>パッケージに含まれる<code>mtcars</code>データセットは、米国で1973～1974年に発売された32車種のデザインや諸元に関するデータです。燃費、排気量、馬力、重量などのデータが格納されています。データ型はdata.frame形式です。</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="rの設定.html#cb17-1" aria-hidden="true" tabindex="-1"></a>mtcars</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+</div>
+<div id="mpg" class="section level4 unnumbered hasAnchor">
+<h4>mpg<a href="rの設定.html#mpg" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>ggplot2</code>パッケージに含まれる<code>mpg</code>データセットは、米国で1999～2008年に発売された38車種の燃費関連データです。自動車メーカー名、モデル名、排気量、都市部と高速道路の燃費などのデータが格納されています。データ型はtibble形式です。</p>
+<p><a href="https://fueleconomy.gov/">データ出所リンク</a></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="rの設定.html#cb19-1" aria-hidden="true" tabindex="-1"></a>mpg</span></code></pre></div>
+<pre><code>## # A tibble: 234 x 11
+##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 audi         a4           1.8  1999     4 auto~ f        18    29 p     comp~
+##  2 audi         a4           1.8  1999     4 manu~ f        21    29 p     comp~
+##  3 audi         a4           2    2008     4 manu~ f        20    31 p     comp~
+##  4 audi         a4           2    2008     4 auto~ f        21    30 p     comp~
+##  5 audi         a4           2.8  1999     6 auto~ f        16    26 p     comp~
+##  6 audi         a4           2.8  1999     6 manu~ f        18    26 p     comp~
+##  7 audi         a4           3.1  2008     6 auto~ f        18    27 p     comp~
+##  8 audi         a4 quattro   1.8  1999     4 manu~ 4        18    26 p     comp~
+##  9 audi         a4 quattro   1.8  1999     4 auto~ 4        16    25 p     comp~
+## 10 audi         a4 quattro   2    2008     4 manu~ 4        20    28 p     comp~
+## # ... with 224 more rows</code></pre>
+</div>
+<div id="diamonds" class="section level4 unnumbered hasAnchor">
+<h4>diamonds<a href="rの設定.html#diamonds" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>ggplot2</code>パッケージに含まれる<code>diamonds</code>データセットは、約54,000個のダイヤモンドの価格、カラット、色、大きさなどの情報を格納しています。データ型はtibble形式です。</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="rの設定.html#cb21-1" aria-hidden="true" tabindex="-1"></a>diamonds</span></code></pre></div>
+<pre><code>## # A tibble: 53,940 x 10
+##    carat cut       color clarity depth table price     x     y     z
+##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43
+##  2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31
+##  3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31
+##  4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63
+##  5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75
+##  6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48
+##  7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47
+##  8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53
+##  9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49
+## 10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39
+## # ... with 53,930 more rows</code></pre>
+</div>
+<div id="economics" class="section level4 unnumbered hasAnchor">
+<h4>economics<a href="rの設定.html#economics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>ggplot2</code>パッケージに含まれる<code>economics</code>データセットは、米国の消費・雇用関連の時系列データで、日付（date）、<a href="https://fred.stlouisfed.org/series/PCE">個人消費支出（pce）</a>、<a href="https://fred.stlouisfed.org/series/POP">人口（pop）</a>、<a href="https://fred.stlouisfed.org/series/PSAVERT/">個人貯蓄率（psavert）</a>、<a href="https://fred.stlouisfed.org/series/UEMPMED">失業期間の中央値（uempmed）</a>、<a href="https://fred.stlouisfed.org/series/UNEMPLOY">失業者数（unemploy）</a>のデータを格納しています。データ型はtibble形式です。</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rの設定.html#cb23-1" aria-hidden="true" tabindex="-1"></a>economics</span></code></pre></div>
+<pre><code>## # A tibble: 574 x 6
+##    date         pce    pop psavert uempmed unemploy
+##    &lt;date&gt;     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+##  1 1967-07-01  507. 198712    12.6     4.5     2944
+##  2 1967-08-01  510. 198911    12.6     4.7     2945
+##  3 1967-09-01  516. 199113    11.9     4.6     2958
+##  4 1967-10-01  512. 199311    12.9     4.9     3143
+##  5 1967-11-01  517. 199498    12.8     4.7     3066
+##  6 1967-12-01  525. 199657    11.8     4.8     3018
+##  7 1968-01-01  531. 199808    11.7     5.1     2878
+##  8 1968-02-01  534. 199920    12.3     4.5     3001
+##  9 1968-03-01  544. 200056    11.7     4.1     2877
+## 10 1968-04-01  544  200208    12.3     4.6     2709
+## # ... with 564 more rows</code></pre>
+</div>
+</div>
+<div id="外部データセット" class="section level3 hasAnchor" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> 外部データセット<a href="rの設定.html#外部データセット" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>外部データセットはウェブから読み込むため、プロキシ環境ではプロキシサーバーの設定が必要です。</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="rの設定.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># プロキシサーバーとポートを記入</span></span>
+<span id="cb25-2"><a href="rの設定.html#cb25-2" aria-hidden="true" tabindex="-1"></a>proxy_url <span class="ot">&lt;-</span> <span class="st">&quot;http://proxyserver:port/&quot;</span></span>
+<span id="cb25-3"><a href="rの設定.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="rの設定.html#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="rの設定.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Rのシステム環境変数を設定</span></span>
+<span id="cb25-6"><a href="rの設定.html#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;http_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
+<span id="cb25-7"><a href="rの設定.html#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;https_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
+<span id="cb25-8"><a href="rの設定.html#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="rの設定.html#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="rの設定.html#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Rのダウンロードオプションを設定</span></span>
+<span id="cb25-11"><a href="rの設定.html#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">download.file.method =</span> <span class="st">&quot;libcurl&quot;</span>)</span>
+<span id="cb25-12"><a href="rの設定.html#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">timeout =</span> <span class="cn">NA</span>)</span></code></pre></div>
+<div id="owidのcovid-19データセット" class="section level4 unnumbered hasAnchor">
+<h4>OWIDのCOVID-19データセット<a href="rの設定.html#owidのcovid-19データセット" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Our World in Dataの新型コロナウイルス関連データセットです。データの詳細は<a href="https://ourworldindata.org/coronavirus">Our World in Dataのウェブサイト</a>を参照してください。</p>
+<p>Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Giattino, Esteban Ortiz-Ospina, Joe Hasell, Bobbie Macdonald, Diana Beltekian and Max Roser (2020) - “Coronavirus Pandemic (COVID-19)”. Published online at OurWorldInData.org. Retrieved from: ‘<a href="https://ourworldindata.org/coronavirus" class="uri">https://ourworldindata.org/coronavirus</a>’ [Online Resource]</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="rの設定.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our World in Dataの新型コロナデータをtibble形式で読み込み</span></span>
+<span id="cb26-2"><a href="rの設定.html#cb26-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;https://covid.ourworldindata.org/data/owid-covid-data.csv&quot;</span>, <span class="co"># ファイルパス／URL</span></span>
+<span id="cb26-3"><a href="rの設定.html#cb26-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="co"># ヘッダー（列名データ）の有無</span></span>
+<span id="cb26-4"><a href="rの設定.html#cb26-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="co"># 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）</span></span>
+<span id="cb26-5"><a href="rの設定.html#cb26-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">skip =</span> <span class="dv">0</span>) <span class="co"># 読み込み時に上からスキップする行数</span></span>
+<span id="cb26-6"><a href="rの設定.html#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="rの設定.html#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用するデータを絞り込み</span></span>
+<span id="cb26-8"><a href="rの設定.html#cb26-8" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb26-9"><a href="rの設定.html#cb26-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(continent, location, date, </span>
+<span id="cb26-10"><a href="rの設定.html#cb26-10" aria-hidden="true" tabindex="-1"></a>                total_cases, new_cases, new_cases_smoothed, total_deaths, new_deaths, </span>
+<span id="cb26-11"><a href="rの設定.html#cb26-11" aria-hidden="true" tabindex="-1"></a>                total_cases_per_million, new_cases_per_million, total_deaths_per_million, new_deaths_per_million,</span>
+<span id="cb26-12"><a href="rの設定.html#cb26-12" aria-hidden="true" tabindex="-1"></a>                people_fully_vaccinated,</span>
+<span id="cb26-13"><a href="rの設定.html#cb26-13" aria-hidden="true" tabindex="-1"></a>                stringency_index) <span class="co">#%&gt;% </span></span>
+<span id="cb26-14"><a href="rの設定.html#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#dplyr::filter(location %in% c(&quot;Japan&quot;, &quot;United States&quot;, &quot;United Kingdom&quot;, &quot;Germany&quot;, &quot;France&quot;, &quot;Italy&quot;))</span></span>
+<span id="cb26-15"><a href="rの設定.html#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="rの設定.html#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
+<span id="cb26-17"><a href="rの設定.html#cb26-17" aria-hidden="true" tabindex="-1"></a>data_owid</span></code></pre></div>
+<pre><code>## # A tibble: 196,774 x 14
+##    continent location    date       total_cases new_cases new_cases_smoothed
+##    &lt;chr&gt;     &lt;chr&gt;       &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
+##  1 Asia      Afghanistan 2020-02-24           5         5             NA    
+##  2 Asia      Afghanistan 2020-02-25           5         0             NA    
+##  3 Asia      Afghanistan 2020-02-26           5         0             NA    
+##  4 Asia      Afghanistan 2020-02-27           5         0             NA    
+##  5 Asia      Afghanistan 2020-02-28           5         0             NA    
+##  6 Asia      Afghanistan 2020-02-29           5         0              0.714
+##  7 Asia      Afghanistan 2020-03-01           5         0              0.714
+##  8 Asia      Afghanistan 2020-03-02           5         0              0    
+##  9 Asia      Afghanistan 2020-03-03           5         0              0    
+## 10 Asia      Afghanistan 2020-03-04           5         0              0    
+## # ... with 196,764 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
+## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
+## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
+## #   stringency_index &lt;dbl&gt;</code></pre>
+</div>
+<div id="日本の産業別就業者数" class="section level4 unnumbered hasAnchor">
+<h4>日本の産業別就業者数<a href="rの設定.html#日本の産業別就業者数" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>総務省が公表する労働力調査の長期時系列データのうち、2002年1月以降の産業別就業者数（表番号：1-c-3）を格納したデータセットです。詳細は<a href="https://www.e-stat.go.jp/stat-search/files?page=1&amp;toukei=00200531&amp;tstat=000000110001">e-Statの該当ページ</a>を参照してください。</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="rの設定.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 総務省の労働力調査データをdata.frame形式で読み込み</span></span>
+<span id="cb28-2"><a href="rの設定.html#cb28-2" aria-hidden="true" tabindex="-1"></a>data_labor <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;https://www.e-stat.go.jp/stat-search/file-download?statInfId=000031831374&amp;fileKind=0&quot;</span>, <span class="co"># ファイルパス／URL</span></span>
+<span id="cb28-3"><a href="rの設定.html#cb28-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">sheet =</span> <span class="dv">1</span>, <span class="co"># シートインデックス／シート名</span></span>
+<span id="cb28-4"><a href="rの設定.html#cb28-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">startRow =</span> <span class="dv">10</span>, <span class="co"># 読み込み開始行</span></span>
+<span id="cb28-5"><a href="rの設定.html#cb28-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">colNames =</span> <span class="cn">FALSE</span>, <span class="co"># 列名データの有無</span></span>
+<span id="cb28-6"><a href="rの設定.html#cb28-6" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">rowNames =</span> <span class="cn">FALSE</span>, <span class="co"># 行名データの有無</span></span>
+<span id="cb28-7"><a href="rの設定.html#cb28-7" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">rows =</span> <span class="cn">NULL</span>, <span class="co"># 読み込む列（NULLですべて読み込み）</span></span>
+<span id="cb28-8"><a href="rの設定.html#cb28-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">cols =</span> <span class="cn">NULL</span>) <span class="co"># 読み込む行（NULLですべて読み込み）</span></span>
+<span id="cb28-9"><a href="rの設定.html#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="rの設定.html#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 不要な列を削除</span></span>
+<span id="cb28-11"><a href="rの設定.html#cb28-11" aria-hidden="true" tabindex="-1"></a>data_labor <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb28-12"><a href="rの設定.html#cb28-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>X1, <span class="sc">-</span>X2, <span class="sc">-</span>X3, <span class="sc">-</span>X6)</span>
+<span id="cb28-13"><a href="rの設定.html#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-14"><a href="rの設定.html#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 列名を追加</span></span>
+<span id="cb28-15"><a href="rの設定.html#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data_labor) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;総数&quot;</span>, </span>
+<span id="cb28-16"><a href="rの設定.html#cb28-16" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;農林&quot;</span>, </span>
+<span id="cb28-17"><a href="rの設定.html#cb28-17" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;建設&quot;</span>, </span>
+<span id="cb28-18"><a href="rの設定.html#cb28-18" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;製造&quot;</span>, </span>
+<span id="cb28-19"><a href="rの設定.html#cb28-19" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;情報通信&quot;</span>, </span>
+<span id="cb28-20"><a href="rの設定.html#cb28-20" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;運輸・郵便&quot;</span>, </span>
+<span id="cb28-21"><a href="rの設定.html#cb28-21" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;卸・小売&quot;</span>, </span>
+<span id="cb28-22"><a href="rの設定.html#cb28-22" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;金融・保険&quot;</span>, </span>
+<span id="cb28-23"><a href="rの設定.html#cb28-23" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;不動産・物品賃貸&quot;</span>,</span>
+<span id="cb28-24"><a href="rの設定.html#cb28-24" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;学術・専門・技術&quot;</span>,</span>
+<span id="cb28-25"><a href="rの設定.html#cb28-25" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;宿泊・飲食&quot;</span>,</span>
+<span id="cb28-26"><a href="rの設定.html#cb28-26" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;生活関連・娯楽&quot;</span>,</span>
+<span id="cb28-27"><a href="rの設定.html#cb28-27" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;教育&quot;</span>,</span>
+<span id="cb28-28"><a href="rの設定.html#cb28-28" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;医療・福祉&quot;</span>,</span>
+<span id="cb28-29"><a href="rの設定.html#cb28-29" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;複合サービス&quot;</span>,</span>
+<span id="cb28-30"><a href="rの設定.html#cb28-30" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;その他サービス&quot;</span>,</span>
+<span id="cb28-31"><a href="rの設定.html#cb28-31" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;公務&quot;</span>)</span>
+<span id="cb28-32"><a href="rの設定.html#cb28-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-33"><a href="rの設定.html#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="co"># NAを含む行を削除</span></span>
+<span id="cb28-34"><a href="rの設定.html#cb28-34" aria-hidden="true" tabindex="-1"></a>data_labor <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb28-35"><a href="rの設定.html#cb28-35" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>(<span class="fu">everything</span>())</span>
+<span id="cb28-36"><a href="rの設定.html#cb28-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-37"><a href="rの設定.html#cb28-37" aria-hidden="true" tabindex="-1"></a><span class="co"># すべての列を数値型に変換</span></span>
+<span id="cb28-38"><a href="rの設定.html#cb28-38" aria-hidden="true" tabindex="-1"></a>data_labor <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb28-39"><a href="rの設定.html#cb28-39" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.double))</span>
+<span id="cb28-40"><a href="rの設定.html#cb28-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-41"><a href="rの設定.html#cb28-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 日付列を追加</span></span>
+<span id="cb28-42"><a href="rの設定.html#cb28-42" aria-hidden="true" tabindex="-1"></a>data_labor <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb28-43"><a href="rの設定.html#cb28-43" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">&quot;2002-01-01&quot;</span>), <span class="at">to =</span> <span class="fu">as.Date</span>(<span class="st">&quot;2002-01-01&quot;</span>) <span class="sc">+</span> <span class="fu">months</span>(<span class="fu">dim</span>(data_labor)[<span class="dv">1</span>] <span class="sc">-</span> <span class="dv">1</span>), <span class="at">by =</span> <span class="st">&quot;1 month&quot;</span>),</span>
+<span id="cb28-44"><a href="rの設定.html#cb28-44" aria-hidden="true" tabindex="-1"></a>                <span class="at">.before =</span> <span class="st">&quot;総数&quot;</span>)</span>
+<span id="cb28-45"><a href="rの設定.html#cb28-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-46"><a href="rの設定.html#cb28-46" aria-hidden="true" tabindex="-1"></a><span class="co"># tibble形式に変換</span></span>
+<span id="cb28-47"><a href="rの設定.html#cb28-47" aria-hidden="true" tabindex="-1"></a>data_labor <span class="sc">%&lt;&gt;%</span> tibble<span class="sc">::</span><span class="fu">as_tibble</span>()</span>
+<span id="cb28-48"><a href="rの設定.html#cb28-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-49"><a href="rの設定.html#cb28-49" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
+<span id="cb28-50"><a href="rの設定.html#cb28-50" aria-hidden="true" tabindex="-1"></a>data_labor</span></code></pre></div>
+<pre><code>## # A tibble: 244 x 18
+##    date        総数  農林  建設  製造 情報通信 `運輸・郵便` `卸・小売`
+##    &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
+##  1 2002-01-01  6267   224   589  1210      153          331       1131
+##  2 2002-02-01  6248   227   611  1201      156          324       1075
+##  3 2002-03-01  6297   242   628  1238      156          323       1081
+##  4 2002-04-01  6333   278   624  1213      159          315       1121
+##  5 2002-05-01  6356   307   607  1194      157          322       1134
+##  6 2002-06-01  6373   311   594  1223      159          330       1115
+##  7 2002-07-01  6374   294   622  1199      160          328       1116
+##  8 2002-08-01  6371   288   620  1207      164          326       1085
+##  9 2002-09-01  6353   286   621  1183      171          333       1081
+## 10 2002-10-01  6355   271   642  1176      160          333       1116
+## # ... with 234 more rows, and 10 more variables: `金融・保険` &lt;dbl&gt;,
+## #   `不動産・物品賃貸` &lt;dbl&gt;, `学術・専門・技術` &lt;dbl&gt;, `宿泊・飲食` &lt;dbl&gt;,
+## #   `生活関連・娯楽` &lt;dbl&gt;, 教育 &lt;dbl&gt;, `医療・福祉` &lt;dbl&gt;, 複合サービス &lt;dbl&gt;,
+## #   その他サービス &lt;dbl&gt;, 公務 &lt;dbl&gt;</code></pre>
+</div>
+<div id="日本の県内総生産" class="section level4 unnumbered hasAnchor">
+<h4>日本の県内総生産<a href="rの設定.html#日本の県内総生産" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>内閣府が公表する県内総生産データセットです（生産側、名目、2008SNA、平成23年基準計数）。詳細は<a href="https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/main_2018.html">内閣府のウェブサイト</a>を参照してください。ここではデータをdata.frame形式で読み込み、前処理して縦型のtibble形式に変換します。</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="rの設定.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 内閣府の県内総生産データをdata.frame形式で読み込み</span></span>
+<span id="cb30-2"><a href="rの設定.html#cb30-2" aria-hidden="true" tabindex="-1"></a>data_gdp_pref <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/tables/2018/soukatu1.xlsx&quot;</span>, <span class="co"># ファイルパス／URL</span></span>
+<span id="cb30-3"><a href="rの設定.html#cb30-3" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">sheet =</span> <span class="dv">1</span>, <span class="co"># シートインデックス／シート名</span></span>
+<span id="cb30-4"><a href="rの設定.html#cb30-4" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">startRow =</span> <span class="dv">5</span>, <span class="co"># 読み込み開始行</span></span>
+<span id="cb30-5"><a href="rの設定.html#cb30-5" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">colNames =</span> <span class="cn">TRUE</span>, <span class="co"># 列名データの有無</span></span>
+<span id="cb30-6"><a href="rの設定.html#cb30-6" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">rowNames =</span> <span class="cn">FALSE</span>, <span class="co"># 行名データの有無</span></span>
+<span id="cb30-7"><a href="rの設定.html#cb30-7" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">rows =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">53</span>, <span class="co"># 読み込む列（NULLですべて読み込み）</span></span>
+<span id="cb30-8"><a href="rの設定.html#cb30-8" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">cols =</span> <span class="cn">NULL</span>) <span class="co"># 読み込む行（NULLですべて読み込み）</span></span>
+<span id="cb30-9"><a href="rの設定.html#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-10"><a href="rの設定.html#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co"># データの型変換等を行い、縦型に変形したうえで、変化率系列を作成し、tibble形式に変換</span></span>
+<span id="cb30-11"><a href="rの設定.html#cb30-11" aria-hidden="true" tabindex="-1"></a>data_gdp_pref <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb30-12"><a href="rの設定.html#cb30-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="st">`</span><span class="at">2006</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2018</span><span class="st">`</span>, as.double)) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-13"><a href="rの設定.html#cb30-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">pref_code =</span> X1,</span>
+<span id="cb30-14"><a href="rの設定.html#cb30-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">pref_name =</span> X2) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-15"><a href="rの設定.html#cb30-15" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>X16) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-16"><a href="rの設定.html#cb30-16" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="st">&quot;pref_code&quot;</span>, <span class="sc">-</span><span class="st">&quot;pref_name&quot;</span>), <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;gdp_nominal&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-17"><a href="rの設定.html#cb30-17" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(pref_code, year), as.double)) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-18"><a href="rの設定.html#cb30-18" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(pref_code, year) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-19"><a href="rの設定.html#cb30-19" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(pref_name) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-20"><a href="rの設定.html#cb30-20" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">gdp_nominal_pchg =</span> <span class="dv">100</span> <span class="sc">*</span> (gdp_nominal <span class="sc">/</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(gdp_nominal, <span class="at">n =</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-21"><a href="rの設定.html#cb30-21" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb30-22"><a href="rの設定.html#cb30-22" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>()</span>
+<span id="cb30-23"><a href="rの設定.html#cb30-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-24"><a href="rの設定.html#cb30-24" aria-hidden="true" tabindex="-1"></a>data_gdp_pref</span></code></pre></div>
+<pre><code>## # A tibble: 611 x 5
+##    pref_code pref_name  year gdp_nominal gdp_nominal_pchg
+##        &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;       &lt;dbl&gt;            &lt;dbl&gt;
+##  1         1 北海道     2006    19316568           NA    
+##  2         1 北海道     2007    19137599           -0.927
+##  3         1 北海道     2008    18457858           -3.55 
+##  4         1 北海道     2009    18219113           -1.29 
+##  5         1 北海道     2010    18122675           -0.529
+##  6         1 北海道     2011    18071493           -0.282
+##  7         1 北海道     2012    17923502           -0.819
+##  8         1 北海道     2013    18242119            1.78 
+##  9         1 北海道     2014    18579766            1.85 
+## 10         1 北海道     2015    19128504            2.95 
+## # ... with 601 more rows</code></pre>
+</div>
+<div id="西山-他2019" class="section level4 unnumbered hasAnchor">
+<h4>西山 他（2019）<a href="rの設定.html#西山-他2019" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>本書の第7章以降の計量経済学パートでは、西山 他（2019）の実証例で使用されているサンプルデータセットを使用します。サンプルデータセットは、<a href="http://www.yuhikaku.co.jp/books/detail/9784641053854">西山 他（2019）のサポートウェブサイト</a>で配布されています。</p>
+</div>
+</div>
+</div>
+<div id="r起動時に実行する設定" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> R起動時に実行する設定<a href="rの設定.html#r起動時に実行する設定" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>ここまでに紹介した各種設定のうち、Rを起動したときに毎回実行する必要があるものをひとまとめにしました。</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="rの設定.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 全変数を削除</span></span>
+<span id="cb32-2"><a href="rの設定.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb32-3"><a href="rの設定.html#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="rの設定.html#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="rの設定.html#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 警告の非表示</span></span>
+<span id="cb32-6"><a href="rの設定.html#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">warn =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb32-7"><a href="rの設定.html#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="rの設定.html#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="rの設定.html#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co"># プロキシ設定（使用環境に応じproxyserverとportを記入）</span></span>
+<span id="cb32-10"><a href="rの設定.html#cb32-10" aria-hidden="true" tabindex="-1"></a>proxy_url <span class="ot">&lt;-</span> <span class="st">&quot;http://proxyserver:port/&quot;</span></span>
+<span id="cb32-11"><a href="rの設定.html#cb32-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-12"><a href="rの設定.html#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;http_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
+<span id="cb32-13"><a href="rの設定.html#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;https_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
+<span id="cb32-14"><a href="rの設定.html#cb32-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-15"><a href="rの設定.html#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">download.file.method =</span> <span class="st">&quot;libcurl&quot;</span>)</span>
+<span id="cb32-16"><a href="rの設定.html#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">timeout =</span> <span class="cn">NA</span>)</span>
+<span id="cb32-17"><a href="rの設定.html#cb32-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-18"><a href="rの設定.html#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="rの設定.html#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="co"># パッケージのインストールとインポート</span></span>
+<span id="cb32-20"><a href="rの設定.html#cb32-20" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb32-21"><a href="rの設定.html#cb32-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;magrittr&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;readxl&quot;</span>,</span>
+<span id="cb32-22"><a href="rの設定.html#cb32-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;esquisse&quot;</span>, <span class="st">&quot;geofacet&quot;</span>, <span class="st">&quot;ggplotgui&quot;</span>, <span class="st">&quot;ggpubr&quot;</span>, <span class="st">&quot;ggsci&quot;</span>, <span class="st">&quot;ggrepel&quot;</span>, <span class="st">&quot;hexbin&quot;</span>, <span class="st">&quot;lemon&quot;</span>, <span class="st">&quot;RColorBrewer&quot;</span>,</span>
+<span id="cb32-23"><a href="rの設定.html#cb32-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;corrplot&quot;</span>, <span class="st">&quot;corrr&quot;</span>, <span class="st">&quot;DataExplorer&quot;</span>, <span class="st">&quot;estimatr&quot;</span>, <span class="st">&quot;fpp2&quot;</span>, <span class="st">&quot;GGally&quot;</span>, <span class="st">&quot;mfilter&quot;</span>, <span class="st">&quot;mgcv&quot;</span>, <span class="st">&quot;plm&quot;</span>, <span class="st">&quot;psych&quot;</span>, <span class="st">&quot;seasonal&quot;</span>, <span class="st">&quot;seasonalview&quot;</span>, <span class="st">&quot;sigmoid&quot;</span>, <span class="st">&quot;SmartEDA&quot;</span>, <span class="st">&quot;tidyquant&quot;</span>,</span>
+<span id="cb32-24"><a href="rの設定.html#cb32-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;openxlsx&quot;</span>, <span class="st">&quot;pbapply&quot;</span></span>
+<span id="cb32-25"><a href="rの設定.html#cb32-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-26"><a href="rの設定.html#cb32-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-27"><a href="rの設定.html#cb32-27" aria-hidden="true" tabindex="-1"></a>new_packages <span class="ot">&lt;-</span> packages[<span class="sc">!</span>(packages <span class="sc">%in%</span> <span class="fu">installed.packages</span>()[,<span class="st">&quot;Package&quot;</span>])]</span>
+<span id="cb32-28"><a href="rの設定.html#cb32-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-29"><a href="rの設定.html#cb32-29" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(new_packages)) {</span>
+<span id="cb32-30"><a href="rの設定.html#cb32-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(new_packages)</span>
+<span id="cb32-31"><a href="rの設定.html#cb32-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-32"><a href="rの設定.html#cb32-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-33"><a href="rの設定.html#cb32-33" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (pkg <span class="cf">in</span> packages) {</span>
+<span id="cb32-34"><a href="rの設定.html#cb32-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb32-35"><a href="rの設定.html#cb32-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-36"><a href="rの設定.html#cb32-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-37"><a href="rの設定.html#cb32-37" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(</span>
+<span id="cb32-38"><a href="rの設定.html#cb32-38" aria-hidden="true" tabindex="-1"></a>  new_packages,</span>
+<span id="cb32-39"><a href="rの設定.html#cb32-39" aria-hidden="true" tabindex="-1"></a>  packages,</span>
+<span id="cb32-40"><a href="rの設定.html#cb32-40" aria-hidden="true" tabindex="-1"></a>  pkg</span>
+<span id="cb32-41"><a href="rの設定.html#cb32-41" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-42"><a href="rの設定.html#cb32-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-43"><a href="rの設定.html#cb32-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-44"><a href="rの設定.html#cb32-44" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフ設定</span></span>
+<span id="cb32-45"><a href="rの設定.html#cb32-45" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>())</span>
+<span id="cb32-46"><a href="rの設定.html#cb32-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-47"><a href="rの設定.html#cb32-47" aria-hidden="true" tabindex="-1"></a><span class="fu">windowsFonts</span>(<span class="st">&quot;MEIRYO&quot;</span> <span class="ot">=</span> <span class="fu">windowsFont</span>(<span class="st">&quot;Meiryo UI&quot;</span>))</span>
+<span id="cb32-48"><a href="rの設定.html#cb32-48" aria-hidden="true" tabindex="-1"></a><span class="fu">windowsFonts</span>(<span class="st">&quot;YUGO&quot;</span> <span class="ot">=</span> <span class="fu">windowsFont</span>(<span class="st">&quot;Yu Gothic UI&quot;</span>))</span></code></pre></div>
+
 </div>
 </div>
             </section>
@@ -421,7 +1187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="参考文献.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="rの基本的な使用方法.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -477,6 +1243,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

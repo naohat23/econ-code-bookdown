@@ -194,7 +194,7 @@ monthplot(m)
 ```{r}
 # data_laborから一部を抽出
 data_labor_nsa <- data_labor %>% 
-  dplyr::select(date, `総数`, `製造`, `卸・小売`)
+  dplyr::select(date, `総数`, `製造`, `情報通信`)
 
 # 数値型データをts型データに変換
 data_labor_ts <- data_labor_nsa %>% 

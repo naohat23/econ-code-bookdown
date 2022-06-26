@@ -124,7 +124,7 @@ options(timeout = NA)
 packages <- c(
   "lubridate", "magrittr", "tidyverse", "readxl",
   "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
-  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "mfilter", "mgcv", "plm", "psych", "seasonal", "seasonalview", "sigmoid", "SmartEDA", "tidyquant",
+  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "mFilter", "mgcv", "plm", "psych", "seasonal", "seasonalview", "sigmoid", "SmartEDA", "tidyquant",
   "openxlsx", "pbapply"
 )
 
@@ -282,10 +282,11 @@ data_owid <- readr::read_csv(file = "https://covid.ourworldindata.org/data/owid-
 # 使用するデータを絞り込み
 data_owid %<>% 
   dplyr::select(continent, location, date, 
-                total_cases, new_cases, total_deaths, new_deaths, 
+                total_cases, new_cases, new_cases_smoothed, total_deaths, new_deaths, 
                 total_cases_per_million, new_cases_per_million, total_deaths_per_million, new_deaths_per_million,
-                people_fully_vaccinated) %>% 
-  dplyr::filter(location %in% c("Japan", "United States", "United Kingdom", "Germany"))
+                people_fully_vaccinated,
+                stringency_index) #%>% 
+  #dplyr::filter(location %in% c("Japan", "United States", "United Kingdom", "Germany", "France", "Italy"))
 
 # データをコンソールに出力
 data_owid
