@@ -167,7 +167,7 @@ install.packages("tidyverse")
 
 ### グラフのテーマ設定 {.unnumbered}
 
-実務上、Excelと併用することを想定しているため、Excelで出力されるグラフに似たテーマである`theme_light()`を設定します。`ggplot2`パッケージにデフォルトで用意されている様々なテーマについては、[公式ウェブサイト](https://ggplot2.tidyverse.org/reference/ggtheme.html)を参照してください。
+本書では、実務上Excelと併用することを想定しているため、Excelで出力されるグラフに似たテーマである`theme_light()`を設定します。`ggplot2`パッケージにデフォルトで用意されている様々なテーマについては、[公式ウェブサイト](https://ggplot2.tidyverse.org/reference/ggtheme.html)を参照してください。
 
 ```{r}
 theme_set(theme_light())

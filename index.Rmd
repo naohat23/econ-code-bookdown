@@ -116,9 +116,13 @@ Rによるプログラミング、データの取り扱い、計量経済学な�
 
 #### 中級 {.unnumbered}
 
-[Wickham, H., & Grolemund, G. (2017) 『Rではじめるデータサイエンス』オライリー・ジャパン](https://www.oreilly.co.jp/books/9784873118147/)
+[Sax, C., and Eddelbuettel, D., (2018) "Seasonal Adjustment by X-13ARIMA-SEATS in R"](https://cran.r-project.org/web/packages/seasonal/vignettes/seas.pdf)
+
+[Wickham, H., and Grolemund, G. (2017) 『Rではじめるデータサイエンス』オライリー・ジャパン](https://www.oreilly.co.jp/books/9784873118147/)
 
 Wickham & Grolemund (2017) の原著版"R for Data Science"は、[こちらのウェブサイト](https://r4ds.had.co.nz/index.html)で全文閲覧できます。
+
+[奥本佳伸 (2016) 「季節調整法プログラム センサス局法X-13ARIMA-SEATSを日本のいくつかの経済統計データに適用した結果とその検討」千葉大学『経済研究』第30巻第4号](https://opac.ll.chiba-u.jp/da/curator/900119389/09127216_30_4_1-42.pdf)
 
 ### 計量経済学 {.unnumbered}
 
@@ -134,7 +138,7 @@ Wickham & Grolemund (2017) の原著版"R for Data Science"は、[こちらの�
 
 [北川梨津 (2020) 「西山 他『計量経済学』のためのR」](https://ritsu1997.github.io/r-for-nlas-econometrics/)
 
-[Hyndman, R.J., & Athanasopoulos, G. (2018) "Forecasting: principles and practice, 2nd edition", OTexts: Melbourne, Australia.](https://otexts.com/fpp2/)
+[Hyndman, R.J., and Athanasopoulos, G. (2018) "Forecasting: principles and practice, 2nd edition", OTexts: Melbourne, Australia.](https://otexts.com/fpp2/)
 
 [McAlinn, K. (2022) 「再現性問題における統計学の役割と責任」日本評論社『経済セミナー』2022年6・7月号　通巻 726号](https://www.nippyo.co.jp/shop/magazine/8801.html)
 
