@@ -119,6 +119,8 @@ options(timeout = NA)
 
 パッケージのインストールは`install.packages()`関数、インストールしたパッケージのインポート（呼び出し）は`library()`関数で実行します。一度インストールすれば、その後はインポートするだけでパッケージを使用することができます。
 
+なお、パッケージのインストールの際、ウィンドウやコンソールに "Do you want to install from sources the package which needs compilation?" というメッセージが出ることがあります。その場合は、まず "No" を選択し、それでもうまくいかなければ "Yes" を選択してください。
+
 ```{r, results='hide', warning=FALSE, message=FALSE}
 # パッケージ一覧
 packages <- c(
@@ -192,7 +194,7 @@ Rのサンプルデータセットは、`help(データセット名)`を実行�
 
 #### unemp {.unnumbered}
 
-`seasonal`パッケージに含まれる`unemp`データセットは、1990年1月から2016年11月までの米国の失業者数（単位：千人）の月次データ（原数値）です。データ形式はts型です。
+`seasonal`パッケージに含まれる`unemp`データセットは、1990年1月から2016年11月までの米国の失業者数（単位：千人）の月次データ（原数値）です。データ構造はts形式です。
 
 [データ出所リンク](https://fred.stlouisfed.org/series/LNU03000000)
 
@@ -202,11 +204,11 @@ seasonal::unemp
 
 #### gasoline {.unnumbered}
 
-`fpp2`パッケージに含まれる`gasoline`データセットは、1991年2月2日から2017年１月20日までの米国ガソリン生産量（単位：百万バレル／日）の週次データです。データ形式はts型です。
+`fpp2`パッケージに含まれる`gasoline`データセットは、1991年2月2日から2017年１月20日までの米国ガソリン生産量（単位：百万バレル／日）の週次データです。データ構造はts形式です。
 
 #### iris {.unnumbered}
 
-`datasets`パッケージに含まれる`iris`データセットは、データ分析で良く使用される有名なデータで、3種類のアヤメの萼（がく）と花弁の長さ・幅のデータを格納しています。データ型はdata.frame形式です。
+`datasets`パッケージに含まれる`iris`データセットは、データ分析で良く使用される有名なデータで、3種類のアヤメの萼（がく）と花弁の長さ・幅のデータを格納しています。データ構造はdata.frame形式です。
 
 ```{r}
 iris_tbl <- as.tibble(iris)
@@ -215,7 +217,7 @@ iris_tbl
 
 #### mtcars {.unnumbered}
 
-`datasets`パッケージに含まれる`mtcars`データセットは、米国で1973～1974年に発売された32車種のデザインや諸元に関するデータです。燃費、排気量、馬力、重量などのデータが格納されています。データ型はdata.frame形式です。
+`datasets`パッケージに含まれる`mtcars`データセットは、米国で1973～1974年に発売された32車種のデザインや諸元に関するデータです。燃費、排気量、馬力、重量などのデータが格納されています。データ構造はdata.frame形式です。
 
 ```{r}
 mtcars
@@ -223,7 +225,7 @@ mtcars
 
 #### mpg {.unnumbered}
 
-`ggplot2`パッケージに含まれる`mpg`データセットは、米国で1999～2008年に発売された38車種の燃費関連データです。自動車メーカー名、モデル名、排気量、都市部と高速道路の燃費などのデータが格納されています。データ型はtibble形式です。
+`ggplot2`パッケージに含まれる`mpg`データセットは、米国で1999～2008年に発売された38車種の燃費関連データです。自動車メーカー名、モデル名、排気量、都市部と高速道路の燃費などのデータが格納されています。データ構造はtibble形式です。
 
 [データ出所リンク](https://fueleconomy.gov/)
 
@@ -233,7 +235,7 @@ mpg
 
 #### diamonds {.unnumbered}
 
-`ggplot2`パッケージに含まれる`diamonds`データセットは、約54,000個のダイヤモンドの価格、カラット、色、大きさなどの情報を格納しています。データ型はtibble形式です。
+`ggplot2`パッケージに含まれる`diamonds`データセットは、約54,000個のダイヤモンドの価格、カラット、色、大きさなどの情報を格納しています。データ構造はtibble形式です。
 
 ```{r}
 diamonds
@@ -241,7 +243,7 @@ diamonds
 
 #### economics {.unnumbered}
 
-`ggplot2`パッケージに含まれる`economics`データセットは、米国の消費・雇用関連の時系列データで、日付（date）、[個人消費支出（pce）](https://fred.stlouisfed.org/series/PCE)、[人口（pop）](https://fred.stlouisfed.org/series/POP)、[個人貯蓄率（psavert）](https://fred.stlouisfed.org/series/PSAVERT/)、[失業期間の中央値（uempmed）](https://fred.stlouisfed.org/series/UEMPMED)、[失業者数（unemploy）](https://fred.stlouisfed.org/series/UNEMPLOY)のデータを格納しています。データ型はtibble形式です。
+`ggplot2`パッケージに含まれる`economics`データセットは、米国の消費・雇用関連の時系列データで、日付（date）、[個人消費支出（pce）](https://fred.stlouisfed.org/series/PCE)、[人口（pop）](https://fred.stlouisfed.org/series/POP)、[個人貯蓄率（psavert）](https://fred.stlouisfed.org/series/PSAVERT/)、[失業期間の中央値（uempmed）](https://fred.stlouisfed.org/series/UEMPMED)、[失業者数（unemploy）](https://fred.stlouisfed.org/series/UNEMPLOY)のデータを格納しています。データ構造はtibble形式です。
 
 ```{r}
 economics
@@ -387,6 +389,8 @@ data_gdp_pref
 ## R起動時に実行する設定
 
 ここまでに紹介した各種設定のうち、Rを起動したときに毎回実行する必要があるものをひとまとめにしました。
+
+`file.edit(".Rprofile")`でプロジェクトフォルダの直下に`.Rprofile`ファイルを作成し、その中に次のコードを記載して保存しておくと、Rの起動時に`.Rprofile`ファイルの内容が自動的に実行されるので便利です。
 
 ```{r, eval=FALSE}
 # 全変数を削除
