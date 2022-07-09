@@ -6,6 +6,16 @@ RStudioでコードを編集するパネルをソース（Source）と呼びま�
 
 ソースにコードを記述し、記述したコードの行にカーソルがある状態で`Ctrl + Enter`を押すと、コンソールに実行結果が表示されます。
 
+## 第2章の準備
+
+### パッケージのインポート {-}
+
+```{r, results='hide', warning=FALSE, message=FALSE}
+library(magrittr)
+library(tidyverse)
+library(openxlsx)
+```
+
 ## 主要ショートカットキー
 
 -   `Alt + Shift + K`：　キーボードショートカットを表示
@@ -386,6 +396,109 @@ list_1$matrix
 list_1[[3]]
 ```
 
+## 文字列操作
+
+Rでは、`tidyverse`に含まれる文字列操作用の`stringr`パッケージを使用して、様々な文字列操作を行います。`stringr`パッケージの関数は通常、文字列型データを複数まとめたベクトル形式のデータ構造に対し、処理を適用するため、複数の文字列を高速に操作することができます。
+
+### 文字列の連結
+
+複数の文字列を連結するには`str_c()`関数を使用します。
+
+```{r}
+# 単語の連結
+str_c("日本", "の", "GDP", "成長率", "は", "2％")
+
+# 区切り文字を使用した単語の連結
+str_c("directory", "subdirectory", "file", sep = "/")
+
+# 文字列ベクトルと単一文字列の連結
+str_c(c("日本", "米国", "欧州"), "の成長率")
+
+# 文字列ベクトルに格納されている複数の文字列の連結
+str_c(c("日本", "米国", "欧州"), collapse = "")
+```
+
+### 文字列の切り出し {-}
+
+文字数を指定して文字列から一部を切り出すには、`str_sub()`関数を使用します。
+
+```{r}
+str_sub(string = c("日本の成長率", "米国の成長率", "欧州の成長率"), # 切り出す対象の文字列／文字列ベクトル
+        start = 1, # 開始位置の文字数
+        end = 2) # 終了位置の文字数
+```
+
+### 文字列の検出・置換 {-}
+
+ある文字列を含んでいるかを検出するには、`str_detect()`関数を使用します。`str_detect()`関数は`TRUE`か`FALSE`を出力します。
+
+```{r}
+str_detect(string = c("apple", "banana", "pear", "pinapple"), # 検出対象の文字列ベクトル
+           pattern = "e") # 検出条件
+```
+
+より複雑な条件で文字列を検出する場合は、文字列ベクトルを変数にするデータフレームに対して処理を行うのがよいでしょう。
+
+まず、都道府県名の変数をもつデータフレームをサンプルデータとして作成し、`dplyr::filter()`関数の中で`str_detect()`関数を使用して、データフレームの行をフィルタします。データフレームの操作について、詳細は第3章「tidyverseによるデータ操作」を参照してください。
+
+```{r}
+data_pref_names <- tibble::tibble(
+  pref_index = 1:47,
+  pref_name = c("北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", "新潟県", "富山県", "石川県", "福井県", "山梨県", "長野県", "岐阜県", "静岡県", "愛知県", "三重県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県", "鳥取県", "島根県", "岡山県", "広島県", "山口県", "徳島県", "香川県", "愛媛県", "高知県", "福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県")
+)
+```
+
+```{r}
+# 単一文字列の検出
+data_pref_names %>% 
+  dplyr::filter(str_detect(string = pref_name, pattern = "県"))
+
+# 複数文字列の検出（or条件）
+data_pref_names %>% 
+  dplyr::filter(str_detect(string = pref_name, pattern = "都") | str_detect(string = pref_name, pattern = "府"))
+
+# 複数文字列の検出（and条件）
+data_pref_names %>% 
+  dplyr::filter(str_detect(string = pref_name, pattern = "都") & str_detect(string = pref_name, pattern = "府"))
+```
+
+文字列の置換は`str_replace()`関数で行います。置換の該当箇所が複数ある場合、最初の該当箇所のみ置換する場合は`str_replace()`関数を、すべての該当箇所を置換する場合は`str_replace_all()`関数を使用します。
+
+複数の条件で置換を行う場合は、`pattern`引数に名前付きベクトル`c("pattern1" = "replacement1", "pattern2" = "replacement2")`の形で条件を指定します。
+
+なお、ある文字列を、ダブルクオーテーションの中に何も含まない文字列`""`で置換すると、その文字列を削除できます。
+
+```{r}
+# 都道府県名一覧の"県"を""で置換（削除）
+str_replace_all(string = data_pref_names$pref_name, # 置換対象の文字列
+                pattern = "県", # 置換元の文字列
+                replacement = "") # 置換先の文字列
+
+# 都道府県名一覧の"県"、"都"、"府"を""で置換（削除）
+# この場合、"京都府"の"都"と"府"が置換されるため、適切でない
+str_replace_all(string = data_pref_names$pref_name, # 置換対象の文字列
+                pattern = c("県" = "", "都" = "", "府" = "")) # 複数の置換条件を格納した名前付きベクトル
+
+# 都道府県名一覧の"県"、"都"、"府"を""で置換（削除）する正しい処理
+str_replace_all(string = data_pref_names$pref_name, # 置換対象の文字列
+                pattern = c("県" = "", "東京都" = "東京", "府" = "")) # 複数の置換条件を格納した名前付きベクトル
+```
+
+### 文字列のパディング {-}
+
+パディングとは、固定長の文字列を扱う際に、文字数（桁数）が足りない部分を埋めることです。主に、ファイルやオブジェクトの名称に数字で連番をつける時に用います。パディングには`str_pad()`関数を使用します。
+
+```{r}
+# 数字の左側にゼロをパディングして3桁にする
+str_pad(string = 1:20, # 元の文字列（ここでは数値ベクトルを指定）
+        width = 3, # 桁数
+        pad = "0", # パディングに使用する文字
+        side = "left") # パディングする側
+
+# ファイル名に1～12の2桁連番を追加する例
+str_c("file_", str_pad(string = 1:12, width = 2, pad = "0"))
+```
+
 ## 制御構文
 
 制御構文には、条件分岐を行う`if`や`else`、同じ操作の繰り返しを行う`for`や`while`、エラー処理を行う`try`があります。
@@ -480,17 +593,74 @@ for (i in seq_along(list_try)) {
 }
 ```
 
+## ファイル操作
+
+Rの関数でファイルやディレクトリ（フォルダ）を直接操作することができます。
+
+なお、WindowsやPythonではディレクトリの階層を表す記号としてバックスラッシュ：`\`（日本語環境では円マークとして表示される場合もある）を用いますが、Rではスラッシュ：`/`を用いますので、注意してください。
+
+### ディレクトリ関連 {-}
+
+```{r, eval=FALSE}
+# 作業ディレクトリの指定
+setwd(dir = "directory")
+
+# 作業ディレクトリのパスを出力
+getwd()
+
+# ディレクトリを新規作成
+dir.create(path = "./directory")
+```
+
+### ファイル関連 {-}
+
+```{r, eval=FALSE}
+# ディレクトリの中にあるファイル一覧を出力
+list.files(path = "directory")
+
+# ファイルのコピー
+file.copy(from = "directory/file_1.csv", 
+          to = "directory/file_2.csv")
+```
+
+### ファイルのダウンロード {-}
+
+ウェブからファイルをダウンロードする場合は、`download.file()`関数を使用します。プロキシ環境ではあらかじめプロキシ設定を行ってください。
+
+```{r, eval=FALSE}
+download.file(url = "https://www.sample.com/file.csv", # ダウンロード元のURL
+              destfile = "directory/file.csv") # ダウンロードしたファイルを格納するファイルパス
+```
+
+制御構文の`for`ループなどと組み合わせると、複数のファイルを自動でダウンロードできます。ただし、ダウンロード元のサーバーに過度な負荷をかけないよう、`Sys.sleep()`関数でスリープタイムを設定しておきましょう。
+
+```{r, eval=FALSE}
+website <- "https://www.sample.com/"
+file_name <- "file"
+file_nums <- 1:3
+
+for (i in file_nums) {
+  url <- str_c(website, file_name, "_", i, ".csv"),
+  destfile <- str_c("directory/", file_name, "_", str_pad(i, width = 2, pad = "0"), ".csv")
+  download.file(url = url, destfile = destfile)
+  Sys.sleep(1)
+}
+```
+
 ## データの読み込み・書き出し
 
 ### CSVデータの読み込み {.unnumbered}
 
 CSVデータの読み込みには、`readr`パッケージの`read_csv()`関数を使用します。ローカルネットワークのファイルパス、ウェブのURLどちらからの読み込みにも対応しています。
 
+CSVが使用している文字コードにより文字化けする場合あるため、`locale`引数で適切な文字コードを指定してください。
+
 ```{r, eval=FALSE}
 data <- readr::read_csv(file = "directory/file.csv", # ファイルパス／URL（拡張子が必要）
                         col_names = TRUE, # ヘッダー（列名データ）の有無
                         col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
-                        skip = 0) # 読み込み時に上からスキップする行数
+                        skip = 0, # 読み込み時に上からスキップする行数
+                        locale = locale(encoding = "CP932")) # Windows標準（Shift JIS）で作成されたファイルは"CP932"、utf-8で作成されたファイルは"UTF-8"
 ```
 
 ### Excelデータの読み込み（xls／xlsx形式） {.unnumbered}
@@ -547,3 +717,6 @@ save(..., # セーブするオブジェクト名（クオーテーションは�
 ```{r, eval=FALSE}
 load(file = "directory/file.RData") # ロード元ファイルパス（拡張子が必要）
 ```
+
+
+
