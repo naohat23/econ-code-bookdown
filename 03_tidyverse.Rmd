@@ -407,6 +407,16 @@ data_owid %>%
   dplyr::count(location, if_else(new_cases > dplyr::lag(new_cases, n = 7), true = "increase", false = "decrease"))
 ```
 
+または、あらかじめ`dplyr::mutate()`関数内で`if_else()`関数を使用して条件に合致する行を1にする列を作成し、`dplyr::summarise()`関数でその列の合計を集計することで、条件付きカウントを行うことができます。
+
+```{r}
+data_owid %>% 
+  dplyr::mutate(increase = if_else(new_cases > dplyr::lag(new_cases, n = 7), true = 1, false = 0)) %>% 
+  dplyr::group_by(location) %>% 
+  dplyr::summarise(across(increase, sum, na.rm = TRUE))
+```
+
+
 ## 縦型・横型の変換
 
 `tidyr`パッケージの`pivot_longer()`関数と`pivot_wider()`関数を使用して、縦型データ（tidy data）と横型データの変換を行います。なお、縦型データは、`ggplot2`パッケージによるグラフ作成で多用します。
