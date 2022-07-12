@@ -456,11 +456,11 @@ data_pref_names <- tibble::tibble(
 data_pref_names %>% 
   dplyr::filter(str_detect(string = pref_name, pattern = "県"))
 
-# 複数文字列をor条件で検出
+# 複数文字列をor条件で検出するには、|演算子を使用
 data_pref_names %>% 
-  dplyr::filter(str_detect(string = pref_name, pattern = "都") | str_detect(string = pref_name, pattern = "府"))
+  dplyr::filter(str_detect(string = pref_name, pattern = "都|府"))
 
-# 複数文字列をand条件で検出
+# 複数文字列をand条件で検出するには、str_detect()関数を&演算子で連結
 data_pref_names %>% 
   dplyr::filter(str_detect(string = pref_name, pattern = "都") & str_detect(string = pref_name, pattern = "府"))
 ```

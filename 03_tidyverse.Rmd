@@ -384,6 +384,29 @@ data_owid %>%
   dplyr::summarise(across(is.double, mean, na.rm = TRUE))
 ```
 
+### カウント {-}
+
+集計の特殊例として、変数の要素をカウントする場合は`dplyr::count()`関数を使用します。`dplyr::count()`関数内に指定した変数の各要素について、要素数が出力されます。
+
+```{r}
+data_owid %>% 
+  dplyr::count(location)
+```
+
+`dplyr::count()`関数内に2つ以上の変数を指定すると、要素の掛け合わせについてカウントが行われます。
+
+```{r}
+data_owid %>% 
+  dplyr::count(continent, date)
+```
+
+条件付きカウントを行う場合は、`dplyr::count()`関数内で`if_else()`関数を使用して条件を設定します。
+
+```{r}
+data_owid %>% 
+  dplyr::count(location, if_else(new_cases > dplyr::lag(new_cases, n = 7), true = "increase", false = "decrease"))
+```
+
 ## 縦型・横型の変換
 
 `tidyr`パッケージの`pivot_longer()`関数と`pivot_wider()`関数を使用して、縦型データ（tidy data）と横型データの変換を行います。なお、縦型データは、`ggplot2`パッケージによるグラフ作成で多用します。
@@ -615,22 +638,22 @@ data_complete_2 %>%
 
 ## サンプリング
 
-データセットからデータをサンプリングするには、`dplyr::sample`関数ファミリーを使用します。ここでは、53940サンプルあるdiamondsデータセットからサンプリングを行います。
+データセットからデータをサンプリングするには、`dplyr::slice_sample()`関数を使用します。ここでは、53940サンプルあるdiamondsデータセットからサンプリングを行います。
 
 ```{r}
 diamonds
 ```
 
-サンプル数を決めてサンプリングするには、`dplyr::sample_n()`関数を使用します。
+サンプル数を決めてサンプリングするには、`dplyr::slice_sample()`関数を使用します。
 
 ```{r}
 diamonds %>% 
-  dplyr::sample_n(size = 1000)
+  dplyr::slice_sample(n = 1000) # サンプル数
 ```
 
-サンプル数をオリジナルデータセットのサンプル数の比率で決定する場合は、`dplyr::sample_frac()`関数を使用します。
+サンプル数をオリジナルデータセットのサンプル数の比率で決定する場合は、`dplyr::slice_sample()`関数の`porp`引数に割合を指定します。
 
 ```{r}
 diamonds %>% 
-  dplyr::sample_frac(size = 0.1)
+  dplyr::slice_sample(prop = 0.1)
 ```
