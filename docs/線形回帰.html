@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2022-07-09" />
+<meta name="date" content="2022-07-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -148,6 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i>変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年7月17日-マイナーアップデート"><i class="fa fa-check"></i>2022年7月17日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年7月9日-マイナーアップデート"><i class="fa fa-check"></i>2022年7月9日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月26日-ローンチ"><i class="fa fa-check"></i>2022年6月26日 ローンチ</a></li>
 </ul></li>
@@ -282,7 +283,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#特定の型の列を選択"><i class="fa fa-check"></i>特定の型の列を選択</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名の変更"><i class="fa fa-check"></i><b>3.4</b> 列名の変更</a></li>
-<li class="chapter" data-level="3.5" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のフィルタ"><i class="fa fa-check"></i><b>3.5</b> 行のフィルタ</a>
+<li class="chapter" data-level="3.5" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のスライスとサンプリング"><i class="fa fa-check"></i><b>3.5</b> 行のスライスとサンプリング</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のスライス"><i class="fa fa-check"></i>行のスライス</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#サンプリング"><i class="fa fa-check"></i>サンプリング</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のフィルタ"><i class="fa fa-check"></i><b>3.6</b> 行のフィルタ</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件に一致する行"><i class="fa fa-check"></i>条件に一致する行</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件に一致しない行not条件"><i class="fa fa-check"></i>条件に一致しない行（NOT条件）</a></li>
@@ -292,63 +298,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#or条件の否定"><i class="fa fa-check"></i>OR条件の否定</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#関数による条件指定"><i class="fa fa-check"></i>関数による条件指定</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#論理値を返す関数による条件指定"><i class="fa fa-check"></i>論理値を返す関数による条件指定</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括条件指定"><i class="fa fa-check"></i>複数列の一括条件指定</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行の並べ替え"><i class="fa fa-check"></i><b>3.6</b> 行の並べ替え</a>
+<li class="chapter" data-level="3.7" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行の並べ替え"><i class="fa fa-check"></i><b>3.7</b> 行の並べ替え</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#昇順ソート"><i class="fa fa-check"></i>昇順ソート</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#降順ソート"><i class="fa fa-check"></i>降順ソート</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#降順ソート日付型"><i class="fa fa-check"></i>降順ソート（日付型）</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数条件によるソート"><i class="fa fa-check"></i>複数条件によるソート</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列の作成修正"><i class="fa fa-check"></i><b>3.7</b> 列の作成・修正</a>
+<li class="chapter" data-level="3.8" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列の作成修正"><i class="fa fa-check"></i><b>3.8</b> 列の作成・修正</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#新たな列の作成"><i class="fa fa-check"></i>新たな列の作成</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#既存の列の修正"><i class="fa fa-check"></i>既存の列の修正</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件付き系列の作成"><i class="fa fa-check"></i>条件付き系列の作成</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括処理"><i class="fa fa-check"></i>複数列の一括処理</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化"><i class="fa fa-check"></i><b>3.8</b> グループ化</a>
+<li class="chapter" data-level="3.9" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化"><i class="fa fa-check"></i><b>3.9</b> グループ化</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#単一の列でグループ化"><i class="fa fa-check"></i>単一の列でグループ化</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数の列でグループ化"><i class="fa fa-check"></i>複数の列でグループ化</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化フィルタ"><i class="fa fa-check"></i>グループ化＆フィルタ</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化の解除"><i class="fa fa-check"></i>グループ化の解除</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#集計"><i class="fa fa-check"></i><b>3.9</b> 集計</a>
+<li class="chapter" data-level="3.10" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#集計"><i class="fa fa-check"></i><b>3.10</b> 集計</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ別の集計"><i class="fa fa-check"></i>グループ別の集計</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#クロス集計"><i class="fa fa-check"></i>クロス集計</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括処理-1"><i class="fa fa-check"></i>複数列の一括処理</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#カウント"><i class="fa fa-check"></i>カウント</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型横型の変換"><i class="fa fa-check"></i><b>3.10</b> 縦型・横型の変換</a>
+<li class="chapter" data-level="3.11" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型横型の変換"><i class="fa fa-check"></i><b>3.11</b> 縦型・横型の変換</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型データを横型データに変換"><i class="fa fa-check"></i>縦型データを横型データに変換</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#横型データを縦型データに変換"><i class="fa fa-check"></i>横型データを縦型データに変換</a></li>
 </ul></li>
-<li class="chapter" data-level="3.11" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#データの結合"><i class="fa fa-check"></i><b>3.11</b> データの結合</a>
+<li class="chapter" data-level="3.12" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#データの結合"><i class="fa fa-check"></i><b>3.12</b> データの結合</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#内部結合"><i class="fa fa-check"></i>内部結合</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#左外部結合"><i class="fa fa-check"></i>左外部結合</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#右外部結合"><i class="fa fa-check"></i>右外部結合</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#完全外部結合"><i class="fa fa-check"></i>完全外部結合</a></li>
 </ul></li>
-<li class="chapter" data-level="3.12" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複処理"><i class="fa fa-check"></i><b>3.12</b> 重複処理</a>
+<li class="chapter" data-level="3.13" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複処理"><i class="fa fa-check"></i><b>3.13</b> 重複処理</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の抽出"><i class="fa fa-check"></i>重複行の抽出</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の削除"><i class="fa fa-check"></i>重複行の削除</a></li>
 </ul></li>
-<li class="chapter" data-level="3.13" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#欠損値処理"><i class="fa fa-check"></i><b>3.13</b> 欠損値処理</a>
+<li class="chapter" data-level="3.14" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#欠損値処理"><i class="fa fa-check"></i><b>3.14</b> 欠損値処理</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naの削除"><i class="fa fa-check"></i>NAの削除</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naの置換"><i class="fa fa-check"></i>NAの置換</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naのフィル"><i class="fa fa-check"></i>NAのフィル</a></li>
 </ul></li>
-<li class="chapter" data-level="3.14" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#補完処理"><i class="fa fa-check"></i><b>3.14</b> 補完処理</a>
+<li class="chapter" data-level="3.15" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#補完処理"><i class="fa fa-check"></i><b>3.15</b> 補完処理</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#組み合わせ候補の補完"><i class="fa fa-check"></i>組み合わせ候補の補完</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#時系列データの補完"><i class="fa fa-check"></i>時系列データの補完</a></li>
 </ul></li>
-<li class="chapter" data-level="3.15" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#サンプリング"><i class="fa fa-check"></i><b>3.15</b> サンプリング</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="時系列データ操作.html"><a href="時系列データ操作.html"><i class="fa fa-check"></i><b>4</b> 時系列データ操作</a>
 <ul>
@@ -437,7 +444,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図の基本形"><i class="fa fa-check"></i>散布図の基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#バブルチャートの基本形"><i class="fa fa-check"></i>バブルチャートの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図に補助線を追加"><i class="fa fa-check"></i>散布図に補助線を追加</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図にコネクタ線を追加"><i class="fa fa-check"></i>散布図にコネクタ線を追加</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図に近似曲線を追加"><i class="fa fa-check"></i>散布図に近似曲線を追加</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図にラベルを追加"><i class="fa fa-check"></i>散布図にラベルを追加</a></li>
@@ -487,7 +493,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロットの基本形"><i class="fa fa-check"></i>ドットプロットの基本形</a></li>
 </ul></li>
-<li class="chapter" data-level="5.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の設定"><i class="fa fa-check"></i><b>5.20</b> 色の設定</a>
+<li class="chapter" data-level="5.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフファセット"><i class="fa fa-check"></i><b>5.20</b> 複合グラフ（ファセット）</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行方向の複合グラフ"><i class="fa fa-check"></i>行方向の複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#列方向の複合グラフ"><i class="fa fa-check"></i>列方向の複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行列方向の複合グラフ"><i class="fa fa-check"></i>行・列方向の複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行数列数を指定した複合グラフ"><i class="fa fa-check"></i>行数・列数を指定した複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフの設定"><i class="fa fa-check"></i>複合グラフの設定</a></li>
+</ul></li>
+<li class="chapter" data-level="5.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>5.21</b> 地図ファセット</a></li>
+<li class="chapter" data-level="5.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#補助線"><i class="fa fa-check"></i><b>5.22</b> 補助線</a></li>
+<li class="chapter" data-level="5.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定色"><i class="fa fa-check"></i><b>5.23</b> 設定：色</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の手動指定離散型変数"><i class="fa fa-check"></i>色の手動指定（離散型変数）</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#brewerカラーパレット離散型変数"><i class="fa fa-check"></i>Brewerカラーパレット（離散型変数）</a></li>
@@ -497,32 +513,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#viridisカラーパレット連続型変数"><i class="fa fa-check"></i>Viridisカラーパレット（連続型変数）</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#gradientカラーパレット連続型変数"><i class="fa fa-check"></i>gradientカラーパレット（連続型変数）</a></li>
 </ul></li>
-<li class="chapter" data-level="5.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#軸の設定"><i class="fa fa-check"></i><b>5.21</b> 軸の設定</a>
+<li class="chapter" data-level="5.24" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定軸"><i class="fa fa-check"></i><b>5.24</b> 設定：軸</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#x軸連続型y軸連続型"><i class="fa fa-check"></i>X軸：連続型、Y軸：連続型</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#対数目盛"><i class="fa fa-check"></i>対数目盛</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#x軸日付型y軸連続型"><i class="fa fa-check"></i>X軸：日付型、Y軸：連続型</a></li>
 </ul></li>
-<li class="chapter" data-level="5.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフファセット"><i class="fa fa-check"></i><b>5.22</b> 複合グラフ（ファセット）</a>
+<li class="chapter" data-level="5.25" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定パネル目盛線"><i class="fa fa-check"></i><b>5.25</b> 設定：パネル目盛線</a></li>
+<li class="chapter" data-level="5.26" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定凡例"><i class="fa fa-check"></i><b>5.26</b> 設定：凡例</a></li>
+<li class="chapter" data-level="5.27" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定タイトルキャプション"><i class="fa fa-check"></i><b>5.27</b> 設定：タイトル・キャプション</a></li>
+<li class="chapter" data-level="5.28" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定フォントマージン"><i class="fa fa-check"></i><b>5.28</b> 設定：フォント・マージン</a></li>
+<li class="chapter" data-level="5.29" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#グラフの保存"><i class="fa fa-check"></i><b>5.29</b> グラフの保存</a></li>
+<li class="chapter" data-level="5.30" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>5.30</b> 実例</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行方向の複合グラフ"><i class="fa fa-check"></i>行方向の複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#列方向の複合グラフ"><i class="fa fa-check"></i>列方向の複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行列方向の複合グラフ"><i class="fa fa-check"></i>行・列方向の複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行数列数を指定した複合グラフ"><i class="fa fa-check"></i>行数・列数を指定した複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフの設定"><i class="fa fa-check"></i>複合グラフの設定</a></li>
-</ul></li>
-<li class="chapter" data-level="5.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>5.23</b> 地図ファセット</a></li>
-<li class="chapter" data-level="5.24" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#その他設定保存"><i class="fa fa-check"></i><b>5.24</b> その他設定・保存</a>
-<ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#タイトルキャプション"><i class="fa fa-check"></i>タイトル・キャプション</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#パネル目盛線"><i class="fa fa-check"></i>パネル目盛線</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#凡例"><i class="fa fa-check"></i>凡例</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#フォントマージン設定"><i class="fa fa-check"></i>フォント・マージン設定</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#保存"><i class="fa fa-check"></i>保存</a></li>
-</ul></li>
-<li class="chapter" data-level="5.25" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>5.25</b> 実例</a>
-<ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例1世界の新型コロナ死亡率の箱ひげ図"><i class="fa fa-check"></i>実例1：世界の新型コロナ死亡率の箱ひげ図</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例1折れ線グラフ"><i class="fa fa-check"></i>実例1：折れ線グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例2積み上げ棒グラフ"><i class="fa fa-check"></i>実例2：積み上げ棒グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例3箱ひげ図"><i class="fa fa-check"></i>実例3：箱ひげ図</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="探索的データ分析.html"><a href="探索的データ分析.html"><i class="fa fa-check"></i><b>6</b> 探索的データ分析</a>
@@ -629,11 +635,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.1</span> 第7章の準備<a href="線形回帰.html#第7章の準備" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="パッケージのインポート-5" class="section level3 unnumbered hasAnchor">
 <h3>パッケージのインポート<a href="線形回帰.html#パッケージのインポート-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="線形回帰.html#cb569-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span>
-<span id="cb569-2"><a href="線形回帰.html#cb569-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
-<span id="cb569-3"><a href="線形回帰.html#cb569-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
-<span id="cb569-4"><a href="線形回帰.html#cb569-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span>
-<span id="cb569-5"><a href="線形回帰.html#cb569-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="線形回帰.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span>
+<span id="cb594-2"><a href="線形回帰.html#cb594-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
+<span id="cb594-3"><a href="線形回帰.html#cb594-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb594-4"><a href="線形回帰.html#cb594-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span>
+<span id="cb594-5"><a href="線形回帰.html#cb594-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </div>
 <div id="外部データセットの取得-3" class="section level3 unnumbered hasAnchor">
 <h3>外部データセットの取得<a href="線形回帰.html#外部データセットの取得-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -882,25 +888,25 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 <h3>実証例4.1 線形単回帰<a href="線形回帰.html#実証例4.1-線形単回帰" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>西山 他（2019）P.128～129の実証例4.1のデータを用い、実質賃金（wage）を被説明変数、労働生産性（productivity）を説明変数として、線形単回帰モデルを推定します。標準誤差は<code>se_type = "HC1"</code>と設定し、不均一分散に対して頑健な標準誤差（ホワイトの標準誤差）を使用します。</p>
 <p>この結果は、<span class="math inline">\(実質賃金の推定量 = 276.13 + 0.55\,労働生産性\)</span> を意味しており、定数項と労働生産性の係数はどちらもp値が0.05より小さく、有意水準5％で帰無仮説が棄却されます。この結果から、統計的には労働生産性が100円上昇すると賃金が55円上がる傾向があると解釈できます。</p>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="線形回帰.html#cb570-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CSVデータを読み込み</span></span>
-<span id="cb570-2"><a href="線形回帰.html#cb570-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_nishiyama/ch04/ch04_wage.csv&quot;</span>,</span>
-<span id="cb570-3"><a href="線形回帰.html#cb570-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_names =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb570-4"><a href="線形回帰.html#cb570-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_types =</span> <span class="st">&quot;ddd&quot;</span>,</span>
-<span id="cb570-5"><a href="線形回帰.html#cb570-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">skip =</span> <span class="dv">0</span>)</span>
-<span id="cb570-6"><a href="線形回帰.html#cb570-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb570-7"><a href="線形回帰.html#cb570-7" aria-hidden="true" tabindex="-1"></a><span class="co"># GGally::ggpairs()関数でペアプロットを出力</span></span>
-<span id="cb570-8"><a href="線形回帰.html#cb570-8" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb570-9"><a href="線形回帰.html#cb570-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(productivity, wage) <span class="sc">%&gt;%</span> </span>
-<span id="cb570-10"><a href="線形回帰.html#cb570-10" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="線形回帰.html#cb571-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimatr::lm_robust()関数でwageをproductivityに回帰</span></span>
-<span id="cb571-2"><a href="線形回帰.html#cb571-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> wage <span class="sc">~</span> productivity,</span>
-<span id="cb571-3"><a href="線形回帰.html#cb571-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
-<span id="cb571-4"><a href="線形回帰.html#cb571-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>, <span class="co"># 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）</span></span>
-<span id="cb571-5"><a href="線形回帰.html#cb571-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>) <span class="co"># 有意水準</span></span>
-<span id="cb571-6"><a href="線形回帰.html#cb571-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb571-7"><a href="線形回帰.html#cb571-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 回帰した結果を出力</span></span>
-<span id="cb571-8"><a href="線形回帰.html#cb571-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="線形回帰.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CSVデータを読み込み</span></span>
+<span id="cb595-2"><a href="線形回帰.html#cb595-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_nishiyama/ch04/ch04_wage.csv&quot;</span>,</span>
+<span id="cb595-3"><a href="線形回帰.html#cb595-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_names =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb595-4"><a href="線形回帰.html#cb595-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_types =</span> <span class="st">&quot;ddd&quot;</span>,</span>
+<span id="cb595-5"><a href="線形回帰.html#cb595-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">skip =</span> <span class="dv">0</span>)</span>
+<span id="cb595-6"><a href="線形回帰.html#cb595-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb595-7"><a href="線形回帰.html#cb595-7" aria-hidden="true" tabindex="-1"></a><span class="co"># GGally::ggpairs()関数でペアプロットを出力</span></span>
+<span id="cb595-8"><a href="線形回帰.html#cb595-8" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb595-9"><a href="線形回帰.html#cb595-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(productivity, wage) <span class="sc">%&gt;%</span> </span>
+<span id="cb595-10"><a href="線形回帰.html#cb595-10" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-293-1.png" width="672" /></p>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="線形回帰.html#cb596-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimatr::lm_robust()関数でwageをproductivityに回帰</span></span>
+<span id="cb596-2"><a href="線形回帰.html#cb596-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> wage <span class="sc">~</span> productivity,</span>
+<span id="cb596-3"><a href="線形回帰.html#cb596-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
+<span id="cb596-4"><a href="線形回帰.html#cb596-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>, <span class="co"># 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）</span></span>
+<span id="cb596-5"><a href="線形回帰.html#cb596-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>) <span class="co"># 有意水準</span></span>
+<span id="cb596-6"><a href="線形回帰.html#cb596-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb596-7"><a href="線形回帰.html#cb596-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 回帰した結果を出力</span></span>
+<span id="cb596-8"><a href="線形回帰.html#cb596-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## estimatr::lm_robust(formula = wage ~ productivity, data = data, 
@@ -915,8 +921,8 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 ## 
 ## Multiple R-squared:  0.9635 ,    Adjusted R-squared:  0.9616 
 ## F-statistic: 714.1 on 1 and 19 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="線形回帰.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 回帰した結果をデータフレーム形式で出力</span></span>
-<span id="cb573-2"><a href="線形回帰.html#cb573-2" aria-hidden="true" tabindex="-1"></a>estimatr<span class="sc">::</span><span class="fu">tidy</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="線形回帰.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 回帰した結果をデータフレーム形式で出力</span></span>
+<span id="cb598-2"><a href="線形回帰.html#cb598-2" aria-hidden="true" tabindex="-1"></a>estimatr<span class="sc">::</span><span class="fu">tidy</span>(result)</span></code></pre></div>
 <pre><code>##           term    estimate   std.error statistic      p.value    conf.low
 ## 1  (Intercept) 276.1296070 71.25558981  3.875199 1.018919e-03 126.9899435
 ## 2 productivity   0.5468196  0.02046305 26.722296 1.553174e-16   0.5039899
@@ -928,22 +934,22 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 <h3>対数・変化率モデルの推定<a href="線形回帰.html#対数変化率モデルの推定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>実証例4.1のデータセットを利用して、両辺が自然対数のモデル、両辺が対数階差変化率のモデル、両辺が変化率のモデルを推定します。</p>
 <p>自然対数は<code>log()</code>関数で計算します。対数階差変化率は対数変換した値に<code>tidyquant::CHANGE()</code>関数を適用して対数階差を計算します。変化率は<code>tidyquant::PCT_CHANGE()</code>関数で求めることができます。</p>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="線形回帰.html#cb575-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 自然対数、対数階差変化率、変化率を計算</span></span>
-<span id="cb575-2"><a href="線形回帰.html#cb575-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&lt;&gt;%</span> </span>
-<span id="cb575-3"><a href="線形回帰.html#cb575-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">ln_wage =</span> <span class="fu">log</span>(wage),</span>
-<span id="cb575-4"><a href="線形回帰.html#cb575-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">ln_productivity =</span> <span class="fu">log</span>(productivity),</span>
-<span id="cb575-5"><a href="線形回帰.html#cb575-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">dlog_wage =</span> <span class="dv">100</span> <span class="sc">*</span> tidyquant<span class="sc">::</span><span class="fu">CHANGE</span>(ln_wage),</span>
-<span id="cb575-6"><a href="線形回帰.html#cb575-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">dlog_productivity =</span> <span class="dv">100</span> <span class="sc">*</span> tidyquant<span class="sc">::</span><span class="fu">CHANGE</span>(ln_productivity),</span>
-<span id="cb575-7"><a href="線形回帰.html#cb575-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch_wage =</span> <span class="dv">100</span> <span class="sc">*</span> tidyquant<span class="sc">::</span><span class="fu">PCT_CHANGE</span>(wage),</span>
-<span id="cb575-8"><a href="線形回帰.html#cb575-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch_productivity =</span> <span class="dv">100</span> <span class="sc">*</span> tidyquant<span class="sc">::</span><span class="fu">PCT_CHANGE</span>(productivity))</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="線形回帰.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 自然対数、対数階差変化率、変化率を計算</span></span>
+<span id="cb600-2"><a href="線形回帰.html#cb600-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb600-3"><a href="線形回帰.html#cb600-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">ln_wage =</span> <span class="fu">log</span>(wage),</span>
+<span id="cb600-4"><a href="線形回帰.html#cb600-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">ln_productivity =</span> <span class="fu">log</span>(productivity),</span>
+<span id="cb600-5"><a href="線形回帰.html#cb600-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">dlog_wage =</span> <span class="dv">100</span> <span class="sc">*</span> tidyquant<span class="sc">::</span><span class="fu">CHANGE</span>(ln_wage),</span>
+<span id="cb600-6"><a href="線形回帰.html#cb600-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">dlog_productivity =</span> <span class="dv">100</span> <span class="sc">*</span> tidyquant<span class="sc">::</span><span class="fu">CHANGE</span>(ln_productivity),</span>
+<span id="cb600-7"><a href="線形回帰.html#cb600-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch_wage =</span> <span class="dv">100</span> <span class="sc">*</span> tidyquant<span class="sc">::</span><span class="fu">PCT_CHANGE</span>(wage),</span>
+<span id="cb600-8"><a href="線形回帰.html#cb600-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">pch_productivity =</span> <span class="dv">100</span> <span class="sc">*</span> tidyquant<span class="sc">::</span><span class="fu">PCT_CHANGE</span>(productivity))</span></code></pre></div>
 <p>対数モデルにおける労働生産性の係数0.874は、労働生産性が1％変化すると実質賃金が0.874％変化することを示しています（弾性値）。また、同係数のp値は0.05を下回っており、統計的に有意であるといえます。</p>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="線形回帰.html#cb576-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 対数モデル</span></span>
-<span id="cb576-2"><a href="線形回帰.html#cb576-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> ln_wage <span class="sc">~</span> ln_productivity,</span>
-<span id="cb576-3"><a href="線形回帰.html#cb576-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
-<span id="cb576-4"><a href="線形回帰.html#cb576-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>, <span class="co"># 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）</span></span>
-<span id="cb576-5"><a href="線形回帰.html#cb576-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>) <span class="co"># 有意水準</span></span>
-<span id="cb576-6"><a href="線形回帰.html#cb576-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb576-7"><a href="線形回帰.html#cb576-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="線形回帰.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 対数モデル</span></span>
+<span id="cb601-2"><a href="線形回帰.html#cb601-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> ln_wage <span class="sc">~</span> ln_productivity,</span>
+<span id="cb601-3"><a href="線形回帰.html#cb601-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
+<span id="cb601-4"><a href="線形回帰.html#cb601-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>, <span class="co"># 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）</span></span>
+<span id="cb601-5"><a href="線形回帰.html#cb601-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>) <span class="co"># 有意水準</span></span>
+<span id="cb601-6"><a href="線形回帰.html#cb601-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb601-7"><a href="線形回帰.html#cb601-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## estimatr::lm_robust(formula = ln_wage ~ ln_productivity, data = data, 
@@ -959,13 +965,13 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 ## Multiple R-squared:  0.9649 ,    Adjusted R-squared:  0.9631 
 ## F-statistic: 750.6 on 1 and 19 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>対数階差変化率は変化率の近似値なので、対数階差変化率モデルと変化率モデルはほぼ同じ推定結果になります。労働生産性の係数のp値はどちらも0.05を上回っており、有意ではありません。</p>
-<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="線形回帰.html#cb578-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 対数階差変化率モデル</span></span>
-<span id="cb578-2"><a href="線形回帰.html#cb578-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> dlog_wage <span class="sc">~</span> dlog_productivity,</span>
-<span id="cb578-3"><a href="線形回帰.html#cb578-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
-<span id="cb578-4"><a href="線形回帰.html#cb578-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>, <span class="co"># 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）</span></span>
-<span id="cb578-5"><a href="線形回帰.html#cb578-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>) <span class="co"># 有意水準</span></span>
-<span id="cb578-6"><a href="線形回帰.html#cb578-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb578-7"><a href="線形回帰.html#cb578-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="線形回帰.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 対数階差変化率モデル</span></span>
+<span id="cb603-2"><a href="線形回帰.html#cb603-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> dlog_wage <span class="sc">~</span> dlog_productivity,</span>
+<span id="cb603-3"><a href="線形回帰.html#cb603-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
+<span id="cb603-4"><a href="線形回帰.html#cb603-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>, <span class="co"># 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）</span></span>
+<span id="cb603-5"><a href="線形回帰.html#cb603-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>) <span class="co"># 有意水準</span></span>
+<span id="cb603-6"><a href="線形回帰.html#cb603-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb603-7"><a href="線形回帰.html#cb603-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## estimatr::lm_robust(formula = dlog_wage ~ dlog_productivity, 
@@ -980,13 +986,13 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 ## 
 ## Multiple R-squared:  0.1154 ,    Adjusted R-squared:  0.06623 
 ## F-statistic: 1.579 on 1 and 18 DF,  p-value: 0.225</code></pre>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="線形回帰.html#cb580-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 変化率モデル</span></span>
-<span id="cb580-2"><a href="線形回帰.html#cb580-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> pch_wage <span class="sc">~</span> pch_productivity,</span>
-<span id="cb580-3"><a href="線形回帰.html#cb580-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
-<span id="cb580-4"><a href="線形回帰.html#cb580-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>, <span class="co"># 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）</span></span>
-<span id="cb580-5"><a href="線形回帰.html#cb580-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>) <span class="co"># 有意水準</span></span>
-<span id="cb580-6"><a href="線形回帰.html#cb580-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb580-7"><a href="線形回帰.html#cb580-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="線形回帰.html#cb605-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 変化率モデル</span></span>
+<span id="cb605-2"><a href="線形回帰.html#cb605-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> pch_wage <span class="sc">~</span> pch_productivity,</span>
+<span id="cb605-3"><a href="線形回帰.html#cb605-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
+<span id="cb605-4"><a href="線形回帰.html#cb605-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>, <span class="co"># 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）</span></span>
+<span id="cb605-5"><a href="線形回帰.html#cb605-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>) <span class="co"># 有意水準</span></span>
+<span id="cb605-6"><a href="線形回帰.html#cb605-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb605-7"><a href="線形回帰.html#cb605-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## estimatr::lm_robust(formula = pch_wage ~ pch_productivity, data = data, 
@@ -1017,11 +1023,11 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 <li>education80：　1980年時点の教育水準（標準化した値）</li>
 <li>did：　人口集中地区に居住する人口の割合</li>
 </ul>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="線形回帰.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CSVデータを読み込み</span></span>
-<span id="cb582-2"><a href="線形回帰.html#cb582-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_nishiyama/ch05/youdou.csv&quot;</span>,</span>
-<span id="cb582-3"><a href="線形回帰.html#cb582-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_names =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb582-4"><a href="線形回帰.html#cb582-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_types =</span> <span class="cn">NULL</span>,</span>
-<span id="cb582-5"><a href="線形回帰.html#cb582-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">skip =</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="線形回帰.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CSVデータを読み込み</span></span>
+<span id="cb607-2"><a href="線形回帰.html#cb607-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;data_nishiyama/ch05/youdou.csv&quot;</span>,</span>
+<span id="cb607-3"><a href="線形回帰.html#cb607-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_names =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb607-4"><a href="線形回帰.html#cb607-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_types =</span> <span class="cn">NULL</span>,</span>
+<span id="cb607-5"><a href="線形回帰.html#cb607-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">skip =</span> <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## Rows: 47 Columns: 23
 ## -- Column specification --------------------------------------------------------
 ## Delimiter: &quot;,&quot;
@@ -1030,25 +1036,25 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 ## 
 ## i Use `spec()` to retrieve the full column specification for this data.
 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="線形回帰.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 西山 他（2019）P.143～144に従い、各都道府県の人口1人当たりGDPの年平均経済成長率を計算</span></span>
-<span id="cb584-2"><a href="線形回帰.html#cb584-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&lt;&gt;%</span> </span>
-<span id="cb584-3"><a href="線形回帰.html#cb584-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">ln_y80 =</span> <span class="fu">log</span>(y80),</span>
-<span id="cb584-4"><a href="線形回帰.html#cb584-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">ln_y99 =</span> <span class="fu">log</span>(y99),</span>
-<span id="cb584-5"><a href="線形回帰.html#cb584-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">gr_80_99 =</span> <span class="dv">100</span> <span class="sc">*</span> (ln_y99 <span class="sc">-</span> ln_y80) <span class="sc">/</span> <span class="dv">19</span>)</span>
-<span id="cb584-6"><a href="線形回帰.html#cb584-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb584-7"><a href="線形回帰.html#cb584-7" aria-hidden="true" tabindex="-1"></a><span class="co"># GGally::ggpairs()関数でペアプロットを出力</span></span>
-<span id="cb584-8"><a href="線形回帰.html#cb584-8" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb584-9"><a href="線形回帰.html#cb584-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(gr_80_99, trust80, norm80, education80, ln_y80, ln_y99, did) <span class="sc">%&gt;%</span> </span>
-<span id="cb584-10"><a href="線形回帰.html#cb584-10" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-286-1.png" width="672" /></p>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="線形回帰.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 西山 他（2019）P.143～144に従い、各都道府県の人口1人当たりGDPの年平均経済成長率を計算</span></span>
+<span id="cb609-2"><a href="線形回帰.html#cb609-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb609-3"><a href="線形回帰.html#cb609-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">ln_y80 =</span> <span class="fu">log</span>(y80),</span>
+<span id="cb609-4"><a href="線形回帰.html#cb609-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">ln_y99 =</span> <span class="fu">log</span>(y99),</span>
+<span id="cb609-5"><a href="線形回帰.html#cb609-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">gr_80_99 =</span> <span class="dv">100</span> <span class="sc">*</span> (ln_y99 <span class="sc">-</span> ln_y80) <span class="sc">/</span> <span class="dv">19</span>)</span>
+<span id="cb609-6"><a href="線形回帰.html#cb609-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb609-7"><a href="線形回帰.html#cb609-7" aria-hidden="true" tabindex="-1"></a><span class="co"># GGally::ggpairs()関数でペアプロットを出力</span></span>
+<span id="cb609-8"><a href="線形回帰.html#cb609-8" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb609-9"><a href="線形回帰.html#cb609-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(gr_80_99, trust80, norm80, education80, ln_y80, ln_y99, did) <span class="sc">%&gt;%</span> </span>
+<span id="cb609-10"><a href="線形回帰.html#cb609-10" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-299-1.png" width="672" /></p>
 <p>まず、1980～1999年の年平均経済成長率を、信頼関係の強さと規範意識それぞれで説明する単回帰モデルを推定します。</p>
 <p>これらモデルは、信頼関係の強さと規範意識の係数のp値がともに0.05より小さく、係数が有意であることを示しています。</p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="線形回帰.html#cb585-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> trust80,</span>
-<span id="cb585-2"><a href="線形回帰.html#cb585-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
-<span id="cb585-3"><a href="線形回帰.html#cb585-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
-<span id="cb585-4"><a href="線形回帰.html#cb585-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
-<span id="cb585-5"><a href="線形回帰.html#cb585-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb585-6"><a href="線形回帰.html#cb585-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="線形回帰.html#cb610-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> trust80,</span>
+<span id="cb610-2"><a href="線形回帰.html#cb610-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
+<span id="cb610-3"><a href="線形回帰.html#cb610-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
+<span id="cb610-4"><a href="線形回帰.html#cb610-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
+<span id="cb610-5"><a href="線形回帰.html#cb610-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb610-6"><a href="線形回帰.html#cb610-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## estimatr::lm_robust(formula = gr_80_99 ~ trust80, data = data, 
@@ -1063,12 +1069,12 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 ## 
 ## Multiple R-squared:  0.179 , Adjusted R-squared:  0.1608 
 ## F-statistic: 11.45 on 1 and 45 DF,  p-value: 0.001491</code></pre>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="線形回帰.html#cb587-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> norm80,</span>
-<span id="cb587-2"><a href="線形回帰.html#cb587-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
-<span id="cb587-3"><a href="線形回帰.html#cb587-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
-<span id="cb587-4"><a href="線形回帰.html#cb587-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
-<span id="cb587-5"><a href="線形回帰.html#cb587-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb587-6"><a href="線形回帰.html#cb587-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="線形回帰.html#cb612-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> norm80,</span>
+<span id="cb612-2"><a href="線形回帰.html#cb612-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
+<span id="cb612-3"><a href="線形回帰.html#cb612-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
+<span id="cb612-4"><a href="線形回帰.html#cb612-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
+<span id="cb612-5"><a href="線形回帰.html#cb612-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb612-6"><a href="線形回帰.html#cb612-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## estimatr::lm_robust(formula = gr_80_99 ~ norm80, data = data, 
@@ -1085,12 +1091,12 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 ## F-statistic:  62.9 on 1 and 45 DF,  p-value: 4.348e-10</code></pre>
 <p>次に、説明変数に、教育水準と、豊かさの代理変数として1980年時点の対数GDP水準を追加した重回帰モデルを推定します。</p>
 <p>信頼関係の強さの係数の推定値は、単回帰モデルの0.22から0.02へと大幅に低下していることが確認できます。単回帰モデルでは、教育水準や豊かさが経済成長率に与える影響が、誤って信頼関係の強さの影響として推定されていた可能性が示唆されます。また、信頼関係の強さの係数のp値は0.79と大きく、係数は有意ではありません。</p>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="線形回帰.html#cb589-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> trust80 <span class="sc">+</span> education80 <span class="sc">+</span> ln_y80,</span>
-<span id="cb589-2"><a href="線形回帰.html#cb589-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
-<span id="cb589-3"><a href="線形回帰.html#cb589-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
-<span id="cb589-4"><a href="線形回帰.html#cb589-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
-<span id="cb589-5"><a href="線形回帰.html#cb589-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb589-6"><a href="線形回帰.html#cb589-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="線形回帰.html#cb614-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> trust80 <span class="sc">+</span> education80 <span class="sc">+</span> ln_y80,</span>
+<span id="cb614-2"><a href="線形回帰.html#cb614-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
+<span id="cb614-3"><a href="線形回帰.html#cb614-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
+<span id="cb614-4"><a href="線形回帰.html#cb614-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
+<span id="cb614-5"><a href="線形回帰.html#cb614-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb614-6"><a href="線形回帰.html#cb614-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## estimatr::lm_robust(formula = gr_80_99 ~ trust80 + education80 + 
@@ -1108,12 +1114,12 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 ## Multiple R-squared:  0.5619 ,    Adjusted R-squared:  0.5313 
 ## F-statistic: 20.21 on 3 and 43 DF,  p-value: 2.531e-08</code></pre>
 <p>一方、規範意識の係数の推定値は重回帰モデルでも0.34と小さくなく、経済学的に意味のある結果（規範意識は経済成長率にとって重要な要素）であると考えられます。また係数のp値は0.018と、有意水準5％で統計的に有意であるといえます。</p>
-<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="線形回帰.html#cb591-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> norm80 <span class="sc">+</span> education80 <span class="sc">+</span> ln_y80,</span>
-<span id="cb591-2"><a href="線形回帰.html#cb591-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
-<span id="cb591-3"><a href="線形回帰.html#cb591-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
-<span id="cb591-4"><a href="線形回帰.html#cb591-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
-<span id="cb591-5"><a href="線形回帰.html#cb591-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb591-6"><a href="線形回帰.html#cb591-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="線形回帰.html#cb616-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> norm80 <span class="sc">+</span> education80 <span class="sc">+</span> ln_y80,</span>
+<span id="cb616-2"><a href="線形回帰.html#cb616-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
+<span id="cb616-3"><a href="線形回帰.html#cb616-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
+<span id="cb616-4"><a href="線形回帰.html#cb616-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
+<span id="cb616-5"><a href="線形回帰.html#cb616-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb616-6"><a href="線形回帰.html#cb616-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## estimatr::lm_robust(formula = gr_80_99 ~ norm80 + education80 + 
@@ -1137,12 +1143,12 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 <p>2乗の項は、あらかじめ<code>dplyr::mutate()</code>関数などを使用して計算しておくか、もしくは<code>I(変数 ^ 2)</code>として<code>lm_robust()</code>関数の回帰式に含めます。</p>
 <p>推定結果は、1980年時点GDPの項、その2乗項ともに係数のp値が0.05より大きく、有意ではありません。ただし、それだけでは1980年時点GDPが経済成長率に影響を与えるかどうかは判断できません。判断するためには、1980年時点GDPの項と2乗項の係数がどちらも同時にゼロであるという<strong>結合仮説</strong>をF検定する必要があります。</p>
 <p>推定結果においてF検定のp値をみると0.05より小さく、「1980年時点GDPの項と2乗項の係数がどちらも同時にゼロ（＝1980年時点GDPの影響はない）」という帰無仮説が棄却されます。</p>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="線形回帰.html#cb593-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> y80 <span class="sc">+</span> <span class="fu">I</span>(y80 <span class="sc">^</span> <span class="dv">2</span>),</span>
-<span id="cb593-2"><a href="線形回帰.html#cb593-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
-<span id="cb593-3"><a href="線形回帰.html#cb593-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
-<span id="cb593-4"><a href="線形回帰.html#cb593-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
-<span id="cb593-5"><a href="線形回帰.html#cb593-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb593-6"><a href="線形回帰.html#cb593-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="線形回帰.html#cb618-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> y80 <span class="sc">+</span> <span class="fu">I</span>(y80 <span class="sc">^</span> <span class="dv">2</span>),</span>
+<span id="cb618-2"><a href="線形回帰.html#cb618-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
+<span id="cb618-3"><a href="線形回帰.html#cb618-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
+<span id="cb618-4"><a href="線形回帰.html#cb618-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
+<span id="cb618-5"><a href="線形回帰.html#cb618-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb618-6"><a href="線形回帰.html#cb618-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## estimatr::lm_robust(formula = gr_80_99 ~ y80 + I(y80^2), data = data, 
@@ -1159,34 +1165,34 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 ## Multiple R-squared:  0.5503 ,    Adjusted R-squared:  0.5299 
 ## F-statistic: 27.39 on 2 and 44 DF,  p-value: 1.879e-08</code></pre>
 <p>なお、推定結果から、限界効果は<span class="math inline">\(-1.226 + 2 \times0.089 \times 1980年時点GDP\)</span>と計算できます。平均限界効果は、1980年時点GDPの平均値が3.876なので、<span class="math inline">\(-1.226 + 2 \times0.089 \times 3.876 \approx -0.536\)</span>となります。</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="線形回帰.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 平均限界効果の計算</span></span>
-<span id="cb595-2"><a href="線形回帰.html#cb595-2" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>coefficients[<span class="st">&quot;y80&quot;</span>] <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> result<span class="sc">$</span>coefficients[<span class="st">&quot;I(y80^2)&quot;</span>] <span class="sc">*</span> <span class="fu">mean</span>(data<span class="sc">$</span>y80)</span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="線形回帰.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 平均限界効果の計算</span></span>
+<span id="cb620-2"><a href="線形回帰.html#cb620-2" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>coefficients[<span class="st">&quot;y80&quot;</span>] <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> result<span class="sc">$</span>coefficients[<span class="st">&quot;I(y80^2)&quot;</span>] <span class="sc">*</span> <span class="fu">mean</span>(data<span class="sc">$</span>y80)</span></code></pre></div>
 <pre><code>##        y80 
 ## -0.5335568</code></pre>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="線形回帰.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 多項式モデルを推定した回帰曲線をプロット</span></span>
-<span id="cb597-2"><a href="線形回帰.html#cb597-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb597-3"><a href="線形回帰.html#cb597-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">fitted =</span> result<span class="sc">$</span>fitted.values) <span class="sc">%&gt;%</span> </span>
-<span id="cb597-4"><a href="線形回帰.html#cb597-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb597-5"><a href="線形回帰.html#cb597-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> y80, <span class="at">y =</span> gr_80_99)) <span class="sc">+</span></span>
-<span id="cb597-6"><a href="線形回帰.html#cb597-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> y80, <span class="at">y =</span> fitted))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-293-1.png" width="672" /></p>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="線形回帰.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 多項式モデルを推定した回帰曲線をプロット</span></span>
+<span id="cb622-2"><a href="線形回帰.html#cb622-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb622-3"><a href="線形回帰.html#cb622-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">fitted =</span> result<span class="sc">$</span>fitted.values) <span class="sc">%&gt;%</span> </span>
+<span id="cb622-4"><a href="線形回帰.html#cb622-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb622-5"><a href="線形回帰.html#cb622-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> y80, <span class="at">y =</span> gr_80_99)) <span class="sc">+</span></span>
+<span id="cb622-6"><a href="線形回帰.html#cb622-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> y80, <span class="at">y =</span> fitted))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-306-1.png" width="672" /></p>
 </div>
 <div id="実証例5.6-ダミー交互作用モデル" class="section level3 unnumbered hasAnchor">
 <h3>実証例5.6 ダミー・交互作用モデル<a href="線形回帰.html#実証例5.6-ダミー交互作用モデル" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>1980～1999年の年平均経済成長率を、1980年時点の対数GDP水準で説明するモデルに、切片ダミー変数と傾きダミー変数を追加します。</p>
 <p>追加するダミー変数は、人口集中地区に居住する割合を示す変数（<code>did</code>）が0.4より大きいときに1をとる「都市化ダミー」です。</p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="線形回帰.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 都市化ダミー変数を追加</span></span>
-<span id="cb598-2"><a href="線形回帰.html#cb598-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&lt;&gt;%</span> </span>
-<span id="cb598-3"><a href="線形回帰.html#cb598-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dummy_1 =</span> <span class="dv">1</span> <span class="sc">*</span> (did <span class="sc">&gt;</span> <span class="fl">0.4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="線形回帰.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 都市化ダミー変数を追加</span></span>
+<span id="cb623-2"><a href="線形回帰.html#cb623-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb623-3"><a href="線形回帰.html#cb623-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dummy_1 =</span> <span class="dv">1</span> <span class="sc">*</span> (did <span class="sc">&gt;</span> <span class="fl">0.4</span>))</span></code></pre></div>
 <p>傾きダミー変数と1980年時点の対数GDP水準の交差項は、<code>dummy * ln_y80</code>として<code>lm_robust()</code>関数の回帰式に含めます。</p>
 <p>推定結果をみると、切片ダミーの係数は-0.176、傾きダミーの係数は0.064となっていますが、p値はどちらも0.05より大きく有意ではありません。</p>
 <p>なお、1980年時点の対数GDP水準の係数-1.911は、1980年時点のGDPが1％増加すると、1980～1999年の年平均経済成長率が1.911％ポイント低下することを意味しています。</p>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="線形回帰.html#cb599-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> dummy_1 <span class="sc">+</span> ln_y80 <span class="sc">+</span> dummy_1 <span class="sc">*</span> ln_y80,</span>
-<span id="cb599-2"><a href="線形回帰.html#cb599-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
-<span id="cb599-3"><a href="線形回帰.html#cb599-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
-<span id="cb599-4"><a href="線形回帰.html#cb599-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
-<span id="cb599-5"><a href="線形回帰.html#cb599-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb599-6"><a href="線形回帰.html#cb599-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="線形回帰.html#cb624-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> dummy_1 <span class="sc">+</span> ln_y80 <span class="sc">+</span> dummy_1 <span class="sc">*</span> ln_y80,</span>
+<span id="cb624-2"><a href="線形回帰.html#cb624-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
+<span id="cb624-3"><a href="線形回帰.html#cb624-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
+<span id="cb624-4"><a href="線形回帰.html#cb624-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
+<span id="cb624-5"><a href="線形回帰.html#cb624-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb624-6"><a href="線形回帰.html#cb624-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## estimatr::lm_robust(formula = gr_80_99 ~ dummy_1 + ln_y80 + dummy_1 * 
@@ -1207,15 +1213,15 @@ Y_i = \beta_0 + \beta_1X_{1i} + \beta_2X_{2i} + \dots + \beta_kX_{ki} + u_i \qua
 <div id="実証例5.7-ダミー交互作用モデル" class="section level3 unnumbered hasAnchor">
 <h3>実証例5.7 ダミー・交互作用モデル<a href="線形回帰.html#実証例5.7-ダミー交互作用モデル" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>1980～1999年の年平均経済成長率を、実証例5.6で作成した都市化ダミー変数と、1980年時点の対数GDP水準が1.4より大きい場合に1をとる「豊かさダミー変数」で説明するモデルを推定します。</p>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="線形回帰.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 豊かさダミー変数を追加</span></span>
-<span id="cb601-2"><a href="線形回帰.html#cb601-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&lt;&gt;%</span> </span>
-<span id="cb601-3"><a href="線形回帰.html#cb601-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dummy_2 =</span> <span class="dv">1</span> <span class="sc">*</span> (ln_y80 <span class="sc">&gt;</span> <span class="fl">1.4</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="線形回帰.html#cb602-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> dummy_1 <span class="sc">+</span> dummy_2 <span class="sc">+</span> dummy_1 <span class="sc">*</span> dummy_2,</span>
-<span id="cb602-2"><a href="線形回帰.html#cb602-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
-<span id="cb602-3"><a href="線形回帰.html#cb602-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
-<span id="cb602-4"><a href="線形回帰.html#cb602-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
-<span id="cb602-5"><a href="線形回帰.html#cb602-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb602-6"><a href="線形回帰.html#cb602-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="線形回帰.html#cb626-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 豊かさダミー変数を追加</span></span>
+<span id="cb626-2"><a href="線形回帰.html#cb626-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb626-3"><a href="線形回帰.html#cb626-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dummy_2 =</span> <span class="dv">1</span> <span class="sc">*</span> (ln_y80 <span class="sc">&gt;</span> <span class="fl">1.4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="線形回帰.html#cb627-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(<span class="at">formula =</span> gr_80_99 <span class="sc">~</span> dummy_1 <span class="sc">+</span> dummy_2 <span class="sc">+</span> dummy_1 <span class="sc">*</span> dummy_2,</span>
+<span id="cb627-2"><a href="線形回帰.html#cb627-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">data =</span> data,</span>
+<span id="cb627-3"><a href="線形回帰.html#cb627-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">se_type =</span> <span class="st">&quot;HC1&quot;</span>,</span>
+<span id="cb627-4"><a href="線形回帰.html#cb627-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span>
+<span id="cb627-5"><a href="線形回帰.html#cb627-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb627-6"><a href="線形回帰.html#cb627-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(result)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## estimatr::lm_robust(formula = gr_80_99 ~ dummy_1 + dummy_2 + 

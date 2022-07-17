@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2022-07-09" />
+<meta name="date" content="2022-07-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -148,6 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i>変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年7月17日-マイナーアップデート"><i class="fa fa-check"></i>2022年7月17日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年7月9日-マイナーアップデート"><i class="fa fa-check"></i>2022年7月9日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月26日-ローンチ"><i class="fa fa-check"></i>2022年6月26日 ローンチ</a></li>
 </ul></li>
@@ -282,7 +283,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#特定の型の列を選択"><i class="fa fa-check"></i>特定の型の列を選択</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名の変更"><i class="fa fa-check"></i><b>3.4</b> 列名の変更</a></li>
-<li class="chapter" data-level="3.5" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のフィルタ"><i class="fa fa-check"></i><b>3.5</b> 行のフィルタ</a>
+<li class="chapter" data-level="3.5" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のスライスとサンプリング"><i class="fa fa-check"></i><b>3.5</b> 行のスライスとサンプリング</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のスライス"><i class="fa fa-check"></i>行のスライス</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#サンプリング"><i class="fa fa-check"></i>サンプリング</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のフィルタ"><i class="fa fa-check"></i><b>3.6</b> 行のフィルタ</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件に一致する行"><i class="fa fa-check"></i>条件に一致する行</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件に一致しない行not条件"><i class="fa fa-check"></i>条件に一致しない行（NOT条件）</a></li>
@@ -292,63 +298,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#or条件の否定"><i class="fa fa-check"></i>OR条件の否定</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#関数による条件指定"><i class="fa fa-check"></i>関数による条件指定</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#論理値を返す関数による条件指定"><i class="fa fa-check"></i>論理値を返す関数による条件指定</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括条件指定"><i class="fa fa-check"></i>複数列の一括条件指定</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行の並べ替え"><i class="fa fa-check"></i><b>3.6</b> 行の並べ替え</a>
+<li class="chapter" data-level="3.7" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行の並べ替え"><i class="fa fa-check"></i><b>3.7</b> 行の並べ替え</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#昇順ソート"><i class="fa fa-check"></i>昇順ソート</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#降順ソート"><i class="fa fa-check"></i>降順ソート</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#降順ソート日付型"><i class="fa fa-check"></i>降順ソート（日付型）</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数条件によるソート"><i class="fa fa-check"></i>複数条件によるソート</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列の作成修正"><i class="fa fa-check"></i><b>3.7</b> 列の作成・修正</a>
+<li class="chapter" data-level="3.8" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列の作成修正"><i class="fa fa-check"></i><b>3.8</b> 列の作成・修正</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#新たな列の作成"><i class="fa fa-check"></i>新たな列の作成</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#既存の列の修正"><i class="fa fa-check"></i>既存の列の修正</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件付き系列の作成"><i class="fa fa-check"></i>条件付き系列の作成</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括処理"><i class="fa fa-check"></i>複数列の一括処理</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化"><i class="fa fa-check"></i><b>3.8</b> グループ化</a>
+<li class="chapter" data-level="3.9" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化"><i class="fa fa-check"></i><b>3.9</b> グループ化</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#単一の列でグループ化"><i class="fa fa-check"></i>単一の列でグループ化</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数の列でグループ化"><i class="fa fa-check"></i>複数の列でグループ化</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化フィルタ"><i class="fa fa-check"></i>グループ化＆フィルタ</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化の解除"><i class="fa fa-check"></i>グループ化の解除</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#集計"><i class="fa fa-check"></i><b>3.9</b> 集計</a>
+<li class="chapter" data-level="3.10" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#集計"><i class="fa fa-check"></i><b>3.10</b> 集計</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ別の集計"><i class="fa fa-check"></i>グループ別の集計</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#クロス集計"><i class="fa fa-check"></i>クロス集計</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括処理-1"><i class="fa fa-check"></i>複数列の一括処理</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#カウント"><i class="fa fa-check"></i>カウント</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型横型の変換"><i class="fa fa-check"></i><b>3.10</b> 縦型・横型の変換</a>
+<li class="chapter" data-level="3.11" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型横型の変換"><i class="fa fa-check"></i><b>3.11</b> 縦型・横型の変換</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型データを横型データに変換"><i class="fa fa-check"></i>縦型データを横型データに変換</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#横型データを縦型データに変換"><i class="fa fa-check"></i>横型データを縦型データに変換</a></li>
 </ul></li>
-<li class="chapter" data-level="3.11" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#データの結合"><i class="fa fa-check"></i><b>3.11</b> データの結合</a>
+<li class="chapter" data-level="3.12" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#データの結合"><i class="fa fa-check"></i><b>3.12</b> データの結合</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#内部結合"><i class="fa fa-check"></i>内部結合</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#左外部結合"><i class="fa fa-check"></i>左外部結合</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#右外部結合"><i class="fa fa-check"></i>右外部結合</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#完全外部結合"><i class="fa fa-check"></i>完全外部結合</a></li>
 </ul></li>
-<li class="chapter" data-level="3.12" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複処理"><i class="fa fa-check"></i><b>3.12</b> 重複処理</a>
+<li class="chapter" data-level="3.13" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複処理"><i class="fa fa-check"></i><b>3.13</b> 重複処理</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の抽出"><i class="fa fa-check"></i>重複行の抽出</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の削除"><i class="fa fa-check"></i>重複行の削除</a></li>
 </ul></li>
-<li class="chapter" data-level="3.13" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#欠損値処理"><i class="fa fa-check"></i><b>3.13</b> 欠損値処理</a>
+<li class="chapter" data-level="3.14" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#欠損値処理"><i class="fa fa-check"></i><b>3.14</b> 欠損値処理</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naの削除"><i class="fa fa-check"></i>NAの削除</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naの置換"><i class="fa fa-check"></i>NAの置換</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naのフィル"><i class="fa fa-check"></i>NAのフィル</a></li>
 </ul></li>
-<li class="chapter" data-level="3.14" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#補完処理"><i class="fa fa-check"></i><b>3.14</b> 補完処理</a>
+<li class="chapter" data-level="3.15" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#補完処理"><i class="fa fa-check"></i><b>3.15</b> 補完処理</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#組み合わせ候補の補完"><i class="fa fa-check"></i>組み合わせ候補の補完</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#時系列データの補完"><i class="fa fa-check"></i>時系列データの補完</a></li>
 </ul></li>
-<li class="chapter" data-level="3.15" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#サンプリング"><i class="fa fa-check"></i><b>3.15</b> サンプリング</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="時系列データ操作.html"><a href="時系列データ操作.html"><i class="fa fa-check"></i><b>4</b> 時系列データ操作</a>
 <ul>
@@ -437,7 +444,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図の基本形"><i class="fa fa-check"></i>散布図の基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#バブルチャートの基本形"><i class="fa fa-check"></i>バブルチャートの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図に補助線を追加"><i class="fa fa-check"></i>散布図に補助線を追加</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図にコネクタ線を追加"><i class="fa fa-check"></i>散布図にコネクタ線を追加</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図に近似曲線を追加"><i class="fa fa-check"></i>散布図に近似曲線を追加</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図にラベルを追加"><i class="fa fa-check"></i>散布図にラベルを追加</a></li>
@@ -487,7 +493,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロットの基本形"><i class="fa fa-check"></i>ドットプロットの基本形</a></li>
 </ul></li>
-<li class="chapter" data-level="5.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の設定"><i class="fa fa-check"></i><b>5.20</b> 色の設定</a>
+<li class="chapter" data-level="5.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフファセット"><i class="fa fa-check"></i><b>5.20</b> 複合グラフ（ファセット）</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行方向の複合グラフ"><i class="fa fa-check"></i>行方向の複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#列方向の複合グラフ"><i class="fa fa-check"></i>列方向の複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行列方向の複合グラフ"><i class="fa fa-check"></i>行・列方向の複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行数列数を指定した複合グラフ"><i class="fa fa-check"></i>行数・列数を指定した複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフの設定"><i class="fa fa-check"></i>複合グラフの設定</a></li>
+</ul></li>
+<li class="chapter" data-level="5.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>5.21</b> 地図ファセット</a></li>
+<li class="chapter" data-level="5.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#補助線"><i class="fa fa-check"></i><b>5.22</b> 補助線</a></li>
+<li class="chapter" data-level="5.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定色"><i class="fa fa-check"></i><b>5.23</b> 設定：色</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の手動指定離散型変数"><i class="fa fa-check"></i>色の手動指定（離散型変数）</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#brewerカラーパレット離散型変数"><i class="fa fa-check"></i>Brewerカラーパレット（離散型変数）</a></li>
@@ -497,32 +513,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#viridisカラーパレット連続型変数"><i class="fa fa-check"></i>Viridisカラーパレット（連続型変数）</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#gradientカラーパレット連続型変数"><i class="fa fa-check"></i>gradientカラーパレット（連続型変数）</a></li>
 </ul></li>
-<li class="chapter" data-level="5.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#軸の設定"><i class="fa fa-check"></i><b>5.21</b> 軸の設定</a>
+<li class="chapter" data-level="5.24" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定軸"><i class="fa fa-check"></i><b>5.24</b> 設定：軸</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#x軸連続型y軸連続型"><i class="fa fa-check"></i>X軸：連続型、Y軸：連続型</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#対数目盛"><i class="fa fa-check"></i>対数目盛</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#x軸日付型y軸連続型"><i class="fa fa-check"></i>X軸：日付型、Y軸：連続型</a></li>
 </ul></li>
-<li class="chapter" data-level="5.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフファセット"><i class="fa fa-check"></i><b>5.22</b> 複合グラフ（ファセット）</a>
+<li class="chapter" data-level="5.25" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定パネル目盛線"><i class="fa fa-check"></i><b>5.25</b> 設定：パネル目盛線</a></li>
+<li class="chapter" data-level="5.26" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定凡例"><i class="fa fa-check"></i><b>5.26</b> 設定：凡例</a></li>
+<li class="chapter" data-level="5.27" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定タイトルキャプション"><i class="fa fa-check"></i><b>5.27</b> 設定：タイトル・キャプション</a></li>
+<li class="chapter" data-level="5.28" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定フォントマージン"><i class="fa fa-check"></i><b>5.28</b> 設定：フォント・マージン</a></li>
+<li class="chapter" data-level="5.29" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#グラフの保存"><i class="fa fa-check"></i><b>5.29</b> グラフの保存</a></li>
+<li class="chapter" data-level="5.30" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>5.30</b> 実例</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行方向の複合グラフ"><i class="fa fa-check"></i>行方向の複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#列方向の複合グラフ"><i class="fa fa-check"></i>列方向の複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行列方向の複合グラフ"><i class="fa fa-check"></i>行・列方向の複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行数列数を指定した複合グラフ"><i class="fa fa-check"></i>行数・列数を指定した複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフの設定"><i class="fa fa-check"></i>複合グラフの設定</a></li>
-</ul></li>
-<li class="chapter" data-level="5.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>5.23</b> 地図ファセット</a></li>
-<li class="chapter" data-level="5.24" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#その他設定保存"><i class="fa fa-check"></i><b>5.24</b> その他設定・保存</a>
-<ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#タイトルキャプション"><i class="fa fa-check"></i>タイトル・キャプション</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#パネル目盛線"><i class="fa fa-check"></i>パネル目盛線</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#凡例"><i class="fa fa-check"></i>凡例</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#フォントマージン設定"><i class="fa fa-check"></i>フォント・マージン設定</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#保存"><i class="fa fa-check"></i>保存</a></li>
-</ul></li>
-<li class="chapter" data-level="5.25" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>5.25</b> 実例</a>
-<ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例1世界の新型コロナ死亡率の箱ひげ図"><i class="fa fa-check"></i>実例1：世界の新型コロナ死亡率の箱ひげ図</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例1折れ線グラフ"><i class="fa fa-check"></i>実例1：折れ線グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例2積み上げ棒グラフ"><i class="fa fa-check"></i>実例2：積み上げ棒グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例3箱ひげ図"><i class="fa fa-check"></i>実例3：箱ひげ図</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="探索的データ分析.html"><a href="探索的データ分析.html"><i class="fa fa-check"></i><b>6</b> 探索的データ分析</a>
@@ -625,7 +631,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">エコノミストのためのR</h1>
 <p class="author"><em>服部直樹</em></p>
-<p class="date"><em>2022-07-09</em></p>
+<p class="date"><em>2022-07-17</em></p>
 </div>
 <div id="はじめに" class="section level1 unnumbered hasAnchor">
 <h1>はじめに<a href="index.html#はじめに" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -727,6 +733,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="変更履歴" class="section level2 unnumbered hasAnchor">
 <h2>変更履歴<a href="index.html#変更履歴" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="年7月17日-マイナーアップデート" class="section level3 unnumbered hasAnchor">
+<h3>2022年7月17日 マイナーアップデート<a href="index.html#年7月17日-マイナーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>第1章「Rの設定」の「サンプルデータセット」に、日本の四半期別GDPを追加。</li>
+<li>第2章「Rの基本的な使用方法」の「データフレーム」に、<code>str()</code>関数を追加。</li>
+<li>第3章「tidyverseによるデータ操作」に、「行のスライスとサンプリング」を追加。加えて、サンプリングに使用する関数を<code>dplyr::sample_*()</code>関数ファミリーから<code>dplyr::slice_sample()</code>関数に変更。</li>
+<li>第3章「tidyverseによるデータ操作」の「行のフィルタ」に、複数列の一括条件指定を追加。</li>
+<li>第3章「tidyverseによるデータ操作」の「集計」に、要素数のカウントを追加。</li>
+<li>第5章「ggplot2によるグラフ作成」で、「補助線」、「設定：パネル目盛線」、「設定：凡例」、「設定：タイトル・キャプション」、「設定：フォント・マージン」をセクションとして独立。</li>
+<li>第5章「ggplot2によるグラフ作成」の「実例」に、折れ線グラフと積み上げ棒グラフを追加。</li>
+</ul>
+</div>
 <div id="年7月9日-マイナーアップデート" class="section level3 unnumbered hasAnchor">
 <h3>2022年7月9日 マイナーアップデート<a href="index.html#年7月9日-マイナーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>

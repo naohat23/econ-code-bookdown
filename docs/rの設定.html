@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2022-07-09" />
+<meta name="date" content="2022-07-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -148,6 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i>変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年7月17日-マイナーアップデート"><i class="fa fa-check"></i>2022年7月17日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年7月9日-マイナーアップデート"><i class="fa fa-check"></i>2022年7月9日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月26日-ローンチ"><i class="fa fa-check"></i>2022年6月26日 ローンチ</a></li>
 </ul></li>
@@ -282,7 +283,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#特定の型の列を選択"><i class="fa fa-check"></i>特定の型の列を選択</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名の変更"><i class="fa fa-check"></i><b>3.4</b> 列名の変更</a></li>
-<li class="chapter" data-level="3.5" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のフィルタ"><i class="fa fa-check"></i><b>3.5</b> 行のフィルタ</a>
+<li class="chapter" data-level="3.5" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のスライスとサンプリング"><i class="fa fa-check"></i><b>3.5</b> 行のスライスとサンプリング</a>
+<ul>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のスライス"><i class="fa fa-check"></i>行のスライス</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#サンプリング"><i class="fa fa-check"></i>サンプリング</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のフィルタ"><i class="fa fa-check"></i><b>3.6</b> 行のフィルタ</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件に一致する行"><i class="fa fa-check"></i>条件に一致する行</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件に一致しない行not条件"><i class="fa fa-check"></i>条件に一致しない行（NOT条件）</a></li>
@@ -292,63 +298,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#or条件の否定"><i class="fa fa-check"></i>OR条件の否定</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#関数による条件指定"><i class="fa fa-check"></i>関数による条件指定</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#論理値を返す関数による条件指定"><i class="fa fa-check"></i>論理値を返す関数による条件指定</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括条件指定"><i class="fa fa-check"></i>複数列の一括条件指定</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行の並べ替え"><i class="fa fa-check"></i><b>3.6</b> 行の並べ替え</a>
+<li class="chapter" data-level="3.7" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行の並べ替え"><i class="fa fa-check"></i><b>3.7</b> 行の並べ替え</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#昇順ソート"><i class="fa fa-check"></i>昇順ソート</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#降順ソート"><i class="fa fa-check"></i>降順ソート</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#降順ソート日付型"><i class="fa fa-check"></i>降順ソート（日付型）</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数条件によるソート"><i class="fa fa-check"></i>複数条件によるソート</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列の作成修正"><i class="fa fa-check"></i><b>3.7</b> 列の作成・修正</a>
+<li class="chapter" data-level="3.8" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列の作成修正"><i class="fa fa-check"></i><b>3.8</b> 列の作成・修正</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#新たな列の作成"><i class="fa fa-check"></i>新たな列の作成</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#既存の列の修正"><i class="fa fa-check"></i>既存の列の修正</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件付き系列の作成"><i class="fa fa-check"></i>条件付き系列の作成</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括処理"><i class="fa fa-check"></i>複数列の一括処理</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化"><i class="fa fa-check"></i><b>3.8</b> グループ化</a>
+<li class="chapter" data-level="3.9" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化"><i class="fa fa-check"></i><b>3.9</b> グループ化</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#単一の列でグループ化"><i class="fa fa-check"></i>単一の列でグループ化</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数の列でグループ化"><i class="fa fa-check"></i>複数の列でグループ化</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化フィルタ"><i class="fa fa-check"></i>グループ化＆フィルタ</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化の解除"><i class="fa fa-check"></i>グループ化の解除</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#集計"><i class="fa fa-check"></i><b>3.9</b> 集計</a>
+<li class="chapter" data-level="3.10" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#集計"><i class="fa fa-check"></i><b>3.10</b> 集計</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ別の集計"><i class="fa fa-check"></i>グループ別の集計</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#クロス集計"><i class="fa fa-check"></i>クロス集計</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括処理-1"><i class="fa fa-check"></i>複数列の一括処理</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#カウント"><i class="fa fa-check"></i>カウント</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型横型の変換"><i class="fa fa-check"></i><b>3.10</b> 縦型・横型の変換</a>
+<li class="chapter" data-level="3.11" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型横型の変換"><i class="fa fa-check"></i><b>3.11</b> 縦型・横型の変換</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型データを横型データに変換"><i class="fa fa-check"></i>縦型データを横型データに変換</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#横型データを縦型データに変換"><i class="fa fa-check"></i>横型データを縦型データに変換</a></li>
 </ul></li>
-<li class="chapter" data-level="3.11" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#データの結合"><i class="fa fa-check"></i><b>3.11</b> データの結合</a>
+<li class="chapter" data-level="3.12" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#データの結合"><i class="fa fa-check"></i><b>3.12</b> データの結合</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#内部結合"><i class="fa fa-check"></i>内部結合</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#左外部結合"><i class="fa fa-check"></i>左外部結合</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#右外部結合"><i class="fa fa-check"></i>右外部結合</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#完全外部結合"><i class="fa fa-check"></i>完全外部結合</a></li>
 </ul></li>
-<li class="chapter" data-level="3.12" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複処理"><i class="fa fa-check"></i><b>3.12</b> 重複処理</a>
+<li class="chapter" data-level="3.13" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複処理"><i class="fa fa-check"></i><b>3.13</b> 重複処理</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の抽出"><i class="fa fa-check"></i>重複行の抽出</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の削除"><i class="fa fa-check"></i>重複行の削除</a></li>
 </ul></li>
-<li class="chapter" data-level="3.13" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#欠損値処理"><i class="fa fa-check"></i><b>3.13</b> 欠損値処理</a>
+<li class="chapter" data-level="3.14" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#欠損値処理"><i class="fa fa-check"></i><b>3.14</b> 欠損値処理</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naの削除"><i class="fa fa-check"></i>NAの削除</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naの置換"><i class="fa fa-check"></i>NAの置換</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naのフィル"><i class="fa fa-check"></i>NAのフィル</a></li>
 </ul></li>
-<li class="chapter" data-level="3.14" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#補完処理"><i class="fa fa-check"></i><b>3.14</b> 補完処理</a>
+<li class="chapter" data-level="3.15" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#補完処理"><i class="fa fa-check"></i><b>3.15</b> 補完処理</a>
 <ul>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#組み合わせ候補の補完"><i class="fa fa-check"></i>組み合わせ候補の補完</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#時系列データの補完"><i class="fa fa-check"></i>時系列データの補完</a></li>
 </ul></li>
-<li class="chapter" data-level="3.15" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#サンプリング"><i class="fa fa-check"></i><b>3.15</b> サンプリング</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="時系列データ操作.html"><a href="時系列データ操作.html"><i class="fa fa-check"></i><b>4</b> 時系列データ操作</a>
 <ul>
@@ -437,7 +444,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図の基本形"><i class="fa fa-check"></i>散布図の基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#バブルチャートの基本形"><i class="fa fa-check"></i>バブルチャートの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図に補助線を追加"><i class="fa fa-check"></i>散布図に補助線を追加</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図にコネクタ線を追加"><i class="fa fa-check"></i>散布図にコネクタ線を追加</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図に近似曲線を追加"><i class="fa fa-check"></i>散布図に近似曲線を追加</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図にラベルを追加"><i class="fa fa-check"></i>散布図にラベルを追加</a></li>
@@ -487,7 +493,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロットの基本形"><i class="fa fa-check"></i>ドットプロットの基本形</a></li>
 </ul></li>
-<li class="chapter" data-level="5.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の設定"><i class="fa fa-check"></i><b>5.20</b> 色の設定</a>
+<li class="chapter" data-level="5.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフファセット"><i class="fa fa-check"></i><b>5.20</b> 複合グラフ（ファセット）</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行方向の複合グラフ"><i class="fa fa-check"></i>行方向の複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#列方向の複合グラフ"><i class="fa fa-check"></i>列方向の複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行列方向の複合グラフ"><i class="fa fa-check"></i>行・列方向の複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行数列数を指定した複合グラフ"><i class="fa fa-check"></i>行数・列数を指定した複合グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフの設定"><i class="fa fa-check"></i>複合グラフの設定</a></li>
+</ul></li>
+<li class="chapter" data-level="5.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>5.21</b> 地図ファセット</a></li>
+<li class="chapter" data-level="5.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#補助線"><i class="fa fa-check"></i><b>5.22</b> 補助線</a></li>
+<li class="chapter" data-level="5.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定色"><i class="fa fa-check"></i><b>5.23</b> 設定：色</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の手動指定離散型変数"><i class="fa fa-check"></i>色の手動指定（離散型変数）</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#brewerカラーパレット離散型変数"><i class="fa fa-check"></i>Brewerカラーパレット（離散型変数）</a></li>
@@ -497,32 +513,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#viridisカラーパレット連続型変数"><i class="fa fa-check"></i>Viridisカラーパレット（連続型変数）</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#gradientカラーパレット連続型変数"><i class="fa fa-check"></i>gradientカラーパレット（連続型変数）</a></li>
 </ul></li>
-<li class="chapter" data-level="5.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#軸の設定"><i class="fa fa-check"></i><b>5.21</b> 軸の設定</a>
+<li class="chapter" data-level="5.24" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定軸"><i class="fa fa-check"></i><b>5.24</b> 設定：軸</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#x軸連続型y軸連続型"><i class="fa fa-check"></i>X軸：連続型、Y軸：連続型</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#対数目盛"><i class="fa fa-check"></i>対数目盛</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#x軸日付型y軸連続型"><i class="fa fa-check"></i>X軸：日付型、Y軸：連続型</a></li>
 </ul></li>
-<li class="chapter" data-level="5.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフファセット"><i class="fa fa-check"></i><b>5.22</b> 複合グラフ（ファセット）</a>
+<li class="chapter" data-level="5.25" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定パネル目盛線"><i class="fa fa-check"></i><b>5.25</b> 設定：パネル目盛線</a></li>
+<li class="chapter" data-level="5.26" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定凡例"><i class="fa fa-check"></i><b>5.26</b> 設定：凡例</a></li>
+<li class="chapter" data-level="5.27" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定タイトルキャプション"><i class="fa fa-check"></i><b>5.27</b> 設定：タイトル・キャプション</a></li>
+<li class="chapter" data-level="5.28" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定フォントマージン"><i class="fa fa-check"></i><b>5.28</b> 設定：フォント・マージン</a></li>
+<li class="chapter" data-level="5.29" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#グラフの保存"><i class="fa fa-check"></i><b>5.29</b> グラフの保存</a></li>
+<li class="chapter" data-level="5.30" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>5.30</b> 実例</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行方向の複合グラフ"><i class="fa fa-check"></i>行方向の複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#列方向の複合グラフ"><i class="fa fa-check"></i>列方向の複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行列方向の複合グラフ"><i class="fa fa-check"></i>行・列方向の複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行数列数を指定した複合グラフ"><i class="fa fa-check"></i>行数・列数を指定した複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフの設定"><i class="fa fa-check"></i>複合グラフの設定</a></li>
-</ul></li>
-<li class="chapter" data-level="5.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>5.23</b> 地図ファセット</a></li>
-<li class="chapter" data-level="5.24" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#その他設定保存"><i class="fa fa-check"></i><b>5.24</b> その他設定・保存</a>
-<ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#タイトルキャプション"><i class="fa fa-check"></i>タイトル・キャプション</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#パネル目盛線"><i class="fa fa-check"></i>パネル目盛線</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#凡例"><i class="fa fa-check"></i>凡例</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#フォントマージン設定"><i class="fa fa-check"></i>フォント・マージン設定</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#保存"><i class="fa fa-check"></i>保存</a></li>
-</ul></li>
-<li class="chapter" data-level="5.25" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>5.25</b> 実例</a>
-<ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例1世界の新型コロナ死亡率の箱ひげ図"><i class="fa fa-check"></i>実例1：世界の新型コロナ死亡率の箱ひげ図</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例1折れ線グラフ"><i class="fa fa-check"></i>実例1：折れ線グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例2積み上げ棒グラフ"><i class="fa fa-check"></i>実例2：積み上げ棒グラフ</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例3箱ひげ図"><i class="fa fa-check"></i>実例3：箱ひげ図</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="探索的データ分析.html"><a href="探索的データ分析.html"><i class="fa fa-check"></i><b>6</b> 探索的データ分析</a>
@@ -1016,7 +1022,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb26-15"><a href="rの設定.html#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-16"><a href="rの設定.html#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
 <span id="cb26-17"><a href="rの設定.html#cb26-17" aria-hidden="true" tabindex="-1"></a>data_owid</span></code></pre></div>
-<pre><code>## # A tibble: 199,624 x 14
+<pre><code>## # A tibble: 201,728 x 14
 ##    continent location    date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;       &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
 ##  1 Asia      Afghanistan 2020-02-24           5         5             NA    
@@ -1029,7 +1035,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghanistan 2020-03-02           5         0              0    
 ##  9 Asia      Afghanistan 2020-03-03           5         0              0    
 ## 10 Asia      Afghanistan 2020-03-04           5         0              0    
-## # ... with 199,614 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 201,718 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1108,7 +1114,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="日本の県内総生産" class="section level4 unnumbered hasAnchor">
 <h4>日本の県内総生産<a href="rの設定.html#日本の県内総生産" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>内閣府が公表する県内総生産データセットです（生産側、名目、2008SNA、平成23年基準計数）。詳細は<a href="https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/main_2018.html">内閣府のウェブサイト</a>を参照してください。ここではデータをdata.frame形式で読み込み、前処理して縦型のtibble形式に変換します。</p>
+<p>内閣府が公表する年次の名目県内総生産データセットです（生産側、2008SNA、平成23年基準計数）。詳細は<a href="https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/main_2018.html">内閣府のウェブサイト</a>を参照してください。ここではデータをdata.frame形式で読み込み、前処理して縦型のtibble形式に変換します。</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="rの設定.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 内閣府の県内総生産データをdata.frame形式で読み込み</span></span>
 <span id="cb30-2"><a href="rの設定.html#cb30-2" aria-hidden="true" tabindex="-1"></a>data_gdp_pref <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/tables/2018/soukatu1.xlsx&quot;</span>, <span class="co"># ファイルパス／URL</span></span>
 <span id="cb30-3"><a href="rの設定.html#cb30-3" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">sheet =</span> <span class="dv">1</span>, <span class="co"># シートインデックス／シート名</span></span>
@@ -1132,7 +1138,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-21"><a href="rの設定.html#cb30-21" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb30-22"><a href="rの設定.html#cb30-22" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>()</span>
 <span id="cb30-23"><a href="rの設定.html#cb30-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-24"><a href="rの設定.html#cb30-24" aria-hidden="true" tabindex="-1"></a>data_gdp_pref</span></code></pre></div>
+<span id="cb30-24"><a href="rの設定.html#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
+<span id="cb30-25"><a href="rの設定.html#cb30-25" aria-hidden="true" tabindex="-1"></a>data_gdp_pref</span></code></pre></div>
 <pre><code>## # A tibble: 611 x 5
 ##    pref_code pref_name  year gdp_nominal gdp_nominal_pchg
 ##        &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;       &lt;dbl&gt;            &lt;dbl&gt;
@@ -1148,6 +1155,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10         1 北海道     2015    19128504            2.95 
 ## # ... with 601 more rows</code></pre>
 </div>
+<div id="日本の四半期別gdp" class="section level4 unnumbered hasAnchor">
+<h4>日本の四半期別GDP<a href="rの設定.html#日本の四半期別gdp" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>内閣府が公表する日本の四半期別GDPデータセットです（支出側、実質季節調整値）。2022年6月8日に公表された2022年1～3月期2次速報値のリンクからデータを取得しており、期間は1994年1～3月期から2022年1～3月期です。詳細は<a href="https://www.esri.cao.go.jp/jp/sna/data/data_list/sokuhou/files/2022/qe221_2/gdemenuja.html">内閣府のウェブサイト</a>を参照してください。ここではデータをtibble形式で読み込んで前処理を行います。</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="rの設定.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 内閣府のGDP実質季節調整値データをtibble形式で読み込み</span></span>
+<span id="cb32-2"><a href="rの設定.html#cb32-2" aria-hidden="true" tabindex="-1"></a>data_gdp_jp <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;https://www.esri.cao.go.jp/jp/sna/data/data_list/sokuhou/files/2022/qe221_2/tables/gaku-jk2212.csv&quot;</span>, <span class="co"># ファイルパス／URL（拡張子が必要）</span></span>
+<span id="cb32-3"><a href="rの設定.html#cb32-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="co"># ヘッダー（列名データ）の有無</span></span>
+<span id="cb32-4"><a href="rの設定.html#cb32-4" aria-hidden="true" tabindex="-1"></a>                               <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="co"># 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）</span></span>
+<span id="cb32-5"><a href="rの設定.html#cb32-5" aria-hidden="true" tabindex="-1"></a>                               <span class="at">col_select =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">15</span>), <span class="co"># 読み込む列の指定（列名、インデックス）</span></span>
+<span id="cb32-6"><a href="rの設定.html#cb32-6" aria-hidden="true" tabindex="-1"></a>                               <span class="at">skip =</span> <span class="dv">2</span>, <span class="co"># 読み込み時に上からスキップする行数</span></span>
+<span id="cb32-7"><a href="rの設定.html#cb32-7" aria-hidden="true" tabindex="-1"></a>                               <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">&quot;CP932&quot;</span>)) <span class="co"># Windows標準（Shift JIS）で作成されたファイルは&quot;CP932&quot;、utf-8で作成されたファイルは&quot;UTF-8&quot;</span></span></code></pre></div>
+<pre><code>## New names:
+## Rows: 120 Columns: 10
+## -- Column specification
+## -------------------------------------------------------- Delimiter: &quot;,&quot; chr
+## (10): 国内総生産(支出側), 民間最終消費支出, 民間住宅, 民間企業設備,
+## 民間在庫変動, 政府最終消費支出, 公的固定資本形成, 公的...
+## i Use `spec()` to retrieve the full column specification for this data. i
+## Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## * `` -&gt; `...1`
+## * `` -&gt; `...4`
+## * `` -&gt; `...5`
+## * `` -&gt; `...13`
+## * `` -&gt; `...14`
+## * `` -&gt; `...16`
+## * `` -&gt; `...20`
+## * `` -&gt; `...21`
+## * `` -&gt; `...23`
+## * `` -&gt; `...27`
+## * `` -&gt; `...29`
+## * `` -&gt; `...31`
+## * `` -&gt; `...32`
+## * `` -&gt; `...33`</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="rの設定.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 不要な行を削除</span></span>
+<span id="cb34-2"><a href="rの設定.html#cb34-2" aria-hidden="true" tabindex="-1"></a>data_gdp_jp <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb34-3"><a href="rの設定.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-4"><a href="rの設定.html#cb34-4" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>(<span class="fu">everything</span>()) </span>
+<span id="cb34-5"><a href="rの設定.html#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="rの設定.html#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co"># データ型を文字列型から数値型に変換</span></span>
+<span id="cb34-7"><a href="rの設定.html#cb34-7" aria-hidden="true" tabindex="-1"></a>data_gdp_jp <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb34-8"><a href="rの設定.html#cb34-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">str_replace_all</span>(., <span class="st">&quot;,&quot;</span>, <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">as.double</span>()))</span>
+<span id="cb34-9"><a href="rの設定.html#cb34-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-10"><a href="rの設定.html#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 列名を変更し、日付列を追加</span></span>
+<span id="cb34-11"><a href="rの設定.html#cb34-11" aria-hidden="true" tabindex="-1"></a>data_gdp_jp <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb34-12"><a href="rの設定.html#cb34-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">`</span><span class="at">国内総生産</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">国内総生産(支出側)</span><span class="st">`</span>,</span>
+<span id="cb34-13"><a href="rの設定.html#cb34-13" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">純輸出</span><span class="st">`</span> <span class="ot">=</span> <span class="st">`</span><span class="at">財貨・サービス</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-14"><a href="rの設定.html#cb34-14" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="st">`</span><span class="at">日付</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1994-01-01&quot;</span>), <span class="at">to =</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-01-01&quot;</span>), <span class="at">by =</span> <span class="st">&quot;quarter&quot;</span>),</span>
+<span id="cb34-15"><a href="rの設定.html#cb34-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">.before =</span> <span class="st">`</span><span class="at">国内総生産</span><span class="st">`</span>)</span>
+<span id="cb34-16"><a href="rの設定.html#cb34-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-17"><a href="rの設定.html#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
+<span id="cb34-18"><a href="rの設定.html#cb34-18" aria-hidden="true" tabindex="-1"></a>data_gdp_jp</span></code></pre></div>
+<pre><code>## # A tibble: 113 x 11
+##    日付       国内総生産 民間最終消費支出 民間住宅 民間企業設備 民間在庫変動
+##    &lt;date&gt;          &lt;dbl&gt;            &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+##  1 1994-01-01    446308.          247535.   29812        66259.        4229 
+##  2 1994-04-01    443744.          248758.   31118.       66065        -2884.
+##  3 1994-07-01    448945           250619.   33628.       65999.        -280.
+##  4 1994-10-01    447169.          250780    32218.       67029.       -1602.
+##  5 1995-01-01    452113           252928.   31122.       68648.        2254.
+##  6 1995-04-01    456276.          254884.   30382.       71088         1117.
+##  7 1995-07-01    461709.          256356.   29742.       72334.        2106.
+##  8 1995-10-01    462860.          258171.   30431.       73525.        1033.
+##  9 1996-01-01    466623.          257412.   31806.       73285         1643 
+## 10 1996-04-01    472494.          260510    33278.       75804         2979.
+## # ... with 103 more rows, and 5 more variables: 政府最終消費支出 &lt;dbl&gt;,
+## #   公的固定資本形成 &lt;dbl&gt;, 公的在庫変動 &lt;dbl&gt;, 純輸出 &lt;dbl&gt;, 開差 &lt;dbl&gt;</code></pre>
+</div>
 <div id="西山-他2019" class="section level4 unnumbered hasAnchor">
 <h4>西山 他（2019）<a href="rの設定.html#西山-他2019" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>本書の第7章以降の計量経済学パートでは、西山 他（2019）の実証例で使用されているサンプルデータセットを使用します。サンプルデータセットは、<a href="http://www.yuhikaku.co.jp/books/detail/9784641053854">西山 他（2019）のサポートウェブサイト</a>で配布されています。</p>
@@ -1158,54 +1231,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.6</span> R起動時に実行する設定<a href="rの設定.html#r起動時に実行する設定" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>ここまでに紹介した各種設定のうち、Rを起動したときに毎回実行する必要があるものをひとまとめにしました。</p>
 <p><code>file.edit(".Rprofile")</code>でプロジェクトフォルダの直下に<code>.Rprofile</code>ファイルを作成し、その中に次のコードを記載して保存しておくと、Rの起動時に<code>.Rprofile</code>ファイルの内容が自動的に実行されるので便利です。</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="rの設定.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 全変数を削除</span></span>
-<span id="cb32-2"><a href="rの設定.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb32-3"><a href="rの設定.html#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-4"><a href="rの設定.html#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="rの設定.html#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 警告の非表示</span></span>
-<span id="cb32-6"><a href="rの設定.html#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">warn =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb32-7"><a href="rの設定.html#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-8"><a href="rの設定.html#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-9"><a href="rの設定.html#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co"># プロキシ設定（使用環境に応じproxyserverとportを記入）</span></span>
-<span id="cb32-10"><a href="rの設定.html#cb32-10" aria-hidden="true" tabindex="-1"></a>proxy_url <span class="ot">&lt;-</span> <span class="st">&quot;http://proxyserver:port/&quot;</span></span>
-<span id="cb32-11"><a href="rの設定.html#cb32-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-12"><a href="rの設定.html#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;http_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
-<span id="cb32-13"><a href="rの設定.html#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;https_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
-<span id="cb32-14"><a href="rの設定.html#cb32-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-15"><a href="rの設定.html#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">download.file.method =</span> <span class="st">&quot;libcurl&quot;</span>)</span>
-<span id="cb32-16"><a href="rの設定.html#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">timeout =</span> <span class="cn">NA</span>)</span>
-<span id="cb32-17"><a href="rの設定.html#cb32-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-18"><a href="rの設定.html#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-19"><a href="rの設定.html#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="co"># パッケージのインストールとインポート</span></span>
-<span id="cb32-20"><a href="rの設定.html#cb32-20" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb32-21"><a href="rの設定.html#cb32-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;magrittr&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;readxl&quot;</span>,</span>
-<span id="cb32-22"><a href="rの設定.html#cb32-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;esquisse&quot;</span>, <span class="st">&quot;geofacet&quot;</span>, <span class="st">&quot;ggplotgui&quot;</span>, <span class="st">&quot;ggpubr&quot;</span>, <span class="st">&quot;ggsci&quot;</span>, <span class="st">&quot;ggrepel&quot;</span>, <span class="st">&quot;hexbin&quot;</span>, <span class="st">&quot;lemon&quot;</span>, <span class="st">&quot;RColorBrewer&quot;</span>,</span>
-<span id="cb32-23"><a href="rの設定.html#cb32-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;corrplot&quot;</span>, <span class="st">&quot;corrr&quot;</span>, <span class="st">&quot;DataExplorer&quot;</span>, <span class="st">&quot;estimatr&quot;</span>, <span class="st">&quot;fpp2&quot;</span>, <span class="st">&quot;GGally&quot;</span>, <span class="st">&quot;mfilter&quot;</span>, <span class="st">&quot;mgcv&quot;</span>, <span class="st">&quot;plm&quot;</span>, <span class="st">&quot;psych&quot;</span>, <span class="st">&quot;seasonal&quot;</span>, <span class="st">&quot;seasonalview&quot;</span>, <span class="st">&quot;sigmoid&quot;</span>, <span class="st">&quot;SmartEDA&quot;</span>, <span class="st">&quot;tidyquant&quot;</span>,</span>
-<span id="cb32-24"><a href="rの設定.html#cb32-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;openxlsx&quot;</span>, <span class="st">&quot;pbapply&quot;</span></span>
-<span id="cb32-25"><a href="rの設定.html#cb32-25" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb32-26"><a href="rの設定.html#cb32-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-27"><a href="rの設定.html#cb32-27" aria-hidden="true" tabindex="-1"></a>new_packages <span class="ot">&lt;-</span> packages[<span class="sc">!</span>(packages <span class="sc">%in%</span> <span class="fu">installed.packages</span>()[,<span class="st">&quot;Package&quot;</span>])]</span>
-<span id="cb32-28"><a href="rの設定.html#cb32-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-29"><a href="rの設定.html#cb32-29" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(new_packages)) {</span>
-<span id="cb32-30"><a href="rの設定.html#cb32-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(new_packages)</span>
-<span id="cb32-31"><a href="rの設定.html#cb32-31" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-32"><a href="rの設定.html#cb32-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-33"><a href="rの設定.html#cb32-33" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (pkg <span class="cf">in</span> packages) {</span>
-<span id="cb32-34"><a href="rの設定.html#cb32-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb32-35"><a href="rの設定.html#cb32-35" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-36"><a href="rの設定.html#cb32-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-37"><a href="rの設定.html#cb32-37" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(</span>
-<span id="cb32-38"><a href="rの設定.html#cb32-38" aria-hidden="true" tabindex="-1"></a>  new_packages,</span>
-<span id="cb32-39"><a href="rの設定.html#cb32-39" aria-hidden="true" tabindex="-1"></a>  packages,</span>
-<span id="cb32-40"><a href="rの設定.html#cb32-40" aria-hidden="true" tabindex="-1"></a>  pkg</span>
-<span id="cb32-41"><a href="rの設定.html#cb32-41" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb32-42"><a href="rの設定.html#cb32-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-43"><a href="rの設定.html#cb32-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-44"><a href="rの設定.html#cb32-44" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフ設定</span></span>
-<span id="cb32-45"><a href="rの設定.html#cb32-45" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>())</span>
-<span id="cb32-46"><a href="rの設定.html#cb32-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-47"><a href="rの設定.html#cb32-47" aria-hidden="true" tabindex="-1"></a><span class="fu">windowsFonts</span>(<span class="st">&quot;MEIRYO&quot;</span> <span class="ot">=</span> <span class="fu">windowsFont</span>(<span class="st">&quot;Meiryo UI&quot;</span>))</span>
-<span id="cb32-48"><a href="rの設定.html#cb32-48" aria-hidden="true" tabindex="-1"></a><span class="fu">windowsFonts</span>(<span class="st">&quot;YUGO&quot;</span> <span class="ot">=</span> <span class="fu">windowsFont</span>(<span class="st">&quot;Yu Gothic UI&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="rの設定.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 全変数を削除</span></span>
+<span id="cb36-2"><a href="rの設定.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb36-3"><a href="rの設定.html#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="rの設定.html#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="rの設定.html#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 警告の非表示</span></span>
+<span id="cb36-6"><a href="rの設定.html#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">warn =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb36-7"><a href="rの設定.html#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="rの設定.html#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="rの設定.html#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="co"># プロキシ設定（使用環境に応じproxyserverとportを記入）</span></span>
+<span id="cb36-10"><a href="rの設定.html#cb36-10" aria-hidden="true" tabindex="-1"></a>proxy_url <span class="ot">&lt;-</span> <span class="st">&quot;http://proxyserver:port/&quot;</span></span>
+<span id="cb36-11"><a href="rの設定.html#cb36-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-12"><a href="rの設定.html#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;http_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
+<span id="cb36-13"><a href="rの設定.html#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;https_proxy&quot;</span> <span class="ot">=</span> proxy_url)</span>
+<span id="cb36-14"><a href="rの設定.html#cb36-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-15"><a href="rの設定.html#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">download.file.method =</span> <span class="st">&quot;libcurl&quot;</span>)</span>
+<span id="cb36-16"><a href="rの設定.html#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">timeout =</span> <span class="cn">NA</span>)</span>
+<span id="cb36-17"><a href="rの設定.html#cb36-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-18"><a href="rの設定.html#cb36-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-19"><a href="rの設定.html#cb36-19" aria-hidden="true" tabindex="-1"></a><span class="co"># パッケージのインストールとインポート</span></span>
+<span id="cb36-20"><a href="rの設定.html#cb36-20" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb36-21"><a href="rの設定.html#cb36-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;magrittr&quot;</span>, <span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;readxl&quot;</span>,</span>
+<span id="cb36-22"><a href="rの設定.html#cb36-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;esquisse&quot;</span>, <span class="st">&quot;geofacet&quot;</span>, <span class="st">&quot;ggplotgui&quot;</span>, <span class="st">&quot;ggpubr&quot;</span>, <span class="st">&quot;ggsci&quot;</span>, <span class="st">&quot;ggrepel&quot;</span>, <span class="st">&quot;hexbin&quot;</span>, <span class="st">&quot;lemon&quot;</span>, <span class="st">&quot;RColorBrewer&quot;</span>,</span>
+<span id="cb36-23"><a href="rの設定.html#cb36-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;corrplot&quot;</span>, <span class="st">&quot;corrr&quot;</span>, <span class="st">&quot;DataExplorer&quot;</span>, <span class="st">&quot;estimatr&quot;</span>, <span class="st">&quot;fpp2&quot;</span>, <span class="st">&quot;GGally&quot;</span>, <span class="st">&quot;mfilter&quot;</span>, <span class="st">&quot;mgcv&quot;</span>, <span class="st">&quot;plm&quot;</span>, <span class="st">&quot;psych&quot;</span>, <span class="st">&quot;seasonal&quot;</span>, <span class="st">&quot;seasonalview&quot;</span>, <span class="st">&quot;sigmoid&quot;</span>, <span class="st">&quot;SmartEDA&quot;</span>, <span class="st">&quot;tidyquant&quot;</span>,</span>
+<span id="cb36-24"><a href="rの設定.html#cb36-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;openxlsx&quot;</span>, <span class="st">&quot;pbapply&quot;</span></span>
+<span id="cb36-25"><a href="rの設定.html#cb36-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-26"><a href="rの設定.html#cb36-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-27"><a href="rの設定.html#cb36-27" aria-hidden="true" tabindex="-1"></a>new_packages <span class="ot">&lt;-</span> packages[<span class="sc">!</span>(packages <span class="sc">%in%</span> <span class="fu">installed.packages</span>()[,<span class="st">&quot;Package&quot;</span>])]</span>
+<span id="cb36-28"><a href="rの設定.html#cb36-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-29"><a href="rの設定.html#cb36-29" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(new_packages)) {</span>
+<span id="cb36-30"><a href="rの設定.html#cb36-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(new_packages)</span>
+<span id="cb36-31"><a href="rの設定.html#cb36-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-32"><a href="rの設定.html#cb36-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-33"><a href="rの設定.html#cb36-33" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (pkg <span class="cf">in</span> packages) {</span>
+<span id="cb36-34"><a href="rの設定.html#cb36-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-35"><a href="rの設定.html#cb36-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-36"><a href="rの設定.html#cb36-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-37"><a href="rの設定.html#cb36-37" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(</span>
+<span id="cb36-38"><a href="rの設定.html#cb36-38" aria-hidden="true" tabindex="-1"></a>  new_packages,</span>
+<span id="cb36-39"><a href="rの設定.html#cb36-39" aria-hidden="true" tabindex="-1"></a>  packages,</span>
+<span id="cb36-40"><a href="rの設定.html#cb36-40" aria-hidden="true" tabindex="-1"></a>  pkg</span>
+<span id="cb36-41"><a href="rの設定.html#cb36-41" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-42"><a href="rの設定.html#cb36-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-43"><a href="rの設定.html#cb36-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-44"><a href="rの設定.html#cb36-44" aria-hidden="true" tabindex="-1"></a><span class="co"># グラフ設定</span></span>
+<span id="cb36-45"><a href="rの設定.html#cb36-45" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>())</span>
+<span id="cb36-46"><a href="rの設定.html#cb36-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-47"><a href="rの設定.html#cb36-47" aria-hidden="true" tabindex="-1"></a><span class="fu">windowsFonts</span>(<span class="st">&quot;MEIRYO&quot;</span> <span class="ot">=</span> <span class="fu">windowsFont</span>(<span class="st">&quot;Meiryo UI&quot;</span>))</span>
+<span id="cb36-48"><a href="rの設定.html#cb36-48" aria-hidden="true" tabindex="-1"></a><span class="fu">windowsFonts</span>(<span class="st">&quot;YUGO&quot;</span> <span class="ot">=</span> <span class="fu">windowsFont</span>(<span class="st">&quot;Yu Gothic UI&quot;</span>))</span></code></pre></div>
 
 </div>
 </div>
