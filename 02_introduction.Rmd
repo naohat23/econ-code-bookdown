@@ -360,9 +360,15 @@ head(df_2)
 # データフレームの下部のみ表示
 tail(df_2)
 
-# データフレームの列名一覧を出力
+# データフレームの列名（変数）一覧を出力
 colnames(df_2)
 ```
+
+```{r}
+# データフレームの列名（変数）と内容の一覧を出力
+str(df_2)
+```
+
 
 ## リスト
 
@@ -663,6 +669,7 @@ CSVが使用している文字コードにより文字化けする場合ある�
 data <- readr::read_csv(file = "directory/file.csv", # ファイルパス／URL（拡張子が必要）
                         col_names = TRUE, # ヘッダー（列名データ）の有無
                         col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                        col_select = NULL, # 読み込む列の指定（列名、インデックス）
                         skip = 0, # 読み込み時に上からスキップする行数
                         locale = locale(encoding = "CP932")) # Windows標準（Shift JIS）で作成されたファイルは"CP932"、utf-8で作成されたファイルは"UTF-8"
 ```

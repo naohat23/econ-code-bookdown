@@ -353,7 +353,7 @@ data_labor
 
 #### 日本の県内総生産 {.unnumbered}
 
-内閣府が公表する県内総生産データセットです（生産側、名目、2008SNA、平成23年基準計数）。詳細は[内閣府のウェブサイト](https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/main_2018.html)を参照してください。ここではデータをdata.frame形式で読み込み、前処理して縦型のtibble形式に変換します。
+内閣府が公表する年次の名目県内総生産データセットです（生産側、2008SNA、平成23年基準計数）。詳細は[内閣府のウェブサイト](https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/main_2018.html)を参照してください。ここではデータをdata.frame形式で読み込み、前処理して縦型のtibble形式に変換します。
 
 ```{r}
 # 内閣府の県内総生産データをdata.frame形式で読み込み
@@ -379,7 +379,41 @@ data_gdp_pref %<>%
   dplyr::ungroup() %>% 
   tibble::as_tibble()
 
+# データをコンソールに出力
 data_gdp_pref
+```
+
+#### 日本の四半期別GDP {-}
+
+内閣府が公表する日本の四半期別GDPデータセットです（支出側、実質季節調整値）。2022年6月8日に公表された2022年1～3月期2次速報値のリンクからデータを取得しており、期間は1994年1～3月期から2022年1～3月期です。詳細は[内閣府のウェブサイト](https://www.esri.cao.go.jp/jp/sna/data/data_list/sokuhou/files/2022/qe221_2/gdemenuja.html)を参照してください。ここではデータをtibble形式で読み込んで前処理を行います。
+
+```{r}
+# 内閣府のGDP実質季節調整値データをtibble形式で読み込み
+data_gdp_jp <- readr::read_csv(file = "https://www.esri.cao.go.jp/jp/sna/data/data_list/sokuhou/files/2022/qe221_2/tables/gaku-jk2212.csv", # ファイルパス／URL（拡張子が必要）
+                               col_names = TRUE, # ヘッダー（列名データ）の有無
+                               col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                               col_select = c(2, 3, 6, 7, 8, 9, 10, 11, 12, 15), # 読み込む列の指定（列名、インデックス）
+                               skip = 2, # 読み込み時に上からスキップする行数
+                               locale = locale(encoding = "CP932")) # Windows標準（Shift JIS）で作成されたファイルは"CP932"、utf-8で作成されたファイルは"UTF-8"
+
+# 不要な行を削除
+data_gdp_jp %<>% 
+  dplyr::slice(-(1:4)) %>% 
+  tidyr::drop_na(everything()) 
+
+# データ型を文字列型から数値型に変換
+data_gdp_jp %<>% 
+  dplyr::mutate(across(everything(), ~ str_replace_all(., ",", "") %>% as.double()))
+
+# 列名を変更し、日付列を追加
+data_gdp_jp %<>% 
+  dplyr::rename(`国内総生産` = `国内総生産(支出側)`,
+                `純輸出` = `財貨・サービス`) %>% 
+  dplyr::mutate(`日付` = seq(from = as.Date("1994-01-01"), to = as.Date("2022-01-01"), by = "quarter"),
+                .before = `国内総生産`)
+
+# データをコンソールに出力
+data_gdp_jp
 ```
 
 #### 西山 他（2019） {.unnumbered}

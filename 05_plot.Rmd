@@ -382,31 +382,6 @@ ggplot(data = data_mpg_point,
              stroke = 0.5) # 線の太さ
 ```
 
-### 散布図に補助線を追加 {.unnumbered}
-
-水平線、垂直線、傾き・切片のある直線といった補助線を追加するには、それぞれ`geom_hline()`関数、`geom_vline()`関数、`geom_abline()`関数を使用します。
-
-```{r}
-ggplot(data = mpg,
-       mapping = aes(x = cty, y = hwy)) +
-  geom_hline(yintercept = 20, # 水平線の縦軸との交点
-             color = "Tomato", # 水平線の色
-             size = 0.5) + # 水平線の太さ
-  geom_vline(xintercept = 20, # 垂直線の横軸との交点
-             color = "Forestgreen", # 垂直線の色
-             size = 0.5) + # 垂直線の太さ
-  geom_abline(intercept = 0, # 直線の切片
-              slope = 1, # 直線の傾き
-              color = "gold", # 直線の色
-              size = 0.5) + # 直線の太さ
-  geom_point(alpha = 1.0, # 塗りつぶしの透明度
-             color = "darkblue", # 線の色
-             fill = "lightblue", # 塗りつぶしの色
-             shape = 21, # マーカーの種類
-             size = 2.0, # マーカーの大きさ
-             stroke = 0.5) # 線の太さ
-```
-
 ### 散布図にコネクタ線を追加 {.unnumbered}
 
 散布図のマーカー間をつなぐコネクタ線を追加するには、`geom_path()`関数を追加します。折れ線グラフを作成する`geom_line()`関数とは異なるので注意してください。
@@ -482,7 +457,7 @@ ggplot(data = data_mpg_point,
                   size = 4.0) # テキストのサイズ
 ```
 
-### バブルチャートにラベルを追加 {-}
+### バブルチャートにラベルを追加 {.unnumbered}
 
 ```{r}
 ggplot(data = data_mpg_point,
@@ -805,7 +780,7 @@ ggplot(data = data_owid_line,
                   size = 3.0) + # テキストのサイズ
   scale_x_date(date_breaks = "1 month",　# 日付目盛の周期
                date_labels = "%y/%b", # %Y：4桁年、%y：2桁年、%m：2桁月、%b：1桁月、%d：日
-               limits = c(as.Date("2022/01/01"), NA), # 始期・終期（指定しない場合はNA）
+               limits = c(as.Date("2022-01-01"), NA), # 始期・終期（指定しない場合はNA）
                expand = expansion(mult = c(0.00, 0.2), add = c(0, 0))) + # 始期・終期からの余白（multは余白率、addは余白幅）
   theme(legend.position = "none")
 ```
@@ -1029,255 +1004,6 @@ ggplot(data = mpg,
                stroke = 0.5) # マーカーの線の太さ
 ```
 
-## 色の設定
-
-変数の値や属性に応じて色を自動で変化させるには、`geom`関数ファミリーでグラフを作成したあとに、`+`演算子で`scale_color`関数ファミリー（線の色）や`scale_fill`関数ファミリー（塗りつぶしの色）をつなぎます。色の変化に対応する変数が離散型か連続型かによって、どの`scale_color/fill`関数を用いるかが変わります。
-
-まず、プロット用のデータを作成します。
-
-```{r}
-data_mpg_color <- mpg %>% 
-  dplyr::group_by(class) %>% 
-  dplyr::summarise(across(c(cty, hwy), mean, na.rm = TRUE))
-
-data_mpg_color
-```
-
-### 色の手動指定（離散型変数） {.unnumbered}
-
-自分で色の割り当てを決める方法です。Rで使用できる色の種類については、[こちら](http://www.okadajp.org/RWiki/?%E8%89%B2%E8%A6%8B%E6%9C%AC)を参照してください。
-
-```{r}
-ggplot(data = mpg,
-       mapping = aes(x = fl, color = fl, fill = fl)) +
-  geom_bar() +
-  scale_color_manual(values = c("Red", "Salmon", "Gold", "Forestgreen", "Darkblue")) + # colorで指定した変数の離散値と同数の色を指定
-  scale_fill_manual(values = c("Red", "Salmon", "Gold", "Forestgreen", "Darkblue")) # fillで指定した変数の離散値と同数の色を指定
-```
-
-### Brewerカラーパレット（離散型変数） {.unnumbered}
-
-`RColorBrewer`パッケージでは、様々な種類の美麗なプリセットカラーパレットが利用できます。
-
-```{r}
-# カラーパレットの確認
-RColorBrewer::display.brewer.all()
-```
-
-```{r}
-ggplot(data = mpg,
-       mapping = aes(x = fl, color = fl, fill = fl)) +
-  geom_bar() +
-  scale_color_brewer(palette = "Paired", # カラーパレット名
-                     direction = 1) + # 色の順序（-1で逆順）
-  scale_fill_brewer(palette = "Paired", # カラーパレット名
-                    direction = 1) # 色の順序（-1で逆順）
-```
-
-### Viridisカラーパレット（離散型変数） {.unnumbered}
-
-色覚障害に対応したカラーパレットです。パレットの種類などの詳細は[こちら](https://ggplot2.tidyverse.org/reference/scale_viridis.html)を参照してください。
-
-```{r}
-ggplot(data = mpg,
-       mapping = aes(x = fl, color = fl, fill = fl)) +
-  geom_bar() +
-  scale_color_viridis_d(option = "viridis", # パレットの種類（magma / inferno / plasma / viridis / cividis）
-                        direction = 1) + # 色の順序（-1で逆順）
-  scale_fill_viridis_d(option = "viridis", # パレットの種類（magma / inferno / plasma / viridis / cividis）
-                       direction = 1) # 色の順序（-1で逆順）
-```
-
-### ggsciカラーパレット（離散型変数） {.unnumbered}
-
-様々な科学ジャーナルで使用されるカラーパレットです。パレットの種類などの詳細は[こちら](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html)をご覧ください。
-
-```{r}
-ggplot(data = mpg,
-       mapping = aes(x = fl, color = fl, fill = fl)) +
-  geom_bar() +
-  scale_color_npg() + 
-  scale_fill_npg()
-```
-
-### distillerカラーパレット（連続型変数） {.unnumbered}
-
-こちらは、`RColorBrewer`パッケージの連続型変数用の関数です。様々な種類の美麗なプリセットカラーパレットが利用できます。
-
-```{r}
-# カラーパレットの確認
-RColorBrewer::display.brewer.all()
-```
-
-```{r, warning=FALSE, message=FALSE}
-ggplot(data = mpg,
-       mapping = aes(x = hwy, fill = ..x..)) +
-  geom_dotplot() +
-  scale_fill_distiller(palette = "Blues", # カラーパレット名
-                       direction = 1) # 色の順序（-1で逆順）
-```
-
-### Viridisカラーパレット（連続型変数） {.unnumbered}
-
-色覚障害に対応したカラーパレットです。パレットの種類などの詳細は[こちら](https://ggplot2.tidyverse.org/reference/scale_viridis.html)を参照してください。
-
-```{r, warning=FALSE, message=FALSE}
-ggplot(data = mpg,
-       mapping = aes(x = hwy, fill = ..x..)) +
-  geom_dotplot() +
-  scale_fill_viridis_c(option = "viridis", # パレットの種類（magma / inferno / plasma / viridis / cividis）
-                       direction = 1) # 色の順序（-1で逆順）
-```
-
-### gradientカラーパレット（連続型変数） {.unnumbered}
-
-自分で色を指定してグラデーションを作成するカラーパレットです。2色グラデーション、3色グラデーション、n色グラデーションの3種類の関数があります。n色グラデーションでは、事前にベースとなるカラーパレットを`RColorBrewer::display.brewer.all()`関数などで確認して使用します。
-
-```{r, warning=FALSE, message=FALSE}
-# 2色グラデーション
-ggplot(data = mpg,
-       mapping = aes(x = hwy, fill = ..x..)) +
-  geom_dotplot() +
-  scale_fill_gradient(low = "Red", # 最小値の色
-                      high = "Forestgreen") # 最大値の色
-```
-
-```{r, warning=FALSE, message=FALSE}
-# 3色グラデーション
-ggplot(data = mpg,
-       mapping = aes(x = hwy, fill = ..x..)) +
-  geom_dotplot() +
-  scale_fill_gradient2(low = "Red", # 最小値の色
-                       mid = "Gold", # 中間値の色
-                       high = "Forestgreen", # 最大値の色
-                       midpoint = 30) # 中間値
-```
-
-```{r, warning=FALSE, message=FALSE}
-# パレットを指定したn色グラデーション
-ggplot(data = mpg,
-       mapping = aes(x = hwy, fill = ..x..)) +
-  geom_dotplot() +
-  scale_fill_gradientn(colors = brewer.pal(name = "RdYlGn",
-                                           n = 9))
-```
-
-## 軸の設定
-
-X軸、Y軸の設定を行うには、`scale_x/y`関数ファミリーを使用します。X軸、Y軸に指定する変数の型によって、使用する関数が異なります。
-
-まず、プロット用のデータを作成します。
-
-```{r}
-data_owid_scale <- data_owid %>% 
-  dplyr::group_by(location) %>% 
-  dplyr::summarise(across(c(new_cases, new_deaths), mean, na.rm = TRUE))
-
-summary(data_owid_scale)
-```
-
-### X軸：連続型、Y軸：連続型 {.unnumbered}
-
-```{r}
-ggplot(data = data_owid_scale,
-       mapping = aes(x = new_cases, y = new_deaths)) +
-  geom_point() +
-  geom_smooth() +
-  scale_x_continuous(breaks = breaks_x <- seq(0, 1e+06, 100000), # 目盛
-                     labels = breaks_x, # 目盛ラベル
-                     limits = c(0, 7e+05), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
-  scale_y_continuous(breaks = breaks_y <- seq(0, 10000, 1000), # 目盛
-                     labels = breaks_y, # 目盛ラベル
-                     limits = c(0, 8000), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
-  labs(x = "新規感染者数（1日当たり平均、人）", # X軸のタイトル
-       y = "新規死亡者数（1日当たり平均、人）") + # Y軸のタイトル
-  theme(axis.title = element_text(size = 8), # 軸タイトルの文字サイズ
-        axis.text.x = element_text(angle = 0, # X軸ラベルの角度
-                                   hjust = 0.5, # X軸ラベルの横整列位置（0-1）
-                                   vjust = 0.5), # X軸ラベルの縦整列位置（0-1）
-        axis.text.y = element_text(angle = 0, # Y軸ラベルの角度
-                                   hjust = 0.5, # Y軸ラベルの横整列位置（0-1）
-                                   vjust = 0.5)) # Y軸ラベルの縦整列位置（0-1）
-```
-
-### 対数目盛 {.unnumbered}
-
-```{r}
-ggplot(data = data_owid_scale,
-       mapping = aes(x = new_cases, y = new_deaths)) +
-  geom_point() +
-  geom_smooth() +
-  scale_x_log10(breaks = breaks_x <- 10 ** seq(0, 6, 1), # 目盛
-                     labels = c(breaks_x[1:4], "1万", "10万", "100万"), # 目盛ラベル
-                     limits = c(1, 7e+05), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
-  scale_y_log10(breaks = breaks_y <- 10 ** seq(0, 4, 1), # 目盛
-                     labels = c(breaks_y[1:4], "1万"), # 目盛ラベル
-                     limits = c(1, 8000), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
-  labs(x = "新規感染者数（1日当たり平均、人）", # X軸のタイトル
-       y = "新規死亡者数（1日当たり平均、人）") + # Y軸のタイトル
-  theme(axis.title = element_text(size = 8), # 軸タイトルの文字サイズ
-        axis.text.x = element_text(angle = 0, # X軸ラベルの角度
-                                   hjust = 0.5, # X軸ラベルの横整列位置（0-1）
-                                   vjust = 0.5), # X軸ラベルの縦整列位置（0-1）
-        axis.text.y = element_text(angle = 0, # Y軸ラベルの角度
-                                   hjust = 0.5, # Y軸ラベルの横整列位置（0-1）
-                                   vjust = 0.5)) # Y軸ラベルの縦整列位置（0-1）
-```
-
-### X軸：日付型、Y軸：連続型 {.unnumbered}
-
-```{r}
-# date_breaks引数を使用する場合
-ggplot(data = economics,
-       mapping = aes(x = date, y = unemploy)) + 
-  geom_line() +
-  scale_x_date(date_breaks = "3 month",　# 日付目盛の周期
-               date_labels = "%y/%b", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%b：1桁月、%d：日）
-               limits = c(as.Date("2000/01/01"), as.Date("2002/12/31")), # 始期・終期（指定しない場合はNA）
-               expand = expansion(mult = c(0.00, 0.00), add = c(0, 0))) + # 始期・終期からの余白（multは余白率、addは余白幅）
-  scale_y_continuous(breaks = breaks_y <- seq(0, 50000, 1000), # 目盛
-                     labels = breaks_y, # 目盛ラベル
-                     limits = c(5000, 10000), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
-  labs(x = "日付（年/月）", # X軸のタイトル
-       y = "失業者数（千人）") + # Y軸のタイトル
-  theme(axis.title = element_text(size = 8), # 軸タイトルの文字サイズ
-        axis.text.x = element_text(angle = 0, # X軸ラベルの角度
-                                   hjust = 0.5, # X軸ラベルの横整列位置（0-1）
-                                   vjust = 0.5), # X軸ラベルの縦整列位置（0-1）
-        axis.text.y = element_text(angle = 0, # Y軸ラベルの角度
-                                   hjust = 0.5, # Y軸ラベルの横整列位置（0-1）
-                                   vjust = 0.5)) # Y軸ラベルの縦整列位置（0-1）
-```
-
-```{r}
-# date_breaks引数を使用しない場合（結果は同じ）
-ggplot(data = economics,
-       mapping = aes(x = date, y = unemploy)) + 
-  geom_line() +
-  scale_x_date(breaks = breaks_x <- seq(as.Date("1967-01-01"), max(economics$date), by = "3 months"), # 日付目盛ベクトル
-               date_labels = str_c(str_sub(lubridate::year(breaks_x), 3, 4), "/", lubridate::month(breaks_x)), # 日付目盛ベクトルをラベル用に加工
-               limits = c(as.Date("2000/01/01"), as.Date("2002/12/31")), # 始期・終期（指定しない場合はNA）
-               expand = expansion(mult = c(0.00, 0.00), add = c(0, 0))) + # 始期・終期からの余白（multは余白率、addは余白幅）
-  scale_y_continuous(breaks = breaks_y <- seq(0, 50000, 1000), # 目盛
-                     labels = breaks_y, # 目盛ラベル
-                     limits = c(5000, 10000), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
-  labs(x = "日付（年/月）", # X軸のタイトル
-       y = "失業者数（千人）") + # Y軸のタイトル
-  theme(axis.title = element_text(size = 8), # 軸タイトルの文字サイズ
-        axis.text.x = element_text(angle = 0, # X軸ラベルの角度
-                                   hjust = 0.5, # X軸ラベルの横整列位置（0-1）
-                                   vjust = 0.5), # X軸ラベルの縦整列位置（0-1）
-        axis.text.y = element_text(angle = 0, # Y軸ラベルの角度
-                                   hjust = 0.5, # Y軸ラベルの横整列位置（0-1）
-                                   vjust = 0.5)) # Y軸ラベルの縦整列位置（0-1）
-```
-
 ## 複合グラフ（ファセット）
 
 複数のグラフをまとめたファセットを作成するには、`facet`関数ファミリーを使用します。どのようなファセットにするかで使用する関数が異なります。
@@ -1402,17 +1128,362 @@ ggplot(data = data_gdp_pref,
         panel.spacing.y = unit(x = 0.5, units = "mm")) # ファセットのグラフ間の縦方向のスペース
 ```
 
-## その他設定・保存
+## 補助線
 
-タイトル、目盛線、凡例、図表全体のフォント、マージンなどの各種設定を行います。
+水平線、垂直線、傾き・切片のある直線、といった補助線を追加するには、それぞれ`geom_hline()`関数、`geom_vline()`関数、`geom_abline()`関数を使用します。
 
-### タイトル・キャプション {.unnumbered}
+補助線を追加する際には、グラフをプロットする関数（ここでは散布図の`geom_point()`関数）との順序に注意してください。コード上で先に記述した方がグラフ上では背面に、後に記述した方が前面に配置されます。
+
+```{r}
+ggplot(data = mpg,
+       mapping = aes(x = cty, y = hwy)) +
+  # 水平線（背面）
+  geom_hline(yintercept = 20, # 水平線の縦軸との交点
+             color = "Tomato", # 水平線の色
+             size = 0.5) + # 水平線の太さ
+  # 垂直線（背面）
+  geom_vline(xintercept = 20, # 垂直線の横軸との交点
+             color = "Forestgreen", # 垂直線の色
+             size = 0.5) + # 垂直線の太さ
+  # 傾き・切片のある直線（背面）
+  geom_abline(intercept = 5, # 直線の切片
+              slope = 1, # 直線の傾き
+              color = "gold", # 直線の色
+              size = 2.0) + # 直線の太さ
+  # 散布図
+  geom_point(alpha = 1.0, # 塗りつぶしの透明度
+             color = "darkblue", # 線の色
+             fill = "lightblue", # 塗りつぶしの色
+             shape = 21, # マーカーの種類
+             size = 2.0, # マーカーの大きさ
+             stroke = 0.5) + # 線の太さ
+  # 水平線（前面）
+  geom_hline(yintercept = 25, # 水平線の縦軸との交点
+             color = "Tomato", # 水平線の色
+             size = 0.5) + # 水平線の太さ
+  # 垂直線（前面）
+  geom_vline(xintercept = 25, # 垂直線の横軸との交点
+             color = "Forestgreen", # 垂直線の色
+             size = 0.5) + # 垂直線の太さ
+  # 傾き・切片のある直線（前面）
+  geom_abline(intercept = 10, # 直線の切片
+              slope = 1, # 直線の傾き
+              color = "gold", # 直線の色
+              size = 2.0) # 直線の太さ
+```
+
+## 設定：色
+
+変数の値や属性に応じて色を自動で変化させるには、`geom`関数ファミリーでグラフを作成したあとに、`+`演算子で`scale_color_*()`関数ファミリー（線の色）や`scale_fill_*()`関数ファミリー（塗りつぶしの色）をつなぎます。色の変化に対応する変数が離散型か連続型かによって、どの`scale_color_*()`・`scale_fill_*()`関数を用いるかが変わります。
+
+まず、プロット用のデータを作成します。
+
+```{r}
+data_mpg_color <- mpg %>% 
+  dplyr::group_by(class) %>% 
+  dplyr::summarise(across(c(cty, hwy), mean, na.rm = TRUE))
+
+data_mpg_color
+```
+
+### 色の手動指定（離散型変数） {.unnumbered}
+
+自分で色の割り当てを決める方法です。Rで使用できる色の種類については、[こちら](http://www.okadajp.org/RWiki/?%E8%89%B2%E8%A6%8B%E6%9C%AC)を参照してください。
+
+```{r}
+ggplot(data = mpg,
+       mapping = aes(x = fl, color = fl, fill = fl)) +
+  geom_bar() +
+  # 色
+  scale_color_manual(values = c("Red", "Salmon", "Gold", "Forestgreen", "Darkblue")) + # colorで指定した変数の離散値と同数の色を指定
+  scale_fill_manual(values = c("Red", "Salmon", "Gold", "Forestgreen", "Darkblue")) # fillで指定した変数の離散値と同数の色を指定
+```
+
+### Brewerカラーパレット（離散型変数） {.unnumbered}
+
+`RColorBrewer`パッケージでは、様々な種類の美麗なプリセットカラーパレットが利用できます。
+
+```{r}
+# カラーパレットの確認
+RColorBrewer::display.brewer.all()
+```
+
+```{r}
+ggplot(data = mpg,
+       mapping = aes(x = fl, color = fl, fill = fl)) +
+  geom_bar() +
+  # 色
+  scale_color_brewer(palette = "Paired", # カラーパレット名
+                     direction = 1) + # 色の順序（-1で逆順）
+  scale_fill_brewer(palette = "Paired", # カラーパレット名
+                    direction = 1) # 色の順序（-1で逆順）
+```
+
+### Viridisカラーパレット（離散型変数） {.unnumbered}
+
+色覚障害に対応したカラーパレットです。パレットの種類などの詳細は[こちら](https://ggplot2.tidyverse.org/reference/scale_viridis.html)を参照してください。
+
+```{r}
+ggplot(data = mpg,
+       mapping = aes(x = fl, color = fl, fill = fl)) +
+  geom_bar() +
+  # 色
+  scale_color_viridis_d(option = "viridis", # パレットの種類（magma / inferno / plasma / viridis / cividis）
+                        direction = 1) + # 色の順序（-1で逆順）
+  scale_fill_viridis_d(option = "viridis", # パレットの種類（magma / inferno / plasma / viridis / cividis）
+                       direction = 1) # 色の順序（-1で逆順）
+```
+
+### ggsciカラーパレット（離散型変数） {.unnumbered}
+
+様々な科学ジャーナルで使用されるカラーパレットです。パレットの種類などの詳細は[こちら](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html)をご覧ください。
+
+```{r}
+ggplot(data = mpg,
+       mapping = aes(x = fl, color = fl, fill = fl)) +
+  geom_bar() +
+  # 色
+  scale_color_npg() + 
+  scale_fill_npg()
+```
+
+### distillerカラーパレット（連続型変数） {.unnumbered}
+
+こちらは、`RColorBrewer`パッケージの連続型変数用の関数です。様々な種類の美麗なプリセットカラーパレットが利用できます。
+
+```{r}
+# カラーパレットの確認
+RColorBrewer::display.brewer.all()
+```
+
+```{r, warning=FALSE, message=FALSE}
+ggplot(data = mpg,
+       mapping = aes(x = hwy, fill = ..x..)) +
+  geom_dotplot() +
+  # 色
+  scale_fill_distiller(palette = "Blues", # カラーパレット名
+                       direction = 1) # 色の順序（-1で逆順）
+```
+
+### Viridisカラーパレット（連続型変数） {.unnumbered}
+
+色覚障害に対応したカラーパレットです。パレットの種類などの詳細は[こちら](https://ggplot2.tidyverse.org/reference/scale_viridis.html)を参照してください。
+
+```{r, warning=FALSE, message=FALSE}
+ggplot(data = mpg,
+       mapping = aes(x = hwy, fill = ..x..)) +
+  geom_dotplot() +
+  # 色
+  scale_fill_viridis_c(option = "viridis", # パレットの種類（magma / inferno / plasma / viridis / cividis）
+                       direction = 1) # 色の順序（-1で逆順）
+```
+
+### gradientカラーパレット（連続型変数） {.unnumbered}
+
+自分で色を指定してグラデーションを作成するカラーパレットです。2色グラデーション、3色グラデーション、n色グラデーションの3種類の関数があります。n色グラデーションでは、事前にベースとなるカラーパレットを`RColorBrewer::display.brewer.all()`関数などで確認して使用します。
+
+```{r, warning=FALSE, message=FALSE}
+# 2色グラデーション
+ggplot(data = mpg,
+       mapping = aes(x = hwy, fill = ..x..)) +
+  geom_dotplot() +
+  # 色
+  scale_fill_gradient(low = "Red", # 最小値の色
+                      high = "Forestgreen") # 最大値の色
+```
+
+```{r, warning=FALSE, message=FALSE}
+# 3色グラデーション
+ggplot(data = mpg,
+       mapping = aes(x = hwy, fill = ..x..)) +
+  geom_dotplot() +
+  # 色
+  scale_fill_gradient2(low = "Red", # 最小値の色
+                       mid = "Gold", # 中間値の色
+                       high = "Forestgreen", # 最大値の色
+                       midpoint = 30) # 中間値
+```
+
+```{r, warning=FALSE, message=FALSE}
+# パレットを指定したn色グラデーション
+ggplot(data = mpg,
+       mapping = aes(x = hwy, fill = ..x..)) +
+  geom_dotplot() +
+  # 色
+  scale_fill_gradientn(colors = brewer.pal(name = "RdYlGn",
+                                           n = 9))
+```
+
+## 設定：軸
+
+X軸、Y軸の設定を行うには、`scale_x_*()`・`scale_y_*()`関数ファミリーを使用します。X軸、Y軸に指定する変数の型によって、使用する関数が異なります。
+
+まず、プロット用のデータを作成します。
+
+```{r}
+data_owid_scale <- data_owid %>% 
+  dplyr::group_by(location) %>% 
+  dplyr::summarise(across(c(new_cases, new_deaths), mean, na.rm = TRUE))
+
+summary(data_owid_scale)
+```
+
+### X軸：連続型、Y軸：連続型 {.unnumbered}
+
+```{r}
+ggplot(data = data_owid_scale,
+       mapping = aes(x = new_cases, y = new_deaths)) +
+  geom_point() +
+  geom_smooth() +
+  # 軸
+  scale_x_continuous(breaks = breaks_x <- seq(0, 1e+06, 100000), # 目盛
+                     labels = breaks_x, # 目盛ラベル
+                     limits = c(0, 7e+05), # 下限・上限値（指定しない場合はNA）
+                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
+  scale_y_continuous(breaks = breaks_y <- seq(0, 10000, 1000), # 目盛
+                     labels = breaks_y, # 目盛ラベル
+                     limits = c(0, 8000), # 下限・上限値（指定しない場合はNA）
+                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
+  labs(x = "新規感染者数（1日当たり平均、人）", # X軸のタイトル
+       y = "新規死亡者数（1日当たり平均、人）") + # Y軸のタイトル
+  theme(axis.title = element_text(size = 8), # 軸タイトルの文字サイズ
+        axis.text.x = element_text(angle = 0, # X軸ラベルの角度
+                                   hjust = 0.5, # X軸ラベルの横整列位置（0-1）
+                                   vjust = 0.5), # X軸ラベルの縦整列位置（0-1）
+        axis.text.y = element_text(angle = 0, # Y軸ラベルの角度
+                                   hjust = 0.5, # Y軸ラベルの横整列位置（0-1）
+                                   vjust = 0.5)) # Y軸ラベルの縦整列位置（0-1）
+```
+
+### 対数目盛 {.unnumbered}
+
+```{r}
+ggplot(data = data_owid_scale,
+       mapping = aes(x = new_cases, y = new_deaths)) +
+  geom_point() +
+  geom_smooth() +
+  # 軸
+  scale_x_log10(breaks = breaks_x <- 10 ** seq(0, 6, 1), # 目盛
+                     labels = c(breaks_x[1:4], "1万", "10万", "100万"), # 目盛ラベル
+                     limits = c(1, 7e+05), # 下限・上限値（指定しない場合はNA）
+                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
+  scale_y_log10(breaks = breaks_y <- 10 ** seq(0, 4, 1), # 目盛
+                     labels = c(breaks_y[1:4], "1万"), # 目盛ラベル
+                     limits = c(1, 8000), # 下限・上限値（指定しない場合はNA）
+                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
+  labs(x = "新規感染者数（1日当たり平均、人）", # X軸のタイトル
+       y = "新規死亡者数（1日当たり平均、人）") + # Y軸のタイトル
+  theme(axis.title = element_text(size = 8), # 軸タイトルの文字サイズ
+        axis.text.x = element_text(angle = 0, # X軸ラベルの角度
+                                   hjust = 0.5, # X軸ラベルの横整列位置（0-1）
+                                   vjust = 0.5), # X軸ラベルの縦整列位置（0-1）
+        axis.text.y = element_text(angle = 0, # Y軸ラベルの角度
+                                   hjust = 0.5, # Y軸ラベルの横整列位置（0-1）
+                                   vjust = 0.5)) # Y軸ラベルの縦整列位置（0-1）
+```
+
+### X軸：日付型、Y軸：連続型 {.unnumbered}
+
+```{r}
+# date_breaks引数を使用する場合
+ggplot(data = economics,
+       mapping = aes(x = date, y = unemploy)) + 
+  geom_line() +
+  # 軸
+  scale_x_date(date_breaks = "3 month",　# 日付目盛の周期
+               date_labels = "%y/%b", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%b：1桁月、%d：日）
+               limits = c(as.Date("2000-01-01"), as.Date("2002-12-31")), # 始期・終期（指定しない場合はNA）
+               expand = expansion(mult = c(0.00, 0.00), add = c(0, 0))) + # 始期・終期からの余白（multは余白率、addは余白幅）
+  scale_y_continuous(breaks = breaks_y <- seq(0, 50000, 1000), # 目盛
+                     labels = breaks_y, # 目盛ラベル
+                     limits = c(5000, 10000), # 下限・上限値（指定しない場合はNA）
+                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
+  labs(x = "日付（年/月）", # X軸のタイトル
+       y = "失業者数（千人）") + # Y軸のタイトル
+  theme(axis.title = element_text(size = 8), # 軸タイトルの文字サイズ
+        axis.text.x = element_text(angle = 0, # X軸ラベルの角度
+                                   hjust = 0.5, # X軸ラベルの横整列位置（0-1）
+                                   vjust = 0.5), # X軸ラベルの縦整列位置（0-1）
+        axis.text.y = element_text(angle = 0, # Y軸ラベルの角度
+                                   hjust = 0.5, # Y軸ラベルの横整列位置（0-1）
+                                   vjust = 0.5)) # Y軸ラベルの縦整列位置（0-1）
+```
+
+```{r}
+# date_breaks引数を使用しない場合（結果は同じ）
+ggplot(data = economics,
+       mapping = aes(x = date, y = unemploy)) + 
+  geom_line() +
+  scale_x_date(breaks = breaks_x <- seq(as.Date("1967-01-01"), max(economics$date), by = "3 months"), # 日付目盛ベクトル
+               date_labels = str_c(str_sub(lubridate::year(breaks_x), 3, 4), "/", lubridate::month(breaks_x)), # 日付目盛ベクトルをラベル用に加工
+               limits = c(as.Date("2000-01-01"), as.Date("2002-12-31")), # 始期・終期（指定しない場合はNA）
+               expand = expansion(mult = c(0.00, 0.00), add = c(0, 0))) + # 始期・終期からの余白（multは余白率、addは余白幅）
+  scale_y_continuous(breaks = breaks_y <- seq(0, 50000, 1000), # 目盛
+                     labels = breaks_y, # 目盛ラベル
+                     limits = c(5000, 10000), # 下限・上限値（指定しない場合はNA）
+                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
+  labs(x = "日付（年/月）", # X軸のタイトル
+       y = "失業者数（千人）") + # Y軸のタイトル
+  theme(axis.title = element_text(size = 8), # 軸タイトルの文字サイズ
+        axis.text.x = element_text(angle = 0, # X軸ラベルの角度
+                                   hjust = 0.5, # X軸ラベルの横整列位置（0-1）
+                                   vjust = 0.5), # X軸ラベルの縦整列位置（0-1）
+        axis.text.y = element_text(angle = 0, # Y軸ラベルの角度
+                                   hjust = 0.5, # Y軸ラベルの横整列位置（0-1）
+                                   vjust = 0.5)) # Y軸ラベルの縦整列位置（0-1）
+```
+
+## 設定：パネル目盛線
 
 ```{r}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy, fill = class)) +
   geom_point(shape = 21,
              size = 2.0) +
+  # パネル目盛線
+  theme(panel.grid.major = element_line(color = "grey", # 主目盛線の色
+                                        linetype = "dashed", # 主目盛線の種類（solid / dashed / dotted / dotdash / twodash / longdash）
+                                        size = 0.2), # 主目盛線の太さ
+        panel.grid.minor = element_blank()) # 補助目盛り線は表示しない
+```
+
+## 設定：凡例
+
+```{r}
+ggplot(data = mpg,
+       mapping = aes(x = cty, y = hwy, fill = class)) +
+  geom_point(shape = 21,
+             size = 2.0) +
+  # 凡例
+  theme(legend.title = element_text(size = 8, # 凡例タイトルの文字サイズ
+                                    face = "bold", # 凡例タイトルの書体
+                                    hjust = 0.0), # 凡例タイトルの横整列位置
+        legend.text = element_text(size = 8), # 凡例ラベルの文字サイズ
+        legend.box.background = element_rect(color = "grey", # 凡例の枠線の色
+                                             size = 0.5), # 凡例の枠線の太さ
+        legend.margin = margin(t = 1, # 凡例の上マージン
+                               b = 1, # 凡例の下マージン
+                               r = 1, # 凡例の右マージン
+                               l = 1, # 凡例の左マージン
+                               unit = "mm"), # 凡例マージンの単位
+        legend.justification = c(1.0, 0.0), # 凡例の横整列位置・縦整列位置
+        legend.position = c(0.95, 0.05)) + # 凡例の横位置・縦位置
+  guides(fill = guide_legend(keywidth = unit(5, units = "mm"), # 凡例キーの幅
+                             keyheight = unit(5, units = "mm"), # 凡例キーの高さ
+                             direction = "vertical", # 凡例の整列方向（horizontal / vertical）
+                             nrow = 3, # 凡例の行数
+                             ncol = 3, # 凡例の列数
+                             reverse = FALSE)) # 凡例順序の逆転
+```
+
+## 設定：タイトル・キャプション
+
+```{r}
+ggplot(data = mpg,
+       mapping = aes(x = cty, y = hwy, fill = class)) +
+  geom_point(shape = 21,
+             size = 2.0) +
+  # タイトル・キャプション
   labs(title = "車体クラス別の一般道燃費と高速道燃費", # 図表タイトル
        caption = "（出所）EPA.gov", # キャプション
        fill = "車体クラス")　+ # 凡例に使用するscaleのタイトル
@@ -1424,52 +1495,12 @@ ggplot(data = mpg,
                                     hjust = 0.0)) # キャプションの横整列位置
 ```
 
-### パネル目盛線 {.unnumbered}
+## 設定：フォント・マージン
 
 ```{r}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy, fill = class)) +
-  geom_point(shape = 21,
-             size = 2.0) +
-  theme(panel.grid.major = element_line(color = "grey", # 主目盛線の色
-                                        linetype = "dashed", # 主目盛線の種類（solid / dashed / dotted / dotdash / twodash / longdash）
-                                        size = 0.2), # 主目盛線の太さ
-        panel.grid.minor = element_blank()) # 補助目盛り線は表示しない
-```
-
-### 凡例 {.unnumbered}
-
-```{r}
-ggplot(data = mpg,
-       mapping = aes(x = cty, y = hwy, fill = class)) +
-  geom_point(shape = 21,
-             size = 2.0) +
-  theme(legend.title = element_text(size = 8, # 凡例タイトルの文字サイズ
-                                    face = "bold", # 凡例タイトルの書体
-                                    hjust = 0.0), # 凡例タイトルの横整列位置
-        legend.text = element_text(size = 6), # 凡例ラベルの文字サイズ
-        legend.box.background = element_rect(color = "grey", # 凡例の枠線の色
-                                             size = 0.5), # 凡例の枠線の太さ
-        legend.margin = margin(t = 1, # 凡例の上マージン
-                               b = 1, # 凡例の下マージン
-                               r = 1, # 凡例の右マージン
-                               l = 1, # 凡例の左マージン
-                               unit = "mm"), # 凡例マージンの単位
-        legend.justification = c(1.0, 0.0), # 凡例の横整列位置・縦整列位置
-        legend.position = c(0.95, 0.05)) + # 凡例の横位置・縦位置
-  guides(fill = guide_legend(keywidth = unit(3, units = "mm"), # 凡例キーの幅
-                             keyheight = unit(3, units = "mm"), # 凡例キーの高さ
-                             direction = "vertical", # 凡例の整列方向（horizontal / vertical）
-                             nrow = 3, # 凡例の行数
-                             ncol = 3, # 凡例の列数
-                             reverse = FALSE)) # 凡例順序の逆転
-```
-
-### フォント・マージン設定 {.unnumbered}
-
-```{r}
-ggplot(data = mpg,
-       mapping = aes(x = cty, y = hwy, fill = class)) +
+  # フォント・マージン
   geom_point(shape = 21,
              size = 2.0) +
   theme(text = element_text(family = "YUGO", # 図表全体のフォント
@@ -1481,7 +1512,7 @@ ggplot(data = mpg,
                              unit = "mm")) # 図表マージンの単位
 ```
 
-### 保存 {.unnumbered}
+## グラフの保存 {.unnumbered}
 
 `ggplot2`パッケージで作成した図表を画像形式で保存するには、`ggsave()`関数を使用します。
 
@@ -1490,55 +1521,98 @@ ggsave(filename = "directory/filename.png", # 図表のファイル名
        width = 12.00, # 図表の横サイズ
        height = 9.00, # 図表の縦サイズ
        units = "cm", # 図表のサイズ単位
-       dpi = 300) # 図表の解像度
+       dpi = 400) # 図表の解像度
 ```
 
 ## 実例
 
-### 実例1：世界の新型コロナ死亡率の箱ひげ図 {.unnumbered}
+### 実例1：折れ線グラフ {.unnumbered}
 
-```{r, results='hide', warning=FALSE, message=FALSE}
-# プロット用のデータの作成
-data_plot <- data_owid %>% 
-  dplyr::select(location, date, new_cases, new_deaths) %>% 
-  dplyr::filter(date <= max(date) - 28) %>% 
-  dplyr::mutate(year = lubridate::year(date)) %>% 
-  dplyr::group_by(location, year) %>% 
-  dplyr::summarise(across(c(new_cases, new_deaths), mean, na.rm = TRUE)) %>% 
-  dplyr::mutate(mort_rate = 100 * new_deaths / new_cases,
-                year = str_c(year, "年"))
-```
+日本と欧州主要国の新型コロナ新規感染者数の時系列折れ線グラフを作成します。
+
+まず、プロット用のデータを作成します。
 
 ```{r}
-# プロット
-ggplot(data = data_plot,
-       mapping = aes(x = year, y = mort_rate, color = year, fill = year)) +
-  geom_hline(yintercept = 0, # 水平線の縦軸との交点
-             color = "gray", # 水平線の色
-             size = 0.5) + # 水平線の太さ
-  geom_boxplot(outlier.shape = NA, alpha = 0.25, size = 0.5) +
-  geom_jitter(alpha = 0.5, size = 1.0, shape = 21) +
-  scale_y_continuous(breaks = breaks_y <- seq(0, 100, 0.5), # 目盛
-                     labels = breaks_y %>% sprintf(fmt = "%0.1f"), # 目盛ラベル
-                     limits = c(0, 5), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
-  labs(x = element_blank(), # X軸のタイトル
-       y = "新型コロナ感染者の致死率（％）") + # Y軸のタイトル
-  theme(axis.title = element_text(size = 8)) + # 軸タイトルの文字サイズ
-  labs(title = "世界各国の新型コロナ感染者の致死率（年別）", # 図表タイトル
-       caption = "（注）箱の中の横線は中央値を示す。2022年は直近4週間のサンプルを除外。\n（出所）Our World in Data、@naohat23") + # キャプション
+# 列を選択
+data_plot <- data_owid %>%
+  dplyr::select(location, date, new_cases_smoothed) 
+
+# 日本と欧州主要国をフィルタ
+data_plot %<>% 
+  dplyr::filter(location %in% c("Japan", "United Kingdom", "Germany", "France", "Italy"),
+                date >= "2022-01-01") 
+
+# NAを削除
+data_plot %<>% 
+  tidyr::drop_na(everything())
+```
+
+`ggplot()`関数でプロットを作成します。グラフを画像として保存するには、別途`ggsave()`関数を実行してください。
+
+```{r}
+ggplot(data = data_owid_line,
+       mapping = aes(x = date, y = new_cases_smoothed / 1000, color = location)) +
+  # グラフ
+  geom_line(alpha = 1.0, # 線の透明度
+            linetype = "solid", # 線の種類（solid / dashed / dotted / dotdash / twodash / longdash）
+            size = 0.5) + # 線の太さ
+  # 色
+  scale_color_npg() + 
+  # 軸
+  scale_x_date(date_breaks = "1 month",　# 日付目盛の周期
+               date_labels = "%y/%b", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%b：1桁月、%d：日）
+               limits = c(as.Date("2022-01-01"), NA), # 始期・終期（指定しない場合はNA）
+               expand = expansion(mult = c(0.01, 0.01), add = c(0, 0))) + # 始期・終期からの余白（multは余白率、addは余白幅）
+  scale_y_continuous(breaks = breaks_y <- seq(0, 1000, 50), # 目盛
+                     labels = breaks_y, # 目盛ラベル
+                     limits = c(0, NA), # 下限・上限値（指定しない場合はNA）
+                     expand = expansion(mult = c(0.00, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
+  labs(x = "日付（年/月）", # X軸のタイトル
+       y = "新規感染者数（千人/日）") + # Y軸のタイトル
+  theme(axis.title = element_text(size = 8), # 軸タイトルの文字サイズ
+        axis.text.x = element_text(angle = 0, # X軸ラベルの角度
+                                   hjust = 0.5, # X軸ラベルの横整列位置（0-1）
+                                   vjust = 0.5), # X軸ラベルの縦整列位置（0-1）
+        axis.text.y = element_text(angle = 0, # Y軸ラベルの角度
+                                   hjust = 0.5, # Y軸ラベルの横整列位置（0-1）
+                                   vjust = 0.5)) + # Y軸ラベルの縦整列位置（0-1）
+  # パネル目盛線
+  theme(panel.grid.major = element_line(color = "grey", # 主目盛線の色
+                                        linetype = "dashed", # 主目盛線の種類（solid / dashed / dotted / dotdash / twodash / longdash）
+                                        size = 0.2), # 主目盛線の太さ
+        panel.grid.minor = element_blank()) + # 補助目盛り線は表示しない
+  # 凡例
+  theme(legend.title = element_text(size = 8, # 凡例タイトルの文字サイズ
+                                    face = "bold", # 凡例タイトルの書体
+                                    hjust = 0.0), # 凡例タイトルの横整列位置
+        legend.text = element_text(size = 8), # 凡例ラベルの文字サイズ
+        legend.box.background = element_rect(color = "grey", # 凡例の枠線の色
+                                             size = 0.5), # 凡例の枠線の太さ
+        legend.margin = margin(t = 1, # 凡例の上マージン
+                               b = 1, # 凡例の下マージン
+                               r = 1, # 凡例の右マージン
+                               l = 1, # 凡例の左マージン
+                               unit = "mm"), # 凡例マージンの単位
+        legend.justification = c(1.0, 1.0), # 凡例の横整列位置・縦整列位置
+        legend.position = c(0.97, 0.95)) + # 凡例の横位置・縦位置
+  guides(color = guide_legend(keywidth = unit(5, units = "mm"), # 凡例キーの幅
+                              keyheight = unit(5, units = "mm"), # 凡例キーの高さ
+                              direction = "vertical", # 凡例の整列方向（horizontal / vertical）
+                              nrow = 5, # 凡例の行数
+                              ncol = 1, # 凡例の列数
+                              reverse = FALSE)) + # 凡例順序の逆転
+  # タイトル・キャプション
+  labs(title = "日本と欧州主要国の新型コロナ新規感染者数", # 図表タイトル
+       caption = "（注）後方7日間移動平均。\n（出所）Our World in Data、@naohat23", # キャプション
+       color = "国名")　+ # 凡例に使用するscaleのタイトル
   theme(plot.title = element_text(size = 10, # 図表タイトルの文字サイズ
                                   face = "bold", # 図表タイトルの書体
                                   hjust = 0.5), # 図表タイトルの横整列位置
         plot.caption = element_text(size = 8, # キャプションの文字サイズ
                                     face = "plain", # キャプションの書体
                                     hjust = 0.0)) + # キャプションの横整列位置
-  theme(panel.grid.major = element_line(color = "grey", # 主目盛線の色
-                                        linetype = "dashed", # 主目盛線の種類（solid / dashed / dotted / dotdash / twodash / longdash）
-                                        size = 0.2), # 主目盛線の太さ
-        panel.grid.minor = element_blank()) + # 補助目盛り線は表示しない
-  theme(legend.position = "none") + # 凡例の横位置・縦位置
-  theme(text = element_text(family = "YUGO", # 図表全体のフォント
+  # フォント・マージン
+  theme(text = element_text(family = "MEIRYO", # 図表全体のフォント
                             size = 8), # 図表全体の無事サイズ
         plot.margin = margin(t = 1, # 図表の上マージン
                              b = 1, # 図表の下マージン
@@ -1547,11 +1621,213 @@ ggplot(data = data_plot,
                              unit = "mm")) # 図表マージンの単位
 ```
 
-```{r, eval=FALSE}
-# 保存
-ggsave(filename = "directory/filename.png", # 図表のファイル名
-       width = 12.00, # 図表の横サイズ
-       height = 9.00, # 図表の縦サイズ
-       units = "cm", # 図表のサイズ単位
-       dpi = 600) # 図表の解像度
+### 実例2：積み上げ棒グラフ {.unnumbered}
+
+日本の実質GDP変化率をマーカー付き折れ線グラフに、内訳の需要項目別寄与度を積み上げ棒グラフにした、時系列グラフを作成します。
+
+まず、プロット用のデータを作成します。
+
+```{r}
+# 列を集約
+data_plot <- data_gdp_jp %>% 
+  dplyr::mutate(`家計` = `民間最終消費支出` + `民間住宅`,
+                `政府` = `政府最終消費支出` + `公的固定資本形成` + `公的在庫変動`) %>% 
+  dplyr::select(-`民間最終消費支出`, -`民間住宅`,-`政府最終消費支出`, -`公的固定資本形成`, -`公的在庫変動`)
+
+# 列名を変更
+data_plot %<>% 
+  dplyr::rename(`GDP` = `国内総生産`,
+                `設備投資` = `民間企業設備`,
+                `在庫` = `民間在庫変動`)
+
+# 実質GDPの前期比変化率に対する各需要項目の寄与度を計算
+data_plot %<>% 
+  dplyr::mutate(across(`GDP`:`政府`, ~ {100 * (. - dplyr::lag(., 1)) / dplyr::lag(`GDP`, 1)}))
+
+# グラフ表示範囲を選択
+data_plot %<>%
+  dplyr::filter(`日付` >= "2019-01-01")
+
+# GDP全体と寄与度にデータを分割
+data_plot_gdp <- data_plot %>% 
+  dplyr::select(`日付`, `GDP`)
+
+data_plot_cont <- data_plot %>% 
+  dplyr::select(-`GDP`, -`開差`)
+
+# 寄与度データを縦型に変換し、項目の順序を設定
+data_plot_cont %<>% 
+  tidyr::pivot_longer(cols = -`日付`, names_to = "需要項目", values_to = "寄与度") %>% 
+  dplyr::mutate(`需要項目` = factor(`需要項目`,
+                                    level = c("家計", "設備投資", "在庫", "政府", "純輸出"))) %>% 
+  dplyr::arrange(`日付`, `需要項目`)
+```
+
+`ggplot()`関数でプロットを作成します。グラフを画像として保存するには、別途`ggsave()`関数を実行してください。
+
+```{r}
+ggplot() + 
+  # グラフ
+  geom_col(data = data_plot_cont,
+           mapping = aes(x = `日付`, y = `寄与度`, fill = `需要項目`, group = rev(`需要項目`)),
+           stat = "identity",
+           position = position_stack(), # 積み上げポジション
+           alpha = 1.0, # 塗りつぶしの透明度
+           size = 0.5, # 線の太さ
+           width = NULL) + # 棒の幅 (0-1)
+  guides(fill = guide_legend(reverse = TRUE)) +
+  geom_line(data = data_plot_gdp,
+            mapping = aes(x = `日付`, y = `GDP`),
+            alpha = 1.0, # 線の透明度
+            color = "black", # 線の色
+            linetype = "solid", # 線の種類（solid / dashed / dotted / dotdash / twodash / longdash）
+            size = 1.0) + # 線の太さ
+  geom_point(data = data_plot_gdp,
+             mapping = aes(x = `日付`, y = `GDP`),alpha = 1.0, # 塗りつぶしの透明度
+             color = "black", # 線の色
+             fill = "white", # 塗りつぶしの色
+             shape = 21, # マーカーの種類
+             size = 2.0, # マーカーの大きさ
+             stroke = 0.5) + # 線の太さ
+  # 補助線
+  geom_hline(yintercept = 0, # 水平線の縦軸との交点
+             color = "grey", # 水平線の色
+             size = 0.5) + # 水平線の太さ
+  # 色
+  scale_fill_brewer(palette = "Paired", # カラーパレット名
+                    direction = 1) + # 色の順序（-1で逆順）
+  # 軸
+  scale_x_date(breaks = data_plot_gdp$日付,　# 日付目盛の周期
+               date_labels = "%y/%b", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%b：1桁月、%d：日）
+               expand = expansion(mult = c(0.01, 0.01), add = c(0, 0))) + # 始期・終期からの余白（multは余白率、addは余白幅）
+  scale_y_continuous(breaks = breaks_y <- seq(-20, 20, 1), # 目盛
+                     labels = breaks_y %>% stringr::str_replace_all("-", "▲"), # 目盛ラベル
+                     limits = c(NA, NA), # 下限・上限値（指定しない場合はNA）
+                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
+  labs(x = "日付（年/月）", # X軸のタイトル
+       y = "実質GDP変化率（前期比、％）") + # Y軸のタイトル
+  theme(axis.title = element_text(size = 8), # 軸タイトルの文字サイズ
+        axis.text.x = element_text(angle = 0, # X軸ラベルの角度
+                                   hjust = 0.5, # X軸ラベルの横整列位置（0-1）
+                                   vjust = 0.5), # X軸ラベルの縦整列位置（0-1）
+        axis.text.y = element_text(angle = 0, # Y軸ラベルの角度
+                                   hjust = 1.0, # Y軸ラベルの横整列位置（0-1）
+                                   vjust = 0.5)) + # Y軸ラベルの縦整列位置（0-1）
+  # パネル目盛線
+  theme(panel.grid.major = element_line(color = "grey", # 主目盛線の色
+                                        linetype = "dashed", # 主目盛線の種類（solid / dashed / dotted / dotdash / twodash / longdash）
+                                        size = 0.2), # 主目盛線の太さ
+        panel.grid.minor = element_blank()) + # 補助目盛り線は表示しない
+  # 凡例
+  theme(legend.title = element_text(size = 8, # 凡例タイトルの文字サイズ
+                                    face = "bold", # 凡例タイトルの書体
+                                    hjust = 0.0), # 凡例タイトルの横整列位置
+        legend.text = element_text(size = 8), # 凡例ラベルの文字サイズ
+        legend.box.background = element_rect(color = "grey", # 凡例の枠線の色
+                                             size = 0.5), # 凡例の枠線の太さ
+        legend.margin = margin(t = 1, # 凡例の上マージン
+                               b = 1, # 凡例の下マージン
+                               r = 1, # 凡例の右マージン
+                               l = 1, # 凡例の左マージン
+                               unit = "mm"), # 凡例マージンの単位
+        legend.justification = c(0.5, 0.5), # 凡例の横整列位置・縦整列位置
+        legend.position = "right") + # 凡例の横位置・縦位置
+  guides(fill = guide_legend(keywidth = unit(5, units = "mm"), # 凡例キーの幅
+                             keyheight = unit(5, units = "mm"), # 凡例キーの高さ
+                             direction = "vertical", # 凡例の整列方向（horizontal / vertical）
+                             nrow = 5, # 凡例の行数
+                             ncol = 1, # 凡例の列数
+                             reverse = FALSE)) + # 凡例順序の逆転
+  # タイトル・キャプション
+  labs(title = "日本の実質GDP変化率の項目別寄与度", # 図表タイトル
+       caption = "（注）家計は個人消費と住宅の合計。\n（出所）内閣府「四半期別GDP速報」。", # キャプション
+       fill = element_blank())　+ # 凡例に使用するscaleのタイトル
+  theme(plot.title = element_text(size = 10, # 図表タイトルの文字サイズ
+                                  face = "bold", # 図表タイトルの書体
+                                  hjust = 0.5), # 図表タイトルの横整列位置
+        plot.caption = element_text(size = 8, # キャプションの文字サイズ
+                                    face = "plain", # キャプションの書体
+                                    hjust = 0.0)) + # キャプションの横整列位置
+  # フォント・マージン
+  theme(text = element_text(family = "MEIRYO", # 図表全体のフォント
+                            size = 8), # 図表全体の無事サイズ
+        plot.margin = margin(t = 1, # 図表の上マージン
+                             b = 1, # 図表の下マージン
+                             r = 1, # 図表の右マージン
+                             l = 1, # 図表の左マージン
+                             unit = "mm")) # 図表マージンの単位
+  
+```
+
+### 実例3：箱ひげ図 {.unnumbered}
+
+世界各国の新型コロナ死亡率の分布を年別に集計した箱ひげ図を作成します。
+
+まず、プロット用のデータを作成します。
+
+```{r, results='hide', warning=FALSE, message=FALSE}
+# 新規感染者数と新規死亡者数の列を選択
+data_plot <- data_owid %>% 
+  dplyr::select(location, date, new_cases, new_deaths)
+
+# 直近データを除外
+data_plot %<>% 
+  dplyr::filter(date <= max(date) - 28) 
+
+# 年の列を追加し年別の平均を集計
+data_plot %<>% 
+  dplyr::mutate(year = lubridate::year(date)) %>% 
+  dplyr::group_by(location, year) %>% 
+  dplyr::summarise(across(c(new_cases, new_deaths), mean, na.rm = TRUE))
+
+# 年別の死亡率を計算
+data_plot %<>% 
+  dplyr::mutate(mort_rate = 100 * new_deaths / new_cases,
+                year = str_c(year, "年"))
+```
+
+`ggplot()`関数でプロットを作成します。グラフを画像として保存するには、別途`ggsave()`関数を実行してください。
+
+```{r}
+ggplot(data = data_plot,
+       mapping = aes(x = year, y = mort_rate, color = year, fill = year)) +
+  # グラフ
+  geom_boxplot(outlier.shape = NA, alpha = 0.25, size = 0.5) +
+  geom_jitter(alpha = 0.5, size = 1.0, shape = 21) +
+  # 補助線
+  geom_hline(yintercept = 0, # 水平線の縦軸との交点
+             color = "gray", # 水平線の色
+             size = 0.5) + # 水平線の太さ
+  # 軸
+  scale_y_continuous(breaks = breaks_y <- seq(0, 100, 0.5), # 目盛
+                     labels = breaks_y %>% sprintf(fmt = "%0.1f"), # 目盛ラベル
+                     limits = c(0, 5), # 下限・上限値（指定しない場合はNA）
+                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0))) + # 下限・上限値からの余白（multは余白率、addは余白幅）
+  labs(x = element_blank(), # X軸のタイトル
+       y = "新型コロナ感染者の致死率（％）") + # Y軸のタイトル
+  theme(axis.title = element_text(size = 8)) + # 軸タイトルの文字サイズ
+  # パネル目盛線
+  theme(panel.grid.major = element_line(color = "grey", # 主目盛線の色
+                                        linetype = "dashed", # 主目盛線の種類（solid / dashed / dotted / dotdash / twodash / longdash）
+                                        size = 0.2), # 主目盛線の太さ
+        panel.grid.minor = element_blank()) + # 補助目盛り線は表示しない
+  # 凡例
+  theme(legend.position = "none") + # 凡例の横位置・縦位置
+  # タイトル・キャプション
+  labs(title = "世界各国の新型コロナ感染者の致死率（年別）", # 図表タイトル
+       caption = "（注）箱の中の横線は中央値を示す。2022年は直近4週間のサンプルを除外。\n（出所）Our World in Data、@naohat23") + # キャプション
+  theme(plot.title = element_text(size = 10, # 図表タイトルの文字サイズ
+                                  face = "bold", # 図表タイトルの書体
+                                  hjust = 0.5), # 図表タイトルの横整列位置
+        plot.caption = element_text(size = 8, # キャプションの文字サイズ
+                                    face = "plain", # キャプションの書体
+                                    hjust = 0.0)) + # キャプションの横整列位置
+  # フォント・マージン
+  theme(text = element_text(family = "YUGO", # 図表全体のフォント
+                            size = 8), # 図表全体の無事サイズ
+        plot.margin = margin(t = 1, # 図表の上マージン
+                             b = 1, # 図表の下マージン
+                             r = 1, # 図表の右マージン
+                             l = 1, # 図表の左マージン
+                             unit = "mm")) # 図表マージンの単位
 ```

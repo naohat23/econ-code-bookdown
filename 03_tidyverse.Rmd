@@ -4,7 +4,7 @@
 
 ## 第3章の準備
 
-### パッケージのインポート {-}
+### パッケージのインポート {.unnumbered}
 
 ```{r, results='hide', warning=FALSE, message=FALSE}
 library(magrittr)
@@ -12,7 +12,7 @@ library(tidyverse)
 library(tidyquant)
 ```
 
-### 外部データセットの取得 {-}
+### 外部データセットの取得 {.unnumbered}
 
 この章では、外部データセットとして以下のデータを使用します。第1章のコードを使用してあらかじめウェブからデータセットを取得してください。
 
@@ -121,6 +121,51 @@ data_owid %>%
   dplyr::rename(country = location)
 ```
 
+## 行のスライスとサンプリング
+
+### 行のスライス {-}
+
+データセットから行番号を指定して特定の行を取り出す（スライスする）には、`dplyr::slice()`関数の中で行インデックスを指定します。
+
+```{r}
+df_2 <- tibble(
+  letters = LETTERS,
+  numbers = 1:26
+)
+
+df_2 %>% 
+  dplyr::slice(6:10)
+```
+
+特定の行を切り捨てて、それ以外の行を取り出すには、`dplyr::slice()`関数の中でマイナスのインデックスを指定します。
+
+```{r}
+df_2 %>% 
+  dplyr::slice(-(6:10))
+```
+
+### サンプリング {-}
+
+`dplyr::slice()`関数ファミリーである`dplyr::slice_sample()`関数を使用すると、データセットからデータをランダムサンプリングすることができます。ここでは、53940サンプルあるdiamondsデータセットからサンプリングを行います。
+
+```{r}
+diamonds
+```
+
+抽出するサンプル数は、`dplyr::slice_sample()`関数の`n`引数で指定します。
+
+```{r}
+diamonds %>% 
+  dplyr::slice_sample(n = 1000) # サンプル数
+```
+
+抽出するサンプル数を、データの個数ではなく、元データセットの何割、といった形で決める場合は、`dplyr::slice_sample()`関数の`porp`引数に割合を指定します。
+
+```{r}
+diamonds %>% 
+  dplyr::slice_sample(prop = 0.1) # サンプル割合
+```
+
 ## 行のフィルタ
 
 データセットの行のフィルタ（特定の条件を満たすデータの抽出）を行うには、`dplyr::filter()`関数を使用します。
@@ -185,6 +230,26 @@ data_owid %>% dplyr::filter(date == max(date))
 
 ```{r}
 data_owid %>% dplyr::filter(is.na(new_cases))
+```
+
+### 複数列の一括条件指定 {.unnumbered}
+
+複数の列に対して一括して条件を指定する場合、OR条件なら`if_any()`関数、AND条件なら`if_all()`関数を用います。`.cols`引数に`starts_with()`、`ends_with()`、`where()`関数といった列を選択する関数を、`.fns`引数に条件式や論理値を返す関数を指定します。
+
+条件式は`~ {.}`で表される無名関数（ラムダ式）の形で記述することができます。なお、波括弧の中のドットは、`.cols`引数に指定した各列の要素を一つずつドットの位置に代入することを意味します。
+
+```{r}
+# 列名がcasesで終わる列の値がすべて1000以上である行を抽出
+data_owid %>% 
+  dplyr::filter(location == "Japan",
+                if_all(.cols = ends_with("cases"), .fns = ~ {. >= 1000}))
+```
+
+```{r}
+# 数値型の変数の何れかがNAである行を抽出
+data_owid %>% 
+  dplyr::filter(location == "Japan",
+                if_any(.cols = where(is.double), .fns = is.na))
 ```
 
 ## 行の並べ替え
@@ -274,20 +339,22 @@ data_owid_jp %>%
 
 ### 複数列の一括処理 {.unnumbered}
 
-`dplyr::mutate()`関数内で`across()`関数を用い、対象の列と処理方法を指定して一括処理します。`~ {}`は無名関数（ラムダ式）を表し、波括弧の中のドットはチルダの左側の値を代入することを意味します。
+`dplyr::mutate()`関数内で`across()`関数を用い、`.cols`引数に対象の列を、`.fns`引数に処理方法を指定して、一括処理します。
+
+`.fns`引数には、通常の関数に加え、`~ {.}`で表す無名関数（ラムダ式）を指定することも可能です。なお、無名関数`~ {.}`の波括弧の中のドットは、`.cols`引数に指定した各列の要素を一つずつドットの位置に代入することを意味します。
 
 ```{r}
-# new_casesからnew_deathまでのすべての列を1000で除す
+# new_casesからnew_deathまでのすべての列の要素を1000で除す
 data_owid_jp %>% 
-  dplyr::mutate(across(new_cases:new_deaths, ~ {. / 1000}))
+  dplyr::mutate(across(.cols = new_cases:new_deaths, .fns = ~ {. / 1000}))
 
-# new_casesからnew_deathまでのすべての列の前期比変化率を計算
+# new_casesからnew_deathまでのすべての列の要素の前期比変化率を計算
 data_owid_jp %>% 
-  dplyr::mutate(across(new_cases:new_deaths, ~ {. / dplyr::lag(., n = 1)}))
+  dplyr::mutate(across(.cols = new_cases:new_deaths, .fns = ~ {. / dplyr::lag(., n = 1)}))
 
 # すべての列を文字列型に変換
 data_owid_jp %>% 
-  dplyr::mutate(across(everything(), as.character))
+  dplyr::mutate(across(.cols = everything(), .fns = as.character))
 ```
 
 ## グループ化
@@ -384,7 +451,7 @@ data_owid %>%
   dplyr::summarise(across(is.double, mean, na.rm = TRUE))
 ```
 
-### カウント {-}
+### カウント {.unnumbered}
 
 集計の特殊例として、変数の要素をカウントする場合は`dplyr::count()`関数を使用します。`dplyr::count()`関数内に指定した変数の各要素について、要素数が出力されます。
 
@@ -415,7 +482,6 @@ data_owid %>%
   dplyr::group_by(location) %>% 
   dplyr::summarise(across(increase, sum, na.rm = TRUE))
 ```
-
 
 ## 縦型・横型の変換
 
@@ -644,26 +710,4 @@ data_complete_1 %>%
 # 日次データの欠損日を補完
 data_complete_2 %>% 
   tidyr::complete(date = full_seq(date, period = 1))
-```
-
-## サンプリング
-
-データセットからデータをサンプリングするには、`dplyr::slice_sample()`関数を使用します。ここでは、53940サンプルあるdiamondsデータセットからサンプリングを行います。
-
-```{r}
-diamonds
-```
-
-サンプル数を決めてサンプリングするには、`dplyr::slice_sample()`関数を使用します。
-
-```{r}
-diamonds %>% 
-  dplyr::slice_sample(n = 1000) # サンプル数
-```
-
-サンプル数をオリジナルデータセットのサンプル数の比率で決定する場合は、`dplyr::slice_sample()`関数の`porp`引数に割合を指定します。
-
-```{r}
-diamonds %>% 
-  dplyr::slice_sample(prop = 0.1)
 ```
