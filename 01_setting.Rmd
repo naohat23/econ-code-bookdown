@@ -84,6 +84,7 @@ options(timeout = NA)
     -   [lubridate](https://lubridate.tidyverse.org/)：日付処理
     -   [magrittr](https://magrittr.tidyverse.org/)：パイプ処理
     -   [tidyverse](https://www.tidyverse.org/)：モダンなデータ分析用パッケージセット
+    -   [tsibble](https://tsibble.tidyverts.org/)：ts形式の時系列データをデータフレーム形式で処理
     -   [readxl](https://readxl.tidyverse.org/)：Excelファイルの読み込み
 -   図表系
     -   [esquisse](https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html)：shinyを使用したGUI形式の直感的な図表作成
@@ -110,7 +111,10 @@ options(timeout = NA)
     -   [seasonalview](https://cran.r-project.org/web/packages/seasonalview/README.html)：GUI形式の季節調整
     -   sigmoid：シグモイド関数
     -   [SmartEDA](https://daya6489.github.io/SmartEDA/)：探索的データ分析の一括実行
+    -   [strucchange](https://cran.r-project.org/web/packages/strucchange/index.html)：構造変化の検定
     -   [tidyquant](https://business-science.github.io/tidyquant/index.html)：金融時系列データ分析
+-   データパッケージ
+    -   [nycflights13](https://cran.r-project.org/web/packages/nycflights13/index.html)：航空便情報サンプルデータセット
 -   その他
     -   [openxlsx](https://ycphs.github.io/openxlsx/)：Excelのxlsxファイルの読み込み・編集・書き出し
     -   [pblapply](https://www.rdocumentation.org/packages/pbapply/versions/1.4-3/topics/pbapply)：プログレスバーを表示する`apply()`関数ファミリー
@@ -124,9 +128,10 @@ options(timeout = NA)
 ```{r, results='hide', warning=FALSE, message=FALSE}
 # パッケージ一覧
 packages <- c(
-  "lubridate", "magrittr", "tidyverse", "readxl",
+  "lubridate", "magrittr", "tidyverse", "tsibble", "readxl",
   "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
-  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "mFilter", "mgcv", "plm", "psych", "seasonal", "seasonalview", "sigmoid", "SmartEDA", "tidyquant",
+  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "mFilter", "mgcv", "plm", "psych", "seasonal", "seasonalview", "sigmoid", "SmartEDA", "strucchange", "tidyquant",
+  "nycflights13",
   "openxlsx", "pbapply"
 )
 
@@ -192,20 +197,6 @@ windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
 
 Rのサンプルデータセットは、`help(データセット名)`を実行するとヘルプ画面で詳細を確認できます。
 
-#### unemp {.unnumbered}
-
-`seasonal`パッケージに含まれる`unemp`データセットは、1990年1月から2016年11月までの米国の失業者数（単位：千人）の月次データ（原数値）です。データ構造はts形式です。
-
-[データ出所リンク](https://fred.stlouisfed.org/series/LNU03000000)
-
-```{r}
-seasonal::unemp
-```
-
-#### gasoline {.unnumbered}
-
-`fpp2`パッケージに含まれる`gasoline`データセットは、1991年2月2日から2017年１月20日までの米国ガソリン生産量（単位：百万バレル／日）の週次データです。データ構造はts形式です。
-
 #### iris {.unnumbered}
 
 `datasets`パッケージに含まれる`iris`データセットは、データ分析で良く使用される有名なデータで、3種類のアヤメの萼（がく）と花弁の長さ・幅のデータを格納しています。データ構造はdata.frame形式です。
@@ -248,6 +239,20 @@ diamonds
 ```{r}
 economics
 ```
+
+#### unemp {.unnumbered}
+
+`seasonal`パッケージに含まれる`unemp`データセットは、1990年1月から2016年11月までの米国の失業者数（単位：千人）の月次データ（原数値）です。データ構造はts形式です。
+
+[データ出所リンク](https://fred.stlouisfed.org/series/LNU03000000)
+
+```{r}
+seasonal::unemp
+```
+
+#### gasoline {.unnumbered}
+
+`fpp2`パッケージに含まれる`gasoline`データセットは、1991年2月2日から2017年１月20日までの米国ガソリン生産量（単位：百万バレル／日）の週次データです。データ構造はts形式です。
 
 ### 外部データセット {-}
 
@@ -447,9 +452,10 @@ options(timeout = NA)
 
 # パッケージのインストールとインポート
 packages <- c(
-  "lubridate", "magrittr", "tidyverse", "readxl",
+  "lubridate", "magrittr", "tidyverse", "tsibble", "readxl",
   "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
-  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "mfilter", "mgcv", "plm", "psych", "seasonal", "seasonalview", "sigmoid", "SmartEDA", "tidyquant",
+  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "mFilter", "mgcv", "plm", "psych", "seasonal", "seasonalview", "sigmoid", "SmartEDA", "strucchange", "tidyquant",
+  "nycflights13",
   "openxlsx", "pbapply"
 )
 

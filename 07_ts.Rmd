@@ -1,0 +1,923 @@
+# 時系列データ操作
+
+第7章「時系列データ操作」では、時系列データに特有の操作方法について解説します。時系列データ特有の操作には、変化率やラグなどのデータ変換、日次・月次などの頻度変換、季節調整、トレンドや構造変化の推定などがあります。
+
+Rで時系列データを扱う方法には、主に次の2つがあります。
+
+まず、第3章で使用した**tibble形式**です。tibble形式は複数の列を含むデータフレームの形状をしており、データそのものを格納する列と、日付型データを格納する列を組み合わせることで、時系列データを扱うことができます。
+
+もう一つは**ts形式**です。ts形式はデータと日付があらかじめセットになった一次元のデータ構造で、季節調整を行う`seasonal`パッケージなどで使用されます。
+
+## 第7章の準備
+
+### パッケージのインポート {.unnumbered}
+
+```{r}
+library(forecast)
+library(mFilter)
+library(mgcv)
+library(pbapply)
+library(seasonal)
+library(seasonalview)
+library(strucchange)
+library(tidyquant)
+library(tidyverse)
+library(zoo)
+```
+
+### 外部データセットの取得 {.unnumbered}
+
+この章では、外部データセットとして以下のデータを使用します。第1章のコードを使用してあらかじめウェブからデータセットを取得してください。
+
+-   OWIDのCOVID-19データセット：　`data_owid`
+-   日本の産業別就業者数：　`data_labor`
+
+また、この章では、西山 他（2019）の実証例のデータセットを使用します。[西山 他（2019）のサポートウェブサイト](http://www.yuhikaku.co.jp/books/detail/9784641053854)からデータファイルを取得し、各自の実行環境のワーキングディレクトリ直下に`data_nishiyama`フォルダを作成して、その中に格納してください。
+
+## ts形式データ
+
+まず、時系列データ特有のデータ構造であるts形式の取り扱い方法について解説します。
+
+ts形式データのサンプルデータセットとして、`seasonal`パッケージの`unemp`データセット（月次データ）と、`fpp2`パッケージの`gasoline`データセット（週次データ）を用います。
+
+### ts形式データの表示 {-}
+
+月次のts形式データは、行方向に年、列方向に月、の行列の形でコンソールに表示されます。
+
+ただし、これはあくまで表示方法の問題であり、ts形式データが行列（2次元）の構造であることを意味するわけではありません。
+
+```{r}
+seasonal::unemp
+```
+
+一方、週次のts形式データの場合はベクトルの形で出力されます。
+
+```{r}
+fpp2::gasoline
+```
+
+### ts形式データ情報の取得 {-}
+
+ts形式データの日付情報を取得するには、`frequency()`、`start()`、`end()`などの関数を用います。
+
+月次データの周期は12であり、開始・終了時点は1～12の整数で表されます。
+
+```{r}
+# 日付の周期（1年当たりのデータ頻度）
+frequency(seasonal::unemp)
+
+# データの開始時点
+start(seasonal::unemp)
+
+# データの終了時点
+end(seasonal::unemp)
+```
+
+一方、週次データの周期は約52.18です。これは、うるう年を考慮した1年の平均日数365.25日を7で割った値であり、1年間が平均して52.18週であることを示しています。
+
+```{r}
+# 日付の周期（1年当たりのデータ頻度）
+frequency(fpp2::gasoline)
+
+# データの開始時点
+start(fpp2::gasoline)
+
+# データの終了時点
+end(fpp2::gasoline)
+```
+
+### ts形式データのフィルタ {-}
+
+ts形式データをフィルタするには、`window()`関数を使用して`start`引数と`end`引数に年を指定します。
+
+```{r}
+window(seasonal::unemp, start = 1999, end = 2000)
+```
+
+```{r}
+window(fpp2::gasoline, start = 2016, end = 2017)
+```
+
+### ts形式データのプロット {-}
+
+ts形式データをプロットするには、`plot()`関数を使用します。ts形式データはデータと日付がセットになっているため、X軸には自動的に日付が表示されます。
+
+```{r}
+plot(seasonal::unemp)
+```
+
+```{r}
+plot(fpp2::gasoline)
+```
+
+## ts形式データの変換
+
+data.frame形式やtibble形式といった通常のデータフレームからts形式へ変換するには、`ts()`関数でts形式データの行列に変換する方法と、`tsibble`パッケージの`as_tsibble()`関数でts形式データフレームであるtsibble形式データに変換する方法の2種類があります。
+
+### ts形式に変換：ts()
+
+`ts()`関数を使用して、通常のデータフレーム形式のデータを、ts形式の行列に変換します。
+
+まず、縦型データの場合は一般的に日付列の要素が重複していますので、日付列の要素に重複が無くなるよう、行をフィルタするか、横型データに変換します。次に、`dplyr::arrange()`関数を用いてデータを日付列で昇順に並べ替えます。最後に、`ts()`関数で`frequency`引数に周期を、`start`引数にデータ開始時点を指定します。
+
+```{r}
+# 年次データをts()関数でts形式に変換
+
+# 日付列の要素が重複している場合は、重複がなくなるように行をフィルタ
+data_ts <- data_gdp_pref %>% 
+  dplyr::filter(pref_name == "東京都")
+
+# 日付列で昇順に並べ替え
+data_ts %<>% 
+  dplyr::arrange(year)
+
+# ts()関数でts形式に変換
+data_ts %<>% 
+  ts(frequency = 1, # 周期：年次データのため周期は1
+     start = 2006) # データ開始時点は2006年
+
+data_ts
+```
+
+`ts()`関数で変換したデータはts()形式の行列になるため、`$`演算子で列を選択することができません。列を選択するには、`行列[, 要素の列インデックス]`もしくは、`行列[, "列名"]`とします。
+
+```{r}
+data_ts[, "gdp_nominal"]
+```
+
+`as.list()`関数でリスト形式に変換すると、データフレーム形式と同様に`$`演算子で列を選択することができます。`リスト[[列インデックス]]`でも各列にアクセス可能です。
+
+```{r}
+data_ts %<>% 
+  as.list()
+
+data_ts$gdp_nominal
+```
+
+```{r}
+# 四半期データをts()関数でts形式に変換
+
+# 日付列で昇順に並べ替え
+data_ts <- data_gdp_jp %>% 
+  dplyr::arrange(日付) %>% 
+  dplyr::select(-日付)
+
+# ts()関数でts形式に変換
+data_ts %<>% 
+  ts(frequency = 4, # 周期：四半期データのため周期は4
+     start = c(1991, 1)) # データ開始時点は1991年1～3月期のため、c(1991, 1)と指定
+
+data_ts %>% head()
+```
+
+```{r}
+# 月次データをts()関数でts形式に変換
+
+# 日付列で昇順に並べ替え
+data_ts <- data_labor %>% 
+  dplyr::arrange(date) %>% 
+  dplyr::select(-date)
+
+# ts()関数でts形式に変換
+data_ts %<>% 
+  ts(frequency = 12, # 周期：四半期データのため周期は4
+     start = c(2002, 1)) # データ開始時点は2002年1月のため、c(2002, 1)と指定
+
+data_ts %>% head()
+```
+
+```{r}
+# 週次データをts()関数でts形式に変換
+
+# 日次データのdata_owidから水曜日のデータを抽出して週次データに変換
+data_ts <- data_owid %>% 
+  dplyr::filter(lubridate::wday(date) == 4)
+
+# 日付列の要素が重複している場合は、重複がなくなるように行をフィルタ
+data_ts %<>% 
+  dplyr::filter(location == "Japan")
+
+# 日付列で昇順に並べ替え
+data_ts %<>% 
+  dplyr::arrange(date)
+
+# ts()関数でts形式に変換
+data_ts %<>% 
+  ts(frequency = 365.25 / 7, # 周期：週次データのため周期は365.25 / 7
+     start = c(lubridate::year(min(data_ts$date)), lubridate::week(min(data_ts$date)))) # データ開始時点の年と週番号を指定
+
+data_ts %>% head()
+```
+
+```{r}
+# 日次データをts()関数でts形式に変換
+
+# 日付列の要素が重複している場合は、重複がなくなるように行をフィルタ
+data_ts <- data_owid %>% 
+  dplyr::filter(location == "Japan")
+
+# 日付列で昇順に並べ替え
+data_ts %<>% 
+  dplyr::arrange(date)
+
+# ts()関数でts形式に変換
+data_ts %<>% 
+  ts(frequency = 365.25, # 周期：日次データのため周期は365.25
+     start = c(lubridate::year(min(data_ts$date)), as.numeric(min(data_ts$date) - as.Date("2020-01-01")))) # データ開始時点の年と、年初からの日数を指定
+
+data_ts %>% head()
+```
+
+### ts形式に変換：as_tsibble() {-}
+
+```{r}
+data_tsibble <- data_gdp_pref %>% 
+  tsibble::as_tsibble(index = year, key = pref_name)
+
+data_tsibble
+```
+
+
+
+
+
+
+
+## データ変換
+
+ここでは、時系列データのラグ・リード系列、変化率、移動平均を計算する方法を解説します。
+
+まず、Our World in Dataの`data_owid`データセットから使用するサンプルデータを作成します。
+
+```{r}
+data_owid_jp <- data_owid %>% 
+  dplyr::select(location, date, new_cases, new_deaths) %>% 
+  dplyr::filter(location == "Japan",
+                date >= "2022-01-01")
+```
+
+### ラグ・リード系列の作成 {.unnumbered}
+
+`dplyr::lag()`関数と`dplyr::leag()`関数で、既存の列のラグ・リード系列を作成します。
+
+```{r}
+# 1期ラグの系列を追加
+data_owid_jp %>% 
+  dplyr::mutate(new_cases_lag = dplyr::lag(new_cases, n = 1)) 
+```
+
+### 変化率系列の作成 {.unnumbered}
+
+`dplyr::lag()`関数で、既存の列の変化率系列を作成します。
+
+```{r}
+# 前期比変化率（％表示）の系列を追加
+data_owid_jp %>% 
+  dplyr::mutate(new_cases_chg = 100 * (new_cases / dplyr::lag(new_cases, n = 1) - 1)) 
+```
+
+### 移動平均系列の作成 {.unnumbered}
+
+`zoo`パッケージの`rollmean()`関数で、移動平均系列を作成します。
+
+```{r}
+# 後方7日移動平均の系列を追加
+data_owid_jp %>% 
+  dplyr::mutate(new_cases_7dma = zoo::rollmean(new_cases, # 移動平均を作成するもとの系列名
+                                               k = 7, # 移動平均の期間
+                                               na.pad = TRUE, # 系列の先端部分で移動平均を計算できない箇所をNAで埋めるか
+                                               align = "right")) # left：前方移動平均、center：中央移動平均、right：後方移動平均
+```
+
+## 時系列データの頻度変換
+
+`tidyverse`と整合性がある金融時系列データ分析用の`tidyquant`パッケージに含まれる`tq_transmute()`関数を用いて、時系列データの頻度変換（高頻度データから低頻度データへの変換）を行います。
+
+なお、`tidyquant`は頻度変換以外にも様々な分析機能があります。詳しくは[公式ウェブサイト](https://business-science.github.io/tidyquant/)を参照してください。
+
+まず、Our World in Dataの`data_owid`データセットから、使用するサンプルデータを作成します。`tq_transmute()`関数に入力する時系列データは、原則として横型データである点に留意してください。
+
+```{r}
+# サンプルデータ（日次）
+data_owid_cases_wide <- data_owid %>% 
+  dplyr::select(location, date, new_cases) %>% 
+  dplyr::filter(date >= "2021-01-01") %>% 
+  dplyr::arrange(date) %>% 
+  tidyr::pivot_wider(id_cols = "date", names_from = "location", values_from = "new_cases")
+```
+
+### 日次データを週次データに変換 {.unnumbered}
+
+`tidyquant::tq_transmute()`関数を使用して日次データを週次データに変換すると、月曜～日曜のデータが`FUN`に指定した関数で集計され、日曜の日付で記録されます。
+
+```{r}
+data_owid_cases_wide %>% 
+  tidyquant::tq_transmute(select = -date, mutate_fun = apply.weekly, FUN = mean, na.rm = TRUE)
+```
+
+なお、日曜～土曜のデータを集計し日曜の日付で記録したい場合は、`rollmean()`関数を使用して前方7日移動平均を計算し、日曜の値を抽出します。
+
+```{r}
+data_owid_cases_wide %>%
+  dplyr::mutate(across(-date, rollmean, k = 7, na.pad = TRUE, align = "left")) %>% 
+  dplyr::filter(lubridate::wday(date) == 1)
+```
+
+### 日次データを月次データに変換 {.unnumbered}
+
+`tidyquant::tq_transmute()`関数を使用して日次データを月次データに変換すると、月初～月末のデータが`FUN`に指定した関数で集計され、月末の日付で記録されます。
+
+```{r}
+data_owid_cases_wide %>% 
+  tidyquant::tq_transmute(select = -date, mutate_fun = apply.monthly, FUN = mean, na.rm = TRUE)
+```
+
+### 日次データを四半期データに変換 {.unnumbered}
+
+`tidyquant::tq_transmute()`関数を使用して日次データを四半期データに変換すると、期初～期末のデータが`FUN`に指定した関数で集計され、期末の日付で記録されます。
+
+```{r}
+data_owid_cases_wide %>% 
+  tidyquant::tq_transmute(select = -date, mutate_fun = apply.quarterly, FUN = mean, na.rm = TRUE)
+```
+
+## 季節調整（X-13）
+
+ここでは、`seasonal`パッケージを用いた時系列データへの季節調整方法について解説します。
+
+`seasonal`パッケージでは、米国商務省センサス局が開発したX-13ARIMA-SEATSを用いて、ts形式の月次データ、四半期データ、半期データに対し季節調整を適用することができます。
+
+`seasonal`パッケージや、X-13ARIMA-SEATSの詳細については、Sax & Eddelbuettel（2018）や、奥本（2016）を参照してください。
+
+サンプルデータとして、ts形式のデータである`seasonal::unemp`データセットを用い、`seasonal`パッケージの使用方法を確認します。
+
+### ts形式データの可視化 {.unnumbered}
+
+季節調整の前に、データを確認します。ts形式のデータは`plot()`関数でグラフを作成できます。
+
+```{r}
+plot(seasonal::unemp)
+```
+
+### X-13ARIMA-SEATSの実施方法 {.unnumbered}
+
+`seasonal`パッケージでは、`seas()`関数を使用してts形式のデータにX-13ARIMA-SEATSを適用します。`seas()`関数は、季節調整の結果を格納したseas型のオブジェクトを返します。
+
+```{r}
+# seas()関数で季節調整を実行
+m <- seasonal::seas(x = seasonal::unemp)
+
+# 季節調整の結果を出力
+summary(m)
+```
+
+`plot()`関数で、原数値と季節調整値のグラフを作成できます。黒色の線が原数値、赤色の線が季節調整値です。外れ値がある場合はグラフ中に外れ値が表示されます。
+
+```{r}
+plot(m)
+```
+
+季節調整値を出力するには、`seasonal::final()`関数を使用します。
+
+```{r}
+# 季節調整値をunemp_saに格納
+unemp_sa <- seasonal::final(m)
+
+# unemp_saの折れ線グラフを作成
+plot(unemp_sa, type = "l")
+```
+
+`monthplot()`関数を使用すると、季節変動（Seasonal component）と不規則変動（Seasonal irregular component）を月別に確認することができます。
+
+```{r}
+monthplot(m)
+```
+
+### 実例：月次データの季節調整 {.unnumbered}
+
+ここでは、日本の産業別就業者数データセット`data_labor`に対し、月次の季節調整を適用します。`data_labor`はtibble形式のデータフレームの中に、日付型の列と、複数の数値型のデータの列を格納したものです。
+
+1.  tibble形式のデータフレームに格納されている数値型データのベクトルをts形式に変換する
+2.  tibble形式のデータフレームをリスト形式に変換する
+3.  `pblapply()`で一括して`seas()`関数の季節調整を適用する。季節調整エラーは`try()`関数で処理する
+4.  季節調整エラーを取得する
+5.  季節調整値を取得する
+6.  エラーが生じた系列は原数値を取得する
+
+```{r}
+# data_laborから一部を抽出
+data_labor_nsa <- data_labor %>% 
+  dplyr::select(date, `総数`, `製造`, `情報通信`)
+
+# 数値型データのベクトルをts形式に変換
+data_labor_ts <- data_labor_nsa %>% 
+  dplyr::select(-date) %>% 
+  ts(frequency = 12, # 月次データの場合は12を指定
+     start = c(lubridate::year(data_labor$date[1]), lubridate::month(data_labor$date[1]))) # データ開始年月を指定
+
+# tibble形式をリスト形式に変換
+data_labor_ts %<>% 
+  as.list()
+
+# pblapply()関数で一括してseas()関数の季節調整を適用
+# 季節調整でエラーが発生する可能性があるため、try()関数でエラー処理を行う
+result <- pblapply(data_labor_ts,
+                   function(e) try(suppressMessages(seas(e, transform.function = "auto")),
+                                   silent = TRUE))
+
+# 季節調整エラーを取得
+result_iserror <- sapply(result, class) == "try-error"
+
+# 季節調整値を取得し、tibble形式データフレームのdata_labor_saに格納
+data_labor_sa <- do.call(cbind, lapply(result[!result_iserror], final)) %>% 
+  tibble::as_tibble() %>% 
+  dplyr::bind_cols(data_labor[, 1], .)
+
+# エラーが生じた系列は原数値を取得してdata_labor_saに追加
+for (col in which(result_iserror)) {
+  data_labor_sa <- data_labor[, names(result[col])] %>% 
+    dplyr::bind_cols(data_labor_sa)
+}
+
+# data_labor_saの列をdata_labor_nsaの列順で並べ替え
+data_labor_sa %<>% 
+  dplyr::select(all_of(names(data_labor_nsa)))
+```
+
+個別系列の季節調整結果を可視化するには、`plot()`関数を使用します。一部の系列は季節性がないと判断されるため、季節調整が行われていません。
+
+```{r}
+plot(result[[which(names(result) == "総数")]])
+
+plot(result[[which(names(result) == "製造")]])
+
+plot(result[[which(names(result) == "情報通信")]])
+```
+
+## 季節調整（STL分解）
+
+上で紹介したX-13ARIMA-SEATSは、月次データ、四半期データ、半期データに適用できますが、週次データや日次データには適用できません。そこで、週次データや日次データの季節調整を行うために`stats`パッケージの`stl()`関数による**STL分解**を使用します。
+
+STL分解とは、Seasonal Decomposition of Time Series by Loessの略で、時系列データを季節変動、トレンド変動、不規則変動に分解する手法です。
+
+### STL分解の実施方法 {.unnumbered}
+
+STL分解を行うには、ts形式の時系列データに対し、`stats`パッケージの`stl()`関数を適用します。`stl()`関数はSTL分解の結果を格納したstl型のオブジェクトを返します。
+
+```{r}
+# stl()関数でSTL分解を実行
+m <- stats::stl(x = seasonal::unemp,
+                s.window = "periodic")
+
+# STL分解の結果を可視化
+plot(m)
+```
+
+季節調整値を出力するには、`stl()`関数が返すstl型オブジェクトに格納されている`time.series`にアクセスします。`time.series`には、季節変動（`seasonal`）、トレンド変動（`trend`）、不規則変動（`remainder`）の順番にデータが格納されています。
+
+```{r}
+# 季節調整値（トレンド）をunemp_saに格納
+unemp_sa <- m$time.series[, "trend"]
+
+# unemp_saの折れ線グラフを作成
+plot(unemp_sa, type = "l")
+```
+
+### 週次データのSTL分解 {.unnumbered}
+
+STL分解は、`seasonal::unemp`のような月次データだけでなく、より高頻度なデータにも適用できるのが特徴です。
+
+ここでは、週次データである`fpp2::gasoline`データセットに対し、STL分解を適用します。週次データは`ts()`関数における`frequency`引数が52.18となっています。これは、うるう年を考慮した1年の平均日数365.25日を7で割った値であり、週次データは一周期が52.18週であることを示しています。
+
+```{r}
+# データの確認
+head(fpp2::gasoline)
+```
+
+```{r}
+# データの可視化
+plot(fpp2::gasoline)
+```
+
+```{r}
+# stl()関数でSTL分解を実行
+m <- stats::stl(x = fpp2::gasoline,
+                s.window = "periodic")
+
+# STL分解の結果を可視化
+plot(m)
+```
+
+### 日次データのSTL分解（単一周期） {.unnumbered}
+
+さらに、STL分解は日次データにも適用可能です。日次データの周期性は通常、週、月、年の3種類あると考えられます。ただし、ts形式では一種類の周期性しか指定できないため、ここでは週を一周期に設定し、`ts()`関数の`frequency`引数に7を指定して、STL分解を行います。
+
+使用するデータは、Our World in Dataの`data_owid`データセットにおける、日本の新規感染者数です。
+
+```{r}
+# data_owidから日本の新規感染者数（日次）を抽出
+data_cases_jp <- data_owid %>% 
+  dplyr::filter(location == "Japan") %>% 
+  tidyr::drop_na(new_cases) %>%
+  dplyr::pull(new_cases)
+
+# 1週＝7日の周期を設定したts形式のデータに変換
+data_cases_jp_ts <- data_cases_jp %>% 
+  ts(start = c(2020, 1, 22),
+     frequency = 7)
+
+# STL分解の結果をmに格納
+m <- stats::stl(x = data_cases_jp_ts,
+                s.window = "periodic")
+
+# STL分解の結果を可視化
+plot(m)
+```
+
+### 日次データのSTL分解（複数周期） {.unnumbered}
+
+データに複数の周期性を設定したい場合は、ts形式の拡張版であるmsts形式のデータを用います。msts形式のデータは`forecast`パッケージの`msts()`関数で作成できます。
+
+ここでは、日次データに対し、1週間＝7日と、1年＝365.25日の2種類の周期性を設定しています。
+
+msts形式のデータに対するSTL分解は、`stats::stl()`関数ではなく、`forecast`パッケージの`mstl()`関数を使用します。
+
+```{r}
+# data_owidから日本の新規感染者数（日次）を抽出
+data_cases_jp <- data_owid %>% 
+  dplyr::filter(location == "Japan") %>% 
+  tidyr::drop_na(new_cases) %>%
+  dplyr::pull(new_cases)
+
+# 1週間＝7日と1年＝365.25日の周期を設定したmsts形式のデータに変換
+data_cases_jp_msts <- data_cases_jp %>%  
+  forecast::msts(seasonal.period = c(7, 365.25),
+                 start = c(2020, 1, 22))
+
+# STL分解の結果をmに格納
+m <- forecast::mstl(x = data_cases_jp_ts, s.window = "periodic")
+
+# STL分解の結果を可視化
+plot(m)
+```
+
+## トレンド
+
+トレンドには、**線形トレンド**と**非線形トレンド**があります（※）。線形トレンドは、時系列インデックス（毎期1ずつ増加する整数の時間変数）を説明変数とする線形単回帰モデルで推定することができます。一方、非線形トレンドは、HPフィルタや一般化加法モデル（GAM）などの手法を用いて推定します。
+
+※線形トレンドと非線形トレンドは、**確定トレンド（deterministic trend）**と呼ばれます。確定トレンドは単純な直線または曲線で表されるもので、一般的にイメージされるトレンドはこちらに当たります。そのほかに、**確率トレンド（stochastic trend）**と呼ばれるトレンドもあり、こちらは方向が定まらないジグザグ線で表されます。この節では、確定トレンドについて解説します。
+
+### 線形トレンド {.unnumbered}
+
+**線形トレンド（linear trend）**では、次のような線形トレンド・モデルを最小二乗法（OLS）で推定します。$t$は時系列インデックス（毎期1ずつ増加する整数の時間変数）、$u_t$は誤差項です。
+
+$$
+Y_t = \mu + \delta t + u_t
+$$
+
+実証例として、西山 他（2019）P.547～549に掲載されている実証例11.1「GDPの線形トレンド・モデル推定」の一部を再現します。推計に用いるデータは第10章「系列相関と時系列モデル」で用いられている日本の実質GDP（年次、1980～2017年）と同じものを使用します。なお、実証例11.1では1955年からのデータが用いられており、時系列インデックスの値など細かな点で違いがありますので、注意してください。
+
+```{r}
+# XLSXデータを読み込み
+data <- readxl::read_excel(path = "data_nishiyama/ch10/Fig_1_nominalGDP_annual.xlsx", # ファイルパス（拡張子が必要、URLは不可）
+                           sheet = NULL, # シートインデックス／シート名
+                           col_names = c("日付", "名目年率", "実質年率"), # ヘッダー（列名データ）の有無／列名指定
+                           col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                           skip = 1) # 読み込み時に上からスキップする行数
+
+# 時系列インデックスtimeを追加
+data %<>% 
+  dplyr::mutate(time = seq_along(日付))
+
+# データの内容を確認
+data
+```
+
+ここでは、実質GDPの自然対数に100を掛けた値について線形トレンドを推定します。この操作により、時系列インデックス$t$の係数$\delta$の推定値は実質GDPのトレンド成長率（％表示）を示すことになります。詳細は、西山 他（2019）P.532を参照してください。
+
+```{r}
+# 実質年率データを対数変換し100を掛けた系列を計算
+data_lm <- data %>% 
+  dplyr::mutate(ln_real = 100 * log(実質年率))
+
+# 推定期間として1991年から2017年を指定
+data_lm %<>% 
+  dplyr::filter(日付 >= 1991,
+                日付 <= 2017)
+
+data_lm
+```
+
+推定した結果、時系列インデックスの係数推定値のp値が0.05を下回っているため、トレンドがないとの帰無仮説（$\delta = 0$）は棄却されます。したがって、1991～2017年の実質GDPには平均成長率約0.85％のトレンドがあると判断できます。
+
+```{r}
+# 線形トレンド・モデルを推定
+result <- estimatr::lm_robust(formula = ln_real ~ time,
+                              data = data_lm,
+                              se_type = "classical", # 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）
+                              alpha = 0.05) # 有意水準
+
+summary(result)
+```
+
+```{r}
+# 実質GDPを対数変換して100を掛けた値と、線形トレンド・モデルの推定結果をプロット
+data_lm %>% 
+  dplyr::mutate(fitted = result$fitted.values) %>% 
+  ggplot() + 
+  geom_line(mapping = aes(x = 日付, y = ln_real), color = "blue") +
+  geom_line(mapping = aes(x = 日付, y = fitted), color = "red")
+```
+
+### 区分線形トレンド {.unnumbered}
+
+次のように、期間によって異なる線形トレンドを推定するモデルを**区分線形トレンド**といいます。
+
+$$
+Y_t = 
+\begin{cases}
+  {\mu_1 + \delta_1 t + u_t \quad (1990年以前)}\\
+  {\mu_2 + \delta_2 t + u_t \quad (1991年以降)}
+\end{cases}
+$$
+
+こうした区分線形トレンド・モデルは、1990年以前に0、1991年以降に1をとるダミー変数$D_t$を定義して、次のように書き換えることができます。
+
+$$
+Y_t = \beta_0 + \beta_1 D_t + \beta_2 t + \beta_3 (D_t \times t) + u_t
+$$
+
+これをダミー変数$D_t$を使用せずに記述すると、次のとおりです。
+
+$$
+Y_t = 
+\begin{cases}
+  {\beta_0 + \beta_2 t + u_t \quad (1990年以前)}\\
+  {\beta_0 + \beta_1 + (\beta_2 + \beta_3) t + u_t \quad (1991年以降)}
+\end{cases}
+$$
+
+線形トレンド・モデルと同様に、日本の実質GDPデータを用いて区分線形トレンド・モデルを推定します。ダミー変数は`dplyr`パッケージの`if_else()`関数を使って作成します。
+
+```{r}
+# XLSXデータを読み込み
+data <- readxl::read_excel(path = "data_nishiyama/ch10/Fig_1_nominalGDP_annual.xlsx", # ファイルパス（拡張子が必要、URLは不可）
+                           sheet = NULL, # シートインデックス／シート名
+                           col_names = c("日付", "名目年率", "実質年率"), # ヘッダー（列名データ）の有無／列名指定
+                           col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                           skip = 1) # 読み込み時に上からスキップする行数
+
+# 時系列インデックスtimeを追加
+data %<>% 
+  dplyr::mutate(time = seq_along(日付))
+
+# データの内容を確認
+data
+```
+
+```{r}
+# 実質年率データを対数変換し100を掛けた系列を計算
+data_lm <- data %>% 
+  dplyr::mutate(ln_real = 100 * log(実質年率))
+
+# 1990年以前に0、1991年以降に1をとるダミー変数dummyを作成
+data_lm %<>% 
+  dplyr::mutate(dummy = if_else(日付 >= 1991, 1, 0))
+
+data_lm
+```
+
+推定の結果、時系列インデックス`time`の係数推定値のp値が0.05を下回っており、1990年以前にトレンドがないとの帰無仮説が棄却されます。したがって、1980～1990年の実質GDPには平均成長率約4.44％のトレンドがあると判断できます。
+
+また、傾きダミー`dummy:time`の係数推定値のp値が0.05を下回っており、1991年以降のトレンドは1990年以前のトレンドと差がないとの帰無仮説が棄却されます。この結果は、1991～2017年のトレンド成長率が約0.85％（4.444から傾きダミー`dummy:time`の係数推定値3.595を減じた値）であることを示していると解釈できます。
+
+```{r}
+# 区分線形トレンド・モデルを推定
+result <- estimatr::lm_robust(formula = ln_real ~ dummy + time + dummy * time,
+                              data = data_lm,
+                              se_type = "classical", # 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）
+                              alpha = 0.05) # 有意水準
+
+summary(result)
+```
+
+```{r}
+# 実質GDPを対数変換して100を掛けた値と、線形トレンド・モデルの推定結果をプロット
+data_lm %>% 
+  dplyr::mutate(fitted_1 = if_else(日付 <= 1990, result$fitted.values, NA_real_),
+                fitted_2 = if_else(日付 >= 1991, result$fitted.values, NA_real_)) %>% 
+  ggplot() + 
+  geom_line(mapping = aes(x = 日付, y = ln_real), color = "blue") +
+  geom_line(mapping = aes(x = 日付, y = fitted_1), color = "red") +
+  geom_line(mapping = aes(x = 日付, y = fitted_2), color = "red")
+```
+
+### HPフィルタ {.unnumbered}
+
+**HPフィルタ（Hodrick Prescott filter）**は、非線形トレンド推定手法の一種です。
+
+具体的には、時系列データがトレンド成分$g_t$と循環成分$c_t$で構成されると仮定し、次の式のように、全期間を通して「循環成分の2乗の総和」と「トレンド成分の2階階差の2乗の総和」の加重和が最小になるような$g_t$を計算します（肥後・中田（1998））。
+
+$$
+\min \Bigg\{ \sum_{t=1}^{T}{c_t^2} + \lambda \sum_{t=1}^{T}[(g_t - g_{t-1})-(g_{t-1}-g_{t-2})]^2 \Bigg\}
+$$
+
+ここで、$\lambda$はトレードオフの関係にある2つの項にウェイトをつける調整パラメータです。$\lambda$が大きいほどトレンド成分が直線に近く、$\lambda$が小さいほどトレンド成分が元のデータに近くなります。
+
+一般的にマクロ経済分析では、四半期データに対し$\lambda = 1600$が用いられます。これにより、8年周期以下の景気循環は必ず循環成分に含まれるようになり、通常の景気循環の認識に近くなります。また、年次データでは$\lambda = 100$、月次データでは$\lambda = 14400$が伝統的に用いられています（西山 他（2019）P.536）。
+
+以下では、`seasonal`パッケージのサンプルデータセット`unemp`（米国の失業者数、原数値）を対象にして、HPフィルタでトレンド推定を行う方法を解説します。
+
+HPフィルタを適用するには、時系列データに対し、`mFilter`パッケージの`hpfilter()`関数を使用します。データ構造は数値型ベクトル、ts形式どちらでもOKです。
+
+推定したトレンド成分、循環成分は、推定結果を格納したオブジェクトに、それぞれ`trend`、`cycle`の名称で格納されています。
+
+```{r}
+result <- mFilter::hpfilter(x = seasonal::unemp, # HPフィルタを適用する時系列データ（数値型ベクトル、ts形式）
+                            type = "lambda",
+                            freq = 14400, # ラムダの値（四半期：1600、月次：14400）
+                            drift = FALSE) # ドリフト項の有無 
+
+summary(result)
+```
+
+```{r}
+# HPフィルタの結果をプロット
+ggplot(mapping = aes(x = ))
+```
+
+
+```{r, eval=FALSE}
+# トレンド推定結果を可視化（コンソールでEnterを押すと表示される）
+plot(result)
+```
+
+### 一般化加法モデル（GAM） {.unnumbered}
+
+**一般化加法モデル（Generalizes Additive Model、GAM）**は非線形モデルの一種であり、非線形モデルによる高い説明力と、線形モデルがもつ解釈性の良さを両立させることができる手法です。
+
+具体的には次のように、被説明変数$Y$を、説明変数$X$を要素とする非線形関数$f(X)$の和として説明するモデルです。非線形関数を用いることにより、説明変数と被説明変数の間の複雑な関係を説明できる一方で、被説明変数がそれぞれの非線形関数の和になっていることで、被説明変数の変動要因を説明変数毎に分解することができ、高い解釈性を維持している点が特徴です。
+
+$$
+Y_i = \beta_0 + f_1(X_{1i}) + f_2(X_{2i}) + \dots + f_k(X_{ki}) + u_i
+$$
+
+ここでは$X$として時系列インデックスを用いることでトレンドを推定しますが、GAMはトレンド推定以外にも様々な用途に使用可能です。例えば、[服部直樹（2020）「新型コロナウイルス感染症（COVID-19）の感染拡大要因は何か」](https://www.mizuho-rt.co.jp/publication/mhri/research/pdf/report/report20-1021.pdf)では、GAMの拡張版である「交互作用項付き一般化加法モデル（GA2M）」を使用して、新型コロナウイルス感染者数の変動要因の説明を試みています（ただし、同レポートではPythonによるGA2Mの実装を用いています）。
+
+一般化加法モデルは、`mgcv`パッケージの`gam()`関数で推定します。事前に時系列インデックスを作成し、`gam()`関数の`formula`引数で`被説明変数 ~ s(時系列インデックス)`と指定します。説明変数である時系列インデックスを`s()`に配置することにより、非線形関数を適用します（`s()`を用いなければ、通常の線形回帰と同じ結果になります）。
+
+`gam()`関数の使用方法の詳細については、[こちら](https://logics-of-blue.com/%E5%B9%B3%E6%BB%91%E5%8C%96%E3%82%B9%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%A8%E5%8A%A0%E6%B3%95%E3%83%A2%E3%83%87%E3%83%AB/)のウェブサイトを参照してください。
+
+```{r}
+# unempデータをベクトル形式に変換してdataに格納
+data <- tibble::tibble(
+  date = seq(from = as.Date("1990-01-01"), to = as.Date("2016-11-01"), by = "1 month"),
+  unemp = seasonal::unemp %>% as.vector()
+  )
+
+# dataに時系列インデックスtimeを追加
+data %<>% 
+  dplyr::mutate(time = seq_along(date))
+
+# GAMでトレンド推定
+result <- mgcv::gam(formula = unemp ~ s(time),
+                    family = gaussian(), # 分布関数
+                    sp = NULL, # 平滑度を決めるパラメータ（大きいほど直線に近く、小さいほど元データに近い。NULLで自動最適化）
+                    data = data)
+
+# 推定結果を出力
+summary(result)
+```
+
+推定したトレンド系列は、推定結果を格納したオブジェクトに`fitted.values`の名称で格納されています。
+
+```{r}
+data %>%
+  dplyr::mutate(unemp_fitted = result$fitted.values)
+```
+
+```{r}
+# トレンド推定結果を可視化
+plot(result, # gam()関数で推定した結果を格納したオブジェクト
+     residuals = TRUE, # 元データを表示するか
+     se = TRUE, # 信頼区間を表示するか
+     pch = "*") # 元データのマーカー
+```
+
+```{r}
+# 推定したモデルのチェック
+mgcv::gam.check(result)
+```
+
+## 構造変化
+
+線形トレンド・モデルを応用して構造変化の推定を行うことができます。
+
+バブル崩壊やアジア通貨危機、リーマンショック、コロナ禍など、構造変化したと考えられる時点が既知の場合は、その時点における構造変化の有無を仮説検定します。
+
+一方、構造変化したと考えられる時点が未知の場合は、構造変化が発生した可能性が最も高い時点を推定します。
+
+### 構造変化点が既知の場合 {.unnumbered}
+
+構造変化した時点が既知の場合は、構造変化点を$T^*$とした次の重回帰モデル
+
+$$
+Y_t = 
+\begin{cases}
+  {\beta_0 + \beta_1 X_{1t} + \dots + \beta_k X_{kt} + u_t \quad (t \lt T^*)}\\
+  {\beta^*_0 + \beta^*_1 X_{1t} + \dots + \beta^*_k X_{kt} + u_t \quad (t \geq T^*)}
+\end{cases}
+$$
+
+について、構造変化がない帰無仮説
+
+$$
+H_0: \beta_0 = \beta^*_0, \; \beta_1 = \beta^*_1, \; \ldots \; \beta_k = \beta^*_k
+$$
+
+を、少なくとも1つの係数に対して等式が成立しない対立仮説に対して検定します。こうした検定は、一般的に**チャウ検定（Chow test）**と呼ばれています。
+
+構造変化点が既知の場合の構造変化の検定には、`strucchange`パッケージの`sctest()`関数を使用します。ここでは、線形トレンド・モデルの推定で使用した日本の実質GDPデータ（対数変換して100を掛けた値、1980～2017年）に対し、1991年に構造変化が起きたか否かを検定します。
+
+```{r}
+# XLSXデータを読み込み
+data <- readxl::read_excel(path = "data_nishiyama/ch10/Fig_1_nominalGDP_annual.xlsx", # ファイルパス（拡張子が必要、URLは不可）
+                           sheet = NULL, # シートインデックス／シート名
+                           col_names = c("日付", "名目年率", "実質年率"), # ヘッダー（列名データ）の有無／列名指定
+                           col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                           skip = 1) # 読み込み時に上からスキップする行数
+
+# 時系列インデックスtimeを追加
+data %<>% 
+  dplyr::mutate(time = seq_along(日付))
+
+# 実質年率データを対数変換し100を掛けた系列を計算
+data_lm <- data %>% 
+  dplyr::mutate(ln_real = 100 * log(実質年率))
+
+# データの内容を確認
+data_lm
+```
+
+```{r}
+# 実質GDPを対数変換して100を掛けた値をプロット
+ggplot(data = data_lm,
+       mapping = aes(x = time, y = ln_real)) +
+  geom_point()
+```
+
+`stricchange::sctest()`関数で1991年（データの行インデックスが12）について構造変化の検定を行うと、p値が0.05を下回るため、構造変化がない帰無仮説を棄却します。したがって、日本の実質GDPは1991年に構造変化が生じていたと解釈できます。
+
+```{r}
+# sctest()関数で構造変化の検定を実施
+strucchange::sctest(formula = ln_real ~ time, # 構造変化を検定するモデル
+                    data = data_lm, # データ
+                    type = "Chow", # チャウ検定を意味する"Chow"を指定
+                    point = 12) # 検定する構造変化点（データの行インデックス番号）を指定
+```
+
+### 構造変化点が未知の場合 {.unnumbered}
+
+構造変化した時点が未知の場合は、`strucchange::breakpoints()`関数を使用し、構造変化した可能性が最も高い時点を推定します。
+
+ここでは、「構造変化が既知の場合」と同じ日本の実質GDPデータ（対数変換して100を掛けた値、1980～2017年）を用い、構造変化点を推定します。
+
+```{r}
+# XLSXデータを読み込み
+data <- readxl::read_excel(path = "data_nishiyama/ch10/Fig_1_nominalGDP_annual.xlsx", # ファイルパス（拡張子が必要、URLは不可）
+                           sheet = NULL, # シートインデックス／シート名
+                           col_names = c("日付", "名目年率", "実質年率"), # ヘッダー（列名データ）の有無／列名指定
+                           col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                           skip = 1) # 読み込み時に上からスキップする行数
+
+# 時系列インデックスtimeを追加
+data %<>% 
+  dplyr::mutate(time = seq_along(日付))
+
+# 実質年率データを対数変換し100を掛けた系列を計算
+data_lm <- data %>% 
+  dplyr::mutate(ln_real = 100 * log(実質年率))
+
+# データの内容を確認
+data_lm
+```
+
+`strucchange::breakpoints()`関数では、`h`引数に最小セグメントサイズを、`breaks`引数に構造変化の数を指定します。
+
+最小セグメントサイズは、構造変化点とデータ端点（もしくは別の構造変化点）の間の区間に含まれるサンプルサイズの最小値を定めるものです。例えば、最小セグメントサイズを0.15、構造変化の数を1に指定すると、データの両端から15％の区間は構造変化点の候補から除外されます。最小セグメントサイズは0.15や0.05といった値が用いされるのが一般的です（西山 他（2019）P.565）。
+
+この例では、構造変化点として12が推定されました。これは、データの行インデックス12、すなわち1991年に構造変化が発生した可能性が最も大きいことを意味しています。
+
+```{r}
+result <- strucchange::breakpoints(formula = ln_real ~ time, # 構造変化点を推定するモデル
+                                   data = data_lm, # データ
+                                   h = 0.15, # 最小セグメントサイズ
+                                   breaks = 1) # 構造変化の数
+
+summary(result)
+```
+
+```{r}
+data_lm %>% 
+  dplyr::slice(12)
+```
