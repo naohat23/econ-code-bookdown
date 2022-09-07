@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2022-07-17" />
+<meta name="date" content="2022-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="rの基本的な使用方法.html"/>
-<link rel="next" href="時系列データ操作.html"/>
+<link rel="next" href="ggplot2によるグラフ作成.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -148,6 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i>変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月7日-マイナーアップデート"><i class="fa fa-check"></i>2022年9月7日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年7月17日-マイナーアップデート"><i class="fa fa-check"></i>2022年7月17日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年7月9日-マイナーアップデート"><i class="fa fa-check"></i>2022年7月9日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月26日-ローンチ"><i class="fa fa-check"></i>2022年6月26日 ローンチ</a></li>
@@ -357,90 +358,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#時系列データの補完"><i class="fa fa-check"></i>時系列データの補完</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="時系列データ操作.html"><a href="時系列データ操作.html"><i class="fa fa-check"></i><b>4</b> 時系列データ操作</a>
+<li class="chapter" data-level="4" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html"><i class="fa fa-check"></i><b>4</b> ggplot2によるグラフ作成</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="時系列データ操作.html"><a href="時系列データ操作.html#第4章の準備"><i class="fa fa-check"></i><b>4.1</b> 第4章の準備</a>
+<li class="chapter" data-level="4.1" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#第4章の準備"><i class="fa fa-check"></i><b>4.1</b> 第4章の準備</a>
 <ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#パッケージのインポート-2"><i class="fa fa-check"></i>パッケージのインポート</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#外部データセットの取得-1"><i class="fa fa-check"></i>外部データセットの取得</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#パッケージのインポート-2"><i class="fa fa-check"></i>パッケージのインポート</a></li>
+<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#外部データセットの取得-1"><i class="fa fa-check"></i>外部データセットの取得</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="時系列データ操作.html"><a href="時系列データ操作.html#データ変換"><i class="fa fa-check"></i><b>4.2</b> データ変換</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ラグリード系列の作成"><i class="fa fa-check"></i>ラグ・リード系列の作成</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#変化率系列の作成"><i class="fa fa-check"></i>変化率系列の作成</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#移動平均系列の作成"><i class="fa fa-check"></i>移動平均系列の作成</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="時系列データ操作.html"><a href="時系列データ操作.html#時系列データの頻度変換"><i class="fa fa-check"></i><b>4.3</b> 時系列データの頻度変換</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データを週次データに変換"><i class="fa fa-check"></i>日次データを週次データに変換</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データを月次データに変換"><i class="fa fa-check"></i>日次データを月次データに変換</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データを四半期データに変換"><i class="fa fa-check"></i>日次データを四半期データに変換</a></li>
-</ul></li>
-<li class="chapter" data-level="4.4" data-path="時系列データ操作.html"><a href="時系列データ操作.html#季節調整x-13"><i class="fa fa-check"></i><b>4.4</b> 季節調整（X-13）</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データの可視化"><i class="fa fa-check"></i>ts形式データの可視化</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#x-13arima-seatsの実施方法"><i class="fa fa-check"></i>X-13ARIMA-SEATSの実施方法</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#実例月次データの季節調整"><i class="fa fa-check"></i>実例：月次データの季節調整</a></li>
-</ul></li>
-<li class="chapter" data-level="4.5" data-path="時系列データ操作.html"><a href="時系列データ操作.html#季節調整stl分解"><i class="fa fa-check"></i><b>4.5</b> 季節調整（STL分解）</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#stl分解の実施方法"><i class="fa fa-check"></i>STL分解の実施方法</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#週次データのstl分解"><i class="fa fa-check"></i>週次データのSTL分解</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データのstl分解単一周期"><i class="fa fa-check"></i>日次データのSTL分解（単一周期）</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データのstl分解複数周期"><i class="fa fa-check"></i>日次データのSTL分解（複数周期）</a></li>
-</ul></li>
-<li class="chapter" data-level="4.6" data-path="時系列データ操作.html"><a href="時系列データ操作.html#トレンド推定"><i class="fa fa-check"></i><b>4.6</b> トレンド推定</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#hpフィルタ"><i class="fa fa-check"></i>HPフィルタ</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#一般化加法モデルgam"><i class="fa fa-check"></i>一般化加法モデル（GAM）</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html"><i class="fa fa-check"></i><b>5</b> ggplot2によるグラフ作成</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#第5章の準備"><i class="fa fa-check"></i><b>5.1</b> 第5章の準備</a>
-<ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#パッケージのインポート-3"><i class="fa fa-check"></i>パッケージのインポート</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#外部データセットの取得-2"><i class="fa fa-check"></i>外部データセットの取得</a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplot2とは"><i class="fa fa-check"></i><b>5.2</b> ggplot2とは</a></li>
-<li class="chapter" data-level="5.3" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplot2の設定"><i class="fa fa-check"></i><b>5.3</b> ggplot2の設定</a></li>
-<li class="chapter" data-level="5.4" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#gui形式の直感的なグラフ作成"><i class="fa fa-check"></i><b>5.4</b> GUI形式の直感的なグラフ作成</a>
+<li class="chapter" data-level="4.2" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplot2とは"><i class="fa fa-check"></i><b>4.2</b> ggplot2とは</a></li>
+<li class="chapter" data-level="4.3" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplot2の設定"><i class="fa fa-check"></i><b>4.3</b> ggplot2の設定</a></li>
+<li class="chapter" data-level="4.4" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#gui形式の直感的なグラフ作成"><i class="fa fa-check"></i><b>4.4</b> GUI形式の直感的なグラフ作成</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#esquisseパッケージ"><i class="fa fa-check"></i>esquisseパッケージ</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplotguiパッケージ"><i class="fa fa-check"></i>ggplotguiパッケージ</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布離散型"><i class="fa fa-check"></i><b>5.5</b> 1次元の度数分布（離散型）</a>
+<li class="chapter" data-level="4.5" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布離散型"><i class="fa fa-check"></i><b>4.5</b> 1次元の度数分布（離散型）</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#度数棒グラフの基本形"><i class="fa fa-check"></i>度数棒グラフの基本形</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布連続型"><i class="fa fa-check"></i><b>5.6</b> 1次元の度数分布（連続型）</a>
+<li class="chapter" data-level="4.6" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布連続型"><i class="fa fa-check"></i><b>4.6</b> 1次元の度数分布（連続型）</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ヒストグラムの基本形"><i class="fa fa-check"></i>ヒストグラムの基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#横並びヒストグラム"><i class="fa fa-check"></i>横並びヒストグラム</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げヒストグラム"><i class="fa fa-check"></i>積み上げヒストグラム</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の密度グラフ"><i class="fa fa-check"></i><b>5.7</b> 1次元の密度グラフ</a>
+<li class="chapter" data-level="4.7" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の密度グラフ"><i class="fa fa-check"></i><b>4.7</b> 1次元の密度グラフ</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#密度グラフの基本形"><i class="fa fa-check"></i>密度グラフの基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#横並び密度グラフ"><i class="fa fa-check"></i>横並び密度グラフ</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ密度グラフ"><i class="fa fa-check"></i>積み上げ密度グラフ</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布離散型-1"><i class="fa fa-check"></i><b>5.8</b> 2次元の度数分布（離散型）</a>
+<li class="chapter" data-level="4.8" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布離散型-1"><i class="fa fa-check"></i><b>4.8</b> 2次元の度数分布（離散型）</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#度数バブルチャートの基本形"><i class="fa fa-check"></i>度数バブルチャートの基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#度数ヒートマップの基本形"><i class="fa fa-check"></i>度数ヒートマップの基本形</a></li>
 </ul></li>
-<li class="chapter" data-level="5.9" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布連続型-1"><i class="fa fa-check"></i><b>5.9</b> 2次元の度数分布（連続型）</a>
+<li class="chapter" data-level="4.9" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布連続型-1"><i class="fa fa-check"></i><b>4.9</b> 2次元の度数分布（連続型）</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#度数ヒートマップの基本形-1"><i class="fa fa-check"></i>度数ヒートマップの基本形</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の密度グラフ-1"><i class="fa fa-check"></i><b>5.10</b> 2次元の密度グラフ</a>
+<li class="chapter" data-level="4.10" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の密度グラフ-1"><i class="fa fa-check"></i><b>4.10</b> 2次元の密度グラフ</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元密度グラフの基本形"><i class="fa fa-check"></i>2次元密度グラフの基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元密度グラフの塗りつぶし版"><i class="fa fa-check"></i>2次元密度グラフの塗りつぶし版</a></li>
 </ul></li>
-<li class="chapter" data-level="5.11" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#qqプロット"><i class="fa fa-check"></i><b>5.11</b> QQプロット</a></li>
-<li class="chapter" data-level="5.12" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図バブルチャート"><i class="fa fa-check"></i><b>5.12</b> 散布図・バブルチャート</a>
+<li class="chapter" data-level="4.11" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#qqプロット"><i class="fa fa-check"></i><b>4.11</b> QQプロット</a></li>
+<li class="chapter" data-level="4.12" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図バブルチャート"><i class="fa fa-check"></i><b>4.12</b> 散布図・バブルチャート</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図の基本形"><i class="fa fa-check"></i>散布図の基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#バブルチャートの基本形"><i class="fa fa-check"></i>バブルチャートの基本形</a></li>
@@ -449,7 +412,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図にラベルを追加"><i class="fa fa-check"></i>散布図にラベルを追加</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#バブルチャートにラベルを追加"><i class="fa fa-check"></i>バブルチャートにラベルを追加</a></li>
 </ul></li>
-<li class="chapter" data-level="5.13" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#棒グラフ"><i class="fa fa-check"></i><b>5.13</b> 棒グラフ</a>
+<li class="chapter" data-level="4.13" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#棒グラフ"><i class="fa fa-check"></i><b>4.13</b> 棒グラフ</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#縦棒グラフの基本形"><i class="fa fa-check"></i>縦棒グラフの基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#横棒グラフ"><i class="fa fa-check"></i>横棒グラフ</a></li>
@@ -461,39 +424,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ縦棒グラフ-1"><i class="fa fa-check"></i>100％積み上げ縦棒グラフ</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ縦棒グラフにラベルを追加-1"><i class="fa fa-check"></i>100％積み上げ縦棒グラフにラベルを追加</a></li>
 </ul></li>
-<li class="chapter" data-level="5.14" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#円グラフ"><i class="fa fa-check"></i><b>5.14</b> 円グラフ</a>
+<li class="chapter" data-level="4.14" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#円グラフ"><i class="fa fa-check"></i><b>4.14</b> 円グラフ</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#円グラフの基本形"><i class="fa fa-check"></i>円グラフの基本形</a></li>
 </ul></li>
-<li class="chapter" data-level="5.15" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフ"><i class="fa fa-check"></i><b>5.15</b> 折れ線グラフ</a>
+<li class="chapter" data-level="4.15" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフ"><i class="fa fa-check"></i><b>4.15</b> 折れ線グラフ</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフの基本形"><i class="fa fa-check"></i>折れ線グラフの基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフにマーカーを追加"><i class="fa fa-check"></i>折れ線グラフにマーカーを追加</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフに系列ラベルを追加"><i class="fa fa-check"></i>折れ線グラフに系列ラベルを追加</a></li>
 </ul></li>
-<li class="chapter" data-level="5.16" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ステップグラフ"><i class="fa fa-check"></i><b>5.16</b> ステップグラフ</a>
+<li class="chapter" data-level="4.16" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ステップグラフ"><i class="fa fa-check"></i><b>4.16</b> ステップグラフ</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ステップグラフの基本形"><i class="fa fa-check"></i>ステップグラフの基本形</a></li>
 </ul></li>
-<li class="chapter" data-level="5.17" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#面グラフ"><i class="fa fa-check"></i><b>5.17</b> 面グラフ</a>
+<li class="chapter" data-level="4.17" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#面グラフ"><i class="fa fa-check"></i><b>4.17</b> 面グラフ</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#面グラフの基本形"><i class="fa fa-check"></i>面グラフの基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ面グラフ"><i class="fa fa-check"></i>積み上げ面グラフ</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#リボングラフの基本形"><i class="fa fa-check"></i>リボングラフの基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#リボングラフに折れ線グラフを追加"><i class="fa fa-check"></i>リボングラフに折れ線グラフを追加</a></li>
 </ul></li>
-<li class="chapter" data-level="5.18" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげ図ヴァイオリングラフ"><i class="fa fa-check"></i><b>5.18</b> 箱ひげ図・ヴァイオリングラフ</a>
+<li class="chapter" data-level="4.18" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげ図ヴァイオリングラフ"><i class="fa fa-check"></i><b>4.18</b> 箱ひげ図・ヴァイオリングラフ</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげ図の基本形"><i class="fa fa-check"></i>箱ひげ図の基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげ図に個別サンプルを追加"><i class="fa fa-check"></i>箱ひげ図に個別サンプルを追加</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ヴァイオリングラフの基本形"><i class="fa fa-check"></i>ヴァイオリングラフの基本形</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ヴァイオリングラフに個別サンプルを追加"><i class="fa fa-check"></i>ヴァイオリングラフに個別サンプルを追加</a></li>
 </ul></li>
-<li class="chapter" data-level="5.19" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロット"><i class="fa fa-check"></i><b>5.19</b> ドットプロット</a>
+<li class="chapter" data-level="4.19" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロット"><i class="fa fa-check"></i><b>4.19</b> ドットプロット</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロットの基本形"><i class="fa fa-check"></i>ドットプロットの基本形</a></li>
 </ul></li>
-<li class="chapter" data-level="5.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフファセット"><i class="fa fa-check"></i><b>5.20</b> 複合グラフ（ファセット）</a>
+<li class="chapter" data-level="4.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフファセット"><i class="fa fa-check"></i><b>4.20</b> 複合グラフ（ファセット）</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行方向の複合グラフ"><i class="fa fa-check"></i>行方向の複合グラフ</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#列方向の複合グラフ"><i class="fa fa-check"></i>列方向の複合グラフ</a></li>
@@ -501,9 +464,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行数列数を指定した複合グラフ"><i class="fa fa-check"></i>行数・列数を指定した複合グラフ</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフの設定"><i class="fa fa-check"></i>複合グラフの設定</a></li>
 </ul></li>
-<li class="chapter" data-level="5.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>5.21</b> 地図ファセット</a></li>
-<li class="chapter" data-level="5.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#補助線"><i class="fa fa-check"></i><b>5.22</b> 補助線</a></li>
-<li class="chapter" data-level="5.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定色"><i class="fa fa-check"></i><b>5.23</b> 設定：色</a>
+<li class="chapter" data-level="4.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>4.21</b> 地図ファセット</a></li>
+<li class="chapter" data-level="4.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#補助線"><i class="fa fa-check"></i><b>4.22</b> 補助線</a></li>
+<li class="chapter" data-level="4.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定色"><i class="fa fa-check"></i><b>4.23</b> 設定：色</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の手動指定離散型変数"><i class="fa fa-check"></i>色の手動指定（離散型変数）</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#brewerカラーパレット離散型変数"><i class="fa fa-check"></i>Brewerカラーパレット（離散型変数）</a></li>
@@ -513,74 +476,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#viridisカラーパレット連続型変数"><i class="fa fa-check"></i>Viridisカラーパレット（連続型変数）</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#gradientカラーパレット連続型変数"><i class="fa fa-check"></i>gradientカラーパレット（連続型変数）</a></li>
 </ul></li>
-<li class="chapter" data-level="5.24" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定軸"><i class="fa fa-check"></i><b>5.24</b> 設定：軸</a>
+<li class="chapter" data-level="4.24" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定軸"><i class="fa fa-check"></i><b>4.24</b> 設定：軸</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#x軸連続型y軸連続型"><i class="fa fa-check"></i>X軸：連続型、Y軸：連続型</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#対数目盛"><i class="fa fa-check"></i>対数目盛</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#x軸日付型y軸連続型"><i class="fa fa-check"></i>X軸：日付型、Y軸：連続型</a></li>
 </ul></li>
-<li class="chapter" data-level="5.25" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定パネル目盛線"><i class="fa fa-check"></i><b>5.25</b> 設定：パネル目盛線</a></li>
-<li class="chapter" data-level="5.26" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定凡例"><i class="fa fa-check"></i><b>5.26</b> 設定：凡例</a></li>
-<li class="chapter" data-level="5.27" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定タイトルキャプション"><i class="fa fa-check"></i><b>5.27</b> 設定：タイトル・キャプション</a></li>
-<li class="chapter" data-level="5.28" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定フォントマージン"><i class="fa fa-check"></i><b>5.28</b> 設定：フォント・マージン</a></li>
-<li class="chapter" data-level="5.29" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#グラフの保存"><i class="fa fa-check"></i><b>5.29</b> グラフの保存</a></li>
-<li class="chapter" data-level="5.30" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>5.30</b> 実例</a>
+<li class="chapter" data-level="4.25" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定パネル目盛線"><i class="fa fa-check"></i><b>4.25</b> 設定：パネル目盛線</a></li>
+<li class="chapter" data-level="4.26" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定凡例"><i class="fa fa-check"></i><b>4.26</b> 設定：凡例</a></li>
+<li class="chapter" data-level="4.27" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定タイトルキャプション"><i class="fa fa-check"></i><b>4.27</b> 設定：タイトル・キャプション</a></li>
+<li class="chapter" data-level="4.28" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定フォントマージン"><i class="fa fa-check"></i><b>4.28</b> 設定：フォント・マージン</a></li>
+<li class="chapter" data-level="4.29" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#グラフの保存"><i class="fa fa-check"></i><b>4.29</b> グラフの保存</a></li>
+<li class="chapter" data-level="4.30" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>4.30</b> 実例</a>
 <ul>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例1折れ線グラフ"><i class="fa fa-check"></i>実例1：折れ線グラフ</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例2積み上げ棒グラフ"><i class="fa fa-check"></i>実例2：積み上げ棒グラフ</a></li>
 <li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例3箱ひげ図"><i class="fa fa-check"></i>実例3：箱ひげ図</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="探索的データ分析.html"><a href="探索的データ分析.html"><i class="fa fa-check"></i><b>6</b> 探索的データ分析</a>
+<li class="chapter" data-level="5" data-path="探索的データ分析.html"><a href="探索的データ分析.html"><i class="fa fa-check"></i><b>5</b> 探索的データ分析</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="探索的データ分析.html"><a href="探索的データ分析.html#第6章の準備"><i class="fa fa-check"></i><b>6.1</b> 第6章の準備</a>
+<li class="chapter" data-level="5.1" data-path="探索的データ分析.html"><a href="探索的データ分析.html#第5章の準備"><i class="fa fa-check"></i><b>5.1</b> 第5章の準備</a>
 <ul>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#パッケージのインポート-4"><i class="fa fa-check"></i>パッケージのインポート</a></li>
+<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#パッケージのインポート-3"><i class="fa fa-check"></i>パッケージのインポート</a></li>
 <li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#ggplot2の設定-1"><i class="fa fa-check"></i>ggplot2の設定</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの中身記述統計量"><i class="fa fa-check"></i><b>6.2</b> データの中身（記述統計量）</a></li>
-<li class="chapter" data-level="6.3" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの分布"><i class="fa fa-check"></i><b>6.3</b> データの分布</a>
+<li class="chapter" data-level="5.2" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの中身記述統計量"><i class="fa fa-check"></i><b>5.2</b> データの中身（記述統計量）</a></li>
+<li class="chapter" data-level="5.3" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの分布"><i class="fa fa-check"></i><b>5.3</b> データの分布</a>
 <ul>
 <li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#離散型変数の度数分布"><i class="fa fa-check"></i>離散型変数の度数分布</a></li>
 <li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#連続型変数の度数分布"><i class="fa fa-check"></i>連続型変数の度数分布</a></li>
 <li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#外れ値"><i class="fa fa-check"></i>外れ値</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの関係性"><i class="fa fa-check"></i><b>6.4</b> データの関係性</a>
+<li class="chapter" data-level="5.4" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの関係性"><i class="fa fa-check"></i><b>5.4</b> データの関係性</a>
 <ul>
 <li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#離散型変数の関係性"><i class="fa fa-check"></i>離散型変数の関係性</a></li>
 <li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#連続型変数の関係性"><i class="fa fa-check"></i>連続型変数の関係性</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="探索的データ分析.html"><a href="探索的データ分析.html#相関関係ペアプロット"><i class="fa fa-check"></i><b>6.5</b> 相関関係・ペアプロット</a>
+<li class="chapter" data-level="5.5" data-path="探索的データ分析.html"><a href="探索的データ分析.html#相関関係ペアプロット"><i class="fa fa-check"></i><b>5.5</b> 相関関係・ペアプロット</a>
 <ul>
 <li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#相関係数行列"><i class="fa fa-check"></i>相関係数行列</a></li>
 <li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#corrplotパッケージ"><i class="fa fa-check"></i>corrplotパッケージ</a></li>
 <li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#corrrパッケージ"><i class="fa fa-check"></i>corrrパッケージ</a></li>
 <li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#ggallyパッケージ"><i class="fa fa-check"></i>GGallyパッケージ</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="探索的データ分析.html"><a href="探索的データ分析.html#探索的データ分析の一括実行"><i class="fa fa-check"></i><b>6.6</b> 探索的データ分析の一括実行</a>
+<li class="chapter" data-level="5.6" data-path="探索的データ分析.html"><a href="探索的データ分析.html#探索的データ分析の一括実行"><i class="fa fa-check"></i><b>5.6</b> 探索的データ分析の一括実行</a>
 <ul>
 <li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#dataexplorerパッケージ"><i class="fa fa-check"></i>DataExplorerパッケージ</a></li>
 <li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#smartedaパッケージ"><i class="fa fa-check"></i>SmartEDAパッケージ</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="線形回帰.html"><a href="線形回帰.html"><i class="fa fa-check"></i><b>7</b> 線形回帰</a>
+<li class="chapter" data-level="6" data-path="線形回帰.html"><a href="線形回帰.html"><i class="fa fa-check"></i><b>6</b> 線形回帰</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="線形回帰.html"><a href="線形回帰.html#第7章の準備"><i class="fa fa-check"></i><b>7.1</b> 第7章の準備</a>
+<li class="chapter" data-level="6.1" data-path="線形回帰.html"><a href="線形回帰.html#第6章の準備"><i class="fa fa-check"></i><b>6.1</b> 第6章の準備</a>
 <ul>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#パッケージのインポート-5"><i class="fa fa-check"></i>パッケージのインポート</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#外部データセットの取得-3"><i class="fa fa-check"></i>外部データセットの取得</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#パッケージのインポート-4"><i class="fa fa-check"></i>パッケージのインポート</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#外部データセットの取得-2"><i class="fa fa-check"></i>外部データセットの取得</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="線形回帰.html"><a href="線形回帰.html#用語の説明"><i class="fa fa-check"></i><b>7.2</b> 用語の説明</a>
+<li class="chapter" data-level="6.2" data-path="線形回帰.html"><a href="線形回帰.html#用語の説明"><i class="fa fa-check"></i><b>6.2</b> 用語の説明</a>
 <ul>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#標本と推定"><i class="fa fa-check"></i>標本と推定</a></li>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#推定量の望ましい性質"><i class="fa fa-check"></i>推定量の望ましい性質</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="線形回帰.html"><a href="線形回帰.html#最小2乗法ols"><i class="fa fa-check"></i><b>7.3</b> 最小2乗法（OLS）</a>
+<li class="chapter" data-level="6.3" data-path="線形回帰.html"><a href="線形回帰.html#最小2乗法ols"><i class="fa fa-check"></i><b>6.3</b> 最小2乗法（OLS）</a>
 <ul>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#最小2乗法の仮定"><i class="fa fa-check"></i>最小2乗法の仮定</a></li>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#検定と信頼区間"><i class="fa fa-check"></i>検定と信頼区間</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="線形回帰.html"><a href="線形回帰.html#モデルの種類と係数の解釈"><i class="fa fa-check"></i><b>7.4</b> モデルの種類と係数の解釈</a>
+<li class="chapter" data-level="6.4" data-path="線形回帰.html"><a href="線形回帰.html#モデルの種類と係数の解釈"><i class="fa fa-check"></i><b>6.4</b> モデルの種類と係数の解釈</a>
 <ul>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#水準モデル"><i class="fa fa-check"></i>水準モデル</a></li>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#対数モデル"><i class="fa fa-check"></i>対数モデル</a></li>
@@ -589,23 +552,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#交互作用モデル"><i class="fa fa-check"></i>交互作用モデル</a></li>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#ダミー変数"><i class="fa fa-check"></i>ダミー変数</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="線形回帰.html"><a href="線形回帰.html#重回帰モデルの役割と注意点"><i class="fa fa-check"></i><b>7.5</b> 重回帰モデルの役割と注意点</a>
+<li class="chapter" data-level="6.5" data-path="線形回帰.html"><a href="線形回帰.html#重回帰モデルの役割と注意点"><i class="fa fa-check"></i><b>6.5</b> 重回帰モデルの役割と注意点</a>
 <ul>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#欠落変数バイアス"><i class="fa fa-check"></i>欠落変数バイアス</a></li>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#多重共線性"><i class="fa fa-check"></i>多重共線性</a></li>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#変数選択の指針"><i class="fa fa-check"></i>変数選択の指針</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="線形回帰.html"><a href="線形回帰.html#rの単回帰モデル推定"><i class="fa fa-check"></i><b>7.6</b> Rの単回帰モデル推定</a>
+<li class="chapter" data-level="6.6" data-path="線形回帰.html"><a href="線形回帰.html#rの単回帰モデル推定"><i class="fa fa-check"></i><b>6.6</b> Rの単回帰モデル推定</a>
 <ul>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例4.1-線形単回帰"><i class="fa fa-check"></i>実証例4.1 線形単回帰</a></li>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#対数変化率モデルの推定"><i class="fa fa-check"></i>対数・変化率モデルの推定</a></li>
 </ul></li>
-<li class="chapter" data-level="7.7" data-path="線形回帰.html"><a href="線形回帰.html#rの重回帰モデル推定"><i class="fa fa-check"></i><b>7.7</b> Rの重回帰モデル推定</a>
+<li class="chapter" data-level="6.7" data-path="線形回帰.html"><a href="線形回帰.html#rの重回帰モデル推定"><i class="fa fa-check"></i><b>6.7</b> Rの重回帰モデル推定</a>
 <ul>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例5.15.4-線形重回帰"><i class="fa fa-check"></i>実証例5.1・5.4 線形重回帰</a></li>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例5.5-多項式モデル"><i class="fa fa-check"></i>実証例5.5 多項式モデル</a></li>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例5.6-ダミー交互作用モデル"><i class="fa fa-check"></i>実証例5.6 ダミー・交互作用モデル</a></li>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例5.7-ダミー交互作用モデル"><i class="fa fa-check"></i>実証例5.7 ダミー・交互作用モデル</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="時系列データ操作.html"><a href="時系列データ操作.html"><i class="fa fa-check"></i><b>7</b> 時系列データ操作</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="時系列データ操作.html"><a href="時系列データ操作.html#第7章の準備"><i class="fa fa-check"></i><b>7.1</b> 第7章の準備</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#パッケージのインポート-5"><i class="fa fa-check"></i>パッケージのインポート</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#外部データセットの取得-3"><i class="fa fa-check"></i>外部データセットの取得</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データ"><i class="fa fa-check"></i><b>7.2</b> ts形式データ</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データの表示"><i class="fa fa-check"></i>ts形式データの表示</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データ情報の取得"><i class="fa fa-check"></i>ts形式データ情報の取得</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データのフィルタ"><i class="fa fa-check"></i>ts形式データのフィルタ</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データのプロット"><i class="fa fa-check"></i>ts形式データのプロット</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データの変換"><i class="fa fa-check"></i><b>7.3</b> ts形式データの変換</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式に変換ts"><i class="fa fa-check"></i>ts形式に変換：ts()</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式に変換as_tsibble"><i class="fa fa-check"></i>ts形式に変換：as_tsibble()</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型データ関数"><i class="fa fa-check"></i><b>7.4</b> 日付型データ関数</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型データの生成"><i class="fa fa-check"></i>日付型データの生成</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型データの変換"><i class="fa fa-check"></i>日付型データの変換</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付情報の抽出"><i class="fa fa-check"></i>日付情報の抽出</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="時系列データ操作.html"><a href="時系列データ操作.html#データ変換"><i class="fa fa-check"></i><b>7.5</b> データ変換</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ラグリード系列の作成"><i class="fa fa-check"></i>ラグ・リード系列の作成</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#変化率系列の作成"><i class="fa fa-check"></i>変化率系列の作成</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#移動平均系列の作成"><i class="fa fa-check"></i>移動平均系列の作成</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="時系列データ操作.html"><a href="時系列データ操作.html#時系列データの頻度変換"><i class="fa fa-check"></i><b>7.6</b> 時系列データの頻度変換</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データを週次データに変換"><i class="fa fa-check"></i>日次データを週次データに変換</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データを月次データに変換"><i class="fa fa-check"></i>日次データを月次データに変換</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データを四半期データに変換"><i class="fa fa-check"></i>日次データを四半期データに変換</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="時系列データ操作.html"><a href="時系列データ操作.html#季節調整x-13"><i class="fa fa-check"></i><b>7.7</b> 季節調整（X-13）</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データの可視化"><i class="fa fa-check"></i>ts形式データの可視化</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#x-13arima-seatsの実施方法"><i class="fa fa-check"></i>X-13ARIMA-SEATSの実施方法</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#実例月次データの季節調整"><i class="fa fa-check"></i>実例：月次データの季節調整</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="時系列データ操作.html"><a href="時系列データ操作.html#季節調整stl分解"><i class="fa fa-check"></i><b>7.8</b> 季節調整（STL分解）</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#stl分解の実施方法"><i class="fa fa-check"></i>STL分解の実施方法</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#週次データのstl分解"><i class="fa fa-check"></i>週次データのSTL分解</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データのstl分解単一周期"><i class="fa fa-check"></i>日次データのSTL分解（単一周期）</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データのstl分解複数周期"><i class="fa fa-check"></i>日次データのSTL分解（複数周期）</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="時系列データ操作.html"><a href="時系列データ操作.html#トレンド"><i class="fa fa-check"></i><b>7.9</b> トレンド</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#線形トレンド"><i class="fa fa-check"></i>線形トレンド</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#区分線形トレンド"><i class="fa fa-check"></i>区分線形トレンド</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#hpフィルタ"><i class="fa fa-check"></i>HPフィルタ</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#一般化加法モデルgam"><i class="fa fa-check"></i>一般化加法モデル（GAM）</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="時系列データ操作.html"><a href="時系列データ操作.html#構造変化"><i class="fa fa-check"></i><b>7.10</b> 構造変化</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#構造変化点が既知の場合"><i class="fa fa-check"></i>構造変化点が既知の場合</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#構造変化点が未知の場合"><i class="fa fa-check"></i>構造変化点が未知の場合</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -702,7 +728,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>列名で選択<a href="tidyverseによるデータ操作.html#列名で選択" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="tidyverseによるデータ操作.html#cb245-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb245-2"><a href="tidyverseによるデータ操作.html#cb245-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, new_cases)</span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 3
+<pre><code>## # A tibble: 214,477 x 3
 ##    location    date       new_cases
 ##    &lt;chr&gt;       &lt;date&gt;         &lt;dbl&gt;
 ##  1 Afghanistan 2020-02-24         5
@@ -715,7 +741,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Afghanistan 2020-03-02         0
 ##  9 Afghanistan 2020-03-03         0
 ## 10 Afghanistan 2020-03-04         0
-## # ... with 201,718 more rows</code></pre>
+## # ... with 214,467 more rows</code></pre>
 </div>
 <div id="列名を格納したベクトルで選択" class="section level3 unnumbered hasAnchor">
 <h3>列名を格納したベクトルで選択<a href="tidyverseによるデータ操作.html#列名を格納したベクトルで選択" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -726,7 +752,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## i Use `all_of(cols)` instead of `cols` to silence this message.
 ## i See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
 ## This message is displayed once per session.</code></pre>
-<pre><code>## # A tibble: 201,728 x 3
+<pre><code>## # A tibble: 214,477 x 3
 ##    location    date       new_cases
 ##    &lt;chr&gt;       &lt;date&gt;         &lt;dbl&gt;
 ##  1 Afghanistan 2020-02-24         5
@@ -739,13 +765,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Afghanistan 2020-03-02         0
 ##  9 Afghanistan 2020-03-03         0
 ## 10 Afghanistan 2020-03-04         0
-## # ... with 201,718 more rows</code></pre>
+## # ... with 214,467 more rows</code></pre>
 </div>
 <div id="列を非選択削除" class="section level3 unnumbered hasAnchor">
 <h3>列を非選択（削除）<a href="tidyverseによるデータ操作.html#列を非選択削除" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="tidyverseによるデータ操作.html#cb250-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb250-2"><a href="tidyverseによるデータ操作.html#cb250-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>location) </span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 13
+<pre><code>## # A tibble: 214,477 x 13
 ##    continent date       total_cases new_cases new_cases_smoothed total_deaths
 ##    &lt;chr&gt;     &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;        &lt;dbl&gt;
 ##  1 Asia      2020-02-24           5         5             NA               NA
@@ -758,7 +784,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      2020-03-02           5         0              0               NA
 ##  9 Asia      2020-03-03           5         0              0               NA
 ## 10 Asia      2020-03-04           5         0              0               NA
-## # ... with 201,718 more rows, and 7 more variables: new_deaths &lt;dbl&gt;,
+## # ... with 214,467 more rows, and 7 more variables: new_deaths &lt;dbl&gt;,
 ## #   total_cases_per_million &lt;dbl&gt;, new_cases_per_million &lt;dbl&gt;,
 ## #   total_deaths_per_million &lt;dbl&gt;, new_deaths_per_million &lt;dbl&gt;,
 ## #   people_fully_vaccinated &lt;dbl&gt;, stringency_index &lt;dbl&gt;</code></pre>
@@ -767,7 +793,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>列名に特定の文字列を含む列を選択<a href="tidyverseによるデータ操作.html#列名に特定の文字列を含む列を選択" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="tidyverseによるデータ操作.html#cb252-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb252-2"><a href="tidyverseによるデータ操作.html#cb252-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, <span class="fu">contains</span>(<span class="st">&quot;cases&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 7
+<pre><code>## # A tibble: 214,477 x 7
 ##    location   date       total_cases new_cases new_cases_smoot~ total_cases_per~
 ##    &lt;chr&gt;      &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
 ##  1 Afghanist~ 2020-02-24           5         5           NA                0.125
@@ -780,13 +806,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Afghanist~ 2020-03-02           5         0            0                0.125
 ##  9 Afghanist~ 2020-03-03           5         0            0                0.125
 ## 10 Afghanist~ 2020-03-04           5         0            0                0.125
-## # ... with 201,718 more rows, and 1 more variable: new_cases_per_million &lt;dbl&gt;</code></pre>
+## # ... with 214,467 more rows, and 1 more variable: new_cases_per_million &lt;dbl&gt;</code></pre>
 </div>
 <div id="列名が特定の文字列から始まる列を選択" class="section level3 unnumbered hasAnchor">
 <h3>列名が特定の文字列から始まる列を選択<a href="tidyverseによるデータ操作.html#列名が特定の文字列から始まる列を選択" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="tidyverseによるデータ操作.html#cb254-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb254-2"><a href="tidyverseによるデータ操作.html#cb254-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, <span class="fu">starts_with</span>(<span class="st">&quot;new_cases&quot;</span>)) </span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 5
+<pre><code>## # A tibble: 214,477 x 5
 ##    location    date       new_cases new_cases_smoothed new_cases_per_million
 ##    &lt;chr&gt;       &lt;date&gt;         &lt;dbl&gt;              &lt;dbl&gt;                 &lt;dbl&gt;
 ##  1 Afghanistan 2020-02-24         5             NA                     0.125
@@ -799,13 +825,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Afghanistan 2020-03-02         0              0                     0    
 ##  9 Afghanistan 2020-03-03         0              0                     0    
 ## 10 Afghanistan 2020-03-04         0              0                     0    
-## # ... with 201,718 more rows</code></pre>
+## # ... with 214,467 more rows</code></pre>
 </div>
 <div id="列名が特定の文字列で終わる列を選択" class="section level3 unnumbered hasAnchor">
 <h3>列名が特定の文字列で終わる列を選択<a href="tidyverseによるデータ操作.html#列名が特定の文字列で終わる列を選択" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="tidyverseによるデータ操作.html#cb256-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb256-2"><a href="tidyverseによるデータ操作.html#cb256-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, <span class="fu">ends_with</span>(<span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;deaths&quot;</span>))) </span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 6
+<pre><code>## # A tibble: 214,477 x 6
 ##    location    date       total_cases new_cases total_deaths new_deaths
 ##    &lt;chr&gt;       &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
 ##  1 Afghanistan 2020-02-24           5         5           NA         NA
@@ -818,13 +844,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Afghanistan 2020-03-02           5         0           NA         NA
 ##  9 Afghanistan 2020-03-03           5         0           NA         NA
 ## 10 Afghanistan 2020-03-04           5         0           NA         NA
-## # ... with 201,718 more rows</code></pre>
+## # ... with 214,467 more rows</code></pre>
 </div>
 <div id="特定の型の列を選択" class="section level3 unnumbered hasAnchor">
 <h3>特定の型の列を選択<a href="tidyverseによるデータ操作.html#特定の型の列を選択" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="tidyverseによるデータ操作.html#cb258-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb258-2"><a href="tidyverseによるデータ操作.html#cb258-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">where</span>(is.character) <span class="sc">|</span> <span class="fu">where</span>(is.Date)) </span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 3
+<pre><code>## # A tibble: 214,477 x 3
 ##    continent location    date      
 ##    &lt;chr&gt;     &lt;chr&gt;       &lt;date&gt;    
 ##  1 Asia      Afghanistan 2020-02-24
@@ -837,7 +863,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghanistan 2020-03-02
 ##  9 Asia      Afghanistan 2020-03-03
 ## 10 Asia      Afghanistan 2020-03-04
-## # ... with 201,718 more rows</code></pre>
+## # ... with 214,467 more rows</code></pre>
 </div>
 </div>
 <div id="列名の変更" class="section level2 hasAnchor" number="3.4">
@@ -845,7 +871,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>データセットの列名（変数名）を変更するときは、<code>dplyr::rename()</code>関数を使用します。</p>
 <div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="tidyverseによるデータ操作.html#cb260-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb260-2"><a href="tidyverseによるデータ操作.html#cb260-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">country =</span> location)</span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 14
+<pre><code>## # A tibble: 214,477 x 14
 ##    continent country     date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;       &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
 ##  1 Asia      Afghanistan 2020-02-24           5         5             NA    
@@ -858,7 +884,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghanistan 2020-03-02           5         0              0    
 ##  9 Asia      Afghanistan 2020-03-03           5         0              0    
 ## 10 Asia      Afghanistan 2020-03-04           5         0              0    
-## # ... with 201,718 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 214,467 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -926,16 +952,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 1,000 x 10
 ##    carat cut       color clarity depth table price     x     y     z
 ##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  1.5  Premium   E     SI1      60.8    58 11795  7.36  7.32  4.46
-##  2  0.91 Ideal     E     SI2      61.5    56  3898  6.23  6.2   3.82
-##  3  0.57 Ideal     E     VS1      61.3    57  2110  5.34  5.37  3.28
-##  4  1.09 Ideal     G     VS2      62.4    55  7081  6.61  6.56  4.11
-##  5  0.7  Very Good D     VS1      60.4    58  3008  5.71  5.78  3.47
-##  6  0.31 Ideal     G     IF       61.6    55   891  4.35  4.38  2.69
-##  7  1.2  Good      E     VS2      63.7    57  5914  6.71  6.64  4.25
-##  8  0.31 Premium   D     VVS1     62.7    58   942  4.31  4.3   2.7 
-##  9  0.31 Ideal     D     VS2      61.3    57   734  4.37  4.4   2.69
-## 10  0.34 Ideal     F     SI1      59.4    57   630  4.58  4.54  2.71
+##  1  1.09 Good      H     SI1      63.2    57  4784  6.54  6.57  4.14
+##  2  0.72 Premium   D     SI1      61.4    59  2903  5.79  5.71  3.53
+##  3  0.26 Very Good H     VVS2     59.8    61   440  4.15  4.18  2.49
+##  4  1.06 Ideal     G     VVS2     61.4    57  8726  6.52  6.55  4.01
+##  5  1.35 Premium   H     VS2      60.5    62  6093  7.16  7.11  4.32
+##  6  0.72 Premium   G     VS2      62.9    57  2795  5.73  5.65  3.58
+##  7  1.12 Very Good E     SI2      60.9    63  3864  6.65  6.59  4.03
+##  8  0.5  Fair      I     VS1      66.9    56   969  4.85  4.81  3.23
+##  9  0.6  Very Good F     VS2      60.8    56  2270  5.45  5.48  3.32
+## 10  0.42 Premium   E     SI1      62.3    58   992  4.81  4.76  2.98
 ## # ... with 990 more rows</code></pre>
 <p>抽出するサンプル数を、データの個数ではなく、元データセットの何割、といった形で決める場合は、<code>dplyr::slice_sample()</code>関数の<code>porp</code>引数に割合を指定します。</p>
 <div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="tidyverseによるデータ操作.html#cb270-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
@@ -943,16 +969,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 5,394 x 10
 ##    carat cut       color clarity depth table price     x     y     z
 ##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  1.02 Ideal     F     VS2      62      56  7326  6.42  6.45  3.99
-##  2  0.92 Premium   D     SI2      59.4    59  3877  6.39  6.28  3.76
-##  3  0.53 Ideal     G     SI1      61.8    58  1255  5.16  5.19  3.2 
-##  4  0.33 Ideal     F     VS2      61.9    55   854  4.46  4.43  2.75
-##  5  1.21 Ideal     E     VS2      60.3    60  9449  6.92  6.88  4.16
-##  6  0.26 Very Good F     VS2      62.5    55   381  4.05  4.08  2.54
-##  7  0.32 Ideal     H     SI1      61.5    55   434  4.41  4.43  2.72
-##  8  0.32 Ideal     D     VS2      61.8    55   842  4.43  4.41  2.73
-##  9  2.17 Good      H     SI2      58.9    62 16036  8.48  8.52  5.01
-## 10  0.9  Fair      F     VS1      65.7    59  3750  5.96  5.92  3.9 
+##  1  0.51 Premium   E     VS2      61.3    58  1656  5.13  5.15  3.15
+##  2  0.35 Very Good H     VVS2     61      57   650  4.54  4.57  2.77
+##  3  0.94 Fair      F     SI1      56.8    67  4053  6.56  6.44  3.69
+##  4  0.91 Premium   E     VS2      61.6    58  4739  6.2   6.18  3.81
+##  5  0.32 Premium   G     VS1      61.7    58   645  4.38  4.41  2.71
+##  6  1.01 Very Good D     SI2      59.1    63  3671  6.59  6.54  3.88
+##  7  0.24 Very Good H     VVS1     61.3    56   449  4.01  4.04  2.46
+##  8  1.52 Premium   H     SI2      62      58  7906  7.37  7.34  4.56
+##  9  0.83 Very Good G     SI2      63.1    61  2259  5.96  5.92  3.75
+## 10  0.7  Good      D     SI1      64.2    62  2318  5.52  5.48  3.53
 ## # ... with 5,384 more rows</code></pre>
 </div>
 </div>
@@ -962,7 +988,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="条件に一致する行" class="section level3 unnumbered hasAnchor">
 <h3>条件に一致する行<a href="tidyverseによるデータ操作.html#条件に一致する行" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="tidyverseによるデータ操作.html#cb272-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">==</span> <span class="st">&quot;Japan&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 907 x 14
+<pre><code>## # A tibble: 959 x 14
 ##    continent location date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
 ##  1 Asia      Japan    2020-01-22           2        NA             NA    
@@ -975,7 +1001,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Japan    2020-01-29           7         0              0.714
 ##  9 Asia      Japan    2020-01-30          11         4              1.29 
 ## 10 Asia      Japan    2020-01-31          15         4              1.86 
-## # ... with 897 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 949 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -985,7 +1011,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>条件に一致しない行（NOT条件）<a href="tidyverseによるデータ操作.html#条件に一致しない行not条件" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>NOT条件は<code>!=</code>演算子を使用します。</p>
 <div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="tidyverseによるデータ操作.html#cb274-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(continent <span class="sc">!=</span> <span class="st">&quot;Asia&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 146,482 x 14
+<pre><code>## # A tibble: 156,007 x 14
 ##    continent location date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
 ##  1 Europe    Albania  2020-02-25          NA        NA                 NA
@@ -998,7 +1024,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Europe    Albania  2020-03-03          NA        NA                 NA
 ##  9 Europe    Albania  2020-03-04          NA        NA                 NA
 ## 10 Europe    Albania  2020-03-05          NA        NA                 NA
-## # ... with 146,472 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 155,997 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1031,7 +1057,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   continent     location      date       total_cases new_cases new_cases_smooth~
 ##   &lt;chr&gt;         &lt;chr&gt;         &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;             &lt;dbl&gt;
 ## 1 Asia          Japan         2022-01-01     1732752       456              344.
-## 2 North America United States 2022-01-01    55024174    188771           405171.
+## 2 North America United States 2022-01-01    55104304    191879           410777 
 ## # ... with 8 more variables: total_deaths &lt;dbl&gt;, new_deaths &lt;dbl&gt;,
 ## #   total_cases_per_million &lt;dbl&gt;, new_cases_per_million &lt;dbl&gt;,
 ## #   total_deaths_per_million &lt;dbl&gt;, new_deaths_per_million &lt;dbl&gt;,
@@ -1047,7 +1073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   continent     location      date       total_cases new_cases new_cases_smooth~
 ##   &lt;chr&gt;         &lt;chr&gt;         &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;             &lt;dbl&gt;
 ## 1 Asia          Japan         2021-01-01      239005      3256             3502.
-## 2 North America United States 2021-01-01    20370192    178897           206422.
+## 2 North America United States 2021-01-01    20398843    177205           206546.
 ## # ... with 8 more variables: total_deaths &lt;dbl&gt;, new_deaths &lt;dbl&gt;,
 ## #   total_cases_per_million &lt;dbl&gt;, new_cases_per_million &lt;dbl&gt;,
 ## #   total_deaths_per_million &lt;dbl&gt;, new_deaths_per_million &lt;dbl&gt;,
@@ -1082,16 +1108,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 229 x 14
 ##    continent     location      date       total_cases new_cases new_cases_smoot~
 ##    &lt;chr&gt;         &lt;chr&gt;         &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;
-##  1 Asia          Afghanistan   2022-07-16      183445        38            30   
-##  2 &lt;NA&gt;          Africa        2022-07-16    12169669      3837          6842.  
-##  3 Europe        Albania       2022-07-16      293917        NA            NA   
-##  4 Africa        Algeria       2022-07-16      266424        32            25.4 
-##  5 Europe        Andorra       2022-07-16       44671         0             0   
-##  6 Africa        Angola        2022-07-16      101901        NA            NA   
-##  7 North America Anguilla      2022-07-16        3496         0             2.86
-##  8 North America Antigua and ~ 2022-07-16        8712         8             3.71
-##  9 South America Argentina     2022-07-16     9426171        NA            NA   
-## 10 Asia          Armenia       2022-07-16      423771        NA            NA   
+##  1 Asia          Afghanistan   2022-09-06      194614       259            230  
+##  2 &lt;NA&gt;          Africa        2022-09-06    12333163      1550           1189. 
+##  3 Europe        Albania       2022-09-06      330283        62            181. 
+##  4 Africa        Algeria       2022-09-06      270476        15             29.1
+##  5 Europe        Andorra       2022-09-06       46027         0              0  
+##  6 Africa        Angola        2022-09-06      102636         0              0  
+##  7 North America Anguilla      2022-09-06        3851         0              2  
+##  8 North America Antigua and ~ 2022-09-06        8974         0              0  
+##  9 South America Argentina     2022-09-06     9689861        NA             NA  
+## 10 Asia          Armenia       2022-09-06      436727        NA             NA  
 ## # ... with 219 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
@@ -1102,7 +1128,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>論理値を返す関数による条件指定<a href="tidyverseによるデータ操作.html#論理値を返す関数による条件指定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>is.na()</code>関数のように倫理値を返す関数は、<code>==</code>演算子がなくてもフィルタ条件として使用することができます。</p>
 <div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="tidyverseによるデータ操作.html#cb286-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">is.na</span>(new_cases))</span></code></pre></div>
-<pre><code>## # A tibble: 8,376 x 14
+<pre><code>## # A tibble: 9,152 x 14
 ##    continent location    date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;       &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
 ##  1 Asia      Afghanistan 2020-03-20          24        NA                 NA
@@ -1115,7 +1141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Europe    Albania     2020-03-01          NA        NA                 NA
 ##  9 Europe    Albania     2020-03-02          NA        NA                 NA
 ## 10 Europe    Albania     2020-03-03          NA        NA                 NA
-## # ... with 8,366 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 9,142 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1129,7 +1155,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb288-2"><a href="tidyverseによるデータ操作.html#cb288-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb288-3"><a href="tidyverseによるデータ操作.html#cb288-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">==</span> <span class="st">&quot;Japan&quot;</span>,</span>
 <span id="cb288-4"><a href="tidyverseによるデータ操作.html#cb288-4" aria-hidden="true" tabindex="-1"></a>                <span class="fu">if_all</span>(<span class="at">.cols =</span> <span class="fu">ends_with</span>(<span class="st">&quot;cases&quot;</span>), <span class="at">.fns =</span> <span class="sc">~</span> {. <span class="sc">&gt;=</span> <span class="dv">1000</span>}))</span></code></pre></div>
-<pre><code>## # A tibble: 530 x 14
+<pre><code>## # A tibble: 582 x 14
 ##    continent location date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
 ##  1 Asia      Japan    2020-07-29       33362      1270               894.
@@ -1142,7 +1168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Japan    2020-08-06       44172      1485              1357.
 ##  9 Asia      Japan    2020-08-07       45777      1605              1360.
 ## 10 Asia      Japan    2020-08-08       47348      1571              1365.
-## # ... with 520 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 572 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1151,7 +1177,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb290-2"><a href="tidyverseによるデータ操作.html#cb290-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb290-3"><a href="tidyverseによるデータ操作.html#cb290-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">==</span> <span class="st">&quot;Japan&quot;</span>,</span>
 <span id="cb290-4"><a href="tidyverseによるデータ操作.html#cb290-4" aria-hidden="true" tabindex="-1"></a>                <span class="fu">if_any</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.double), <span class="at">.fns =</span> is.na))</span></code></pre></div>
-<pre><code>## # A tibble: 427 x 14
+<pre><code>## # A tibble: 425 x 14
 ##    continent location date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
 ##  1 Asia      Japan    2020-01-22           2        NA             NA    
@@ -1164,7 +1190,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Japan    2020-01-29           7         0              0.714
 ##  9 Asia      Japan    2020-01-30          11         4              1.29 
 ## 10 Asia      Japan    2020-01-31          15         4              1.86 
-## # ... with 417 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 415 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1178,7 +1204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>昇順ソート<a href="tidyverseによるデータ操作.html#昇順ソート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="tidyverseによるデータ操作.html#cb292-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb292-2"><a href="tidyverseによるデータ操作.html#cb292-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(new_cases) </span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 14
+<pre><code>## # A tibble: 214,477 x 14
 ##    continent location    date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;       &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
 ##  1 Asia      Afghanistan 2020-02-25           5         0             NA    
@@ -1191,7 +1217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghanistan 2020-03-03           5         0              0    
 ##  9 Asia      Afghanistan 2020-03-04           5         0              0    
 ## 10 Asia      Afghanistan 2020-03-05           5         0              0    
-## # ... with 201,718 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 214,467 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1201,20 +1227,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>降順ソート<a href="tidyverseによるデータ操作.html#降順ソート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="tidyverseによるデータ操作.html#cb294-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb294-2"><a href="tidyverseによるデータ操作.html#cb294-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="sc">-</span>new_cases) </span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 14
+<pre><code>## # A tibble: 214,477 x 14
 ##    continent location date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
-##  1 &lt;NA&gt;      World    2022-01-19   339428066   4079558           3097093.
-##  2 &lt;NA&gt;      World    2022-01-21   346997319   3837147           3249827.
-##  3 &lt;NA&gt;      World    2022-01-18   335348508   3760055           3005868.
-##  4 &lt;NA&gt;      World    2022-01-26   363064823   3758978           3376680.
-##  5 &lt;NA&gt;      World    2022-01-20   343160172   3732106           3175501.
-##  6 &lt;NA&gt;      World    2022-01-27   366768404   3703581           3372605.
-##  7 &lt;NA&gt;      World    2022-01-28   370428300   3659896           3347283 
-##  8 &lt;NA&gt;      World    2022-01-25   359305845   3651216           3422477.
-##  9 &lt;NA&gt;      World    2022-01-12   317748413   3440984           2782662.
-## 10 &lt;NA&gt;      World    2022-01-24   355654629   3421705           3438025.
-## # ... with 201,718 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+##  1 &lt;NA&gt;      World    2022-01-19   339529657   4081691           3097758.
+##  2 &lt;NA&gt;      World    2022-01-21   347081011   3822665           3247705.
+##  3 &lt;NA&gt;      World    2022-01-18   335447966   3764571           3006986.
+##  4 &lt;NA&gt;      World    2022-01-26   363145489   3758996           3373690.
+##  5 &lt;NA&gt;      World    2022-01-20   343258346   3728689           3175354.
+##  6 &lt;NA&gt;      World    2022-01-27   366844418   3698929           3369439.
+##  7 &lt;NA&gt;      World    2022-01-28   370502156   3657738           3345878.
+##  8 &lt;NA&gt;      World    2022-01-25   359386493   3650212           3419790.
+##  9 &lt;NA&gt;      World    2022-01-12   317845352   3446290           2783799.
+## 10 &lt;NA&gt;      World    2022-01-24   355736281   3410528           3436127.
+## # ... with 214,467 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1225,20 +1251,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>日付型のデータは<code>-</code>演算子で降順ソートができないため、<code>desc()</code>関数を使用します。</p>
 <div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="tidyverseによるデータ操作.html#cb296-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb296-2"><a href="tidyverseによるデータ操作.html#cb296-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(date)) </span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 14
+<pre><code>## # A tibble: 214,477 x 14
 ##    continent     location      date       total_cases new_cases new_cases_smoot~
 ##    &lt;chr&gt;         &lt;chr&gt;         &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;
-##  1 Asia          Afghanistan   2022-07-16      183445        38            30   
-##  2 &lt;NA&gt;          Africa        2022-07-16    12169669      3837          6842.  
-##  3 Europe        Albania       2022-07-16      293917        NA            NA   
-##  4 Africa        Algeria       2022-07-16      266424        32            25.4 
-##  5 Europe        Andorra       2022-07-16       44671         0             0   
-##  6 Africa        Angola        2022-07-16      101901        NA            NA   
-##  7 North America Anguilla      2022-07-16        3496         0             2.86
-##  8 North America Antigua and ~ 2022-07-16        8712         8             3.71
-##  9 South America Argentina     2022-07-16     9426171        NA            NA   
-## 10 Asia          Armenia       2022-07-16      423771        NA            NA   
-## # ... with 201,718 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+##  1 Asia          Afghanistan   2022-09-06      194614       259            230  
+##  2 &lt;NA&gt;          Africa        2022-09-06    12333163      1550           1189. 
+##  3 Europe        Albania       2022-09-06      330283        62            181. 
+##  4 Africa        Algeria       2022-09-06      270476        15             29.1
+##  5 Europe        Andorra       2022-09-06       46027         0              0  
+##  6 Africa        Angola        2022-09-06      102636         0              0  
+##  7 North America Anguilla      2022-09-06        3851         0              2  
+##  8 North America Antigua and ~ 2022-09-06        8974         0              0  
+##  9 South America Argentina     2022-09-06     9689861        NA             NA  
+## 10 Asia          Armenia       2022-09-06      436727        NA             NA  
+## # ... with 214,467 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1249,20 +1275,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>dplyr::arrange()</code>関数内で複数条件を指定すると、左から順番に適用します。</p>
 <div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="tidyverseによるデータ操作.html#cb298-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb298-2"><a href="tidyverseによるデータ操作.html#cb298-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(<span class="fu">desc</span>(date), <span class="sc">-</span>new_cases) </span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 14
+<pre><code>## # A tibble: 214,477 x 14
 ##    continent     location      date       total_cases new_cases new_cases_smoot~
 ##    &lt;chr&gt;         &lt;chr&gt;         &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;
-##  1 &lt;NA&gt;          World         2022-07-16   561978603    568433          955485.
-##  2 &lt;NA&gt;          High income   2022-07-16   333816464    417197          752955.
-##  3 &lt;NA&gt;          Asia          2022-07-16   159902574    242724          231158.
-##  4 &lt;NA&gt;          Europe        2022-07-16   212308580    113613          397785.
-##  5 Asia          Japan         2022-07-16    10213101    110647           81897.
-##  6 &lt;NA&gt;          Upper middle~ 2022-07-16   134043795    108307          162257.
-##  7 &lt;NA&gt;          North America 2022-07-16   105963375    106967          174675.
-##  8 &lt;NA&gt;          European Uni~ 2022-07-16   154893179    104403          352396.
-##  9 Europe        Italy         2022-07-16    20076863     91384          102704.
-## 10 North America United States 2022-07-16    89521016     67940          134178.
-## # ... with 201,718 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+##  1 &lt;NA&gt;          World         2022-09-06   606186060    687971          678043.
+##  2 &lt;NA&gt;          High income   2022-09-06   368033673    588127          552837.
+##  3 &lt;NA&gt;          Asia          2022-09-06   180950544    272050          292214 
+##  4 &lt;NA&gt;          Europe        2022-09-06   224459528    250111          268754.
+##  5 &lt;NA&gt;          European Uni~ 2022-09-06   164651393    176578          207143.
+##  6 &lt;NA&gt;          North America 2022-09-06   112603859    147024           84952.
+##  7 North America United States 2022-09-06    94896544    128366           74037.
+##  8 Asia          Japan         2022-09-06    19640667    112117          122909.
+##  9 Asia          South Korea   2022-09-06    23791961     85484           77938.
+## 10 &lt;NA&gt;          Upper middle~ 2022-09-06   141407988     67130          100702.
+## # ... with 214,467 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1283,7 +1309,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="tidyverseによるデータ操作.html#cb301-1" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
 <span id="cb301-2"><a href="tidyverseによるデータ操作.html#cb301-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">death_rate =</span> new_deaths <span class="sc">/</span> new_cases,</span>
 <span id="cb301-3"><a href="tidyverseによるデータ操作.html#cb301-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">.after =</span> <span class="st">&quot;date&quot;</span>) </span></code></pre></div>
-<pre><code>## # A tibble: 197 x 5
+<pre><code>## # A tibble: 249 x 5
 ##    location date       death_rate new_cases new_deaths
 ##    &lt;chr&gt;    &lt;date&gt;          &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
 ##  1 Japan    2022-01-01   0              456          0
@@ -1296,14 +1322,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Japan    2022-01-08   0.000241      8302          2
 ##  9 Japan    2022-01-09   0.000124      8071          1
 ## 10 Japan    2022-01-10   0.000319      6265          2
-## # ... with 187 more rows</code></pre>
+## # ... with 239 more rows</code></pre>
 </div>
 <div id="既存の列の修正" class="section level3 unnumbered hasAnchor">
 <h3>既存の列の修正<a href="tidyverseによるデータ操作.html#既存の列の修正" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>=</code>演算子の左側に既存の列名を指定すると、当該列を修正します。</p>
 <div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="tidyverseによるデータ操作.html#cb303-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb303-2"><a href="tidyverseによるデータ操作.html#cb303-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">location =</span> <span class="fu">factor</span>(location))</span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 14
+<pre><code>## # A tibble: 214,477 x 14
 ##    continent location    date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;fct&gt;       &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
 ##  1 Asia      Afghanistan 2020-02-24           5         5             NA    
@@ -1316,7 +1342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghanistan 2020-03-02           5         0              0    
 ##  9 Asia      Afghanistan 2020-03-03           5         0              0    
 ## 10 Asia      Afghanistan 2020-03-04           5         0              0    
-## # ... with 201,718 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 214,467 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1329,7 +1355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb305-2"><a href="tidyverseによるデータ操作.html#cb305-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
 <span id="cb305-3"><a href="tidyverseによるデータ操作.html#cb305-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dummy =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(new_cases <span class="sc">&lt;</span> <span class="dv">3000</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
 <span id="cb305-4"><a href="tidyverseによるデータ操作.html#cb305-4" aria-hidden="true" tabindex="-1"></a>                                         <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 197 x 5
+<pre><code>## # A tibble: 249 x 5
 ##    location date       new_cases new_deaths dummy
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
 ##  1 Japan    2022-01-01       456          0     1
@@ -1342,13 +1368,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Japan    2022-01-08      8302          2     0
 ##  9 Japan    2022-01-09      8071          1     0
 ## 10 Japan    2022-01-10      6265          2     0
-## # ... with 187 more rows</code></pre>
+## # ... with 239 more rows</code></pre>
 <div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="tidyverseによるデータ操作.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 複数条件を指定</span></span>
 <span id="cb307-2"><a href="tidyverseによるデータ操作.html#cb307-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
 <span id="cb307-3"><a href="tidyverseによるデータ操作.html#cb307-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">case =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(new_cases <span class="sc">&lt;</span> <span class="dv">1000</span> <span class="sc">~</span> <span class="st">&quot;A&quot;</span>,</span>
 <span id="cb307-4"><a href="tidyverseによるデータ操作.html#cb307-4" aria-hidden="true" tabindex="-1"></a>                                        (new_cases <span class="sc">&gt;=</span> <span class="dv">5000</span> <span class="sc">&amp;</span> new_cases <span class="sc">&lt;</span> <span class="dv">8000</span>) <span class="sc">~</span> <span class="st">&quot;B&quot;</span>,</span>
 <span id="cb307-5"><a href="tidyverseによるデータ操作.html#cb307-5" aria-hidden="true" tabindex="-1"></a>                                        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;other&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 197 x 5
+<pre><code>## # A tibble: 249 x 5
 ##    location date       new_cases new_deaths case 
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;
 ##  1 Japan    2022-01-01       456          0 A    
@@ -1361,7 +1387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Japan    2022-01-08      8302          2 other
 ##  9 Japan    2022-01-09      8071          1 other
 ## 10 Japan    2022-01-10      6265          2 B    
-## # ... with 187 more rows</code></pre>
+## # ... with 239 more rows</code></pre>
 </div>
 <div id="複数列の一括処理" class="section level3 unnumbered hasAnchor">
 <h3>複数列の一括処理<a href="tidyverseによるデータ操作.html#複数列の一括処理" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1370,7 +1396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="tidyverseによるデータ操作.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new_casesからnew_deathまでのすべての列の要素を1000で除す</span></span>
 <span id="cb309-2"><a href="tidyverseによるデータ操作.html#cb309-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
 <span id="cb309-3"><a href="tidyverseによるデータ操作.html#cb309-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> new_cases<span class="sc">:</span>new_deaths, <span class="at">.fns =</span> <span class="sc">~</span> {. <span class="sc">/</span> <span class="dv">1000</span>}))</span></code></pre></div>
-<pre><code>## # A tibble: 197 x 4
+<pre><code>## # A tibble: 249 x 4
 ##    location date       new_cases new_deaths
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;
 ##  1 Japan    2022-01-01     0.456      0    
@@ -1383,11 +1409,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Japan    2022-01-08     8.30       0.002
 ##  9 Japan    2022-01-09     8.07       0.001
 ## 10 Japan    2022-01-10     6.26       0.002
-## # ... with 187 more rows</code></pre>
+## # ... with 239 more rows</code></pre>
 <div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="tidyverseによるデータ操作.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new_casesからnew_deathまでのすべての列の要素の前期比変化率を計算</span></span>
 <span id="cb311-2"><a href="tidyverseによるデータ操作.html#cb311-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
 <span id="cb311-3"><a href="tidyverseによるデータ操作.html#cb311-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> new_cases<span class="sc">:</span>new_deaths, <span class="at">.fns =</span> <span class="sc">~</span> {. <span class="sc">/</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(., <span class="at">n =</span> <span class="dv">1</span>)}))</span></code></pre></div>
-<pre><code>## # A tibble: 197 x 4
+<pre><code>## # A tibble: 249 x 4
 ##    location date       new_cases new_deaths
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;
 ##  1 Japan    2022-01-01    NA           NA  
@@ -1400,11 +1426,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Japan    2022-01-08     1.37         2  
 ##  9 Japan    2022-01-09     0.972        0.5
 ## 10 Japan    2022-01-10     0.776        2  
-## # ... with 187 more rows</code></pre>
+## # ... with 239 more rows</code></pre>
 <div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="tidyverseによるデータ操作.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="co"># すべての列を文字列型に変換</span></span>
 <span id="cb313-2"><a href="tidyverseによるデータ操作.html#cb313-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
 <span id="cb313-3"><a href="tidyverseによるデータ操作.html#cb313-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">everything</span>(), <span class="at">.fns =</span> as.character))</span></code></pre></div>
-<pre><code>## # A tibble: 197 x 4
+<pre><code>## # A tibble: 249 x 4
 ##    location date       new_cases new_deaths
 ##    &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;     
 ##  1 Japan    2022-01-01 456       0         
@@ -1417,7 +1443,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Japan    2022-01-08 8302      2         
 ##  9 Japan    2022-01-09 8071      1         
 ## 10 Japan    2022-01-10 6265      2         
-## # ... with 187 more rows</code></pre>
+## # ... with 239 more rows</code></pre>
 </div>
 </div>
 <div id="グループ化" class="section level2 hasAnchor" number="3.9">
@@ -1429,7 +1455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="tidyverseによるデータ操作.html#cb315-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb315-2"><a href="tidyverseによるデータ操作.html#cb315-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
 <span id="cb315-3"><a href="tidyverseによるデータ操作.html#cb315-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 14
+<pre><code>## # A tibble: 214,477 x 14
 ## # Groups:   location [244]
 ##    continent location    date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;       &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
@@ -1443,7 +1469,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghanistan 2020-03-02           5         0              0    
 ##  9 Asia      Afghanistan 2020-03-03           5         0              0    
 ## 10 Asia      Afghanistan 2020-03-04           5         0              0    
-## # ... with 201,718 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 214,467 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1454,7 +1480,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="tidyverseによるデータ操作.html#cb317-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span></span>
 <span id="cb317-2"><a href="tidyverseによるデータ操作.html#cb317-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(continent, location) <span class="sc">%&gt;%</span> </span>
 <span id="cb317-3"><a href="tidyverseによるデータ操作.html#cb317-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 14
+<pre><code>## # A tibble: 214,477 x 14
 ## # Groups:   continent, location [244]
 ##    continent location    date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;       &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
@@ -1468,7 +1494,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghanistan 2020-03-02           5         0              0    
 ##  9 Asia      Afghanistan 2020-03-03           5         0              0    
 ## 10 Asia      Afghanistan 2020-03-04           5         0              0    
-## # ... with 201,718 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 214,467 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1506,7 +1532,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="tidyverseによるデータ操作.html#cb321-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb321-2"><a href="tidyverseによるデータ操作.html#cb321-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(location) <span class="sc">%&gt;%</span> </span>
 <span id="cb321-3"><a href="tidyverseによるデータ操作.html#cb321-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 14
+<pre><code>## # A tibble: 214,477 x 14
 ##    continent location    date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;       &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
 ##  1 Asia      Afghanistan 2020-02-24           5         5             NA    
@@ -1519,7 +1545,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghanistan 2020-03-02           5         0              0    
 ##  9 Asia      Afghanistan 2020-03-03           5         0              0    
 ## 10 Asia      Afghanistan 2020-03-04           5         0              0    
-## # ... with 201,718 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 214,467 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1538,16 +1564,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 244 x 2
 ##    location            new_cases_mean
 ##    &lt;chr&gt;                        &lt;dbl&gt;
-##  1 Afghanistan                 210.  
-##  2 Africa                    13732.  
-##  3 Albania                     342.  
-##  4 Algeria                     305.  
-##  5 Andorra                      51.5 
-##  6 Angola                      120.  
-##  7 Anguilla                      4.16
-##  8 Antigua and Barbuda          10.2 
-##  9 Argentina                 10961.  
-## 10 Armenia                     491.  
+##  1 Afghanistan                 211.  
+##  2 Africa                    13144.  
+##  3 Albania                     362.  
+##  4 Algeria                     292.  
+##  5 Andorra                      50.1 
+##  6 Angola                      114.  
+##  7 Anguilla                      4.31
+##  8 Antigua and Barbuda           9.91
+##  9 Argentina                 10578.  
+## 10 Armenia                     475.  
 ## # ... with 234 more rows</code></pre>
 <div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="tidyverseによるデータ操作.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 指定した列のグループ別の最大値を計算</span></span>
 <span id="cb325-2"><a href="tidyverseによるデータ操作.html#cb325-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
@@ -1576,21 +1602,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb327-3"><a href="tidyverseによるデータ操作.html#cb327-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">new_cases_mean =</span> <span class="fu">mean</span>(new_cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;location&#39;. You can override using the
 ## `.groups` argument.</code></pre>
-<pre><code>## # A tibble: 711 x 3
+<pre><code>## # A tibble: 713 x 3
 ## # Groups:   location [244]
 ##    location    `lubridate::year(date)` new_cases_mean
 ##    &lt;chr&gt;                         &lt;dbl&gt;          &lt;dbl&gt;
 ##  1 Afghanistan                    2020           168.
 ##  2 Afghanistan                    2021           290.
-##  3 Afghanistan                    2022           129.
+##  3 Afghanistan                    2022           147.
 ##  4 Africa                         2020          8548.
 ##  5 Africa                         2021         19116.
-##  6 Africa                         2022         12255 
+##  6 Africa                         2022         10352.
 ##  7 Albania                        2020           196.
 ##  8 Albania                        2021           416.
-##  9 Albania                        2022           427.
+##  9 Albania                        2022           482.
 ## 10 Algeria                        2020           320.
-## # ... with 701 more rows</code></pre>
+## # ... with 703 more rows</code></pre>
 </div>
 <div id="複数列の一括処理-1" class="section level3 unnumbered hasAnchor">
 <h3>複数列の一括処理<a href="tidyverseによるデータ操作.html#複数列の一括処理-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1602,16 +1628,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 244 x 3
 ##    location            new_cases new_deaths
 ##    &lt;chr&gt;                   &lt;dbl&gt;      &lt;dbl&gt;
-##  1 Afghanistan            183453       7730
-##  2 Africa               12152584     255332
-##  3 Albania                293917       3517
-##  4 Algeria                266424       6875
-##  5 Andorra                 44671        155
-##  6 Angola                 101901       1912
-##  7 Anguilla                 3496         10
-##  8 Antigua and Barbuda      8714        144
-##  9 Argentina             9426171     129145
-## 10 Armenia                423771       8631
+##  1 Afghanistan            194622       7783
+##  2 Africa               12316078     256370
+##  3 Albania                330283       3583
+##  4 Algeria                270476       6879
+##  5 Andorra                 46027        156
+##  6 Angola                 102636       1920
+##  7 Anguilla                 3851         13
+##  8 Antigua and Barbuda      8976        145
+##  9 Argentina             9689861     129769
+## 10 Armenia                436727       8664
 ## # ... with 234 more rows</code></pre>
 <div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="tidyverseによるデータ操作.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 列名がcasesで終わる列すべてについて、グループ別の合計値を計算</span></span>
 <span id="cb332-2"><a href="tidyverseによるデータ操作.html#cb332-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 列名per_millionで終わる列すべてについて、グループ別の平均値を計算</span></span>
@@ -1622,16 +1648,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 244 x 7
 ##    location            total_cases new_cases total_cases_per_m~ new_cases_per_m~
 ##    &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;            &lt;dbl&gt;
-##  1 Afghanistan            82466158    183453              2353.             5.25
-##  2 Africa               4771891141  12152584              3877.             9.86
-##  3 Albania               107688425    293917             43864.           120.  
-##  4 Algeria               118895216    266424              3083.             6.91
-##  5 Andorra                13495811     44671            196955.           652.  
-##  6 Angola                 35515688    101901              1212.             3.48
-##  7 Anguilla                 677615      3496             51147.           264.  
-##  8 Antigua and Barbuda     2177462      8714             27288.           109.  
-##  9 Argentina            3315684580   9426171             84563.           242.  
-## 10 Armenia               181305026    423771             74840.           176.  
+##  1 Afghanistan            92277367    194622              2485.             5.25
+##  2 Africa               5410557754  12316078              4151.             9.44
+##  3 Albania               124232634    330283             47718.           127.  
+##  4 Algeria               132865803    270476              3251.             6.62
+##  5 Andorra                15874042     46027            218554.           634.  
+##  6 Angola                 40845627    102636              1314.             3.30
+##  7 Anguilla                 868750      3851             61756.           274.  
+##  8 Antigua and Barbuda     2637006      8976             31154.           106.  
+##  9 Argentina            3814500209   9689861             91774.           234.  
+## 10 Armenia               203616532    436727             79299.           170.  
 ## # ... with 234 more rows, and 2 more variables: total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;</code></pre>
 <div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="tidyverseによるデータ操作.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 数値型の列すべてについて、グループ別の平均値を計算</span></span>
@@ -1641,16 +1667,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 244 x 13
 ##    location       date       total_cases new_cases new_cases_smoot~ total_deaths
 ##    &lt;chr&gt;          &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;        &lt;dbl&gt;
-##  1 Afghanistan    2021-05-05      94355.    210.             211.        4226.  
-##  2 Africa         2021-04-30    5398067.  13732.           13789.      131326.  
-##  3 Albania        2021-05-06     125219.    342.             339.        1910.  
-##  4 Algeria        2021-05-06     136192.    305.             307.        3825.  
-##  5 Andorra        2021-05-09      15566.     51.5             51.8        106.  
-##  6 Angola         2021-05-18      41832.    120.             120.         926.  
-##  7 Anguilla       2021-05-22        806.      4.16             4.18         6.48
-##  8 Antigua and B~ 2021-05-14       2544.     10.2             10.2         55.3 
-##  9 Argentina      2021-04-08    3828735.  10961.           10993.       70106.  
-## 10 Armenia        2021-04-25     208877.    491.             494.        4335.  
+##  1 Afghanistan    2021-05-31      99652.    211.             211.        4430.  
+##  2 Africa         2021-05-26    5780510.  13144.           13210.      138439.  
+##  3 Albania        2021-06-01     136220.    362.             364.        2005.  
+##  4 Algeria        2021-06-01     143639.    292.             294.        3999.  
+##  5 Andorra        2021-06-04      17273.     50.1             50.4        109.  
+##  6 Angola         2021-06-13      45334.    114.             115.         984.  
+##  7 Anguilla       2021-06-17        973.      4.31             4.32         7.02
+##  8 Antigua and B~ 2021-06-09       2904.      9.91             9.96        60.5 
+##  9 Argentina      2021-05-04    4155229.  10578.           10626.       73488.  
+## 10 Armenia        2021-05-21     221322.    475.             476.        4585.  
 ## # ... with 234 more rows, and 7 more variables: new_deaths &lt;dbl&gt;,
 ## #   total_cases_per_million &lt;dbl&gt;, new_cases_per_million &lt;dbl&gt;,
 ## #   total_deaths_per_million &lt;dbl&gt;, new_deaths_per_million &lt;dbl&gt;,
@@ -1664,21 +1690,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 244 x 2
 ##    location                n
 ##    &lt;chr&gt;               &lt;int&gt;
-##  1 Afghanistan           874
-##  2 Africa                885
-##  3 Albania               873
-##  4 Algeria               873
-##  5 Andorra               867
-##  6 Angola                849
-##  7 Anguilla              841
-##  8 Antigua and Barbuda   856
-##  9 Argentina             928
-## 10 Armenia               895
+##  1 Afghanistan           926
+##  2 Africa                937
+##  3 Albania               925
+##  4 Algeria               925
+##  5 Andorra               919
+##  6 Angola                901
+##  7 Anguilla              893
+##  8 Antigua and Barbuda   908
+##  9 Argentina             980
+## 10 Armenia               947
 ## # ... with 234 more rows</code></pre>
 <p><code>dplyr::count()</code>関数内に2つ以上の変数を指定すると、要素の掛け合わせについてカウントが行われます。</p>
 <div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="tidyverseによるデータ操作.html#cb338-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb338-2"><a href="tidyverseによるデータ操作.html#cb338-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(continent, date)</span></code></pre></div>
-<pre><code>## # A tibble: 6,389 x 3
+<pre><code>## # A tibble: 6,753 x 3
 ##    continent date           n
 ##    &lt;chr&gt;     &lt;date&gt;     &lt;int&gt;
 ##  1 Africa    2020-02-07     2
@@ -1691,24 +1717,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Africa    2020-02-14     3
 ##  9 Africa    2020-02-15     3
 ## 10 Africa    2020-02-16     3
-## # ... with 6,379 more rows</code></pre>
+## # ... with 6,743 more rows</code></pre>
 <p>条件付きカウントを行う場合は、<code>dplyr::count()</code>関数内で<code>if_else()</code>関数を使用して条件を設定します。</p>
 <div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="tidyverseによるデータ操作.html#cb340-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb340-2"><a href="tidyverseによるデータ操作.html#cb340-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(location, <span class="fu">if_else</span>(new_cases <span class="sc">&gt;</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(new_cases, <span class="at">n =</span> <span class="dv">7</span>), <span class="at">true =</span> <span class="st">&quot;increase&quot;</span>, <span class="at">false =</span> <span class="st">&quot;decrease&quot;</span>))</span></code></pre></div>
-<pre><code>## # A tibble: 636 x 3
+<pre><code>## # A tibble: 614 x 3
 ##    location    `if_else(...)`     n
 ##    &lt;chr&gt;       &lt;chr&gt;          &lt;int&gt;
-##  1 Afghanistan decrease         448
-##  2 Afghanistan increase         415
+##  1 Afghanistan decrease         470
+##  2 Afghanistan increase         445
 ##  3 Afghanistan &lt;NA&gt;              11
-##  4 Africa      decrease         412
-##  5 Africa      increase         473
-##  6 Albania     decrease         422
-##  7 Albania     increase         430
-##  8 Albania     &lt;NA&gt;              21
-##  9 Algeria     decrease         450
-## 10 Algeria     increase         422
-## # ... with 626 more rows</code></pre>
+##  4 Africa      decrease         442
+##  5 Africa      increase         495
+##  6 Albania     decrease         468
+##  7 Albania     increase         437
+##  8 Albania     &lt;NA&gt;              20
+##  9 Algeria     decrease         473
+## 10 Algeria     increase         452
+## # ... with 604 more rows</code></pre>
 <p>または、あらかじめ<code>dplyr::mutate()</code>関数内で<code>if_else()</code>関数を使用して条件に合致する行を1にする列を作成し、<code>dplyr::summarise()</code>関数でその列の合計を集計することで、条件付きカウントを行うことができます。</p>
 <div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="tidyverseによるデータ操作.html#cb342-1" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb342-2"><a href="tidyverseによるデータ操作.html#cb342-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">increase =</span> <span class="fu">if_else</span>(new_cases <span class="sc">&gt;</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(new_cases, <span class="at">n =</span> <span class="dv">7</span>), <span class="at">true =</span> <span class="dv">1</span>, <span class="at">false =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
@@ -1717,16 +1743,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 244 x 2
 ##    location            increase
 ##    &lt;chr&gt;                  &lt;dbl&gt;
-##  1 Afghanistan              415
-##  2 Africa                   473
-##  3 Albania                  430
-##  4 Algeria                  422
-##  5 Andorra                  287
-##  6 Angola                   372
-##  7 Anguilla                  93
-##  8 Antigua and Barbuda      230
-##  9 Argentina                399
-## 10 Armenia                  394
+##  1 Afghanistan              445
+##  2 Africa                   495
+##  3 Albania                  437
+##  4 Algeria                  452
+##  5 Andorra                  290
+##  6 Angola                   374
+##  7 Anguilla                 100
+##  8 Antigua and Barbuda      240
+##  9 Argentina                402
+## 10 Armenia                  401
 ## # ... with 234 more rows</code></pre>
 </div>
 </div>
@@ -1740,7 +1766,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb344-4"><a href="tidyverseによるデータ操作.html#cb344-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(date)</span>
 <span id="cb344-5"><a href="tidyverseによるデータ操作.html#cb344-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb344-6"><a href="tidyverseによるデータ操作.html#cb344-6" aria-hidden="true" tabindex="-1"></a>data_owid_cases</span></code></pre></div>
-<pre><code>## # A tibble: 133,363 x 3
+<pre><code>## # A tibble: 146,111 x 3
 ##    location            date       new_cases
 ##    &lt;chr&gt;               &lt;date&gt;         &lt;dbl&gt;
 ##  1 Afghanistan         2021-01-01       183
@@ -1753,14 +1779,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Antigua and Barbuda 2021-01-01         0
 ##  9 Argentina           2021-01-01      4080
 ## 10 Armenia             2021-01-01       329
-## # ... with 133,353 more rows</code></pre>
+## # ... with 146,101 more rows</code></pre>
 <div id="縦型データを横型データに変換" class="section level3 unnumbered hasAnchor">
 <h3>縦型データを横型データに変換<a href="tidyverseによるデータ操作.html#縦型データを横型データに変換" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="tidyverseによるデータ操作.html#cb346-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="ot">&lt;-</span> data_owid_cases <span class="sc">%&gt;%</span> </span>
 <span id="cb346-2"><a href="tidyverseによるデータ操作.html#cb346-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">&quot;date&quot;</span>, <span class="at">names_from =</span> <span class="st">&quot;location&quot;</span>, <span class="at">values_from =</span> <span class="st">&quot;new_cases&quot;</span>) </span>
 <span id="cb346-3"><a href="tidyverseによるデータ操作.html#cb346-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb346-4"><a href="tidyverseによるデータ操作.html#cb346-4" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide</span></code></pre></div>
-<pre><code>## # A tibble: 562 x 245
+<pre><code>## # A tibble: 614 x 245
 ##    date       Afghanistan Africa Albania Algeria Andorra Angola Anguilla
 ##    &lt;date&gt;           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
 ##  1 2021-01-01         183  27749       0     287      68     15        0
@@ -1773,7 +1799,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 2021-01-08         125  36440     673     275     141     92        0
 ##  9 2021-01-09          68  35072     655     256      97     90        0
 ## 10 2021-01-10          89  31638     562     231       0     37        0
-## # ... with 552 more rows, and 237 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
+## # ... with 604 more rows, and 237 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
 ## #   Argentina &lt;dbl&gt;, Armenia &lt;dbl&gt;, Aruba &lt;dbl&gt;, Asia &lt;dbl&gt;, Australia &lt;dbl&gt;,
 ## #   Austria &lt;dbl&gt;, Azerbaijan &lt;dbl&gt;, Bahamas &lt;dbl&gt;, Bahrain &lt;dbl&gt;,
 ## #   Bangladesh &lt;dbl&gt;, Barbados &lt;dbl&gt;, Belarus &lt;dbl&gt;, Belgium &lt;dbl&gt;,
@@ -1787,7 +1813,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb348-2"><a href="tidyverseによるデータ操作.html#cb348-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="st">&quot;date&quot;</span>, <span class="at">names_to =</span> <span class="st">&quot;location&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;new_cases&quot;</span>) </span>
 <span id="cb348-3"><a href="tidyverseによるデータ操作.html#cb348-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb348-4"><a href="tidyverseによるデータ操作.html#cb348-4" aria-hidden="true" tabindex="-1"></a>data_owid_cases_long</span></code></pre></div>
-<pre><code>## # A tibble: 137,128 x 3
+<pre><code>## # A tibble: 149,816 x 3
 ##    date       location            new_cases
 ##    &lt;date&gt;     &lt;chr&gt;                   &lt;dbl&gt;
 ##  1 2021-01-01 Afghanistan               183
@@ -1800,7 +1826,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 2021-01-01 Antigua and Barbuda         0
 ##  9 2021-01-01 Argentina                4080
 ## 10 2021-01-01 Armenia                   329
-## # ... with 137,118 more rows</code></pre>
+## # ... with 149,806 more rows</code></pre>
 </div>
 </div>
 <div id="データの結合" class="section level2 hasAnchor" number="3.12">
@@ -1904,7 +1930,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="tidyverseによるデータ操作.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="co"># すべての列を対象にして、重複している行を削除</span></span>
 <span id="cb364-2"><a href="tidyverseによるデータ操作.html#cb364-2" aria-hidden="true" tabindex="-1"></a>data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb364-3"><a href="tidyverseによるデータ操作.html#cb364-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>()</span></code></pre></div>
-<pre><code>## # A tibble: 201,728 x 14
+<pre><code>## # A tibble: 214,477 x 14
 ##    continent location    date       total_cases new_cases new_cases_smoothed
 ##    &lt;chr&gt;     &lt;chr&gt;       &lt;date&gt;           &lt;dbl&gt;     &lt;dbl&gt;              &lt;dbl&gt;
 ##  1 Asia      Afghanistan 2020-02-24           5         5             NA    
@@ -1917,7 +1943,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghanistan 2020-03-02           5         0              0    
 ##  9 Asia      Afghanistan 2020-03-03           5         0              0    
 ## 10 Asia      Afghanistan 2020-03-04           5         0              0    
-## # ... with 201,718 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
+## # ... with 214,467 more rows, and 8 more variables: total_deaths &lt;dbl&gt;,
 ## #   new_deaths &lt;dbl&gt;, total_cases_per_million &lt;dbl&gt;,
 ## #   new_cases_per_million &lt;dbl&gt;, total_deaths_per_million &lt;dbl&gt;,
 ## #   new_deaths_per_million &lt;dbl&gt;, people_fully_vaccinated &lt;dbl&gt;,
@@ -1956,12 +1982,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-## 1 2022-07-11 102431076               NA       222679450
-## 2 2022-07-12 102433520               NA       222682315
-## 3 2022-07-13 102435770               NA              NA
-## 4 2022-07-14 102437005               NA              NA
-## 5 2022-07-15        NA               NA              NA
-## 6 2022-07-16        NA               NA              NA</code></pre>
+## 1 2022-09-01 102736429               NA              NA
+## 2 2022-09-02 102741019               NA              NA
+## 3 2022-09-03 102747810               NA              NA
+## 4 2022-09-04 102749113               NA              NA
+## 5 2022-09-05 102750471               NA              NA
+## 6 2022-09-06 102751871               NA              NA</code></pre>
 <div id="naの削除" class="section level3 unnumbered hasAnchor">
 <h3>NAの削除<a href="tidyverseによるデータ操作.html#naの削除" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>特定の列を対象にして、NAが含まれている行を削除するには、<code>tidyr::drop_na()</code>関数で列名を指定します。</p>
@@ -1971,12 +1997,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-## 1 2022-07-09 102426374               NA       222655681
-## 2 2022-07-10 102428362               NA       222663538
-## 3 2022-07-11 102431076               NA       222679450
-## 4 2022-07-12 102433520               NA       222682315
-## 5 2022-07-13 102435770               NA              NA
-## 6 2022-07-14 102437005               NA              NA</code></pre>
+## 1 2022-09-01 102736429               NA              NA
+## 2 2022-09-02 102741019               NA              NA
+## 3 2022-09-03 102747810               NA              NA
+## 4 2022-09-04 102749113               NA              NA
+## 5 2022-09-05 102750471               NA              NA
+## 6 2022-09-06 102751871               NA              NA</code></pre>
 <p>すべての列を対象にして、NAが含まれている行を削除するには、<code>tidyr::drop_na()</code>関数の中で<code>everything()</code>関数を使用します。</p>
 <div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="tidyverseによるデータ操作.html#cb372-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
 <span id="cb372-2"><a href="tidyverseによるデータ操作.html#cb372-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>(<span class="fu">everything</span>()) <span class="sc">%&gt;%</span>  </span>
@@ -1984,12 +2010,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-## 1 2022-07-01 102379584         50197191       222506232
-## 2 2022-07-02 102394128         50217145       222519639
-## 3 2022-07-03 102396373         50227780       222527398
-## 4 2022-07-04 102399014         50236358       222529011
-## 5 2022-07-05 102401672         50244811       222559095
-## 6 2022-07-06 102404235         50253743       222586082</code></pre>
+## 1 2022-08-19 102631374         50657436       223934393
+## 2 2022-08-20 102650334         50667539       223949549
+## 3 2022-08-21 102654300         50671638       223956891
+## 4 2022-08-22 102661365         50677172       223982388
+## 5 2022-08-23 102669375         50682855       224008746
+## 6 2022-08-24 102675778         50689351       224033856</code></pre>
 </div>
 <div id="naの置換" class="section level3 unnumbered hasAnchor">
 <h3>NAの置換<a href="tidyverseによるデータ操作.html#naの置換" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -2000,12 +2026,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-## 1 2022-07-11 102431076               NA       222679450
-## 2 2022-07-12 102433520               NA       222682315
-## 3 2022-07-13 102435770               NA              NA
-## 4 2022-07-14 102437005               NA              NA
-## 5 2022-07-15         0               NA              NA
-## 6 2022-07-16         0               NA              NA</code></pre>
+## 1 2022-09-01 102736429               NA              NA
+## 2 2022-09-02 102741019               NA              NA
+## 3 2022-09-03 102747810               NA              NA
+## 4 2022-09-04 102749113               NA              NA
+## 5 2022-09-05 102750471               NA              NA
+## 6 2022-09-06 102751871               NA              NA</code></pre>
 <p>NAを他の値に置き換える列が複数ある場合は、<code>dplyr::mutate_at()</code>関数で列名を複数指定して一括処理します。</p>
 <div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="tidyverseによるデータ操作.html#cb376-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
 <span id="cb376-2"><a href="tidyverseによるデータ操作.html#cb376-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span>date), tidyr<span class="sc">::</span>replace_na, <span class="at">replace =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
@@ -2013,12 +2039,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-## 1 2022-07-11 102431076                0       222679450
-## 2 2022-07-12 102433520                0       222682315
-## 3 2022-07-13 102435770                0               0
-## 4 2022-07-14 102437005                0               0
-## 5 2022-07-15         0                0               0
-## 6 2022-07-16         0                0               0</code></pre>
+## 1 2022-09-01 102736429                0               0
+## 2 2022-09-02 102741019                0               0
+## 3 2022-09-03 102747810                0               0
+## 4 2022-09-04 102749113                0               0
+## 5 2022-09-05 102750471                0               0
+## 6 2022-09-06 102751871                0               0</code></pre>
 </div>
 <div id="naのフィル" class="section level3 unnumbered hasAnchor">
 <h3>NAのフィル<a href="tidyverseによるデータ操作.html#naのフィル" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -2029,12 +2055,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-## 1 2022-07-11 102431076               NA       222679450
-## 2 2022-07-12 102433520               NA       222682315
-## 3 2022-07-13 102435770               NA              NA
-## 4 2022-07-14 102437005               NA              NA
-## 5 2022-07-15 102437005               NA              NA
-## 6 2022-07-16 102437005               NA              NA</code></pre>
+## 1 2022-09-01 102736429               NA              NA
+## 2 2022-09-02 102741019               NA              NA
+## 3 2022-09-03 102747810               NA              NA
+## 4 2022-09-04 102749113               NA              NA
+## 5 2022-09-05 102750471               NA              NA
+## 6 2022-09-06 102751871               NA              NA</code></pre>
 <p>すべての列のNAの値をフィルする場合は、<code>tidyr::fill()</code>関数の中で<code>everything()</code>関数を使用します。</p>
 <div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="tidyverseによるデータ操作.html#cb380-1" aria-hidden="true" tabindex="-1"></a>data_owid_vaccinated <span class="sc">%&gt;%</span> </span>
 <span id="cb380-2"><a href="tidyverseによるデータ操作.html#cb380-2" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">fill</span>(<span class="fu">c</span>(<span class="sc">-</span>date, <span class="fu">everything</span>()), <span class="at">.direction =</span> <span class="st">&quot;down&quot;</span>) <span class="sc">%&gt;%</span> </span>
@@ -2042,12 +2068,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 6 x 4
 ##   date           Japan `United Kingdom` `United States`
 ##   &lt;date&gt;         &lt;dbl&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-## 1 2022-07-11 102431076         50253743       222679450
-## 2 2022-07-12 102433520         50253743       222682315
-## 3 2022-07-13 102435770         50253743       222682315
-## 4 2022-07-14 102437005         50253743       222682315
-## 5 2022-07-15 102437005         50253743       222682315
-## 6 2022-07-16 102437005         50253743       222682315</code></pre>
+## 1 2022-09-01 102736429         50689351       224113439
+## 2 2022-09-02 102741019         50689351       224113439
+## 3 2022-09-03 102747810         50689351       224113439
+## 4 2022-09-04 102749113         50689351       224113439
+## 5 2022-09-05 102750471         50689351       224113439
+## 6 2022-09-06 102751871         50689351       224113439</code></pre>
 </div>
 </div>
 <div id="補完処理" class="section level2 hasAnchor" number="3.15">
@@ -2142,7 +2168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="rの基本的な使用方法.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="時系列データ操作.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ggplot2によるグラフ作成.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
