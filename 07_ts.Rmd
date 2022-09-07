@@ -40,7 +40,7 @@ library(zoo)
 
 ts形式データのサンプルデータセットとして、`seasonal`パッケージの`unemp`データセット（月次データ）と、`fpp2`パッケージの`gasoline`データセット（週次データ）を用います。
 
-### ts形式データの表示 {-}
+### ts形式データの表示 {.unnumbered}
 
 月次のts形式データは、行方向に年、列方向に月、の行列の形でコンソールに表示されます。
 
@@ -56,7 +56,7 @@ seasonal::unemp
 fpp2::gasoline
 ```
 
-### ts形式データ情報の取得 {-}
+### ts形式データ情報の取得 {.unnumbered}
 
 ts形式データの日付情報を取得するには、`frequency()`、`start()`、`end()`などの関数を用います。
 
@@ -86,7 +86,7 @@ start(fpp2::gasoline)
 end(fpp2::gasoline)
 ```
 
-### ts形式データのフィルタ {-}
+### ts形式データのフィルタ {.unnumbered}
 
 ts形式データをフィルタするには、`window()`関数を使用して`start`引数と`end`引数に年を指定します。
 
@@ -98,7 +98,7 @@ window(seasonal::unemp, start = 1999, end = 2000)
 window(fpp2::gasoline, start = 2016, end = 2017)
 ```
 
-### ts形式データのプロット {-}
+### ts形式データのプロット {.unnumbered}
 
 ts形式データをプロットするには、`plot()`関数を使用します。ts形式データはデータと日付がセットになっているため、X軸には自動的に日付が表示されます。
 
@@ -114,15 +114,17 @@ plot(fpp2::gasoline)
 
 data.frame形式やtibble形式といった通常のデータフレームからts形式へ変換するには、`ts()`関数でts形式データの行列に変換する方法と、`tsibble`パッケージの`as_tsibble()`関数でts形式データフレームであるtsibble形式データに変換する方法の2種類があります。
 
-### ts形式に変換：ts()
+### ts形式に変換：ts() {-}
 
 `ts()`関数を使用して、通常のデータフレーム形式のデータを、ts形式の行列に変換します。
 
 まず、縦型データの場合は一般的に日付列の要素が重複していますので、日付列の要素に重複が無くなるよう、行をフィルタするか、横型データに変換します。次に、`dplyr::arrange()`関数を用いてデータを日付列で昇順に並べ替えます。最後に、`ts()`関数で`frequency`引数に周期を、`start`引数にデータ開始時点を指定します。
 
-```{r}
-# 年次データをts()関数でts形式に変換
+#### 年次データ {-}
 
+年次データをts()関数でts形式に変換します。
+
+```{r}
 # 日付列の要素が重複している場合は、重複がなくなるように行をフィルタ
 data_ts <- data_gdp_pref %>% 
   dplyr::filter(pref_name == "東京都")
@@ -137,6 +139,8 @@ data_ts %<>%
      start = 2006) # データ開始時点は2006年
 
 data_ts
+
+frequency(data_ts)
 ```
 
 `ts()`関数で変換したデータはts()形式の行列になるため、`$`演算子で列を選択することができません。列を選択するには、`行列[, 要素の列インデックス]`もしくは、`行列[, "列名"]`とします。
@@ -154,9 +158,11 @@ data_ts %<>%
 data_ts$gdp_nominal
 ```
 
-```{r}
-# 四半期データをts()関数でts形式に変換
+#### 四半期データ {-}
 
+四半期データをts()関数でts形式に変換します。
+
+```{r}
 # 日付列で昇順に並べ替え
 data_ts <- data_gdp_jp %>% 
   dplyr::arrange(日付) %>% 
@@ -168,11 +174,15 @@ data_ts %<>%
      start = c(1991, 1)) # データ開始時点は1991年1～3月期のため、c(1991, 1)と指定
 
 data_ts %>% head()
+
+frequency(data_ts)
 ```
 
-```{r}
-# 月次データをts()関数でts形式に変換
+#### 月次データ {-}
 
+月次データをts()関数でts形式に変換します。
+
+```{r}
 # 日付列で昇順に並べ替え
 data_ts <- data_labor %>% 
   dplyr::arrange(date) %>% 
@@ -184,11 +194,15 @@ data_ts %<>%
      start = c(2002, 1)) # データ開始時点は2002年1月のため、c(2002, 1)と指定
 
 data_ts %>% head()
+
+frequency(data_ts)
 ```
 
-```{r}
-# 週次データをts()関数でts形式に変換
+#### 週次データ {-}
 
+週次データをts()関数でts形式に変換します。
+
+```{r}
 # 日次データのdata_owidから水曜日のデータを抽出して週次データに変換
 data_ts <- data_owid %>% 
   dplyr::filter(lubridate::wday(date) == 4)
@@ -207,11 +221,15 @@ data_ts %<>%
      start = c(lubridate::year(min(data_ts$date)), lubridate::week(min(data_ts$date)))) # データ開始時点の年と週番号を指定
 
 data_ts %>% head()
+
+frequency(data_ts)
 ```
 
-```{r}
-# 日次データをts()関数でts形式に変換
+#### 日次データ {-}
 
+日次データをts()関数でts形式に変換します。
+
+```{r}
 # 日付列の要素が重複している場合は、重複がなくなるように行をフィルタ
 data_ts <- data_owid %>% 
   dplyr::filter(location == "Japan")
@@ -226,22 +244,202 @@ data_ts %<>%
      start = c(lubridate::year(min(data_ts$date)), as.numeric(min(data_ts$date) - as.Date("2020-01-01")))) # データ開始時点の年と、年初からの日数を指定
 
 data_ts %>% head()
+
+frequency(data_ts)
 ```
 
-### ts形式に変換：as_tsibble() {-}
+### ts形式に変換：as_tsibble() {.unnumbered}
+
+`as_tsibble()`関数を使用して、通常のデータフレーム形式のデータを、tsibble形式のデータフレームに変換します。tsibble形式とは、ts形式の情報をもったtibbleのようなものです。
+
+`as_tsibble()`関数の`index`引数に日付情報を格納した列を指定します。tsibble形式では日付を格納した列において要素が重複することを許容しないため、縦型データで日付要素が重複している場合は、`key`引数に日付要素を一意にするための列名を指定します。
+
+`as_tsibble()`関数では、`index`引数に指定した列の内容で周期が自動的に判断されます。`YYYY-MM-DD`の形になっているDate型の列は日次（day）と判断されるため、四半期、月次、週次データは、それぞれyearquarter型、yearmonth型、yearweek型にあらかじめ変換してから`as_tsibble()`関数を適用する必要があります。なお、`YYYY`の形は年次データと判断されます。
+
+#### 年次データ {-}
+
+年次データをas_tsibble()関数でtsibble形式に変換します。周期は1年になります。
 
 ```{r}
+# 日付列で昇順に並べ替え
 data_tsibble <- data_gdp_pref %>% 
+  dplyr::arrange(year)
+
+# key引数にpref_nameを指定してtsibble形式に変換
+data_tsibble %<>% 
   tsibble::as_tsibble(index = year, key = pref_name)
 
 data_tsibble
+
+frequency(data_tsibble)
 ```
 
+#### 四半期データ {-}
 
+四半期データをas_tsibble()関数でtsibble形式に変換します。周期は4四半期になります。
 
+```{r}
+# 日付列で昇順に並べ替え
+data_tsibble <- data_gdp_jp %>% 
+  dplyr::arrange(日付)
 
+# 日付列をyearquarter型に変換してからtsibble形式に変換
+data_tsibble %<>% 
+  dplyr::mutate(日付 = 日付 %>% tsibble::yearquarter()) %>% 
+  tsibble::as_tsibble(index = 日付)
 
+data_tsibble
 
+frequency(data_tsibble)
+```
+
+#### 月次データ {-}
+
+月次データをas_tsibble()関数でtsibble形式に変換します。周期は12カ月になります。
+
+```{r}
+# 日付列で昇順に並べ替え
+data_tsibble <- data_labor %>% 
+  dplyr::arrange(date)
+
+# date列をyearmonth型に変換してからtsibble形式に変換
+data_tsibble %<>%
+  dplyr::mutate(date = date %>% tsibble::yearmonth()) %>% 
+  tsibble::as_tsibble(index = date)
+
+data_tsibble
+
+frequency(data_tsibble)
+```
+
+#### 週次データ {-}
+
+週次データをas_tsibble()関数でtsibble形式に変換します。周期は52.18週になります。
+
+```{r}
+# 日次データのdata_owidから水曜日のデータを抽出して週次データに変換
+data_tsibble <- data_owid %>% 
+  dplyr::filter(lubridate::wday(date) == 4)
+
+# 日付列で昇順に並べ替え
+data_tsibble %<>% 
+  dplyr::arrange(date)
+
+data_tsibble %<>% 
+  dplyr::mutate(date = date %>% tsibble::yearweek()) %>% 
+  tsibble::as_tsibble(index = date, key = location)
+
+data_tsibble
+
+frequency(data_tsibble)
+```
+
+#### 日次データ {-}
+
+日次データをas_tsibble()関数でtsibble形式に変換します。周期は7日になります。
+
+```{r}
+# 日付列で昇順に並べ替え
+data_tsibble <- data_owid %>% 
+  dplyr::arrange(date)
+
+# tsibble形式に変換
+data_tsibble %<>% 
+  tsibble::as_tsibble(index = date, key = location)
+  
+data_tsibble
+
+frequency(data_tsibble)
+```
+
+## 時系列関数
+
+時系列データを扱う際に便利な関数を紹介します。
+
+### 日付型データの生成 {-}
+
+連続した日付型データを生成するには、`seq()`関数を使用します。
+
+```{r}
+# 開始日と終了日を指定して1年毎の日付データを生成
+seq(from = as.Date("2010-01-01"), to = as.Date("2020-01-01"), by = "1 year")
+
+# 開始日と終了日を指定して1四半期毎の日付データを生成
+seq(from = as.Date("2010-01-01"), to = as.Date("2012-12-31"), by = "1 quarter")
+
+# 開始日と終了日を指定して2カ月毎の日付データを生成
+seq(from = as.Date("2022-01-01"), to = as.Date("2022-12-31"), by = "2 month")
+
+# 開始日と終了日を指定して3週間毎の日付データを生成
+seq(from = as.Date("2022-01-01"), to = as.Date("2022-03-30"), by = "3 week")
+
+# 開始日と終了日を指定して4日毎の日付データを生成
+seq(from = as.Date("2022-01-01"), to = as.Date("2022-01-31"), by = "4 day")
+
+# 開始日とデータ数を指定して1カ月毎の日付データを生成
+seq(from = as.Date("2022-01-01"), by = "1 month", length.out = 12)
+
+# 開始日とデータ数を合わせるベクトルを指定して2日毎の日付データを生成
+seq(from = as.Date("2022-01-01"), by = "1 day", along.with = letters)
+```
+
+### 日付型データの変換 {-}
+
+日付型データを文字列型データに変換するには、`strftime()`関数を使用します。一方、文字列型データを日付型データに変換するには、`strptime()`関数や、lubridateパッケージの`ymd()`関数を使用します。
+
+`format`引数は以下のように指定します。
+
+`%Y`：4桁の年
+`%y`：下2桁の年
+`%m`：2桁の月（01～12）
+`%b`：1～2桁の月（1～12、1桁の月は前に半角スペースなし）
+`%d`：2桁の日（01～31）
+`%e`：1～2桁の日（1～31、1桁の日は前に半角スペースあり）
+
+```{r}
+# 日付型データを文字列型データに変換
+strftime(as.Date("2022-01-01"), format = "%Y年%m月%d日")
+
+# 日付型データを文字列型データに変換する際、日を1桁表示して半角スペースを削除
+strftime(as.Date("2022-01-01"), format = "%b/%e") %>% 
+  str_replace_all(pattern = " ", replacement = "")
+
+# 文字列型データを日付型データに変換
+strptime("20221231", format = "%Y%m%d")
+
+# 年月日の順番で記載されている文字列型データを日付型データに変換
+lubridate::ymd(c("20000101", "010203", "020505"))
+```
+
+### 日付情報の抽出 {-}
+
+日付型データから日付情報を抽出するには、lubridateパッケージの関数を用います。
+
+```{r}
+# 年
+lubridate::year(as.Date("2022-01-01"))
+
+# 月
+lubridate::month(as.Date("2022-12-31"))
+
+# 日
+lubridate::year(as.Date("2022-01-15"))
+
+# 四半期
+lubridate::quarter(c(as.Date("2022-01-10"), as.Date("2022-05-01"), as.Date("2022-09-30"), as.Date("2022-11-20")))
+
+# 曜日番号（日曜：1～土曜：7）
+lubridate::wday(c(as.Date("2022-01-01"), as.Date("2022-01-02"), as.Date("2022-01-03"), as.Date("2022-01-08")))
+
+# 週番号（1月1日始まり）
+lubridate::week(c(as.Date("2022-01-01"), as.Date("2022-01-02"), as.Date("2022-01-03"), as.Date("2022-01-08")))
+
+# 週番号（最初の月曜始まり）
+lubridate::isoweek(c(as.Date("2022-01-01"), as.Date("2022-01-02"), as.Date("2022-01-03"), as.Date("2022-01-08")))
+
+# 週番号（最初の日曜始まり）
+lubridate::epiweek(c(as.Date("2022-01-01"), as.Date("2022-01-02"), as.Date("2022-01-03"), as.Date("2022-01-08")))
+```
 
 ## データ変換
 
@@ -745,7 +943,6 @@ summary(result)
 # HPフィルタの結果をプロット
 ggplot(mapping = aes(x = ))
 ```
-
 
 ```{r, eval=FALSE}
 # トレンド推定結果を可視化（コンソールでEnterを押すと表示される）
