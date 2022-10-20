@@ -136,7 +136,8 @@ data_ts %<>%
 # ts()関数でts形式に変換
 data_ts %<>% 
   ts(frequency = 1, # 周期：年次データのため周期は1
-     start = 2006) # データ開始時点は2006年
+     start = 2006 # データ開始時点は2006年
+     )
 
 data_ts
 
@@ -171,7 +172,8 @@ data_ts <- data_gdp_jp %>%
 # ts()関数でts形式に変換
 data_ts %<>% 
   ts(frequency = 4, # 周期：四半期データのため周期は4
-     start = c(1991, 1)) # データ開始時点は1991年1～3月期のため、c(1991, 1)と指定
+     start = c(1991, 1) # データ開始時点は1991年1～3月期のため、c(1991, 1)と指定
+     )
 
 data_ts %>% head()
 
@@ -191,7 +193,8 @@ data_ts <- data_labor %>%
 # ts()関数でts形式に変換
 data_ts %<>% 
   ts(frequency = 12, # 周期：四半期データのため周期は4
-     start = c(2002, 1)) # データ開始時点は2002年1月のため、c(2002, 1)と指定
+     start = c(2002, 1) # データ開始時点は2002年1月のため、c(2002, 1)と指定
+     )
 
 data_ts %>% head()
 
@@ -218,7 +221,8 @@ data_ts %<>%
 # ts()関数でts形式に変換
 data_ts %<>% 
   ts(frequency = 365.25 / 7, # 周期：週次データのため周期は365.25 / 7
-     start = c(lubridate::year(min(data_ts$date)), lubridate::week(min(data_ts$date)))) # データ開始時点の年と週番号を指定
+     start = c(lubridate::year(min(data_ts$date)), lubridate::week(min(data_ts$date))) # データ開始時点の年と週番号を指定
+     )
 
 data_ts %>% head()
 
@@ -241,7 +245,8 @@ data_ts %<>%
 # ts()関数でts形式に変換
 data_ts %<>% 
   ts(frequency = 365.25, # 周期：日次データのため周期は365.25
-     start = c(lubridate::year(min(data_ts$date)), as.numeric(min(data_ts$date) - as.Date("2020-01-01")))) # データ開始時点の年と、年初からの日数を指定
+     start = c(lubridate::year(min(data_ts$date)), as.numeric(min(data_ts$date) - as.Date("2020-01-01"))) # データ開始時点の年と、年初からの日数を指定
+     )
 
 data_ts %>% head()
 
@@ -451,7 +456,8 @@ lubridate::epiweek(c(as.Date("2022-01-01"), as.Date("2022-01-02"), as.Date("2022
 data_owid_jp <- data_owid %>% 
   dplyr::select(location, date, new_cases, new_deaths) %>% 
   dplyr::filter(location == "Japan",
-                date >= "2022-01-01")
+                date >= "2022-01-01"
+                )
 ```
 
 ### ラグ・リード系列の作成 {.unnumbered}
@@ -484,7 +490,8 @@ data_owid_jp %>%
   dplyr::mutate(new_cases_7dma = zoo::rollmean(new_cases, # 移動平均を作成するもとの系列名
                                                k = 7, # 移動平均の期間
                                                na.pad = TRUE, # 系列の先端部分で移動平均を計算できない箇所をNAで埋めるか
-                                               align = "right")) # left：前方移動平均、center：中央移動平均、right：後方移動平均
+                                               align = "right") # left：前方移動平均、center：中央移動平均、right：後方移動平均
+                )
 ```
 
 ## 時系列データの頻度変換
@@ -611,7 +618,8 @@ data_labor_nsa <- data_labor %>%
 data_labor_ts <- data_labor_nsa %>% 
   dplyr::select(-date) %>% 
   ts(frequency = 12, # 月次データの場合は12を指定
-     start = c(lubridate::year(data_labor$date[1]), lubridate::month(data_labor$date[1]))) # データ開始年月を指定
+     start = c(lubridate::year(data_labor$date[1]), lubridate::month(data_labor$date[1])) # データ開始年月を指定
+     )
 
 # tibble形式をリスト形式に変換
 data_labor_ts %<>% 
@@ -620,8 +628,8 @@ data_labor_ts %<>%
 # pblapply()関数で一括してseas()関数の季節調整を適用
 # 季節調整でエラーが発生する可能性があるため、try()関数でエラー処理を行う
 result <- pblapply(data_labor_ts,
-                   function(e) try(suppressMessages(seas(e, transform.function = "auto")),
-                                   silent = TRUE))
+                   function(e) try(suppressMessages(seas(e, transform.function = "auto")), silent = TRUE)
+                   )
 
 # 季節調整エラーを取得
 result_iserror <- sapply(result, class) == "try-error"
@@ -665,7 +673,8 @@ STL分解を行うには、ts形式の時系列データに対し、`stats`パ�
 ```{r}
 # stl()関数でSTL分解を実行
 m <- stats::stl(x = seasonal::unemp,
-                s.window = "periodic")
+                s.window = "periodic"
+                )
 
 # STL分解の結果を可視化
 plot(m)
@@ -700,7 +709,8 @@ plot(fpp2::gasoline)
 ```{r}
 # stl()関数でSTL分解を実行
 m <- stats::stl(x = fpp2::gasoline,
-                s.window = "periodic")
+                s.window = "periodic"
+                )
 
 # STL分解の結果を可視化
 plot(m)
@@ -722,11 +732,13 @@ data_cases_jp <- data_owid %>%
 # 1週＝7日の周期を設定したts形式のデータに変換
 data_cases_jp_ts <- data_cases_jp %>% 
   ts(start = c(2020, 1, 22),
-     frequency = 7)
+     frequency = 7
+     )
 
 # STL分解の結果をmに格納
 m <- stats::stl(x = data_cases_jp_ts,
-                s.window = "periodic")
+                s.window = "periodic"
+                )
 
 # STL分解の結果を可視化
 plot(m)
@@ -750,7 +762,8 @@ data_cases_jp <- data_owid %>%
 # 1週間＝7日と1年＝365.25日の周期を設定したmsts形式のデータに変換
 data_cases_jp_msts <- data_cases_jp %>%  
   forecast::msts(seasonal.period = c(7, 365.25),
-                 start = c(2020, 1, 22))
+                 start = c(2020, 1, 22)
+                 )
 
 # STL分解の結果をmに格納
 m <- forecast::mstl(x = data_cases_jp_ts, s.window = "periodic")
@@ -781,7 +794,8 @@ data <- readxl::read_excel(path = "data_nishiyama/ch10/Fig_1_nominalGDP_annual.x
                            sheet = NULL, # シートインデックス／シート名
                            col_names = c("日付", "名目年率", "実質年率"), # ヘッダー（列名データ）の有無／列名指定
                            col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
-                           skip = 1) # 読み込み時に上からスキップする行数
+                           skip = 1 # 読み込み時に上からスキップする行数
+                           )
 
 # 時系列インデックスtimeを追加
 data %<>% 
@@ -801,7 +815,8 @@ data_lm <- data %>%
 # 推定期間として1991年から2017年を指定
 data_lm %<>% 
   dplyr::filter(日付 >= 1991,
-                日付 <= 2017)
+                日付 <= 2017
+                )
 
 data_lm
 ```
@@ -813,7 +828,8 @@ data_lm
 result <- estimatr::lm_robust(formula = ln_real ~ time,
                               data = data_lm,
                               se_type = "classical", # 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）
-                              alpha = 0.05) # 有意水準
+                              alpha = 0.05 # 有意水準
+                              )
 
 summary(result)
 ```
@@ -863,7 +879,8 @@ data <- readxl::read_excel(path = "data_nishiyama/ch10/Fig_1_nominalGDP_annual.x
                            sheet = NULL, # シートインデックス／シート名
                            col_names = c("日付", "名目年率", "実質年率"), # ヘッダー（列名データ）の有無／列名指定
                            col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
-                           skip = 1) # 読み込み時に上からスキップする行数
+                           skip = 1 # 読み込み時に上からスキップする行数
+                           )
 
 # 時系列インデックスtimeを追加
 data %<>% 
@@ -894,7 +911,8 @@ data_lm
 result <- estimatr::lm_robust(formula = ln_real ~ dummy + time + dummy * time,
                               data = data_lm,
                               se_type = "classical", # 標準誤差の設定（classical, HC0, HC1, HC2, HC3, CR0, CR2）
-                              alpha = 0.05) # 有意水準
+                              alpha = 0.05 # 有意水準
+                              )
 
 summary(result)
 ```
@@ -903,7 +921,8 @@ summary(result)
 # 実質GDPを対数変換して100を掛けた値と、線形トレンド・モデルの推定結果をプロット
 data_lm %>% 
   dplyr::mutate(fitted_1 = if_else(日付 <= 1990, result$fitted.values, NA_real_),
-                fitted_2 = if_else(日付 >= 1991, result$fitted.values, NA_real_)) %>% 
+                fitted_2 = if_else(日付 >= 1991, result$fitted.values, NA_real_)
+                ) %>% 
   ggplot() + 
   geom_line(mapping = aes(x = 日付, y = ln_real), color = "blue") +
   geom_line(mapping = aes(x = 日付, y = fitted_1), color = "red") +
@@ -934,7 +953,8 @@ HPフィルタを適用するには、時系列データに対し、`mFilter`パ
 result <- mFilter::hpfilter(x = seasonal::unemp, # HPフィルタを適用する時系列データ（数値型ベクトル、ts形式）
                             type = "lambda",
                             freq = 14400, # ラムダの値（四半期：1600、月次：14400）
-                            drift = FALSE) # ドリフト項の有無 
+                            drift = FALSE # ドリフト項の有無 
+                            )
 
 summary(result)
 ```
@@ -980,7 +1000,8 @@ data %<>%
 result <- mgcv::gam(formula = unemp ~ s(time),
                     family = gaussian(), # 分布関数
                     sp = NULL, # 平滑度を決めるパラメータ（大きいほど直線に近く、小さいほど元データに近い。NULLで自動最適化）
-                    data = data)
+                    data = data
+                    )
 
 # 推定結果を出力
 summary(result)
@@ -998,7 +1019,8 @@ data %>%
 plot(result, # gam()関数で推定した結果を格納したオブジェクト
      residuals = TRUE, # 元データを表示するか
      se = TRUE, # 信頼区間を表示するか
-     pch = "*") # 元データのマーカー
+     pch = "*" # 元データのマーカー
+     )
 ```
 
 ```{r}
@@ -1042,7 +1064,8 @@ data <- readxl::read_excel(path = "data_nishiyama/ch10/Fig_1_nominalGDP_annual.x
                            sheet = NULL, # シートインデックス／シート名
                            col_names = c("日付", "名目年率", "実質年率"), # ヘッダー（列名データ）の有無／列名指定
                            col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
-                           skip = 1) # 読み込み時に上からスキップする行数
+                           skip = 1 # 読み込み時に上からスキップする行数
+                           )
 
 # 時系列インデックスtimeを追加
 data %<>% 
@@ -1059,7 +1082,8 @@ data_lm
 ```{r}
 # 実質GDPを対数変換して100を掛けた値をプロット
 ggplot(data = data_lm,
-       mapping = aes(x = time, y = ln_real)) +
+       mapping = aes(x = time, y = ln_real)
+       ) +
   geom_point()
 ```
 
@@ -1070,7 +1094,8 @@ ggplot(data = data_lm,
 strucchange::sctest(formula = ln_real ~ time, # 構造変化を検定するモデル
                     data = data_lm, # データ
                     type = "Chow", # チャウ検定を意味する"Chow"を指定
-                    point = 12) # 検定する構造変化点（データの行インデックス番号）を指定
+                    point = 12 # 検定する構造変化点（データの行インデックス番号）を指定
+                    )
 ```
 
 ### 構造変化点が未知の場合 {.unnumbered}
@@ -1085,7 +1110,8 @@ data <- readxl::read_excel(path = "data_nishiyama/ch10/Fig_1_nominalGDP_annual.x
                            sheet = NULL, # シートインデックス／シート名
                            col_names = c("日付", "名目年率", "実質年率"), # ヘッダー（列名データ）の有無／列名指定
                            col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
-                           skip = 1) # 読み込み時に上からスキップする行数
+                           skip = 1 # 読み込み時に上からスキップする行数
+                           )
 
 # 時系列インデックスtimeを追加
 data %<>% 
@@ -1109,7 +1135,8 @@ data_lm
 result <- strucchange::breakpoints(formula = ln_real ~ time, # 構造変化点を推定するモデル
                                    data = data_lm, # データ
                                    h = 0.15, # 最小セグメントサイズ
-                                   breaks = 1) # 構造変化の数
+                                   breaks = 1 # 構造変化の数
+                                   )
 
 summary(result)
 ```

@@ -435,10 +435,8 @@ data_gdp_jp
 # 全変数を削除
 rm(list = ls())
 
-
 # 警告の非表示
 options(warn = -1)
-
 
 # プロキシ設定（使用環境に応じproxyserverとportを記入）
 proxy_url <- "http://proxyserver:port/"
@@ -448,7 +446,6 @@ Sys.setenv("https_proxy" = proxy_url)
 
 options(download.file.method = "libcurl")
 options(timeout = NA)
-
 
 # パッケージのインストールとインポート
 packages <- c(
@@ -474,7 +471,6 @@ rm(
   packages,
   pkg
 )
-
 
 # グラフ設定
 theme_set(theme_light())

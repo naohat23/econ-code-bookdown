@@ -202,7 +202,8 @@ mtcars %>%
                      addCoef.col = "black", # 相関係数の値の色
                      diag = FALSE, # 対角要素を表示するか
                      number.cex = 0.8, # 相関係数の値のフォントサイズ
-                     number.digits = 2) # 相関係数の値の小数点以下桁数
+                     number.digits = 2 # 相関係数の値の小数点以下桁数
+                     )
 ```
 
 `corrplot::cor.mtest()`関数を使用すると、「相関係数が0である」との帰無仮説に対するp値を計算し、その結果を可視化することができます。
@@ -221,7 +222,8 @@ mtcars %>%
                      addCoef.col = "black", # 相関係数の値の色
                      diag = FALSE, # 対角要素を表示するか
                      number.cex = 0.8, # 相関係数の値のフォントサイズ
-                     number.digits = 2) # 相関係数の値の小数点以下桁数
+                     number.digits = 2 # 相関係数の値の小数点以下桁数
+                     )
 ```
 
 ### corrrパッケージ {.unnumbered}
@@ -231,8 +233,7 @@ mtcars %>%
 `corrr::correlate()`関数で相関係数行列を格納した`cor_df`オブジェクトを作成します。
 
 ```{r}
-mtcars_cor <- corrr::correlate(mtcars,
-                               method = "pearson") # 相関係数の算出法（"pearson", "kendall", "spearman"）
+mtcars_cor <- corrr::correlate(mtcars, method = "pearson") # 相関係数の算出法（"pearson", "kendall", "spearman"）
 
 mtcars_cor
 ```
@@ -275,7 +276,8 @@ mtcars %>%
 ```{r}
 iris %>% 
   GGally::ggpairs(mapping = aes(color = Species, alpha = 0.5),
-                  progress = FALSE) # コンソールにプログラスバーを表示するか
+                  progress = FALSE # コンソールにプログラスバーを表示するか
+                  )
 ```
 
 ## 探索的データ分析の一括実行
@@ -294,7 +296,8 @@ DataExplorer::create_report(data = iris)
 ```{r, eval=FALSE}
 # diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施
 DataExplorer::create_report(data = diamonds,
-                            y = "price")
+                            y = "price"
+                            )
 ```
 
 ### SmartEDAパッケージ {.unnumbered}
@@ -306,14 +309,16 @@ DataExplorer::create_report(data = diamonds,
 ```{r, eval=FALSE}
 # irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施
 SmartEDA::ExpReport(data = iris,
-                    op_file = "report.html")
+                    op_file = "report.html"
+                    )
 ```
 
 ```{r, eval=FALSE}
 # diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施
 SmartEDA::ExpReport(data = diamonds,
                     Target = "price",
-                    op_file = "report.html")
+                    op_file = "report.html"
+                    )
 ```
 
 また、`SmartEDA::ExpCatStat()`では、`Target`引数で指定した被説明変数に対する各変数の予測力を計算することができます。
@@ -322,5 +327,6 @@ SmartEDA::ExpReport(data = diamonds,
 # mtcarsデータセットに対し被説明変数をamに指定して各変数の予測力を計算
 SmartEDA::ExpCatStat(data = mtcars,
                      Target = "am",
-                     plot = TRUE)
+                     plot = TRUE
+                     )
 ```

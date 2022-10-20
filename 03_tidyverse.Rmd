@@ -242,14 +242,16 @@ data_owid %>% dplyr::filter(is.na(new_cases))
 # 列名がcasesで終わる列の値がすべて1000以上である行を抽出
 data_owid %>% 
   dplyr::filter(location == "Japan",
-                if_all(.cols = ends_with("cases"), .fns = ~ {. >= 1000}))
+                if_all(.cols = ends_with("cases"), .fns = ~ {. >= 1000})
+                )
 ```
 
 ```{r}
 # 数値型の変数の何れかがNAである行を抽出
 data_owid %>% 
   dplyr::filter(location == "Japan",
-                if_any(.cols = where(is.double), .fns = is.na))
+                if_any(.cols = where(is.double), .fns = is.na)
+                )
 ```
 
 ## 行の並べ替え
@@ -298,7 +300,8 @@ data_owid %>%
 data_owid_jp <- data_owid %>% 
   dplyr::select(location, date, new_cases, new_deaths) %>% 
   dplyr::filter(location == "Japan",
-                date >= "2022-01-01")
+                date >= "2022-01-01"
+                )
 ```
 
 ### 新たな列の作成 {.unnumbered}
@@ -308,7 +311,8 @@ data_owid_jp <- data_owid %>%
 ```{r}
 data_owid_jp %>% 
   dplyr::mutate(death_rate = new_deaths / new_cases,
-                .after = "date") 
+                .after = "date"
+                ) 
 ```
 
 ### 既存の列の修正 {.unnumbered}
@@ -328,13 +332,17 @@ data_owid %>%
 # 単一条件を指定してダミー変数を作成
 data_owid_jp %>% 
   dplyr::mutate(dummy = dplyr::case_when(new_cases < 3000 ~ 1,
-                                         TRUE ~ 0))
+                                         TRUE ~ 0
+                                         )
+                )
 
 # 複数条件を指定
 data_owid_jp %>% 
   dplyr::mutate(case = dplyr::case_when(new_cases < 1000 ~ "A",
                                         (new_cases >= 5000 & new_cases < 8000) ~ "B",
-                                        TRUE ~ "other"))
+                                        TRUE ~ "other"
+                                        )
+                )
 ```
 
 ### 複数列の一括処理 {.unnumbered}
@@ -443,7 +451,8 @@ data_owid %>%
 data_owid %>% 
   dplyr::group_by(location) %>% 
   dplyr::summarise(across(ends_with("cases"), sum, na.rm = TRUE),
-                   across(ends_with("per_million"), mean, na.rm = TRUE))
+                   across(ends_with("per_million"), mean, na.rm = TRUE)
+                   )
 
 # 数値型の列すべてについて、グループ別の平均値を計算
 data_owid %>% 
@@ -561,6 +570,27 @@ dplyr::full_join(band_members, band_instruments, by = "name")
 
 ## 重複処理
 
+### 重複行の削除 {.unnumbered}
+
+重複している行を削除するには、`dplyr::distinct()`関数を使用します。
+
+```{r}
+# すべての列を対象にして、重複している行を削除
+mpg %>% 
+  dplyr::distinct()
+
+# 指定した列を対象にして、重複している行を削除
+mpg %>% 
+  dplyr::distinct(manufacturer)
+
+mpg %>% 
+  dplyr::distinct(manufacturer, model)
+
+# 指定した列を対象にして、重複している行を削除し、その他の列も残す
+mpg %>% 
+  dplyr::distinct(manufacturer, model, .keep_all = TRUE)
+```
+
 ### 重複行の抽出 {.unnumbered}
 
 重複している行を抽出するには、`dplyr::group_by()`関数、`dplyr::filter()`関数、`dplyr::n()`関数を組み合わせて使用します。`dplyr::n()`関数は、`dplyr::group_by()`関数で指定したグループのサイズを返す関数です。
@@ -570,20 +600,6 @@ dplyr::full_join(band_members, band_instruments, by = "name")
 mpg %>% 
   dplyr::group_by(manufacturer, model, displ, year, cyl, trans, cty, hwy) %>% 
   dplyr::filter(dplyr::n() > 1)
-```
-
-### 重複行の削除 {.unnumbered}
-
-重複している行を削除するには、`dplyr::distinct()`関数を使用します。
-
-```{r}
-# すべての列を対象にして、重複している行を削除
-data_owid %>% 
-  dplyr::distinct()
-
-# 指定した列を対象にして、重複している行を削除
-data_owid %>% 
-  dplyr::distinct(continent, location)
 ```
 
 ## 欠損値処理
@@ -596,7 +612,8 @@ data_owid %>%
 data_owid_vaccinated <- data_owid %>% 
   dplyr::select(location, date, people_fully_vaccinated) %>% 
   dplyr::filter(location %in% c("Japan", "United States", "United Kingdom"),
-                date >= "2021-01-01") %>% 
+                date >= "2021-01-01"
+                ) %>% 
   dplyr::arrange(date) %>% 
   tidyr::pivot_wider(id_cols = "date", names_from = "location", values_from = "people_fully_vaccinated")
 
