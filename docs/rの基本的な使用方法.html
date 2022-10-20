@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2022-09-07" />
+<meta name="date" content="2022-10-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -148,6 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i>変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年10月20日-マイナーアップデート"><i class="fa fa-check"></i>2022年10月20日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月7日-マイナーアップデート"><i class="fa fa-check"></i>2022年9月7日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年7月17日-マイナーアップデート"><i class="fa fa-check"></i>2022年7月17日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年7月9日-マイナーアップデート"><i class="fa fa-check"></i>2022年7月9日 マイナーアップデート</a></li>
@@ -240,6 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#forループ"><i class="fa fa-check"></i>forループ</a></li>
 <li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#whileループ"><i class="fa fa-check"></i>whileループ</a></li>
 <li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#breakによる繰り返しの終了"><i class="fa fa-check"></i>breakによる繰り返しの終了</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#nextによる処理のスキップ"><i class="fa fa-check"></i>nextによる処理のスキップ</a></li>
 <li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#tryによるエラー処理"><i class="fa fa-check"></i>tryによるエラー処理</a></li>
 </ul></li>
 <li class="chapter" data-level="2.11" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ファイル操作"><i class="fa fa-check"></i><b>2.11</b> ファイル操作</a>
@@ -343,8 +345,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.13" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複処理"><i class="fa fa-check"></i><b>3.13</b> 重複処理</a>
 <ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の抽出"><i class="fa fa-check"></i>重複行の抽出</a></li>
 <li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の削除"><i class="fa fa-check"></i>重複行の削除</a></li>
+<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の抽出"><i class="fa fa-check"></i>重複行の抽出</a></li>
 </ul></li>
 <li class="chapter" data-level="3.14" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#欠損値処理"><i class="fa fa-check"></i><b>3.14</b> 欠損値処理</a>
 <ul>
@@ -561,6 +563,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6" data-path="線形回帰.html"><a href="線形回帰.html#rの単回帰モデル推定"><i class="fa fa-check"></i><b>6.6</b> Rの単回帰モデル推定</a>
 <ul>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例4.1-線形単回帰"><i class="fa fa-check"></i>実証例4.1 線形単回帰</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例4.1-回帰診断プロット"><i class="fa fa-check"></i>実証例4.1 回帰診断プロット</a></li>
 <li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#対数変化率モデルの推定"><i class="fa fa-check"></i>対数・変化率モデルの推定</a></li>
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="線形回帰.html"><a href="線形回帰.html#rの重回帰モデル推定"><i class="fa fa-check"></i><b>6.7</b> Rの重回帰モデル推定</a>
@@ -1156,14 +1159,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>文字列から一部を切り出すには、<code>str_sub()</code>関数を使用し、切り出す箇所の開始・終了位置（文字数）を指定します。</p>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="rの基本的な使用方法.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(<span class="at">string =</span> <span class="fu">c</span>(<span class="st">&quot;日本の成長率&quot;</span>, <span class="st">&quot;米国の成長率&quot;</span>, <span class="st">&quot;欧州の成長率&quot;</span>), <span class="co"># 切り出す対象の文字列／文字列ベクトル</span></span>
 <span id="cb197-2"><a href="rの基本的な使用方法.html#cb197-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">start =</span> <span class="dv">1</span>, <span class="co"># 開始位置の文字数</span></span>
-<span id="cb197-3"><a href="rの基本的な使用方法.html#cb197-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">end =</span> <span class="dv">2</span>) <span class="co"># 終了位置の文字数</span></span></code></pre></div>
+<span id="cb197-3"><a href="rの基本的な使用方法.html#cb197-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">end =</span> <span class="dv">2</span> <span class="co"># 終了位置の文字数</span></span>
+<span id="cb197-4"><a href="rの基本的な使用方法.html#cb197-4" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
 <pre><code>## [1] &quot;日本&quot; &quot;米国&quot; &quot;欧州&quot;</code></pre>
 </div>
 <div id="文字列の検出置換" class="section level3 unnumbered hasAnchor">
 <h3>文字列の検出・置換<a href="rの基本的な使用方法.html#文字列の検出置換" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>ある文字列を含んでいるかを検出するには、<code>str_detect()</code>関数を使用し、<code>pattern</code>引数に検出条件を指定します。<code>str_detect()</code>関数は検出結果に応じて<code>TRUE</code>か<code>FALSE</code>を出力します。</p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="rの基本的な使用方法.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(<span class="at">string =</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;pinapple&quot;</span>), <span class="co"># 検出対象の文字列ベクトル</span></span>
-<span id="cb199-2"><a href="rの基本的な使用方法.html#cb199-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">pattern =</span> <span class="st">&quot;e&quot;</span>) <span class="co"># 検出条件</span></span></code></pre></div>
+<span id="cb199-2"><a href="rの基本的な使用方法.html#cb199-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">pattern =</span> <span class="st">&quot;e&quot;</span> <span class="co"># 検出条件</span></span>
+<span id="cb199-3"><a href="rの基本的な使用方法.html#cb199-3" aria-hidden="true" tabindex="-1"></a>           )</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE  TRUE  TRUE</code></pre>
 <p>より複雑な条件で文字列を検出する場合は、文字列ベクトルを変数としたデータフレームに<code>str_detect()</code>関数を適用するのがよいでしょう。</p>
 <p>具体的には、データフレームの行をフィルタする<code>dplyr::filter()</code>関数の中で<code>str_detect()</code>関数を使用して、検出条件に合致するデータを抽出します。なお、データフレームの操作に関する詳細は、第3章「tidyverseによるデータ操作」を参照してください。</p>
@@ -1212,7 +1217,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="rの基本的な使用方法.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 都道府県名一覧の&quot;県&quot;を&quot;&quot;で置換（削除）</span></span>
 <span id="cb208-2"><a href="rの基本的な使用方法.html#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(<span class="at">string =</span> data_pref_names<span class="sc">$</span>pref_name, <span class="co"># 置換対象の文字列</span></span>
 <span id="cb208-3"><a href="rの基本的な使用方法.html#cb208-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">pattern =</span> <span class="st">&quot;県&quot;</span>, <span class="co"># 置換元の文字列</span></span>
-<span id="cb208-4"><a href="rの基本的な使用方法.html#cb208-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">replacement =</span> <span class="st">&quot;&quot;</span>) <span class="co"># 置換先の文字列</span></span></code></pre></div>
+<span id="cb208-4"><a href="rの基本的な使用方法.html#cb208-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">replacement =</span> <span class="st">&quot;&quot;</span> <span class="co"># 置換先の文字列</span></span>
+<span id="cb208-5"><a href="rの基本的な使用方法.html#cb208-5" aria-hidden="true" tabindex="-1"></a>                )</span></code></pre></div>
 <pre><code>##  [1] &quot;北海道&quot; &quot;青森&quot;   &quot;岩手&quot;   &quot;宮城&quot;   &quot;秋田&quot;   &quot;山形&quot;   &quot;福島&quot;   &quot;茨城&quot;  
 ##  [9] &quot;栃木&quot;   &quot;群馬&quot;   &quot;埼玉&quot;   &quot;千葉&quot;   &quot;東京都&quot; &quot;神奈川&quot; &quot;新潟&quot;   &quot;富山&quot;  
 ## [17] &quot;石川&quot;   &quot;福井&quot;   &quot;山梨&quot;   &quot;長野&quot;   &quot;岐阜&quot;   &quot;静岡&quot;   &quot;愛知&quot;   &quot;三重&quot;  
@@ -1222,7 +1228,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="rの基本的な使用方法.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 都道府県名一覧の&quot;県&quot;、&quot;都&quot;、&quot;府&quot;を&quot;&quot;で置換（削除）</span></span>
 <span id="cb210-2"><a href="rの基本的な使用方法.html#cb210-2" aria-hidden="true" tabindex="-1"></a><span class="co"># この場合、&quot;京都府&quot;の&quot;都&quot;と&quot;府&quot;が置換されるため、適切でない</span></span>
 <span id="cb210-3"><a href="rの基本的な使用方法.html#cb210-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(<span class="at">string =</span> data_pref_names<span class="sc">$</span>pref_name, <span class="co"># 置換対象の文字列</span></span>
-<span id="cb210-4"><a href="rの基本的な使用方法.html#cb210-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">pattern =</span> <span class="fu">c</span>(<span class="st">&quot;県&quot;</span> <span class="ot">=</span> <span class="st">&quot;&quot;</span>, <span class="st">&quot;都&quot;</span> <span class="ot">=</span> <span class="st">&quot;&quot;</span>, <span class="st">&quot;府&quot;</span> <span class="ot">=</span> <span class="st">&quot;&quot;</span>)) <span class="co"># 複数の置換条件を格納した名前付きベクトル</span></span></code></pre></div>
+<span id="cb210-4"><a href="rの基本的な使用方法.html#cb210-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">pattern =</span> <span class="fu">c</span>(<span class="st">&quot;県&quot;</span> <span class="ot">=</span> <span class="st">&quot;&quot;</span>, <span class="st">&quot;都&quot;</span> <span class="ot">=</span> <span class="st">&quot;&quot;</span>, <span class="st">&quot;府&quot;</span> <span class="ot">=</span> <span class="st">&quot;&quot;</span>) <span class="co"># 複数の置換条件を格納した名前付きベクトル</span></span>
+<span id="cb210-5"><a href="rの基本的な使用方法.html#cb210-5" aria-hidden="true" tabindex="-1"></a>                )</span></code></pre></div>
 <pre><code>##  [1] &quot;北海道&quot; &quot;青森&quot;   &quot;岩手&quot;   &quot;宮城&quot;   &quot;秋田&quot;   &quot;山形&quot;   &quot;福島&quot;   &quot;茨城&quot;  
 ##  [9] &quot;栃木&quot;   &quot;群馬&quot;   &quot;埼玉&quot;   &quot;千葉&quot;   &quot;東京&quot;   &quot;神奈川&quot; &quot;新潟&quot;   &quot;富山&quot;  
 ## [17] &quot;石川&quot;   &quot;福井&quot;   &quot;山梨&quot;   &quot;長野&quot;   &quot;岐阜&quot;   &quot;静岡&quot;   &quot;愛知&quot;   &quot;三重&quot;  
@@ -1231,7 +1238,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [41] &quot;佐賀&quot;   &quot;長崎&quot;   &quot;熊本&quot;   &quot;大分&quot;   &quot;宮崎&quot;   &quot;鹿児島&quot; &quot;沖縄&quot;</code></pre>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="rの基本的な使用方法.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 都道府県名一覧の&quot;県&quot;、&quot;都&quot;、&quot;府&quot;を&quot;&quot;で置換（削除）する正しい処理</span></span>
 <span id="cb212-2"><a href="rの基本的な使用方法.html#cb212-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(<span class="at">string =</span> data_pref_names<span class="sc">$</span>pref_name, <span class="co"># 置換対象の文字列</span></span>
-<span id="cb212-3"><a href="rの基本的な使用方法.html#cb212-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">pattern =</span> <span class="fu">c</span>(<span class="st">&quot;県&quot;</span> <span class="ot">=</span> <span class="st">&quot;&quot;</span>, <span class="st">&quot;東京都&quot;</span> <span class="ot">=</span> <span class="st">&quot;東京&quot;</span>, <span class="st">&quot;府&quot;</span> <span class="ot">=</span> <span class="st">&quot;&quot;</span>)) <span class="co"># 複数の置換条件を格納した名前付きベクトル</span></span></code></pre></div>
+<span id="cb212-3"><a href="rの基本的な使用方法.html#cb212-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">pattern =</span> <span class="fu">c</span>(<span class="st">&quot;県&quot;</span> <span class="ot">=</span> <span class="st">&quot;&quot;</span>, <span class="st">&quot;東京都&quot;</span> <span class="ot">=</span> <span class="st">&quot;東京&quot;</span>, <span class="st">&quot;府&quot;</span> <span class="ot">=</span> <span class="st">&quot;&quot;</span>) <span class="co"># 複数の置換条件を格納した名前付きベクトル</span></span>
+<span id="cb212-4"><a href="rの基本的な使用方法.html#cb212-4" aria-hidden="true" tabindex="-1"></a>                )</span></code></pre></div>
 <pre><code>##  [1] &quot;北海道&quot; &quot;青森&quot;   &quot;岩手&quot;   &quot;宮城&quot;   &quot;秋田&quot;   &quot;山形&quot;   &quot;福島&quot;   &quot;茨城&quot;  
 ##  [9] &quot;栃木&quot;   &quot;群馬&quot;   &quot;埼玉&quot;   &quot;千葉&quot;   &quot;東京&quot;   &quot;神奈川&quot; &quot;新潟&quot;   &quot;富山&quot;  
 ## [17] &quot;石川&quot;   &quot;福井&quot;   &quot;山梨&quot;   &quot;長野&quot;   &quot;岐阜&quot;   &quot;静岡&quot;   &quot;愛知&quot;   &quot;三重&quot;  
@@ -1246,7 +1254,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb214-2"><a href="rの基本的な使用方法.html#cb214-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_pad</span>(<span class="at">string =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="co"># 元の文字列（ここでは数値ベクトルを指定）</span></span>
 <span id="cb214-3"><a href="rの基本的な使用方法.html#cb214-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">width =</span> <span class="dv">3</span>, <span class="co"># 桁数</span></span>
 <span id="cb214-4"><a href="rの基本的な使用方法.html#cb214-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">pad =</span> <span class="st">&quot;0&quot;</span>, <span class="co"># パディングに使用する文字</span></span>
-<span id="cb214-5"><a href="rの基本的な使用方法.html#cb214-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">side =</span> <span class="st">&quot;left&quot;</span>) <span class="co"># パディングする側</span></span></code></pre></div>
+<span id="cb214-5"><a href="rの基本的な使用方法.html#cb214-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">side =</span> <span class="st">&quot;left&quot;</span> <span class="co"># パディングする側</span></span>
+<span id="cb214-6"><a href="rの基本的な使用方法.html#cb214-6" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
 <pre><code>##  [1] &quot;001&quot; &quot;002&quot; &quot;003&quot; &quot;004&quot; &quot;005&quot; &quot;006&quot; &quot;007&quot; &quot;008&quot; &quot;009&quot; &quot;010&quot; &quot;011&quot; &quot;012&quot;
 ## [13] &quot;013&quot; &quot;014&quot; &quot;015&quot; &quot;016&quot; &quot;017&quot; &quot;018&quot; &quot;019&quot; &quot;020&quot;</code></pre>
 <div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="rの基本的な使用方法.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ファイル名に1～12の2桁連番を追加する例</span></span>
@@ -1318,14 +1327,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="breakによる繰り返しの終了" class="section level3 unnumbered hasAnchor">
 <h3>breakによる繰り返しの終了<a href="rの基本的な使用方法.html#breakによる繰り返しの終了" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><code>while</code>文の処理の中で<code>break</code>文を用い、ループを強制的に終了させることができます。</p>
+<p><code>while</code>文の処理の中で<code>break()</code>関数を用い、ループを強制的に終了させることができます。</p>
 <div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="rの基本的な使用方法.html#cb228-1" aria-hidden="true" tabindex="-1"></a>vec_break <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
 <span id="cb228-2"><a href="rの基本的な使用方法.html#cb228-2" aria-hidden="true" tabindex="-1"></a>index <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb228-3"><a href="rの基本的な使用方法.html#cb228-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb228-4"><a href="rの基本的な使用方法.html#cb228-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(<span class="cn">TRUE</span>) {</span>
+<span id="cb228-4"><a href="rの基本的な使用方法.html#cb228-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (<span class="cn">TRUE</span>) {</span>
 <span id="cb228-5"><a href="rの基本的な使用方法.html#cb228-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># indexがvec_breakの要素数を超えると繰り返しを終了</span></span>
 <span id="cb228-6"><a href="rの基本的な使用方法.html#cb228-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (index <span class="sc">&gt;</span> <span class="fu">length</span>(vec_break)) {</span>
-<span id="cb228-7"><a href="rの基本的な使用方法.html#cb228-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb228-7"><a href="rの基本的な使用方法.html#cb228-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span>()</span>
 <span id="cb228-8"><a href="rの基本的な使用方法.html#cb228-8" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb228-9"><a href="rの基本的な使用方法.html#cb228-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(vec_break[index])</span>
 <span id="cb228-10"><a href="rの基本的な使用方法.html#cb228-10" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> index <span class="sc">+</span> <span class="dv">1</span></span>
@@ -1336,21 +1345,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] 40
 ## [1] 50</code></pre>
 </div>
+<div id="nextによる処理のスキップ" class="section level3 unnumbered hasAnchor">
+<h3>nextによる処理のスキップ<a href="rの基本的な使用方法.html#nextによる処理のスキップ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>for</code>文や<code>while</code>文の中で<code>nest()</code>関数を用いると、処理をスキップして次の処理に移ります。</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="rの基本的な使用方法.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb230-2"><a href="rの基本的な使用方法.html#cb230-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># iが3のとき処理をスキップ</span></span>
+<span id="cb230-3"><a href="rの基本的な使用方法.html#cb230-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">3</span>) <span class="cf">next</span>()</span>
+<span id="cb230-4"><a href="rの基本的な使用方法.html#cb230-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb230-5"><a href="rの基本的な使用方法.html#cb230-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 4
+## [1] 5</code></pre>
+</div>
 <div id="tryによるエラー処理" class="section level3 unnumbered hasAnchor">
 <h3>tryによるエラー処理<a href="rの基本的な使用方法.html#tryによるエラー処理" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>エラーを起こす可能性がある処理を<code>try()</code>関数の<code>expr = {}</code>内に記述することで、エラーが発生しても処理を続けることができます。</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="rの基本的な使用方法.html#cb230-1" aria-hidden="true" tabindex="-1"></a>list_try <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;4&quot;</span>, <span class="dv">5</span>)</span>
-<span id="cb230-2"><a href="rの基本的な使用方法.html#cb230-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb230-3"><a href="rの基本的な使用方法.html#cb230-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(list_try)) {</span>
-<span id="cb230-4"><a href="rの基本的な使用方法.html#cb230-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">try</span>(</span>
-<span id="cb230-5"><a href="rの基本的な使用方法.html#cb230-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">expr =</span> {</span>
-<span id="cb230-6"><a href="rの基本的な使用方法.html#cb230-6" aria-hidden="true" tabindex="-1"></a>      <span class="co"># エラーの可能性がある処理</span></span>
-<span id="cb230-7"><a href="rの基本的な使用方法.html#cb230-7" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">&lt;-</span> <span class="fu">log</span>(list_try[[i]])</span>
-<span id="cb230-8"><a href="rの基本的な使用方法.html#cb230-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(x)</span>
-<span id="cb230-9"><a href="rの基本的な使用方法.html#cb230-9" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb230-10"><a href="rの基本的な使用方法.html#cb230-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">silent =</span> <span class="cn">FALSE</span> <span class="co"># TRUEにするとエラーの内容を非表示</span></span>
-<span id="cb230-11"><a href="rの基本的な使用方法.html#cb230-11" aria-hidden="true" tabindex="-1"></a>  ) </span>
-<span id="cb230-12"><a href="rの基本的な使用方法.html#cb230-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="rの基本的な使用方法.html#cb232-1" aria-hidden="true" tabindex="-1"></a>list_try <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;4&quot;</span>, <span class="dv">5</span>)</span>
+<span id="cb232-2"><a href="rの基本的な使用方法.html#cb232-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-3"><a href="rの基本的な使用方法.html#cb232-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(list_try)) {</span>
+<span id="cb232-4"><a href="rの基本的な使用方法.html#cb232-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">try</span>(</span>
+<span id="cb232-5"><a href="rの基本的な使用方法.html#cb232-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">expr =</span> {</span>
+<span id="cb232-6"><a href="rの基本的な使用方法.html#cb232-6" aria-hidden="true" tabindex="-1"></a>      <span class="co"># エラーの可能性がある処理</span></span>
+<span id="cb232-7"><a href="rの基本的な使用方法.html#cb232-7" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">&lt;-</span> <span class="fu">log</span>(list_try[[i]])</span>
+<span id="cb232-8"><a href="rの基本的な使用方法.html#cb232-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(x)</span>
+<span id="cb232-9"><a href="rの基本的な使用方法.html#cb232-9" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb232-10"><a href="rの基本的な使用方法.html#cb232-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">silent =</span> <span class="cn">FALSE</span> <span class="co"># TRUEにするとエラーの内容を非表示</span></span>
+<span id="cb232-11"><a href="rの基本的な使用方法.html#cb232-11" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb232-12"><a href="rの基本的な使用方法.html#cb232-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 0
 ## [1] 0.6931472
 ## [1] 1.098612
@@ -1364,41 +1386,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>なお、WindowsやPythonではディレクトリの階層を表す記号としてバックスラッシュ：<code>\</code>（日本語環境では円マークとして表示される場合もある）を用いますが、Rではスラッシュ：<code>/</code>を用いますので、注意してください。</p>
 <div id="ディレクトリ関連" class="section level3 unnumbered hasAnchor">
 <h3>ディレクトリ関連<a href="rの基本的な使用方法.html#ディレクトリ関連" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="rの基本的な使用方法.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 作業ディレクトリの指定</span></span>
-<span id="cb232-2"><a href="rの基本的な使用方法.html#cb232-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="at">dir =</span> <span class="st">&quot;directory&quot;</span>)</span>
-<span id="cb232-3"><a href="rの基本的な使用方法.html#cb232-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb232-4"><a href="rの基本的な使用方法.html#cb232-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 作業ディレクトリのパスを出力</span></span>
-<span id="cb232-5"><a href="rの基本的な使用方法.html#cb232-5" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb232-6"><a href="rの基本的な使用方法.html#cb232-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb232-7"><a href="rの基本的な使用方法.html#cb232-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ディレクトリを新規作成</span></span>
-<span id="cb232-8"><a href="rの基本的な使用方法.html#cb232-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="at">path =</span> <span class="st">&quot;./directory&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="rの基本的な使用方法.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 作業ディレクトリの指定</span></span>
+<span id="cb234-2"><a href="rの基本的な使用方法.html#cb234-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="at">dir =</span> <span class="st">&quot;directory&quot;</span>)</span>
+<span id="cb234-3"><a href="rの基本的な使用方法.html#cb234-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-4"><a href="rの基本的な使用方法.html#cb234-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 作業ディレクトリのパスを出力</span></span>
+<span id="cb234-5"><a href="rの基本的な使用方法.html#cb234-5" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb234-6"><a href="rの基本的な使用方法.html#cb234-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb234-7"><a href="rの基本的な使用方法.html#cb234-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ディレクトリを新規作成</span></span>
+<span id="cb234-8"><a href="rの基本的な使用方法.html#cb234-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="at">path =</span> <span class="st">&quot;./directory&quot;</span>)</span></code></pre></div>
 </div>
 <div id="ファイル関連" class="section level3 unnumbered hasAnchor">
 <h3>ファイル関連<a href="rの基本的な使用方法.html#ファイル関連" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="rの基本的な使用方法.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ディレクトリの中にあるファイル一覧を出力</span></span>
-<span id="cb233-2"><a href="rの基本的な使用方法.html#cb233-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">&quot;directory&quot;</span>)</span>
-<span id="cb233-3"><a href="rの基本的な使用方法.html#cb233-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb233-4"><a href="rの基本的な使用方法.html#cb233-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ファイルのコピー</span></span>
-<span id="cb233-5"><a href="rの基本的な使用方法.html#cb233-5" aria-hidden="true" tabindex="-1"></a><span class="fu">file.copy</span>(<span class="at">from =</span> <span class="st">&quot;directory/file_1.csv&quot;</span>, </span>
-<span id="cb233-6"><a href="rの基本的な使用方法.html#cb233-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">to =</span> <span class="st">&quot;directory/file_2.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="rの基本的な使用方法.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ディレクトリの中にあるファイル一覧を出力</span></span>
+<span id="cb235-2"><a href="rの基本的な使用方法.html#cb235-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> <span class="st">&quot;directory&quot;</span>)</span>
+<span id="cb235-3"><a href="rの基本的な使用方法.html#cb235-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb235-4"><a href="rの基本的な使用方法.html#cb235-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ファイルのコピー</span></span>
+<span id="cb235-5"><a href="rの基本的な使用方法.html#cb235-5" aria-hidden="true" tabindex="-1"></a><span class="fu">file.copy</span>(<span class="at">from =</span> <span class="st">&quot;directory/file_1.csv&quot;</span>, </span>
+<span id="cb235-6"><a href="rの基本的な使用方法.html#cb235-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">to =</span> <span class="st">&quot;directory/file_2.csv&quot;</span></span>
+<span id="cb235-7"><a href="rの基本的な使用方法.html#cb235-7" aria-hidden="true" tabindex="-1"></a>          )</span></code></pre></div>
 </div>
 <div id="ファイルのダウンロード" class="section level3 unnumbered hasAnchor">
 <h3>ファイルのダウンロード<a href="rの基本的な使用方法.html#ファイルのダウンロード" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>ウェブからファイルをダウンロードする場合は、<code>download.file()</code>関数を使用します。プロキシ環境ではあらかじめプロキシ設定を行ってください。</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="rの基本的な使用方法.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">&quot;https://www.sample.com/file.csv&quot;</span>, <span class="co"># ダウンロード元のURL</span></span>
-<span id="cb234-2"><a href="rの基本的な使用方法.html#cb234-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">&quot;directory/file.csv&quot;</span>) <span class="co"># ダウンロードしたファイルを格納するファイルパス</span></span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="rの基本的な使用方法.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">&quot;https://www.sample.com/file.csv&quot;</span>, <span class="co"># ダウンロード元のURL</span></span>
+<span id="cb236-2"><a href="rの基本的な使用方法.html#cb236-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="st">&quot;directory/file.csv&quot;</span> <span class="co"># ダウンロードしたファイルを格納するファイルパス</span></span>
+<span id="cb236-3"><a href="rの基本的な使用方法.html#cb236-3" aria-hidden="true" tabindex="-1"></a>              )</span></code></pre></div>
 <p>制御構文の<code>for</code>ループなどと組み合わせると、複数のファイルを自動でダウンロードできます。ただし、ダウンロード元のサーバーに過度な負荷をかけないよう、<code>Sys.sleep()</code>関数でスリープタイムを設定しておきましょう。</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="rの基本的な使用方法.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="co"># forループで複数のファイルを自動ダウンロードする例</span></span>
-<span id="cb235-2"><a href="rの基本的な使用方法.html#cb235-2" aria-hidden="true" tabindex="-1"></a>website <span class="ot">&lt;-</span> <span class="st">&quot;https://www.sample.com/&quot;</span></span>
-<span id="cb235-3"><a href="rの基本的な使用方法.html#cb235-3" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="st">&quot;file&quot;</span></span>
-<span id="cb235-4"><a href="rの基本的な使用方法.html#cb235-4" aria-hidden="true" tabindex="-1"></a>file_nums <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
-<span id="cb235-5"><a href="rの基本的な使用方法.html#cb235-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb235-6"><a href="rの基本的な使用方法.html#cb235-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> file_nums) {</span>
-<span id="cb235-7"><a href="rの基本的な使用方法.html#cb235-7" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">&lt;-</span> <span class="fu">str_c</span>(website, file_name, <span class="st">&quot;_&quot;</span>, i, <span class="st">&quot;.csv&quot;</span>),</span>
-<span id="cb235-8"><a href="rの基本的な使用方法.html#cb235-8" aria-hidden="true" tabindex="-1"></a>  destfile <span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">&quot;directory/&quot;</span>, file_name, <span class="st">&quot;_&quot;</span>, <span class="fu">str_pad</span>(i, <span class="at">width =</span> <span class="dv">2</span>, <span class="at">pad =</span> <span class="st">&quot;0&quot;</span>), <span class="st">&quot;.csv&quot;</span>)</span>
-<span id="cb235-9"><a href="rの基本的な使用方法.html#cb235-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(<span class="at">url =</span> url, <span class="at">destfile =</span> destfile)</span>
-<span id="cb235-10"><a href="rの基本的な使用方法.html#cb235-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.sleep</span>(<span class="at">time =</span> <span class="dv">1</span>) <span class="co"># スリープタイム（指定した秒数の間、処理を停止） </span></span>
-<span id="cb235-11"><a href="rの基本的な使用方法.html#cb235-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="rの基本的な使用方法.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="co"># forループで複数のファイルを自動ダウンロードする例</span></span>
+<span id="cb237-2"><a href="rの基本的な使用方法.html#cb237-2" aria-hidden="true" tabindex="-1"></a>website <span class="ot">&lt;-</span> <span class="st">&quot;https://www.sample.com/&quot;</span></span>
+<span id="cb237-3"><a href="rの基本的な使用方法.html#cb237-3" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="st">&quot;file&quot;</span></span>
+<span id="cb237-4"><a href="rの基本的な使用方法.html#cb237-4" aria-hidden="true" tabindex="-1"></a>file_nums <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb237-5"><a href="rの基本的な使用方法.html#cb237-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb237-6"><a href="rの基本的な使用方法.html#cb237-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> file_nums) {</span>
+<span id="cb237-7"><a href="rの基本的な使用方法.html#cb237-7" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">&lt;-</span> <span class="fu">str_c</span>(website, file_name, <span class="st">&quot;_&quot;</span>, i, <span class="st">&quot;.csv&quot;</span>),</span>
+<span id="cb237-8"><a href="rの基本的な使用方法.html#cb237-8" aria-hidden="true" tabindex="-1"></a>  destfile <span class="ot">&lt;-</span> <span class="fu">str_c</span>(<span class="st">&quot;directory/&quot;</span>, file_name, <span class="st">&quot;_&quot;</span>, <span class="fu">str_pad</span>(i, <span class="at">width =</span> <span class="dv">2</span>, <span class="at">pad =</span> <span class="st">&quot;0&quot;</span>), <span class="st">&quot;.csv&quot;</span>)</span>
+<span id="cb237-9"><a href="rの基本的な使用方法.html#cb237-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(<span class="at">url =</span> url, <span class="at">destfile =</span> destfile)</span>
+<span id="cb237-10"><a href="rの基本的な使用方法.html#cb237-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.sleep</span>(<span class="at">time =</span> <span class="dv">1</span>) <span class="co"># スリープタイム（指定した秒数の間、処理を停止） </span></span>
+<span id="cb237-11"><a href="rの基本的な使用方法.html#cb237-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
 <div id="データの読み込み書き出し" class="section level2 hasAnchor" number="2.12">
@@ -1407,39 +1431,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>CSVデータの読み込み<a href="rの基本的な使用方法.html#csvデータの読み込み" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>CSVデータの読み込みには、<code>readr</code>パッケージの<code>read_csv()</code>関数を使用します。ローカルネットワークのファイルパス、ウェブのURLどちらからの読み込みにも対応しています。</p>
 <p>CSVが使用している文字コードにより文字化けする場合あるため、<code>locale</code>引数で適切な文字コードを指定してください。</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="rの基本的な使用方法.html#cb236-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;directory/file.csv&quot;</span>, <span class="co"># ファイルパス／URL（拡張子が必要）</span></span>
-<span id="cb236-2"><a href="rの基本的な使用方法.html#cb236-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="co"># ヘッダー（列名データ）の有無／列名指定</span></span>
-<span id="cb236-3"><a href="rの基本的な使用方法.html#cb236-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="co"># 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）</span></span>
-<span id="cb236-4"><a href="rの基本的な使用方法.html#cb236-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_select =</span> <span class="cn">NULL</span>, <span class="co"># 読み込む列の指定（列名、インデックス）</span></span>
-<span id="cb236-5"><a href="rの基本的な使用方法.html#cb236-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">skip =</span> <span class="dv">0</span>, <span class="co"># 読み込み時に上からスキップする行数</span></span>
-<span id="cb236-6"><a href="rの基本的な使用方法.html#cb236-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">&quot;CP932&quot;</span>)) <span class="co"># Windows標準（Shift JIS）で作成されたファイルは&quot;CP932&quot;、utf-8で作成されたファイルは&quot;UTF-8&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="rの基本的な使用方法.html#cb238-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;directory/file.csv&quot;</span>, <span class="co"># ファイルパス／URL（拡張子が必要）</span></span>
+<span id="cb238-2"><a href="rの基本的な使用方法.html#cb238-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="co"># ヘッダー（列名データ）の有無／列名指定</span></span>
+<span id="cb238-3"><a href="rの基本的な使用方法.html#cb238-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="co"># 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）</span></span>
+<span id="cb238-4"><a href="rの基本的な使用方法.html#cb238-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">col_select =</span> <span class="cn">NULL</span>, <span class="co"># 読み込む列の指定（列名、インデックス）</span></span>
+<span id="cb238-5"><a href="rの基本的な使用方法.html#cb238-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">skip =</span> <span class="dv">0</span>, <span class="co"># 読み込み時に上からスキップする行数</span></span>
+<span id="cb238-6"><a href="rの基本的な使用方法.html#cb238-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">&quot;CP932&quot;</span>) <span class="co"># Windows標準（Shift JIS）で作成されたファイルは&quot;CP932&quot;、utf-8で作成されたファイルは&quot;UTF-8&quot;</span></span>
+<span id="cb238-7"><a href="rの基本的な使用方法.html#cb238-7" aria-hidden="true" tabindex="-1"></a>                        )</span></code></pre></div>
 </div>
 <div id="excelデータの読み込みxlsxlsx形式" class="section level3 unnumbered hasAnchor">
 <h3>Excelデータの読み込み（xls／xlsx形式）<a href="rの基本的な使用方法.html#excelデータの読み込みxlsxlsx形式" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>readr</code>パッケージの<code>read_excel()</code>関数は、Excelのxls形式、xlsx形式どちらも読み込み可能です。ただし、読み込み元として<code>path</code>引数に指定できるのはローカルネットワーク内のファイルパスだけで、ウェブのURLからの読み込みはできません。</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="rの基本的な使用方法.html#cb237-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">&quot;directory/file.xls&quot;</span>, <span class="co"># ファイルパス（拡張子が必要、URLは不可）</span></span>
-<span id="cb237-2"><a href="rの基本的な使用方法.html#cb237-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">sheet =</span> <span class="cn">NULL</span>, <span class="co"># シートインデックス／シート名</span></span>
-<span id="cb237-3"><a href="rの基本的な使用方法.html#cb237-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="co"># ヘッダー（列名データ）の有無／列名指定</span></span>
-<span id="cb237-4"><a href="rの基本的な使用方法.html#cb237-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="co"># 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）</span></span>
-<span id="cb237-5"><a href="rの基本的な使用方法.html#cb237-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">skip =</span> <span class="dv">0</span>) <span class="co"># 読み込み時に上からスキップする行数</span></span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="rの基本的な使用方法.html#cb239-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">&quot;directory/file.xls&quot;</span>, <span class="co"># ファイルパス（拡張子が必要、URLは不可）</span></span>
+<span id="cb239-2"><a href="rの基本的な使用方法.html#cb239-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">sheet =</span> <span class="cn">NULL</span>, <span class="co"># シートインデックス／シート名</span></span>
+<span id="cb239-3"><a href="rの基本的な使用方法.html#cb239-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="co"># ヘッダー（列名データ）の有無／列名指定</span></span>
+<span id="cb239-4"><a href="rの基本的な使用方法.html#cb239-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="co"># 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）</span></span>
+<span id="cb239-5"><a href="rの基本的な使用方法.html#cb239-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">skip =</span> <span class="dv">0</span> <span class="co"># 読み込み時に上からスキップする行数</span></span>
+<span id="cb239-6"><a href="rの基本的な使用方法.html#cb239-6" aria-hidden="true" tabindex="-1"></a>                           )</span></code></pre></div>
 </div>
 <div id="excelデータの読み込みxlsx形式" class="section level3 unnumbered hasAnchor">
 <h3>Excelデータの読み込み（xlsx形式）<a href="rの基本的な使用方法.html#excelデータの読み込みxlsx形式" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>openxlsx</code>パッケージの<code>read.xlsx()</code>関数であれば、ローカルネットワーク内のファイルパスとウェブのURLどちらからでも読み込みが可能です。ただし、読み込めるファイル形式はxlsx形式のみで、xls形式には対応していません。</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="rの基本的な使用方法.html#cb238-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;directory/file.xlsx&quot;</span>, <span class="co"># ファイルパス／URL（拡張子が必要）</span></span>
-<span id="cb238-2"><a href="rの基本的な使用方法.html#cb238-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sheet =</span> <span class="dv">1</span>, <span class="co"># シートインデックス／シート名</span></span>
-<span id="cb238-3"><a href="rの基本的な使用方法.html#cb238-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">startRow =</span> <span class="dv">5</span>, <span class="co"># 読み込み開始行</span></span>
-<span id="cb238-4"><a href="rの基本的な使用方法.html#cb238-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">colNames =</span> <span class="cn">TRUE</span>, <span class="co"># 列名データの有無</span></span>
-<span id="cb238-5"><a href="rの基本的な使用方法.html#cb238-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">rowNames =</span> <span class="cn">FALSE</span>, <span class="co"># 行名データの有無</span></span>
-<span id="cb238-6"><a href="rの基本的な使用方法.html#cb238-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">rows =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">53</span>, <span class="co"># 読み込む列（NULLですべて読み込み）</span></span>
-<span id="cb238-7"><a href="rの基本的な使用方法.html#cb238-7" aria-hidden="true" tabindex="-1"></a>                            <span class="at">cols =</span> <span class="cn">NULL</span>) <span class="co"># 読み込む行（NULLですべて読み込み）</span></span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="rの基本的な使用方法.html#cb240-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="at">xlsxFile =</span> <span class="st">&quot;directory/file.xlsx&quot;</span>, <span class="co"># ファイルパス／URL（拡張子が必要）</span></span>
+<span id="cb240-2"><a href="rの基本的な使用方法.html#cb240-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sheet =</span> <span class="dv">1</span>, <span class="co"># シートインデックス／シート名</span></span>
+<span id="cb240-3"><a href="rの基本的な使用方法.html#cb240-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">startRow =</span> <span class="dv">5</span>, <span class="co"># 読み込み開始行</span></span>
+<span id="cb240-4"><a href="rの基本的な使用方法.html#cb240-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">colNames =</span> <span class="cn">TRUE</span>, <span class="co"># 列名データの有無</span></span>
+<span id="cb240-5"><a href="rの基本的な使用方法.html#cb240-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">rowNames =</span> <span class="cn">FALSE</span>, <span class="co"># 行名データの有無</span></span>
+<span id="cb240-6"><a href="rの基本的な使用方法.html#cb240-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">rows =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">53</span>, <span class="co"># 読み込む列（NULLですべて読み込み）</span></span>
+<span id="cb240-7"><a href="rの基本的な使用方法.html#cb240-7" aria-hidden="true" tabindex="-1"></a>                            <span class="at">cols =</span> <span class="cn">NULL</span> <span class="co"># 読み込む行（NULLですべて読み込み）</span></span>
+<span id="cb240-8"><a href="rの基本的な使用方法.html#cb240-8" aria-hidden="true" tabindex="-1"></a>                            )</span></code></pre></div>
 </div>
 <div id="csvデータの書き出し" class="section level3 unnumbered hasAnchor">
 <h3>CSVデータの書き出し<a href="rの基本的な使用方法.html#csvデータの書き出し" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>CSVデータを書き出す（CSVファイルとして保存する）には、<code>write.csv()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="rの基本的な使用方法.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(..., <span class="co"># 書き出すオブジェクト名（クオーテーションは不要）</span></span>
-<span id="cb239-2"><a href="rの基本的な使用方法.html#cb239-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">file =</span> <span class="st">&quot;directory/file.csv&quot;</span>, <span class="co"># 書き出し先のファイルパス（拡張子が必要）</span></span>
-<span id="cb239-3"><a href="rの基本的な使用方法.html#cb239-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">row.names =</span> <span class="cn">FALSE</span>) <span class="co"># 行番号を付与するか</span></span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="rの基本的な使用方法.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(..., <span class="co"># 書き出すオブジェクト名（クオーテーションは不要）</span></span>
+<span id="cb241-2"><a href="rの基本的な使用方法.html#cb241-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">file =</span> <span class="st">&quot;directory/file.csv&quot;</span>, <span class="co"># 書き出し先のファイルパス（拡張子が必要）</span></span>
+<span id="cb241-3"><a href="rの基本的な使用方法.html#cb241-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">row.names =</span> <span class="cn">FALSE</span> <span class="co"># 行番号を付与するか</span></span>
+<span id="cb241-4"><a href="rの基本的な使用方法.html#cb241-4" aria-hidden="true" tabindex="-1"></a>          )</span></code></pre></div>
 </div>
 </div>
 <div id="オブジェクトのセーブロード" class="section level2 hasAnchor" number="2.13">
@@ -1447,13 +1475,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="セーブ" class="section level3 unnumbered hasAnchor">
 <h3>セーブ<a href="rの基本的な使用方法.html#セーブ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>RのオブジェクトをRData形式で保存します。</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="rの基本的な使用方法.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(..., <span class="co"># セーブするオブジェクト名（クオーテーションは不要）</span></span>
-<span id="cb240-2"><a href="rの基本的な使用方法.html#cb240-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">file =</span> <span class="st">&quot;directory/file.RData&quot;</span>) <span class="co"># セーブ先のファイルパス（拡張子が必要）</span></span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="rの基本的な使用方法.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(..., <span class="co"># セーブするオブジェクト名（クオーテーションは不要）</span></span>
+<span id="cb242-2"><a href="rの基本的な使用方法.html#cb242-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">file =</span> <span class="st">&quot;directory/file.RData&quot;</span> <span class="co"># セーブ先のファイルパス（拡張子が必要）</span></span>
+<span id="cb242-3"><a href="rの基本的な使用方法.html#cb242-3" aria-hidden="true" tabindex="-1"></a>     )</span></code></pre></div>
 </div>
 <div id="ロード" class="section level3 unnumbered hasAnchor">
 <h3>ロード<a href="rの基本的な使用方法.html#ロード" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>保存したRData形式のオブジェクトを読み込みます。</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="rの基本的な使用方法.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">&quot;directory/file.RData&quot;</span>) <span class="co"># ロード元ファイルパス（拡張子が必要）</span></span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="rの基本的な使用方法.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">&quot;directory/file.RData&quot;</span>) <span class="co"># ロード元ファイルパス（拡張子が必要）</span></span></code></pre></div>
 
 </div>
 </div>
