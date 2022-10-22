@@ -321,7 +321,7 @@ data_owid_jp %>%
 
 ```{r}
 data_owid %>% 
-  dplyr::mutate(location = factor(location))
+  dplyr::mutate(location = stringr::str_c(location, "_", continent))
 ```
 
 ### 条件付き系列の作成 {.unnumbered}
@@ -363,6 +363,10 @@ data_owid_jp %>%
 # すべての列を文字列型に変換
 data_owid_jp %>% 
   dplyr::mutate(across(.cols = everything(), .fns = as.character))
+
+# 文字列型の列を因子型に変換
+data_owid_jp %>% 
+  dplyr::mutate(across(.cols = where(is.character), .fns = as.factor))
 ```
 
 ## グループ化
@@ -460,14 +464,22 @@ data_owid %>%
   dplyr::summarise(across(is.double, mean, na.rm = TRUE))
 ```
 
-### カウント {.unnumbered}
+## カウント
 
-集計の特殊例として、変数の要素をカウントする場合は`dplyr::count()`関数を使用します。`dplyr::count()`関数内に指定した変数の各要素について、要素数が出力されます。
+集計の特殊例として、変数の要素をカウントする場合は`dplyr::count()`関数を使用します。
+
+### 1変数のカウント {-}
+
+`dplyr::count()`関数内に変数を指定すると、変数の各要素のレコード（行）数が出力されます。
+
+なお、カウント対象の変数は文字列型などの離散型変数を指定するのが一般的です。数値型などの連続型変数の場合は、カウントではなくヒストグラムを利用すべきでしょう。
 
 ```{r}
 data_owid %>% 
   dplyr::count(location)
 ```
+
+### 多変数のカウント {-}
 
 `dplyr::count()`関数内に2つ以上の変数を指定すると、要素の掛け合わせについてカウントが行われます。
 
@@ -475,6 +487,8 @@ data_owid %>%
 data_owid %>% 
   dplyr::count(continent, date)
 ```
+
+### 条件付きカウント {-}
 
 条件付きカウントを行う場合は、`dplyr::count()`関数内で`if_else()`関数を使用して条件を設定します。
 
@@ -491,6 +505,21 @@ data_owid %>%
   dplyr::group_by(location) %>% 
   dplyr::summarise(across(increase, sum, na.rm = TRUE))
 ```
+
+### 要素の種類をカウント {-}
+
+離散型変数について要素の種類の数をカウントするには、対象の離散型変数を`tidyr::pivot_longer()`関数で縦型データに変換し、`dplyr::distinct()`関数で重複を排除してカウントします。
+
+ここでは、`dplyr::select()`関数の中で`where(is.character)`を使用し、文字列型の変数をカウント対象にしています。
+
+```{r}
+data_owid %>% 
+  dplyr::select(where(is.character)) %>% 
+  tidyr::pivot_longer(cols = everything()) %>% 
+  dplyr::distinct() %>% 
+  dplyr::count(name)
+```
+
 
 ## 縦型・横型の変換
 
