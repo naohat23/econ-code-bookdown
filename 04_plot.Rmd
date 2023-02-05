@@ -41,15 +41,16 @@ library(tidyverse)
 
 ## ggplot2の設定
 
-第1章で紹介した`ggplot2`の設定です。
+第1章で紹介した`ggplot2`の設定です。筆者の実行環境はMacのため、Windowsの設定はコメントアウトしています。
 
 ```{r}
-## ggplotのテーマ設定（Excelのグラフと類似したテーマを選択）
-theme_set(theme_light())
+# Windowsのグラフ設定（筆者の実行環境では不要のためコメントアウト）
+# windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
+# windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
+# theme_set(theme_light(base_family = "YUGO"))
 
-## Windowsにおけるggplot2の日本語フォント設定
-windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
-windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
+# Macのグラフ設定
+theme_set(theme_light(base_family = "HiraKakuProN-W3"))
 ```
 
 ## GUI形式の直感的なグラフ作成
@@ -494,7 +495,6 @@ ggplot(data = data_mpg_point,
                   segment.size = 0.5, # 引き出し線の太さ
                   min.segment.length = 0, # 引き出し線の最低長
                   color = "black", # テキストの色
-                  family = "YUGO", # テキストのフォント
                   fontface = "plain", # テキストの書体 (plain / bold / italic / bold.italic)
                   size = 4.0 # テキストのサイズ
                   )
@@ -526,7 +526,6 @@ ggplot(data = data_mpg_point,
                   segment.size = 0.5, # 引き出し線の太さ
                   min.segment.length = 0, # 引き出し線の最低長
                   color = "black", # テキストの色
-                  family = "YUGO", # テキストのフォント
                   fontface = "plain", # テキストの書体 (plain / bold / italic / bold.italic)
                   size = 4.0 # テキストのサイズ
                   ) +
@@ -628,7 +627,6 @@ ggplot(data = data_mpg_col,
   geom_text(mapping = aes(label = cty %>% sprintf(fmt = "%0.1f")), # sprintf() 関数で数値の表示形式を指定
             vjust = -1, # 縦方向の整列位置 (0-1)
             color = "black", # テキストの色
-            family = "YUGO", # テキストのフォント
             fontface = "plain", # テキストの書体 (plain / bold / italic / bold.italic)
             size = 4.0 # テキストのサイズ
             ) +
@@ -680,7 +678,6 @@ ggplot(data = data_owid_col,
   geom_text(mapping = aes(label = new_cases %>% sprintf(fmt = "%0.1f")), # sprintf() 関数で数値の表示形式を指定
             position = position_stack(vjust = 0.5), # position_stack() 関数で積み上げ棒グラフ上のラベル位置を指定
             color = "white", # テキストの色
-            family = "YUGO", # テキストのフォント
             fontface = "plain", # テキストの書体 (plain / bold / italic / bold.italic)
             size = 4.0 # テキストのサイズ
             ) +
@@ -718,7 +715,6 @@ data_owid_col %>%
   geom_text(mapping = aes(label = percent %>% sprintf(fmt = "%0.2f")), # sprintf() 関数で数値の表示形式を指定
             position = position_fill(vjust = 0.5), # position_fill() 関数で割合棒グラフ上のラベル位置を指定
             color = "white", # テキストの色
-            family = "YUGO", # テキストのフォント
             fontface = "plain", # テキストの書体 (plain / bold / italic / bold.italic)
             size = 4.0 # テキストのサイズ
             ) +
@@ -756,7 +752,6 @@ ggplot(data = data_mpg_circle,
   geom_text(mapping = aes(label = hwy %>% sprintf(fmt = "%0.1f")), # sprintf() 関数で数値の表示形式を指定
             position = position_stack(vjust = 0.5), # position_stack() 関数で積み上げ棒グラフ上のラベル位置を指定
             color = "white", # テキストの色
-            family = "YUGO", # テキストのフォント
             fontface = "plain", # テキストの書体 (plain / bold / italic / bold.italic)
             size = 4.0 # テキストのサイズ
             ) +
@@ -785,7 +780,8 @@ ggplot(data = data_mpg_circle,
 data_owid_line <- data_owid %>%
   dplyr::select(location, date, new_cases_smoothed) %>% 
   dplyr::filter(location %in% c("Japan", "United Kingdom", "Germany", "France", "Italy"),
-                date >= "2022-01-01"
+                date >= "2022-01-01",
+                date <= "2022-12-31"
                 ) %>% 
   tidyr::drop_na(everything())
 
@@ -855,12 +851,11 @@ ggplot(data = data_owid_line,
                   segment.color = "grey", # 引き出し線の色
                   segment.size = 0.5, # 引き出し線の太さ
                   min.segment.length = Inf, # 引き出し線の最低長
-                  family = "YUGO", # テキストのフォント
                   fontface = "plain", # テキストの書体 (plain / bold / italic / bold.italic)
                   size = 3.0 # テキストのサイズ
                   ) +
   scale_x_date(date_breaks = "1 month",　# 日付目盛の周期
-               date_labels = "%y/%b", # %Y：4桁年、%y：2桁年、%m：2桁月、%b：1桁月、%d：日
+               date_labels = "%y/%m", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%d：日）
                limits = c(as.Date("2022-01-01"), NA), # 始期・終期（指定しない場合はNA）
                expand = expansion(mult = c(0.00, 0.2), add = c(0, 0)) # 始期・終期からの余白（multは余白率、addは余白幅）
                ) +
@@ -1557,7 +1552,7 @@ ggplot(data = economics,
   geom_line() +
   # 軸
   scale_x_date(date_breaks = "3 month",　# 日付目盛の周期
-               date_labels = "%y/%b", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%b：1桁月、%d：日）
+               date_labels = "%y/%m", # %Y：4桁年、%y：2桁年、%m：2桁月、%d：日
                limits = c(as.Date("2000-01-01"), as.Date("2002-12-31")), # 始期・終期（指定しない場合はNA）
                expand = expansion(mult = c(0.00, 0.00), add = c(0, 0)) # 始期・終期からの余白（multは余白率、addは余白幅）
                ) +
@@ -1701,8 +1696,7 @@ ggplot(data = mpg,
   geom_point(shape = 21,
              size = 2.0
              ) +
-  theme(text = element_text(family = "YUGO", # 図表全体のフォント
-                            size = 8 # 図表全体の無事サイズ
+  theme(text = element_text(size = 8 # 図表全体の無事サイズ
                             ),
         plot.margin = margin(t = 1, # 図表の上マージン
                              b = 1, # 図表の下マージン
@@ -1765,7 +1759,7 @@ ggplot(data = data_owid_line,
   scale_color_npg() + 
   # 軸
   scale_x_date(date_breaks = "1 month",　# 日付目盛の周期
-               date_labels = "%y/%b", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%b：1桁月、%d：日）
+               date_labels = "%y/%m", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%d：日）
                limits = c(as.Date("2022-01-01"), NA), # 始期・終期（指定しない場合はNA）
                expand = expansion(mult = c(0.01, 0.01), add = c(0, 0)) # 始期・終期からの余白（multは余白率、addは余白幅）
                ) +
@@ -1835,8 +1829,7 @@ ggplot(data = data_owid_line,
                                     )
         ) +
   # フォント・マージン
-  theme(text = element_text(family = "MEIRYO", # 図表全体のフォント
-                            size = 8 # 図表全体の無事サイズ
+  theme(text = element_text(size = 8 # 図表全体の無事サイズ
                             ),
         plot.margin = margin(t = 1, # 図表の上マージン
                              b = 1, # 図表の下マージン
@@ -1933,7 +1926,7 @@ ggplot() +
                     ) +
   # 軸
   scale_x_date(breaks = data_plot_gdp$日付,　# 日付目盛の周期
-               date_labels = "%y/%b", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%b：1桁月、%d：日）
+               date_labels = "%y/%m", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%d：日）
                expand = expansion(mult = c(0.01, 0.01), add = c(0, 0)) # 始期・終期からの余白（multは余白率、addは余白幅）
                ) +
   scale_y_continuous(breaks = breaks_y <- seq(-20, 20, 1), # 目盛
@@ -2002,8 +1995,7 @@ ggplot() +
                                     )
         ) +
   # フォント・マージン
-  theme(text = element_text(family = "MEIRYO", # 図表全体のフォント
-                            size = 8 # 図表全体の無事サイズ
+  theme(text = element_text(size = 8 # 図表全体の無事サイズ
                             ),
         plot.margin = margin(t = 1, # 図表の上マージン
                              b = 1, # 図表の下マージン
@@ -2092,8 +2084,7 @@ ggplot(data = data_plot,
                                     )
         ) +
   # フォント・マージン
-  theme(text = element_text(family = "YUGO", # 図表全体のフォント
-                            size = 8 # 図表全体の無事サイズ
+  theme(text = element_text(size = 8 # 図表全体の無事サイズ
                             ),
         plot.margin = margin(t = 1, # 図表の上マージン
                              b = 1, # 図表の下マージン

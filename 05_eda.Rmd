@@ -28,13 +28,16 @@ library(psych)
 
 ### ggplot2の設定 {.unnumbered}
 
-```{r}
-## ggplotのテーマ設定（Excelのグラフと類似したテーマを選択）
-theme_set(theme_light())
+第1章で紹介した`ggplot2`の設定です。筆者の実行環境はMacのため、Windowsの設定はコメントアウトしています。
 
-## Windowsにおけるggplot2の日本語フォント設定
-windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
-windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
+```{r}
+# Windowsのグラフ設定（筆者の実行環境では不要のためコメントアウト）
+# windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
+# windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
+# theme_set(theme_light(base_family = "YUGO"))
+
+# Macのグラフ設定
+theme_set(theme_light(base_family = "HiraKakuProN-W3"))
 ```
 
 ## データの中身（記述統計量）

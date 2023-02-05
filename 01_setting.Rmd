@@ -103,16 +103,19 @@ options(timeout = NA)
     -   [estimatr](https://declaredesign.org/r/estimatr/)：線形回帰モデルの推定
     -   [fpp2](https://otexts.com/fpp2/)：時系列データ予測の教科書用に開発されたパッケージ
     -   [GGally](https://ggobi.github.io/ggally/index.html)：ペアプロットなどのデータ可視化
+    -   [lmtest](https://cran.r-project.org/web/packages/lmtest/index.html)：線型回帰モデルの検定や診断
     -   [mFilter](https://www.rdocumentation.org/packages/mFilter/versions/0.1-5/topics/hpfilter)：HPフィルタ
     -   [mgcv](https://cran.r-project.org/web/packages/mgcv/mgcv.pdf)：一般化加法モデル（GAM）
     -   plm：パネルデータモデル
     -   [psych](https://personality-project.org/r/psych/)：心理統計パッケージ
+    -   [sandwich](https://cran.r-project.org/web/packages/sandwich/index.html)：線型回帰モデルの標準誤差
     -   [seasonal](https://cran.r-project.org/web/packages/seasonal/readme/README.html)：コマンド形式の季節調整
-    -   [seasonalview](https://cran.r-project.org/web/packages/seasonalview/README.html)：GUI形式の季節調整
     -   sigmoid：シグモイド関数
     -   [SmartEDA](https://daya6489.github.io/SmartEDA/)：探索的データ分析の一括実行
     -   [strucchange](https://cran.r-project.org/web/packages/strucchange/index.html)：構造変化の検定
     -   [tidyquant](https://business-science.github.io/tidyquant/index.html)：金融時系列データ分析
+    -   [vars](https://cran.r-project.org/web/packages/vars/index.html)：VARモデル
+    -   [urca](https://cran.r-project.org/web/packages/urca/index.html)：単位根検定・共和分検定
 -   データパッケージ
     -   [nycflights13](https://cran.r-project.org/web/packages/nycflights13/index.html)：航空便情報サンプルデータセット
 -   その他
@@ -128,10 +131,15 @@ options(timeout = NA)
 ```{r, results='hide', warning=FALSE, message=FALSE}
 # パッケージ一覧
 packages <- c(
+  # tidyverse系
   "lubridate", "magrittr", "tidyverse", "tsibble", "readxl",
+  # 図表系
   "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
-  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "mFilter", "mgcv", "plm", "psych", "seasonal", "seasonalview", "sigmoid", "SmartEDA", "strucchange", "tidyquant",
+  # 統計系
+  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "lmtest", "mFilter", "mgcv", "plm", "psych", "sandwich", "seasonal", "sigmoid", "SmartEDA", "strucchange", "tidyquant", "vars", "urca",
+  # データパッケージ
   "nycflights13",
+  # その他
   "openxlsx", "pbapply"
 )
 
@@ -155,7 +163,7 @@ rm(
 )
 ```
 
-Rのパッケージは開発者が随時アップデートしていますが、自動で反映されることはありません。パッケージをアップデートする場合は、次のコードを実行してください。
+Rのパッケージは開発者が随時アップデートしていますが、ユーザーの環境にパッケージのアップデートが自動で反映されることはありません。パッケージをアップデートする場合は、次のコードを実行してください。
 
 ```{r, eval=FALSE}
 # パッケージをすべてアップデート
@@ -184,10 +192,19 @@ theme_set(theme_light())
 
 Windows上でRを使用する場合は、日本語フォントをグラフ上で表示するために以下の設定が必要です。ここでは代表的なフォントとしてMeiryo UIとYu Gothic UIを設定します。それぞれのフォントに`MEIRYO`、`YUGO`というキーを割り当て、`ggplot2`パッケージでグラフを作成する際にキーを指定します。
 
-```{r}
+```{r, eval=FALSE}
 windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
 windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
+theme_set(theme_light(base_family = "YUGO"))
 ```
+
+Mac上でRを使用する場合は、上記の`theme_set()`関数の中でフォントを指定します。
+
+```{r}
+theme_set(theme_light(base_family = "HiraKakuProN-W3"))
+```
+
+もしも上記のフォント設定がうまく機能しない場合は、[こちらのウェブサイト](https://ill-identified.hatenablog.com/entry/2020/10/03/200618)を参照して解決するか試してください。
 
 ## サンプルデータセット
 
@@ -199,11 +216,11 @@ Rのサンプルデータセットは、`help(データセット名)`を実行�
 
 #### iris {.unnumbered}
 
-`datasets`パッケージに含まれる`iris`データセットは、データ分析で良く使用される有名なデータで、3種類のアヤメの萼（がく）と花弁の長さ・幅のデータを格納しています。データ構造はdata.frame形式です。
+`datasets`パッケージに含まれる`iris`データセットは、データ分析で良く使用される有名なデータです。3種類のアヤメの萼（がく）と花弁の長さ・幅のデータを格納しています。データ構造はdata.frame形式です。
 
 ```{r}
-iris_tbl <- as.tibble(iris)
-iris_tbl
+# データの先頭行をコンソールに出力
+head(iris)
 ```
 
 #### mtcars {.unnumbered}
@@ -211,7 +228,8 @@ iris_tbl
 `datasets`パッケージに含まれる`mtcars`データセットは、米国で1973～1974年に発売された32車種のデザインや諸元に関するデータです。燃費、排気量、馬力、重量などのデータが格納されています。データ構造はdata.frame形式です。
 
 ```{r}
-mtcars
+# データの先頭行をコンソールに出力
+head(mtcars)
 ```
 
 #### mpg {.unnumbered}
@@ -234,7 +252,7 @@ diamonds
 
 #### economics {.unnumbered}
 
-`ggplot2`パッケージに含まれる`economics`データセットは、米国の消費・雇用関連の時系列データで、日付（date）、[個人消費支出（pce）](https://fred.stlouisfed.org/series/PCE)、[人口（pop）](https://fred.stlouisfed.org/series/POP)、[個人貯蓄率（psavert）](https://fred.stlouisfed.org/series/PSAVERT/)、[失業期間の中央値（uempmed）](https://fred.stlouisfed.org/series/UEMPMED)、[失業者数（unemploy）](https://fred.stlouisfed.org/series/UNEMPLOY)のデータを格納しています。データ構造はtibble形式です。
+`ggplot2`パッケージに含まれる`economics`データセットは、1967年7月から2015年4月までの米国の消費・雇用関連の時系列データ（月次）です。日付（date）、[個人消費支出（pce）](https://fred.stlouisfed.org/series/PCE)、[人口（pop）](https://fred.stlouisfed.org/series/POP)、[個人貯蓄率（psavert）](https://fred.stlouisfed.org/series/PSAVERT/)、[失業期間の中央値（uempmed）](https://fred.stlouisfed.org/series/UEMPMED)、[失業者数（unemploy）](https://fred.stlouisfed.org/series/UNEMPLOY)のデータが格納されています。データ構造はtibble形式です。
 
 ```{r}
 economics
@@ -242,21 +260,34 @@ economics
 
 #### unemp {.unnumbered}
 
-`seasonal`パッケージに含まれる`unemp`データセットは、1990年1月から2016年11月までの米国の失業者数（単位：千人）の月次データ（原数値）です。データ構造はts形式です。
+`seasonal`パッケージに含まれる`unemp`データセットは、1990年1月から2016年11月までの米国の失業者数（単位：千人）の時系列データ（月次、原数値）です。データ構造はts形式です。
 
 [データ出所リンク](https://fred.stlouisfed.org/series/LNU03000000)
 
 ```{r}
-seasonal::unemp
+# データの先頭行をコンソールに出力
+head(seasonal::unemp)
 ```
 
 #### gasoline {.unnumbered}
 
-`fpp2`パッケージに含まれる`gasoline`データセットは、1991年2月2日から2017年１月20日までの米国ガソリン生産量（単位：百万バレル／日）の週次データです。データ構造はts形式です。
+`fpp2`パッケージに含まれる`gasoline`データセットは、1991年2月2日から2017年１月20日までの米国ガソリン生産量（単位：百万バレル／日）の時系列データ（週次）です。データ構造はts形式です。
+
+#### Canada {-}
+
+`vars`パッケージに含まれる`Canada`データセットは、1980年1〜3月期から2000年10〜12月期までのカナダのマクロ経済時系列データ（四半期）です。実質労働生産性（prod、自然対数×100）、雇用者数（e、自然対数×100）、失業率（U、％）、実質賃金（rw、自然対数×100）のデータが格納されています。データ構造はts形式です。
+
+```{r}
+# データを呼び出し
+data(Canada)
+
+# データの先頭行をコンソールに出力
+head(Canada)
+```
 
 ### 外部データセット {-}
 
-外部データセットはウェブから読み込むため、プロキシ環境ではプロキシサーバーの設定が必要です。
+ウェブから外部データセットを読み込みます。オフィスや大学などのプロキシ環境では、次のプロキシサーバーの設定を実行してください。
 
 ```{r, eval=FALSE}
 # プロキシサーバーとポートを記入
@@ -438,21 +469,26 @@ rm(list = ls())
 # 警告の非表示
 options(warn = -1)
 
-# プロキシ設定（使用環境に応じproxyserverとportを記入）
-proxy_url <- "http://proxyserver:port/"
-
-Sys.setenv("http_proxy" = proxy_url)
-Sys.setenv("https_proxy" = proxy_url)
-
-options(download.file.method = "libcurl")
-options(timeout = NA)
+# プロキシ設定（使用環境に応じproxyserverとportを記入。筆者の実行環境では不要のためコメントアウト）
+# proxy_url <- "http://proxyserver:port/"
+# 
+# Sys.setenv("http_proxy" = proxy_url)
+# Sys.setenv("https_proxy" = proxy_url)
+# 
+# options(download.file.method = "libcurl")
+# options(timeout = NA)
 
 # パッケージのインストールとインポート
 packages <- c(
+  # tidyverse系
   "lubridate", "magrittr", "tidyverse", "tsibble", "readxl",
+  # 図表系
   "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
-  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "mFilter", "mgcv", "plm", "psych", "seasonal", "seasonalview", "sigmoid", "SmartEDA", "strucchange", "tidyquant",
+  # 統計系
+  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "lmtest", "mFilter", "mgcv", "plm", "psych", "sandwich", "seasonal", "sigmoid", "SmartEDA", "strucchange", "tidyquant", "vars", "urca",
+  # データパッケージ
   "nycflights13",
+  # その他
   "openxlsx", "pbapply"
 )
 
@@ -472,9 +508,11 @@ rm(
   pkg
 )
 
-# グラフ設定
-theme_set(theme_light())
+# Windowsのグラフ設定（筆者の実行環境では不要のためコメントアウト）
+# windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
+# windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
+# theme_set(theme_light(base_family = "YUGO"))
 
-windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
-windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
+# Macのグラフ設定
+theme_set(theme_light(base_family = "HiraKakuProN-W3"))
 ```

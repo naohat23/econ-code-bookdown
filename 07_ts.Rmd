@@ -2,12 +2,6 @@
 
 第7章「時系列データ操作」では、時系列データに特有の操作方法について解説します。時系列データ特有の操作には、変化率やラグなどのデータ変換、日次・月次などの頻度変換、季節調整、トレンドや構造変化の推定などがあります。
 
-Rで時系列データを扱う方法には、主に次の2つがあります。
-
-まず、第3章で使用した**tibble形式**です。tibble形式は複数の列を含むデータフレームの形状をしており、データそのものを格納する列と、日付型データを格納する列を組み合わせることで、時系列データを扱うことができます。
-
-もう一つは**ts形式**です。ts形式はデータと日付があらかじめセットになった一次元のデータ構造で、季節調整を行う`seasonal`パッケージなどで使用されます。
-
 ## 第7章の準備
 
 ### パッケージのインポート {.unnumbered}
@@ -18,7 +12,6 @@ library(mFilter)
 library(mgcv)
 library(pbapply)
 library(seasonal)
-library(seasonalview)
 library(strucchange)
 library(tidyquant)
 library(tidyverse)
@@ -33,6 +26,16 @@ library(zoo)
 -   日本の産業別就業者数：　`data_labor`
 
 また、この章では、西山 他（2019）の実証例のデータセットを使用します。[西山 他（2019）のサポートウェブサイト](http://www.yuhikaku.co.jp/books/detail/9784641053854)からデータファイルを取得し、各自の実行環境のワーキングディレクトリ直下に`data_nishiyama`フォルダを作成して、その中に格納してください。
+
+## 時系列データとは
+
+時系列データは、観察対象の特徴を特定の時間間隔で記録したデータです。観測の時間間隔は観測者によって日次、週次、月次、四半期、年次など任意に設定されます。一般的に時系列データは、観測したデータ本体と、観測時点を示す日付・時間情報がセットになっています。四半期毎に公表されるGDPデータなどの経済指標や、毎日の株価・為替データといった金融指標は、代表的な時系列データです。
+
+Rで時系列データを扱う方法には、主に次の2つがあります。
+
+まず、第3章で使用した**tibble形式**です。tibble形式は複数の列を含むデータフレームの形状をしており、データそのものを格納する列と、日付型データを格納する列を組み合わせることで、時系列データを扱うことができます。
+
+もう一つは**ts形式**です。ts形式はデータと日付があらかじめセットになった一次元のデータ構造で、季節調整を行う`seasonal`パッケージなどで使用されます。
 
 ## ts形式データ
 
@@ -53,7 +56,7 @@ seasonal::unemp
 一方、週次のts形式データの場合はベクトルの形で出力されます。
 
 ```{r}
-fpp2::gasoline
+fpp2::gasoline %>% head(200)
 ```
 
 ### ts形式データ情報の取得 {.unnumbered}
@@ -122,7 +125,7 @@ data.frame形式やtibble形式といった通常のデータフレームからt
 
 #### 年次データ {-}
 
-年次データをts()関数でts形式に変換します。
+年次データを`ts()`関数でts形式に変換します。
 
 ```{r}
 # 日付列の要素が重複している場合は、重複がなくなるように行をフィルタ
@@ -144,7 +147,7 @@ data_ts
 frequency(data_ts)
 ```
 
-`ts()`関数で変換したデータはts()形式の行列になるため、`$`演算子で列を選択することができません。列を選択するには、`行列[, 要素の列インデックス]`もしくは、`行列[, "列名"]`とします。
+`ts()`関数で変換したデータはts形式の行列になるため、`$`演算子で列を選択することができません。列を選択するには、`行列[, 要素の列インデックス]`もしくは、`行列[, "列名"]`とします。
 
 ```{r}
 data_ts[, "gdp_nominal"]
@@ -161,7 +164,7 @@ data_ts$gdp_nominal
 
 #### 四半期データ {-}
 
-四半期データをts()関数でts形式に変換します。
+四半期データを`ts()`関数でts形式に変換します。
 
 ```{r}
 # 日付列で昇順に並べ替え
@@ -182,7 +185,7 @@ frequency(data_ts)
 
 #### 月次データ {-}
 
-月次データをts()関数でts形式に変換します。
+月次データを`ts()`関数でts形式に変換します。
 
 ```{r}
 # 日付列で昇順に並べ替え
@@ -203,7 +206,7 @@ frequency(data_ts)
 
 #### 週次データ {-}
 
-週次データをts()関数でts形式に変換します。
+週次データを`ts()`関数でts形式に変換します。
 
 ```{r}
 # 日次データのdata_owidから水曜日のデータを抽出して週次データに変換
@@ -231,7 +234,7 @@ frequency(data_ts)
 
 #### 日次データ {-}
 
-日次データをts()関数でts形式に変換します。
+日次データを`ts()`関数でts形式に変換します。
 
 ```{r}
 # 日付列の要素が重複している場合は、重複がなくなるように行をフィルタ
@@ -263,7 +266,7 @@ frequency(data_ts)
 
 #### 年次データ {-}
 
-年次データをas_tsibble()関数でtsibble形式に変換します。周期は1年になります。
+年次データを`as_tsibble()`関数でtsibble形式に変換します。周期は1年になります。
 
 ```{r}
 # 日付列で昇順に並べ替え
@@ -281,7 +284,7 @@ frequency(data_tsibble)
 
 #### 四半期データ {-}
 
-四半期データをas_tsibble()関数でtsibble形式に変換します。周期は4四半期になります。
+四半期データを`as_tsibble()`関数でtsibble形式に変換します。周期は4四半期になります。
 
 ```{r}
 # 日付列で昇順に並べ替え
@@ -300,7 +303,7 @@ frequency(data_tsibble)
 
 #### 月次データ {-}
 
-月次データをas_tsibble()関数でtsibble形式に変換します。周期は12カ月になります。
+月次データを`as_tsibble()`関数でtsibble形式に変換します。周期は12カ月になります。
 
 ```{r}
 # 日付列で昇順に並べ替え
@@ -319,7 +322,7 @@ frequency(data_tsibble)
 
 #### 週次データ {-}
 
-週次データをas_tsibble()関数でtsibble形式に変換します。周期は52.18週になります。
+週次データを`as_tsibble()`関数でtsibble形式に変換します。周期は52.18週になります。
 
 ```{r}
 # 日次データのdata_owidから水曜日のデータを抽出して週次データに変換
@@ -341,7 +344,7 @@ frequency(data_tsibble)
 
 #### 日次データ {-}
 
-日次データをas_tsibble()関数でtsibble形式に変換します。周期は7日になります。
+日次データを`as_tsibble()`関数でtsibble形式に変換します。周期は7日になります。
 
 ```{r}
 # 日付列で昇順に並べ替え
@@ -388,7 +391,7 @@ seq(from = as.Date("2022-01-01"), by = "1 month", length.out = 12)
 seq(from = as.Date("2022-01-01"), by = "1 day", along.with = letters)
 ```
 
-### 日付型データの変換 {-}
+### 日付型と文字列型の変換 {-}
 
 日付型データを文字列型データに変換するには、`strftime()`関数を使用します。一方、文字列型データを日付型データに変換するには、`strptime()`関数や、lubridateパッケージの`ymd()`関数を使用します。
 
@@ -397,7 +400,6 @@ seq(from = as.Date("2022-01-01"), by = "1 day", along.with = letters)
 `%Y`：4桁の年
 `%y`：下2桁の年
 `%m`：2桁の月（01～12）
-`%b`：1～2桁の月（1～12、1桁の月は前に半角スペースなし）
 `%d`：2桁の日（01～31）
 `%e`：1～2桁の日（1～31、1桁の日は前に半角スペースあり）
 
@@ -405,8 +407,9 @@ seq(from = as.Date("2022-01-01"), by = "1 day", along.with = letters)
 # 日付型データを文字列型データに変換
 strftime(as.Date("2022-01-01"), format = "%Y年%m月%d日")
 
-# 日付型データを文字列型データに変換する際、日を1桁表示して半角スペースを削除
-strftime(as.Date("2022-01-01"), format = "%b/%e") %>% 
+# 日付型データを文字列型データに変換する際、月と日を1桁表示して半角スペースを削除
+strftime(as.Date("2022-01-01"), format = "%m/%e") %>% 
+  str_replace(pattern = "^0", replacement = "") %>% 
   str_replace_all(pattern = " ", replacement = "")
 
 # 文字列型データを日付型データに変換
@@ -431,22 +434,40 @@ lubridate::month(as.Date("2022-12-31"))
 lubridate::year(as.Date("2022-01-15"))
 
 # 四半期
-lubridate::quarter(c(as.Date("2022-01-10"), as.Date("2022-05-01"), as.Date("2022-09-30"), as.Date("2022-11-20")))
+lubridate::quarter(lubridate::ymd(c("2022-01-10", "2022-05-01", "2022-09-30", "2022-11-20")))
 
 # 曜日番号（日曜：1～土曜：7）
-lubridate::wday(c(as.Date("2022-01-01"), as.Date("2022-01-02"), as.Date("2022-01-03"), as.Date("2022-01-08")))
+lubridate::wday(lubridate::ymd(c("2022-01-01", "2022-01-02", "2022-01-03", "2022-01-08")))
 
 # 週番号（1月1日始まり）
-lubridate::week(c(as.Date("2022-01-01"), as.Date("2022-01-02"), as.Date("2022-01-03"), as.Date("2022-01-08")))
+lubridate::week(lubridate::ymd(c("2022-01-01", "2022-01-02", "2022-01-03", "2022-01-08")))
 
 # 週番号（最初の月曜始まり）
-lubridate::isoweek(c(as.Date("2022-01-01"), as.Date("2022-01-02"), as.Date("2022-01-03"), as.Date("2022-01-08")))
+lubridate::isoweek(lubridate::ymd(c("2022-01-01", "2022-01-02", "2022-01-03", "2022-01-08")))
 
 # 週番号（最初の日曜始まり）
-lubridate::epiweek(c(as.Date("2022-01-01"), as.Date("2022-01-02"), as.Date("2022-01-03"), as.Date("2022-01-08")))
+lubridate::epiweek(lubridate::ymd(c("2022-01-01", "2022-01-02", "2022-01-03", "2022-01-08")))
 ```
 
-## データ変換
+### 四半期ベースの時系列インデックス
+
+日付型データから四半期ベースの時系列インデックスを生成するには`lubridate::quarter()`関数を、四半期ベースの時系列インデックスから日付型データを作成するには`lubridate::date()`関数と`zoo::as.yearqtr()`関数を使用します。
+
+```{r}
+# 日付型データから四半期ベースのインデックスを生成
+lubridate::quarter(lubridate::ymd(c("2012-03-26", "2012-05-04", "2012-09-23", "2012-12-31")),
+                   type = "year.quarter")
+
+lubridate::quarter(lubridate::ymd(c("2012-03-26", "2012-05-04", "2012-09-23", "2012-12-31")),
+                   type = "year.quarter") %>% 
+  str_replace(pattern = "\\.", replacement = "Q")
+
+# 四半期ベースのインデックスから日付型データを生成
+lubridate::date(zoo::as.yearqtr(c("2012 Q1", "2012 Q2", "2012 Q3", "2012 Q4"), format = "%Y Q%q"))
+```
+
+
+## 時系列データ作成
 
 ここでは、時系列データのラグ・リード系列、変化率、移動平均を計算する方法を解説します。
 
@@ -960,8 +981,24 @@ summary(result)
 ```
 
 ```{r}
+# hpfilter()関数の出力結果から開始日と終了日を確認
+start(result$trend)
+end(result$trend)
+
+# hpfilter()関数の出力結果からtibble形式のデータフレームを作成
+data_result <- tibble::tibble(date = seq(from = as.Date("1990-01-01"), to = as.Date("2016-11-01"), by = "1 month"),
+                              cycle = result$cycle %>% as.vector(),
+                              trend = result$trend %>% as.vector(),
+                              original = result$x %>% as.vector()
+                              )
+
+data_result_long <- data_result %>% 
+  tidyr::pivot_longer(cols = -"date", names_to = "name", values_to = "value") 
+
 # HPフィルタの結果をプロット
-ggplot(mapping = aes(x = ))
+ggplot(data = data_result_long,
+       mapping = aes(x = date, y = value, color = name)) +
+  geom_line()
 ```
 
 ```{r, eval=FALSE}
