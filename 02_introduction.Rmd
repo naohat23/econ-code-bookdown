@@ -18,6 +18,8 @@ library(openxlsx)
 
 ## 主要ショートカットキー
 
+RStudioでよく使用されるショートカットキーです。Macの場合は`Ctrl`を`Cmd`に、`Alt`を`Opt`にそれぞれ置き換えてください。
+
 -   `Alt + Shift + K`：　キーボードショートカットを表示
 
 ### 編集 {.unnumbered}
@@ -695,6 +697,19 @@ data <- readr::read_csv(file = "directory/file.csv", # ファイルパス／URL�
                         skip = 0, # 読み込み時に上からスキップする行数
                         locale = locale(encoding = "CP932") # Windows標準（Shift JIS）で作成されたファイルは"CP932"、utf-8で作成されたファイルは"UTF-8"
                         )
+```
+
+CSVファイルにおけるデータの区切り文字はカンマ「,」ですが、中には区切り文字としてカンマ以外の文字（例えばセミコロン「;」など）が使われている場合もあります。そうした特殊はCSVファイルは`read_csv()`関数では上手く読み込めないことがあるため、その際は`read_delim()`関数を使用し、`delim`引数に区切り文字を指定します。
+
+```{r, eval=FALSE}
+data <- readr::read_delim(file = "directory/file.csv", # ファイルパス／URL（拡張子が必要）
+                          delim = ";" # 区切り文字（ここでは例としてセミコロンを指定）
+                          col_names = TRUE, # ヘッダー（列名データ）の有無／列名指定
+                          col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                          col_select = NULL, # 読み込む列の指定（列名、インデックス）
+                          skip = 0, # 読み込み時に上からスキップする行数
+                          locale = locale(encoding = "CP932") # Windows標準（Shift JIS）で作成されたファイルは"CP932"、utf-8で作成されたファイルは"UTF-8"
+                          )
 ```
 
 ### Excelデータの読み込み（xls／xlsx形式） {.unnumbered}

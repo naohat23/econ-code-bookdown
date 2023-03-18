@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: 
   bookdown::gitbook:
-    #df_print: "paged"
+    df_print: default
     highlight: default
     toc_depth: 3
     config:
@@ -93,7 +93,7 @@ Rの設定、Rの演算やオブジェクトの取り扱い方といった基本
 6.  線形回帰
 
     計量経済分析の最も基本的な手法である線形回帰の内容と、Rによる実行方法を紹介します。まず、前提として、統計学・計量経済学で使用される基本的な用語を説明します。次に、線形回帰の推定方法である最小2乗法と、統計的仮説検定について解説したうえで、実務で頻繁に用いる水準モデル、対数モデル、変化率モデル、多項式モデル、交互作用モデル、ダミー変数モデルについて、それぞれの内容と係数の解釈方法を説明します。この部分は、なるべく直感的に理解できるような説明を心がけました。最後に、それらのモデルをRで推定する方法を、西山 他（2019）の実証例を解く形で紹介します。
-    
+
 7.  時系列データ操作
 
     経済・金融分析に欠かせない時系列データの操作方法を紹介します。時系列データ用のts形式に特有の操作、日付型データ関数、ラグ・リード系列や変化率系列の計算方法、頻度変換、季節調整（X13、STL分解）、トレンド（線形トレンド、区分線形トレンド、HPフィルタ、一般化加法モデル）、構造変化などのトピックを取り上げています。
@@ -112,57 +112,86 @@ Rの設定、Rの演算やオブジェクトの取り扱い方といった基本
 
 ## 参考文献・ウェブサイト {.unnumbered}
 
-### Rプログラミング・データ分析 {.unnumbered}
+### Rプログラミング {.unnumbered}
 
 #### 入門・初級 {.unnumbered}
 
--   [馬場真哉 (2020) 『R言語ではじめるプログラミングとデータ分析』ソシム株式会社](https://www.socym.co.jp/book/1238)
+-   [馬場真哉（2020）『R言語ではじめるプログラミングとデータ分析』ソシム株式会社](https://www.socym.co.jp/book/1238)
 
--   [松村優哉・湯谷啓明・紀ノ定保礼・前田和寛 (2021) 『改訂2版 Rユーザのための RStudio［実践］入門』技術評論社](https://gihyo.jp/book/2021/978-4-297-12170-9)
+-   [松村優哉、湯谷啓明、紀ノ定保礼、前田和寛（2021）『改訂2版 Rユーザのための RStudio［実践］入門ーtidyverseによるモダンな分析フローの世界ー』技術評論社](https://gihyo.jp/book/2021/978-4-297-12170-9)
 
 #### 中級 {.unnumbered}
 
--   [Wickham, H., and Grolemund, G. (2017) 『Rではじめるデータサイエンス』オライリー・ジャパン](https://www.oreilly.co.jp/books/9784873118147/)
+-   [ハドリー・ウィッカム、ギャレット・グロールマンド（2017）『Rではじめるデータサイエンス』オライリー・ジャパン](https://www.oreilly.co.jp/books/9784873118147/)
 
--   Wickham and Grolemund (2017) の原著版 "R for Data Science"は、[こちらのウェブサイト](https://r4ds.had.co.nz/index.html)で全文閲覧できます。
+    ウィッカム、グロールマンド（2017）の原著版 "R for Data Science"は、[こちらのウェブサイト](https://r4ds.had.co.nz/index.html)で全文閲覧できます。
 
--   [Nielsen, A. (2021) 『実践 時系列解析』オライリー・ジャパン](https://www.oreilly.co.jp/books/9784873119601/)
+-   [松村優哉、瓜生真也、吉村広志 (2022) 『Rユーザのためのtidymodels［実践］入門ーモダンな統計・機械学習モデリングの世界ー』技術評論社](https://gihyo.jp/book/2023/978-4-297-13236-1)
 
-### 計量経済学 {.unnumbered}
+### 統計学・計量経済学 {.unnumbered}
 
 #### 入門・初級 {.unnumbered}
 
--   [山本勲 (2015) 『実証分析のための計量経済学ー正しい手法と結果の読み方ー』中央経済社](https://www.biz-book.jp/isbn/978-4-502-16811-6)
-
--   [横内大介・青木義充 (2014) 『時系列データ分析』技術評論社](https://gihyo.jp/book/2014/978-4-7741-6301-7)
+-   [山本勲（2015）『実証分析のための計量経済学ー正しい手法と結果の読み方ー』中央経済社](https://www.biz-book.jp/isbn/978-4-502-16811-6)
 
 #### 中級 {.unnumbered}
 
 -   [Hanck, C., Arnold, M., Gerber, A., and Schmelzer, M., (2021) "Introduction to Econometrics with R"](https://www.econometrics-with-r.org/index.html)
 
--   [Hyndman, R.J., and Athanasopoulos, G. (2018) "Forecasting: principles and practice, 2nd edition", OTexts: Melbourne, Australia.](https://otexts.com/fpp2/)
+-   [仲嶋亮（2020）「「誘導型推定」v.s.「構造型推定」」 経済セミナー編集部 編『新版 進化する経済学の実証分析』日本評論社](https://www.nippyo.co.jp/shop/book/8321.html)
 
--   [Sax, C., and Eddelbuettel, D., (2018) "Seasonal Adjustment by X-13ARIMA-SEATS in R"](https://cran.r-project.org/web/packages/seasonal/vignettes/seas.pdf)
+-   [西山慶彦、新谷元嗣、川口大司、奥井亮（2019）『計量経済学』有斐閣](http://www.yuhikaku.co.jp/books/detail/9784641053854)
 
--   [奥本佳伸 (2016) 「季節調整法プログラム センサス局法X-13ARIMA-SEATSを日本のいくつかの経済統計データに適用した結果とその検討」千葉大学『経済研究』第30巻第4号](https://opac.ll.chiba-u.jp/da/curator/900119389/09127216_30_4_1-42.pdf)
+    西山 他 (2019) の実証例のRコードは、[北川梨津 (2020) 「西山 他『計量経済学』のためのR」](https://ritsu1997.github.io/r-for-nlas-econometrics/)が提供しています。
 
--   [西山慶彦・新谷元嗣・川口大司・奥井亮 (2019) 『計量経済学』有斐閣](http://www.yuhikaku.co.jp/books/detail/9784641053854)
-
--   西山 他 (2019) の実証例のRコードは、[北川梨津 (2020) 「西山 他『計量経済学』のためのR」](https://ritsu1997.github.io/r-for-nlas-econometrics/)が提供しています。
-
--   [肥後雅博・中田（黒田）祥子 (1998) 「経済変数から基調的変動を抽出する時系列手法について」日本銀行金融研究所『金融研究』1998.12](https://www.imes.boj.or.jp/research/papers/japanese/kk17-6-2.pdf)
-
--   [マクリン謙一郎 (2022) 「再現性問題における統計学の役割と責任」日本評論社『経済セミナー』2022年6・7月号　通巻 726号](https://www.nippyo.co.jp/shop/magazine/8801.html)
+-   [マクリン謙一郎（2022）「再現性問題における統計学の役割と責任」日本評論社『経済セミナー』2022年6・7月号　通巻 726号](https://www.nippyo.co.jp/shop/magazine/8801.html)
 
 #### 上級 {.unnumbered}
 
--   [末石直也 (2015) 『計量経済学ーミクロデータ分析へのいざないー』日本評論社](https://www.nippyo.co.jp/shop/book/6899.html)
+-   [北岡孝義、高橋青天、溜川健一、矢野順治（2013）『EViewsで学ぶ実証分析の方法』日本評論社](https://www.nippyo.co.jp/shop/book/6394.html)
 
--   [村尾博 (2019) 『Rで学ぶVAR実証分析ー時系列分析の基礎から予測までー』オーム社](https://www.ohmsha.co.jp/book/9784274224775/)
+-   [末石直也（2015）『計量経済学ーミクロデータ分析へのいざないー』日本評論社](https://www.nippyo.co.jp/shop/book/6899.html)
+
+### 時系列データ分析 {.unnumbered}
+
+#### 入門・初級 {.unnumbered}
+
+-   [熊本方雄（2022）「金融時系列データ分析を用いた論文の書き方」 経済セミナー編集部 編『経済論文の書き方』日本評論社 第9章](https://www.nippyo.co.jp/shop/book/8883.html)
+
+-   [横内大介、青木義充（2014）『時系列データ分析』技術評論社](https://gihyo.jp/book/2014/978-4-7741-6301-7)
+
+#### 中級 {.unnumbered}
+
+-   [Hyndman, R.J., and Athanasopoulos, G. (2018) "Forecasting: principles and practice, 2nd edition", OTexts: Melbourne, Australia.](https://otexts.com/fpp2/)
+
+-   [アイリーン・ニールセン（2021）『実践 時系列解析ー統計と機械学習による予測ー』オライリー・ジャパン](https://www.oreilly.co.jp/books/9784873119601/)
+
+-   [Sax, C., and Eddelbuettel, D., (2018) "Seasonal Adjustment by X-13ARIMA-SEATS in R"](https://cran.r-project.org/web/packages/seasonal/vignettes/seas.pdf)
+
+-   [奥本佳伸（2016）「季節調整法プログラム センサス局法X-13ARIMA-SEATSを日本のいくつかの経済統計データに適用した結果とその検討」千葉大学『経済研究』第30巻第4号](https://opac.ll.chiba-u.jp/da/curator/900119389/09127216_30_4_1-42.pdf)
+
+-   [馬場真哉（2018）『時系列分析と状態空間モデルの基礎ーRとStanで学ぶ理論と実装ー』プレアデス出版](http://www.pleiades-publishing.co.jp/pdf/pdf08.html)
+
+-   [肥後雅博、中田（黒田）祥子（1998）「経済変数から基調的変動を抽出する時系列手法について」日本銀行金融研究所『金融研究』1998.12](https://www.imes.boj.or.jp/research/papers/japanese/kk17-6-2.pdf)
+
+#### 上級 {.unnumbered}
+
+-   [宮尾龍蔵（2006）『マクロ金融政策の時系列分析ー政策効果の理論と実証ー』日本経済新聞出版](https://bookplus.nikkei.com/atcl/catalog/2006/9784532133153/)
+
+-   [村尾博（2019）『Rで学ぶVAR実証分析ー時系列分析の基礎から予測までー』オーム社](https://www.ohmsha.co.jp/book/9784274224775/)
 
 ## 変更履歴 {.unnumbered}
 
-### 2023年2月6日 マイナーアップデート {-}
+### 2023年3月18日 マイナーアップデート {-}
+
+-   参考文献の分類方法を「Rプログラミング」、「統計学・計量経済学」、「時系列データ分析」の3つに再編。
+-   参考文献に、北岡 他（2013）、熊本（2022）、経済セミナー編集部 編（2020）、馬場（2018）、松村 他（2022）、宮尾（2006）を追加。
+-   第1章「Rの設定」の「パッケージ」にggfortify、forecast、tseriesを追加。
+-   第1章「Rの設定」の「サンプルデータセット」に、Seatbeltsを追加し、その他のサンプルデータセットの説明内容を一部修正。
+-   第2章「Rの基本的な使用方法」の「主要ショートカットキー」にMacのキーを追加。
+-   第2章「Rの基本的な使用方法」の「データの読み込み・書き出し」に`readr::read_delim()`関数を追加。
+
+### 2023年2月6日 マイナーアップデート {.unnumbered}
 
 -   参考文献にNielsen, A. (2021) 『実践 時系列解析』を追加。
 -   第1章「Rの設定」の「パッケージ」にlmtest、sandwich、vars、urcaを追加し、seasonalviewを削除。
@@ -171,7 +200,7 @@ Rの設定、Rの演算やオブジェクトの取り扱い方といった基本
 -   第6章「線形回帰」で線形回帰モデルの推定に使用する関数を`estimatr::lm_robust()`関数から`stats::lm()`関数と`lmtest::coeftest()`関数の組み合わせに変更。
 -   第7章「時系列データ操作」の「トレンド」にHPフィルタの結果をプロットするコードを追加。
 
-### 2022年10月22日 マイナーアップデート {-}
+### 2022年10月22日 マイナーアップデート {.unnumbered}
 
 -   複数行にわたる関数のコーディングスタイルを変更。
 -   第2章「Rの基本的な使用方法」の「制御構文」に、nextによる処理のスキップを追加。
@@ -182,14 +211,13 @@ Rの設定、Rの演算やオブジェクトの取り扱い方といった基本
 -   第7章「時系列データ操作」に「時系列データとは」を追加。
 -   第7章「時系列データ操作」の「日付型データ関数」に四半期ベースの時系列インデックスに関する記述を追加。
 
-### 2022年9月7日 マイナーアップデート {-}
+### 2022年9月7日 マイナーアップデート {.unnumbered}
 
 -   章立てを変更。「時系列データ操作」を「tidyverseによるデータ操作」の後から「線形回帰」の後に移動させ、第1章「Rの設定」、第2章「Rの基本的な使用方法」、第3章「tidyverseによるデータ操作」、第4章「ggplot2によるグラフ作成」、第5章「探索的データ分析」、第6章「線形回帰」、第7章「時系列データ操作」とした。
 -   第1章「Rの設定」の「パッケージ」にtsibble、strucchange、nycflights13の各パッケージを追加。
 -   第6章「線形回帰」の「Rの単回帰モデル推定」に、`estimatr::lm_robust()`関数で標準誤差の種類を指定する方法として`HC3`に関する記述、`lm()`関数と`estimatr::lm_robust()`関数の違いに関する記述を追加。
 -   第7章「時系列データ操作」に、「ts形式データ」、「ts形式データの変換」、「時系列関数」、「構造変化」を追加。
 -   第7章「時系列データ操作」の「トレンド推定」に、線形トレンドと区分線形トレンドに関する記述を追加。
-
 
 ### 2022年7月17日 マイナーアップデート {.unnumbered}
 

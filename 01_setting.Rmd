@@ -89,6 +89,7 @@ options(timeout = NA)
 -   図表系
     -   [esquisse](https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html)：shinyを使用したGUI形式の直感的な図表作成
     -   [geofacet](https://cran.r-project.org/web/packages/geofacet/vignettes/geofacet.html)：地図形式の複合グラフ（ファセット）配置
+    -   [ggfortify](https://cran.r-project.org/web/packages/ggfortify/index.html)：統計解析結果の可視化
     -   [ggplotgui](https://cran.r-project.org/web/packages/ggplotgui/README.html)：shinyを使用したGUI形式の直感的な図表作成
     -   [ggpubr](https://rpkgs.datanovia.com/ggpubr/)：論文形式の図表作成
     -   [ggsci](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html)：科学系論文の雑誌別カラーパレット
@@ -101,6 +102,7 @@ options(timeout = NA)
     -   [corrr](https://corrr.tidymodels.org/)：相関係数行列の計算・可視化
     -   [DataExplorer](https://cran.r-project.org/web/packages/DataExplorer/vignettes/dataexplorer-intro.html)：探索的データ分析の一括実行
     -   [estimatr](https://declaredesign.org/r/estimatr/)：線形回帰モデルの推定
+    -   [forecast](https://pkg.robjhyndman.com/forecast/)：単変量時系列データ分析
     -   [fpp2](https://otexts.com/fpp2/)：時系列データ予測の教科書用に開発されたパッケージ
     -   [GGally](https://ggobi.github.io/ggally/index.html)：ペアプロットなどのデータ可視化
     -   [lmtest](https://cran.r-project.org/web/packages/lmtest/index.html)：線型回帰モデルの検定や診断
@@ -114,6 +116,7 @@ options(timeout = NA)
     -   [SmartEDA](https://daya6489.github.io/SmartEDA/)：探索的データ分析の一括実行
     -   [strucchange](https://cran.r-project.org/web/packages/strucchange/index.html)：構造変化の検定
     -   [tidyquant](https://business-science.github.io/tidyquant/index.html)：金融時系列データ分析
+    -   [tseries](https://cran.r-project.org/web/packages/tseries/index.html)：時系列分析用の関数
     -   [vars](https://cran.r-project.org/web/packages/vars/index.html)：VARモデル
     -   [urca](https://cran.r-project.org/web/packages/urca/index.html)：単位根検定・共和分検定
 -   データパッケージ
@@ -134,9 +137,9 @@ packages <- c(
   # tidyverse系
   "lubridate", "magrittr", "tidyverse", "tsibble", "readxl",
   # 図表系
-  "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
+  "esquisse", "geofacet", "ggfortify", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
   # 統計系
-  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "lmtest", "mFilter", "mgcv", "plm", "psych", "sandwich", "seasonal", "sigmoid", "SmartEDA", "strucchange", "tidyquant", "vars", "urca",
+  "corrplot", "corrr", "DataExplorer", "estimatr", "forecast", "fpp2", "GGally", "lmtest", "mFilter", "mgcv", "plm", "psych", "sandwich", "seasonal", "sigmoid", "SmartEDA", "strucchange", "tidyquant", "tseries", "vars", "urca",
   # データパッケージ
   "nycflights13",
   # その他
@@ -225,7 +228,7 @@ head(iris)
 
 #### mtcars {.unnumbered}
 
-`datasets`パッケージに含まれる`mtcars`データセットは、米国で1973～1974年に発売された32車種のデザインや諸元に関するデータです。燃費、排気量、馬力、重量などのデータが格納されています。データ構造はdata.frame形式です。
+`datasets`パッケージに含まれる`mtcars`データセットは、米国で1973〜1974年に発売された32車種のデザインや諸元に関するデータです。燃費、排気量、馬力、重量などのデータが格納されています。データ構造はdata.frame形式です。
 
 ```{r}
 # データの先頭行をコンソールに出力
@@ -252,7 +255,15 @@ diamonds
 
 #### economics {.unnumbered}
 
-`ggplot2`パッケージに含まれる`economics`データセットは、1967年7月から2015年4月までの米国の消費・雇用関連の時系列データ（月次）です。日付（date）、[個人消費支出（pce）](https://fred.stlouisfed.org/series/PCE)、[人口（pop）](https://fred.stlouisfed.org/series/POP)、[個人貯蓄率（psavert）](https://fred.stlouisfed.org/series/PSAVERT/)、[失業期間の中央値（uempmed）](https://fred.stlouisfed.org/series/UEMPMED)、[失業者数（unemploy）](https://fred.stlouisfed.org/series/UNEMPLOY)のデータが格納されています。データ構造はtibble形式です。
+`ggplot2`パッケージに含まれる`economics`データセットは、米国の消費・雇用関連の時系列データです（月次、1967年7月〜2015年4月）。日付（`date`）、個人消費支出（`pce`）、人口（`pop`）、個人貯蓄率（`psavert`）、失業期間の中央値（`uempmed`）、失業者数（`unemploy`）のデータが格納されています。データ構造はtibble形式です。
+
+なお、各系列の出所は米国のセントルイス連銀が運営するウェブサイトのFREDを参照してください。
+
+* [個人消費支出](https://fred.stlouisfed.org/series/PCE)
+* [人口](https://fred.stlouisfed.org/series/POP)
+* [個人貯蓄率](https://fred.stlouisfed.org/series/PSAVERT/)
+* [失業期間の中央値](https://fred.stlouisfed.org/series/UEMPMED)
+* [失業者数（unemploy）](https://fred.stlouisfed.org/series/UNEMPLOY)
 
 ```{r}
 economics
@@ -260,7 +271,7 @@ economics
 
 #### unemp {.unnumbered}
 
-`seasonal`パッケージに含まれる`unemp`データセットは、1990年1月から2016年11月までの米国の失業者数（単位：千人）の時系列データ（月次、原数値）です。データ構造はts形式です。
+`seasonal`パッケージに含まれる`unemp`データセットは、米国の失業者数（単位：千人、季節調整前の原数値）の時系列データです（月次、1990年1月〜2016年11月）。データ構造はts形式です。
 
 [データ出所リンク](https://fred.stlouisfed.org/series/LNU03000000)
 
@@ -271,11 +282,16 @@ head(seasonal::unemp)
 
 #### gasoline {.unnumbered}
 
-`fpp2`パッケージに含まれる`gasoline`データセットは、1991年2月2日から2017年１月20日までの米国ガソリン生産量（単位：百万バレル／日）の時系列データ（週次）です。データ構造はts形式です。
+`fpp2`パッケージに含まれる`gasoline`データセットは、米国のガソリン生産量（単位：百万バレル／日）の時系列データです（週次、1991年2月2日〜2017年１月20日）。データ構造はts形式です。
+
+```{r}
+head(fpp2::gasoline)
+```
+
 
 #### Canada {-}
 
-`vars`パッケージに含まれる`Canada`データセットは、1980年1〜3月期から2000年10〜12月期までのカナダのマクロ経済時系列データ（四半期）です。実質労働生産性（prod、自然対数×100）、雇用者数（e、自然対数×100）、失業率（U、％）、実質賃金（rw、自然対数×100）のデータが格納されています。データ構造はts形式です。
+`vars`パッケージに含まれる`Canada`データセットは、カナダのマクロ経済時系列データ（四半期、1980年1-3月期〜2000年10-12月期）です。実質労働生産性（`prod`、自然対数×100）、雇用者数（`e`、自然対数×100）、失業率（`U`、％）、実質賃金（`rw`、自然対数×100）のデータが格納されています。データ構造はts形式です。
 
 ```{r}
 # データを呼び出し
@@ -283,6 +299,14 @@ data(Canada)
 
 # データの先頭行をコンソールに出力
 head(Canada)
+```
+
+#### Seatbelts {-}
+
+`datasets`パッケージに含まれる`Seatbelts`データセットは、英国の交通事故死者数の時系列データです（月次、1969年1月〜1984年12月）。前席における死傷者数（`front`）、ガソリン価格（`PetrolPrice`）、前席のシートベルト着用を義務付ける法律の施行有無を表すフラグ（`law`）などのデータが格納されています。データ構造はts形式です。
+
+```{r}
+head(Seatbelts)
 ```
 
 ### 外部データセット {-}
@@ -483,9 +507,9 @@ packages <- c(
   # tidyverse系
   "lubridate", "magrittr", "tidyverse", "tsibble", "readxl",
   # 図表系
-  "esquisse", "geofacet", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
+  "esquisse", "geofacet", "ggfortify", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
   # 統計系
-  "corrplot", "corrr", "DataExplorer", "estimatr", "fpp2", "GGally", "lmtest", "mFilter", "mgcv", "plm", "psych", "sandwich", "seasonal", "sigmoid", "SmartEDA", "strucchange", "tidyquant", "vars", "urca",
+  "corrplot", "corrr", "DataExplorer", "estimatr", "forecast", "fpp2", "GGally", "lmtest", "mFilter", "mgcv", "plm", "psych", "sandwich", "seasonal", "sigmoid", "SmartEDA", "strucchange", "tidyquant", "tseries", "vars", "urca",
   # データパッケージ
   "nycflights13",
   # その他
