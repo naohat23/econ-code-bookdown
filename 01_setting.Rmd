@@ -76,6 +76,12 @@ options(download.file.method = "libcurl")
 options(timeout = NA)
 ```
 
+設定したプロキシサーバーの値を確認するには、次のコードを実行します。
+
+```{r}
+Sys.getenv(c("http_proxy", "https_proxy"))
+```
+
 ## パッケージ
 
 ### 使用するパッケージ一覧 {.unnumbered}
@@ -83,6 +89,7 @@ options(timeout = NA)
 -   tidyverse系
     -   [lubridate](https://lubridate.tidyverse.org/)：日付処理
     -   [magrittr](https://magrittr.tidyverse.org/)：パイプ処理
+    -   [stringi](https://stringi.gagolewski.com/)：文字列操作
     -   [tidyverse](https://www.tidyverse.org/)：モダンなデータ分析用パッケージセット
     -   [tsibble](https://tsibble.tidyverts.org/)：ts形式の時系列データをデータフレーム形式で処理
     -   [readxl](https://readxl.tidyverse.org/)：Excelファイルの読み込み
@@ -122,6 +129,7 @@ options(timeout = NA)
 -   データパッケージ
     -   [nycflights13](https://cran.r-project.org/web/packages/nycflights13/index.html)：航空便情報サンプルデータセット
 -   その他
+    -   [docstring](https://cran.r-project.org/web/packages/docstring/index.html)：関数の説明文を作成
     -   [openxlsx](https://ycphs.github.io/openxlsx/)：Excelのxlsxファイルの読み込み・編集・書き出し
     -   [pblapply](https://www.rdocumentation.org/packages/pbapply/versions/1.4-3/topics/pbapply)：プログレスバーを表示する`apply()`関数ファミリー
 
@@ -135,15 +143,51 @@ options(timeout = NA)
 # パッケージ一覧
 packages <- c(
   # tidyverse系
-  "lubridate", "magrittr", "tidyverse", "tsibble", "readxl",
+  "lubridate", 
+  "magrittr", 
+  "stringi",
+  "tidyverse", 
+  "tsibble", 
+  "readxl",
   # 図表系
-  "esquisse", "geofacet", "ggfortify", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
+  "esquisse", # Rバージョン3系では実行不可のためコメントアウトする
+  "geofacet", 
+  "ggfortify", 
+  "ggplotgui", # Rバージョン3系では実行不可のためコメントアウトする
+  "ggpubr", 
+  "ggsci", 
+  "ggrepel", 
+  "hexbin", 
+  "lemon", 
+  "RColorBrewer",
   # 統計系
-  "corrplot", "corrr", "DataExplorer", "estimatr", "forecast", "fpp2", "GGally", "lmtest", "mFilter", "mgcv", "plm", "psych", "sandwich", "seasonal", "sigmoid", "SmartEDA", "strucchange", "tidyquant", "tseries", "vars", "urca",
+  "corrplot", 
+  "corrr", 
+  "DataExplorer", 
+  "estimatr", 
+  "forecast", 
+  "fpp2", 
+  "GGally", 
+  "lmtest", 
+  "mFilter", 
+  "mgcv", 
+  "plm", 
+  "psych", # Rバージョン3系では実行不可のためコメントアウトする
+  "sandwich", 
+  "seasonal", 
+  "sigmoid", 
+  "SmartEDA", 
+  "strucchange", 
+  "tidyquant", 
+  "tseries", 
+  "vars", 
+  "urca",
   # データパッケージ
   "nycflights13",
   # その他
-  "openxlsx", "pbapply"
+  "docstring", 
+  "openxlsx", 
+  "pbapply"
 )
 
 # インストールしていないパッケージがあればインストール
@@ -505,15 +549,51 @@ options(warn = -1)
 # パッケージのインストールとインポート
 packages <- c(
   # tidyverse系
-  "lubridate", "magrittr", "tidyverse", "tsibble", "readxl",
+  "lubridate", 
+  "magrittr", 
+  "stringi",
+  "tidyverse", 
+  "tsibble", 
+  "readxl",
   # 図表系
-  "esquisse", "geofacet", "ggfortify", "ggplotgui", "ggpubr", "ggsci", "ggrepel", "hexbin", "lemon", "RColorBrewer",
+  "esquisse", # Rバージョン3系では実行不可のためコメントアウトする
+  "geofacet", 
+  "ggfortify", 
+  "ggplotgui", # Rバージョン3系では実行不可のためコメントアウトする
+  "ggpubr", 
+  "ggsci", 
+  "ggrepel", 
+  "hexbin", 
+  "lemon", 
+  "RColorBrewer",
   # 統計系
-  "corrplot", "corrr", "DataExplorer", "estimatr", "forecast", "fpp2", "GGally", "lmtest", "mFilter", "mgcv", "plm", "psych", "sandwich", "seasonal", "sigmoid", "SmartEDA", "strucchange", "tidyquant", "tseries", "vars", "urca",
+  "corrplot", 
+  "corrr", 
+  "DataExplorer", 
+  "estimatr", 
+  "forecast", 
+  "fpp2", 
+  "GGally", 
+  "lmtest", 
+  "mFilter", 
+  "mgcv", 
+  "plm", 
+  "psych", # Rバージョン3系では実行不可のためコメントアウトする
+  "sandwich", 
+  "seasonal", 
+  "sigmoid", 
+  "SmartEDA", 
+  "strucchange", 
+  "tidyquant", 
+  "tseries", 
+  "vars", 
+  "urca",
   # データパッケージ
   "nycflights13",
   # その他
-  "openxlsx", "pbapply"
+  "docstring", 
+  "openxlsx", 
+  "pbapply"
 )
 
 new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]

@@ -37,9 +37,11 @@ library(urca)
 特に、原系列に何ら変換を加えない状態で定常である時系列データを**レベル定常過程**と呼びます。レベル定常過程のデータは、ある水準の周りで安定的に推移し、一定の幅をもって変動します。
 
 $$
-E(Y_t) = \mu \lt \infty \\
-Var(Y_t) = E[(Y_t - \mu)^2] = \sigma^2 \lt \infty \\
-Cov(Y_t, Y_{t-j}) = E[(Y_t - \mu)(Y_{t-j} - \mu)] = \gamma_j, \quad j \gt 0
+\begin{aligned}
+& E(Y_t) = \mu \lt \infty \\
+& Var(Y_t) = E[(Y_t - \mu)^2] = \sigma^2 \lt \infty \\
+& Cov(Y_t, Y_{t-j}) = E[(Y_t - \mu)(Y_{t-j} - \mu)] = \gamma_j, \quad j \gt 0
+\end{aligned}
 $$
 
 なお、定常性にはいくつかの定義があり、本書では「弱定常」や「共分散定常」と呼ばれる定常性の定義を採用しています。定常性の詳細については、Nielsen（2021）P.77、西山 他（2019）P.476、村尾（2019）P.36、横内・青木（2014）P.82を参照してください。
@@ -49,9 +51,11 @@ $$
 定常な時系列データの中でも、最も簡単で重要な系列が**ホワイトノイズ（white noise）**です。次のように「平均が0、分散がある一定の値、自己共分散が0」が成立する時系列データ$u_t$をホワイトノイズと定義します。ホワイトノイズの厳密な定義については、村尾（2019）P.32を参照してください。
 
 $$
-E(u_t) = 0 \\
-Var(u_t) = E(u_t u_t) = \sigma^2 \lt \infty \\
-Cov(u_t, u_s) = E(u_t, u_s) = 0, \quad t \ne s
+\begin{aligned}
+& E(u_t) = 0 \\
+& Var(u_t) = E(u_t u_t) = \sigma^2 \lt \infty \\
+& Cov(u_t, u_s) = E(u_t, u_s) = 0, \quad t \ne s
+\end{aligned}
 $$
 
 例えば、平均が0の正規分布（標準正規分布など）に従う時系列データはホワイトノイズの一種です。ホワイトノイズを生成する場合、`rnorm()`関数などを用いて正規乱数を生成し、ホワイトノイズとして利用することが一般的です。
@@ -336,27 +340,34 @@ ADF検定の具体的なフローは次のとおりです。
 
 ### ADF検定フロー自作関数 {.unnumbered}
 
-このように、ADF検定を用いた和分次数の判断はシステマチックに実施することができます。本書では、このADF検定フローを分析対象の時系列データに自動で適用する自作関数`adf_test_flow()`を定義します。
+上記のように、ADF検定を用いた和分次数の判断はシステマチックに実施することができます。本書では、ADF検定フローを分析対象の時系列データに自動で適用する自作関数`adf_test_flow()`を定義します。
 
 `adf_test_flow()`自作関数の引数は次のとおりです。
 
--   `y`：ADF検定を適用する時系列データ。数値型ベクトルもしくはts型データを指定します。
--   `selectlags`：ラグ次数の選択基準。`"AIC"`、`"BIC"`、`"Fixed"`の3つのうち1つを指定します（デフォルト値は`"AIC"`）。`"AIC"`もしくは`"BIC"`を指定すると、それぞれ赤池情報量基準（Akaike Information Criterion）とベイズ情報量基準（Bayesian Information Criterion）に基づき最適なラグ次数が自動で選択されます（このとき`lags`引数に指定した値が自動で選択されるラグ次数の上限になります）。`"Fixed"`を指定する場合は、適用するラグ次数を`lags`引数に手動で指定します。
--   `lags`：検定するモデルのラグ次数（正の整数、デフォルト値は1）。`selectlags`引数に`"AIC"`か`"BIC"`を指定した場合は`lags`が自動的に選択されるラグ次数の最大値になります。`selectlags`引数に`"Fixed"`を指定した場合は、`lags`に指定したラグ次数がそのまま使用されます。
+-   `y`：ADF検定を適用する時系列データ。数値型ベクトルもしくはts形式データを指定します。
+-   `lag_criterion`：ラグ次数の選択基準。`"AIC"`、`"BIC"`、`"Fixed"`の3つのうち1つを指定します。`"AIC"`もしくは`"BIC"`を指定すると、それぞれ赤池情報量規準（Akaike Information Criterion）とベイズ情報量規準（Bayesian Information Criterion）に基づき最適なラグ次数が自動で選択されます（このとき`lags_max`引数に指定した値が自動で選択されるラグ次数の上限になります）。`"Fixed"`を指定する場合は、適用するラグ次数を`lags_fixed`引数に手動で指定します。
+-   `lags_max`：ラグ次数の最大値（正の整数、デフォルト値は12）。`lag_criterion`引数に`"AIC"`か`"BIC"`を指定した場合に使用します。
+-   `lags_fixed`：ラグ次数（正の整数、デフォルト値は1）。`lag_criterion`引数に`"Fixed"`を指定した場合に使用します。
 -   `sig_level`：有意水準。0.01、0.05、0.1の3つのうち1つを指定します。
 
-これらの引数を設定して`adf_test_flow()`自作関数を実行すると、ADF検定フローの結果を記載したtibble形式のデータフレームが返ります。trendモデル3種類、driftモデル3種類、noneモデル1種類の、合計7種類のADF検定を実施し、各検定の結果に基づく判断経路を「＊」で示します。最終的に`y`に指定した時系列データが$I(0)$過程、$I(1)$過程、$I(2)$過程のどれに従うかが判断できるまで、階差次数を増やして検定を継続します。
+これらの引数を設定して`adf_test_flow()`自作関数を実行すると、ADF検定フローの結果を記載したtibble形式のデータフレームが返ります。trendモデル3種類、driftモデル3種類、noneモデル1種類の合計7種類のADF検定について、`y`に指定した時系列データが$I(0)$過程、$I(1)$過程、$I(2)$過程のどれに従うかが判断できるまで階差次数を増やして検定を繰り返し、各検定の結果に基づく判断経路を「＊」で示します。最後に「＊」が記載されている箇所が最終的な判断になります。
 
 ```{r}
+library(docstring)
+
 # 時系列データに対しADF検定フローを自動で適用する関数
-adf_test_flow <- function(y, selectlags = "AIC", lags = 1, sig_level = 0.05) {
+adf_test_flow <- function(y, lag_criterion = c("AIC", "BIC", "Fixed"), lags_max = 12, lags_fixed = 1, sig_level = c(0.01, 0.05, 0.1)) {
   
-  '
-  y：ADF検定を適用する時系列データ（数値型ベクトル、ts型データ）
-  selectlags：ラグ次数選択基準（"Fixed", "AIC", "BIC"）。デフォルト値は"AIC"
-  lags：検定するモデルのラグ次数（正の整数）。デフォルト値は1
-  sig_level：有意水準（0.01, 0.05, 0.1）
-  '
+  #' Automatic Augmented Dickey-Fuller Unit Root Test Flow
+  #' 
+  #' @description
+  #' This function automatically performs the test flow of the Augmented Dickey-Fuller (ADF) unit root test. Written by Naoki Hattori.
+  #' 
+  #' @param y Numeric vector or ts. Time series data for ADF test.
+  #' @param lag_criterion Character. Specifies how the lag order is set. "AIC" for Akaike Information Criterion, "BIC" for Bayesian Information Criterion. The maximum number of lags considered is set by lags_max. "Fixed" for manually set by lags_fixed.
+  #' @param lags_max Integer. Specifies maximum number of lags considered when choose "AIC" or "BIC" for lag_criterion. Default is 12.
+  #' @param lags_fixed Integer. Specifies the lag order manually when choose "Fixed" for lag_criterion. Default is 1.
+  #' @param sig_level Numeric. Significance level, either 0.01, 0.05, 0.1.
   
   # 引数sig_levelをurca::ur_df()関数用に文字列へ変換
     sig_level_str <- str_c(sig_level * 100, "pct")
@@ -387,6 +398,13 @@ adf_test_flow <- function(y, selectlags = "AIC", lags = 1, sig_level = 0.05) {
   
   # 判断経路記入可否フラグ
   flow_cont_flag <- TRUE
+  
+  # ラグ次数の指定
+  if (lag_criterion == "Fixed") {
+    lags <- lags_fixed
+  } else {
+    lags <- lags_max
+  }
 
   # 階差次数dのループ（0〜2次）
   for (d in 0:2) {
@@ -398,9 +416,9 @@ adf_test_flow <- function(y, selectlags = "AIC", lags = 1, sig_level = 0.05) {
     norm_cval <- qnorm(p = sig_level, lower.tail = TRUE)
     
     # ADF検定
-    urdf_trend <- urca::ur.df(y, type = "trend", lags = lags, selectlags = selectlags)
-    urdf_drift <- urca::ur.df(y, type = "drift", lags = lags, selectlags = selectlags)
-    urdf_none <- urca::ur.df(y, type = "none", lags = lags, selectlags = selectlags)
+    urdf_trend <- urca::ur.df(y, type = "trend", lags = lags, selectlags = lag_criterion)
+    urdf_drift <- urca::ur.df(y, type = "drift", lags = lags, selectlags = lag_criterion)
+    urdf_none <- urca::ur.df(y, type = "none", lags = lags, selectlags = lag_criterion)
     
     # ループ継続判断用ベクトル
     continue_vec <- rep(FALSE, 3)
@@ -578,13 +596,17 @@ adf_test_flow <- function(y, selectlags = "AIC", lags = 1, sig_level = 0.05) {
            dplyr::select(-`検定統計量`, -`棄却点の分布`)
          )
 }
+
+docstring::docstring(adf_test_flow)
 ```
 
-### 実証例 村尾 6.10 ADF検定 {.unnumbered}
+### 実証例 村尾 6.7 ADF検定 {.unnumbered}
 
-定義した自作関数`adf_test_flow()`を用い、`vars`パッケージの`Canada`データセットに含まれるカナダの実質労働生産性（`prod`）データに対して実際にADF検定フローを適用します（村尾（2019）P.141）。ラグ次数選択基準の`selectlags`には赤池情報量基準を意味する`"AIC"`を指定しておきます。
+定義した自作関数`adf_test_flow()`を用い、村尾（2019）6.7「拡張ディッキー＝フラー検定の例」（P.141）及び、6.10「Rによる拡張ディッキー＝フラー検定」（P.147）の例を再現します。
 
-`adf_test_flow()`自作関数を適用した結果、実質労働生産性の原系列（階差次数＝0）では単位根の存在が示唆され、1次の階差系列では単位根がないことが確認できました。したがって実質労働生産性は$I(1)$過程であると判断できます。
+村尾（2019）6.7及び6.10では、`vars`パッケージの`Canada`データセットに含まれるカナダの実質労働生産性（`prod`）データに対してADF検定フローを適用しています。なお、ラグ次数選択基準の`lag_criterion`には赤池情報量規準を意味する`"AIC"`を指定します。
+
+`adf_test_flow()`自作関数を実行した結果、実質労働生産性の原系列（階差次数＝0）では単位根の存在が示唆され、1次の階差系列では単位根がないことが確認できました。したがって実質労働生産性は$I(1)$過程であると判断できます。
 
 ```{r, paged.print=TRUE}
 # Canadaデータセットを呼び出し
@@ -596,9 +618,9 @@ plot(y)
 
 # yにadf_test_flow()関数を適用
 adf_prod <- adf_test_flow(y = y, # 検定対象の時系列データ
-                          selectlags = "AIC", # ラグ次数選択基準
-                          lags = 10, # AICで自動選択する最大ラグ次数
-                          sig_level = 0.05 # 有意水準（％）
+                          lag_criterion = "AIC", # ラグ次数選択基準
+                          lags_max = 10, # AICで自動選択する最大ラグ次数
+                          sig_level = 0.05 # 有意水準
                           )
 
 # 結果をコンソールに出力
@@ -610,7 +632,7 @@ adf_prod
 
 時系列データ$Y$について、現在の値$Y_t$と過去の値$Y_{t-1}$の間の相関を**系列相関（serial correlation）**もしくは**自己相関（autocorrelation）**といいます。
 
-多くのマクロ経済データでは、正の系列相関（前期が正であれば今期も正である可能性が高い）が観察されます。系列相関がないデータは何らかのショックで平均値から乖離してもすぐにまた平均値へ戻りますが、正の系列相関があるデータは一度平均値を離れると戻るまでに一定期間を要する傾向があります。マクロ経済の活動が活発になる期間と停滞する期間が交互に繰り返される「景気循環」の現象は、マクロ時系列データ上では正の系列相関として表現されます（西村 他（2019）P.471）。
+多くのマクロ経済データでは、正の系列相関（前期が正であれば今期も正である可能性が高い）が観察されます。系列相関がないデータは何らかのショックで平均値から乖離してもすぐにまた平均値へ戻りますが、正の系列相関があるデータは一度平均値を離れると戻るまでに一定期間を要する傾向があります。マクロ経済の活動が活発になる期間と停滞する期間が交互に繰り返される「景気循環」の現象は、マクロ時系列データ上では正の系列相関として表現されます（西山 他（2019）P.471）。
 
 系列相関の有無やその構造を確認することは、分析対象である時系列データのモデリングやラグ次数の選択を行う上で重要です。また、最小2乗法（OLS）では誤差項に系列相関があると最小2条推定量の望ましい性質が得られないため、誤差項に対し系列相関の検定が行われます。これは後述するベクトル自己回帰（VAR）モデルでも同様です。
 
@@ -663,7 +685,7 @@ stats::pacf(data$cao, plot = TRUE)
 
 ### Ljung-Box検定 {.unnumbered}
 
-自己相関プロットや偏自己相関プロットは系列相関の有無を視覚的に判断できる便利な方法ですが、プロット上に表示される95％信頼区間は逐次検定用であり、自己相関の数が大きくなると多重検定の問題が生じます（t検定を複数回行うと設定された有意水準5％よりも高い頻度で第1種の過誤が発生する）。つまり、実際には系列相関がないにも関わらず、どこかのラグ次数で帰無仮説（自己相関係数が0）を棄却してしまう確率が増加します（西村 他（2019））。
+自己相関プロットや偏自己相関プロットは系列相関の有無を視覚的に判断できる便利な方法ですが、プロット上に表示される95％信頼区間は逐次検定用であり、自己相関の数が大きくなると多重検定の問題が生じます（t検定を複数回行うと設定された有意水準5％よりも高い頻度で第1種の過誤が発生する）。つまり、実際には系列相関がないにも関わらず、どこかのラグ次数で帰無仮説（自己相関係数が0）を棄却してしまう確率が増加します（西山 他（2019））。
 
 この問題を避けるには「複数の自己相関係数が0である」という結合帰無仮説
 
@@ -671,7 +693,7 @@ $$
 H_0 : \rho_1 = \rho_2 = \cdots = \rho_m = 0
 $$
 
-を一度に検定する必要があります。対立仮説は「少なくとも一つの自己相関係数が0ではない」です。この結合帰無仮説の検定が、**リュン＝ボックス検定（Ljung-Box test）**です。なお、過去には「ダービン・ワトソン比」で系列相関の有無を判断する方法が用いられていましたが、現在ではLjung-Box検定を用いるのが一般的です（西村 他（2019）P.484）。
+を一度に検定する必要があります。対立仮説は「少なくとも一つの自己相関係数が0ではない」です。この結合帰無仮説の検定が、**リュン＝ボックス検定（Ljung-Box test）**です。なお、過去には「ダービン・ワトソン比」で系列相関の有無を判断する方法が用いられていましたが、現在ではLjung-Box検定を用いるのが一般的です（西山 他（2019）P.484）。
 
 Ljung-Box検定を行うには`stats::Box.test()`関数を使用し、`type`引数に`"Ljung-Box"`を、`lag`引数にラグ次数を指定します。ここでは、偏自己相関プロット（PACF）の結果に基づきラグ次数に1を指定します。
 
@@ -695,7 +717,7 @@ stats::Box.test(rnorm(n = 400, mean = 0, sd = 1), # 帰無仮説「自己相関�
 
 ## Box-Jenkins法
 
-**Box-Jenkins法**はARMAモデルやARIMAモデルといった最も基本的な時系列分析の手法です。
+**ボックス＝ジェンキンス法（Box-Jenkins method）**は、ARMAモデルやARIMAモデルといった最も基本的な時系列分析の手法です。
 
 Box-Jenkins法には、原系列のままで定常な「レベル定常データ」に適用できる**ARMAモデル**と、階差変換によって定常になる「トレンド定常過程」や「階差定常過程」（単位根過程、和分過程）に適用する**ARIMAモデル**があります。
 
@@ -826,13 +848,15 @@ Box-Jenkins法は、次のような一連のフローに基づいて分析を実
 
     Box-Jenkins法の目的はほとんどの場合将来予測であることから、分割した訓練データでモデルを推定し、残しておいた未知のテストデータ（）で予測精度を評価します。これは特に教師あり機械学習において一般的な分析手順であり、ホールドアウト法とも呼ばれます。
 
+    Rでは、ts形式のデータを分割するには`stats::window()`関数を使用して`start`引数と`end`引数に時点を指定します。tibble形式などのデータフレーム形式の場合は、`dplyr::slice()`関数で行インデックスを指定するか、データフレームの列に日付などの時点情報の列が含まれる場合は`dplyr::filter()`関数で行をフィルタします。詳細は、第7章の「ts形式データ」、第3章の「行のスライスとサンプリング」と「行のフィルタ」を参照してください。
+
 5.  モデル同定・推定
 
     ARIMAモデルの同定と推定を行います。同定とは$ARIMA(p,d,q)$のラグ・階差次数$p,d,q$といったモデルの構造を決めることを言います（機械学習でいうパイパーパラメータの決定）。推定とは、モデルの構造を決めた後に係数を求めることを指します。RではARIMAモデルの同定・推定を自動で実施する関数を用います。
 
     なお、モデルを同定する際の指標の一つに**尤度（likelihood）**があります。尤度とは「パラメータが与えられた時に、手持ちのデータが得られる確率」であり、手持ちのデータに対するモデルの当てはまりの良さを定量化した指標です。通常、尤度は小さな値になるため、対数変換した**対数尤度（log likelihood）**が用いられます。なお、この尤度（対数尤度）を最大化するようにパラメータを決める方法を**最尤推定法**といいます。
 
-    パラメータの数（ARIMAモデルの場合はラグ次数の$p,q$）を増やしてモデルを複雑化するほど尤度が大きくなるため、モデルを同定する際にはパラメータの数に対し一定の制約が必要です。その制約が**赤池情報量基準（AIC）**です。AICは「パラメータを増加させた以上に尤度が改善しているか」を示す指標であり、小さいほどモデルとして優れていることを意味します。
+    パラメータの数（ARIMAモデルの場合はラグ次数の$p,q$）を増やしてモデルを複雑化するほど尤度が大きくなるため、モデルを同定する際にはパラメータの数に対し一定の制約が必要です。その制約が**赤池情報量規準（AIC）**です。AICは「パラメータを増加させた以上に尤度が改善しているか」を示す指標であり、小さいほどモデルとして優れていることを意味します。
 
 6.  残差チェック
 
@@ -900,14 +924,14 @@ forecast::ggtsdisplay(front_log_diff_seasdiff, main = "対数差分系列の季�
 
 折れ線グラフのプロットから原系列が単位根を持っていることはほぼ明らかですが、念のため`adf_test_flow()`自作関数で`front`単位根検定と和分次数の確認を行います。
 
-原系列（階差次数0）に対しADF検定を適用したフロー1〜7では「単位根あり」の帰無仮説を棄却できず、最終的に1階の階差系列に対しtrend第1検定を行ったフロー8で$I(1)$過程であると判断されました。これは折れ線グラフのプロットと整合的な結果です。
+原系列（階差次数0）に対しADF検定を適用したフロー1〜7では「単位根あり」の帰無仮説を棄却できず、最終的に1階の階差系列に対しtrend第2検定を行ったフロー10で$I(1)$過程であると判断されました。これは折れ線グラフのプロットと整合的な結果です。
 
 ```{r}
 adf_test_flow(y = front, # 検定対象の時系列データ
-                          selectlags = "AIC", # ラグ次数選択基準
-                          lags = 12, # AICで自動選択する最大ラグ次数
-                          sig_level = 0.05 # 有意水準（％）
-                          )
+              lag_criterion = "AIC", # ラグ次数選択基準
+              lags_max = 12, # AICで自動選択する最大ラグ次数
+              sig_level = 0.05 # 有意水準
+              )
 ```
 
 #### 4. データ分割 {.unnumbered}
@@ -963,7 +987,7 @@ library(forecast)
 
 model_sarimax_auto <- auto.arima(y = data_train[, "front"], # 分析対象のデータ
                                  xreg = data_train[, c("PetrolPrice", "law")], # 外生変数
-                                 ic = "aic", # モデル選択に使用する情報量基準
+                                 ic = "aic", # モデル選択に使用する情報量規準
                                  d = 1, # 階差次数dを指定
                                  D = 0, # 季節成分の階差次数Dを指定
                                  max.order = 10, # SARIMA(p,d,q)(P,D,Q)におけるラグ次数の合計p+q+P+Qの最大値
@@ -1149,15 +1173,15 @@ $$
 
 を最小2乗法（OLS）で推定して得られる残差$\hat{u}_t = Y_t - \hat{\mu} - \hat{\theta} X_t$が$I(0)$過程に従うことを意味します。したがって、見せかけの回帰と共和分は「残差が$I(1)$過程であれば見せかけの回帰」、「残差が$I(0)$過程であれば共和分」と区別できます。
 
-### Engle-Grangerの方法 {.unnumbered}
+### Engle-Granger検定 {.unnumbered}
 
 見せかけの回帰では回帰残差が単位根をもつ$I(1)$過程、共和分関係では回帰残差が定常（$I(0)$過程）になるため、残差に単位根検定を行なって「単位根あり」の帰無仮説を棄却できなければ「見せかけの回帰」、「単位根あり」の帰無仮説を棄却できれば「共和分関係」であると判断できます。
 
-このように、回帰残差に単位根検定を適用して「見せかけの回帰」か「共和分関係」かを判断する方法を、**エングル＝グレンジャー（Engle-Granger）の方法**と言います。
+このように、回帰残差に単位根検定を適用して「見せかけの回帰」か「共和分関係」かを判断する方法を、**エングル＝グレンジャー検定（Engle-Granger test）**と言います。
 
-なお、残差に対する単位根検定では通常のADF検定が使えないため、**Phillips-Ouliaris検定（PO検定）**と呼ばれる単位根検定の手法を用います（馬場（2018）P.142）。
+Rでは、Engle-Granger検定を一般化した**Phillips-Ouliaris検定（PO検定）**が用いられます（馬場（2018）P.142）。PO検定の帰無仮説は「共和分なし」（回帰残差が単位根をもつ）、対立仮説は「共和分あり」（回帰残差が単位根をもたない）です。
 
-### 実証例 西村 12.3 見せかけの回帰 {.unnumbered}
+### 実証例 西山 12.3 見せかけの回帰 {.unnumbered}
 
 次の例は、西山 他（2019）P.592に掲載されている実証例12.3を参考に、日本の実質GDPデータを南極のペンギンの数データに回帰したものです。データ年次で、期間は1982〜2014年です。
 
@@ -1193,10 +1217,10 @@ forecast::ggtsdisplay(data_ts[, "penguin"], main = "南極のペンギン数")
 ```{r}
 # 日本の実質GDPデータのの単位根検定
 adf_gdp <- adf_test_flow(y = data$gdp, # 検定対象の時系列データ
-                          selectlags = "AIC", # ラグ次数選択基準
-                          lags = 10, # AICで自動選択する最大ラグ次数
-                          sig_level = 0.05 # 有意水準（％）
-                          )
+                         lag_criterion = "AIC", # ラグ次数選択基準
+                         lags_max = 10, # AICで自動選択する最大ラグ次数
+                         sig_level = 0.05 # 有意水準
+                         )
 
 adf_gdp
 ```
@@ -1204,10 +1228,10 @@ adf_gdp
 ```{r}
 # ペンギン数データの単位根検定
 adf_penguin <- adf_test_flow(y = data$penguin, # 検定対象の時系列データ
-                          selectlags = "AIC", # ラグ次数選択基準
-                          lags = 10, # AICで自動選択する最大ラグ次数
-                          sig_level = 0.05 # 有意水準（％）
-                          )
+                             lag_criterion = "AIC", # ラグ次数選択基準
+                             lags_max = 10, # AICで自動選択する最大ラグ次数
+                             sig_level = 0.05 # 有意水準
+                             )
 
 adf_penguin
 ```
@@ -1275,7 +1299,7 @@ urca::ca.po(z = data_mat, # データを格納した行列（非説明変数、�
   summary()
 ```
 
-### 実証例 西村 12.4 共和分 {.unnumbered}
+### 実証例 西山 12.4 共和分 {.unnumbered}
 
 次の例は、西山 他（2019）P.597に掲載されている実証例12.4を参考に、長期金利を短期金利に回帰したものです。データ月次で、期間は1986年7月〜1995年9月です。
 
@@ -1313,9 +1337,9 @@ forecast::ggtsdisplay(data_ts[, "yield10"], main = "長期金利（10年物国�
 ```{r}
 # 短期金利データのの単位根検定
 adf_call <- adf_test_flow(y = data_ts[, "call"], # 検定対象の時系列データ
-                          selectlags = "AIC", # ラグ次数選択基準
-                          lags = 12, # AICで自動選択する最大ラグ次数
-                          sig_level = 0.05 # 有意水準（％）
+                          lag_criterion = "AIC", # ラグ次数選択基準
+                          lags_max = 12, # AICで自動選択する最大ラグ次数
+                          sig_level = 0.05 # 有意水準
                           )
 
 adf_call
@@ -1324,9 +1348,9 @@ adf_call
 ```{r}
 # 長期金利データのの単位根検定
 adf_yield10 <- adf_test_flow(y = data_ts[, "yield10"], # 検定対象の時系列データ
-                             selectlags = "AIC", # ラグ次数選択基準
-                             lags = 12, # AICで自動選択する最大ラグ次数
-                             sig_level = 0.05 # 有意水準（％）
+                             lag_criterion = "AIC", # ラグ次数選択基準
+                             lags_max = 12, # AICで自動選択する最大ラグ次数
+                             sig_level = 0.05 # 有意水準
                              )
 
 adf_yield10
@@ -1379,20 +1403,177 @@ urca::ca.po(z = data_mat, # データを格納した行列（非説明変数、�
   summary()
 ```
 
+### Johansen検定 {.unnumbered}
+
+変数間の共和分関係を判断するためのもう一つの方法が、**ヨハンセン検定（Johansen test）**です。Engle-Granger検定が2変数の間の共和分の有無を判断する方法であるのに対し、Johansen検定は2つ以上の多変数の間に共和分関係がいくつ存在するか判断します。
+
+Johansen検定には**トレース検定（trace test）**と**最大固有値検定（maximum eigenvalue test）**の2つの検定方法があります。
+
+トレース検定の帰無仮説$H_0$は「変数間に$r$個の共和分関係が存在する」、対立仮説$H_1$は「変数は全て定常な$I(0)$過程である」です。通常は、分析対象の各変数に対して事前に単位根検定を行い、非定常な$I(1)$過程の変数がある場合に共和分検定を行うため、トレース検定で対立仮説を採択するケースはないと想定されます。
+
+最大固有値検定の帰無仮説$H_0$は「変数間に最大で$r$個の共和分関係が存在する」、対立仮説$H_1$は「変数間に$r+1$個の共和分関係が存在する」です。トレース検定に比べ、最大固有値検定では共和分関係の数をより細かく検討することができます。
+
+Johansen検定の具体的なフローは次のとおりです。
+
+まず、分析対象のデータセットに含まれる各変数について単位根検定を行い、定常な$I(0)$変数と非定常な$I(1)$変数がそれぞれいくつあるか確認します。データセットに$I(0)$変数が$K_0$個、$I(1)$変数が$K_1$個含まれるとすると、Johansen検定で検出される共和分関係の数の最小値は$K_0$、最大値は$K_0+K_1-1$になります。
+
+次に、Johansen検定に必要な事前情報としてラグ次数$p$を確認します。ラグ次数$p$は、次に説明するベクトル自己回帰（VAR）モデルを暫定的に推定して決定します。ラグ次数を選択するための情報量規準には、赤池情報量規準（Akaike Information Criterion、AIC）、赤池最終予測誤差（Akaike's Final Prediction Error、FPE）、ハナン＝クイン情報量規準（Hannan-Quinn Information Criterion、HQ）、シュワルツのベイズ情報量規準（Schwarz Bayesian Information Criterion、SC）を用います。これら3つの情報量規準が選ぶラグ次数には、\$SC \leq HQ \leq AIC \fallingdotseq FPE \$の関係があります。時系列データのサンプル数が大きい場合はSCを、小さい場合はAICかFPEを、どちらか迷う場合はHQを選択してください（村尾（2019）P.117）。
+
+また、同様に事前情報として、共和分関係を表す式に定数項・トレンド項を含むか否かを、想定する共和分関係に基づいて設定します。定数項・トレンド項の有無で検定の棄却点が変化し、結果が変わりうるため、設定には注意を要します。
+
+最後にJohansen検定を実行します。帰無仮説における共和分関係の数を$H_0:r=0$、$H_0:r=1$、$H_0:r=2$と一つずつ増やしてトレース検定・最大固有値検定を繰り返し、帰無仮説$H_0$が初めて棄却できなくなった時の$r$を共和分関係の数と判断します。トレース検定で大まかな共和分関係の数を把握し、最大固有値検定で細かく見て最終的な共和分関係の数を決定します。
+
+なお、Johansen検定の詳細については、村尾（2019）7.3「ヨハンセン検定」（P.153〜）、西山 他（2019）第12章「ヨハンセン検定」（P.608〜）及び「補論」（P.626〜）を参照してください。
+
+### Johansen検定フロー自作関数 {.unnumbered}
+
+本書では、Johansen検定フローを分析対象の時系列データセットに自動で適用する自作関数`johansen_test_flow()`を定義します。
+
+`johansen_test_flow()`自作関数の引数は次のとおりです。
+
+-   `data`：Johansen検定を適用する時系列データセット。数値型データを格納したdata.frame形式（tibble形式を含む）もしくはts形式のデータセットを指定します。
+-   `lag_criterion`：ラグ次数の選択基準。`"AIC"`、`"HQ"`、`"SC"`、`"Fixed"`のうち1つを指定します。`"AIC"`、`"HQ"`、`"SC"`を指定すると、それぞれ赤池情報量規準（Akaike Information Criterion）、ハナン＝クイン情報量規準（Hannan-Quinn Information Criterion）、シュワルツのベイズ情報量規準（Schwarz Bayesian Information Criterion）に基づき最適なラグ次数が自動で選択されます（このとき`lags_max`引数に指定した値が自動で選択されるラグ次数の上限になります）。`"Fixed"`を指定する場合は、適用するラグ次数を`lags_fixed`引数に手動で指定します。
+-   `lags_max`：ラグ次数の最大値（正の整数、デフォルト値は10）。`lag_criterion`引数に`"AIC"`、`"HQ"`、`"BIC"`を指定した場合に使用します。
+-   `lags_fixed`：ラグ次数（正の整数、デフォルト値は1）。`lag_criterion`引数に`"Fixed"`を指定した場合に使用します。
+-   `var_type`：ラグ次数を決定するために事前推定するVARモデルに含む確定項。`"const"`、`"trend"`、`"both"`、`"none"`のうち1つを指定します。`lag_criterion`引数に`"AIC"`、`"HQ"`、`"BIC"`を指定した場合に使用します。
+-   `johansen_spec`：Johansen検定において、共和分関係の均衡からの誤差修正が一時的（`"transitory"`）か、長期的（`"longrun"`）かを指定します。
+-   `sig_level`：有意水準。0.01、0.05、0.1の3つのうち1つを指定します。
+
+これらの引数を設定して`johansen_test_flow()`自作関数を実行すると、共和分関係式にトレンド項を含むモデル、定数項を含むモデル、トレンド項・定数項どちらも含まないモデル、の3種類のJohansen検定フローの結果を格納したリストが返ります。
+
+```{r}
+library(docstring)
+
+# 時系列データセットに対しJohansen検定フローを自動で適用する関数
+johansen_test_flow <- function(data, lag_criterion = c("AIC", "HQ", "SC", "Fixed"), lags_max = 10, var_type = c("const", "trend", "both", "none"), lags_fixed = 1, johansen_spec = c("transitory", "longrun"), sig_level = c(0.01, 0.05, 0.1)) {
+  
+  #' Automatic Johansen Cointegration Test Flow
+  #' 
+  #' @description
+  #' This function automatically performs the test flow of the Johansen cointegration test. Written by Naoki Hattori.
+  #' 
+  #' @param data Numeric data frame or ts/mts. Time series data set for Johansen test.
+  #' @param lag_criterion Character. Specifies how the lag order is set. "AIC" for Akaike Information Criterion, "HQ" for Hannan-Quinn Information Criterion, "SC" for Schwarz Bayesian Information Criterion. The maximum number of lags considered is set by lags_max. "Fixed" for manually set by lags_fixed.
+  #' @param lags_max Integer. Specifies maximum number of lags considered when choose "AIC", "HQ" or "SC" for lag_criterion. Default is 10.
+  #' @param lags_fixed Integer. Specifies the lag order manually when choose "Fixed" for lag_criterion. Default is 1.
+  #' @param var_type Character. Type of deterministic regressors to include in Pre-estimated VAR model.
+  #' @param johansen_spec Character. Determines the specification of the VECM, "transitory" or "longrun".
+  #' @param sig_level Numeric. Significance level, either 0.01, 0.05, 0.1.
+  
+  # 引数sig_levelをurca::ur_df()関数用に文字列へ変換
+  sig_level_str <- str_c(sig_level * 100, "pct")
+  
+  # ラグ次数を決定
+  if (lag_criterion %in% c("AIC", "HQ", "SC")) {
+    # VARモデルを事前推定
+    model_varselect <- vars::VARselect(y = data, lag.max = lags_max, type = var_type, season = NULL, exogen = NULL)
+    lags <- model_varselect$selection[str_c(lag_criterion, "(n)")] %>% unname()
+  } else {
+    lags <- lags_fixed
+  }
+  
+  # 結果を格納するリストを作成
+  res_list <- list()
+  
+  # Johansen検定に含む確定項のループ
+  for (ecdet in c("trend", "const", "none")) {
+    
+    # Johansen検定
+    test_trace <- urca::ca.jo(x = data, type = "trace", ecdet = ecdet, K = lags, spec = johansen_spec, season = NULL, dumvar = NULL)
+    test_eigen <- urca::ca.jo(x = data, type = "eigen", ecdet = ecdet, K = lags, spec = johansen_spec, season = NULL, dumvar = NULL)
+    
+    # traceテストの結果を格納したtibbleを作成
+    res_trace <- tibble::tibble(`タイプ` = "trace",
+                                `確定項` = ecdet,
+                                `ラグ次数` = lags,
+                                `共和分関係の数` = test_trace@cval %>% rownames() %>% rev() %>% str_extract("[0-9]") %>% as.integer(),
+                                `棄却点` = test_trace@cval[, sig_level_str] %>% rev() %>% unname(),
+                                `検定値` = test_trace@teststat %>% rev(),
+                                `判断` = NA_character_
+                                )
+    
+    for (i in 1:dim(res_trace)[1]) {
+      if (res_trace$検定値[i] >= res_trace$棄却点[i]) {
+        res_trace$判断[i] <- str_c("H0：共和分関係の数＝", res_trace$共和分関係の数[i], "を棄却")
+      } else {
+        res_trace$判断[i] <- str_c("共和分関係の数＝", res_trace$共和分関係の数[i], "と判断")
+        break
+      }
+    }
+    
+    # eigenテストの結果を格納したtibbleを作成
+    res_eigen <- tibble::tibble(`タイプ` = "eigen",
+                                `確定項` = ecdet,
+                                `ラグ次数` = lags,
+                                `共和分関係の数` = test_eigen@cval %>% rownames() %>% rev() %>% str_extract("[0-9]") %>% as.integer(),
+                                `棄却点` = test_eigen@cval[, sig_level_str] %>% rev() %>% unname(),
+                                `検定値` = test_eigen@teststat %>% rev(),
+                                `判断` = NA_character_
+                                )
+
+    for (i in 1:dim(res_eigen)[1]) {
+      if (res_eigen$検定値[i] >= res_eigen$棄却点[i]) {
+        res_eigen$判断[i] <- str_c("H0：共和分関係の数＝", res_eigen$共和分関係の数[i], "を棄却")
+      } else {
+        res_eigen$判断[i] <- str_c("共和分関係の数＝", res_eigen$共和分関係の数[i], "と判断")
+        break
+      }
+    }
+    
+    # traceテストとeigenテストの結果を結合してres_listに格納
+    eval(parse(text = str_c("res_list <- append(res_list, list(", ecdet, "= rbind(res_trace, res_eigen)))")))
+  }
+  return(res_list)
+}
+
+docstring::docstring(johansen_test_flow)
+```
+
+### 実証例 村尾 7.4 Johansen検定 {.unnumbered}
+
+定義した自作関数`johansen_test_flow()`を用い、村尾（2019）7.4「ヨハンセン検定の例」（P.158）及び、7.7「Rによるヨハンセン検定」（P.166）の例を再現します。
+
+村尾（2019）7.4及び7.7では、`vars`パッケージの`Canada`データセットに含まれるカナダの実質労働生産性（`prod`、自然対数×100）、雇用者数（`e`、自然対数×100）、失業率（`U`、％）、実質賃金（`rw`、自然対数×100）の4変数（サンプル数84）に対し、Johansen検定を適用しています。
+
+検定対象である4変数は、全て事前にADF検定で$I(1)$過程であることが確認されています。したがって、共和分関係の数は最大で3になります。`johansen_test_flow()`自作関数における事前推定VARモデルのオプションでは、ラグ次数選択基準の`lag_criterion`にHannan-Quinn情報量規準を意味する`"HQ"`を、確定項の`ver_type`にトレンド項と定数項の両方を意味する`"both"`を指定します。また、Johansen検定のオプションでは、誤差修正スペックを意味する`johansen_spec`に「一時的」を意味する`"transitory"`を指定します。なお、村尾（2019）7.4及び7.7では検定の優位水準を10％としていますが、ここでは5％を指定します。
+
+`johansen_test_flow()`自作関数を実行した結果、trendモデルとnoneモデルでは共和分関係の数が1、constモデルでは2と判断されました（ラグ次数は何も2次）。なお、トレース検定と最大固有値検定の結果はどのモデルにおいても一致しています。村尾（2019）7.4及び7.7ではtrendモデルを採用し、共和分関係の数を1と判断しています。
+
+```{r}
+# Canadaデータセットを呼び出し
+data(Canada)
+
+# CanadaにJohansen検定フローを適用
+jo_canada <- johansen_test_flow(data = Canada, # Johansen検定を行う時系列データセット
+                                lag_criterion = "HQ", # 事前推定VARモデルでラグ次数を決定する情報量規準
+                                lags_max = 10, # 最大ラグ次数
+                                var_type = "both", # 事前推定VARモデルに含む確定項
+                                johansen_spec = "transitory", # Johansen検定のスペック
+                                sig_level = 0.05 # 有意水準
+                                )
+
+# 結果をコンソールに表示
+jo_canada
+```
+
 ## VARモデル
 
 **ベクトル自己回帰（Vector AutoRegression、VAR）モデル**は、多変量時系列モデルの一種です。VARモデルでは、将来予測やシミュレーションに加えて、複数の時系列データ間の相互作用を分析することができます。
 
-### レベルVARモデル {.unnumbered}
+### VARモデルの種類 {.unnumbered}
+
+#### レベルVARモデル {.unnumbered}
 
 変数$Y_t$と$X_t$をモデル化したラグ次数1のVARモデル$VAR(1)$は、次のように表すことができます。$t$期の変数$Y_t$と$X_t$が、それぞれ$t-1$期の$Y_{t-1}$と$X_{t-1}$によって説明されています。
 
 $$
-Y_t = c_1 + \phi_{11}Y_{t-1} + \phi_{12}X_{t-1} + u_{1t} \\
-X_t = c_2 + \phi_{21}Y_{t-1} + \phi_{22}X_{t-1} + u_{2t}
+\begin{aligned}
+Y_t &= c_1 + \phi_{11}Y_{t-1} + \phi_{12}X_{t-1} + u_{1t} \\
+X_t &= c_2 + \phi_{21}Y_{t-1} + \phi_{22}X_{t-1} + u_{2t}
+\end{aligned}
 $$
 
-撹乱項$u_{1t}$と$u_{2t}$は定常なホワイトノイズであり、過去の自身の撹乱項とは相関していません。ただし、同時点の撹乱項同士の相関は許容します。
+誤差項$u_{1t}$と$u_{2t}$は定常なホワイトノイズであり、過去の自身の誤差項とは相関していません。ただし、同時点の誤差項同士の相関は許容します。
 
 このとき、変数$Y_t$と$X_t$はどちらも$I(0)$過程であることが前提になっています。定常過程の線型結合は必ず定常過程になるため（すなわち、ここでは$\beta_1Y_t + \beta_2X_t \sim I(0)$）、変数が全て定常であればVARモデルの各式の左辺・右辺がどちらも$I(0)$になり、VARモデル全体が定常になります（村尾（2019）P.94）。このように、定常な時系列データを原系列のまま用いて構築するVARモデルを**レベルVARモデル**といいます。
 
@@ -1404,7 +1585,7 @@ $$
 \boldsymbol{Y}_t = \boldsymbol{c} + \boldsymbol{\phi}_1\boldsymbol{Y}_{t-1} + \dots + \boldsymbol{\phi}_{p}\boldsymbol{Y}_{t-p} + \boldsymbol{u}_t
 $$
 
-### 階差VARモデル {.unnumbered}
+#### 階差VARモデル {.unnumbered}
 
 変数$Y_t$と$X_t$でレベルVARモデルを構築する際、変数が非定常な$I(1)$過程のケースを考えます。
 
@@ -1420,7 +1601,7 @@ VARモデルの各式の項に一つでも$I(1)$過程の項があれば、VAR�
 
 上記の2つのケースでVARモデルを定常化するには、Box-Jenkins法におけるARMAモデルとARIMAモデルの関係と同様に、変数を階差変換します。変数を階差変換すると、変数$Y_t$、$X_t$に加えて、線形結合$\beta_1\Delta{Y_t} + \beta_2\Delta{X_t}$が$I(0)$になり、VARモデル全体が定常になります（村尾（2019）P.96）。このように、時系列データを階差変換して構築するVARモデルを**階差VARモデル**といいます。
 
-### ベクトル誤差修正モデル {.unnumbered}
+#### ベクトル誤差修正モデル {.unnumbered}
 
 変数$Y_t$と$X_t$がどちらも$I(1)$過程であり、かつ両者の間に共和分の関係がある場合は、変数の線型結合$\beta_1Y_t + \beta_2X_t$が$I(0)$過程になります。こうした共和分の関係は、変数$Y_t$と$X_t$の間に経済学的に意味がある均衡関係が成立していると解釈できます。
 
@@ -1438,7 +1619,9 @@ $$
 
 $$
 \Delta \boldsymbol{Y}_t = \boldsymbol{\Pi}\boldsymbol{Y}_{t-1} + \boldsymbol{\Gamma}_{1}\Delta\boldsymbol{Y}_{t-1} + \boldsymbol{u}_t
-$$ となります。なお、$\boldsymbol{\Pi} = - \boldsymbol{I}_n + \boldsymbol{B}_1 + \boldsymbol{B}_2$、$\boldsymbol{\Gamma}_1 = - \boldsymbol{B}_2$であり、また$\boldsymbol{I}_n$は$n \times n$の単位行列です。
+$$
+
+となります。なお、$\boldsymbol{\Pi} = - \boldsymbol{I}_n + \boldsymbol{B}_1 + \boldsymbol{B}_2$、$\boldsymbol{\Gamma}_1 = - \boldsymbol{B}_2$であり、また$\boldsymbol{I}_n$は$n \times n$の単位行列です。
 
 ここで、変数ベクトルを階差変換した$\boldsymbol{Y}_t$と$\boldsymbol{Y}_{t-1}$は$I(0)$であり、レベル型の線形結合$\boldsymbol{\Pi}\boldsymbol{Y}_{t-1}$も$I(0)$になります。したがって、このモデル全体で定常化が達成されています。
 
@@ -1458,8 +1641,221 @@ $$
 
 -   $\boldsymbol{\beta}$：**共和分行列（cointegration matrix）**は、$n$個の内生変数から共和分関係（均衡関係）を選び出す役割があります。
 
-* $\boldsymbol{\alpha}$：**調整行列（adjusting matrix）**は、一時的な乖離が均衡へ向かうスピードを表しています。
+-   $\boldsymbol{\alpha}$：**調整行列（adjusting matrix）**は、一時的な乖離が均衡へ向かうスピードを表しています。
 
-### 構造VARモデル {-}
+### モデル推定後の分析 {.unnumbered}
 
-**構造VAR（Structural VAR、SVAR）モデル**は、通常のVARモデルに理論的な制約を加え、モデルで発生する外性的なショックを「実物ショック」や「政策ショック」のように経済学的に解釈可能な「構造ショック」として識別するための方法です（村尾（2019）P.88、宮尾（2006）P.17）。
+#### Granger因果性 {.unnumbered}
+
+**グレンジャー因果性（Granger causality）**とは、予測精度の改善という観点から見た、時系列データに特有の因果性の概念です（西山 他（2019）P.584）。
+
+Granger因果性では、「原因は結果に先立って起こる」、「原因には結果に関するユニークな情報が含まれている」という2つのアイデアをもとにして、理論を必要とせずに時系列データのみから因果性の有無を判断します（村尾（2019）P.369）。
+
+具体例として、ある事象の原因と考えられる変数$X_t$と、結果と考えられる変数$Y_t$に関する次のモデルを考えます。
+
+$$
+\begin{aligned}
+Y_t &= \phi_1Y_{t-1} \quad \quad \quad \quad \; + u_1 \\
+Y_t &= \phi_1Y_{t-1} + \phi_2X_{t-1} + u_2
+\end{aligned}
+$$
+
+ここで、$u_1$は過去の$Y_t$だけを使った$Y_t$の予測残差、$u_2$は過去の$X_t$も使った$Y_t$の予測残差です。この2つの予測誤差の残差平方和（Mean Squared Error、MSE）を比較し、$X_t$を予測に使うことで予測残差が有意に小さくなったかどうかを検定するのが、Granger因果性検定です。
+
+Granger因果性検定は通常、原因の変数（上の例の収入$X_t$）と結果の変数（上の例の消費$Y_t$）を含むVARモデルを構築し、「結果の変数の回帰式における原因の変数の係数がゼロ」（Granger因果性がない）との帰無仮説を検定する方法で行います。
+
+なお、Granger因果性を用いて分析する際は、次の点に注意してください。
+
+1.  Granger因果性検定が使用できるのは、定常な時系列データのみである（馬場（2018）P.147）。
+
+2.  原因と結果の変数両方に影響する第3の変数がある場合は、原因・結果変数のGranger因果性が有意であったとしても、真の因果関係はない。例えば、原因：津波警報と結果：津波（真の原因は地震）、原因：雷光と結果：雷鳴（真の原因は落雷現象）など（村尾（2019）P.372）。
+
+3.  Granger因果性検定の結果は、VARモデルに含まれる他の変数によって変化する。結果の変数と相関の強い第3の変数をモデルに追加すると、原因の変数のGranger因果性は低下する（村尾（2019）P.372）。
+
+4.  Granger因果性検定の結果をそのまま政策判断に用いるべきでない。政策手段である原因の変数が内生変数の場合（例えば貨幣供給量や名目金利など）、原因の変数の回帰式の誤差項には政策変化以外の要因が含まれており、純粋な政策ショックの効果を捉えることができない。政策ショックの影響を分析するには、次のインパルス応答を用いる必要がある（西山 他（2019）P.590）。
+
+#### インパルス応答 {.unnumbered}
+
+**インパルス応答（impulse response）**は、VARモデルのある変数に急な変動が発生した場合に、他の変数へ時間を通じてどのような影響が生じるかを定量的に評価する手法です。
+
+VARモデルでは各回帰式に誤差項がありますが、通常は各回忌式の誤差項同士に相関があります。これは、各誤差項の中に複数の変数のショックが含まれていることを意味しています。インパルス応答を計算するには、VARモデルに外部から追加的な制約を加え、誤差項から単一の変数のショック（独立ショック）を抽出する必要があります。この手続きをショックの**識別（identification）**と言います（西山 他（2019）P.611）。
+
+インパルス応答の計算では「短期制約」と呼ばれる制約が用いられます。例として、変数$Y_{1,t}$、$Y_{2,t}$、$Y_{3,t}$の3変数で構成される次の$VAR(1)$モデルを考えます。
+
+$$
+\begin{aligned}
+Y_{1,t} &= \beta_{10} + \beta_{11}Y_{1,t-1} + \beta_{12}Y_{2,t-1} + \beta_{13}Y_{3,t-1} + u_{1,t} \\
+Y_{2,t} &= \beta_{20} + \beta_{21}Y_{1,t-1} + \beta_{22}Y_{2,t-1} + \beta_{23}Y_{3,t-1} + u_{2,t} \\
+Y_{3,t} &= \beta_{30} + \beta_{31}Y_{1,t-1} + \beta_{32}Y_{2,t-1} + \beta_{33}Y_{3,t-1} + u_{3,t}
+\end{aligned}
+$$
+
+各回帰式の誤差項$u_{1,t}$、$u_{2,t}$、$u_{3,t}$は互いに相関しており、変数$Y_{1,t}$、$Y_{2,t}$、$Y_{3,t}$の独立ショックではありません。ここで、各回帰式の誤差項$u_{1,t}$、$u_{2,t}$、$u_{3,t}$が、変数$Y_{1,t}$、$Y_{2,t}$、$Y_{3,t}$の独立ショック$\epsilon_{1,t}$、$\epsilon_{2,t}$、$\epsilon_{3,t}$によって、次のように表されるとします。
+
+$$
+\begin{aligned}
+u_{1,t} &= c_{11}\epsilon_{1,t} + c_{12}\epsilon_{2,t} + c_{13}\epsilon_{3,t} \\
+u_{2,t} &= c_{21}\epsilon_{1,t} + c_{22}\epsilon_{2,t} + c_{23}\epsilon_{3,t} \\
+u_{3,t} &= c_{31}\epsilon_{1,t} + c_{32}\epsilon_{2,t} + c_{33}\epsilon_{3,t}
+\end{aligned}
+$$
+
+このとき、推定した誤差項$u_{1,t}$、$u_{2,t}$、$u_{3,t}$から独立したショック$\epsilon_{1,t}$、$\epsilon_{2,t}$、$\epsilon_{3,t}$を識別するには、$c_{11}$〜$c_{33}$の9個のパラメータが必要です。一方、いまデータから推定が可能なパラメータは、次に示す誤差項の分散・共分散、
+
+$$
+\begin{aligned}
+& \sigma^2_1 = c^2_{11} + c^2_{12} + c^2_{13} \\
+& \sigma^2_2 = c^2_{21} + c^2_{22} + c^2_{23} \\
+& \sigma^2_3 = c^2_{31} + c^2_{32} + c^2_{33} \\
+& \sigma_{12} = c_{11}c_{21} + c_{12}c_{22} + c_{13}c_{23} \\
+& \sigma_{13} = c_{11}c_{31} + c_{12}c_{32} + c_{13}c_{33} \\
+& \sigma_{23} = c_{21}c_{31} + c_{22}c_{32} + c_{23}c_{33}
+\end{aligned}
+$$
+
+の合計6個です。したがって、独立ショックを識別するには、追加で3個の制約を加える必要があります。そこで、$c_{12}$、$c_{13}$、$c_{23}$をゼロとする制約を加えると、誤差項と独立ショックの関係は、
+
+$$
+\begin{aligned}
+u_{1,t} &= c_{11}\epsilon_{1,t} \\
+u_{2,t} &= c_{21}\epsilon_{1,t} + c_{22}\epsilon_{2,t} \\
+u_{3,t} &= c_{31}\epsilon_{1,t} + c_{32}\epsilon_{2,t} + c_{33}\epsilon_{3,t}
+\end{aligned}
+$$
+
+となります。すると、残りの$c_{11}$、$c_{21}$、$c_{22}$、$c_{31}$、$c_{32}$、$c_{33}$は誤差項の分散・共分散を用いて解くことができ、独立ショックを識別することが可能になります。
+
+このようにして識別した独立ショックを用い、$t-d$期において変数$Y_{1,t-d}$、$Y_{2,t-d}$、$Y_{3,t-d}$発生した独立ショック$\epsilon_{1,t-d}$、$\epsilon_{2,t-d}$、$\epsilon_{3,t-d}$が$t$期の変数$Y_{1,t}$、$Y_{2,t}$、$Y_{3,t}$に与える影響を計算したものが、インパルス応答関数です。
+
+ここで、$t-d$期に変数$Y_{j,t-d}$に発生した独立ショック$\epsilon_{j,t-d}$が$t$期の変数$Y_{i,t}$に及ぼす影響を、$Y_{i,t}$の$Y_{j,t-d}$に対するインパルス応答と呼び、関数$C_{ij}(d)$で表します。
+
+例えば$d = 0$の時、$t-0 = t$期に発生した独立ショックが$Y_{3,t}$に与える影響$C_{31}(0)$、$C_{32}(0)$、$C_{33}(0)$は、$VAR(1)$モデルの第3式の誤差項$u_{3,t}$に$c_{31}\epsilon_{1,t} + c_{32}\epsilon_{2,t} + c_{33}\epsilon_{3,t}$を代入した、
+
+$$
+Y_{3,t} = \beta_{30} + \beta_{31}Y_{1,t-1} + \beta_{32}Y_{2,t-1} + \beta_{33}Y_{3,t-1} + c_{31}\epsilon_{1,t} + c_{32}\epsilon_{2,t} + c_{33}\epsilon_{3,t}
+$$
+
+における$\epsilon_{1,t}$、$\epsilon_{2,t}$、$\epsilon_{3,t}$の係数、すなわち、
+
+$$
+\begin{aligned}
+C_{31}(0) &= c_{31} \\
+C_{32}(0) &= c_{32} \\
+C_{33}(0) &= c_{33}
+\end{aligned}
+$$
+
+になります。一方、同じ$t-0 = t$期に発生した独立ショックが$Y_{1,t}$に与える影響は、$c_{12} = 0$、$c_{13} = 0$の制約により、
+
+$$
+\begin{aligned}
+C_{11}(0) &= c_{11} \\
+C_{12}(0) &= 0 \\
+C_{13}(0) &= 0
+\end{aligned}
+$$ になります。同様に$Y_{2,t}$に与える影響は、$c_{23} = 0$の制約により、
+
+$$
+\begin{aligned}
+C_{21}(0) &= c_{21} \\
+C_{22}(0) &= c_{22} \\
+C_{23}(0) &= 0
+\end{aligned}
+$$
+
+になります。これらが意味しているのは、$Y_{3,t}$は同時点の$Y_{1,t}$、$Y_{2,t}$から影響を受けるが、$Y_{2,t}$は$Y_{1,t}$からしか影響を受けず、$Y_{1,t}$は$Y_{2,t}$、$Y_{3,t}$どちらからも影響を受けないということです。すなわち、$c_{12}$、$c_{13}$、$c_{23}$をゼロとする制約は、3つの変数が$Y_{1,t}$、$Y_{2,t}$、$Y_{3,t}$の順に外性性が高いとの前提を置いていることになります。
+
+このように、短期制約を課して識別した独立ショックを用いて求めるインパルス応答関数を、**直交化インパルス応答関数（orthogonal impulse response function）**と呼びます。通常、インパルス応答関数と言えばこの直交化インパルス応答関数を指します。[直交化インパルス応答関数では、上に示したように変数を外性性が高いと考えられる順番に並べることが重要であり、変数の順序によってインパルス応答の結果が変化します。]{.underline}
+
+なお、変数の順序に依存しないインパルス応答の計算方法として、**一般化インパルス応答関数（generalized impulse response function）**という手法もあります。詳細は村尾（2019）第11章を参照してください。
+
+#### 分散分解 {.unnumbered}
+
+**分散分解（variance decomposition）**は、ある変数の変動に対して他の変数がどの程度影響しているかを定量的に分析する手法です（村尾（2019）P.339）。
+
+具体的には、$t+1$期における変数の実現値を$Y_{t+1}$、$t$時点の情報をもとに$t+1$期の値を予測した値を$Y_{t+1|t}$とし、その差である予測誤差を$Y_{t+1} - Y_{t+1|t}$としたとき、予測誤差の分散である**平均2乗予測誤差（Mean Squared Forecast Error、MSFE）**$E[(Y_{t+1} - Y_{t+1|t})^2]$に対して、各変数の独立ショックの寄与度を計算します。この寄与度を**分散寄与度（Relative Variance Contribution、RVC）**と呼びます。
+
+例えば3変数$Y_{1,t}$、$Y_{2,t}$、$Y_{3,t}$のVARモデルにおいて、$t-d$期に変数$Y_{j,t-d}$に発生した独立ショック$\epsilon_{j,t-d}$が$t$期の変数$Y_{i,t}$に及ぼす影響を、$Y_{i,t}$の$Y_{j,t-d}$に対するインパルス応答と呼び、関数$C_{ij}(d)$で表すとき、$h$期先の変数$Y_{1,t}$のMSFEに占める$\epsilon_{2,t}$の分散寄与度（RVC）は、
+
+$$
+\frac{\Sigma^{h-1}_{d=0}{C_{12}(d)^2}}{\Sigma^{h-1}_{d=0}{C_{11}(d)^2} + \Sigma^{h-1}_{d=0}{C_{12}(d)^2} + \Sigma^{h-1}_{d=0}{C_{13}(d)^2}}
+$$
+
+で計算できます。
+
+### VARモデルの分析フロー {.unnumbered}
+
+VARモデルは、次のような一連のフローに基づいて分析を実施します。
+
+1.  探索的データ分析
+
+    データの折れ線グラフや自己相関・偏自己相関プロットを作成し、季節性やトレンドといったデータの特徴を把握します。
+
+
+
+2.  ラグ次数選択
+
+    最初に自己回帰（AR）過程のラグ次数$p$を選択します。選択したラグ次数$p$は、この後に行う単位根検定、共和分検定、モデル推定で使用します。
+
+    ラグ次数を選択するための情報量規準には、赤池情報量規準（Akaike Information Criterion、AIC）、赤池最終予測誤差（Akaike's Final Prediction Error、FPE）、ハナン＝クイン情報量規準（Hannan-Quinn Information Criterion、HQ）、シュワルツのベイズ情報量規準（Schwarz Bayesian Information Criterion、SC）を用います。これら3つの情報量規準が選ぶラグ次数には、\$SC \leq HQ \leq AIC \fallingdotseq FPE \$の関係があります。時系列データのサンプル数が大きい場合はSCを、小さい場合はAICかFPEを、どちらか迷う場合はHQを選択してください（村尾（2019）P.117）。
+
+    Rでは`vars`パッケージの`VARselect()`関数を用いてVARモデルを暫定的に推定し、あらかじめ決めておいた情報量規準に基づいてラグ次数を選択します。
+
+3.  単位根検定
+
+    VAR分析に用いる時系列データそれぞれに対してADF検定を行い、データの定常性を確認します。原系列のままで定常なレベル定常過程（$I(0)$）か、単位根をもつ階差定常過程（和分過程、$I(1)$）かを判断します。また、定数項やトレンド項の確定項の有無もあわせて確認します。
+
+    Rでは本書で自作したADF検定フロー関数の`adf_test_flow()`関数を用いて単位根検定を行います。
+
+    単位根検定の結果に基づき、適用するモデルが変わります。
+
+    -   全ての変数が$I(0)$のケース：　レベルVARモデルを適用（フロー5へ）
+    -   1つの変数が$I(1)$：　階差VARモデルを適用（フロー5へ）
+    -   2つ以上の変数が$I(1)$：　共和分検定を行い、$I(1)$変数間の共和分関係の有無を確認（フロー4へ）
+
+4.  共和分検定
+
+    単位根検定で2つ以上の$I(1)$変数があると判断した場合は、共和分検定を行い、$I(1)$変数間に共和分関係があるか判断します。
+    
+    Rでは本書で自作したJohansen検定フロー関数の`johansen_test_flow()`関数を用いて共和分検定を行います。
+    
+    共和分検定の結果に基づき、適用するモデルが変わります。
+    
+    * 共和分関係がないケース：　階差VARモデルを適用（フロー5へ）
+    * 共和分関係があるケース：　VECモデルを適用（フロー5へ）
+
+5.  データ分割
+
+    VARモデルを将来予測に用いる場合は、予測精度を評価するため、データを訓練データとテストデータに分割します。
+
+    Rでは、ts形式のデータを分割するには`stats::window()`関数を使用して`start`引数と`end`引数に時点を指定します。tibble形式などのデータフレーム形式の場合は、`dplyr::slice()`関数で行インデックスを指定するか、データフレームの列に日付などの時点情報の列が含まれる場合は`dplyr::filter()`関数で行をフィルタします。詳細は、第7章の「ts形式データ」、第3章の「行のスライスとサンプリング」と「行のフィルタ」を参照してください。
+
+5.  モデル推定
+
+    ここまでに実施した一連の**診断的検定（diagnostic test）**に基づき、レベルVARモデル、階差VARモデル、VECモデルの推定を行います。
+
+    レベルVARモデルと階差VARモデルは、`vars`パッケージの`VAR()`関数で推定します。階差VARモデルの場合は事前に変数を階差変換しておきます。
+    
+    VECモデルは、Johansen検定に用いる`urca`パッケージの`ca.jo()`関数で共和分ランクを決定したうえで、`ca.jo()`関数で出力したオブジェクトを`urca::cajorls()`関数の入力として用い、VECモデルを推定します。
+
+6.  誤差項の検定
+
+    VARモデルが推定できたら、誤差項の推定量である残差系列を用いて、誤差項に系列相関がないか、分散が均一か、正規分布に従っているかを検定します。これらの誤差項の過程が満たされない場合は、変数やラグ次数を選択し直し、再度モデル推定を行う必要があります。
+    
+    検定に用いるRの関数は次のとおりです。
+    
+    * 系列無相関 Breusch-Godfrey LM検定（帰無仮説：系列相関なし）：　`vars`パッケージの`serial.test()`関数
+    * 均一分散 ARCH-LM検定（帰無仮説：均一分散）：　`vars`パッケージの`arch.test()`関数
+    * 正規分布 Jarque-Bera検定（帰無仮説：正規分布）：　`vars`パッケージの`normality.test()`関数
+    
+    VARモデルの場合は、`vars::VAR()`関数で出力したオブジェクトを上記の各関数に入力します。VECモデルの場合は、`urca::ca.jo()`関数で出力したアウトプットを`vars::vec2var()`関数でVARモデルのオブジェクトに変換し、上記の各関数に入力します。
+
+7.  モデル推定後の分析
+
+    推定したモデルを用いて、インパルス応答、予測誤差の分散分解、Granger因果性検定などの追加的な分析を行います。（直交化）インパルス応答には`vars::irf()`関数、予測誤差の分散分解には`vars::fevd()`関数、Granger因果性検定には`vars::causality()`関数を用います。
+    
+    なお、Granger因果性検定にはVARモデルを推定する`vars::VAR()`関数の出力オブジェクトのみ用いることができます。VECモデルを`vars::vec2var()`関数で変換したオブジェクトではGranger因果性検定は実施できません。
+
+7.  予測精度評価
+
+    推定したモデルを用いて予測値を作成し、分割しておいたテストデータの実績値と比較して予測精度を評価します。評価指標にはRMSE（Root Mean Square Error）などが用いられます。加えて、過去の平均値や前期の値を予測値として用いるナイーブ予測（VARなどの複雑なモデルを使わない予測）の精度を上回ることを確認します。予測値の作成には、`vars`パッケージの`predict()`関数を用います。

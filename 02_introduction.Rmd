@@ -12,6 +12,7 @@ RStudioでコードを編集するパネルをソース（Source）と呼びま�
 
 ```{r, results='hide', warning=FALSE, message=FALSE}
 library(magrittr)
+library(stringi)
 library(tidyverse)
 library(openxlsx)
 ```
@@ -381,7 +382,6 @@ str(df_2)
 ```{r}
 list_1 <- list(
   number = 1,
-  string = "a",
   vector = c(10, 11, 12),
   matrix = matrix(1:9, ncol = 3)
 )
@@ -402,6 +402,15 @@ list_1$matrix
 
 ```{r}
 list_1[[3]]
+```
+
+### リストに要素を追加 {-}
+
+リストに新しい要素を追加するには、`append()`関数を用います。
+
+```{r}
+list_1 <- append(list_1, list(string = "add"))
+list_1
 ```
 
 ## 文字列操作
@@ -502,6 +511,41 @@ str_replace_all(string = data_pref_names$pref_name, # 置換対象の文字列
                 )
 ```
 
+### 文字列の変換 {-}
+
+アルファベットの大文字・小文字の変換や、日本語文における英数字の全角・半角の変換には、`stringr`パッケージのアルファベット変換用関数や、`stringi`パッケージの`stri_trans_general()`関数を用います。
+
+```{r}
+# アルファベットの大文字・小文字を変換
+sentence_en <- "The quick brown dog"
+
+# 全て大文字に変換
+str_to_upper(sentence_en)
+
+# 全て小文字に変換
+str_to_lower(sentence_en)
+
+# 各単語の最初の文字を大文字に変換
+str_to_title(sentence_en)
+
+# 文章の最初の文字を大文字に変換
+str_to_sentence(sentence_en)
+```
+
+`stri_trans_general()`関数では、下記の例の他にも様々な変換を行うことができます。詳細は[こちらのウェブサイト](https://qiita.com/swathci/items/1ca9177e0c24c8dc1355)を参照してください。
+
+```{r}
+# 日本語文の全角・半角を変換
+sentence_jp <- "日本の第２四半期のGDP成長率は前期比＋０．５％だった"
+
+# 半角から全角へ変換
+stri_trans_general(sentence_jp, id = "Halfwidth-Fullwidth")
+
+# 全角から半角へ変換
+stri_trans_general(sentence_jp, id = "Fullwidth-Halfwidth")
+```
+
+
 ### 文字列のパディング {-}
 
 パディングとは、固定長の文字列を扱う際に、文字数（桁数）が足りない部分を埋めることです。主に、ファイルやオブジェクトの名称に数字で連番をつける時に用います。パディングには`str_pad()`関数を使用します。
@@ -516,6 +560,44 @@ str_pad(string = 1:20, # 元の文字列（ここでは数値ベクトルを指�
 
 # ファイル名に1～12の2桁連番を追加する例
 str_c("file_", str_pad(string = 1:12, width = 2, pad = "0"))
+```
+
+### 文字列によるプログラム実行 {-}
+
+文字列を使った特殊な操作として、文字列によるプログラムの実行方法を紹介します。
+
+例えば、リストに要素を追加する際の要素名として、変数に格納した値を使いたい場合、通常のプログラムを実行すると変数名が要素名として使用されてしまいます。
+
+そこで、`eval()`関数と`parse()`関数を組み合わせ、`eval(parse(text = 文字列によるプログラム文))`を実行すると、上記の意図せざる結果を避けることができます。
+
+```{r}
+# 通常のプログラム文：変数名がリストの要素名になってしまう
+
+list_str <- list()
+
+for (letter in c("a", "b", "c")) {
+  list_str <- append(list_str, list(letter = 111))
+}
+
+list_str
+```
+
+
+```{r}
+# 文字列のプログラム文：変数に格納されている値がリストの要素名になる
+
+list_str <- list()
+
+for (letter in c("a", "b", "c")) {
+  
+  # 実行するプログラムを文字列で作成
+  text <- str_c("list_str <- append(list_str, list(", letter, "= 111))")
+  
+  # 文字列のプログラム文を実行
+  eval(parse(text = text))
+}
+
+list_str
 ```
 
 ## 制御構文
@@ -681,9 +763,9 @@ for (i in file_nums) {
 }
 ```
 
-## データの読み込み・書き出し
+## データの読み込み
 
-### CSVデータの読み込み {.unnumbered}
+### CSVデータ {.unnumbered}
 
 CSVデータの読み込みには、`readr`パッケージの`read_csv()`関数を使用します。ローカルネットワークのファイルパス、ウェブのURLどちらからの読み込みにも対応しています。
 
@@ -712,7 +794,7 @@ data <- readr::read_delim(file = "directory/file.csv", # ファイルパス／UR
                           )
 ```
 
-### Excelデータの読み込み（xls／xlsx形式） {.unnumbered}
+### xls・xlsx形式データ {.unnumbered}
 
 `readr`パッケージの`read_excel()`関数は、Excelのxls形式、xlsx形式どちらも読み込み可能です。ただし、読み込み元として`path`引数に指定できるのはローカルネットワーク内のファイルパスだけで、ウェブのURLからの読み込みはできません。
 
@@ -725,7 +807,7 @@ data <- readxl::read_excel(path = "directory/file.xls", # ファイルパス（�
                            )
 ```
 
-### Excelデータの読み込み（xlsx形式） {.unnumbered}
+### xlsx形式データ {.unnumbered}
 
 `openxlsx`パッケージの`read.xlsx()`関数であれば、ローカルネットワーク内のファイルパスとウェブのURLどちらからでも読み込みが可能です。ただし、読み込めるファイル形式はxlsx形式のみで、xls形式には対応していません。
 
@@ -739,6 +821,110 @@ data <- openxlsx::read.xlsx(xlsxFile = "directory/file.xlsx", # ファイルパ�
                             cols = NULL # 読み込む行（NULLですべて読み込み）
                             )
 ```
+
+なお、`openxlsx`パッケージの`getSheetNames()`関数を使うと、Excelファイル内のシート名の一覧を取得することができます。
+
+```{r, eval=FALSE}
+sheet_names <- openxlsx::getSheetNames(file = "directory/file.xlsx")
+```
+
+## 複数データの読み込み {-}
+
+複数のCSV形式ファイルや、xlsx形式ファイルの中の複数のシートのデータを読み込んで結合する場合は、読み込み対象のファイル名やシート名の一覧をあらかじめ取得し、特定の関数やループを使って連続して一気にデータを読み込むことができます。
+
+共通の列名をもつ複数のCSVファイルを読み込んで縦方向に結合する場合は、`readr`パッケージの`read_csv()`関数を使用します。
+
+```{r}
+# 読み込み対象のファイル名一覧を取得
+file_names <- fs::dir_ls(path = "data_read/csv_row", # CSVファイルを格納しているフォルダのパスを入力
+                         glob = "*.csv" # CSVファイル名を読み込む対象として指定（変更する必要なし）
+                         )
+
+data <- readr::read_csv(file = file_names, # 読み込み対象のファイル名一覧を格納したベクトル
+                        id = "file_path", # ファイルパスの列を追加する場合は列名を指定
+                        col_names = TRUE, # ヘッダー（列名データ）の有無／列名指定
+                        col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                        col_select = NULL, # 読み込む列の指定（列名、インデックス）
+                        skip = 0, # 読み込み時に上からスキップする行数
+                        locale = locale(encoding = "UTF-8") # Windows標準（Shift JIS）で作成されたファイルは"CP932"、utf-8で作成されたファイルは"UTF-8"
+                        )
+
+data
+```
+
+共通の行名を持つ複数のCSVファイルを読み込んで横方向に結合する場合は、`purrr`パッケージの`map_dfc()`関数を使用します。なお、横方向に結合するため、行数を統一しておく必要があります。
+
+```{r}
+# 読み込み対象のファイル名一覧を取得
+file_names <- fs::dir_ls(path = "data_read/csv_column", # CSVファイルを格納しているフォルダのパスを入力
+                         glob = "*.csv" # CSVファイル名を読み込む対象として指定（変更する必要なし）
+                         )
+
+data <- purrr::map_dfc(file_names,
+                       readr::read_csv,
+                       col_names = TRUE, # ヘッダー（列名データ）の有無／列名指定
+                       col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                       col_select = NULL, # 読み込む列の指定（列名、インデックス）
+                       skip = 0, # 読み込み時に上からスキップする行数
+                       locale = locale(encoding = "UTF-8") # Windows標準（Shift JIS）で作成されたファイルは"CP932"、utf-8で作成されたファイルは"UTF-8"
+                       )
+
+data
+```
+
+Excelファイルの複数のシートに格納されているデータを読み込んで結合する場合は、ループを使用します。ここでは、共通の属性列（日付列など）をもつデータを`dplyr::full_join()`関数で横方向に結合します。属性列の内容が同じ行を結合するため、必ずしも行数が統一されている必要はありません。
+
+なお、`dplyr::full_join()`関数などのデータフレーム結合関数の詳細は、第3章「tidyverseによるデータ操作」を参照してください。
+
+```{r}
+# Excelファイルのシート名一覧を取得
+sheet_names <- openxlsx::getSheetNames(file = "data_read/xlsx/df.xlsx")
+
+# シート名のループ
+for (i in seq_along(sheet_names)) {
+  # 最初のシートの読み込み時にデータフレームを作成
+  if (i == 1) {
+    data <- readxl::read_excel(path = "data_read/xlsx/df.xlsx", # ファイルパス（拡張子が必要、URLは不可）
+                               sheet = sheet_names[i], # シートインデックス／シート名
+                               col_names = TRUE, # ヘッダー（列名データ）の有無／列名指定
+                               col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                               skip = 0 # 読み込み時に上からスキップする行数
+                               )
+  # 2回目以降のシート読み込み時は日付列で全要素結合
+  } else {
+    data %<>% 
+      dplyr::full_join(readxl::read_excel(path = "data_read/xlsx/df.xlsx", # ファイルパス（拡張子が必要、URLは不可）
+                                          sheet = sheet_names[i], # シートインデックス／シート名
+                                          col_names = TRUE, # ヘッダー（列名データ）の有無／列名指定
+                                          col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
+                                          skip = 0 # 読み込み時に上からスキップする行数
+                                          ),
+                       by = "日付" # 結合に用いる列名を指定
+                       )
+  }
+}
+
+data
+```
+
+
+### Excelの日付値の修正 {-}
+
+Excelのファイルを読み込むと、Excelでは日付として表示されていたデータが、Rではシリアル値（単なる数字）に変換されてしまう場合があります。`as.Date()`関数で`origin`引数にシリアル値の開始日を設定すると、Rでも正しく日付が表示されます。
+
+```{r}
+# 1998年7月5日を表すシリアル値を日付に変換
+as.Date(35981, origin = "1899-12-30")
+```
+
+なお、上記のコードはWindows版のExcelで作成したファイルを読み込む際に有効です。Mac版のExcelでは開始日の設定が異なります。
+
+```{r, eval=FALSE}
+# Mac版のExcelで1998年7月5日を表すシリアル値を日付に変換
+as.Date(34519, origin = "1904-01-01") 
+```
+
+## データの書き出し
 
 ### CSVデータの書き出し {.unnumbered}
 
