@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-04-06" />
+<meta name="date" content="2023-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -262,7 +262,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#csvデータ"><i class="fa fa-check"></i>CSVデータ</a></li>
 <li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#xlsxlsx形式データ"><i class="fa fa-check"></i>xls・xlsx形式データ</a></li>
 <li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#xlsx形式データ"><i class="fa fa-check"></i>xlsx形式データ</a></li>
-<li class="chapter" data-level="2.12.1" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#複数データの読み込み"><i class="fa fa-check"></i><b>2.12.1</b> 複数データの読み込み</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#複数データの読み込み"><i class="fa fa-check"></i>複数データの読み込み</a></li>
 <li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#excelの日付値の修正"><i class="fa fa-check"></i>Excelの日付値の修正</a></li>
 </ul></li>
 <li class="chapter" data-level="2.13" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データの書き出し"><i class="fa fa-check"></i><b>2.13</b> データの書き出し</a>
@@ -680,7 +680,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">エコノミストのためのR</h1>
 <p class="author"><em>服部直樹</em></p>
-<p class="date"><em>2023-04-06</em></p>
+<p class="date"><em>2023-04-09</em></p>
 </div>
 <div id="はじめに" class="section level1 unnumbered hasAnchor">
 <h1>はじめに<a href="index.html#はじめに" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -801,8 +801,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="上級-1" class="section level4 unnumbered hasAnchor">
 <h4>上級<a href="index.html#上級-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
+<li><p><a href="https://www.yuhikaku.co.jp/books/detail/9784641165489">ウォルター・エンダース（2019）『実証のための計量時系列分析（原著第4版）』有斐閣</a></p>
+<p>訳者の新谷元嗣、藪友良による<a href="https://www.fbc.keio.ac.jp/~tyabu/enders/">本書日本語版のサポートページ</a>には、練習問題の解答例、データのExcelファイルに加えて、EViewsを用いて教科書の内容を再現するための資料が掲載されています。また、Rのコードは<a href="https://sites.google.com/view/davidgabauer/use-rpython">David Gabauerのウェブサイト</a>で提供されています。</p></li>
 <li><p><a href="https://bookplus.nikkei.com/atcl/catalog/2006/9784532133153/">宮尾龍蔵（2006）『マクロ金融政策の時系列分析ー政策効果の理論と実証ー』日本経済新聞出版</a></p></li>
-<li><p><a href="https://www.ohmsha.co.jp/book/9784274224775/">村尾博（2019）『Rで学ぶVAR実証分析ー時系列分析の基礎から予測までー』オーム社</a></p></li>
+<li><p><a href="https://www.ohmsha.co.jp/book/9784274224775/">村尾博（2019）『Rで学ぶVAR実証分析ー時系列分析の基礎から予測までー』オーム社</a></p>
+<p>村尾（2019）の内容のエッセンスやRコードは<a href="http://www43.tok2.com/home/kyotowalk/study_room.html">村尾氏個人のウェブサイト</a>で閲覧することができます。まずはウェブサイトを確認してから書籍を購入することをおすすめします。</p></li>
 </ul>
 </div>
 </div>
@@ -812,6 +815,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="年4月6日-マイナーアップデート" class="section level3 unnumbered hasAnchor">
 <h3>2023年4月6日 マイナーアップデート<a href="index.html#年4月6日-マイナーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
+<li>参考文献にエンダース（2019）と、村尾（2019）のサポートページを追加。</li>
 <li>第1章「Rの設定」の「プロキシサーバーの設定」に<code>Sys.getenv()</code>関数を追加。「パッケージ」にstringiを追加。</li>
 <li>第2章「Rの基本的な使用方法」の「リスト」にリスト要素の追加に関する記述を追加。「文字列操作」に文字列の変換と文字列によるプログラム実行に関する記述を追加。「データの読み込み」と「データの書き出し」を分割し、「データの読み込み」に複数データの読み込みとExcelの日付値の修正に関する記述を追加。</li>
 <li>第4章「ggplot2によるグラフ作成」の「凡例」に<code>labs()</code>関数を追加。「グラフの保存」の<code>height</code>を9.00から8.50に修正。</li>

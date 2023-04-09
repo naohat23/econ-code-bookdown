@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-04-06" />
+<meta name="date" content="2023-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -262,7 +262,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#csvデータ"><i class="fa fa-check"></i>CSVデータ</a></li>
 <li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#xlsxlsx形式データ"><i class="fa fa-check"></i>xls・xlsx形式データ</a></li>
 <li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#xlsx形式データ"><i class="fa fa-check"></i>xlsx形式データ</a></li>
-<li class="chapter" data-level="2.12.1" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#複数データの読み込み"><i class="fa fa-check"></i><b>2.12.1</b> 複数データの読み込み</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#複数データの読み込み"><i class="fa fa-check"></i>複数データの読み込み</a></li>
 <li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#excelの日付値の修正"><i class="fa fa-check"></i>Excelの日付値の修正</a></li>
 </ul></li>
 <li class="chapter" data-level="2.13" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データの書き出し"><i class="fa fa-check"></i><b>2.13</b> データの書き出し</a>
@@ -1543,7 +1543,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb495-3"><a href="ggplot2によるグラフ作成.html#cb495-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Japan&quot;</span>, <span class="st">&quot;United Kingdom&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Italy&quot;</span>))</span>
 <span id="cb495-4"><a href="ggplot2によるグラフ作成.html#cb495-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb495-5"><a href="ggplot2によるグラフ作成.html#cb495-5" aria-hidden="true" tabindex="-1"></a>data_owid_step</span></code></pre></div>
-<pre><code>## # A tibble: 5,945 × 3
+<pre><code>## # A tibble: 5,953 × 3
 ##    location date       stringency_index
 ##    &lt;chr&gt;    &lt;date&gt;                &lt;dbl&gt;
 ##  1 France   2020-01-03               NA
@@ -1556,7 +1556,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 France   2020-01-10               NA
 ##  9 France   2020-01-11               NA
 ## 10 France   2020-01-12               NA
-## # … with 5,935 more rows</code></pre>
+## # … with 5,943 more rows</code></pre>
 <div id="ステップグラフの基本形" class="section level3 unnumbered hasAnchor">
 <h3>ステップグラフの基本形<a href="ggplot2によるグラフ作成.html#ステップグラフの基本形" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="ggplot2によるグラフ作成.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_owid_step,</span>
@@ -2122,11 +2122,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb532-5"><a href="ggplot2によるグラフ作成.html#cb532-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_owid_scale)</span></code></pre></div>
 <pre><code>##    location           new_cases          new_deaths      
 ##  Length:255         Min.   :     0.0   Min.   :   0.000  
-##  Class :character   1st Qu.:    22.0   1st Qu.:   0.149  
-##  Mode  :character   Median :   194.6   Median :   1.931  
-##                     Mean   : 11056.6   Mean   :  98.514  
-##                     3rd Qu.:  1414.7   3rd Qu.:  16.304  
-##                     Max.   :641370.0   Max.   :5799.750  
+##  Class :character   1st Qu.:    21.9   1st Qu.:   0.149  
+##  Mode  :character   Median :   194.5   Median :   1.929  
+##                     Mean   : 11047.9   Mean   :  98.422  
+##                     3rd Qu.:  1408.0   3rd Qu.:  16.290  
+##                     Max.   :640831.0   Max.   :5794.815  
 ##                     NA&#39;s   :9          NA&#39;s   :9</code></pre>
 <div id="x軸連続型y軸連続型" class="section level3 unnumbered hasAnchor">
 <h3>X軸：連続型、Y軸：連続型<a href="ggplot2によるグラフ作成.html#x軸連続型y軸連続型" class="anchor-section" aria-label="Anchor link to header"></a></h3>
