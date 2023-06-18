@@ -57,7 +57,9 @@ suppressWarnings(警告を出力する関数)
 suppressMessages(メッセージを出力する関数)
 ```
 
-## プロキシサーバーの設定
+## 通信関連の設定
+
+### プロキシ設定
 
 オフィスや大学などのプロキシ環境ではプロキシサーバーの設定を行ってください。なお、下記のコードは認証プロキシには非対応です。
 
@@ -80,6 +82,16 @@ options(timeout = NA)
 
 ```{r}
 Sys.getenv(c("http_proxy", "https_proxy"))
+```
+
+### SSL設定 {-}
+
+Windows版のR 4.2以降のバージョンでは、ファイルのダウンロードにおける通信方法が変更されたことが影響し、主にプロキシ環境でSSLエラーが生じHTTPSサイトにアクセスできないことがあります。
+
+そうしたSSLエラーが生じた場合は、次のコマンドを実行することでエラーが解消する可能性があります。詳細は[Rのディベロッパー用ウェブサイトにおける2022年8月6日のニュース](https://developer.r-project.org/blosxom.cgi/R-4-2-branch/NEWS/2022/08/06#n2022-08-06)を参照してください。
+
+```{r, eval=FALSE}
+Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
 ```
 
 ## パッケージ
@@ -110,7 +122,6 @@ Sys.getenv(c("http_proxy", "https_proxy"))
     -   [DataExplorer](https://cran.r-project.org/web/packages/DataExplorer/vignettes/dataexplorer-intro.html)：探索的データ分析の一括実行
     -   [estimatr](https://declaredesign.org/r/estimatr/)：線形回帰モデルの推定
     -   [forecast](https://pkg.robjhyndman.com/forecast/)：単変量時系列データ分析
-    -   [fpp2](https://otexts.com/fpp2/)：時系列データ予測の教科書用に開発されたパッケージ
     -   [GGally](https://ggobi.github.io/ggally/index.html)：ペアプロットなどのデータ可視化
     -   [lmtest](https://cran.r-project.org/web/packages/lmtest/index.html)：線型回帰モデルの検定や診断
     -   [mFilter](https://www.rdocumentation.org/packages/mFilter/versions/0.1-5/topics/hpfilter)：HPフィルタ
@@ -127,13 +138,15 @@ Sys.getenv(c("http_proxy", "https_proxy"))
     -   [vars](https://cran.r-project.org/web/packages/vars/index.html)：VARモデル
     -   [urca](https://cran.r-project.org/web/packages/urca/index.html)：単位根検定・共和分検定
 -   データパッケージ
+    -   [fpp](https://cran.r-project.org/web/packages/fpp/index.html)：様々なサンプルデータセットを格納したパッケージ
+    -   [fpp2](https://otexts.com/fpp2/)：様々なサンプルデータセットを格納したパッケージ
     -   [nycflights13](https://cran.r-project.org/web/packages/nycflights13/index.html)：航空便情報サンプルデータセット
 -   その他
     -   [docstring](https://cran.r-project.org/web/packages/docstring/index.html)：関数の説明文を作成
     -   [openxlsx](https://ycphs.github.io/openxlsx/)：Excelのxlsxファイルの読み込み・編集・書き出し
     -   [pblapply](https://www.rdocumentation.org/packages/pbapply/versions/1.4-3/topics/pbapply)：プログレスバーを表示する`apply()`関数ファミリー
 
-### パッケージのインストールとインポート {.unnumbered}
+### インストールとインポート {.unnumbered}
 
 パッケージのインストールは`install.packages()`関数、インストールしたパッケージのインポート（呼び出し）は`library()`関数で実行します。一度インストールすれば、その後はインポートするだけでパッケージを使用することができます。
 
@@ -166,7 +179,6 @@ packages <- c(
   "DataExplorer", 
   "estimatr", 
   "forecast", 
-  "fpp2", 
   "GGally", 
   "lmtest", 
   "mFilter", 
@@ -183,6 +195,8 @@ packages <- c(
   "vars", 
   "urca",
   # データパッケージ
+  "fpp",
+  "fpp2", 
   "nycflights13",
   # その他
   "docstring", 
@@ -222,6 +236,14 @@ old.packages()
 # パッケージを指定してアップデート
 install.packages("tidyverse")
 ```
+
+### インストール時のエラー {-}
+
+パッケージをインストールする際に、`unable to access`や`cannot open URL`といったエラーメッセージが表示され、パッケージがインストールできないことがあります（特に、プロキシ環境下でこうしたエラーが生じやすいようです）。こうしたエラーが発生する場合、パッケージのインストールに関する通信設定を変更すると、エラーが解消する可能性があります。
+
+RStudioのファイルメニュー > Tools > Global Options を選択し、Options画面でPackagesをクリックし、Managementタブの下の方にある「Use secure download method for HTTP」のチェックボックスを外してください。
+
+詳細は、[RStudioコミュニティのイシュー](https://community.rstudio.com/t/issues-with-package-installation-and-cran-mirrors-unable-to-access-repository-and-ssl-error/59121)を参照してください。
 
 ## グラフの設定
 
@@ -324,18 +346,29 @@ economics
 head(seasonal::unemp)
 ```
 
+#### usconsumption {-}
+
+`fpp`パッケージに含まれる`usconsumption`データセットは、米国のマクロ経済時系列データ（四半期、1970年1-3月期〜2010年10-12月期）です。実質個人消費支出（`consumption`、前期比、％）、実質可処分所得（`income`、前期比、％）のデータが格納されています。データ構造はts形式です。
+
+```{r}
+# データの先頭行をコンソールに出力
+head(fpp::usconsumption)
+```
+
+
 #### gasoline {.unnumbered}
 
 `fpp2`パッケージに含まれる`gasoline`データセットは、米国のガソリン生産量（単位：百万バレル／日）の時系列データです（週次、1991年2月2日〜2017年１月20日）。データ構造はts形式です。
 
 ```{r}
+# データの先頭行をコンソールに出力
 head(fpp2::gasoline)
 ```
 
 
 #### Canada {-}
 
-`vars`パッケージに含まれる`Canada`データセットは、カナダのマクロ経済時系列データ（四半期、1980年1-3月期〜2000年10-12月期）です。実質労働生産性（`prod`、自然対数×100）、雇用者数（`e`、自然対数×100）、失業率（`U`、％）、実質賃金（`rw`、自然対数×100）のデータが格納されています。データ構造はts形式です。
+`vars`パッケージに含まれる`Canada`データセットは、カナダのマクロ経済時系列データ（四半期、1980年1-3月期〜2000年10-12月期）です。雇用者数（`e`、自然対数×100）、実質労働生産性（`prod`、自然対数×100）、実質賃金（`rw`、自然対数×100）、失業率（`U`、％）のデータが格納されています。データ構造はts形式です。
 
 ```{r}
 # データを呼び出し
@@ -522,7 +555,7 @@ data_gdp_jp
 
 #### 西山 他（2019） {.unnumbered}
 
-本書の第7章以降の計量経済学パートでは、西山 他（2019）の実証例で使用されているサンプルデータセットを使用します。サンプルデータセットは、[西山 他（2019）のサポートウェブサイト](http://www.yuhikaku.co.jp/books/detail/9784641053854)で配布されています。
+本書の第7章以降の計量経済学パートでは、西山 他（2019）で使用されているサンプルデータセットを使用します。サンプルデータセットは、[西山 他（2019）のサポートウェブサイト](http://www.yuhikaku.co.jp/books/detail/9784641053854)で配布されています。
 
 ## R起動時に実行する設定
 
@@ -572,7 +605,6 @@ packages <- c(
   "DataExplorer", 
   "estimatr", 
   "forecast", 
-  "fpp2", 
   "GGally", 
   "lmtest", 
   "mFilter", 
@@ -589,6 +621,8 @@ packages <- c(
   "vars", 
   "urca",
   # データパッケージ
+  "fpp",
+  "fpp2", 
   "nycflights13",
   # その他
   "docstring", 
@@ -612,7 +646,7 @@ rm(
   pkg
 )
 
-# Windowsのグラフ設定（筆者の実行環境では不要のためコメントアウト）
+  # Windowsのグラフ設定（筆者の実行環境では不要のためコメントアウト）
 # windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
 # windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
 # theme_set(theme_light(base_family = "YUGO"))
