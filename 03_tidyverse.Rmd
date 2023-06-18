@@ -6,7 +6,7 @@
 
 ### パッケージのインポート {.unnumbered}
 
-```{r, results='hide', warning=FALSE, message=FALSE}
+```{r, results='hide', warning=FALSE, message=FALSE, paged.print=FALSE}
 library(magrittr)
 library(tidyverse)
 library(tidyquant)
@@ -47,7 +47,7 @@ tidy dataは属性条件によるフィルタがかけやすいなど、デー�
 
 このコードは、`mpg`データセットに対する複数の関数の処理をパイプでつなげたものです。
 
-```{r}
+```{r, paged.print=FALSE}
 # mpgデータセットからmanufacturer列とcty列を選択し、manufacturer列でフィルタしたうえで、
 # cty列を10倍し、結果をresultオブジェクトに保存する例
 result <- mpg %>% 
@@ -64,14 +64,14 @@ print(result)
 
 ### 列名で選択 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::select(location, date, new_cases)
 ```
 
 ### 列名を格納したベクトルで選択 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 cols <- c("location", "date", "new_cases")
 data_owid %>% 
   dplyr::select(cols) 
@@ -79,35 +79,35 @@ data_owid %>%
 
 ### 列を非選択（削除） {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::select(-location) 
 ```
 
 ### 列名に特定の文字列を含む列を選択 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::select(location, date, contains("cases"))
 ```
 
 ### 列名が特定の文字列から始まる列を選択 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::select(location, date, starts_with("new_cases")) 
 ```
 
 ### 列名が特定の文字列で終わる列を選択 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::select(location, date, ends_with(c("cases", "deaths"))) 
 ```
 
 ### 特定の型の列を選択 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::select(where(is.character) | where(is.Date)) 
 ```
@@ -116,7 +116,7 @@ data_owid %>%
 
 データセットの列名（変数名）を変更するときは、`dplyr::rename()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::rename(country = location)
 ```
@@ -127,7 +127,7 @@ data_owid %>%
 
 データセットから行番号を指定して特定の行を取り出す（スライスする）には、`dplyr::slice()`関数の中で行インデックスを指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 df_2 <- tibble(
   letters = LETTERS,
   numbers = 1:26
@@ -139,7 +139,7 @@ df_2 %>%
 
 特定の行を切り捨てて、それ以外の行を取り出すには、`dplyr::slice()`関数の中でマイナスのインデックスを指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 df_2 %>% 
   dplyr::slice(-(6:10))
 ```
@@ -148,20 +148,20 @@ df_2 %>%
 
 `dplyr::slice()`関数ファミリーである`dplyr::slice_sample()`関数を使用すると、データセットからデータをランダムサンプリングすることができます。ここでは、53940サンプルあるdiamondsデータセットからサンプリングを行います。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds
 ```
 
 抽出するサンプル数は、`dplyr::slice_sample()`関数の`n`引数で指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   dplyr::slice_sample(n = 1000) # サンプル数
 ```
 
 抽出するサンプル数を、データの個数ではなく、元データセットの何割、といった形で決める場合は、`dplyr::slice_sample()`関数の`porp`引数に割合を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   dplyr::slice_sample(prop = 0.1) # サンプル割合
 ```
@@ -172,7 +172,7 @@ diamonds %>%
 
 ### 条件に一致する行 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% dplyr::filter(location == "Japan")
 ```
 
@@ -180,7 +180,7 @@ data_owid %>% dplyr::filter(location == "Japan")
 
 NOT条件は`!=`演算子を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% dplyr::filter(continent != "Asia")
 ```
 
@@ -188,7 +188,7 @@ data_owid %>% dplyr::filter(continent != "Asia")
 
 `dplyr::filter()`関数内で複数条件を指定すると、左から順番に条件が適用されます。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% dplyr::filter(location == "Japan", date >= "2021-01-01", date <= "2021-01-07")
 ```
 
@@ -196,7 +196,7 @@ data_owid %>% dplyr::filter(location == "Japan", date >= "2021-01-01", date <= "
 
 左から順番に条件を適用しないためには、`&`演算子と`|`演算子で明示的にAND条件とOR条件を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% dplyr::filter((date == "2022-01-01") & (location == "Japan" | location == "United States"))
 ```
 
@@ -204,7 +204,7 @@ data_owid %>% dplyr::filter((date == "2022-01-01") & (location == "Japan" | loca
 
 複数の値が格納されたベクトルと`%in%`演算子を用いて、OR条件で行をフィルタします。この場合は、日本と米国のレコードを抽出しています。
 
-```{r}
+```{r, paged.print=FALSE}
 locations <- c("Japan", "United States")
 
 data_owid %>% dplyr::filter(location %in% locations, date == "2021-01-01")
@@ -214,13 +214,13 @@ data_owid %>% dplyr::filter(location %in% locations, date == "2021-01-01")
 
 `%in%`演算子によるOR条件を`!`で否定します。この場合は、日本・米国以外を抽出しています。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% dplyr::filter(!location %in% locations, date == "2021-01-01")
 ```
 
 ### 関数による条件指定 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% dplyr::filter(date == max(date))
 ```
 
@@ -228,7 +228,7 @@ data_owid %>% dplyr::filter(date == max(date))
 
 `is.na()`関数のように倫理値を返す関数は、`==`演算子がなくてもフィルタ条件として使用することができます。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% dplyr::filter(is.na(new_cases))
 ```
 
@@ -238,7 +238,7 @@ data_owid %>% dplyr::filter(is.na(new_cases))
 
 条件式は`~ {.}`で表される無名関数（ラムダ式）の形で記述することができます。なお、波括弧の中のドットは、`.cols`引数に指定した各列の要素を一つずつドットの位置に代入することを意味します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 列名がcasesで終わる列の値がすべて1000以上である行を抽出
 data_owid %>% 
   dplyr::filter(location == "Japan",
@@ -246,7 +246,7 @@ data_owid %>%
                 )
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # 数値型の変数の何れかがNAである行を抽出
 data_owid %>% 
   dplyr::filter(location == "Japan",
@@ -260,14 +260,14 @@ data_owid %>%
 
 ### 昇順ソート {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::arrange(new_cases) 
 ```
 
 ### 降順ソート {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::arrange(-new_cases) 
 ```
@@ -276,7 +276,7 @@ data_owid %>%
 
 日付型のデータは`-`演算子で降順ソートができないため、`desc()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::arrange(desc(date)) 
 ```
@@ -285,7 +285,7 @@ data_owid %>%
 
 `dplyr::arrange()`関数内で複数条件を指定すると、左から順番に適用します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::arrange(desc(date), -new_cases) 
 ```
@@ -296,7 +296,7 @@ data_owid %>%
 
 まず、使用するサンプルデータを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_jp <- data_owid %>% 
   dplyr::select(location, date, new_cases, new_deaths) %>% 
   dplyr::filter(location == "Japan",
@@ -308,7 +308,7 @@ data_owid_jp <- data_owid %>%
 
 既存の列（変数）の計算結果として、新たな列を追加します。`=`演算子の左側が新たに作成する列名、右側が計算式です。作成する際、`.before`引数もしくは`.after`引数に既存の列名を指定すると、指定した列の前後に新たな列を挿入します。`.before`引数、`.after`引数を指定しなければ、新たな列は最右列に追加されます。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_jp %>% 
   dplyr::mutate(death_rate = new_deaths / new_cases,
                 .after = "date"
@@ -319,7 +319,7 @@ data_owid_jp %>%
 
 `=`演算子の左側に既存の列名を指定すると、当該列を修正します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::mutate(location = stringr::str_c(location, "_", continent))
 ```
@@ -328,7 +328,7 @@ data_owid %>%
 
 `dplyr::case_when()`関数の中に、「`既存の系列を用いた条件 ~ 条件を満たす場合にとる値`」の形で条件式を書き、新たな系列を作成します。複数条件を指定した場合、左から順番に条件が適用されます。「その他すべて」の条件は`TRUE`で指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 単一条件を指定してダミー変数を作成
 data_owid_jp %>% 
   dplyr::mutate(dummy = dplyr::case_when(new_cases < 3000 ~ 1,
@@ -351,7 +351,7 @@ data_owid_jp %>%
 
 `.fns`引数には、通常の関数に加え、`~ {.}`で表す無名関数（ラムダ式）を指定することも可能です。なお、無名関数`~ {.}`の波括弧の中のドットは、`.cols`引数に指定した各列の要素を一つずつドットの位置に代入することを意味します。
 
-```{r}
+```{r, paged.print=FALSE}
 # new_casesからnew_deathまでのすべての列の要素を1000で除す
 data_owid_jp %>% 
   dplyr::mutate(across(.cols = new_cases:new_deaths, .fns = ~ {. / 1000}))
@@ -377,7 +377,7 @@ data_owid_jp %>%
 
 見た目は変わりませんが、データを`print()`関数で出力するとデータの属性を示す冒頭箇所の2行目に`Groups`が追加されています。
 
-```{r}
+```{r, paged.print=FALSE}
 
 data_owid %>% 
   dplyr::group_by(location) %>% 
@@ -386,7 +386,7 @@ data_owid %>%
 
 ### 複数の列でグループ化 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>%
   dplyr::group_by(continent, location) %>% 
   print()
@@ -396,7 +396,7 @@ data_owid %>%
 
 グループ化と行のフィルタを組み合わせて、グループ別にフィルタを適用します。ここでは、グループ別の最大値を抽出しています。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::group_by(location) %>% 
   dplyr::filter(new_cases == max(new_cases, na.rm = TRUE))
@@ -406,7 +406,7 @@ data_owid %>%
 
 `dplyr::ungroup()`関数でグループ化を解除します。グループ化の有無でフィルタや集計の結果が変わるため、思わぬ事故を防ぐためにも、所定の結果を得た後はグループ化を解除しておくことを推奨します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::group_by(location) %>% 
   dplyr::ungroup()
@@ -418,7 +418,7 @@ data_owid %>%
 
 ### グループ別の集計 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 # 指定した列のグループ別の平均値を計算
 data_owid %>% 
   dplyr::group_by(location) %>% 
@@ -434,7 +434,7 @@ data_owid %>%
 
 `dplyr::group_by()`関数で複数条件を指定してグループ化すると、クロス集計を行うことができます。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::group_by(location, lubridate::year(date)) %>% 
   dplyr::summarise(new_cases_mean = mean(new_cases, na.rm = TRUE))
@@ -444,7 +444,7 @@ data_owid %>%
 
 `dplyr::summarise()`関数内で`across()`関数を用い、対象の列と処理方法を指定して一括処理します。
 
-```{r}
+```{r, paged.print=FALSE}
 # new_casesとnew_deathsの列について、グループ別の合計値を計算
 data_owid %>% 
   dplyr::group_by(location) %>% 
@@ -474,7 +474,7 @@ data_owid %>%
 
 なお、カウント対象の変数は文字列型などの離散型変数を指定するのが一般的です。数値型などの連続型変数の場合は、カウントではなくヒストグラムを利用すべきでしょう。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::count(location)
 ```
@@ -483,7 +483,7 @@ data_owid %>%
 
 `dplyr::count()`関数内に2つ以上の変数を指定すると、要素の掛け合わせについてカウントが行われます。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::count(continent, date)
 ```
@@ -492,14 +492,14 @@ data_owid %>%
 
 条件付きカウントを行う場合は、`dplyr::count()`関数内で`if_else()`関数を使用して条件を設定します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::count(location, if_else(new_cases > dplyr::lag(new_cases, n = 7), true = "increase", false = "decrease"))
 ```
 
 または、あらかじめ`dplyr::mutate()`関数内で`if_else()`関数を使用して条件に合致する行を1にする列を作成し、`dplyr::summarise()`関数でその列の合計を集計することで、条件付きカウントを行うことができます。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::mutate(increase = if_else(new_cases > dplyr::lag(new_cases, n = 7), true = 1, false = 0)) %>% 
   dplyr::group_by(location) %>% 
@@ -512,7 +512,7 @@ data_owid %>%
 
 ここでは、`dplyr::select()`関数の中で`where(is.character)`を使用し、文字列型の変数をカウント対象にしています。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::select(where(is.character)) %>% 
   tidyr::pivot_longer(cols = everything()) %>% 
@@ -527,7 +527,7 @@ data_owid %>%
 
 まず、使用するサンプルデータを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_cases <- data_owid %>% 
   dplyr::select(location, date, new_cases) %>% 
   dplyr::filter(date >= "2021-01-01") %>% 
@@ -538,7 +538,7 @@ data_owid_cases
 
 ### 縦型データを横型データに変換 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_cases_wide <- data_owid_cases %>% 
   tidyr::pivot_wider(id_cols = "date", names_from = "location", values_from = "new_cases") 
 
@@ -547,7 +547,7 @@ data_owid_cases_wide
 
 ### 横型データを縦型データに変換 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_cases_long <- data_owid_cases_wide %>% 
   tidyr::pivot_longer(cols = -"date", names_to = "location", values_to = "new_cases") 
 
@@ -560,7 +560,7 @@ data_owid_cases_long
 
 まず、使用するサンプルデータを確認します。
 
-```{r}
+```{r, paged.print=FALSE}
 band_members
 band_instruments
 ```
@@ -569,7 +569,7 @@ band_instruments
 
 `dplyr::inner_join()`関数は、両方のデータに共通して存在する行のみ結合し、その他の行は削除します。
 
-```{r}
+```{r, paged.print=FALSE}
 dplyr::inner_join(band_members, band_instruments, by = "name")
 ```
 
@@ -577,7 +577,7 @@ dplyr::inner_join(band_members, band_instruments, by = "name")
 
 `dplyr::left_join()`関数は、左側のデータに存在する行のみ結合し、その他の行は削除します。
 
-```{r}
+```{r, paged.print=FALSE}
 dplyr::left_join(band_members, band_instruments, by = "name")
 ```
 
@@ -585,7 +585,7 @@ dplyr::left_join(band_members, band_instruments, by = "name")
 
 `dplyr::right_join()`関数は、右側のデータに存在する行のみ結合し、その他の行は削除します。
 
-```{r}
+```{r, paged.print=FALSE}
 dplyr::right_join(band_members, band_instruments, by = "name")
 ```
 
@@ -593,7 +593,7 @@ dplyr::right_join(band_members, band_instruments, by = "name")
 
 `dplyr::full_join()`関数は、両方のデータのすべての行を結合し、行を削除しません。
 
-```{r}
+```{r, paged.print=FALSE}
 dplyr::full_join(band_members, band_instruments, by = "name")
 ```
 
@@ -603,7 +603,7 @@ dplyr::full_join(band_members, band_instruments, by = "name")
 
 重複している行を削除するには、`dplyr::distinct()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 # すべての列を対象にして、重複している行を削除
 mpg %>% 
   dplyr::distinct()
@@ -624,7 +624,7 @@ mpg %>%
 
 重複している行を抽出するには、`dplyr::group_by()`関数、`dplyr::filter()`関数、`dplyr::n()`関数を組み合わせて使用します。`dplyr::n()`関数は、`dplyr::group_by()`関数で指定したグループのサイズを返す関数です。
 
-```{r}
+```{r, paged.print=FALSE}
 # 指定した列を対象にして、重複している行を抽出
 mpg %>% 
   dplyr::group_by(manufacturer, model, displ, year, cyl, trans, cty, hwy) %>% 
@@ -637,7 +637,7 @@ mpg %>%
 
 まず、使用するサンプルデータを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_vaccinated <- data_owid %>% 
   dplyr::select(location, date, people_fully_vaccinated) %>% 
   dplyr::filter(location %in% c("Japan", "United States", "United Kingdom"),
@@ -653,7 +653,7 @@ tail(data_owid_vaccinated)
 
 特定の列を対象にして、NAが含まれている行を削除するには、`tidyr::drop_na()`関数で列名を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_vaccinated %>% 
   tidyr::drop_na(Japan) %>%  
   tail()
@@ -661,7 +661,7 @@ data_owid_vaccinated %>%
 
 すべての列を対象にして、NAが含まれている行を削除するには、`tidyr::drop_na()`関数の中で`everything()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_vaccinated %>% 
   tidyr::drop_na(everything()) %>%  
   tail()
@@ -671,7 +671,7 @@ data_owid_vaccinated %>%
 
 特定の列のNAを別の値に置き換えるには、`tidyr::replace_na()`関数で列名と置換する値を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_vaccinated %>% 
   dplyr::mutate(Japan = tidyr::replace_na(data = Japan, replace = 0)) %>%  
   tail()
@@ -679,7 +679,7 @@ data_owid_vaccinated %>%
 
 NAを他の値に置き換える列が複数ある場合は、`dplyr::mutate_at()`関数で列名を複数指定して一括処理します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_vaccinated %>% 
   dplyr::mutate_at(vars(-date), tidyr::replace_na, replace = 0) %>% 
   tail()
@@ -689,7 +689,7 @@ data_owid_vaccinated %>%
 
 特定の列のNAを同じ列の前後の値でフィルするには、`tidyr::fill()`関数で列名を指定します。`.direction`引数が`"down"`なら上にある値を使用して下向きにフィル、`"up"`なら下にある値を使用して上向きにフィルします。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_vaccinated %>% 
   tidyr::fill(Japan, .direction = "down") %>% 
   tail()
@@ -697,7 +697,7 @@ data_owid_vaccinated %>%
 
 すべての列のNAの値をフィルする場合は、`tidyr::fill()`関数の中で`everything()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_vaccinated %>% 
   tidyr::fill(c(-date, everything()), .direction = "down") %>% 
   tail()
@@ -709,7 +709,7 @@ data_owid_vaccinated %>%
 
 まず、使用するサンプルデータを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 # サンプルデータ1
 data_complete_1 <- tibble(
   group = c(1:2, 1, 2),
@@ -722,7 +722,7 @@ data_complete_1 <- tibble(
 data_complete_1
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # サンプルデータ2
 data_complete_2 <- tibble(
   date = as.Date(c("2022-01-01", "2022-01-03", "2022-01-04")),
@@ -736,14 +736,14 @@ data_complete_2
 
 `tidyr::complete()`関数の中で列名を指定し、当該変数のすべての組み合わせ候補を補完します。補完した行の値はNAになります。
 
-```{r}
+```{r, paged.print=FALSE}
 data_complete_1 %>% 
   tidyr::complete(group, item_id, item_name)
 ```
 
 `tidyr::nesting()`関数に複数の列名を指定すると、それらの列について実現値のユニークな組み合わせをあらかじめ求め、それと別の列とのすべての組み合わせ候補を補完します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_complete_1 %>% 
   tidyr::complete(group, tidyr::nesting(item_id, item_name))
 ```
@@ -752,7 +752,7 @@ data_complete_1 %>%
 
 時系列データの欠損期間を補完するには、`full_seq()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日次データの欠損日を補完
 data_complete_2 %>% 
   tidyr::complete(date = full_seq(date, period = 1))

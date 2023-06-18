@@ -6,7 +6,7 @@
 
 ### パッケージのインポート {.unnumbered}
 
-```{r, results='hide', warning=FALSE, message=FALSE}
+```{r, results='hide', warning=FALSE, message=FALSE, paged.print=FALSE}
 library(esquisse)
 library(geofacet)
 library(ggplotgui)
@@ -43,7 +43,7 @@ library(tidyverse)
 
 第1章で紹介した`ggplot2`の設定です。筆者の実行環境はMacのため、Windowsの設定はコメントアウトしています。
 
-```{r}
+```{r, paged.print=FALSE}
 # Windowsのグラフ設定（筆者の実行環境では不要のためコメントアウト）
 # windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
 # windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
@@ -65,12 +65,12 @@ theme_set(theme_light(base_family = "HiraKakuProN-W3"))
 
 Rで下記のコードを実行すると別のウィンドウで`esquisse`の画面が立ち上がり、GUI形式でインタラクティブにグラフを作成することができます。ウェブサイト上では実行できないため、各自で試してみてください。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 # irisデータ
 esquisse::esquisser(data = iris)
 ```
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 ## 世界の新型コロナデータの一部を抽出
 data_owid %>% 
   dplyr::select(location, date, new_cases_smoothed) %>% 
@@ -82,12 +82,12 @@ data_owid %>%
 
 その他、GUI形式でグラフを作成することができるパッケージとして、`ggplotgui`があります。同様にウェブサイト上では実行できないため、各自で試してみてください。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 # irisデータ
 ggplotgui::ggplot_shiny(data = iris)
 ```
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 ## 世界の新型コロナデータの一部を抽出
 data_owid %>% 
   dplyr::select(location, date, new_cases_smoothed) %>% 
@@ -104,7 +104,7 @@ data_owid %>%
 
 ### 度数棒グラフの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = manufacturer)
        ) + 
@@ -125,7 +125,7 @@ ggplot(data = mpg,
 
 ### ヒストグラムの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = hwy)
        ) +
@@ -140,7 +140,7 @@ ggplot(data = mpg,
 
 グループ別のヒストグラムを横並び形式で作成するには、`position`引数に`"dodge"`を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = hwy, fill = class)
        ) +
@@ -153,7 +153,7 @@ ggplot(data = mpg,
 
 グループ別の度数分布は`geom_freqpoly()`関数でも可視化することができます。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = hwy, color = class)
        ) +
@@ -166,7 +166,7 @@ ggplot(data = mpg,
 
 グループ別のヒストグラムを積み上げ形式で作成するには、`position`引数に`"stack"`を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = hwy, fill = class)
        ) +
@@ -186,7 +186,7 @@ ggplot(data = mpg,
 
 ### 密度グラフの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = hwy)
        ) +
@@ -201,7 +201,7 @@ ggplot(data = mpg,
 
 グループ別の密度グラフを横並び形式で作成するには、`position`引数に`"dodge"`を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = hwy, color = class)
        ) +
@@ -214,7 +214,7 @@ ggplot(data = mpg,
 
 横並びの密度グラフは`geom_freqpoly()`関数でも作成できます。`geom_freqpoly()`関数で`mapping = aes(y = ..density..)`を指定すると、各グループの度数を標準化して密度グラフに変換します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = hwy, y = ..density.., color = class)
        ) +
@@ -227,7 +227,7 @@ ggplot(data = mpg,
 
 グループ別の密度グラフを積み上げ形式で作成するには、`position`引数に`"stack"`を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = hwy, fill = class)
        ) +
@@ -248,7 +248,7 @@ ggplot(data = mpg,
 
 ### 度数バブルチャートの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = manufacturer, y = class)
        ) +
@@ -265,7 +265,7 @@ ggplot(data = mpg,
 
 ### 度数ヒートマップの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg %>% 
          dplyr::count(manufacturer, class), # データの度数を格納した変数を作成
        mapping = aes(x = manufacturer, y = class, fill = n)
@@ -290,7 +290,7 @@ ggplot(data = mpg %>%
 
 ### 度数ヒートマップの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = diamonds,
        mapping = aes(x = carat, y = price)
        ) +
@@ -312,14 +312,14 @@ ggplot(data = diamonds,
 
 まず、使用するサンプルデータを作成します。データサイズが大きい場合、2次元密度グラフを作成するために時間を要するため、`dplyr::sample_n()`関数でサンプリングします。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds_small <- diamonds %>% 
   dplyr::sample_n(size = 5000)
 ```
 
 ### 2次元密度グラフの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = diamonds_small,
        mapping = aes(x = carat, y = price)
        ) + 
@@ -328,7 +328,7 @@ ggplot(data = diamonds_small,
 
 ### 2次元密度グラフの塗りつぶし版 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = diamonds_small,
        mapping = aes(x = carat, y = price)
        ) + 
@@ -352,7 +352,7 @@ QQプロットが直線上にある場合、データは正規分布に従うと
 
 また、QQプロットが[S字状（前半は右下に凸、後半は左上に凸）の場合は、データの両裾が重い、いわゆるファット・テールの分布]{.underline}になります。一方、[逆S字状（前半は左上に凸、後半は右下に凸）の場合は、ピーク部分が突出した分布]{.underline}になります。
 
-```{r}
+```{r, paged.print=FALSE}
 # 右に長い裾をもつデータのQQプロット
 ggplot(data = iris,
        mapping = aes(sample = Sepal.Length)
@@ -361,7 +361,7 @@ ggplot(data = iris,
   geom_qq()
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # ファット・テールをもつデータのQQプロット
 ggplot(data = economics,
        mapping = aes(sample = unemploy)
@@ -379,7 +379,7 @@ ggplot(data = economics,
 
 まず、プロット用のデータを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_mpg_point <- mpg %>% 
   dplyr::group_by(manufacturer) %>% 
   dplyr::summarise(across(c(displ, cty, hwy), mean, na.rm = TRUE))
@@ -389,7 +389,7 @@ data_mpg_point
 
 ### 散布図の基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
        ) +
@@ -406,7 +406,7 @@ ggplot(data = mpg,
 
 バブルチャートを作成するには、`ggplot()`関数の`mapping = aes()`関数で`size`引数にバブルのサイズを変化させたい変数を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_mpg_point,
        mapping = aes(x = cty, y = hwy, size = displ) # aes() 関数内のsize引数に連続型変数を指定
        ) +
@@ -424,7 +424,7 @@ ggplot(data = data_mpg_point,
 
 `geom_path()`関数と`geom_line()`関数はどちらもマーカー間をつなぐコネクタ線を追加する関数ですが、`geom_path()`関数はデータセット上の順番で線を引く一方、`geom_line()`関数はデータセット上の順番に関わらずX軸上の順番で線を引くという違いがあります。
 
-```{r}
+```{r, paged.print=FALSE}
 economics %>% 
   dplyr::filter(date >= "2000-01-01") %>% 
   ggplot(mapping = aes(x = unemploy, y = uempmed)) +
@@ -445,7 +445,7 @@ economics %>%
 
 散布図に近似曲線を追加するには、`geom_smooth()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
        ) +
@@ -470,7 +470,7 @@ ggplot(data = mpg,
 
 散布図にラベルを追加するには、`ggrepel`パッケージの`geom_text_repel()`関数を使用します。`geom_text_repel()`関数は、散布図のマーカーとラベルが重ならないようにラベルの位置を自動で調整します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_mpg_point,
        mapping = aes(x = cty, y = hwy)
        ) +
@@ -502,7 +502,7 @@ ggplot(data = data_mpg_point,
 
 ### バブルチャートにラベルを追加 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_mpg_point,
        mapping = aes(x = cty, y = hwy, size = displ) # aes() 関数内のsize引数に連続型変数を指定
        ) +
@@ -542,7 +542,7 @@ ggplot(data = data_mpg_point,
 
 まず、プロット用のデータを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_mpg_col <- mpg %>% 
   dplyr::group_by(manufacturer) %>% 
   dplyr::summarise(across(c(cty, hwy), mean, na.rm = TRUE))
@@ -550,7 +550,7 @@ data_mpg_col <- mpg %>%
 data_mpg_col
 ```
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
 data_owid_col <- data_owid %>% 
   dplyr::select(location, date, new_cases) %>% 
   dplyr::filter(location %in% c("Japan", "United Kingdom", "Germany", "France", "Italy")) %>% 
@@ -563,7 +563,7 @@ data_owid_col
 
 ### 縦棒グラフの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_mpg_col,
        mapping = aes(x = manufacturer, y = cty)
        ) + 
@@ -580,7 +580,7 @@ ggplot(data = data_mpg_col,
 
 横棒グラフを作成するには、縦棒グラフを作成した後に`coord_flip()`関数で横棒グラフに転換します。そのため、X軸とY軸の変数指定は縦棒グラフの場合と同じです。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_mpg_col,
        mapping = aes(x = manufacturer, y = cty)
        ) + 
@@ -597,7 +597,7 @@ ggplot(data = data_mpg_col,
 
 縦棒グラフのX軸の順番を並べ替えるには、X軸の変数を指定する際に`fct_reorder()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_mpg_col,
        mapping = aes(x = fct_reorder(manufacturer, -cty), y = cty)
        ) + 
@@ -614,7 +614,7 @@ ggplot(data = data_mpg_col,
 
 縦棒グラフにデータラベルを追加するには、`geom_text()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_mpg_col,
        mapping = aes(x = fct_reorder(manufacturer, -cty), y = cty)
        ) + 
@@ -637,7 +637,7 @@ ggplot(data = data_mpg_col,
 
 複数の縦棒グラフを横並び形式で作成するには、`position`引数に`position_dodge()`関数を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_owid_col,
        mapping = aes(x = location, y = new_cases, fill = year, group = rev(year))
        ) + 
@@ -652,7 +652,7 @@ ggplot(data = data_owid_col,
 
 複数の縦棒グラフを積み上げ形式で作成するには、`position`引数に`position_stack()`関数を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_owid_col,
        mapping = aes(x = location, y = new_cases, fill = year, group = rev(year))
        ) + 
@@ -666,7 +666,7 @@ ggplot(data = data_owid_col,
 
 ### 積み上げ縦棒グラフにラベルを追加 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_owid_col,
        mapping = aes(x = location, y = new_cases, fill = year, group = rev(year))
        ) + 
@@ -688,7 +688,7 @@ ggplot(data = data_owid_col,
 
 複数の縦棒グラフを合計が100％になる積み上げ形式で作成するには、`position`引数に`position_fill()`関数を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_owid_col,
        mapping = aes(x = location, y = new_cases, fill = year, group = rev(year))
        ) + 
@@ -702,7 +702,7 @@ ggplot(data = data_owid_col,
 
 ### 100％積み上げ縦棒グラフにラベルを追加 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_col %>% 
   dplyr::group_by(location) %>% 
   dplyr::mutate(percent = new_cases / sum(new_cases)) %>% 
@@ -730,7 +730,7 @@ data_owid_col %>%
 
 まず、プロット用のデータを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_mpg_circle <- mpg %>% 
   dplyr::group_by(class) %>% 
   dplyr::summarise(across(c(hwy), mean, na.rm = TRUE))
@@ -740,7 +740,7 @@ data_mpg_circle
 
 ### 円グラフの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_mpg_circle,
        mapping = aes(x = 1, y = hwy, fill = class, group = rev(class))
        ) + 
@@ -776,7 +776,7 @@ ggplot(data = data_mpg_circle,
 
 まず、プロット用のデータを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_line <- data_owid %>%
   dplyr::select(location, date, new_cases_smoothed) %>% 
   dplyr::filter(location %in% c("Japan", "United Kingdom", "Germany", "France", "Italy"),
@@ -790,7 +790,7 @@ data_owid_line
 
 ### 折れ線グラフの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = economics,
        mapping = aes(x = date, y = unemploy)
        ) +
@@ -805,7 +805,7 @@ ggplot(data = economics,
 
 折れ線グラフを作成する`geom_line()`関数と、散布図を作成する`geom_point()`関数を併用します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = economics,
        mapping = aes(x = date, y = unemploy)
        ) +
@@ -827,7 +827,7 @@ ggplot(data = economics,
 
 折れ線グラフの数が多く凡例が分かりにくい場合などに、折れ線グラフの右側に系列名のラベルを追加します。ラベルを追加するには、`ggrepel`パッケージの`geom_text_repel`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_owid_line,
        mapping = aes(x = date, y = new_cases_smoothed, color = location)
        ) +
@@ -871,7 +871,7 @@ ggplot(data = data_owid_line,
 
 まず、サンプルデータを作成します。ここでは、Our World in Dataの`data_owid`データセットに含まれるStringency Indexのステップグラフを作成します。Stringency Indexは、各国当局が実施する新型コロナウイルス感染対策の厳格度を示す指数であり、段階的に値が変化します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_step <- data_owid %>% 
   dplyr::select(location, date, stringency_index) %>% 
   dplyr::filter(location %in% c("Japan", "United Kingdom", "Germany", "France", "Italy"))
@@ -881,7 +881,7 @@ data_owid_step
 
 ### ステップグラフの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_owid_step,
        mapping = aes(x = date, y = stringency_index, color = location)
        ) +
@@ -900,7 +900,7 @@ ggplot(data = data_owid_step,
 
 まず、プロット用のデータを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_line <- data_owid %>%
   dplyr::select(location, date, new_cases_smoothed) %>% 
   dplyr::filter(location %in% c("Japan", "United Kingdom", "Germany", "France", "Italy"),
@@ -913,7 +913,7 @@ data_owid_line
 
 ### 面グラフの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = economics,
        mapping = aes(x = date, y = unemploy)
        ) +
@@ -929,7 +929,7 @@ ggplot(data = economics,
 
 複数の面グラフを積み上げ形式で作成するには、`position`引数に`position_stack()`関数を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_line %>% 
   dplyr::mutate(location = factor(location,
                                   levels = c("Japan", "United Kingdom", "Germany", "France", "Italy") %>% rev()
@@ -947,7 +947,7 @@ data_owid_line %>%
 
 リボングラフでは、`aes()`関数の中で塗りつぶし範囲の下端を`ymin`引数、上端を`ymax`引数に指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_line %>% 
   dplyr::group_by(date) %>% 
   dplyr::summarise(new_cases_max = max(new_cases_smoothed, na.rm = TRUE),
@@ -966,7 +966,7 @@ data_owid_line %>%
 
 リボングラフに折れ線グラフを追加する際は、まず`geom_ribbon()`関数でリボングラフを作成し、そのあとに`+`演算子で`geom_line()`関数をつなげて折れ線グラフを追加します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_line %>% 
   dplyr::group_by(date) %>% 
   dplyr::summarise(new_cases_max = max(new_cases_smoothed, na.rm = TRUE),
@@ -1002,7 +1002,7 @@ data_owid_line %>%
 
 しかし、`ggplot2`パッケージの`geom_boxplot()`で作成すると、ひげの下端・上端は箱の下端・上端から1.5×IQRの範囲内にある最小・最大のサンプルの位置を表すことに注意が必要です。その範囲外にあるサンプルは外れ値として扱われます。なお、IQRは四分位範囲（第3四分位数-第1四分位数）を意味します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = class, y = hwy)
        ) +
@@ -1023,7 +1023,7 @@ ggplot(data = mpg,
 
 箱ひげ図にジッターグラフで個別サンプルを追加する場合は、データの重複表示を避けるため、`geom_boxplot()`関数の`outlier.shape`引数に`NA`を指定して、箱ひげ図による外れ値のマーカーを非表示にします。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = class, y = hwy)
        ) +
@@ -1046,7 +1046,7 @@ ggplot(data = mpg,
 
 ### ヴァイオリングラフの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = class, y = hwy)
        ) +
@@ -1061,7 +1061,7 @@ ggplot(data = mpg,
 
 ### ヴァイオリングラフに個別サンプルを追加 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = class, y = hwy)
        ) +
@@ -1092,7 +1092,7 @@ ggplot(data = mpg,
 
 ### ドットプロットの基本形 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = class, y = hwy)
        ) +
@@ -1114,7 +1114,7 @@ ggplot(data = mpg,
 
 行方向に複合グラフを並べる場合は、`facet_rep_grid()`関数の`rows`引数に`vars(離散型変数)`の形でグラフを分けて作成したい変数名を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
        ) +
@@ -1129,7 +1129,7 @@ ggplot(data = mpg,
 
 列方向に複合グラフを並べる場合は、`facet_rep_grid()`関数の`cols`引数に`vars(離散型変数)`の形でグラフを分けて作成したい変数名を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
        ) +
@@ -1144,7 +1144,7 @@ ggplot(data = mpg,
 
 行・列方向に複合グラフを並べる場合は、`facet_rep_grid()`関数の`rows`引数と`cols`引数にそれぞれ`vars(離散型変数)`の形でグラフを分けて作成したい変数名を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
        ) +
@@ -1160,7 +1160,7 @@ ggplot(data = mpg,
 
 行数と列数を指定してグラフを順番に並べるには、`facet_rep_wrap()`関数の`facets`引数に「`~ 離散型変数」`の形でグラフを分けて作成したい変数名を指定し、`nrow`引数と`ncol`引数に行数・列数を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
        ) +
@@ -1177,7 +1177,7 @@ ggplot(data = mpg,
 
 ファセットの各種設定を行うには、`theme()`関数内に必要事項を記入します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 行数・列数を指定した複合グラフの例
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
@@ -1205,13 +1205,13 @@ ggplot(data = mpg,
 
 ここでは、日本の県内総生産データを使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_gdp_pref
 ```
 
 `geofacet`パッケージでは、都道府県名と地図上の位置を結びつける`jp_prefs_grid2`データが用意されています。ただし都道府県名が英語表記でしか格納されていないため、日本語表記を名寄せして追加します。
 
-```{r}
+```{r, paged.print=FALSE}
 # geofacetのjp_prefs_grid2に都道府県名の日本語表記を追加
 data_prefs <- data_gdp_pref %>% 
   dplyr::select(pref_code, pref_name) %>% 
@@ -1224,7 +1224,7 @@ jp_prefs_grid2 %<>%
 
 そのうえで、ファセット部分に`facet_geo()`関数を用いると、都道府県別のデータを日本地図を模した形でグラフ化することができます。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_gdp_pref,
        mapping = aes(x = year, y = gdp_nominal_pchg)
        ) +
@@ -1254,7 +1254,7 @@ ggplot(data = data_gdp_pref,
 
 補助線を追加する際には、グラフをプロットする関数（ここでは散布図の`geom_point()`関数）との順序に注意してください。コード上で先に記述した方がグラフ上では背面に、後に記述した方が前面に配置されます。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
        ) +
@@ -1306,7 +1306,7 @@ ggplot(data = mpg,
 
 まず、プロット用のデータを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_mpg_color <- mpg %>% 
   dplyr::group_by(class) %>% 
   dplyr::summarise(across(c(cty, hwy), mean, na.rm = TRUE))
@@ -1318,7 +1318,7 @@ data_mpg_color
 
 自分で色の割り当てを決める方法です。Rで使用できる色の種類については、[こちら](http://www.okadajp.org/RWiki/?%E8%89%B2%E8%A6%8B%E6%9C%AC)を参照してください。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = fl, color = fl, fill = fl)
        ) +
@@ -1334,12 +1334,12 @@ ggplot(data = mpg,
 
 `RColorBrewer`パッケージでは、様々な種類の美麗なプリセットカラーパレットが利用できます。
 
-```{r}
+```{r, paged.print=FALSE}
 # カラーパレットの確認
 RColorBrewer::display.brewer.all()
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = fl, color = fl, fill = fl)
        ) +
@@ -1357,7 +1357,7 @@ ggplot(data = mpg,
 
 色覚障害に対応したカラーパレットです。パレットの種類などの詳細は[こちら](https://ggplot2.tidyverse.org/reference/scale_viridis.html)を参照してください。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = fl, color = fl, fill = fl)
        ) +
@@ -1375,7 +1375,7 @@ ggplot(data = mpg,
 
 様々な科学ジャーナルで使用されるカラーパレットです。パレットの種類などの詳細は[こちら](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html)をご覧ください。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = fl, color = fl, fill = fl)
        ) +
@@ -1389,12 +1389,12 @@ ggplot(data = mpg,
 
 こちらは、`RColorBrewer`パッケージの連続型変数用の関数です。様々な種類の美麗なプリセットカラーパレットが利用できます。
 
-```{r}
+```{r, paged.print=FALSE}
 # カラーパレットの確認
 RColorBrewer::display.brewer.all()
 ```
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = hwy, fill = ..x..)
        ) +
@@ -1409,7 +1409,7 @@ ggplot(data = mpg,
 
 色覚障害に対応したカラーパレットです。パレットの種類などの詳細は[こちら](https://ggplot2.tidyverse.org/reference/scale_viridis.html)を参照してください。
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = hwy, fill = ..x..)
        ) +
@@ -1424,7 +1424,7 @@ ggplot(data = mpg,
 
 自分で色を指定してグラデーションを作成するカラーパレットです。2色グラデーション、3色グラデーション、n色グラデーションの3種類の関数があります。n色グラデーションでは、事前にベースとなるカラーパレットを`RColorBrewer::display.brewer.all()`関数などで確認して使用します。
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
 # 2色グラデーション
 ggplot(data = mpg,
        mapping = aes(x = hwy, fill = ..x..)
@@ -1436,7 +1436,7 @@ ggplot(data = mpg,
                       )
 ```
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
 # 3色グラデーション
 ggplot(data = mpg,
        mapping = aes(x = hwy, fill = ..x..)
@@ -1450,7 +1450,7 @@ ggplot(data = mpg,
                        )
 ```
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
 # パレットを指定したn色グラデーション
 ggplot(data = mpg,
        mapping = aes(x = hwy, fill = ..x..)
@@ -1468,7 +1468,7 @@ X軸、Y軸の設定を行うには、`scale_x_*()`・`scale_y_*()`関数ファ�
 
 まず、プロット用のデータを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_scale <- data_owid %>% 
   dplyr::group_by(location) %>% 
   dplyr::summarise(across(c(new_cases, new_deaths), mean, na.rm = TRUE))
@@ -1478,7 +1478,7 @@ summary(data_owid_scale)
 
 ### X軸：連続型、Y軸：連続型 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_owid_scale,
        mapping = aes(x = new_cases, y = new_deaths)
        ) +
@@ -1510,7 +1510,7 @@ ggplot(data = data_owid_scale,
 
 ### 対数目盛 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_owid_scale,
        mapping = aes(x = new_cases, y = new_deaths)
        ) +
@@ -1544,7 +1544,7 @@ ggplot(data = data_owid_scale,
 
 ### X軸：日付型、Y軸：連続型 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 # date_breaks引数を使用する場合
 ggplot(data = economics,
        mapping = aes(x = date, y = unemploy)
@@ -1576,7 +1576,7 @@ ggplot(data = economics,
         )
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # date_breaks引数を使用しない場合（結果は同じ）
 ggplot(data = economics,
        mapping = aes(x = date, y = unemploy)
@@ -1609,7 +1609,7 @@ ggplot(data = economics,
 
 ## 設定：パネル目盛線
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy, fill = class)
        ) +
@@ -1627,7 +1627,7 @@ ggplot(data = mpg,
 
 ## 設定：凡例
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy, fill = class)
        ) +
@@ -1666,7 +1666,7 @@ ggplot(data = mpg,
 
 ## 設定：タイトル・キャプション
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy, fill = class)
        ) +
@@ -1690,7 +1690,7 @@ ggplot(data = mpg,
 
 ## 設定：フォント・マージン
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy, fill = class)
        ) +
@@ -1713,7 +1713,7 @@ ggplot(data = mpg,
 
 `ggplot2`パッケージで作成した図表を画像形式で保存するには、`ggsave()`関数を使用します。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 ggsave(filename = "directory/filename.png", # 図表のファイル名
        width = 12.00, # 図表の横サイズ
        height = 8.50, # 図表の縦サイズ
@@ -1730,7 +1730,7 @@ ggsave(filename = "directory/filename.png", # 図表のファイル名
 
 まず、外部データセット`data_owid`を用い、プロット用のデータを作成します。外部データセットの取得方法については、第1章「Rの設定」を参照してください。
 
-```{r}
+```{r, paged.print=FALSE}
 # 列を選択
 data_plot <- data_owid %>%
   dplyr::select(location, date, new_cases_smoothed) 
@@ -1748,7 +1748,7 @@ data_plot %<>%
 
 `ggplot()`関数でプロットを作成します。グラフを画像として保存するには、別途`ggsave()`関数を実行してください。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_owid_line,
        mapping = aes(x = date, y = new_cases_smoothed / 1000, color = location)
        ) +
@@ -1848,7 +1848,7 @@ ggplot(data = data_owid_line,
 
 まず、外部データセット`data_gdp_jp`を用い、プロット用のデータを作成します。外部データセットの取得方法については、第1章「Rの設定」を参照してください。
 
-```{r}
+```{r, paged.print=FALSE}
 # 列を集約
 data_plot <- data_gdp_jp %>% 
   dplyr::mutate(`家計` = `民間最終消費支出` + `民間住宅`,
@@ -1890,7 +1890,7 @@ data_plot_cont %<>%
 
 `ggplot()`関数でプロットを作成します。グラフを画像として保存するには、別途`ggsave()`関数を実行してください。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot() + 
   # グラフ
   geom_col(data = data_plot_cont,
@@ -2015,7 +2015,7 @@ ggplot() +
 
 まず、外部データセット`data_owid`を用い、プロット用のデータを作成します。外部データセットの取得方法については、第1章「Rの設定」を参照してください。
 
-```{r, results='hide', warning=FALSE, message=FALSE}
+```{r, results='hide', warning=FALSE, message=FALSE, paged.print=FALSE}
 # 新規感染者数と新規死亡者数の列を選択
 data_plot <- data_owid %>% 
   dplyr::select(location, date, new_cases, new_deaths)
@@ -2039,7 +2039,7 @@ data_plot %<>%
 
 `ggplot()`関数でプロットを作成します。グラフを画像として保存するには、別途`ggsave()`関数を実行してください。
 
-```{r}
+```{r, paged.print=FALSE}
 ggplot(data = data_plot,
        mapping = aes(x = year, y = mort_rate, color = year, fill = year)
        ) +

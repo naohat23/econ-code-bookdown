@@ -10,7 +10,7 @@ RStudioでコードを編集するパネルをソース（Source）と呼びま�
 
 ### パッケージのインポート {-}
 
-```{r, results='hide', warning=FALSE, message=FALSE}
+```{r, results='hide', warning=FALSE, message=FALSE, paged.print=FALSE}
 library(magrittr)
 library(stringi)
 library(tidyverse)
@@ -43,7 +43,7 @@ RStudioでよく使用されるショートカットキーです。Macの場合�
 
 ## 基本操作
 
-```{r}
+```{r, paged.print=FALSE}
 # 代入は <- か =
 x <- 2
 x
@@ -55,7 +55,7 @@ x
 
 ### 四則計算 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 # 足し算
 1 + 1
 
@@ -81,7 +81,7 @@ x
 
 ### 数値計算 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 # 自然対数
 log(10)
 
@@ -97,7 +97,7 @@ abs(-5)
 
 ### 一致・大小関係 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 # 一致
 2 == 2
 
@@ -119,7 +119,7 @@ abs(-5)
 
 ### 包含・集合関係 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 # 包含関係
 1:5 %in% c(1, 2, 5)
 
@@ -139,7 +139,7 @@ setdiff(seq(0, 20, 2), seq(0, 20, 3))
 
 ベクトルは複数の要素を一つにまとめたデータ構造で、`c()`関数で作成します。一つのベクトルには単一のデータ型のみ格納でき、数値型や文字列型のデータを混在させることはできません。
 
-```{r}
+```{r, paged.print=FALSE}
 # 数値型ベクトルの作成
 vec_1 <- c(11, 12, 13, 14, 15)
 vec_1
@@ -156,7 +156,7 @@ c(1, 2, "A", "B")
 
 ベクトルでは、`ベクトル[要素のインデックス]`の形でインデックスを指定して各要素にアクセスすることができます。なお、Pythonなど他のプログラミング言語のインデックスは0から始まりますが、Rのインデックスは1から始まる点に注意してください。
 
-```{r}
+```{r, paged.print=FALSE}
 # ベクトルの要素へのアクセス
 vec_1[1]
 vec_1[5]
@@ -168,7 +168,7 @@ rev(vec_1)[1]
 
 規則性があるベクトルを作成するには、コロン（`:`）、`seq()`関数、`rep()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 1から10までの等差数列
 1:10
 
@@ -194,7 +194,7 @@ rep(x = c(1, 2), each = 3)
 
 [`*`演算子はベクトルの要素どうしの掛け算]{.underline}を行う点に注意してください。[ベクトルの内積を計算するには`%*%`演算子を使用]{.underline}します。
 
-```{r}
+```{r, paged.print=FALSE}
 vec_3 <- c(1, 2, 3)
 vec_4 <- c(5, 6, 7)
 
@@ -220,7 +220,7 @@ vec_3 %*% vec_4
 
 行列は`matrix()`関数を使用し、ベクトルを複数の列・行に分割する形で作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 # ベクトルを複数列に分割して行列を作成
 mat_1 <- matrix(
   data = 1:10,
@@ -230,7 +230,7 @@ mat_1 <- matrix(
 mat_1
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # ベクトルを複数行に分割して行列を作成
 mat_2 <- matrix(
   data = 1:10,
@@ -244,7 +244,7 @@ mat_2
 
 行列の要素にアクセスするには、ベクトルと同様に`行列[要素の行インデックス, 要素の列インデックス]`の形でインデックスを指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 行列の3行目・1列目の要素を取得
 mat_1[3, 1]
 
@@ -267,7 +267,7 @@ mat_1[-1:-3, ]
 
 [`*`演算子は行列の要素どうしの掛け算]{.underline}を行う点に注意してください。[行列の積を計算するには`%*%`演算子を使用]{.underline}します。
 
-```{r}
+```{r, paged.print=FALSE}
 mat_2 <- matrix(
   data = 1:4,
   ncol = 2
@@ -316,7 +316,7 @@ solve(mat_2)
 
 tibble形式のデータフレームは、`tibble()`関数を使用して`列名 = 要素`の形で作成します。データフレームではすべての列ベクトルの要素数が同じになるようにします。
 
-```{r}
+```{r, paged.print=FALSE}
 df_1 <- tibble(
   x = 1:5,
   y = 6:10,
@@ -330,14 +330,14 @@ df_1
 
 データフレームでは、`データフレーム$列名`の形でドルマークを使用して各列ベクトルにアクセスすることができます。また、`データフレーム$列名[要素インデックス]`で各列ベクトルの要素にアクセスできます。
 
-```{r}
+```{r, paged.print=FALSE}
 df_1$x
 df_1$z[3]
 ```
 
 その他に、角括弧を使用して要素にアクセスすることもできます。ここで、一重の角括弧と二重の角括弧では実行結果が異なる点に注意してください。一重角括弧では、データフレームの一部を分割したものとして、結果がtibble形式で出力されます。一方、二重角括弧では、tibble形式の中に格納されているベクトルや単一の数値といった要素そのものが出力されます。
 
-```{r}
+```{r, paged.print=FALSE}
 df_1["x"]
 df_1[1]
 df_1[2, 2]
@@ -349,7 +349,7 @@ df_1[[2, 2]]
 
 ### その他のデータフレームの機能 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 df_2 <- tibble(
   letters = LETTERS,
   numbers = 1:26
@@ -367,7 +367,7 @@ tail(df_2)
 colnames(df_2)
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # データフレームの列名（変数）と内容の一覧を出力
 str(df_2)
 ```
@@ -379,7 +379,7 @@ str(df_2)
 
 ### リストの作成 {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 list_1 <- list(
   number = 1,
   vector = c(10, 11, 12),
@@ -393,14 +393,14 @@ list_1
 
 リストでは、データフレームと同様に`リスト$要素名`の形でドルマークを使用して各要素にアクセスすることができます。
 
-```{r}
+```{r, paged.print=FALSE}
 list_1$number
 list_1$matrix
 ```
 
 また、ベクトルや行列と同様に、`リスト[[要素インデックス]]`でも各要素にアクセスすることができます。ここで、角括弧が二重である点に注意してください。
 
-```{r}
+```{r, paged.print=FALSE}
 list_1[[3]]
 ```
 
@@ -408,7 +408,7 @@ list_1[[3]]
 
 リストに新しい要素を追加するには、`append()`関数を用います。
 
-```{r}
+```{r, paged.print=FALSE}
 list_1 <- append(list_1, list(string = "add"))
 list_1
 ```
@@ -423,7 +423,7 @@ Rでは、`tidyverse`に含まれる`stringr`パッケージを使用して、�
 
 複数の文字列を連結するには`str_c()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 単語を連結
 str_c("日本", "の", "GDP", "成長率", "は", "2％")
 
@@ -441,7 +441,7 @@ str_c(c("日本", "米国", "欧州"), collapse = "")
 
 文字列から一部を切り出すには、`str_sub()`関数を使用し、切り出す箇所の開始・終了位置（文字数）を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 str_sub(string = c("日本の成長率", "米国の成長率", "欧州の成長率"), # 切り出す対象の文字列／文字列ベクトル
         start = 1, # 開始位置の文字数
         end = 2 # 終了位置の文字数
@@ -452,7 +452,7 @@ str_sub(string = c("日本の成長率", "米国の成長率", "欧州の成長�
 
 ある文字列を含んでいるかを検出するには、`str_detect()`関数を使用し、`pattern`引数に検出条件を指定します。`str_detect()`関数は検出結果に応じて`TRUE`か`FALSE`を出力します。
 
-```{r}
+```{r, paged.print=FALSE}
 str_detect(string = c("apple", "banana", "pear", "pinapple"), # 検出対象の文字列ベクトル
            pattern = "e" # 検出条件
            )
@@ -464,7 +464,7 @@ str_detect(string = c("apple", "banana", "pear", "pinapple"), # 検出対象の�
 
 ここでは、都道府県名の変数をもつデータフレームをサンプルデータとして作成し、`str_detect()`関数を用いてデータの抽出を行います。
 
-```{r}
+```{r, paged.print=FALSE}
 # サンプルデータを作成
 data_pref_names <- tibble::tibble(
   pref_index = 1:47,
@@ -472,7 +472,7 @@ data_pref_names <- tibble::tibble(
 )
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # 単一文字列を検出
 data_pref_names %>% 
   dplyr::filter(str_detect(string = pref_name, pattern = "県"))
@@ -492,7 +492,7 @@ data_pref_names %>%
 
 なお、置換先の文字列として、何もない文字列（ダブルクオーテーションの中に何も含まない文字列`""`）を指定すると、置換元の文字列を削除したことと同じ処理になります。
 
-```{r}
+```{r, paged.print=FALSE}
 # 都道府県名一覧の"県"を""で置換（削除）
 str_replace_all(string = data_pref_names$pref_name, # 置換対象の文字列
                 pattern = "県", # 置換元の文字列
@@ -515,7 +515,7 @@ str_replace_all(string = data_pref_names$pref_name, # 置換対象の文字列
 
 アルファベットの大文字・小文字の変換や、日本語文における英数字の全角・半角の変換には、`stringr`パッケージのアルファベット変換用関数や、`stringi`パッケージの`stri_trans_general()`関数を用います。
 
-```{r}
+```{r, paged.print=FALSE}
 # アルファベットの大文字・小文字を変換
 sentence_en <- "The quick brown dog"
 
@@ -534,7 +534,7 @@ str_to_sentence(sentence_en)
 
 `stri_trans_general()`関数では、下記の例の他にも様々な変換を行うことができます。詳細は[こちらのウェブサイト](https://qiita.com/swathci/items/1ca9177e0c24c8dc1355)を参照してください。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日本語文の全角・半角を変換
 sentence_jp <- "日本の第２四半期のGDP成長率は前期比＋０．５％だった"
 
@@ -550,7 +550,7 @@ stri_trans_general(sentence_jp, id = "Fullwidth-Halfwidth")
 
 パディングとは、固定長の文字列を扱う際に、文字数（桁数）が足りない部分を埋めることです。主に、ファイルやオブジェクトの名称に数字で連番をつける時に用います。パディングには`str_pad()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 数字の左側にゼロをパディングして3桁にする
 str_pad(string = 1:20, # 元の文字列（ここでは数値ベクトルを指定）
         width = 3, # 桁数
@@ -570,7 +570,7 @@ str_c("file_", str_pad(string = 1:12, width = 2, pad = "0"))
 
 そこで、`eval()`関数と`parse()`関数を組み合わせ、`eval(parse(text = 文字列によるプログラム文))`を実行すると、上記の意図せざる結果を避けることができます。
 
-```{r}
+```{r, paged.print=FALSE}
 # 通常のプログラム文：変数名がリストの要素名になってしまう
 
 list_str <- list()
@@ -583,7 +583,7 @@ list_str
 ```
 
 
-```{r}
+```{r, paged.print=FALSE}
 # 文字列のプログラム文：変数に格納されている値がリストの要素名になる
 
 list_str <- list()
@@ -608,7 +608,7 @@ list_str
 
 `if`文は、`if (条件) {処理}`の形で記述します。`else if`で追加条件、`else`で「その他すべて」の条件を意味します。
 
-```{r}
+```{r, paged.print=FALSE}
 x <- 5
 
 if (x < 2) {
@@ -624,13 +624,13 @@ if (x < 2) {
 
 `for`文は、`for (変数 in 変数に逐次代入する要素) {処理}`の形で記述します。変数はカウンタではない点に注意してください。
 
-```{r}
+```{r, paged.print=FALSE}
 for (i in 1:5) {
   print(i)
 }
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 for (letter in letters[1:6]) {
   print(letter)
 }
@@ -638,7 +638,7 @@ for (letter in letters[1:6]) {
 
 変数をカウンタとして使用したい場合は、`seq_along()`関数を`for (変数 in seq_along(変数に逐次代入する要素を格納したベクトル等))`の形で用いると、自動的に要素数に応じたインデックスを変数に代入してくれます。
 
-```{r}
+```{r, paged.print=FALSE}
 for (i in seq_along(letters[1:6])) {
   print(str_c(i, "_", letters[1:6][i]))
 }
@@ -648,7 +648,7 @@ for (i in seq_along(letters[1:6])) {
 
 `while`文は、`while (繰り返し処理を続ける条件) {処理}`の形で記述します。`while`文を使う際は、「繰り返し処理を続ける条件」が有限回数で終わるように処理内容を工夫します（そうしないと無限ループになります）。例えば、下記のように条件を「カウンタが正の値」にしておき、処理の中でカウンタが減少するように書くのが一般的です。
 
-```{r}
+```{r, paged.print=FALSE}
 count <- 3
 
 while (count > 0) {
@@ -661,7 +661,7 @@ while (count > 0) {
 
 `while`文の処理の中で`break()`関数を用い、ループを強制的に終了させることができます。
 
-```{r}
+```{r, paged.print=FALSE}
 vec_break <- c(10, 20, 30, 40, 50)
 index <- 1
 
@@ -679,7 +679,7 @@ while (TRUE) {
 
 `for`文や`while`文の中で`nest()`関数を用いると、処理をスキップして次の処理に移ります。
 
-```{r}
+```{r, paged.print=FALSE}
 for (i in 1:5) {
   # iが3のとき処理をスキップ
   if (i == 3) next()
@@ -691,7 +691,7 @@ for (i in 1:5) {
 
 エラーを起こす可能性がある処理を`try()`関数の`expr = {}`内に記述することで、エラーが発生しても処理を続けることができます。
 
-```{r}
+```{r, paged.print=FALSE}
 list_try <- list(1, 2, 3, "4", 5)
 
 for (i in seq_along(list_try)) {
@@ -714,7 +714,7 @@ Rでは、ファイル操作関数を使用してディレクトリ（フォル�
 
 ### ディレクトリ関連 {-}
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 # 作業ディレクトリの指定
 setwd(dir = "directory")
 
@@ -727,7 +727,7 @@ dir.create(path = "./directory")
 
 ### ファイル関連 {-}
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 # ディレクトリの中にあるファイル一覧を出力
 list.files(path = "directory")
 
@@ -741,7 +741,7 @@ file.copy(from = "directory/file_1.csv",
 
 ウェブからファイルをダウンロードする場合は、`download.file()`関数を使用します。プロキシ環境ではあらかじめプロキシ設定を行ってください。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 download.file(url = "https://www.sample.com/file.csv", # ダウンロード元のURL
               destfile = "directory/file.csv" # ダウンロードしたファイルを格納するファイルパス
               )
@@ -749,7 +749,7 @@ download.file(url = "https://www.sample.com/file.csv", # ダウンロード元�
 
 制御構文の`for`ループなどと組み合わせると、複数のファイルを自動でダウンロードできます。ただし、ダウンロード元のサーバーに過度な負荷をかけないよう、`Sys.sleep()`関数でスリープタイムを設定しておきましょう。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 # forループで複数のファイルを自動ダウンロードする例
 website <- "https://www.sample.com/"
 file_name <- "file"
@@ -771,7 +771,7 @@ CSVデータの読み込みには、`readr`パッケージの`read_csv()`関数�
 
 CSVが使用している文字コードにより文字化けする場合あるため、`locale`引数で適切な文字コードを指定してください。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 data <- readr::read_csv(file = "directory/file.csv", # ファイルパス／URL（拡張子が必要）
                         col_names = TRUE, # ヘッダー（列名データ）の有無／列名指定
                         col_types = NULL, # 各列の型の指定（c：文字列型、d：数値型、D：日付型、l：論理値型）
@@ -783,7 +783,7 @@ data <- readr::read_csv(file = "directory/file.csv", # ファイルパス／URL�
 
 CSVファイルにおけるデータの区切り文字はカンマ「,」ですが、中には区切り文字としてカンマ以外の文字（例えばセミコロン「;」など）が使われている場合もあります。そうした特殊なCSVファイルは`read_csv()`関数では上手く読み込めないことがあるため、その際は`read_delim()`関数を使用し、`delim`引数に区切り文字を指定します。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 data <- readr::read_delim(file = "directory/file.csv", # ファイルパス／URL（拡張子が必要）
                           delim = ";" # 区切り文字（ここでは例としてセミコロンを指定）
                           col_names = TRUE, # ヘッダー（列名データ）の有無／列名指定
@@ -798,7 +798,7 @@ data <- readr::read_delim(file = "directory/file.csv", # ファイルパス／UR
 
 `readr`パッケージの`read_excel()`関数は、Excelのxls形式、xlsx形式どちらも読み込み可能です。ただし、読み込み元として`path`引数に指定できるのはローカルネットワーク内のファイルパスだけで、ウェブのURLからの読み込みはできません。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 data <- readxl::read_excel(path = "directory/file.xls", # ファイルパス（拡張子が必要、URLは不可）
                            sheet = NULL, # シートインデックス／シート名
                            col_names = TRUE, # ヘッダー（列名データ）の有無／列名指定
@@ -811,7 +811,7 @@ data <- readxl::read_excel(path = "directory/file.xls", # ファイルパス（�
 
 `openxlsx`パッケージの`read.xlsx()`関数であれば、ローカルネットワーク内のファイルパスとウェブのURLどちらからでも読み込みが可能です。ただし、読み込めるファイル形式はxlsx形式のみで、xls形式には対応していません。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 data <- openxlsx::read.xlsx(xlsxFile = "directory/file.xlsx", # ファイルパス／URL（拡張子が必要）
                             sheet = 1, # シートインデックス／シート名
                             startRow = 5, # 読み込み開始行
@@ -824,7 +824,7 @@ data <- openxlsx::read.xlsx(xlsxFile = "directory/file.xlsx", # ファイルパ�
 
 なお、`openxlsx`パッケージの`getSheetNames()`関数を使うと、Excelファイル内のシート名の一覧を取得することができます。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 sheet_names <- openxlsx::getSheetNames(file = "directory/file.xlsx")
 ```
 
@@ -834,7 +834,7 @@ sheet_names <- openxlsx::getSheetNames(file = "directory/file.xlsx")
 
 共通の列名をもつ複数のCSVファイルを読み込んで縦方向に結合する場合は、`readr`パッケージの`read_csv()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 読み込み対象のファイル名一覧を取得
 file_names <- fs::dir_ls(path = "data_read/csv_row", # CSVファイルを格納しているフォルダのパスを入力
                          glob = "*.csv" # CSVファイル名を読み込む対象として指定（変更する必要なし）
@@ -855,7 +855,7 @@ data
 
 行が共通する複数のCSVファイルを読み込んで横方向に結合する場合は、`purrr`パッケージの`map_dfc()`関数を使用します。なお、横方向に結合するため、行数を統一しておく必要があります。
 
-```{r}
+```{r, paged.print=FALSE}
 # 読み込み対象のファイル名一覧を取得
 file_names <- fs::dir_ls(path = "data_read/csv_column", # CSVファイルを格納しているフォルダのパスを入力
                          glob = "*.csv" # CSVファイル名を読み込む対象として指定（変更する必要なし）
@@ -877,7 +877,7 @@ Excelファイルの複数のシートに格納されているデータを読み
 
 なお、`dplyr::full_join()`関数などのデータフレーム結合関数の詳細は、第3章「tidyverseによるデータ操作」を参照してください。
 
-```{r}
+```{r, paged.print=FALSE}
 # Excelファイルのシート名一覧を取得
 sheet_names <- openxlsx::getSheetNames(file = "data_read/xlsx/df.xlsx")
 
@@ -913,14 +913,14 @@ data
 
 Excelのファイルを読み込むと、Excelでは日付として表示されていたデータが、Rではシリアル値（単なる数字）に変換されてしまう場合があります。`as.Date()`関数で`origin`引数にシリアル値の開始日を設定すると、Rでも正しく日付が表示されます。
 
-```{r}
+```{r, paged.print=FALSE}
 # 1998年7月5日を表すシリアル値を日付に変換
 as.Date(35981, origin = "1899-12-30")
 ```
 
 なお、上記のコードはWindows版のExcelで作成したファイルを読み込む際に有効です。Mac版のExcelで作成したファイルは開始日の設定が異なります。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 # Mac版のExcelで1998年7月5日を表すシリアル値を日付に変換
 as.Date(34519, origin = "1904-01-01") 
 ```
@@ -931,7 +931,7 @@ as.Date(34519, origin = "1904-01-01")
 
 CSVデータを書き出す（CSVファイルとして保存する）には、`write.csv()`関数を使用します。書き出したCSVデータが文字化けしている場合は、`fileEncoding`引数に適切な文字コードを指定してください。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 write.csv(..., # 書き出すオブジェクト名（クオーテーションは不要）
           file = "directory/file.csv", # 書き出し先のファイルパス（拡張子が必要）
           row.names = FALSE, # 行番号を付与するか
@@ -945,7 +945,7 @@ write.csv(..., # 書き出すオブジェクト名（クオーテーションは
 
 RのオブジェクトをRData形式で保存します。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 save(..., # セーブするオブジェクト名（クオーテーションは不要）
      file = "directory/file.RData" # セーブ先のファイルパス（拡張子が必要）
      )
@@ -955,7 +955,7 @@ save(..., # セーブするオブジェクト名（クオーテーションは�
 
 保存したRData形式のオブジェクトを読み込みます。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 load(file = "directory/file.RData") # ロード元ファイルパス（拡張子が必要）
 ```
 

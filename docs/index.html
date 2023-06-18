@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-04-09" />
+<meta name="date" content="2023-06-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,6 +49,8 @@
 
 
 
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -132,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://naohat23.github.io/econ-code-bookdown">エコノミストのためのR</a></li>
+<li><a href="https://econ-code.verse.jp/index.html">エコノミストのためのR</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>はじめに</a>
@@ -149,6 +151,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i>変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-メジャーアップデート"><i class="fa fa-check"></i>2023年6月18日 メジャーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-マイナーアップデート"><i class="fa fa-check"></i>2023年6月18日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年4月6日-マイナーアップデート"><i class="fa fa-check"></i>2023年4月6日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年3月18日-マイナーアップデート"><i class="fa fa-check"></i>2023年3月18日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年2月6日-マイナーアップデート"><i class="fa fa-check"></i>2023年2月6日 マイナーアップデート</a></li>
@@ -170,11 +174,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#警告の非表示"><i class="fa fa-check"></i>警告の非表示</a></li>
 <li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#関数が出力する警告やメッセージの非表示"><i class="fa fa-check"></i>関数が出力する警告やメッセージの非表示</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="rの設定.html"><a href="rの設定.html#プロキシサーバーの設定"><i class="fa fa-check"></i><b>1.2</b> プロキシサーバーの設定</a></li>
+<li class="chapter" data-level="1.2" data-path="rの設定.html"><a href="rの設定.html#通信関連の設定"><i class="fa fa-check"></i><b>1.2</b> 通信関連の設定</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="rの設定.html"><a href="rの設定.html#プロキシ設定"><i class="fa fa-check"></i><b>1.2.1</b> プロキシ設定</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#ssl設定"><i class="fa fa-check"></i>SSL設定</a></li>
+</ul></li>
 <li class="chapter" data-level="1.3" data-path="rの設定.html"><a href="rの設定.html#パッケージ"><i class="fa fa-check"></i><b>1.3</b> パッケージ</a>
 <ul>
 <li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#使用するパッケージ一覧"><i class="fa fa-check"></i>使用するパッケージ一覧</a></li>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#パッケージのインストールとインポート"><i class="fa fa-check"></i>パッケージのインストールとインポート</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#インストールとインポート"><i class="fa fa-check"></i>インストールとインポート</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#インストール時のエラー"><i class="fa fa-check"></i>インストール時のエラー</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="rの設定.html"><a href="rの設定.html#グラフの設定"><i class="fa fa-check"></i><b>1.4</b> グラフの設定</a>
 <ul>
@@ -580,16 +589,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="線形回帰.html"><a href="線形回帰.html#rの単回帰モデル推定"><i class="fa fa-check"></i><b>6.6</b> Rの単回帰モデル推定</a>
 <ul>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例-西山-4.1-線形単回帰"><i class="fa fa-check"></i>実証例 西山 4.1 線形単回帰</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例-西山-4.1-回帰診断プロット"><i class="fa fa-check"></i>実証例 西山 4.1 回帰診断プロット</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#対数変化率モデルの推定"><i class="fa fa-check"></i>対数・変化率モデルの推定</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例線形単回帰"><i class="fa fa-check"></i>実例：線形単回帰</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例回帰診断プロット"><i class="fa fa-check"></i>実例：回帰診断プロット</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例対数変化率モデルの推定"><i class="fa fa-check"></i>実例：対数・変化率モデルの推定</a></li>
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="線形回帰.html"><a href="線形回帰.html#rの重回帰モデル推定"><i class="fa fa-check"></i><b>6.7</b> Rの重回帰モデル推定</a>
 <ul>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例-西山-5.15.4-線形重回帰"><i class="fa fa-check"></i>実証例 西山 5.1・5.4 線形重回帰</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例-西山-5.5-多項式モデル"><i class="fa fa-check"></i>実証例 西山 5.5 多項式モデル</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例-西山-5.6-ダミー交互作用モデル"><i class="fa fa-check"></i>実証例 西山 5.6 ダミー・交互作用モデル</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例-西山-5.7-ダミー変数同士の交互作用モデル"><i class="fa fa-check"></i>実証例 西山 5.7 ダミー変数同士の交互作用モデル</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例線形重回帰"><i class="fa fa-check"></i>実例：線形重回帰</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例多項式モデル"><i class="fa fa-check"></i>実例：多項式モデル</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例ダミー交互作用モデル"><i class="fa fa-check"></i>実例：ダミー・交互作用モデル</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例ダミー変数同士の交互作用モデル"><i class="fa fa-check"></i>実例：ダミー変数同士の交互作用モデル</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="時系列データ操作.html"><a href="時系列データ操作.html"><i class="fa fa-check"></i><b>7</b> 時系列データ操作</a>
@@ -615,11 +624,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型データ関数"><i class="fa fa-check"></i><b>7.5</b> 日付型データ関数</a>
 <ul>
 <li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型データの生成"><i class="fa fa-check"></i>日付型データの生成</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型データの計算"><i class="fa fa-check"></i>日付型データの計算</a></li>
 <li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型と文字列型の変換"><i class="fa fa-check"></i>日付型と文字列型の変換</a></li>
 <li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付情報の抽出"><i class="fa fa-check"></i>日付情報の抽出</a></li>
 <li class="chapter" data-level="7.5.1" data-path="時系列データ操作.html"><a href="時系列データ操作.html#四半期ベースの時系列インデックス"><i class="fa fa-check"></i><b>7.5.1</b> 四半期ベースの時系列インデックス</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="時系列データ操作.html"><a href="時系列データ操作.html#時系列データ作成"><i class="fa fa-check"></i><b>7.6</b> 時系列データ作成</a>
+<li class="chapter" data-level="7.6" data-path="時系列データ操作.html"><a href="時系列データ操作.html#様々な時系列データ系列の作成"><i class="fa fa-check"></i><b>7.6</b> 様々な時系列データ系列の作成</a>
 <ul>
 <li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ラグリード系列の作成"><i class="fa fa-check"></i>ラグ・リード系列の作成</a></li>
 <li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#変化率系列の作成"><i class="fa fa-check"></i>変化率系列の作成</a></li>
@@ -657,6 +667,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#構造変化点が未知の場合"><i class="fa fa-check"></i>構造変化点が未知の場合</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="時系列分析.html"><a href="時系列分析.html"><i class="fa fa-check"></i><b>8</b> 時系列分析</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="時系列分析.html"><a href="時系列分析.html#第8章の準備"><i class="fa fa-check"></i><b>8.1</b> 第8章の準備</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#パッケージのインポート-6"><i class="fa fa-check"></i>パッケージのインポート</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#外部データセットの取得-4"><i class="fa fa-check"></i>外部データセットの取得</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="時系列分析.html"><a href="時系列分析.html#定常性"><i class="fa fa-check"></i><b>8.2</b> 定常性</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#定常性の定義"><i class="fa fa-check"></i>定常性の定義</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ホワイトノイズ"><i class="fa fa-check"></i>ホワイトノイズ</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="時系列分析.html"><a href="時系列分析.html#非定常過程"><i class="fa fa-check"></i><b>8.3</b> 非定常過程</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#単位根"><i class="fa fa-check"></i>単位根</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#階差定常過程和分過程"><i class="fa fa-check"></i>階差定常過程・和分過程</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ランダムウォーク"><i class="fa fa-check"></i>ランダムウォーク</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#トレンド定常過程"><i class="fa fa-check"></i>トレンド定常過程</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="時系列分析.html"><a href="時系列分析.html#単位根検定adf検定"><i class="fa fa-check"></i><b>8.4</b> 単位根検定（ADF検定）</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#adf検定フロー自作関数"><i class="fa fa-check"></i>ADF検定フロー自作関数</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例adf検定フロー"><i class="fa fa-check"></i>実例：ADF検定フロー</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="時系列分析.html"><a href="時系列分析.html#系列相関"><i class="fa fa-check"></i><b>8.5</b> 系列相関</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#自己相関acf"><i class="fa fa-check"></i>自己相関（ACF）</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#偏自己相関pacf"><i class="fa fa-check"></i>偏自己相関（PACF）</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#リュンボックス検定"><i class="fa fa-check"></i>リュン＝ボックス検定</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="時系列分析.html"><a href="時系列分析.html#ボックスジェンキンス法"><i class="fa fa-check"></i><b>8.6</b> ボックス＝ジェンキンス法</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#armaモデル"><i class="fa fa-check"></i>ARMAモデル</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#arimaモデル"><i class="fa fa-check"></i>ARIMAモデル</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ボックスジェンキンス法の分析フロー"><i class="fa fa-check"></i>ボックス＝ジェンキンス法の分析フロー</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例ボックスジェンキンス法"><i class="fa fa-check"></i>実例：ボックス＝ジェンキンス法</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="時系列分析.html"><a href="時系列分析.html#共和分"><i class="fa fa-check"></i><b>8.7</b> 共和分</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#見せかけの回帰"><i class="fa fa-check"></i>見せかけの回帰</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#共和分関係"><i class="fa fa-check"></i>共和分関係</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#エングルグレンジャー検定"><i class="fa fa-check"></i>エングル＝グレンジャー検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例見せかけの回帰"><i class="fa fa-check"></i>実例：見せかけの回帰</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例共和分"><i class="fa fa-check"></i>実例：共和分</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ヨハンセン検定"><i class="fa fa-check"></i>ヨハンセン検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ヨハンセン検定フロー自作関数"><i class="fa fa-check"></i>ヨハンセン検定フロー自作関数</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例ヨハンセン検定"><i class="fa fa-check"></i>実例：ヨハンセン検定</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="時系列分析.html"><a href="時系列分析.html#varモデル"><i class="fa fa-check"></i><b>8.8</b> VARモデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#レベルvarモデル"><i class="fa fa-check"></i>レベルVARモデル</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#階差varモデル"><i class="fa fa-check"></i>階差VARモデル</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#vecモデル"><i class="fa fa-check"></i>VECモデル</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#構造varモデル"><i class="fa fa-check"></i>構造VARモデル</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#構造vecモデル"><i class="fa fa-check"></i>構造VECモデル</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="時系列分析.html"><a href="時系列分析.html#varモデルに関連する分析"><i class="fa fa-check"></i><b>8.9</b> VARモデルに関連する分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#グレンジャー因果性"><i class="fa fa-check"></i>グレンジャー因果性</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#インパルス応答"><i class="fa fa-check"></i>インパルス応答</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#予測誤差の分散分解"><i class="fa fa-check"></i>予測誤差の分散分解</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="時系列分析.html"><a href="時系列分析.html#varモデルの分析フロー"><i class="fa fa-check"></i><b>8.10</b> VARモデルの分析フロー</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#探索的データ分析-2"><i class="fa fa-check"></i>1. 探索的データ分析</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#変数選択"><i class="fa fa-check"></i>2. 変数選択</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ラグ次数の選択"><i class="fa fa-check"></i>3. ラグ次数の選択</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#単位根検定-1"><i class="fa fa-check"></i>4. 単位根検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#共和分検定"><i class="fa fa-check"></i>5. 共和分検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#データ分割-1"><i class="fa fa-check"></i>6. データ分割</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#誘導varvecモデルの推定"><i class="fa fa-check"></i>7. 誘導VAR・VECモデルの推定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#構造varvecモデルの識別"><i class="fa fa-check"></i>8. 構造VAR・VECモデルの識別</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#誤差項の検定"><i class="fa fa-check"></i>9. 誤差項の検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#モデル推定後の分析"><i class="fa fa-check"></i>10. モデル推定後の分析</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#予測"><i class="fa fa-check"></i>11. 予測</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="時系列分析.html"><a href="時系列分析.html#varモデルの実例"><i class="fa fa-check"></i><b>8.11</b> VARモデルの実例</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例探索的データ分析"><i class="fa fa-check"></i>実例：探索的データ分析</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例変数選択グレンジャー因果性検定"><i class="fa fa-check"></i>実例：変数選択（グレンジャー因果性検定）</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例ラグ次数選択"><i class="fa fa-check"></i>実例：ラグ次数選択</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例adf検定"><i class="fa fa-check"></i>実例：ADF検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例ヨハンセン検定-1"><i class="fa fa-check"></i>実例：ヨハンセン検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例varモデルの推定"><i class="fa fa-check"></i>実例：VARモデルの推定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例vecモデルの推定"><i class="fa fa-check"></i>実例：VECモデルの推定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例構造varモデルの推定"><i class="fa fa-check"></i>実例：構造VARモデルの推定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例構造vecモデルの推定"><i class="fa fa-check"></i>実例：構造VECモデルの推定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例誤差項の検定"><i class="fa fa-check"></i>実例：誤差項の検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例インパルス応答"><i class="fa fa-check"></i>実例：インパルス応答</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例予測誤差の分散分解"><i class="fa fa-check"></i>実例：予測誤差の分散分解</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例グレンジャー因果性検定"><i class="fa fa-check"></i>実例：グレンジャー因果性検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例予測"><i class="fa fa-check"></i>実例：予測</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
 
@@ -680,7 +784,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">エコノミストのためのR</h1>
 <p class="author"><em>服部直樹</em></p>
-<p class="date"><em>2023-04-09</em></p>
+<p class="date"><em>2023-06-18</em></p>
 </div>
 <div id="はじめに" class="section level1 unnumbered hasAnchor">
 <h1>はじめに<a href="index.html#はじめに" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -766,7 +870,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><a href="https://www.econometrics-with-r.org/index.html">Hanck, C., Arnold, M., Gerber, A., and Schmelzer, M., (2021) “Introduction to Econometrics with R”</a></p></li>
 <li><p><a href="https://www.nippyo.co.jp/shop/book/8321.html">仲嶋亮（2020）「「誘導型推定」v.s.「構造型推定」」 経済セミナー編集部 編『新版 進化する経済学の実証分析』日本評論社</a></p></li>
 <li><p><a href="http://www.yuhikaku.co.jp/books/detail/9784641053854">西山慶彦、新谷元嗣、川口大司、奥井亮（2019）『計量経済学』有斐閣</a></p>
-<p>西山 他 (2019) の実証例のRコードは、<a href="https://ritsu1997.github.io/r-for-nlas-econometrics/">北川梨津 (2020) 「西山 他『計量経済学』のためのR」</a>が提供しています。</p></li>
+<p>西山 他（2019）の実証例のRコードは、<a href="https://ritsu1997.github.io/r-for-nlas-econometrics/">北川梨津（2020）「西山 他『計量経済学』のためのR」</a>が提供しています。</p></li>
 <li><p><a href="https://www.nippyo.co.jp/shop/magazine/8801.html">マクリン謙一郎（2022）「再現性問題における統計学の役割と責任」日本評論社『経済セミナー』2022年6・7月号　通巻 726号</a></p></li>
 </ul>
 </div>
@@ -812,14 +916,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="変更履歴" class="section level2 unnumbered hasAnchor">
 <h2>変更履歴<a href="index.html#変更履歴" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="年6月18日-メジャーアップデート" class="section level3 unnumbered hasAnchor">
+<h3>2023年6月18日 メジャーアップデート<a href="index.html#年6月18日-メジャーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>第8章「時系列分析」を追加。</li>
+</ul>
+</div>
+<div id="年6月18日-マイナーアップデート" class="section level3 unnumbered hasAnchor">
+<h3>2023年6月18日 マイナーアップデート<a href="index.html#年6月18日-マイナーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>第1章「Rの設定」の「プロキシサーバーの設定」を「通信関連の設定」に変更し、「SSL設定」を追加。</li>
+<li>第1章「Rの設定」の「パッケージ」に、<code>fpp</code>パッケージを追加。「パッケージ」に「インストール時のエラー」の項目を追加。</li>
+<li>第1章「Rの設定」の「サンプルデータセット」に、<code>fpp</code>パッケージの<code>usconsumption</code>データセットを追加。</li>
+<li>第2章「Rの基本的な使用方法」の「データの書き出し」に、<code>write.csv()</code>関数で出力したCSVファイルが文字化けする際の対処方法に関する記述を追加。</li>
+<li>第7章「時系列データ操作」の「日付型データ関数」に、「日付型データの計算」の項目を追加。</li>
+</ul>
+</div>
 <div id="年4月6日-マイナーアップデート" class="section level3 unnumbered hasAnchor">
 <h3>2023年4月6日 マイナーアップデート<a href="index.html#年4月6日-マイナーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>参考文献にエンダース（2019）と、村尾（2019）のサポートページを追加。</li>
-<li>第1章「Rの設定」の「プロキシサーバーの設定」に<code>Sys.getenv()</code>関数を追加。「パッケージ」にstringiを追加。</li>
-<li>第2章「Rの基本的な使用方法」の「リスト」にリスト要素の追加に関する記述を追加。「文字列操作」に文字列の変換と文字列によるプログラム実行に関する記述を追加。「データの読み込み」と「データの書き出し」を分割し、「データの読み込み」に複数データの読み込みとExcelの日付値の修正に関する記述を追加。</li>
-<li>第4章「ggplot2によるグラフ作成」の「凡例」に<code>labs()</code>関数を追加。「グラフの保存」の<code>height</code>を9.00から8.50に修正。</li>
-<li>各章において参考文献の「西山 他（2019）」を誤って記載していた箇所を修正。</li>
+<li>第1章「Rの設定」の「プロキシサーバーの設定」に、<code>Sys.getenv()</code>関数を追加。「パッケージ」に、<code>stringi</code>パッケージを追加。</li>
+<li>第2章「Rの基本的な使用方法」の「リスト」に、リスト要素の追加に関する記述を追加。「文字列操作」に、文字列の変換と文字列によるプログラム実行に関する記述を追加。「データの読み込み」と「データの書き出し」を分割し、「データの読み込み」に、複数データの読み込みとExcelの日付値の修正に関する記述を追加。</li>
+<li>第4章「ggplot2によるグラフ作成」の「凡例」に、<code>labs()</code>関数を追加。「グラフの保存」の<code>height</code>を9.00から8.50に修正。</li>
+<li>各章で、参考文献の「西山 他（2019）」を誤って記載していた箇所を修正。</li>
 </ul>
 </div>
 <div id="年3月18日-マイナーアップデート" class="section level3 unnumbered hasAnchor">
@@ -827,43 +947,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>参考文献の分類方法を「Rプログラミング」、「統計学・計量経済学」、「時系列データ分析」の3つに再編。</li>
 <li>参考文献に、北岡 他（2013）、熊本（2022）、仲嶋（2020）、馬場（2018）、松村 他（2022）、宮尾（2006）を追加。</li>
-<li>第1章「Rの設定」の「パッケージ」にggfortify、forecast、tseriesを追加。</li>
+<li>第1章「Rの設定」の「パッケージ」に、<code>ggfortify</code>、<code>forecast</code>、<code>tseries</code>パッケージを追加。</li>
 <li>第1章「Rの設定」の「サンプルデータセット」に、Seatbeltsを追加し、その他のサンプルデータセットの説明内容を一部修正。</li>
-<li>第2章「Rの基本的な使用方法」の「主要ショートカットキー」にMacのキーを追加。</li>
-<li>第2章「Rの基本的な使用方法」の「データの読み込み・書き出し」に<code>readr::read_delim()</code>関数を追加。</li>
+<li>第2章「Rの基本的な使用方法」の「主要ショートカットキー」に、Macのキーを追加。</li>
+<li>第2章「Rの基本的な使用方法」の「データの読み込み・書き出し」に、<code>readr::read_delim()</code>関数を追加。</li>
 </ul>
 </div>
 <div id="年2月6日-マイナーアップデート" class="section level3 unnumbered hasAnchor">
 <h3>2023年2月6日 マイナーアップデート<a href="index.html#年2月6日-マイナーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>参考文献にNielsen, A. (2021) 『実践 時系列解析』を追加。</li>
-<li>第1章「Rの設定」の「パッケージ」にlmtest、sandwich、vars、urcaを追加し、seasonalviewを削除。</li>
-<li>第1章「Rの設定」の「グラフのフォント設定」にMacの設定を追加。また、Windowsの設定に<code>theme_set(theme_light(base_family = "YUGO"))</code>を追加。以降のすべての章のコードチャンクでWindowsの設定をコメントアウト。</li>
-<li>第4章「ggplot2によるグラフ作成」で<code>family = "YUGO"</code>を削除。</li>
-<li>第6章「線形回帰」で線形回帰モデルの推定に使用する関数を<code>estimatr::lm_robust()</code>関数から<code>stats::lm()</code>関数と<code>lmtest::coeftest()</code>関数の組み合わせに変更。</li>
-<li>第7章「時系列データ操作」の「トレンド」にHPフィルタの結果をプロットするコードを追加。</li>
+<li>第1章「Rの設定」の「パッケージ」に、<code>lmtest</code>、<code>sandwich</code>、<code>vars</code>、<code>urca</code>パッケージを追加し、<code>seasonalview</code>パッケージを削除。</li>
+<li>第1章「Rの設定」の「グラフのフォント設定」に、Macの設定を追加。また、Windowsの設定に、<code>theme_set(theme_light(base_family = "YUGO"))</code>を追加。以降のすべての章のコードチャンクでWindowsの設定をコメントアウト。</li>
+<li>第4章「ggplot2によるグラフ作成」で、<code>family = "YUGO"</code>を削除。</li>
+<li>第6章「線形回帰」で、線形回帰モデルの推定に使用する関数を<code>estimatr::lm_robust()</code>関数から<code>stats::lm()</code>関数と<code>lmtest::coeftest()</code>関数の組み合わせに変更。</li>
+<li>第7章「時系列データ操作」の「トレンド」に、HPフィルタの結果をプロットするコードを追加。</li>
 </ul>
 </div>
 <div id="年10月22日-マイナーアップデート" class="section level3 unnumbered hasAnchor">
 <h3>2022年10月22日 マイナーアップデート<a href="index.html#年10月22日-マイナーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>複数行にわたる関数のコーディングスタイルを変更。</li>
-<li>第2章「Rの基本的な使用方法」の「制御構文」に、nextによる処理のスキップを追加。</li>
+<li>第2章「Rの基本的な使用方法」の「制御構文」に、<code>next</code>による処理のスキップを追加。</li>
 <li>第3章「tidyverseによるデータ操作」の「列の作成・修正」に、文字列型の列を因子型に変換するコードを追加。「集計」から「カウント」を独立させ、要素の種類の数をカウントするコードを追加。「重複処理」に、重複削除のパターンを追加。</li>
 <li>第5章「探索的データ分析」の「データの中身（記述統計量）」に、文字列型の変数を因子型に変換して要素数を出力するコードを追加。</li>
 <li>第6章「線形回帰」の「最小2乗法（OLS）」で、最小2乗法の仮定にとp値に関する記述を修正。「Rの単回帰モデル推定」に、実証例4.1の回帰診断プロット作成方法を追加。</li>
-<li>第6章「線形回帰」の「Rの重回帰モデル推定」で西村 実証例5.7の説明を追加。</li>
-<li>第7章「時系列データ操作」に「時系列データとは」を追加。</li>
-<li>第7章「時系列データ操作」の「日付型データ関数」に四半期ベースの時系列インデックスに関する記述を追加。</li>
+<li>第6章「線形回帰」の「Rの重回帰モデル推定」で、西村 実証例5.7の説明を追加。</li>
+<li>第7章「時系列データ操作」に、「時系列データとは」を項目を追加。</li>
+<li>第7章「時系列データ操作」の「日付型データ関数」に、四半期ベースの時系列インデックスに関する記述を追加。</li>
 </ul>
 </div>
 <div id="年9月7日-マイナーアップデート" class="section level3 unnumbered hasAnchor">
 <h3>2022年9月7日 マイナーアップデート<a href="index.html#年9月7日-マイナーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>章立てを変更。「時系列データ操作」を「tidyverseによるデータ操作」の後から「線形回帰」の後に移動させ、第1章「Rの設定」、第2章「Rの基本的な使用方法」、第3章「tidyverseによるデータ操作」、第4章「ggplot2によるグラフ作成」、第5章「探索的データ分析」、第6章「線形回帰」、第7章「時系列データ操作」とした。</li>
-<li>第1章「Rの設定」の「パッケージ」にtsibble、strucchange、nycflights13の各パッケージを追加。</li>
+<li>第1章「Rの設定」の「パッケージ」に、<code>tsibble</code>、<code>strucchange</code>、<code>nycflights13</code>の各パッケージを追加。</li>
 <li>第6章「線形回帰」の「Rの単回帰モデル推定」に、<code>estimatr::lm_robust()</code>関数で標準誤差の種類を指定する方法として<code>HC3</code>に関する記述、<code>lm()</code>関数と<code>estimatr::lm_robust()</code>関数の違いに関する記述を追加。</li>
-<li>第7章「時系列データ操作」に、「ts形式データ」、「ts形式データの変換」、「時系列関数」、「構造変化」を追加。</li>
+<li>第7章「時系列データ操作」に、「ts形式データ」、「ts形式データの変換」、「時系列関数」、「構造変化」の項目を追加。</li>
 <li>第7章「時系列データ操作」の「トレンド推定」に、線形トレンドと区分線形トレンドに関する記述を追加。</li>
 </ul>
 </div>
@@ -872,7 +992,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>第1章「Rの設定」の「サンプルデータセット」に、日本の四半期別GDPを追加。</li>
 <li>第2章「Rの基本的な使用方法」の「データフレーム」に、<code>str()</code>関数を追加。</li>
-<li>第3章「tidyverseによるデータ操作」に、「行のスライスとサンプリング」を追加。加えて、サンプリングに使用する関数を<code>dplyr::sample_*()</code>関数ファミリーから<code>dplyr::slice_sample()</code>関数に変更。</li>
+<li>第3章「tidyverseによるデータ操作」に、「行のスライスとサンプリング」の項目を追加。加えて、サンプリングに使用する関数を<code>dplyr::sample_*()</code>関数ファミリーから<code>dplyr::slice_sample()</code>関数に変更。</li>
 <li>第3章「tidyverseによるデータ操作」の「行のフィルタ」に、複数列の一括条件指定を追加。</li>
 <li>第3章「tidyverseによるデータ操作」の「集計」に、要素数のカウントを追加。</li>
 <li>第5章「ggplot2によるグラフ作成」で、「補助線」、「設定：パネル目盛線」、「設定：凡例」、「設定：タイトル・キャプション」、「設定：フォント・マージン」をセクションとして独立。</li>
@@ -883,7 +1003,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>2022年7月9日 マイナーアップデート<a href="index.html#年7月9日-マイナーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>第1章「Rの設定」の「R起動時に実行する設定」に、<code>.Rprofile</code>ファイルに関する記述を追加。</li>
-<li>第2章「Rの基本的な使用方法」に、「第2章の準備」、「文字列操作」、「ファイル操作」を追加。</li>
+<li>第2章「Rの基本的な使用方法」に、「第2章の準備」、「文字列操作」、「ファイル操作」の項目を追加。</li>
 <li>第7章「線形回帰」の「最小2乗法（OLS）」に、HAC標準誤差に関する記述を追加。</li>
 <li>「変更履歴」を追加。</li>
 </ul>

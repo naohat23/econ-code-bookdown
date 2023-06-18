@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-04-09" />
+<meta name="date" content="2023-06-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,6 +49,8 @@
 
 
 
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -132,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://naohat23.github.io/econ-code-bookdown">エコノミストのためのR</a></li>
+<li><a href="https://econ-code.verse.jp/index.html">エコノミストのためのR</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>はじめに</a>
@@ -149,6 +151,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i>変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-メジャーアップデート"><i class="fa fa-check"></i>2023年6月18日 メジャーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-マイナーアップデート"><i class="fa fa-check"></i>2023年6月18日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年4月6日-マイナーアップデート"><i class="fa fa-check"></i>2023年4月6日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年3月18日-マイナーアップデート"><i class="fa fa-check"></i>2023年3月18日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年2月6日-マイナーアップデート"><i class="fa fa-check"></i>2023年2月6日 マイナーアップデート</a></li>
@@ -170,11 +174,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#警告の非表示"><i class="fa fa-check"></i>警告の非表示</a></li>
 <li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#関数が出力する警告やメッセージの非表示"><i class="fa fa-check"></i>関数が出力する警告やメッセージの非表示</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="rの設定.html"><a href="rの設定.html#プロキシサーバーの設定"><i class="fa fa-check"></i><b>1.2</b> プロキシサーバーの設定</a></li>
+<li class="chapter" data-level="1.2" data-path="rの設定.html"><a href="rの設定.html#通信関連の設定"><i class="fa fa-check"></i><b>1.2</b> 通信関連の設定</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="rの設定.html"><a href="rの設定.html#プロキシ設定"><i class="fa fa-check"></i><b>1.2.1</b> プロキシ設定</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#ssl設定"><i class="fa fa-check"></i>SSL設定</a></li>
+</ul></li>
 <li class="chapter" data-level="1.3" data-path="rの設定.html"><a href="rの設定.html#パッケージ"><i class="fa fa-check"></i><b>1.3</b> パッケージ</a>
 <ul>
 <li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#使用するパッケージ一覧"><i class="fa fa-check"></i>使用するパッケージ一覧</a></li>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#パッケージのインストールとインポート"><i class="fa fa-check"></i>パッケージのインストールとインポート</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#インストールとインポート"><i class="fa fa-check"></i>インストールとインポート</a></li>
+<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#インストール時のエラー"><i class="fa fa-check"></i>インストール時のエラー</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="rの設定.html"><a href="rの設定.html#グラフの設定"><i class="fa fa-check"></i><b>1.4</b> グラフの設定</a>
 <ul>
@@ -580,16 +589,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="線形回帰.html"><a href="線形回帰.html#rの単回帰モデル推定"><i class="fa fa-check"></i><b>6.6</b> Rの単回帰モデル推定</a>
 <ul>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例-西山-4.1-線形単回帰"><i class="fa fa-check"></i>実証例 西山 4.1 線形単回帰</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例-西山-4.1-回帰診断プロット"><i class="fa fa-check"></i>実証例 西山 4.1 回帰診断プロット</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#対数変化率モデルの推定"><i class="fa fa-check"></i>対数・変化率モデルの推定</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例線形単回帰"><i class="fa fa-check"></i>実例：線形単回帰</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例回帰診断プロット"><i class="fa fa-check"></i>実例：回帰診断プロット</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例対数変化率モデルの推定"><i class="fa fa-check"></i>実例：対数・変化率モデルの推定</a></li>
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="線形回帰.html"><a href="線形回帰.html#rの重回帰モデル推定"><i class="fa fa-check"></i><b>6.7</b> Rの重回帰モデル推定</a>
 <ul>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例-西山-5.15.4-線形重回帰"><i class="fa fa-check"></i>実証例 西山 5.1・5.4 線形重回帰</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例-西山-5.5-多項式モデル"><i class="fa fa-check"></i>実証例 西山 5.5 多項式モデル</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例-西山-5.6-ダミー交互作用モデル"><i class="fa fa-check"></i>実証例 西山 5.6 ダミー・交互作用モデル</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実証例-西山-5.7-ダミー変数同士の交互作用モデル"><i class="fa fa-check"></i>実証例 西山 5.7 ダミー変数同士の交互作用モデル</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例線形重回帰"><i class="fa fa-check"></i>実例：線形重回帰</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例多項式モデル"><i class="fa fa-check"></i>実例：多項式モデル</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例ダミー交互作用モデル"><i class="fa fa-check"></i>実例：ダミー・交互作用モデル</a></li>
+<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例ダミー変数同士の交互作用モデル"><i class="fa fa-check"></i>実例：ダミー変数同士の交互作用モデル</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="時系列データ操作.html"><a href="時系列データ操作.html"><i class="fa fa-check"></i><b>7</b> 時系列データ操作</a>
@@ -615,11 +624,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型データ関数"><i class="fa fa-check"></i><b>7.5</b> 日付型データ関数</a>
 <ul>
 <li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型データの生成"><i class="fa fa-check"></i>日付型データの生成</a></li>
+<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型データの計算"><i class="fa fa-check"></i>日付型データの計算</a></li>
 <li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型と文字列型の変換"><i class="fa fa-check"></i>日付型と文字列型の変換</a></li>
 <li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付情報の抽出"><i class="fa fa-check"></i>日付情報の抽出</a></li>
 <li class="chapter" data-level="7.5.1" data-path="時系列データ操作.html"><a href="時系列データ操作.html#四半期ベースの時系列インデックス"><i class="fa fa-check"></i><b>7.5.1</b> 四半期ベースの時系列インデックス</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="時系列データ操作.html"><a href="時系列データ操作.html#時系列データ作成"><i class="fa fa-check"></i><b>7.6</b> 時系列データ作成</a>
+<li class="chapter" data-level="7.6" data-path="時系列データ操作.html"><a href="時系列データ操作.html#様々な時系列データ系列の作成"><i class="fa fa-check"></i><b>7.6</b> 様々な時系列データ系列の作成</a>
 <ul>
 <li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ラグリード系列の作成"><i class="fa fa-check"></i>ラグ・リード系列の作成</a></li>
 <li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#変化率系列の作成"><i class="fa fa-check"></i>変化率系列の作成</a></li>
@@ -657,6 +667,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#構造変化点が未知の場合"><i class="fa fa-check"></i>構造変化点が未知の場合</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="時系列分析.html"><a href="時系列分析.html"><i class="fa fa-check"></i><b>8</b> 時系列分析</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="時系列分析.html"><a href="時系列分析.html#第8章の準備"><i class="fa fa-check"></i><b>8.1</b> 第8章の準備</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#パッケージのインポート-6"><i class="fa fa-check"></i>パッケージのインポート</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#外部データセットの取得-4"><i class="fa fa-check"></i>外部データセットの取得</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="時系列分析.html"><a href="時系列分析.html#定常性"><i class="fa fa-check"></i><b>8.2</b> 定常性</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#定常性の定義"><i class="fa fa-check"></i>定常性の定義</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ホワイトノイズ"><i class="fa fa-check"></i>ホワイトノイズ</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="時系列分析.html"><a href="時系列分析.html#非定常過程"><i class="fa fa-check"></i><b>8.3</b> 非定常過程</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#単位根"><i class="fa fa-check"></i>単位根</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#階差定常過程和分過程"><i class="fa fa-check"></i>階差定常過程・和分過程</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ランダムウォーク"><i class="fa fa-check"></i>ランダムウォーク</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#トレンド定常過程"><i class="fa fa-check"></i>トレンド定常過程</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="時系列分析.html"><a href="時系列分析.html#単位根検定adf検定"><i class="fa fa-check"></i><b>8.4</b> 単位根検定（ADF検定）</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#adf検定フロー自作関数"><i class="fa fa-check"></i>ADF検定フロー自作関数</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例adf検定フロー"><i class="fa fa-check"></i>実例：ADF検定フロー</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="時系列分析.html"><a href="時系列分析.html#系列相関"><i class="fa fa-check"></i><b>8.5</b> 系列相関</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#自己相関acf"><i class="fa fa-check"></i>自己相関（ACF）</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#偏自己相関pacf"><i class="fa fa-check"></i>偏自己相関（PACF）</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#リュンボックス検定"><i class="fa fa-check"></i>リュン＝ボックス検定</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="時系列分析.html"><a href="時系列分析.html#ボックスジェンキンス法"><i class="fa fa-check"></i><b>8.6</b> ボックス＝ジェンキンス法</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#armaモデル"><i class="fa fa-check"></i>ARMAモデル</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#arimaモデル"><i class="fa fa-check"></i>ARIMAモデル</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ボックスジェンキンス法の分析フロー"><i class="fa fa-check"></i>ボックス＝ジェンキンス法の分析フロー</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例ボックスジェンキンス法"><i class="fa fa-check"></i>実例：ボックス＝ジェンキンス法</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="時系列分析.html"><a href="時系列分析.html#共和分"><i class="fa fa-check"></i><b>8.7</b> 共和分</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#見せかけの回帰"><i class="fa fa-check"></i>見せかけの回帰</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#共和分関係"><i class="fa fa-check"></i>共和分関係</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#エングルグレンジャー検定"><i class="fa fa-check"></i>エングル＝グレンジャー検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例見せかけの回帰"><i class="fa fa-check"></i>実例：見せかけの回帰</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例共和分"><i class="fa fa-check"></i>実例：共和分</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ヨハンセン検定"><i class="fa fa-check"></i>ヨハンセン検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ヨハンセン検定フロー自作関数"><i class="fa fa-check"></i>ヨハンセン検定フロー自作関数</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例ヨハンセン検定"><i class="fa fa-check"></i>実例：ヨハンセン検定</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="時系列分析.html"><a href="時系列分析.html#varモデル"><i class="fa fa-check"></i><b>8.8</b> VARモデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#レベルvarモデル"><i class="fa fa-check"></i>レベルVARモデル</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#階差varモデル"><i class="fa fa-check"></i>階差VARモデル</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#vecモデル"><i class="fa fa-check"></i>VECモデル</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#構造varモデル"><i class="fa fa-check"></i>構造VARモデル</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#構造vecモデル"><i class="fa fa-check"></i>構造VECモデル</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="時系列分析.html"><a href="時系列分析.html#varモデルに関連する分析"><i class="fa fa-check"></i><b>8.9</b> VARモデルに関連する分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#グレンジャー因果性"><i class="fa fa-check"></i>グレンジャー因果性</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#インパルス応答"><i class="fa fa-check"></i>インパルス応答</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#予測誤差の分散分解"><i class="fa fa-check"></i>予測誤差の分散分解</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="時系列分析.html"><a href="時系列分析.html#varモデルの分析フロー"><i class="fa fa-check"></i><b>8.10</b> VARモデルの分析フロー</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#探索的データ分析-2"><i class="fa fa-check"></i>1. 探索的データ分析</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#変数選択"><i class="fa fa-check"></i>2. 変数選択</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ラグ次数の選択"><i class="fa fa-check"></i>3. ラグ次数の選択</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#単位根検定-1"><i class="fa fa-check"></i>4. 単位根検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#共和分検定"><i class="fa fa-check"></i>5. 共和分検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#データ分割-1"><i class="fa fa-check"></i>6. データ分割</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#誘導varvecモデルの推定"><i class="fa fa-check"></i>7. 誘導VAR・VECモデルの推定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#構造varvecモデルの識別"><i class="fa fa-check"></i>8. 構造VAR・VECモデルの識別</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#誤差項の検定"><i class="fa fa-check"></i>9. 誤差項の検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#モデル推定後の分析"><i class="fa fa-check"></i>10. モデル推定後の分析</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#予測"><i class="fa fa-check"></i>11. 予測</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="時系列分析.html"><a href="時系列分析.html#varモデルの実例"><i class="fa fa-check"></i><b>8.11</b> VARモデルの実例</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例探索的データ分析"><i class="fa fa-check"></i>実例：探索的データ分析</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例変数選択グレンジャー因果性検定"><i class="fa fa-check"></i>実例：変数選択（グレンジャー因果性検定）</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例ラグ次数選択"><i class="fa fa-check"></i>実例：ラグ次数選択</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例adf検定"><i class="fa fa-check"></i>実例：ADF検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例ヨハンセン検定-1"><i class="fa fa-check"></i>実例：ヨハンセン検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例varモデルの推定"><i class="fa fa-check"></i>実例：VARモデルの推定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例vecモデルの推定"><i class="fa fa-check"></i>実例：VECモデルの推定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例構造varモデルの推定"><i class="fa fa-check"></i>実例：構造VARモデルの推定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例構造vecモデルの推定"><i class="fa fa-check"></i>実例：構造VECモデルの推定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例誤差項の検定"><i class="fa fa-check"></i>実例：誤差項の検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例インパルス応答"><i class="fa fa-check"></i>実例：インパルス応答</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例予測誤差の分散分解"><i class="fa fa-check"></i>実例：予測誤差の分散分解</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例グレンジャー因果性検定"><i class="fa fa-check"></i>実例：グレンジャー因果性検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例予測"><i class="fa fa-check"></i>実例：予測</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
 
@@ -692,33 +796,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.1</span> 第5章の準備<a href="探索的データ分析.html#第5章の準備" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="パッケージのインポート-3" class="section level3 unnumbered hasAnchor">
 <h3>パッケージのインポート<a href="探索的データ分析.html#パッケージのインポート-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="探索的データ分析.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
-<span id="cb551-2"><a href="探索的データ分析.html#cb551-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)</span>
-<span id="cb551-3"><a href="探索的データ分析.html#cb551-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DataExplorer)</span>
-<span id="cb551-4"><a href="探索的データ分析.html#cb551-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
-<span id="cb551-5"><a href="探索的データ分析.html#cb551-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
-<span id="cb551-6"><a href="探索的データ分析.html#cb551-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SmartEDA)</span>
-<span id="cb551-7"><a href="探索的データ分析.html#cb551-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb551-8"><a href="探索的データ分析.html#cb551-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="探索的データ分析.html#cb554-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb554-2"><a href="探索的データ分析.html#cb554-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)</span>
+<span id="cb554-3"><a href="探索的データ分析.html#cb554-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DataExplorer)</span>
+<span id="cb554-4"><a href="探索的データ分析.html#cb554-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
+<span id="cb554-5"><a href="探索的データ分析.html#cb554-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb554-6"><a href="探索的データ分析.html#cb554-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SmartEDA)</span>
+<span id="cb554-7"><a href="探索的データ分析.html#cb554-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb554-8"><a href="探索的データ分析.html#cb554-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code></pre></div>
 </div>
 <div id="ggplot2の設定-1" class="section level3 unnumbered hasAnchor">
 <h3>ggplot2の設定<a href="探索的データ分析.html#ggplot2の設定-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>第1章で紹介した<code>ggplot2</code>の設定です。筆者の実行環境はMacのため、Windowsの設定はコメントアウトしています。</p>
-<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="探索的データ分析.html#cb552-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windowsのグラフ設定（筆者の実行環境では不要のためコメントアウト）</span></span>
-<span id="cb552-2"><a href="探索的データ分析.html#cb552-2" aria-hidden="true" tabindex="-1"></a><span class="co"># windowsFonts(&quot;MEIRYO&quot; = windowsFont(&quot;Meiryo UI&quot;))</span></span>
-<span id="cb552-3"><a href="探索的データ分析.html#cb552-3" aria-hidden="true" tabindex="-1"></a><span class="co"># windowsFonts(&quot;YUGO&quot; = windowsFont(&quot;Yu Gothic UI&quot;))</span></span>
-<span id="cb552-4"><a href="探索的データ分析.html#cb552-4" aria-hidden="true" tabindex="-1"></a><span class="co"># theme_set(theme_light(base_family = &quot;YUGO&quot;))</span></span>
-<span id="cb552-5"><a href="探索的データ分析.html#cb552-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb552-6"><a href="探索的データ分析.html#cb552-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Macのグラフ設定</span></span>
-<span id="cb552-7"><a href="探索的データ分析.html#cb552-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuProN-W3&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="探索的データ分析.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windowsのグラフ設定（筆者の実行環境では不要のためコメントアウト）</span></span>
+<span id="cb555-2"><a href="探索的データ分析.html#cb555-2" aria-hidden="true" tabindex="-1"></a><span class="co"># windowsFonts(&quot;MEIRYO&quot; = windowsFont(&quot;Meiryo UI&quot;))</span></span>
+<span id="cb555-3"><a href="探索的データ分析.html#cb555-3" aria-hidden="true" tabindex="-1"></a><span class="co"># windowsFonts(&quot;YUGO&quot; = windowsFont(&quot;Yu Gothic UI&quot;))</span></span>
+<span id="cb555-4"><a href="探索的データ分析.html#cb555-4" aria-hidden="true" tabindex="-1"></a><span class="co"># theme_set(theme_light(base_family = &quot;YUGO&quot;))</span></span>
+<span id="cb555-5"><a href="探索的データ分析.html#cb555-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb555-6"><a href="探索的データ分析.html#cb555-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Macのグラフ設定</span></span>
+<span id="cb555-7"><a href="探索的データ分析.html#cb555-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuProN-W3&quot;</span>))</span></code></pre></div>
 </div>
 </div>
 <div id="データの中身記述統計量" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> データの中身（記述統計量）<a href="探索的データ分析.html#データの中身記述統計量" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>まず、データが何を含んでいるか確認します。</p>
 <p><code>summary()</code>関数は、各変数の記述統計量を出力する関数です。数値型の変数は、平均、中央値、最大値、最小値、四分位数が出力されます。離散型変数のうち、因子型（factor型）の変数は要素毎のサンプル数が出力されます。</p>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="探索的データ分析.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
-<span id="cb553-2"><a href="探索的データ分析.html#cb553-2" aria-hidden="true" tabindex="-1"></a>diamonds</span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="探索的データ分析.html#cb556-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
+<span id="cb556-2"><a href="探索的データ分析.html#cb556-2" aria-hidden="true" tabindex="-1"></a>diamonds</span></code></pre></div>
 <pre><code>## # A tibble: 53,940 × 10
 ##    carat cut       color clarity depth table price     x     y     z
 ##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -733,12 +837,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49
 ## 10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39
 ## # … with 53,930 more rows</code></pre>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="探索的データ分析.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの変数名を出力</span></span>
-<span id="cb555-2"><a href="探索的データ分析.html#cb555-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(diamonds)</span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="探索的データ分析.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの変数名を出力</span></span>
+<span id="cb558-2"><a href="探索的データ分析.html#cb558-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(diamonds)</span></code></pre></div>
 <pre><code>##  [1] &quot;carat&quot;   &quot;cut&quot;     &quot;color&quot;   &quot;clarity&quot; &quot;depth&quot;   &quot;table&quot;   &quot;price&quot;  
 ##  [8] &quot;x&quot;       &quot;y&quot;       &quot;z&quot;</code></pre>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="探索的データ分析.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの記述統計量を出力</span></span>
-<span id="cb557-2"><a href="探索的データ分析.html#cb557-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(diamonds)</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="探索的データ分析.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの記述統計量を出力</span></span>
+<span id="cb560-2"><a href="探索的データ分析.html#cb560-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(diamonds)</span></code></pre></div>
 <pre><code>##      carat               cut        color        clarity          depth      
 ##  Min.   :0.2000   Fair     : 1610   D: 6775   SI1    :13065   Min.   :43.00  
 ##  1st Qu.:0.4000   Good     : 4906   E: 9797   VS2    :12258   1st Qu.:61.00  
@@ -764,9 +868,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Max.   :31.800  
 ## </code></pre>
 <p>因子型でない離散型変数（文字列型など）について要素毎のサンプル数を出力する場合は、あらかじめ因子型に変換し、<code>summary()</code>関数を適用します。</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="探索的データ分析.html#cb559-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
-<span id="cb559-2"><a href="探索的データ分析.html#cb559-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.character), <span class="at">.fns =</span> as.factor)) <span class="sc">%&gt;%</span> </span>
-<span id="cb559-3"><a href="探索的データ分析.html#cb559-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="探索的データ分析.html#cb562-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb562-2"><a href="探索的データ分析.html#cb562-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.character), <span class="at">.fns =</span> as.factor)) <span class="sc">%&gt;%</span> </span>
+<span id="cb562-3"><a href="探索的データ分析.html#cb562-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre><code>##      manufacturer                 model         displ            year     
 ##  dodge     :37    caravan 2wd        : 11   Min.   :1.600   Min.   :1999  
 ##  toyota    :34    ram 1500 pickup 4wd: 10   1st Qu.:2.400   1st Qu.:1999  
@@ -792,8 +896,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##          subcompact:35  
 ##          suv       :62</code></pre>
 <p><code>psych::describe()</code>関数は、各変数の記述統計量や分布に関する情報を出力する関数です。平均、中央値、標準偏差に加え、刈り込み平均（trimmed）、中央絶対偏差（mad）、レンジ（最大値と最小値の差）、歪度（skew）、尖度（kurtosis）、標準誤差（se）が出力されます。</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="探索的データ分析.html#cb561-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの記述統計量や分布に関する情報を出力</span></span>
-<span id="cb561-2"><a href="探索的データ分析.html#cb561-2" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(diamonds)</span></code></pre></div>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="探索的データ分析.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの記述統計量や分布に関する情報を出力</span></span>
+<span id="cb564-2"><a href="探索的データ分析.html#cb564-2" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(diamonds)</span></code></pre></div>
 <pre><code>##          vars     n    mean      sd  median trimmed     mad   min      max
 ## carat       1 53940    0.80    0.47    0.70    0.73    0.47   0.2     5.01
 ## cut*        2 53940    3.90    1.12    4.00    4.04    1.48   1.0     5.00
@@ -823,8 +927,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="離散型変数の度数分布" class="section level3 unnumbered hasAnchor">
 <h3>離散型変数の度数分布<a href="探索的データ分析.html#離散型変数の度数分布" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>離散型変数の度数分布を出力するには<code>dplyr::count()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="探索的データ分析.html#cb563-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb563-2"><a href="探索的データ分析.html#cb563-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(cut)</span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="探索的データ分析.html#cb566-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb566-2"><a href="探索的データ分析.html#cb566-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(cut)</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 2
 ##   cut           n
 ##   &lt;ord&gt;     &lt;int&gt;
@@ -834,16 +938,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Premium   13791
 ## 5 Ideal     21551</code></pre>
 <p>離散型変数の度数分布を可視化するには、度数棒グラフを使用します。</p>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="探索的データ分析.html#cb565-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb565-2"><a href="探索的データ分析.html#cb565-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut)) <span class="sc">+</span></span>
-<span id="cb565-3"><a href="探索的データ分析.html#cb565-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-257-1.png" width="672" /></p>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="探索的データ分析.html#cb568-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb568-2"><a href="探索的データ分析.html#cb568-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut)) <span class="sc">+</span></span>
+<span id="cb568-3"><a href="探索的データ分析.html#cb568-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-259-1.png" width="672" /></p>
 </div>
 <div id="連続型変数の度数分布" class="section level3 unnumbered hasAnchor">
 <h3>連続型変数の度数分布<a href="探索的データ分析.html#連続型変数の度数分布" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>連続型変数の度数分布を出力するには、<code>dplyr::count()</code>関数と<code>ggplot2::cut_width()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="探索的データ分析.html#cb566-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb566-2"><a href="探索的データ分析.html#cb566-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(ggplot2<span class="sc">::</span><span class="fu">cut_width</span>(carat, <span class="fl">0.5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="探索的データ分析.html#cb569-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb569-2"><a href="探索的データ分析.html#cb569-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(ggplot2<span class="sc">::</span><span class="fu">cut_width</span>(carat, <span class="fl">0.5</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 11 × 2
 ##    `ggplot2::cut_width(carat, 0.5)`     n
 ##    &lt;fct&gt;                            &lt;int&gt;
@@ -859,36 +963,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 (4.25,4.75]                          1
 ## 11 (4.75,5.25]                          1</code></pre>
 <p>連続型変数の度数分布を可視化するには、ヒストグラムを使用します。</p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="探索的データ分析.html#cb568-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb568-2"><a href="探索的データ分析.html#cb568-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span></span>
-<span id="cb568-3"><a href="探索的データ分析.html#cb568-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-259-1.png" width="672" /></p>
-<p>連続型変数の度数分布をグループ別に可視化するには、<code>geom_freqpoly()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="探索的データ分析.html#cb569-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb569-2"><a href="探索的データ分析.html#cb569-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
-<span id="cb569-3"><a href="探索的データ分析.html#cb569-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-260-1.png" width="672" /></p>
-<p>連続型変数の度数を標準化して密度をグループ別に可視化するには、<code>mapping = aes(y = ..density..)</code>を指定して、<code>geom_fredpoly()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="探索的データ分析.html#cb570-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb570-2"><a href="探索的データ分析.html#cb570-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> ..density.., <span class="at">color =</span> cut)) <span class="sc">+</span></span>
-<span id="cb570-3"><a href="探索的データ分析.html#cb570-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">500</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="探索的データ分析.html#cb571-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb571-2"><a href="探索的データ分析.html#cb571-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span></span>
+<span id="cb571-3"><a href="探索的データ分析.html#cb571-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-261-1.png" width="672" /></p>
+<p>連続型変数の度数分布をグループ別に可視化するには、<code>geom_freqpoly()</code>関数を使用します。</p>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="探索的データ分析.html#cb572-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb572-2"><a href="探索的データ分析.html#cb572-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb572-3"><a href="探索的データ分析.html#cb572-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-262-1.png" width="672" /></p>
+<p>連続型変数の度数を標準化して密度をグループ別に可視化するには、<code>mapping = aes(y = ..density..)</code>を指定して、<code>geom_fredpoly()</code>関数を使用します。</p>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="探索的データ分析.html#cb573-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb573-2"><a href="探索的データ分析.html#cb573-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> ..density.., <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb573-3"><a href="探索的データ分析.html#cb573-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">500</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-263-1.png" width="672" /></p>
 </div>
 <div id="外れ値" class="section level3 unnumbered hasAnchor">
 <h3>外れ値<a href="探索的データ分析.html#外れ値" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>外れ値や異常値をグラフで確認するには、ヒストグラムを使用し、<code>coord_cartesian()</code>関数の<code>ylim</code>引数にY軸の下限・上限値を指定して、Y軸方向に図表を拡大します。</p>
 <p>なお、<code>scale_y_continuous()</code>関数の<code>limits</code>引数に下限・上限を指定する方法でもY軸の表示範囲を変えることができますが、下限・上限の範囲外にあるデータが表示されなくなるため、単に拡大するだけであれば<code>coord_cartesian()</code>関数を用いるほうが良いでしょう。</p>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="探索的データ分析.html#cb571-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb571-2"><a href="探索的データ分析.html#cb571-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span></span>
-<span id="cb571-3"><a href="探索的データ分析.html#cb571-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb571-4"><a href="探索的データ分析.html#cb571-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="探索的データ分析.html#cb574-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb574-2"><a href="探索的データ分析.html#cb574-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span></span>
+<span id="cb574-3"><a href="探索的データ分析.html#cb574-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb574-4"><a href="探索的データ分析.html#cb574-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-262-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-264-1.png" width="672" /></p>
 <p>グループ別に外れ値を可視化する場合は、箱ひげ図を使用します。</p>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="探索的データ分析.html#cb573-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb573-2"><a href="探索的データ分析.html#cb573-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> carat)) <span class="sc">+</span></span>
-<span id="cb573-3"><a href="探索的データ分析.html#cb573-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-263-1.png" width="672" /></p>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="探索的データ分析.html#cb576-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb576-2"><a href="探索的データ分析.html#cb576-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> carat)) <span class="sc">+</span></span>
+<span id="cb576-3"><a href="探索的データ分析.html#cb576-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
 </div>
 </div>
 <div id="データの関係性" class="section level2 hasAnchor" number="5.4">
@@ -897,32 +1001,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="離散型変数の関係性" class="section level3 unnumbered hasAnchor">
 <h3>離散型変数の関係性<a href="探索的データ分析.html#離散型変数の関係性" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>離散型変数の観測値の組み合わせの分布を可視化するには、<code>geom_count()</code>関数の度数バブルチャートや、<code>geom_tile()</code>関数のヒートマップを使用します。</p>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="探索的データ分析.html#cb574-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb574-2"><a href="探索的データ分析.html#cb574-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> color)) <span class="sc">+</span></span>
-<span id="cb574-3"><a href="探索的データ分析.html#cb574-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_count</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-264-1.png" width="672" /></p>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="探索的データ分析.html#cb575-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb575-2"><a href="探索的データ分析.html#cb575-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(cut, color) <span class="sc">%&gt;%</span> </span>
-<span id="cb575-3"><a href="探索的データ分析.html#cb575-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> color, <span class="at">fill =</span> n)) <span class="sc">+</span></span>
-<span id="cb575-4"><a href="探索的データ分析.html#cb575-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="探索的データ分析.html#cb577-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb577-2"><a href="探索的データ分析.html#cb577-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> color)) <span class="sc">+</span></span>
+<span id="cb577-3"><a href="探索的データ分析.html#cb577-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_count</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-266-1.png" width="672" /></p>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="探索的データ分析.html#cb578-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb578-2"><a href="探索的データ分析.html#cb578-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(cut, color) <span class="sc">%&gt;%</span> </span>
+<span id="cb578-3"><a href="探索的データ分析.html#cb578-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> color, <span class="at">fill =</span> n)) <span class="sc">+</span></span>
+<span id="cb578-4"><a href="探索的データ分析.html#cb578-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-267-1.png" width="672" /></p>
 </div>
 <div id="連続型変数の関係性" class="section level3 unnumbered hasAnchor">
 <h3>連続型変数の関係性<a href="探索的データ分析.html#連続型変数の関係性" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>連続型変数の観測値の組み合わせの分布を可視化するには、<code>geom_point()</code>関数の散布図や、<code>geom_bin2d()</code>関数、<code>geom_hex()</code>関数のヒートマップを使用します。</p>
 <p>データサイズが大きい場合は、<code>geom_point()</code>関数の実行に時間がかかるため、<code>geom_bin2d()</code>関数や<code>geom_hex()</code>関数を用いるのが効果的です。</p>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="探索的データ分析.html#cb576-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb576-2"><a href="探索的データ分析.html#cb576-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb576-3"><a href="探索的データ分析.html#cb576-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.05</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-266-1.png" width="672" /></p>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="探索的データ分析.html#cb577-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb577-2"><a href="探索的データ分析.html#cb577-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb577-3"><a href="探索的データ分析.html#cb577-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bin2d</span>(<span class="at">bins =</span> <span class="dv">100</span>) <span class="co"># X軸・Y軸の階級数（デフォルトは30）</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-267-1.png" width="672" /></p>
-<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="探索的データ分析.html#cb578-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb578-2"><a href="探索的データ分析.html#cb578-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb578-3"><a href="探索的データ分析.html#cb578-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="co"># X軸・Y軸の階級数（デフォルトは30）</span></span></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="探索的データ分析.html#cb579-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb579-2"><a href="探索的データ分析.html#cb579-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb579-3"><a href="探索的データ分析.html#cb579-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.05</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-268-1.png" width="672" /></p>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="探索的データ分析.html#cb580-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb580-2"><a href="探索的データ分析.html#cb580-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb580-3"><a href="探索的データ分析.html#cb580-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bin2d</span>(<span class="at">bins =</span> <span class="dv">100</span>) <span class="co"># X軸・Y軸の階級数（デフォルトは30）</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="探索的データ分析.html#cb581-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb581-2"><a href="探索的データ分析.html#cb581-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb581-3"><a href="探索的データ分析.html#cb581-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="co"># X軸・Y軸の階級数（デフォルトは30）</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
 </div>
 </div>
 <div id="相関関係ペアプロット" class="section level2 hasAnchor" number="5.5">
@@ -930,7 +1034,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="相関係数行列" class="section level3 unnumbered hasAnchor">
 <h3>相関係数行列<a href="探索的データ分析.html#相関係数行列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>cor()</code>関数で相関係数行列を出力します。ここではサンプルデータセットとして<code>mtcars</code>データセットを使用しています。</p>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="探索的データ分析.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="探索的データ分析.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(mtcars)</span></code></pre></div>
 <pre><code>##             mpg        cyl       disp         hp        drat         wt
 ## mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
 ## cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958
@@ -959,44 +1063,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="corrplotパッケージ" class="section level3 unnumbered hasAnchor">
 <h3>corrplotパッケージ<a href="探索的データ分析.html#corrplotパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R標準の<code>cor()</code>関数の出力結果では見にくいため、<code>corrplot</code>パッケージを使用して相関係数行列を可視化します。</p>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="探索的データ分析.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cor()関数で相関係数行列を計算し、その結果をcorrplot::corrplot()関数に渡す</span></span>
-<span id="cb581-2"><a href="探索的データ分析.html#cb581-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb581-3"><a href="探索的データ分析.html#cb581-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb581-4"><a href="探索的データ分析.html#cb581-4" aria-hidden="true" tabindex="-1"></a>  corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="at">method =</span> <span class="st">&quot;square&quot;</span>, <span class="co"># 可視化方法（&quot;circle&quot;, &quot;square&quot;, &quot;ellipse&quot;, &quot;number&quot;, &quot;shade&quot;, &quot;color&quot;, &quot;pie&quot;）</span></span>
-<span id="cb581-5"><a href="探索的データ分析.html#cb581-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;full&quot;</span>, <span class="co"># 表示形式（&quot;full&quot;, &quot;upper&quot;, &quot;lower&quot;）</span></span>
-<span id="cb581-6"><a href="探索的データ分析.html#cb581-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="co"># 相関係数の値の色</span></span>
-<span id="cb581-7"><a href="探索的データ分析.html#cb581-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="co"># 対角要素を表示するか</span></span>
-<span id="cb581-8"><a href="探索的データ分析.html#cb581-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.cex =</span> <span class="fl">0.8</span>, <span class="co"># 相関係数の値のフォントサイズ</span></span>
-<span id="cb581-9"><a href="探索的データ分析.html#cb581-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.digits =</span> <span class="dv">2</span> <span class="co"># 相関係数の値の小数点以下桁数</span></span>
-<span id="cb581-10"><a href="探索的データ分析.html#cb581-10" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="探索的データ分析.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cor()関数で相関係数行列を計算し、その結果をcorrplot::corrplot()関数に渡す</span></span>
+<span id="cb584-2"><a href="探索的データ分析.html#cb584-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb584-3"><a href="探索的データ分析.html#cb584-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb584-4"><a href="探索的データ分析.html#cb584-4" aria-hidden="true" tabindex="-1"></a>  corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="at">method =</span> <span class="st">&quot;square&quot;</span>, <span class="co"># 可視化方法（&quot;circle&quot;, &quot;square&quot;, &quot;ellipse&quot;, &quot;number&quot;, &quot;shade&quot;, &quot;color&quot;, &quot;pie&quot;）</span></span>
+<span id="cb584-5"><a href="探索的データ分析.html#cb584-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;full&quot;</span>, <span class="co"># 表示形式（&quot;full&quot;, &quot;upper&quot;, &quot;lower&quot;）</span></span>
+<span id="cb584-6"><a href="探索的データ分析.html#cb584-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="co"># 相関係数の値の色</span></span>
+<span id="cb584-7"><a href="探索的データ分析.html#cb584-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="co"># 対角要素を表示するか</span></span>
+<span id="cb584-8"><a href="探索的データ分析.html#cb584-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.cex =</span> <span class="fl">0.8</span>, <span class="co"># 相関係数の値のフォントサイズ</span></span>
+<span id="cb584-9"><a href="探索的データ分析.html#cb584-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.digits =</span> <span class="dv">2</span> <span class="co"># 相関係数の値の小数点以下桁数</span></span>
+<span id="cb584-10"><a href="探索的データ分析.html#cb584-10" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
 <p><code>corrplot::cor.mtest()</code>関数を使用すると、「相関係数が0である」との帰無仮説に対するp値を計算し、その結果を可視化することができます。</p>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="探索的データ分析.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 相関係数の検定を行いp値を計算</span></span>
-<span id="cb582-2"><a href="探索的データ分析.html#cb582-2" aria-hidden="true" tabindex="-1"></a>mtcars_p <span class="ot">&lt;-</span> corrplot<span class="sc">::</span><span class="fu">cor.mtest</span>(mtcars)</span>
-<span id="cb582-3"><a href="探索的データ分析.html#cb582-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb582-4"><a href="探索的データ分析.html#cb582-4" aria-hidden="true" tabindex="-1"></a><span class="co"># p値の計算結果を指定して検定結果を可視化</span></span>
-<span id="cb582-5"><a href="探索的データ分析.html#cb582-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb582-6"><a href="探索的データ分析.html#cb582-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb582-7"><a href="探索的データ分析.html#cb582-7" aria-hidden="true" tabindex="-1"></a>  corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="at">method =</span> <span class="st">&quot;square&quot;</span>, <span class="co"># 可視化方法（&quot;circle&quot;, &quot;square&quot;, &quot;ellipse&quot;, &quot;number&quot;, &quot;shade&quot;, &quot;color&quot;, &quot;pie&quot;）</span></span>
-<span id="cb582-8"><a href="探索的データ分析.html#cb582-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;full&quot;</span>, <span class="co"># 表示形式（&quot;full&quot;, &quot;upper&quot;, &quot;lower&quot;）</span></span>
-<span id="cb582-9"><a href="探索的データ分析.html#cb582-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">p.mat =</span> mtcars_p<span class="sc">$</span>p, <span class="co"># p値の計算結果</span></span>
-<span id="cb582-10"><a href="探索的データ分析.html#cb582-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="co"># 有意水準</span></span>
-<span id="cb582-11"><a href="探索的データ分析.html#cb582-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="co"># 相関係数の値の色</span></span>
-<span id="cb582-12"><a href="探索的データ分析.html#cb582-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="co"># 対角要素を表示するか</span></span>
-<span id="cb582-13"><a href="探索的データ分析.html#cb582-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.cex =</span> <span class="fl">0.8</span>, <span class="co"># 相関係数の値のフォントサイズ</span></span>
-<span id="cb582-14"><a href="探索的データ分析.html#cb582-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.digits =</span> <span class="dv">2</span> <span class="co"># 相関係数の値の小数点以下桁数</span></span>
-<span id="cb582-15"><a href="探索的データ分析.html#cb582-15" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="探索的データ分析.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 相関係数の検定を行いp値を計算</span></span>
+<span id="cb585-2"><a href="探索的データ分析.html#cb585-2" aria-hidden="true" tabindex="-1"></a>mtcars_p <span class="ot">&lt;-</span> corrplot<span class="sc">::</span><span class="fu">cor.mtest</span>(mtcars)</span>
+<span id="cb585-3"><a href="探索的データ分析.html#cb585-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb585-4"><a href="探索的データ分析.html#cb585-4" aria-hidden="true" tabindex="-1"></a><span class="co"># p値の計算結果を指定して検定結果を可視化</span></span>
+<span id="cb585-5"><a href="探索的データ分析.html#cb585-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb585-6"><a href="探索的データ分析.html#cb585-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb585-7"><a href="探索的データ分析.html#cb585-7" aria-hidden="true" tabindex="-1"></a>  corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="at">method =</span> <span class="st">&quot;square&quot;</span>, <span class="co"># 可視化方法（&quot;circle&quot;, &quot;square&quot;, &quot;ellipse&quot;, &quot;number&quot;, &quot;shade&quot;, &quot;color&quot;, &quot;pie&quot;）</span></span>
+<span id="cb585-8"><a href="探索的データ分析.html#cb585-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;full&quot;</span>, <span class="co"># 表示形式（&quot;full&quot;, &quot;upper&quot;, &quot;lower&quot;）</span></span>
+<span id="cb585-9"><a href="探索的データ分析.html#cb585-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">p.mat =</span> mtcars_p<span class="sc">$</span>p, <span class="co"># p値の計算結果</span></span>
+<span id="cb585-10"><a href="探索的データ分析.html#cb585-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="co"># 有意水準</span></span>
+<span id="cb585-11"><a href="探索的データ分析.html#cb585-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="co"># 相関係数の値の色</span></span>
+<span id="cb585-12"><a href="探索的データ分析.html#cb585-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="co"># 対角要素を表示するか</span></span>
+<span id="cb585-13"><a href="探索的データ分析.html#cb585-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.cex =</span> <span class="fl">0.8</span>, <span class="co"># 相関係数の値のフォントサイズ</span></span>
+<span id="cb585-14"><a href="探索的データ分析.html#cb585-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.digits =</span> <span class="dv">2</span> <span class="co"># 相関係数の値の小数点以下桁数</span></span>
+<span id="cb585-15"><a href="探索的データ分析.html#cb585-15" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-273-1.png" width="672" /></p>
 </div>
 <div id="corrrパッケージ" class="section level3 unnumbered hasAnchor">
 <h3>corrrパッケージ<a href="探索的データ分析.html#corrrパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>次に、<code>corrr</code>パッケージを使用して相関係数を可視化します。</p>
 <p><code>corrr::correlate()</code>関数で相関係数行列を格納した<code>cor_df</code>オブジェクトを作成します。</p>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="探索的データ分析.html#cb583-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="ot">&lt;-</span> corrr<span class="sc">::</span><span class="fu">correlate</span>(mtcars, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="co"># 相関係数の算出法（&quot;pearson&quot;, &quot;kendall&quot;, &quot;spearman&quot;）</span></span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="探索的データ分析.html#cb586-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="ot">&lt;-</span> corrr<span class="sc">::</span><span class="fu">correlate</span>(mtcars, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="co"># 相関係数の算出法（&quot;pearson&quot;, &quot;kendall&quot;, &quot;spearman&quot;）</span></span></code></pre></div>
 <pre><code>## Correlation computed with
 ## • Method: &#39;pearson&#39;
 ## • Missing treated using: &#39;pairwise.complete.obs&#39;</code></pre>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="探索的データ分析.html#cb585-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor</span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="探索的データ分析.html#cb588-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor</span></code></pre></div>
 <pre><code>## # A tibble: 11 × 12
 ##    term     mpg    cyl   disp     hp    drat     wt    qsec     vs      am
 ##    &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
@@ -1013,8 +1117,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11 carb  -0.551  0.527  0.395  0.750 -0.0908  0.428 -0.656  -0.570  0.0575
 ## # … with 2 more variables: gear &lt;dbl&gt;, carb &lt;dbl&gt;</code></pre>
 <p><code>corrr::rearrange()</code>関数を使用すると、高い相関を持つ変数を近くに配置するよう、変数の順序を自動で変更します。</p>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="探索的データ分析.html#cb587-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
-<span id="cb587-2"><a href="探索的データ分析.html#cb587-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="探索的データ分析.html#cb590-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb590-2"><a href="探索的データ分析.html#cb590-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>()</span></code></pre></div>
 <pre><code>## Registered S3 methods overwritten by &#39;registry&#39;:
 ##   method               from 
 ##   print.registry_field proxy
@@ -1035,33 +1139,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11 cyl   -0.852 -0.811 -0.700  -0.523  -0.493 -0.591   0.527   0.832  0.782
 ## # … with 2 more variables: disp &lt;dbl&gt;, cyl &lt;dbl&gt;</code></pre>
 <p><code>corrr::rplot()</code>関数を使用して、相関係数行列を散布図で可視化します。<code>corrr::shave()</code>関数は、相関係数行列の左下半分のみを抽出する関数です。</p>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="探索的データ分析.html#cb590-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
-<span id="cb590-2"><a href="探索的データ分析.html#cb590-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb590-3"><a href="探索的データ分析.html#cb590-3" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">shave</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb590-4"><a href="探索的データ分析.html#cb590-4" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rplot</span>(<span class="at">print_cor =</span> <span class="cn">TRUE</span>) <span class="co"># 散布図上に相関係数の値を表示する</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-274-1.png" width="672" /></p>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="探索的データ分析.html#cb593-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb593-2"><a href="探索的データ分析.html#cb593-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb593-3"><a href="探索的データ分析.html#cb593-3" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">shave</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb593-4"><a href="探索的データ分析.html#cb593-4" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rplot</span>(<span class="at">print_cor =</span> <span class="cn">TRUE</span>) <span class="co"># 散布図上に相関係数の値を表示する</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
 <p><code>corrr::network_plot()</code>関数を使用すると、変数の相関関係をネットワーク図で可視化することができます。ネットワーク図では相関が強い変数が近くに配置されます。</p>
-<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="探索的データ分析.html#cb591-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
-<span id="cb591-2"><a href="探索的データ分析.html#cb591-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">network_plot</span>(<span class="at">min_cor =</span> <span class="fl">0.6</span>) <span class="co"># 表示する最小の相関係数の値</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="探索的データ分析.html#cb594-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb594-2"><a href="探索的データ分析.html#cb594-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">network_plot</span>(<span class="at">min_cor =</span> <span class="fl">0.6</span>) <span class="co"># 表示する最小の相関係数の値</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
 </div>
 <div id="ggallyパッケージ" class="section level3 unnumbered hasAnchor">
 <h3>GGallyパッケージ<a href="探索的データ分析.html#ggallyパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>GGally</code>パッケージの<code>GGally::ggpairs()</code>関数を使用すると、変数のペアプロット（pairwise plot）を簡単に出力することができます。なお、<code>GGally</code>パッケージにはペアプロット以外にも様々な機能があります。詳細は<a href="https://ggobi.github.io/ggally/index.html">公式ウェブサイト</a>を参照してください。</p>
-<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="探索的データ分析.html#cb592-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb592-2"><a href="探索的データ分析.html#cb592-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(mpg, cyl, disp, hp, gear) <span class="sc">%&gt;%</span> </span>
-<span id="cb592-3"><a href="探索的データ分析.html#cb592-3" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">progress =</span> <span class="cn">FALSE</span>) <span class="co"># コンソールにプログラスバーを表示するか</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="探索的データ分析.html#cb595-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb595-2"><a href="探索的データ分析.html#cb595-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(mpg, cyl, disp, hp, gear) <span class="sc">%&gt;%</span> </span>
+<span id="cb595-3"><a href="探索的データ分析.html#cb595-3" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">progress =</span> <span class="cn">FALSE</span>) <span class="co"># コンソールにプログラスバーを表示するか</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-278-1.png" width="672" /></p>
 <p>また、<code>mapping = aes()</code>内の引数にグループ化する変数を指定することで、グループ別のペアプロットを出力できます。ここではサンプルデータセットとして<code>iris</code>データセットを用いています。</p>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="探索的データ分析.html#cb593-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb593-2"><a href="探索的データ分析.html#cb593-2" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> Species, <span class="at">alpha =</span> <span class="fl">0.5</span>),</span>
-<span id="cb593-3"><a href="探索的データ分析.html#cb593-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">progress =</span> <span class="cn">FALSE</span> <span class="co"># コンソールにプログラスバーを表示するか</span></span>
-<span id="cb593-4"><a href="探索的データ分析.html#cb593-4" aria-hidden="true" tabindex="-1"></a>                  )</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="探索的データ分析.html#cb596-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb596-2"><a href="探索的データ分析.html#cb596-2" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> Species, <span class="at">alpha =</span> <span class="fl">0.5</span>),</span>
+<span id="cb596-3"><a href="探索的データ分析.html#cb596-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">progress =</span> <span class="cn">FALSE</span> <span class="co"># コンソールにプログラスバーを表示するか</span></span>
+<span id="cb596-4"><a href="探索的データ分析.html#cb596-4" aria-hidden="true" tabindex="-1"></a>                  )</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
 </div>
 </div>
 <div id="探索的データ分析の一括実行" class="section level2 hasAnchor" number="5.6">
@@ -1070,33 +1174,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="dataexplorerパッケージ" class="section level3 unnumbered hasAnchor">
 <h3>DataExplorerパッケージ<a href="探索的データ分析.html#dataexplorerパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>DataExplorer</code>パッケージの<code>create_report()</code>関数を使用すると、データセットに含まれる変数、データ構造、欠損値、ヒストグラム、QQプロット、相関係数行列、主成分分析（PCA）などを自動で作成して、HTML形式のレポートをブラウザに出力します。ウェブサイト上では実行できないため、各自で試してみてください。</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="探索的データ分析.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="co"># irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施</span></span>
-<span id="cb595-2"><a href="探索的データ分析.html#cb595-2" aria-hidden="true" tabindex="-1"></a>DataExplorer<span class="sc">::</span><span class="fu">create_report</span>(<span class="at">data =</span> iris)</span></code></pre></div>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="探索的データ分析.html#cb596-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施</span></span>
-<span id="cb596-2"><a href="探索的データ分析.html#cb596-2" aria-hidden="true" tabindex="-1"></a>DataExplorer<span class="sc">::</span><span class="fu">create_report</span>(<span class="at">data =</span> diamonds,</span>
-<span id="cb596-3"><a href="探索的データ分析.html#cb596-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">y =</span> <span class="st">&quot;price&quot;</span></span>
-<span id="cb596-4"><a href="探索的データ分析.html#cb596-4" aria-hidden="true" tabindex="-1"></a>                            )</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="探索的データ分析.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="co"># irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施</span></span>
+<span id="cb598-2"><a href="探索的データ分析.html#cb598-2" aria-hidden="true" tabindex="-1"></a>DataExplorer<span class="sc">::</span><span class="fu">create_report</span>(<span class="at">data =</span> iris)</span></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="探索的データ分析.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施</span></span>
+<span id="cb599-2"><a href="探索的データ分析.html#cb599-2" aria-hidden="true" tabindex="-1"></a>DataExplorer<span class="sc">::</span><span class="fu">create_report</span>(<span class="at">data =</span> diamonds,</span>
+<span id="cb599-3"><a href="探索的データ分析.html#cb599-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">y =</span> <span class="st">&quot;price&quot;</span></span>
+<span id="cb599-4"><a href="探索的データ分析.html#cb599-4" aria-hidden="true" tabindex="-1"></a>                            )</span></code></pre></div>
 </div>
 <div id="smartedaパッケージ" class="section level3 unnumbered hasAnchor">
 <h3>SmartEDAパッケージ<a href="探索的データ分析.html#smartedaパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>SmartEDA</code>パッケージの<code>ExpReport()</code>関数を使用すると、データセットに含まれる変数、ヒストグラム、QQプロット、相関係数行列などを自動で作成して、HTML形式のレポートファイルを作成します。ウェブサイト上では実行できないため、各自で試してみてください。</p>
 <p>なお、データセットのサイズが大きい場合は処理に時間がかかるため、注意が必要です。</p>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="探索的データ分析.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="co"># irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施</span></span>
-<span id="cb597-2"><a href="探索的データ分析.html#cb597-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpReport</span>(<span class="at">data =</span> iris,</span>
-<span id="cb597-3"><a href="探索的データ分析.html#cb597-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">op_file =</span> <span class="st">&quot;report.html&quot;</span></span>
-<span id="cb597-4"><a href="探索的データ分析.html#cb597-4" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="探索的データ分析.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施</span></span>
-<span id="cb598-2"><a href="探索的データ分析.html#cb598-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpReport</span>(<span class="at">data =</span> diamonds,</span>
-<span id="cb598-3"><a href="探索的データ分析.html#cb598-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Target =</span> <span class="st">&quot;price&quot;</span>,</span>
-<span id="cb598-4"><a href="探索的データ分析.html#cb598-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">op_file =</span> <span class="st">&quot;report.html&quot;</span></span>
-<span id="cb598-5"><a href="探索的データ分析.html#cb598-5" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="探索的データ分析.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="co"># irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施</span></span>
+<span id="cb600-2"><a href="探索的データ分析.html#cb600-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpReport</span>(<span class="at">data =</span> iris,</span>
+<span id="cb600-3"><a href="探索的データ分析.html#cb600-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">op_file =</span> <span class="st">&quot;report.html&quot;</span></span>
+<span id="cb600-4"><a href="探索的データ分析.html#cb600-4" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="探索的データ分析.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施</span></span>
+<span id="cb601-2"><a href="探索的データ分析.html#cb601-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpReport</span>(<span class="at">data =</span> diamonds,</span>
+<span id="cb601-3"><a href="探索的データ分析.html#cb601-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Target =</span> <span class="st">&quot;price&quot;</span>,</span>
+<span id="cb601-4"><a href="探索的データ分析.html#cb601-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">op_file =</span> <span class="st">&quot;report.html&quot;</span></span>
+<span id="cb601-5"><a href="探索的データ分析.html#cb601-5" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
 <p>また、<code>SmartEDA::ExpCatStat()</code>では、<code>Target</code>引数で指定した被説明変数に対する各変数の予測力を計算することができます。</p>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="探索的データ分析.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mtcarsデータセットに対し被説明変数をamに指定して各変数の予測力を計算</span></span>
-<span id="cb599-2"><a href="探索的データ分析.html#cb599-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpCatStat</span>(<span class="at">data =</span> mtcars,</span>
-<span id="cb599-3"><a href="探索的データ分析.html#cb599-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Target =</span> <span class="st">&quot;am&quot;</span>,</span>
-<span id="cb599-4"><a href="探索的データ分析.html#cb599-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">plot =</span> <span class="cn">TRUE</span></span>
-<span id="cb599-5"><a href="探索的データ分析.html#cb599-5" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="探索的データ分析.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mtcarsデータセットに対し被説明変数をamに指定して各変数の予測力を計算</span></span>
+<span id="cb602-2"><a href="探索的データ分析.html#cb602-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpCatStat</span>(<span class="at">data =</span> mtcars,</span>
+<span id="cb602-3"><a href="探索的データ分析.html#cb602-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Target =</span> <span class="st">&quot;am&quot;</span>,</span>
+<span id="cb602-4"><a href="探索的データ分析.html#cb602-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">plot =</span> <span class="cn">TRUE</span></span>
+<span id="cb602-5"><a href="探索的データ分析.html#cb602-5" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-284-1.png" width="672" /></p>
 <pre><code>##    Variable Target Unique Chi-squared p-value df IV Value Cramers V
 ## 1       cyl     am      3       8.741   0.007 NA     1.32      0.52
 ## 2        vs     am      2       0.907   0.473 NA     0.11      0.17

@@ -15,7 +15,7 @@ Wickham & Grolemund（2017）は、探索的データ分析について次のよ
 
 ### パッケージのインポート {.unnumbered}
 
-```{r, results='hide', warning=FALSE, message=FALSE}
+```{r, results='hide', warning=FALSE, message=FALSE, paged.print=FALSE}
 library(corrplot)
 library(corrr)
 library(DataExplorer)
@@ -30,7 +30,7 @@ library(psych)
 
 第1章で紹介した`ggplot2`の設定です。筆者の実行環境はMacのため、Windowsの設定はコメントアウトしています。
 
-```{r}
+```{r, paged.print=FALSE}
 # Windowsのグラフ設定（筆者の実行環境では不要のためコメントアウト）
 # windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
 # windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
@@ -46,7 +46,7 @@ theme_set(theme_light(base_family = "HiraKakuProN-W3"))
 
 `summary()`関数は、各変数の記述統計量を出力する関数です。数値型の変数は、平均、中央値、最大値、最小値、四分位数が出力されます。離散型変数のうち、因子型（factor型）の変数は要素毎のサンプル数が出力されます。
 
-```{r}
+```{r, paged.print=FALSE}
 # データをコンソールに出力
 diamonds
 
@@ -59,7 +59,7 @@ summary(diamonds)
 
 因子型でない離散型変数（文字列型など）について要素毎のサンプル数を出力する場合は、あらかじめ因子型に変換し、`summary()`関数を適用します。
 
-```{r}
+```{r, paged.print=FALSE}
 mpg %>% 
   dplyr::mutate(across(.cols = where(is.character), .fns = as.factor)) %>% 
   summary()
@@ -68,7 +68,7 @@ mpg %>%
 
 `psych::describe()`関数は、各変数の記述統計量や分布に関する情報を出力する関数です。平均、中央値、標準偏差に加え、刈り込み平均（trimmed）、中央絶対偏差（mad）、レンジ（最大値と最小値の差）、歪度（skew）、尖度（kurtosis）、標準誤差（se）が出力されます。
 
-```{r}
+```{r, paged.print=FALSE}
 # データの記述統計量や分布に関する情報を出力
 psych::describe(diamonds)
 ```
@@ -82,14 +82,14 @@ psych::describe(diamonds)
 
 離散型変数の度数分布を出力するには`dplyr::count()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   dplyr::count(cut)
 ```
 
 離散型変数の度数分布を可視化するには、度数棒グラフを使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   ggplot(mapping = aes(x = cut)) +
   geom_bar()
@@ -99,14 +99,14 @@ diamonds %>%
 
 連続型変数の度数分布を出力するには、`dplyr::count()`関数と`ggplot2::cut_width()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   dplyr::count(ggplot2::cut_width(carat, 0.5))
 ```
 
 連続型変数の度数分布を可視化するには、ヒストグラムを使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   ggplot(mapping = aes(x = carat)) +
   geom_histogram(binwidth = 0.5)
@@ -114,7 +114,7 @@ diamonds %>%
 
 連続型変数の度数分布をグループ別に可視化するには、`geom_freqpoly()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   ggplot(mapping = aes(x = carat, color = cut)) +
   geom_freqpoly(binwidth = 0.1)
@@ -122,7 +122,7 @@ diamonds %>%
 
 連続型変数の度数を標準化して密度をグループ別に可視化するには、`mapping = aes(y = ..density..)`を指定して、`geom_fredpoly()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   ggplot(mapping = aes(x = price, y = ..density.., color = cut)) +
   geom_freqpoly(binwidth = 500)
@@ -134,7 +134,7 @@ diamonds %>%
 
 なお、`scale_y_continuous()`関数の`limits`引数に下限・上限を指定する方法でもY軸の表示範囲を変えることができますが、下限・上限の範囲外にあるデータが表示されなくなるため、単に拡大するだけであれば`coord_cartesian()`関数を用いるほうが良いでしょう。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   ggplot(mapping = aes(x = y)) +
   geom_histogram() +
@@ -143,7 +143,7 @@ diamonds %>%
 
 グループ別に外れ値を可視化する場合は、箱ひげ図を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   ggplot(mapping = aes(x = cut, y = carat)) +
   geom_boxplot()
@@ -157,13 +157,13 @@ diamonds %>%
 
 離散型変数の観測値の組み合わせの分布を可視化するには、`geom_count()`関数の度数バブルチャートや、`geom_tile()`関数のヒートマップを使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   ggplot(mapping = aes(x = cut, y = color)) +
   geom_count()
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   dplyr::count(cut, color) %>% 
   ggplot(mapping = aes(x = cut, y = color, fill = n)) +
@@ -176,19 +176,19 @@ diamonds %>%
 
 データサイズが大きい場合は、`geom_point()`関数の実行に時間がかかるため、`geom_bin2d()`関数や`geom_hex()`関数を用いるのが効果的です。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   ggplot(mapping = aes(x = carat, y = price)) +
   geom_point(alpha = 0.05)
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   ggplot(mapping = aes(x = carat, y = price)) +
   geom_bin2d(bins = 100) # X軸・Y軸の階級数（デフォルトは30）
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds %>% 
   ggplot(mapping = aes(x = carat, y = price)) +
   geom_hex(bins = 50) # X軸・Y軸の階級数（デフォルトは30）
@@ -200,7 +200,7 @@ diamonds %>%
 
 `cor()`関数で相関係数行列を出力します。ここではサンプルデータセットとして`mtcars`データセットを使用しています。
 
-```{r}
+```{r, paged.print=FALSE}
 cor(mtcars)
 ```
 
@@ -208,7 +208,7 @@ cor(mtcars)
 
 R標準の`cor()`関数の出力結果では見にくいため、`corrplot`パッケージを使用して相関係数行列を可視化します。
 
-```{r}
+```{r, paged.print=FALSE}
 # cor()関数で相関係数行列を計算し、その結果をcorrplot::corrplot()関数に渡す
 mtcars %>% 
   cor() %>% 
@@ -223,7 +223,7 @@ mtcars %>%
 
 `corrplot::cor.mtest()`関数を使用すると、「相関係数が0である」との帰無仮説に対するp値を計算し、その結果を可視化することができます。
 
-```{r}
+```{r, paged.print=FALSE}
 # 相関係数の検定を行いp値を計算
 mtcars_p <- corrplot::cor.mtest(mtcars)
 
@@ -247,7 +247,7 @@ mtcars %>%
 
 `corrr::correlate()`関数で相関係数行列を格納した`cor_df`オブジェクトを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 mtcars_cor <- corrr::correlate(mtcars, method = "pearson") # 相関係数の算出法（"pearson", "kendall", "spearman"）
 
 mtcars_cor
@@ -255,14 +255,14 @@ mtcars_cor
 
 `corrr::rearrange()`関数を使用すると、高い相関を持つ変数を近くに配置するよう、変数の順序を自動で変更します。
 
-```{r}
+```{r, paged.print=FALSE}
 mtcars_cor %>% 
   corrr::rearrange()
 ```
 
 `corrr::rplot()`関数を使用して、相関係数行列を散布図で可視化します。`corrr::shave()`関数は、相関係数行列の左下半分のみを抽出する関数です。
 
-```{r}
+```{r, paged.print=FALSE}
 mtcars_cor %>% 
   corrr::rearrange() %>% 
   corrr::shave() %>% 
@@ -271,7 +271,7 @@ mtcars_cor %>%
 
 `corrr::network_plot()`関数を使用すると、変数の相関関係をネットワーク図で可視化することができます。ネットワーク図では相関が強い変数が近くに配置されます。
 
-```{r}
+```{r, paged.print=FALSE}
 mtcars_cor %>% 
   corrr::network_plot(min_cor = 0.6) # 表示する最小の相関係数の値
 ```
@@ -280,7 +280,7 @@ mtcars_cor %>%
 
 `GGally`パッケージの`GGally::ggpairs()`関数を使用すると、変数のペアプロット（pairwise plot）を簡単に出力することができます。なお、`GGally`パッケージにはペアプロット以外にも様々な機能があります。詳細は[公式ウェブサイト](https://ggobi.github.io/ggally/index.html)を参照してください。
 
-```{r}
+```{r, paged.print=FALSE}
 mtcars %>% 
   dplyr::select(mpg, cyl, disp, hp, gear) %>% 
   GGally::ggpairs(progress = FALSE) # コンソールにプログラスバーを表示するか
@@ -288,7 +288,7 @@ mtcars %>%
 
 また、`mapping = aes()`内の引数にグループ化する変数を指定することで、グループ別のペアプロットを出力できます。ここではサンプルデータセットとして`iris`データセットを用いています。
 
-```{r}
+```{r, paged.print=FALSE}
 iris %>% 
   GGally::ggpairs(mapping = aes(color = Species, alpha = 0.5),
                   progress = FALSE # コンソールにプログラスバーを表示するか
@@ -338,7 +338,7 @@ SmartEDA::ExpReport(data = diamonds,
 
 また、`SmartEDA::ExpCatStat()`では、`Target`引数で指定した被説明変数に対する各変数の予測力を計算することができます。
 
-```{r}
+```{r, paged.print=FALSE}
 # mtcarsデータセットに対し被説明変数をamに指定して各変数の予測力を計算
 SmartEDA::ExpCatStat(data = mtcars,
                      Target = "am",

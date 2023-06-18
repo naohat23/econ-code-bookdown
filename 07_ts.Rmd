@@ -6,7 +6,7 @@
 
 ### パッケージのインポート {.unnumbered}
 
-```{r}
+```{r, paged.print=FALSE}
 library(forecast)
 library(mFilter)
 library(mgcv)
@@ -49,13 +49,13 @@ ts形式データのサンプルデータセットとして、`seasonal`パッ�
 
 ただし、これはあくまで表示方法の問題であり、ts形式データが行列（2次元）の構造であることを意味するわけではありません。
 
-```{r}
+```{r, paged.print=FALSE}
 seasonal::unemp
 ```
 
 一方、週次のts形式データの場合はベクトルの形で出力されます。
 
-```{r}
+```{r, paged.print=FALSE}
 fpp2::gasoline %>% head(200)
 ```
 
@@ -65,7 +65,7 @@ ts形式データの日付情報を取得するには、`frequency()`、`start()
 
 月次データの周期は12であり、開始・終了時点は1～12の整数で表されます。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日付の周期（1年当たりのデータ頻度）
 frequency(seasonal::unemp)
 
@@ -78,7 +78,7 @@ end(seasonal::unemp)
 
 一方、週次データの周期は約52.18です。これは、うるう年を考慮した1年の平均日数365.25日を7で割った値であり、1年間が平均して52.18週であることを示しています。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日付の周期（1年当たりのデータ頻度）
 frequency(fpp2::gasoline)
 
@@ -93,11 +93,11 @@ end(fpp2::gasoline)
 
 ts形式データをフィルタするには、`window()`関数を使用して`start`引数と`end`引数に年を指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 window(seasonal::unemp, start = 1999, end = 2000)
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 window(fpp2::gasoline, start = 2016, end = 2017)
 ```
 
@@ -105,11 +105,11 @@ window(fpp2::gasoline, start = 2016, end = 2017)
 
 ts形式データをプロットするには、`plot()`関数を使用します。ts形式データはデータと日付がセットになっているため、X軸には自動的に日付が表示されます。
 
-```{r}
+```{r, paged.print=FALSE}
 plot(seasonal::unemp)
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 plot(fpp2::gasoline)
 ```
 
@@ -127,7 +127,7 @@ data.frame形式やtibble形式といった通常のデータフレームからt
 
 年次データを`ts()`関数でts形式に変換します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日付列の要素が重複している場合は、重複がなくなるように行をフィルタ
 data_ts <- data_gdp_pref %>% 
   dplyr::filter(pref_name == "東京都")
@@ -149,13 +149,13 @@ frequency(data_ts)
 
 `ts()`関数で変換したデータはts形式の行列になるため、`$`演算子で列を選択することができません。列を選択するには、`行列[, 要素の列インデックス]`もしくは、`行列[, "列名"]`とします。
 
-```{r}
+```{r, paged.print=FALSE}
 data_ts[, "gdp_nominal"]
 ```
 
 `as.list()`関数でリスト形式に変換すると、データフレーム形式と同様に`$`演算子で列を選択することができます。`リスト[[列インデックス]]`でも各列にアクセス可能です。
 
-```{r}
+```{r, paged.print=FALSE}
 data_ts %<>% 
   as.list()
 
@@ -166,7 +166,7 @@ data_ts$gdp_nominal
 
 四半期データを`ts()`関数でts形式に変換します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日付列で昇順に並べ替え
 data_ts <- data_gdp_jp %>% 
   dplyr::arrange(日付) %>% 
@@ -187,7 +187,7 @@ frequency(data_ts)
 
 月次データを`ts()`関数でts形式に変換します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日付列で昇順に並べ替え
 data_ts <- data_labor %>% 
   dplyr::arrange(date) %>% 
@@ -208,7 +208,7 @@ frequency(data_ts)
 
 週次データを`ts()`関数でts形式に変換します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日次データのdata_owidから水曜日のデータを抽出して週次データに変換
 data_ts <- data_owid %>% 
   dplyr::filter(lubridate::wday(date) == 4)
@@ -236,7 +236,7 @@ frequency(data_ts)
 
 日次データを`ts()`関数でts形式に変換します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日付列の要素が重複している場合は、重複がなくなるように行をフィルタ
 data_ts <- data_owid %>% 
   dplyr::filter(location == "Japan")
@@ -268,7 +268,7 @@ frequency(data_ts)
 
 年次データを`as_tsibble()`関数でtsibble形式に変換します。周期は1年になります。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日付列で昇順に並べ替え
 data_tsibble <- data_gdp_pref %>% 
   dplyr::arrange(year)
@@ -286,7 +286,7 @@ frequency(data_tsibble)
 
 四半期データを`as_tsibble()`関数でtsibble形式に変換します。周期は4四半期になります。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日付列で昇順に並べ替え
 data_tsibble <- data_gdp_jp %>% 
   dplyr::arrange(日付)
@@ -305,7 +305,7 @@ frequency(data_tsibble)
 
 月次データを`as_tsibble()`関数でtsibble形式に変換します。周期は12カ月になります。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日付列で昇順に並べ替え
 data_tsibble <- data_labor %>% 
   dplyr::arrange(date)
@@ -324,7 +324,7 @@ frequency(data_tsibble)
 
 週次データを`as_tsibble()`関数でtsibble形式に変換します。周期は52.18週になります。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日次データのdata_owidから水曜日のデータを抽出して週次データに変換
 data_tsibble <- data_owid %>% 
   dplyr::filter(lubridate::wday(date) == 4)
@@ -346,7 +346,7 @@ frequency(data_tsibble)
 
 日次データを`as_tsibble()`関数でtsibble形式に変換します。周期は7日になります。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日付列で昇順に並べ替え
 data_tsibble <- data_owid %>% 
   dplyr::arrange(date)
@@ -368,7 +368,7 @@ frequency(data_tsibble)
 
 連続した日付型データを生成するには、`seq()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 開始日と終了日を指定して1年毎の日付データを生成
 seq(from = as.Date("2010-01-01"), to = as.Date("2020-01-01"), by = "1 year")
 
@@ -395,7 +395,7 @@ seq(from = as.Date("2022-01-01"), by = "1 day", along.with = letters)
 
 日付型データの年・月・日を足し引きするには、`years()`、`months()`、`days()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 年
 as.Date("2023-01-01") + years(5)
 
@@ -422,7 +422,7 @@ as.Date("2023-01-01") + years(1) + months(1) + days(1)
 `%d`：2桁の日（01～31）
 `%e`：1～2桁の日（1～31、1桁の日は前に半角スペースあり）
 
-```{r}
+```{r, paged.print=FALSE}
 # 日付型データを文字列型データに変換
 strftime(as.Date("2022-01-01"), format = "%Y年%m月%d日")
 
@@ -442,7 +442,7 @@ lubridate::ymd(c("20000101", "010203", "020505"))
 
 日付型データから日付情報を抽出するには、lubridateパッケージの関数を用います。
 
-```{r}
+```{r, paged.print=FALSE}
 # 年
 lubridate::year(as.Date("2022-01-01"))
 
@@ -472,7 +472,7 @@ lubridate::epiweek(lubridate::ymd(c("2022-01-01", "2022-01-02", "2022-01-03", "2
 
 日付型データから四半期ベースの時系列インデックスを生成するには`lubridate::quarter()`関数を、四半期ベースの時系列インデックスから日付型データを作成するには`lubridate::date()`関数と`zoo::as.yearqtr()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 日付型データから四半期ベースのインデックスを生成
 lubridate::quarter(lubridate::ymd(c("2012-03-26", "2012-05-04", "2012-09-23", "2012-12-31")),
                    type = "year.quarter")
@@ -492,7 +492,7 @@ lubridate::date(zoo::as.yearqtr(c("2012 Q1", "2012 Q2", "2012 Q3", "2012 Q4"), f
 
 まず、Our World in Dataの`data_owid`データセットから使用するサンプルデータを作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_jp <- data_owid %>% 
   dplyr::select(location, date, new_cases, new_deaths) %>% 
   dplyr::filter(location == "Japan",
@@ -504,7 +504,7 @@ data_owid_jp <- data_owid %>%
 
 `dplyr::lag()`関数と`dplyr::leag()`関数で、既存の列のラグ・リード系列を作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 1期ラグの系列を追加
 data_owid_jp %>% 
   dplyr::mutate(new_cases_lag = dplyr::lag(new_cases, n = 1)) 
@@ -514,7 +514,7 @@ data_owid_jp %>%
 
 `dplyr::lag()`関数で、既存の列の変化率系列を作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 前期比変化率（％表示）の系列を追加
 data_owid_jp %>% 
   dplyr::mutate(new_cases_chg = 100 * (new_cases / dplyr::lag(new_cases, n = 1) - 1)) 
@@ -524,7 +524,7 @@ data_owid_jp %>%
 
 `zoo`パッケージの`rollmean()`関数で、移動平均系列を作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 後方7日移動平均の系列を追加
 data_owid_jp %>% 
   dplyr::mutate(new_cases_7dma = zoo::rollmean(new_cases, # 移動平均を作成するもとの系列名
@@ -542,7 +542,7 @@ data_owid_jp %>%
 
 まず、Our World in Dataの`data_owid`データセットから、使用するサンプルデータを作成します。`tq_transmute()`関数に入力する時系列データは、原則として横型データである点に留意してください。
 
-```{r}
+```{r, paged.print=FALSE}
 # サンプルデータ（日次）
 data_owid_cases_wide <- data_owid %>% 
   dplyr::select(location, date, new_cases) %>% 
@@ -555,14 +555,14 @@ data_owid_cases_wide <- data_owid %>%
 
 `tidyquant::tq_transmute()`関数を使用して日次データを週次データに変換すると、月曜～日曜のデータが`FUN`に指定した関数で集計され、日曜の日付で記録されます。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_cases_wide %>% 
   tidyquant::tq_transmute(select = -date, mutate_fun = apply.weekly, FUN = mean, na.rm = TRUE)
 ```
 
 なお、日曜～土曜のデータを集計し日曜の日付で記録したい場合は、`rollmean()`関数を使用して前方7日移動平均を計算し、日曜の値を抽出します。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_cases_wide %>%
   dplyr::mutate(across(-date, rollmean, k = 7, na.pad = TRUE, align = "left")) %>% 
   dplyr::filter(lubridate::wday(date) == 1)
@@ -572,7 +572,7 @@ data_owid_cases_wide %>%
 
 `tidyquant::tq_transmute()`関数を使用して日次データを月次データに変換すると、月初～月末のデータが`FUN`に指定した関数で集計され、月末の日付で記録されます。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_cases_wide %>% 
   tidyquant::tq_transmute(select = -date, mutate_fun = apply.monthly, FUN = mean, na.rm = TRUE)
 ```
@@ -581,7 +581,7 @@ data_owid_cases_wide %>%
 
 `tidyquant::tq_transmute()`関数を使用して日次データを四半期データに変換すると、期初～期末のデータが`FUN`に指定した関数で集計され、期末の日付で記録されます。
 
-```{r}
+```{r, paged.print=FALSE}
 data_owid_cases_wide %>% 
   tidyquant::tq_transmute(select = -date, mutate_fun = apply.quarterly, FUN = mean, na.rm = TRUE)
 ```
@@ -600,7 +600,7 @@ data_owid_cases_wide %>%
 
 季節調整の前に、データを確認します。ts形式のデータは`plot()`関数でグラフを作成できます。
 
-```{r}
+```{r, paged.print=FALSE}
 plot(seasonal::unemp)
 ```
 
@@ -608,7 +608,7 @@ plot(seasonal::unemp)
 
 `seasonal`パッケージでは、`seas()`関数を使用してts形式のデータにX-13ARIMA-SEATSを適用します。`seas()`関数は、季節調整の結果を格納したseas型のオブジェクトを返します。
 
-```{r}
+```{r, paged.print=FALSE}
 # seas()関数で季節調整を実行
 m <- seasonal::seas(x = seasonal::unemp)
 
@@ -618,13 +618,13 @@ summary(m)
 
 `plot()`関数で、原数値と季節調整値のグラフを作成できます。黒色の線が原数値、赤色の線が季節調整値です。外れ値がある場合はグラフ中に外れ値が表示されます。
 
-```{r}
+```{r, paged.print=FALSE}
 plot(m)
 ```
 
 季節調整値を出力するには、`seasonal::final()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 季節調整値をunemp_saに格納
 unemp_sa <- seasonal::final(m)
 
@@ -634,7 +634,7 @@ plot(unemp_sa, type = "l")
 
 `monthplot()`関数を使用すると、季節変動（Seasonal component）と不規則変動（Seasonal irregular component）を月別に確認することができます。
 
-```{r}
+```{r, paged.print=FALSE}
 monthplot(m)
 ```
 
@@ -649,7 +649,7 @@ monthplot(m)
 5.  季節調整値を取得する
 6.  エラーが生じた系列は原数値を取得する
 
-```{r}
+```{r, paged.print=FALSE}
 # data_laborから一部を抽出
 data_labor_nsa <- data_labor %>% 
   dplyr::select(date, `総数`, `製造`, `情報通信`)
@@ -692,7 +692,7 @@ data_labor_sa %<>%
 
 個別系列の季節調整結果を可視化するには、`plot()`関数を使用します。一部の系列は季節性がないと判断されるため、季節調整が行われていません。
 
-```{r}
+```{r, paged.print=FALSE}
 plot(result[[which(names(result) == "総数")]])
 
 plot(result[[which(names(result) == "製造")]])
@@ -710,7 +710,7 @@ STL分解とは、Seasonal Decomposition of Time Series by Loessの略で、時�
 
 STL分解を行うには、ts形式の時系列データに対し、`stats`パッケージの`stl()`関数を適用します。`stl()`関数はSTL分解の結果を格納したstl型のオブジェクトを返します。
 
-```{r}
+```{r, paged.print=FALSE}
 # stl()関数でSTL分解を実行
 m <- stats::stl(x = seasonal::unemp,
                 s.window = "periodic"
@@ -722,7 +722,7 @@ plot(m)
 
 季節調整値を出力するには、`stl()`関数が返すstl型オブジェクトに格納されている`time.series`にアクセスします。`time.series`には、季節変動（`seasonal`）、トレンド変動（`trend`）、不規則変動（`remainder`）の順番にデータが格納されています。
 
-```{r}
+```{r, paged.print=FALSE}
 # 季節調整値（トレンド）をunemp_saに格納
 unemp_sa <- m$time.series[, "trend"]
 
@@ -736,17 +736,17 @@ STL分解は、`seasonal::unemp`のような月次データだけでなく、よ
 
 ここでは、週次データである`fpp2::gasoline`データセットに対し、STL分解を適用します。週次データは`ts()`関数における`frequency`引数が52.18となっています。これは、うるう年を考慮した1年の平均日数365.25日を7で割った値であり、週次データは一周期が52.18週であることを示しています。
 
-```{r}
+```{r, paged.print=FALSE}
 # データの確認
 head(fpp2::gasoline)
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # データの可視化
 plot(fpp2::gasoline)
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # stl()関数でSTL分解を実行
 m <- stats::stl(x = fpp2::gasoline,
                 s.window = "periodic"
@@ -762,7 +762,7 @@ plot(m)
 
 使用するデータは、Our World in Dataの`data_owid`データセットにおける、日本の新規感染者数です。
 
-```{r}
+```{r, paged.print=FALSE}
 # data_owidから日本の新規感染者数（日次）を抽出
 data_cases_jp <- data_owid %>% 
   dplyr::filter(location == "Japan") %>% 
@@ -792,7 +792,7 @@ plot(m)
 
 msts形式のデータに対するSTL分解は、`stats::stl()`関数ではなく、`forecast`パッケージの`mstl()`関数を使用します。
 
-```{r}
+```{r, paged.print=FALSE}
 # data_owidから日本の新規感染者数（日次）を抽出
 data_cases_jp <- data_owid %>% 
   dplyr::filter(location == "Japan") %>% 
@@ -828,7 +828,7 @@ $$
 
 実例として、西山 他（2019）P.547～549に掲載されている「実証例11.1 GDPの線形トレンド・モデル推定」の一部を再現します。推計に用いるデータは第10章「系列相関と時系列モデル」で用いられている日本の実質GDP（年次、1980～2017年）と同じものを使用します。なお、実証例11.1では1955年からのデータが用いられており、時系列インデックスの値など細かな点で違いがありますので、注意してください。
 
-```{r}
+```{r, paged.print=FALSE}
 # XLSXデータを読み込み
 data <- readxl::read_excel(path = "data_nishiyama/ch10/Fig_1_nominalGDP_annual.xlsx", # ファイルパス（拡張子が必要、URLは不可）
                            sheet = NULL, # シートインデックス／シート名
@@ -847,7 +847,7 @@ data
 
 ここでは、実質GDPの自然対数に100を掛けた値について線形トレンドを推定します。この操作により、時系列インデックス$t$の係数$\delta$の推定値は実質GDPのトレンド成長率（％表示）を示すことになります。詳細は、西山 他（2019）P.532を参照してください。
 
-```{r}
+```{r, paged.print=FALSE}
 # 実質年率データを対数変換し100を掛けた系列を計算
 data_lm <- data %>% 
   dplyr::mutate(ln_real = 100 * log(実質年率))
@@ -863,7 +863,7 @@ data_lm
 
 推定した結果、時系列インデックスの係数推定値のp値が0.05を下回っているため、トレンドがないとの帰無仮説（$\delta = 0$）は棄却されます。したがって、1991～2017年の実質GDPには平均成長率約0.85％のトレンドがあると判断できます。
 
-```{r}
+```{r, paged.print=FALSE}
 # 線形トレンド・モデルを推定
 result <- estimatr::lm_robust(formula = ln_real ~ time,
                               data = data_lm,
@@ -874,7 +874,7 @@ result <- estimatr::lm_robust(formula = ln_real ~ time,
 summary(result)
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # 実質GDPを対数変換して100を掛けた値と、線形トレンド・モデルの推定結果をプロット
 data_lm %>% 
   dplyr::mutate(fitted = result$fitted.values) %>% 
@@ -913,7 +913,7 @@ $$
 
 線形トレンド・モデルと同様に、日本の実質GDPデータを用いて区分線形トレンド・モデルを推定します。ダミー変数は`dplyr`パッケージの`if_else()`関数を使って作成します。
 
-```{r}
+```{r, paged.print=FALSE}
 # XLSXデータを読み込み
 data <- readxl::read_excel(path = "data_nishiyama/ch10/Fig_1_nominalGDP_annual.xlsx", # ファイルパス（拡張子が必要、URLは不可）
                            sheet = NULL, # シートインデックス／シート名
@@ -930,7 +930,7 @@ data %<>%
 data
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # 実質年率データを対数変換し100を掛けた系列を計算
 data_lm <- data %>% 
   dplyr::mutate(ln_real = 100 * log(実質年率))
@@ -946,7 +946,7 @@ data_lm
 
 また、傾きダミー`dummy:time`の係数推定値のp値が0.05を下回っており、1991年以降のトレンドは1990年以前のトレンドと差がないとの帰無仮説が棄却されます。この結果は、1991～2017年のトレンド成長率が約0.85％（4.444から傾きダミー`dummy:time`の係数推定値3.595を減じた値）であることを示していると解釈できます。
 
-```{r}
+```{r, paged.print=FALSE}
 # 区分線形トレンド・モデルを推定
 result <- estimatr::lm_robust(formula = ln_real ~ dummy + time + dummy * time,
                               data = data_lm,
@@ -957,7 +957,7 @@ result <- estimatr::lm_robust(formula = ln_real ~ dummy + time + dummy * time,
 summary(result)
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # 実質GDPを対数変換して100を掛けた値と、線形トレンド・モデルの推定結果をプロット
 data_lm %>% 
   dplyr::mutate(fitted_1 = if_else(日付 <= 1990, result$fitted.values, NA_real_),
@@ -989,7 +989,7 @@ HPフィルタを適用するには、時系列データに対し、`mFilter`パ
 
 推定したトレンド成分、循環成分は、推定結果を格納したオブジェクトに、それぞれ`trend`、`cycle`の名称で格納されています。
 
-```{r}
+```{r, paged.print=FALSE}
 result <- mFilter::hpfilter(x = seasonal::unemp, # HPフィルタを適用する時系列データ（数値型ベクトル、ts形式）
                             type = "lambda",
                             freq = 14400, # ラムダの値（四半期：1600、月次：14400）
@@ -999,7 +999,7 @@ result <- mFilter::hpfilter(x = seasonal::unemp, # HPフィルタを適用する
 summary(result)
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # hpfilter()関数の出力結果から開始日と終了日を確認
 start(result$trend)
 end(result$trend)
@@ -1041,7 +1041,7 @@ $$
 
 `gam()`関数の使用方法の詳細については、[こちら](https://logics-of-blue.com/%E5%B9%B3%E6%BB%91%E5%8C%96%E3%82%B9%E3%83%97%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%A8%E5%8A%A0%E6%B3%95%E3%83%A2%E3%83%87%E3%83%AB/)のウェブサイトを参照してください。
 
-```{r}
+```{r, paged.print=FALSE}
 # unempデータをベクトル形式に変換してdataに格納
 data <- tibble::tibble(
   date = seq(from = as.Date("1990-01-01"), to = as.Date("2016-11-01"), by = "1 month"),
@@ -1065,12 +1065,12 @@ summary(result)
 
 推定したトレンド系列は、推定結果を格納したオブジェクトに`fitted.values`の名称で格納されています。
 
-```{r}
+```{r, paged.print=FALSE}
 data %>%
   dplyr::mutate(unemp_fitted = result$fitted.values)
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # トレンド推定結果を可視化
 plot(result, # gam()関数で推定した結果を格納したオブジェクト
      residuals = TRUE, # 元データを表示するか
@@ -1079,7 +1079,7 @@ plot(result, # gam()関数で推定した結果を格納したオブジェクト
      )
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # 推定したモデルのチェック
 mgcv::gam.check(result)
 ```
@@ -1114,7 +1114,7 @@ $$
 
 構造変化点が既知の場合の構造変化の検定には、`strucchange`パッケージの`sctest()`関数を使用します。ここでは、線形トレンド・モデルの推定で使用した日本の実質GDPデータ（対数変換して100を掛けた値、1980～2017年）に対し、1991年に構造変化が起きたか否かを検定します。
 
-```{r}
+```{r, paged.print=FALSE}
 # XLSXデータを読み込み
 data <- readxl::read_excel(path = "data_nishiyama/ch10/Fig_1_nominalGDP_annual.xlsx", # ファイルパス（拡張子が必要、URLは不可）
                            sheet = NULL, # シートインデックス／シート名
@@ -1135,7 +1135,7 @@ data_lm <- data %>%
 data_lm
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 # 実質GDPを対数変換して100を掛けた値をプロット
 ggplot(data = data_lm,
        mapping = aes(x = time, y = ln_real)
@@ -1145,7 +1145,7 @@ ggplot(data = data_lm,
 
 `stricchange::sctest()`関数で1991年（データの行インデックスが12）について構造変化の検定を行うと、p値が0.05を下回るため、構造変化がない帰無仮説を棄却します。したがって、日本の実質GDPは1991年に構造変化が生じていたと解釈できます。
 
-```{r}
+```{r, paged.print=FALSE}
 # sctest()関数で構造変化の検定を実施
 strucchange::sctest(formula = ln_real ~ time, # 構造変化を検定するモデル
                     data = data_lm, # データ
@@ -1160,7 +1160,7 @@ strucchange::sctest(formula = ln_real ~ time, # 構造変化を検定するモ�
 
 ここでは、「構造変化が既知の場合」と同じ日本の実質GDPデータ（対数変換して100を掛けた値、1980～2017年）を用い、構造変化点を推定します。
 
-```{r}
+```{r, paged.print=FALSE}
 # XLSXデータを読み込み
 data <- readxl::read_excel(path = "data_nishiyama/ch10/Fig_1_nominalGDP_annual.xlsx", # ファイルパス（拡張子が必要、URLは不可）
                            sheet = NULL, # シートインデックス／シート名
@@ -1187,7 +1187,7 @@ data_lm
 
 この例では、構造変化点として12が推定されました。これは、データの行インデックス12、すなわち1991年に構造変化が発生した可能性が最も大きいことを意味しています。
 
-```{r}
+```{r, paged.print=FALSE}
 result <- strucchange::breakpoints(formula = ln_real ~ time, # 構造変化点を推定するモデル
                                    data = data_lm, # データ
                                    h = 0.15, # 最小セグメントサイズ
@@ -1197,7 +1197,7 @@ result <- strucchange::breakpoints(formula = ln_real ~ time, # 構造変化点�
 summary(result)
 ```
 
-```{r}
+```{r, paged.print=FALSE}
 data_lm %>% 
   dplyr::slice(12)
 ```

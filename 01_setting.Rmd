@@ -20,7 +20,7 @@ Windows環境でRの一部のパッケージを使用する際、Rtoolsという
 
 Rのバージョン情報を出力します。
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
 version
 ```
 
@@ -28,7 +28,7 @@ version
 
 Rのバージョンに加え、使用環境、パッケージ情報を出力します。
 
-```{r}
+```{r, paged.print=FALSE}
 sessionInfo()
 ```
 
@@ -36,7 +36,7 @@ sessionInfo()
 
 変数をすべて削除してワークスペースを初期化します。
 
-```{r}
+```{r, paged.print=FALSE}
 rm(list = ls())
 ```
 
@@ -44,7 +44,7 @@ rm(list = ls())
 
 Rが出力する警告（Warning）を非表示にします。
 
-```{r}
+```{r, paged.print=FALSE}
 options(warn = -1)
 ```
 
@@ -52,7 +52,7 @@ options(warn = -1)
 
 関数が出力する警告やメッセージは`options(warn = -1)`で非表示にできないため、関数毎に、必要に応じて`suppressWarnings()`関数や`suppressMessages()`関数を使用します。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 suppressWarnings(警告を出力する関数)
 suppressMessages(メッセージを出力する関数)
 ```
@@ -63,7 +63,7 @@ suppressMessages(メッセージを出力する関数)
 
 オフィスや大学などのプロキシ環境ではプロキシサーバーの設定を行ってください。なお、下記のコードは認証プロキシには非対応です。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 # プロキシサーバーとポートを記入
 proxy_url <- "http://proxyserver:port/"
 
@@ -80,7 +80,7 @@ options(timeout = NA)
 
 設定したプロキシサーバーの値を確認するには、次のコードを実行します。
 
-```{r}
+```{r, paged.print=FALSE}
 Sys.getenv(c("http_proxy", "https_proxy"))
 ```
 
@@ -90,7 +90,7 @@ Windows版のR 4.2以降のバージョンでは、ファイルのダウンロ�
 
 そうしたSSLエラーが生じた場合は、次のコマンドを実行することでエラーが解消する可能性があります。詳細は[Rのディベロッパー用ウェブサイトにおける2022年8月6日のニュース](https://developer.r-project.org/blosxom.cgi/R-4-2-branch/NEWS/2022/08/06#n2022-08-06)を参照してください。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
 ```
 
@@ -152,7 +152,7 @@ Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
 
 なお、パッケージのインストールの際、ウィンドウやコンソールに "Do you want to install from sources the package which needs compilation?" というメッセージが出ることがあります。その場合は、まず "No" を選択し、それでもうまくいかなければ "Yes" を選択してください。
 
-```{r, results='hide', warning=FALSE, message=FALSE}
+```{r, results='hide', warning=FALSE, message=FALSE, paged.print=FALSE}
 # パッケージ一覧
 packages <- c(
   # tidyverse系
@@ -226,7 +226,7 @@ rm(
 
 Rのパッケージは開発者が随時アップデートしていますが、ユーザーの環境にパッケージのアップデートが自動で反映されることはありません。パッケージをアップデートする場合は、次のコードを実行してください。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 # パッケージをすべてアップデート
 update.packages()
 
@@ -253,7 +253,7 @@ RStudioのファイルメニュー > Tools > Global Options を選択し、Optio
 
 本書では、実務上Excelと併用することを想定しているため、Excelで出力されるグラフに似たテーマである`theme_light()`を設定します。`ggplot2`パッケージにデフォルトで用意されている様々なテーマについては、[公式ウェブサイト](https://ggplot2.tidyverse.org/reference/ggtheme.html)を参照してください。
 
-```{r}
+```{r, paged.print=FALSE}
 theme_set(theme_light())
 ```
 
@@ -261,7 +261,7 @@ theme_set(theme_light())
 
 Windows上でRを使用する場合は、日本語フォントをグラフ上で表示するために以下の設定が必要です。ここでは代表的なフォントとしてMeiryo UIとYu Gothic UIを設定します。それぞれのフォントに`MEIRYO`、`YUGO`というキーを割り当て、`ggplot2`パッケージでグラフを作成する際にキーを指定します。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 windowsFonts("MEIRYO" = windowsFont("Meiryo UI"))
 windowsFonts("YUGO" = windowsFont("Yu Gothic UI"))
 theme_set(theme_light(base_family = "YUGO"))
@@ -269,7 +269,7 @@ theme_set(theme_light(base_family = "YUGO"))
 
 Mac上でRを使用する場合は、上記の`theme_set()`関数の中でフォントを指定します。
 
-```{r}
+```{r, paged.print=FALSE}
 theme_set(theme_light(base_family = "HiraKakuProN-W3"))
 ```
 
@@ -287,7 +287,7 @@ Rのサンプルデータセットは、`help(データセット名)`を実行�
 
 `datasets`パッケージに含まれる`iris`データセットは、データ分析で良く使用される有名なデータです。3種類のアヤメの萼（がく）と花弁の長さ・幅のデータを格納しています。データ構造はdata.frame形式です。
 
-```{r}
+```{r, paged.print=FALSE}
 # データの先頭行をコンソールに出力
 head(iris)
 ```
@@ -296,7 +296,7 @@ head(iris)
 
 `datasets`パッケージに含まれる`mtcars`データセットは、米国で1973〜1974年に発売された32車種のデザインや諸元に関するデータです。燃費、排気量、馬力、重量などのデータが格納されています。データ構造はdata.frame形式です。
 
-```{r}
+```{r, paged.print=FALSE}
 # データの先頭行をコンソールに出力
 head(mtcars)
 ```
@@ -307,7 +307,7 @@ head(mtcars)
 
 [データ出所リンク](https://fueleconomy.gov/)
 
-```{r}
+```{r, paged.print=FALSE}
 mpg
 ```
 
@@ -315,7 +315,7 @@ mpg
 
 `ggplot2`パッケージに含まれる`diamonds`データセットは、約54,000個のダイヤモンドの価格、カラット、色、大きさなどの情報を格納しています。データ構造はtibble形式です。
 
-```{r}
+```{r, paged.print=FALSE}
 diamonds
 ```
 
@@ -331,7 +331,7 @@ diamonds
 * [失業期間の中央値](https://fred.stlouisfed.org/series/UEMPMED)
 * [失業者数（unemploy）](https://fred.stlouisfed.org/series/UNEMPLOY)
 
-```{r}
+```{r, paged.print=FALSE}
 economics
 ```
 
@@ -341,7 +341,7 @@ economics
 
 [データ出所リンク](https://fred.stlouisfed.org/series/LNU03000000)
 
-```{r}
+```{r, paged.print=FALSE}
 # データの先頭行をコンソールに出力
 head(seasonal::unemp)
 ```
@@ -350,7 +350,7 @@ head(seasonal::unemp)
 
 `fpp`パッケージに含まれる`usconsumption`データセットは、米国のマクロ経済時系列データ（四半期、1970年1-3月期〜2010年10-12月期）です。実質個人消費支出（`consumption`、前期比、％）、実質可処分所得（`income`、前期比、％）のデータが格納されています。データ構造はts形式です。
 
-```{r}
+```{r, paged.print=FALSE}
 # データの先頭行をコンソールに出力
 head(fpp::usconsumption)
 ```
@@ -360,7 +360,7 @@ head(fpp::usconsumption)
 
 `fpp2`パッケージに含まれる`gasoline`データセットは、米国のガソリン生産量（単位：百万バレル／日）の時系列データです（週次、1991年2月2日〜2017年１月20日）。データ構造はts形式です。
 
-```{r}
+```{r, paged.print=FALSE}
 # データの先頭行をコンソールに出力
 head(fpp2::gasoline)
 ```
@@ -370,7 +370,7 @@ head(fpp2::gasoline)
 
 `vars`パッケージに含まれる`Canada`データセットは、カナダのマクロ経済時系列データ（四半期、1980年1-3月期〜2000年10-12月期）です。雇用者数（`e`、自然対数×100）、実質労働生産性（`prod`、自然対数×100）、実質賃金（`rw`、自然対数×100）、失業率（`U`、％）のデータが格納されています。データ構造はts形式です。
 
-```{r}
+```{r, paged.print=FALSE}
 # データを呼び出し
 data(Canada)
 
@@ -382,7 +382,7 @@ head(Canada)
 
 `datasets`パッケージに含まれる`Seatbelts`データセットは、英国の交通事故死者数の時系列データです（月次、1969年1月〜1984年12月）。前席における死傷者数（`front`）、ガソリン価格（`PetrolPrice`）、前席のシートベルト着用を義務付ける法律の施行有無を表すフラグ（`law`）などのデータが格納されています。データ構造はts形式です。
 
-```{r}
+```{r, paged.print=FALSE}
 head(Seatbelts)
 ```
 
@@ -390,7 +390,7 @@ head(Seatbelts)
 
 ウェブから外部データセットを読み込みます。オフィスや大学などのプロキシ環境では、次のプロキシサーバーの設定を実行してください。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 # プロキシサーバーとポートを記入
 proxy_url <- "http://proxyserver:port/"
 
@@ -411,7 +411,7 @@ Our World in Dataの新型コロナウイルス関連データセットです。
 
 Hannah Ritchie, Edouard Mathieu, Lucas Rodés-Guirao, Cameron Appel, Charlie Giattino, Esteban Ortiz-Ospina, Joe Hasell, Bobbie Macdonald, Diana Beltekian and Max Roser (2020) - "Coronavirus Pandemic (COVID-19)". Published online at OurWorldInData.org. Retrieved from: '<https://ourworldindata.org/coronavirus>' [Online Resource]
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
 # Our World in Dataの新型コロナデータをtibble形式で読み込み
 data_owid <- readr::read_csv(file = "https://covid.ourworldindata.org/data/owid-covid-data.csv", # ファイルパス／URL
                              col_names = TRUE, # ヘッダー（列名データ）の有無
@@ -435,7 +435,7 @@ data_owid
 
 総務省が公表する労働力調査の長期時系列データのうち、2002年1月以降の産業別就業者数（表番号：1-c-3）を格納したデータセットです。詳細は[e-Statの該当ページ](https://www.e-stat.go.jp/stat-search/files?page=1&toukei=00200531&tstat=000000110001)を参照してください。
 
-```{r}
+```{r, paged.print=FALSE}
 # 総務省の労働力調査データをdata.frame形式で読み込み
 data_labor <- openxlsx::read.xlsx(xlsxFile = "https://www.e-stat.go.jp/stat-search/file-download?statInfId=000031831374&fileKind=0", # ファイルパス／URL
                                   sheet = 1, # シートインデックス／シート名
@@ -492,7 +492,7 @@ data_labor
 
 内閣府が公表する年次の名目県内総生産データセットです（生産側、2008SNA、平成23年基準計数）。詳細は[内閣府のウェブサイト](https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/main_2018.html)を参照してください。ここではデータをdata.frame形式で読み込み、前処理して縦型のtibble形式に変換します。
 
-```{r}
+```{r, paged.print=FALSE}
 # 内閣府の県内総生産データをdata.frame形式で読み込み
 data_gdp_pref <- openxlsx::read.xlsx(xlsxFile = "https://www.esri.cao.go.jp/jp/sna/data/data_list/kenmin/files/contents/tables/2018/soukatu1.xlsx", # ファイルパス／URL
                                      sheet = 1, # シートインデックス／シート名
@@ -524,7 +524,7 @@ data_gdp_pref
 
 内閣府が公表する日本の四半期別GDPデータセットです（支出側、実質季節調整値）。2022年6月8日に公表された2022年1～3月期2次速報値のリンクからデータを取得しており、期間は1994年1～3月期から2022年1～3月期です。詳細は[内閣府のウェブサイト](https://www.esri.cao.go.jp/jp/sna/data/data_list/sokuhou/files/2022/qe221_2/gdemenuja.html)を参照してください。ここではデータをtibble形式で読み込んで前処理を行います。
 
-```{r}
+```{r, paged.print=FALSE}
 # 内閣府のGDP実質季節調整値データをtibble形式で読み込み
 data_gdp_jp <- readr::read_csv(file = "https://www.esri.cao.go.jp/jp/sna/data/data_list/sokuhou/files/2022/qe221_2/tables/gaku-jk2212.csv", # ファイルパス／URL（拡張子が必要）
                                col_names = TRUE, # ヘッダー（列名データ）の有無
@@ -563,7 +563,7 @@ data_gdp_jp
 
 `file.edit(".Rprofile")`でプロジェクトフォルダの直下に`.Rprofile`ファイルを作成し、その中に次のコードを記載して保存しておくと、Rの起動時に`.Rprofile`ファイルの内容が自動的に実行されるので便利です。
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, paged.print=FALSE}
 # 全変数を削除
 rm(list = ls())
 
