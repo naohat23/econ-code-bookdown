@@ -4,7 +4,7 @@
 
 ## 第7章の準備
 
-### パッケージのインポート {.unnumbered}
+### パッケージのインポート
 
 ```{r, paged.print=FALSE}
 library(forecast)
@@ -18,7 +18,7 @@ library(tidyverse)
 library(zoo)
 ```
 
-### 外部データセットの取得 {.unnumbered}
+### 外部データセットの取得
 
 この章では、外部データセットとして以下のデータを使用します。第1章のコードを使用してあらかじめウェブからデータセットを取得してください。
 
@@ -43,7 +43,7 @@ Rで時系列データを扱う方法には、主に次の2つがあります。
 
 ts形式データのサンプルデータセットとして、`seasonal`パッケージの`unemp`データセット（月次データ）と、`fpp2`パッケージの`gasoline`データセット（週次データ）を用います。
 
-### ts形式データの表示 {.unnumbered}
+### ts形式データの表示
 
 月次のts形式データは、行方向に年、列方向に月、の行列の形でコンソールに表示されます。
 
@@ -59,7 +59,7 @@ seasonal::unemp
 fpp2::gasoline %>% head(200)
 ```
 
-### ts形式データ情報の取得 {.unnumbered}
+### ts形式データ情報の取得
 
 ts形式データの日付情報を取得するには、`frequency()`、`start()`、`end()`などの関数を用います。
 
@@ -89,7 +89,7 @@ start(fpp2::gasoline)
 end(fpp2::gasoline)
 ```
 
-### ts形式データのフィルタ {.unnumbered}
+### ts形式データのフィルタ
 
 ts形式データをフィルタするには、`window()`関数を使用して`start`引数と`end`引数に年を指定します。
 
@@ -101,7 +101,7 @@ window(seasonal::unemp, start = 1999, end = 2000)
 window(fpp2::gasoline, start = 2016, end = 2017)
 ```
 
-### ts形式データのプロット {.unnumbered}
+### ts形式データのプロット
 
 ts形式データをプロットするには、`plot()`関数を使用します。ts形式データはデータと日付がセットになっているため、X軸には自動的に日付が表示されます。
 
@@ -117,7 +117,7 @@ plot(fpp2::gasoline)
 
 data.frame形式やtibble形式といった通常のデータフレームからts形式へ変換するには、`ts()`関数でts形式データの行列に変換する方法と、`tsibble`パッケージの`as_tsibble()`関数でts形式データフレームであるtsibble形式データに変換する方法の2種類があります。
 
-### ts形式に変換：ts() {-}
+### ts形式に変換：ts()
 
 `ts()`関数を使用して、通常のデータフレーム形式のデータを、ts形式の行列に変換します。
 
@@ -256,7 +256,7 @@ data_ts %>% head()
 frequency(data_ts)
 ```
 
-### ts形式に変換：as_tsibble() {.unnumbered}
+### ts形式に変換：as_tsibble()
 
 `as_tsibble()`関数を使用して、通常のデータフレーム形式のデータを、tsibble形式のデータフレームに変換します。tsibble形式とは、ts形式の情報をもったtibbleのようなものです。
 
@@ -364,7 +364,7 @@ frequency(data_tsibble)
 
 日付型データを扱う際に便利な関数を紹介します。
 
-### 日付型データの生成 {-}
+### 日付型データの生成
 
 連続した日付型データを生成するには、`seq()`関数を使用します。
 
@@ -391,7 +391,7 @@ seq(from = as.Date("2022-01-01"), by = "1 month", length.out = 12)
 seq(from = as.Date("2022-01-01"), by = "1 day", along.with = letters)
 ```
 
-### 日付型データの計算 {-}
+### 日付型データの計算
 
 日付型データの年・月・日を足し引きするには、`years()`、`months()`、`days()`関数を使用します。
 
@@ -410,7 +410,7 @@ as.Date("2023-01-01") + years(1) + months(1) + days(1)
 ```
 
 
-### 日付型と文字列型の変換 {-}
+### 日付型と文字列型の変換
 
 日付型データを文字列型データに変換するには、`strftime()`関数を使用します。一方、文字列型データを日付型データに変換するには、`strptime()`関数や、lubridateパッケージの`ymd()`関数を使用します。
 
@@ -438,7 +438,7 @@ strptime("20221231", format = "%Y%m%d")
 lubridate::ymd(c("20000101", "010203", "020505"))
 ```
 
-### 日付情報の抽出 {-}
+### 日付情報の抽出
 
 日付型データから日付情報を抽出するには、lubridateパッケージの関数を用います。
 
@@ -500,7 +500,7 @@ data_owid_jp <- data_owid %>%
                 )
 ```
 
-### ラグ・リード系列の作成 {.unnumbered}
+### ラグ・リード系列の作成
 
 `dplyr::lag()`関数と`dplyr::leag()`関数で、既存の列のラグ・リード系列を作成します。
 
@@ -510,7 +510,7 @@ data_owid_jp %>%
   dplyr::mutate(new_cases_lag = dplyr::lag(new_cases, n = 1)) 
 ```
 
-### 変化率系列の作成 {.unnumbered}
+### 変化率系列の作成
 
 `dplyr::lag()`関数で、既存の列の変化率系列を作成します。
 
@@ -520,7 +520,7 @@ data_owid_jp %>%
   dplyr::mutate(new_cases_chg = 100 * (new_cases / dplyr::lag(new_cases, n = 1) - 1)) 
 ```
 
-### 移動平均系列の作成 {.unnumbered}
+### 移動平均系列の作成
 
 `zoo`パッケージの`rollmean()`関数で、移動平均系列を作成します。
 
@@ -551,7 +551,7 @@ data_owid_cases_wide <- data_owid %>%
   tidyr::pivot_wider(id_cols = "date", names_from = "location", values_from = "new_cases")
 ```
 
-### 日次データを週次データに変換 {.unnumbered}
+### 日次データを週次データに変換
 
 `tidyquant::tq_transmute()`関数を使用して日次データを週次データに変換すると、月曜～日曜のデータが`FUN`に指定した関数で集計され、日曜の日付で記録されます。
 
@@ -568,7 +568,7 @@ data_owid_cases_wide %>%
   dplyr::filter(lubridate::wday(date) == 1)
 ```
 
-### 日次データを月次データに変換 {.unnumbered}
+### 日次データを月次データに変換
 
 `tidyquant::tq_transmute()`関数を使用して日次データを月次データに変換すると、月初～月末のデータが`FUN`に指定した関数で集計され、月末の日付で記録されます。
 
@@ -577,7 +577,7 @@ data_owid_cases_wide %>%
   tidyquant::tq_transmute(select = -date, mutate_fun = apply.monthly, FUN = mean, na.rm = TRUE)
 ```
 
-### 日次データを四半期データに変換 {.unnumbered}
+### 日次データを四半期データに変換
 
 `tidyquant::tq_transmute()`関数を使用して日次データを四半期データに変換すると、期初～期末のデータが`FUN`に指定した関数で集計され、期末の日付で記録されます。
 
@@ -596,7 +596,7 @@ data_owid_cases_wide %>%
 
 サンプルデータとして、ts形式のデータである`seasonal::unemp`データセットを用い、`seasonal`パッケージの使用方法を確認します。
 
-### ts形式データの可視化 {.unnumbered}
+### ts形式データの可視化
 
 季節調整の前に、データを確認します。ts形式のデータは`plot()`関数でグラフを作成できます。
 
@@ -604,7 +604,7 @@ data_owid_cases_wide %>%
 plot(seasonal::unemp)
 ```
 
-### X-13ARIMA-SEATSの実施方法 {.unnumbered}
+### X-13ARIMA-SEATSの実施方法
 
 `seasonal`パッケージでは、`seas()`関数を使用してts形式のデータにX-13ARIMA-SEATSを適用します。`seas()`関数は、季節調整の結果を格納したseas型のオブジェクトを返します。
 
@@ -638,7 +638,7 @@ plot(unemp_sa, type = "l")
 monthplot(m)
 ```
 
-### 実例：月次データの季節調整 {.unnumbered}
+### 実例：月次データの季節調整
 
 ここでは、日本の産業別就業者数データセット`data_labor`に対し、月次の季節調整を適用します。`data_labor`はtibble形式のデータフレームの中に、日付型の列と、複数の数値型のデータの列を格納したものです。
 
@@ -706,7 +706,7 @@ plot(result[[which(names(result) == "情報通信")]])
 
 STL分解とは、Seasonal Decomposition of Time Series by Loessの略で、時系列データを季節変動、トレンド変動、不規則変動に分解する手法です。
 
-### STL分解の実施方法 {.unnumbered}
+### STL分解の実施方法
 
 STL分解を行うには、ts形式の時系列データに対し、`stats`パッケージの`stl()`関数を適用します。`stl()`関数はSTL分解の結果を格納したstl型のオブジェクトを返します。
 
@@ -730,7 +730,7 @@ unemp_sa <- m$time.series[, "trend"]
 plot(unemp_sa, type = "l")
 ```
 
-### 週次データのSTL分解 {.unnumbered}
+### 週次データのSTL分解
 
 STL分解は、`seasonal::unemp`のような月次データだけでなく、より高頻度なデータにも適用できるのが特徴です。
 
@@ -756,7 +756,7 @@ m <- stats::stl(x = fpp2::gasoline,
 plot(m)
 ```
 
-### 日次データのSTL分解（単一周期） {.unnumbered}
+### 日次データのSTL分解（単一周期）
 
 さらに、STL分解は日次データにも適用可能です。日次データの周期性は通常、週、月、年の3種類あると考えられます。ただし、ts形式では一種類の周期性しか指定できないため、ここでは週を一周期に設定し、`ts()`関数の`frequency`引数に7を指定して、STL分解を行います。
 
@@ -784,7 +784,7 @@ m <- stats::stl(x = data_cases_jp_ts,
 plot(m)
 ```
 
-### 日次データのSTL分解（複数周期） {.unnumbered}
+### 日次データのSTL分解（複数周期）
 
 データに複数の周期性を設定したい場合は、ts形式の拡張版であるmsts形式のデータを用います。msts形式のデータは`forecast`パッケージの`msts()`関数で作成できます。
 
@@ -818,7 +818,7 @@ plot(m)
 
 ※線形トレンドと非線形トレンドは、**確定トレンド（deterministic trend）**と呼ばれます。確定トレンドは単純な直線または曲線で表されるもので、一般的にイメージされるトレンドはこちらに当たります。そのほかに、**確率トレンド（stochastic trend）**と呼ばれるトレンドもあり、こちらは方向が定まらないジグザグ線で表されます。この節では、確定トレンドについて解説します。
 
-### 線形トレンド {.unnumbered}
+### 線形トレンド
 
 **線形トレンド（linear trend）**では、次のような線形トレンド・モデルを最小二乗法（OLS）で推定します。$t$は時系列インデックス（毎期1ずつ増加する整数の時間変数）、$u_t$は誤差項です。
 
@@ -883,7 +883,7 @@ data_lm %>%
   geom_line(mapping = aes(x = 日付, y = fitted), color = "red")
 ```
 
-### 区分線形トレンド {.unnumbered}
+### 区分線形トレンド
 
 次のように、期間によって異なる線形トレンドを推定するモデルを**区分線形トレンド**といいます。
 
@@ -969,7 +969,7 @@ data_lm %>%
   geom_line(mapping = aes(x = 日付, y = fitted_2), color = "red")
 ```
 
-### HPフィルタ {.unnumbered}
+### HPフィルタ
 
 **HPフィルタ（Hodrick Prescott filter）**は、非線形トレンド推定手法の一種です。
 
@@ -1025,7 +1025,7 @@ ggplot(data = data_result_long,
 plot(result)
 ```
 
-### 一般化加法モデル（GAM） {.unnumbered}
+### 一般化加法モデル（GAM）
 
 **一般化加法モデル（Generalizes Additive Model、GAM）**は非線形モデルの一種であり、非線形モデルによる高い説明力と、線形モデルがもつ解釈性の良さを両立させることができる手法です。
 
@@ -1092,7 +1092,7 @@ mgcv::gam.check(result)
 
 一方、構造変化したと考えられる時点が未知の場合は、構造変化が発生した可能性が最も高い時点を推定します。
 
-### 構造変化点が既知の場合 {.unnumbered}
+### 構造変化点が既知の場合
 
 構造変化した時点が既知の場合は、構造変化点を$T^*$とした次の重回帰モデル
 
@@ -1154,7 +1154,7 @@ strucchange::sctest(formula = ln_real ~ time, # 構造変化を検定するモ�
                     )
 ```
 
-### 構造変化点が未知の場合 {.unnumbered}
+### 構造変化点が未知の場合
 
 構造変化した時点が未知の場合は、`strucchange::breakpoints()`関数を使用し、構造変化した可能性が最も高い時点を推定します。
 

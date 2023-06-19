@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-06-18" />
+<meta name="date" content="2023-06-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="rの設定.html"/>
+<link rel="next" href="rの設定-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -140,9 +140,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>はじめに</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#なぜrを使うのか"><i class="fa fa-check"></i>なぜRを使うのか？</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#本書で出来ること"><i class="fa fa-check"></i>本書で出来ること　</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#本書で出来ないこと"><i class="fa fa-check"></i>本書で出来ないこと</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#目次"><i class="fa fa-check"></i>目次</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#本書でできることできないこと"><i class="fa fa-check"></i>本書でできること・できないこと</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#目次"><i class="fa fa-check"></i>目次</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rの設定"><i class="fa fa-check"></i>1. Rの設定</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rの基本的な使用方法"><i class="fa fa-check"></i>2. Rの基本的な使用方法</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#tidyverseによるデータ操作"><i class="fa fa-check"></i>3. tidyverseによるデータ操作</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ggplot2によるグラフ作成"><i class="fa fa-check"></i>4. ggplot2によるグラフ作成</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#探索的データ分析eda"><i class="fa fa-check"></i>5. 探索的データ分析（EDA）</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#線形回帰"><i class="fa fa-check"></i>6. 線形回帰</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#時系列データ操作"><i class="fa fa-check"></i>7. 時系列データ操作</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#時系列分析"><i class="fa fa-check"></i>8. 時系列分析</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#パネルデータ分析"><i class="fa fa-check"></i>9. パネルデータ分析</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#参考文献ウェブサイト"><i class="fa fa-check"></i>参考文献・ウェブサイト</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#rプログラミング"><i class="fa fa-check"></i>Rプログラミング</a></li>
@@ -163,602 +173,602 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月26日-ローンチ"><i class="fa fa-check"></i>2022年6月26日 ローンチ</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="rの設定.html"><a href="rの設定.html"><i class="fa fa-check"></i><b>1</b> Rの設定</a>
+<li class="chapter" data-level="1" data-path="rの設定-1.html"><a href="rの設定-1.html"><i class="fa fa-check"></i><b>1</b> Rの設定</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="rの設定.html"><a href="rの設定.html#設定全般"><i class="fa fa-check"></i><b>1.1</b> 設定全般</a>
+<li class="chapter" data-level="1.1" data-path="rの設定-1.html"><a href="rの設定-1.html#設定全般"><i class="fa fa-check"></i><b>1.1</b> 設定全般</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#rのインストール"><i class="fa fa-check"></i>Rのインストール</a></li>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#rのバージョン確認"><i class="fa fa-check"></i>Rのバージョン確認</a></li>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#セッション情報の確認"><i class="fa fa-check"></i>セッション情報の確認</a></li>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#オブジェクトを全削除"><i class="fa fa-check"></i>オブジェクトを全削除</a></li>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#警告の非表示"><i class="fa fa-check"></i>警告の非表示</a></li>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#関数が出力する警告やメッセージの非表示"><i class="fa fa-check"></i>関数が出力する警告やメッセージの非表示</a></li>
+<li class="chapter" data-level="1.1.1" data-path="rの設定-1.html"><a href="rの設定-1.html#rのインストール"><i class="fa fa-check"></i><b>1.1.1</b> Rのインストール</a></li>
+<li class="chapter" data-level="1.1.2" data-path="rの設定-1.html"><a href="rの設定-1.html#rのバージョン確認"><i class="fa fa-check"></i><b>1.1.2</b> Rのバージョン確認</a></li>
+<li class="chapter" data-level="1.1.3" data-path="rの設定-1.html"><a href="rの設定-1.html#セッション情報の確認"><i class="fa fa-check"></i><b>1.1.3</b> セッション情報の確認</a></li>
+<li class="chapter" data-level="1.1.4" data-path="rの設定-1.html"><a href="rの設定-1.html#オブジェクトを全削除"><i class="fa fa-check"></i><b>1.1.4</b> オブジェクトを全削除</a></li>
+<li class="chapter" data-level="1.1.5" data-path="rの設定-1.html"><a href="rの設定-1.html#警告の非表示"><i class="fa fa-check"></i><b>1.1.5</b> 警告の非表示</a></li>
+<li class="chapter" data-level="1.1.6" data-path="rの設定-1.html"><a href="rの設定-1.html#関数が出力する警告やメッセージの非表示"><i class="fa fa-check"></i><b>1.1.6</b> 関数が出力する警告やメッセージの非表示</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="rの設定.html"><a href="rの設定.html#通信関連の設定"><i class="fa fa-check"></i><b>1.2</b> 通信関連の設定</a>
+<li class="chapter" data-level="1.2" data-path="rの設定-1.html"><a href="rの設定-1.html#通信関連の設定"><i class="fa fa-check"></i><b>1.2</b> 通信関連の設定</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="rの設定.html"><a href="rの設定.html#プロキシ設定"><i class="fa fa-check"></i><b>1.2.1</b> プロキシ設定</a></li>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#ssl設定"><i class="fa fa-check"></i>SSL設定</a></li>
+<li class="chapter" data-level="1.2.1" data-path="rの設定-1.html"><a href="rの設定-1.html#プロキシ設定"><i class="fa fa-check"></i><b>1.2.1</b> プロキシ設定</a></li>
+<li class="chapter" data-level="" data-path="rの設定-1.html"><a href="rの設定-1.html#ssl設定"><i class="fa fa-check"></i>SSL設定</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="rの設定.html"><a href="rの設定.html#パッケージ"><i class="fa fa-check"></i><b>1.3</b> パッケージ</a>
+<li class="chapter" data-level="1.3" data-path="rの設定-1.html"><a href="rの設定-1.html#パッケージ"><i class="fa fa-check"></i><b>1.3</b> パッケージ</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#使用するパッケージ一覧"><i class="fa fa-check"></i>使用するパッケージ一覧</a></li>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#インストールとインポート"><i class="fa fa-check"></i>インストールとインポート</a></li>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#インストール時のエラー"><i class="fa fa-check"></i>インストール時のエラー</a></li>
+<li class="chapter" data-level="1.3.1" data-path="rの設定-1.html"><a href="rの設定-1.html#使用するパッケージ一覧"><i class="fa fa-check"></i><b>1.3.1</b> 使用するパッケージ一覧</a></li>
+<li class="chapter" data-level="1.3.2" data-path="rの設定-1.html"><a href="rの設定-1.html#インストールとインポート"><i class="fa fa-check"></i><b>1.3.2</b> インストールとインポート</a></li>
+<li class="chapter" data-level="" data-path="rの設定-1.html"><a href="rの設定-1.html#インストール時のエラー"><i class="fa fa-check"></i>インストール時のエラー</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="rの設定.html"><a href="rの設定.html#グラフの設定"><i class="fa fa-check"></i><b>1.4</b> グラフの設定</a>
+<li class="chapter" data-level="1.4" data-path="rの設定-1.html"><a href="rの設定-1.html#グラフの設定"><i class="fa fa-check"></i><b>1.4</b> グラフの設定</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#グラフのテーマ設定"><i class="fa fa-check"></i>グラフのテーマ設定</a></li>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#グラフのフォント設定"><i class="fa fa-check"></i>グラフのフォント設定</a></li>
+<li class="chapter" data-level="1.4.1" data-path="rの設定-1.html"><a href="rの設定-1.html#グラフのテーマ設定"><i class="fa fa-check"></i><b>1.4.1</b> グラフのテーマ設定</a></li>
+<li class="chapter" data-level="1.4.2" data-path="rの設定-1.html"><a href="rの設定-1.html#グラフのフォント設定"><i class="fa fa-check"></i><b>1.4.2</b> グラフのフォント設定</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="rの設定.html"><a href="rの設定.html#サンプルデータセット"><i class="fa fa-check"></i><b>1.5</b> サンプルデータセット</a>
+<li class="chapter" data-level="1.5" data-path="rの設定-1.html"><a href="rの設定-1.html#サンプルデータセット"><i class="fa fa-check"></i><b>1.5</b> サンプルデータセット</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#rのサンプルデータセット"><i class="fa fa-check"></i>Rのサンプルデータセット</a></li>
-<li class="chapter" data-level="" data-path="rの設定.html"><a href="rの設定.html#外部データセット"><i class="fa fa-check"></i>外部データセット</a></li>
+<li class="chapter" data-level="1.5.1" data-path="rの設定-1.html"><a href="rの設定-1.html#rのサンプルデータセット"><i class="fa fa-check"></i><b>1.5.1</b> Rのサンプルデータセット</a></li>
+<li class="chapter" data-level="1.5.2" data-path="rの設定-1.html"><a href="rの設定-1.html#外部データセット"><i class="fa fa-check"></i><b>1.5.2</b> 外部データセット</a></li>
 </ul></li>
-<li class="chapter" data-level="1.6" data-path="rの設定.html"><a href="rの設定.html#r起動時に実行する設定"><i class="fa fa-check"></i><b>1.6</b> R起動時に実行する設定</a></li>
+<li class="chapter" data-level="1.6" data-path="rの設定-1.html"><a href="rの設定-1.html#r起動時に実行する設定"><i class="fa fa-check"></i><b>1.6</b> R起動時に実行する設定</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html"><i class="fa fa-check"></i><b>2</b> Rの基本的な使用方法</a>
+<li class="chapter" data-level="2" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html"><i class="fa fa-check"></i><b>2</b> Rの基本的な使用方法</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#第2章の準備"><i class="fa fa-check"></i><b>2.1</b> 第2章の準備</a>
+<li class="chapter" data-level="2.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#第2章の準備"><i class="fa fa-check"></i><b>2.1</b> 第2章の準備</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#パッケージのインポート"><i class="fa fa-check"></i>パッケージのインポート</a></li>
+<li class="chapter" data-level="2.1.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#パッケージのインポート"><i class="fa fa-check"></i><b>2.1.1</b> パッケージのインポート</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#主要ショートカットキー"><i class="fa fa-check"></i><b>2.2</b> 主要ショートカットキー</a>
+<li class="chapter" data-level="2.2" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#主要ショートカットキー"><i class="fa fa-check"></i><b>2.2</b> 主要ショートカットキー</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#編集"><i class="fa fa-check"></i>編集</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#実行"><i class="fa fa-check"></i>実行</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#その他"><i class="fa fa-check"></i>その他</a></li>
+<li class="chapter" data-level="2.2.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#編集"><i class="fa fa-check"></i><b>2.2.1</b> 編集</a></li>
+<li class="chapter" data-level="2.2.2" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#実行"><i class="fa fa-check"></i><b>2.2.2</b> 実行</a></li>
+<li class="chapter" data-level="2.2.3" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#その他"><i class="fa fa-check"></i><b>2.2.3</b> その他</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#基本操作"><i class="fa fa-check"></i><b>2.3</b> 基本操作</a></li>
-<li class="chapter" data-level="2.4" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#演算"><i class="fa fa-check"></i><b>2.4</b> 演算</a>
+<li class="chapter" data-level="2.3" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#基本操作"><i class="fa fa-check"></i><b>2.3</b> 基本操作</a></li>
+<li class="chapter" data-level="2.4" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#演算"><i class="fa fa-check"></i><b>2.4</b> 演算</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#四則計算"><i class="fa fa-check"></i>四則計算</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#数値計算"><i class="fa fa-check"></i>数値計算</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#一致大小関係"><i class="fa fa-check"></i>一致・大小関係</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#包含集合関係"><i class="fa fa-check"></i>包含・集合関係</a></li>
+<li class="chapter" data-level="2.4.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#四則計算"><i class="fa fa-check"></i><b>2.4.1</b> 四則計算</a></li>
+<li class="chapter" data-level="2.4.2" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#数値計算"><i class="fa fa-check"></i><b>2.4.2</b> 数値計算</a></li>
+<li class="chapter" data-level="2.4.3" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#一致大小関係"><i class="fa fa-check"></i><b>2.4.3</b> 一致・大小関係</a></li>
+<li class="chapter" data-level="2.4.4" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#包含集合関係"><i class="fa fa-check"></i><b>2.4.4</b> 包含・集合関係</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ベクトル"><i class="fa fa-check"></i><b>2.5</b> ベクトル</a>
+<li class="chapter" data-level="2.5" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#ベクトル"><i class="fa fa-check"></i><b>2.5</b> ベクトル</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ベクトルの作成"><i class="fa fa-check"></i>ベクトルの作成</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ベクトル要素へのアクセス"><i class="fa fa-check"></i>ベクトル要素へのアクセス</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#規則性があるベクトルの作成"><i class="fa fa-check"></i>規則性があるベクトルの作成</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ベクトルの演算"><i class="fa fa-check"></i>ベクトルの演算</a></li>
+<li class="chapter" data-level="2.5.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#ベクトルの作成"><i class="fa fa-check"></i><b>2.5.1</b> ベクトルの作成</a></li>
+<li class="chapter" data-level="2.5.2" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#ベクトル要素へのアクセス"><i class="fa fa-check"></i><b>2.5.2</b> ベクトル要素へのアクセス</a></li>
+<li class="chapter" data-level="2.5.3" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#規則性があるベクトルの作成"><i class="fa fa-check"></i><b>2.5.3</b> 規則性があるベクトルの作成</a></li>
+<li class="chapter" data-level="2.5.4" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#ベクトルの演算"><i class="fa fa-check"></i><b>2.5.4</b> ベクトルの演算</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#行列"><i class="fa fa-check"></i><b>2.6</b> 行列</a>
+<li class="chapter" data-level="2.6" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#行列"><i class="fa fa-check"></i><b>2.6</b> 行列</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#行列の作成"><i class="fa fa-check"></i>行列の作成</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#行列の要素へのアクセス"><i class="fa fa-check"></i>行列の要素へのアクセス</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#行列の演算"><i class="fa fa-check"></i>行列の演算</a></li>
+<li class="chapter" data-level="2.6.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#行列の作成"><i class="fa fa-check"></i><b>2.6.1</b> 行列の作成</a></li>
+<li class="chapter" data-level="2.6.2" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#行列の要素へのアクセス"><i class="fa fa-check"></i><b>2.6.2</b> 行列の要素へのアクセス</a></li>
+<li class="chapter" data-level="2.6.3" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#行列の演算"><i class="fa fa-check"></i><b>2.6.3</b> 行列の演算</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データフレーム"><i class="fa fa-check"></i><b>2.7</b> データフレーム</a>
+<li class="chapter" data-level="2.7" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#データフレーム"><i class="fa fa-check"></i><b>2.7</b> データフレーム</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データフレームの作成"><i class="fa fa-check"></i>データフレームの作成</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データフレームの要素へのアクセス"><i class="fa fa-check"></i>データフレームの要素へのアクセス</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#その他のデータフレームの機能"><i class="fa fa-check"></i>その他のデータフレームの機能</a></li>
+<li class="chapter" data-level="2.7.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#データフレームの作成"><i class="fa fa-check"></i><b>2.7.1</b> データフレームの作成</a></li>
+<li class="chapter" data-level="2.7.2" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#データフレームの要素へのアクセス"><i class="fa fa-check"></i><b>2.7.2</b> データフレームの要素へのアクセス</a></li>
+<li class="chapter" data-level="2.7.3" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#その他のデータフレームの機能"><i class="fa fa-check"></i><b>2.7.3</b> その他のデータフレームの機能</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#リスト"><i class="fa fa-check"></i><b>2.8</b> リスト</a>
+<li class="chapter" data-level="2.8" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#リスト"><i class="fa fa-check"></i><b>2.8</b> リスト</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#リストの作成"><i class="fa fa-check"></i>リストの作成</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#リストの要素へのアクセス"><i class="fa fa-check"></i>リストの要素へのアクセス</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#リストに要素を追加"><i class="fa fa-check"></i>リストに要素を追加</a></li>
+<li class="chapter" data-level="2.8.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#リストの作成"><i class="fa fa-check"></i><b>2.8.1</b> リストの作成</a></li>
+<li class="chapter" data-level="2.8.2" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#リストの要素へのアクセス"><i class="fa fa-check"></i><b>2.8.2</b> リストの要素へのアクセス</a></li>
+<li class="chapter" data-level="2.8.3" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#リストに要素を追加"><i class="fa fa-check"></i><b>2.8.3</b> リストに要素を追加</a></li>
 </ul></li>
-<li class="chapter" data-level="2.9" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#文字列操作"><i class="fa fa-check"></i><b>2.9</b> 文字列操作</a>
+<li class="chapter" data-level="2.9" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#文字列操作"><i class="fa fa-check"></i><b>2.9</b> 文字列操作</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#文字列の連結"><i class="fa fa-check"></i>文字列の連結</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#文字列の切り出し"><i class="fa fa-check"></i>文字列の切り出し</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#文字列の検出置換"><i class="fa fa-check"></i>文字列の検出・置換</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#文字列の変換"><i class="fa fa-check"></i>文字列の変換</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#文字列のパディング"><i class="fa fa-check"></i>文字列のパディング</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#文字列によるプログラム実行"><i class="fa fa-check"></i>文字列によるプログラム実行</a></li>
+<li class="chapter" data-level="2.9.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#文字列の連結"><i class="fa fa-check"></i><b>2.9.1</b> 文字列の連結</a></li>
+<li class="chapter" data-level="2.9.2" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#文字列の切り出し"><i class="fa fa-check"></i><b>2.9.2</b> 文字列の切り出し</a></li>
+<li class="chapter" data-level="2.9.3" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#文字列の検出置換"><i class="fa fa-check"></i><b>2.9.3</b> 文字列の検出・置換</a></li>
+<li class="chapter" data-level="2.9.4" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#文字列の変換"><i class="fa fa-check"></i><b>2.9.4</b> 文字列の変換</a></li>
+<li class="chapter" data-level="2.9.5" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#文字列のパディング"><i class="fa fa-check"></i><b>2.9.5</b> 文字列のパディング</a></li>
+<li class="chapter" data-level="2.9.6" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#文字列によるプログラム実行"><i class="fa fa-check"></i><b>2.9.6</b> 文字列によるプログラム実行</a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#制御構文"><i class="fa fa-check"></i><b>2.10</b> 制御構文</a>
+<li class="chapter" data-level="2.10" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#制御構文"><i class="fa fa-check"></i><b>2.10</b> 制御構文</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ifelse文"><i class="fa fa-check"></i>if/else文</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#forループ"><i class="fa fa-check"></i>forループ</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#whileループ"><i class="fa fa-check"></i>whileループ</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#breakによる繰り返しの終了"><i class="fa fa-check"></i>breakによる繰り返しの終了</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#nextによる処理のスキップ"><i class="fa fa-check"></i>nextによる処理のスキップ</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#tryによるエラー処理"><i class="fa fa-check"></i>tryによるエラー処理</a></li>
+<li class="chapter" data-level="2.10.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#ifelse文"><i class="fa fa-check"></i><b>2.10.1</b> if/else文</a></li>
+<li class="chapter" data-level="2.10.2" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#forループ"><i class="fa fa-check"></i><b>2.10.2</b> forループ</a></li>
+<li class="chapter" data-level="2.10.3" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#whileループ"><i class="fa fa-check"></i><b>2.10.3</b> whileループ</a></li>
+<li class="chapter" data-level="2.10.4" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#breakによる繰り返しの終了"><i class="fa fa-check"></i><b>2.10.4</b> breakによる繰り返しの終了</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#nextによる処理のスキップ"><i class="fa fa-check"></i>nextによる処理のスキップ</a></li>
+<li class="chapter" data-level="2.10.5" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#tryによるエラー処理"><i class="fa fa-check"></i><b>2.10.5</b> tryによるエラー処理</a></li>
 </ul></li>
-<li class="chapter" data-level="2.11" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ファイル操作"><i class="fa fa-check"></i><b>2.11</b> ファイル操作</a>
+<li class="chapter" data-level="2.11" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#ファイル操作"><i class="fa fa-check"></i><b>2.11</b> ファイル操作</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ディレクトリ関連"><i class="fa fa-check"></i>ディレクトリ関連</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ファイル関連"><i class="fa fa-check"></i>ファイル関連</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ファイルのダウンロード"><i class="fa fa-check"></i>ファイルのダウンロード</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#ディレクトリ関連"><i class="fa fa-check"></i>ディレクトリ関連</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#ファイル関連"><i class="fa fa-check"></i>ファイル関連</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#ファイルのダウンロード"><i class="fa fa-check"></i>ファイルのダウンロード</a></li>
 </ul></li>
-<li class="chapter" data-level="2.12" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データの読み込み"><i class="fa fa-check"></i><b>2.12</b> データの読み込み</a>
+<li class="chapter" data-level="2.12" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#データの読み込み"><i class="fa fa-check"></i><b>2.12</b> データの読み込み</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#csvデータ"><i class="fa fa-check"></i>CSVデータ</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#xlsxlsx形式データ"><i class="fa fa-check"></i>xls・xlsx形式データ</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#xlsx形式データ"><i class="fa fa-check"></i>xlsx形式データ</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#複数データの読み込み"><i class="fa fa-check"></i>複数データの読み込み</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#excelの日付値の修正"><i class="fa fa-check"></i>Excelの日付値の修正</a></li>
+<li class="chapter" data-level="2.12.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#csvデータ"><i class="fa fa-check"></i><b>2.12.1</b> CSVデータ</a></li>
+<li class="chapter" data-level="2.12.2" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#xlsxlsx形式データ"><i class="fa fa-check"></i><b>2.12.2</b> xls・xlsx形式データ</a></li>
+<li class="chapter" data-level="2.12.3" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#xlsx形式データ"><i class="fa fa-check"></i><b>2.12.3</b> xlsx形式データ</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#複数データの読み込み"><i class="fa fa-check"></i>複数データの読み込み</a></li>
+<li class="chapter" data-level="" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#excelの日付値の修正"><i class="fa fa-check"></i>Excelの日付値の修正</a></li>
 </ul></li>
-<li class="chapter" data-level="2.13" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#データの書き出し"><i class="fa fa-check"></i><b>2.13</b> データの書き出し</a>
+<li class="chapter" data-level="2.13" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#データの書き出し"><i class="fa fa-check"></i><b>2.13</b> データの書き出し</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#csvデータの書き出し"><i class="fa fa-check"></i>CSVデータの書き出し</a></li>
+<li class="chapter" data-level="2.13.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#csvデータの書き出し"><i class="fa fa-check"></i><b>2.13.1</b> CSVデータの書き出し</a></li>
 </ul></li>
-<li class="chapter" data-level="2.14" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#オブジェクトのセーブロード"><i class="fa fa-check"></i><b>2.14</b> オブジェクトのセーブ・ロード</a>
+<li class="chapter" data-level="2.14" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#オブジェクトのセーブロード"><i class="fa fa-check"></i><b>2.14</b> オブジェクトのセーブ・ロード</a>
 <ul>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#セーブ"><i class="fa fa-check"></i>セーブ</a></li>
-<li class="chapter" data-level="" data-path="rの基本的な使用方法.html"><a href="rの基本的な使用方法.html#ロード"><i class="fa fa-check"></i>ロード</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html"><i class="fa fa-check"></i><b>3</b> tidyverseによるデータ操作</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#第3章の準備"><i class="fa fa-check"></i><b>3.1</b> 第3章の準備</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#パッケージのインポート-1"><i class="fa fa-check"></i>パッケージのインポート</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#外部データセットの取得"><i class="fa fa-check"></i>外部データセットの取得</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#tidyverseとは"><i class="fa fa-check"></i><b>3.2</b> tidyverseとは</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#tidy-data縦型横型データ"><i class="fa fa-check"></i>tidy data（縦型・横型データ）</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#tidyverseの特徴"><i class="fa fa-check"></i>tidyverseの特徴</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列の選択"><i class="fa fa-check"></i><b>3.3</b> 列の選択</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名で選択"><i class="fa fa-check"></i>列名で選択</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名を格納したベクトルで選択"><i class="fa fa-check"></i>列名を格納したベクトルで選択</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列を非選択削除"><i class="fa fa-check"></i>列を非選択（削除）</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名に特定の文字列を含む列を選択"><i class="fa fa-check"></i>列名に特定の文字列を含む列を選択</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名が特定の文字列から始まる列を選択"><i class="fa fa-check"></i>列名が特定の文字列から始まる列を選択</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名が特定の文字列で終わる列を選択"><i class="fa fa-check"></i>列名が特定の文字列で終わる列を選択</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#特定の型の列を選択"><i class="fa fa-check"></i>特定の型の列を選択</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列名の変更"><i class="fa fa-check"></i><b>3.4</b> 列名の変更</a></li>
-<li class="chapter" data-level="3.5" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のスライスとサンプリング"><i class="fa fa-check"></i><b>3.5</b> 行のスライスとサンプリング</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のスライス"><i class="fa fa-check"></i>行のスライス</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#サンプリング"><i class="fa fa-check"></i>サンプリング</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行のフィルタ"><i class="fa fa-check"></i><b>3.6</b> 行のフィルタ</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件に一致する行"><i class="fa fa-check"></i>条件に一致する行</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件に一致しない行not条件"><i class="fa fa-check"></i>条件に一致しない行（NOT条件）</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数条件"><i class="fa fa-check"></i>複数条件</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#andor条件を明示的に指定した複数条件"><i class="fa fa-check"></i>AND・OR条件を明示的に指定した複数条件</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#in演算子によるor条件"><i class="fa fa-check"></i><code>%in%</code>演算子によるOR条件</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#or条件の否定"><i class="fa fa-check"></i>OR条件の否定</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#関数による条件指定"><i class="fa fa-check"></i>関数による条件指定</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#論理値を返す関数による条件指定"><i class="fa fa-check"></i>論理値を返す関数による条件指定</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括条件指定"><i class="fa fa-check"></i>複数列の一括条件指定</a></li>
-</ul></li>
-<li class="chapter" data-level="3.7" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#行の並べ替え"><i class="fa fa-check"></i><b>3.7</b> 行の並べ替え</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#昇順ソート"><i class="fa fa-check"></i>昇順ソート</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#降順ソート"><i class="fa fa-check"></i>降順ソート</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#降順ソート日付型"><i class="fa fa-check"></i>降順ソート（日付型）</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数条件によるソート"><i class="fa fa-check"></i>複数条件によるソート</a></li>
-</ul></li>
-<li class="chapter" data-level="3.8" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#列の作成修正"><i class="fa fa-check"></i><b>3.8</b> 列の作成・修正</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#新たな列の作成"><i class="fa fa-check"></i>新たな列の作成</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#既存の列の修正"><i class="fa fa-check"></i>既存の列の修正</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件付き系列の作成"><i class="fa fa-check"></i>条件付き系列の作成</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括処理"><i class="fa fa-check"></i>複数列の一括処理</a></li>
-</ul></li>
-<li class="chapter" data-level="3.9" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化"><i class="fa fa-check"></i><b>3.9</b> グループ化</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#単一の列でグループ化"><i class="fa fa-check"></i>単一の列でグループ化</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数の列でグループ化"><i class="fa fa-check"></i>複数の列でグループ化</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化フィルタ"><i class="fa fa-check"></i>グループ化＆フィルタ</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ化の解除"><i class="fa fa-check"></i>グループ化の解除</a></li>
-</ul></li>
-<li class="chapter" data-level="3.10" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#集計"><i class="fa fa-check"></i><b>3.10</b> 集計</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#グループ別の集計"><i class="fa fa-check"></i>グループ別の集計</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#クロス集計"><i class="fa fa-check"></i>クロス集計</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#複数列の一括処理-1"><i class="fa fa-check"></i>複数列の一括処理</a></li>
-</ul></li>
-<li class="chapter" data-level="3.11" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#カウント"><i class="fa fa-check"></i><b>3.11</b> カウント</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#変数のカウント"><i class="fa fa-check"></i>1変数のカウント</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#多変数のカウント"><i class="fa fa-check"></i>多変数のカウント</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#条件付きカウント"><i class="fa fa-check"></i>条件付きカウント</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#要素の種類をカウント"><i class="fa fa-check"></i>要素の種類をカウント</a></li>
-</ul></li>
-<li class="chapter" data-level="3.12" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型横型の変換"><i class="fa fa-check"></i><b>3.12</b> 縦型・横型の変換</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#縦型データを横型データに変換"><i class="fa fa-check"></i>縦型データを横型データに変換</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#横型データを縦型データに変換"><i class="fa fa-check"></i>横型データを縦型データに変換</a></li>
-</ul></li>
-<li class="chapter" data-level="3.13" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#データの結合"><i class="fa fa-check"></i><b>3.13</b> データの結合</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#内部結合"><i class="fa fa-check"></i>内部結合</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#左外部結合"><i class="fa fa-check"></i>左外部結合</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#右外部結合"><i class="fa fa-check"></i>右外部結合</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#完全外部結合"><i class="fa fa-check"></i>完全外部結合</a></li>
-</ul></li>
-<li class="chapter" data-level="3.14" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複処理"><i class="fa fa-check"></i><b>3.14</b> 重複処理</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の削除"><i class="fa fa-check"></i>重複行の削除</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#重複行の抽出"><i class="fa fa-check"></i>重複行の抽出</a></li>
-</ul></li>
-<li class="chapter" data-level="3.15" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#欠損値処理"><i class="fa fa-check"></i><b>3.15</b> 欠損値処理</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naの削除"><i class="fa fa-check"></i>NAの削除</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naの置換"><i class="fa fa-check"></i>NAの置換</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#naのフィル"><i class="fa fa-check"></i>NAのフィル</a></li>
-</ul></li>
-<li class="chapter" data-level="3.16" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#補完処理"><i class="fa fa-check"></i><b>3.16</b> 補完処理</a>
-<ul>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#組み合わせ候補の補完"><i class="fa fa-check"></i>組み合わせ候補の補完</a></li>
-<li class="chapter" data-level="" data-path="tidyverseによるデータ操作.html"><a href="tidyverseによるデータ操作.html#時系列データの補完"><i class="fa fa-check"></i>時系列データの補完</a></li>
+<li class="chapter" data-level="2.14.1" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#セーブ"><i class="fa fa-check"></i><b>2.14.1</b> セーブ</a></li>
+<li class="chapter" data-level="2.14.2" data-path="rの基本的な使用方法-1.html"><a href="rの基本的な使用方法-1.html#ロード"><i class="fa fa-check"></i><b>2.14.2</b> ロード</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html"><i class="fa fa-check"></i><b>4</b> ggplot2によるグラフ作成</a>
+<li class="chapter" data-level="3" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html"><i class="fa fa-check"></i><b>3</b> tidyverseによるデータ操作</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#第4章の準備"><i class="fa fa-check"></i><b>4.1</b> 第4章の準備</a>
+<li class="chapter" data-level="3.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#第3章の準備"><i class="fa fa-check"></i><b>3.1</b> 第3章の準備</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#パッケージのインポート-2"><i class="fa fa-check"></i>パッケージのインポート</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#外部データセットの取得-1"><i class="fa fa-check"></i>外部データセットの取得</a></li>
+<li class="chapter" data-level="3.1.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#パッケージのインポート-1"><i class="fa fa-check"></i><b>3.1.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="3.1.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#外部データセットの取得"><i class="fa fa-check"></i><b>3.1.2</b> 外部データセットの取得</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplot2とは"><i class="fa fa-check"></i><b>4.2</b> ggplot2とは</a></li>
-<li class="chapter" data-level="4.3" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplot2の設定"><i class="fa fa-check"></i><b>4.3</b> ggplot2の設定</a></li>
-<li class="chapter" data-level="4.4" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#gui形式の直感的なグラフ作成"><i class="fa fa-check"></i><b>4.4</b> GUI形式の直感的なグラフ作成</a>
+<li class="chapter" data-level="3.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#tidyverseとは"><i class="fa fa-check"></i><b>3.2</b> tidyverseとは</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#esquisseパッケージ"><i class="fa fa-check"></i>esquisseパッケージ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggplotguiパッケージ"><i class="fa fa-check"></i>ggplotguiパッケージ</a></li>
+<li class="chapter" data-level="3.2.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#tidy-data縦型横型データ"><i class="fa fa-check"></i><b>3.2.1</b> tidy data（縦型・横型データ）</a></li>
+<li class="chapter" data-level="3.2.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#tidyverseの特徴"><i class="fa fa-check"></i><b>3.2.2</b> tidyverseの特徴</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布離散型"><i class="fa fa-check"></i><b>4.5</b> 1次元の度数分布（離散型）</a>
+<li class="chapter" data-level="3.3" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#列の選択"><i class="fa fa-check"></i><b>3.3</b> 列の選択</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#度数棒グラフの基本形"><i class="fa fa-check"></i>度数棒グラフの基本形</a></li>
+<li class="chapter" data-level="3.3.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#列名で選択"><i class="fa fa-check"></i><b>3.3.1</b> 列名で選択</a></li>
+<li class="chapter" data-level="3.3.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#列名を格納したベクトルで選択"><i class="fa fa-check"></i><b>3.3.2</b> 列名を格納したベクトルで選択</a></li>
+<li class="chapter" data-level="3.3.3" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#列を非選択削除"><i class="fa fa-check"></i><b>3.3.3</b> 列を非選択（削除）</a></li>
+<li class="chapter" data-level="3.3.4" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#列名に特定の文字列を含む列を選択"><i class="fa fa-check"></i><b>3.3.4</b> 列名に特定の文字列を含む列を選択</a></li>
+<li class="chapter" data-level="3.3.5" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#列名が特定の文字列から始まる列を選択"><i class="fa fa-check"></i><b>3.3.5</b> 列名が特定の文字列から始まる列を選択</a></li>
+<li class="chapter" data-level="3.3.6" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#列名が特定の文字列で終わる列を選択"><i class="fa fa-check"></i><b>3.3.6</b> 列名が特定の文字列で終わる列を選択</a></li>
+<li class="chapter" data-level="3.3.7" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#特定の型の列を選択"><i class="fa fa-check"></i><b>3.3.7</b> 特定の型の列を選択</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布連続型"><i class="fa fa-check"></i><b>4.6</b> 1次元の度数分布（連続型）</a>
+<li class="chapter" data-level="3.4" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#列名の変更"><i class="fa fa-check"></i><b>3.4</b> 列名の変更</a></li>
+<li class="chapter" data-level="3.5" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#行のスライスとサンプリング"><i class="fa fa-check"></i><b>3.5</b> 行のスライスとサンプリング</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ヒストグラムの基本形"><i class="fa fa-check"></i>ヒストグラムの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#横並びヒストグラム"><i class="fa fa-check"></i>横並びヒストグラム</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げヒストグラム"><i class="fa fa-check"></i>積み上げヒストグラム</a></li>
+<li class="chapter" data-level="3.5.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#行のスライス"><i class="fa fa-check"></i><b>3.5.1</b> 行のスライス</a></li>
+<li class="chapter" data-level="3.5.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#サンプリング"><i class="fa fa-check"></i><b>3.5.2</b> サンプリング</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の密度グラフ"><i class="fa fa-check"></i><b>4.7</b> 1次元の密度グラフ</a>
+<li class="chapter" data-level="3.6" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#行のフィルタ"><i class="fa fa-check"></i><b>3.6</b> 行のフィルタ</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#密度グラフの基本形"><i class="fa fa-check"></i>密度グラフの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#横並び密度グラフ"><i class="fa fa-check"></i>横並び密度グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ密度グラフ"><i class="fa fa-check"></i>積み上げ密度グラフ</a></li>
+<li class="chapter" data-level="3.6.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#条件に一致する行"><i class="fa fa-check"></i><b>3.6.1</b> 条件に一致する行</a></li>
+<li class="chapter" data-level="3.6.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#条件に一致しない行not条件"><i class="fa fa-check"></i><b>3.6.2</b> 条件に一致しない行（NOT条件）</a></li>
+<li class="chapter" data-level="3.6.3" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#複数条件"><i class="fa fa-check"></i><b>3.6.3</b> 複数条件</a></li>
+<li class="chapter" data-level="3.6.4" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#andor条件を明示的に指定した複数条件"><i class="fa fa-check"></i><b>3.6.4</b> AND・OR条件を明示的に指定した複数条件</a></li>
+<li class="chapter" data-level="3.6.5" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#in演算子によるor条件"><i class="fa fa-check"></i><b>3.6.5</b> <code>%in%</code>演算子によるOR条件</a></li>
+<li class="chapter" data-level="3.6.6" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#or条件の否定"><i class="fa fa-check"></i><b>3.6.6</b> OR条件の否定</a></li>
+<li class="chapter" data-level="3.6.7" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#関数による条件指定"><i class="fa fa-check"></i><b>3.6.7</b> 関数による条件指定</a></li>
+<li class="chapter" data-level="3.6.8" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#論理値を返す関数による条件指定"><i class="fa fa-check"></i><b>3.6.8</b> 論理値を返す関数による条件指定</a></li>
+<li class="chapter" data-level="3.6.9" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#複数列の一括条件指定"><i class="fa fa-check"></i><b>3.6.9</b> 複数列の一括条件指定</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布離散型-1"><i class="fa fa-check"></i><b>4.8</b> 2次元の度数分布（離散型）</a>
+<li class="chapter" data-level="3.7" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#行の並べ替え"><i class="fa fa-check"></i><b>3.7</b> 行の並べ替え</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#度数バブルチャートの基本形"><i class="fa fa-check"></i>度数バブルチャートの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#度数ヒートマップの基本形"><i class="fa fa-check"></i>度数ヒートマップの基本形</a></li>
+<li class="chapter" data-level="3.7.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#昇順ソート"><i class="fa fa-check"></i><b>3.7.1</b> 昇順ソート</a></li>
+<li class="chapter" data-level="3.7.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#降順ソート"><i class="fa fa-check"></i><b>3.7.2</b> 降順ソート</a></li>
+<li class="chapter" data-level="3.7.3" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#降順ソート日付型"><i class="fa fa-check"></i><b>3.7.3</b> 降順ソート（日付型）</a></li>
+<li class="chapter" data-level="3.7.4" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#複数条件によるソート"><i class="fa fa-check"></i><b>3.7.4</b> 複数条件によるソート</a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の度数分布連続型-1"><i class="fa fa-check"></i><b>4.9</b> 2次元の度数分布（連続型）</a>
+<li class="chapter" data-level="3.8" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#列の作成修正"><i class="fa fa-check"></i><b>3.8</b> 列の作成・修正</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#度数ヒートマップの基本形-1"><i class="fa fa-check"></i>度数ヒートマップの基本形</a></li>
+<li class="chapter" data-level="3.8.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#新たな列の作成"><i class="fa fa-check"></i><b>3.8.1</b> 新たな列の作成</a></li>
+<li class="chapter" data-level="3.8.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#既存の列の修正"><i class="fa fa-check"></i><b>3.8.2</b> 既存の列の修正</a></li>
+<li class="chapter" data-level="3.8.3" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#条件付き系列の作成"><i class="fa fa-check"></i><b>3.8.3</b> 条件付き系列の作成</a></li>
+<li class="chapter" data-level="3.8.4" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#複数列の一括処理"><i class="fa fa-check"></i><b>3.8.4</b> 複数列の一括処理</a></li>
 </ul></li>
-<li class="chapter" data-level="4.10" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元の密度グラフ-1"><i class="fa fa-check"></i><b>4.10</b> 2次元の密度グラフ</a>
+<li class="chapter" data-level="3.9" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#グループ化"><i class="fa fa-check"></i><b>3.9</b> グループ化</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元密度グラフの基本形"><i class="fa fa-check"></i>2次元密度グラフの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#次元密度グラフの塗りつぶし版"><i class="fa fa-check"></i>2次元密度グラフの塗りつぶし版</a></li>
+<li class="chapter" data-level="3.9.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#単一の列でグループ化"><i class="fa fa-check"></i><b>3.9.1</b> 単一の列でグループ化</a></li>
+<li class="chapter" data-level="3.9.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#複数の列でグループ化"><i class="fa fa-check"></i><b>3.9.2</b> 複数の列でグループ化</a></li>
+<li class="chapter" data-level="3.9.3" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#グループ化フィルタ"><i class="fa fa-check"></i><b>3.9.3</b> グループ化＆フィルタ</a></li>
+<li class="chapter" data-level="3.9.4" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#グループ化の解除"><i class="fa fa-check"></i><b>3.9.4</b> グループ化の解除</a></li>
 </ul></li>
-<li class="chapter" data-level="4.11" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#qqプロット"><i class="fa fa-check"></i><b>4.11</b> QQプロット</a></li>
-<li class="chapter" data-level="4.12" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図バブルチャート"><i class="fa fa-check"></i><b>4.12</b> 散布図・バブルチャート</a>
+<li class="chapter" data-level="3.10" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#集計"><i class="fa fa-check"></i><b>3.10</b> 集計</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図の基本形"><i class="fa fa-check"></i>散布図の基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#バブルチャートの基本形"><i class="fa fa-check"></i>バブルチャートの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図にコネクタ線を追加"><i class="fa fa-check"></i>散布図にコネクタ線を追加</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図に近似曲線を追加"><i class="fa fa-check"></i>散布図に近似曲線を追加</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#散布図にラベルを追加"><i class="fa fa-check"></i>散布図にラベルを追加</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#バブルチャートにラベルを追加"><i class="fa fa-check"></i>バブルチャートにラベルを追加</a></li>
+<li class="chapter" data-level="3.10.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#グループ別の集計"><i class="fa fa-check"></i><b>3.10.1</b> グループ別の集計</a></li>
+<li class="chapter" data-level="3.10.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#クロス集計"><i class="fa fa-check"></i><b>3.10.2</b> クロス集計</a></li>
+<li class="chapter" data-level="3.10.3" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#複数列の一括処理-1"><i class="fa fa-check"></i><b>3.10.3</b> 複数列の一括処理</a></li>
 </ul></li>
-<li class="chapter" data-level="4.13" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#棒グラフ"><i class="fa fa-check"></i><b>4.13</b> 棒グラフ</a>
+<li class="chapter" data-level="3.11" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#カウント"><i class="fa fa-check"></i><b>3.11</b> カウント</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#縦棒グラフの基本形"><i class="fa fa-check"></i>縦棒グラフの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#横棒グラフ"><i class="fa fa-check"></i>横棒グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#縦棒グラフの順序並べ替え"><i class="fa fa-check"></i>縦棒グラフの順序並べ替え</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#縦棒グラフにラベルを追加"><i class="fa fa-check"></i>縦棒グラフにラベルを追加</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#集合縦棒グラフ"><i class="fa fa-check"></i>集合縦棒グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ縦棒グラフ"><i class="fa fa-check"></i>積み上げ縦棒グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ縦棒グラフにラベルを追加"><i class="fa fa-check"></i>積み上げ縦棒グラフにラベルを追加</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ縦棒グラフ-1"><i class="fa fa-check"></i>100％積み上げ縦棒グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ縦棒グラフにラベルを追加-1"><i class="fa fa-check"></i>100％積み上げ縦棒グラフにラベルを追加</a></li>
+<li class="chapter" data-level="3.11.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#変数のカウント"><i class="fa fa-check"></i><b>3.11.1</b> 1変数のカウント</a></li>
+<li class="chapter" data-level="3.11.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#多変数のカウント"><i class="fa fa-check"></i><b>3.11.2</b> 多変数のカウント</a></li>
+<li class="chapter" data-level="3.11.3" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#条件付きカウント"><i class="fa fa-check"></i><b>3.11.3</b> 条件付きカウント</a></li>
+<li class="chapter" data-level="3.11.4" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#要素の種類をカウント"><i class="fa fa-check"></i><b>3.11.4</b> 要素の種類をカウント</a></li>
 </ul></li>
-<li class="chapter" data-level="4.14" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#円グラフ"><i class="fa fa-check"></i><b>4.14</b> 円グラフ</a>
+<li class="chapter" data-level="3.12" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#縦型横型の変換"><i class="fa fa-check"></i><b>3.12</b> 縦型・横型の変換</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#円グラフの基本形"><i class="fa fa-check"></i>円グラフの基本形</a></li>
+<li class="chapter" data-level="3.12.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#縦型データを横型データに変換"><i class="fa fa-check"></i><b>3.12.1</b> 縦型データを横型データに変換</a></li>
+<li class="chapter" data-level="3.12.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#横型データを縦型データに変換"><i class="fa fa-check"></i><b>3.12.2</b> 横型データを縦型データに変換</a></li>
 </ul></li>
-<li class="chapter" data-level="4.15" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフ"><i class="fa fa-check"></i><b>4.15</b> 折れ線グラフ</a>
+<li class="chapter" data-level="3.13" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#データの結合"><i class="fa fa-check"></i><b>3.13</b> データの結合</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフの基本形"><i class="fa fa-check"></i>折れ線グラフの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフにマーカーを追加"><i class="fa fa-check"></i>折れ線グラフにマーカーを追加</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#折れ線グラフに系列ラベルを追加"><i class="fa fa-check"></i>折れ線グラフに系列ラベルを追加</a></li>
+<li class="chapter" data-level="3.13.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#内部結合"><i class="fa fa-check"></i><b>3.13.1</b> 内部結合</a></li>
+<li class="chapter" data-level="3.13.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#左外部結合"><i class="fa fa-check"></i><b>3.13.2</b> 左外部結合</a></li>
+<li class="chapter" data-level="3.13.3" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#右外部結合"><i class="fa fa-check"></i><b>3.13.3</b> 右外部結合</a></li>
+<li class="chapter" data-level="3.13.4" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#完全外部結合"><i class="fa fa-check"></i><b>3.13.4</b> 完全外部結合</a></li>
 </ul></li>
-<li class="chapter" data-level="4.16" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ステップグラフ"><i class="fa fa-check"></i><b>4.16</b> ステップグラフ</a>
+<li class="chapter" data-level="3.14" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#重複処理"><i class="fa fa-check"></i><b>3.14</b> 重複処理</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ステップグラフの基本形"><i class="fa fa-check"></i>ステップグラフの基本形</a></li>
+<li class="chapter" data-level="3.14.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#重複行の削除"><i class="fa fa-check"></i><b>3.14.1</b> 重複行の削除</a></li>
+<li class="chapter" data-level="3.14.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#重複行の抽出"><i class="fa fa-check"></i><b>3.14.2</b> 重複行の抽出</a></li>
 </ul></li>
-<li class="chapter" data-level="4.17" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#面グラフ"><i class="fa fa-check"></i><b>4.17</b> 面グラフ</a>
+<li class="chapter" data-level="3.15" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#欠損値処理"><i class="fa fa-check"></i><b>3.15</b> 欠損値処理</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#面グラフの基本形"><i class="fa fa-check"></i>面グラフの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#積み上げ面グラフ"><i class="fa fa-check"></i>積み上げ面グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#リボングラフの基本形"><i class="fa fa-check"></i>リボングラフの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#リボングラフに折れ線グラフを追加"><i class="fa fa-check"></i>リボングラフに折れ線グラフを追加</a></li>
+<li class="chapter" data-level="3.15.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#naの削除"><i class="fa fa-check"></i><b>3.15.1</b> NAの削除</a></li>
+<li class="chapter" data-level="3.15.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#naの置換"><i class="fa fa-check"></i><b>3.15.2</b> NAの置換</a></li>
+<li class="chapter" data-level="3.15.3" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#naのフィル"><i class="fa fa-check"></i><b>3.15.3</b> NAのフィル</a></li>
 </ul></li>
-<li class="chapter" data-level="4.18" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげ図ヴァイオリングラフ"><i class="fa fa-check"></i><b>4.18</b> 箱ひげ図・ヴァイオリングラフ</a>
+<li class="chapter" data-level="3.16" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#補完処理"><i class="fa fa-check"></i><b>3.16</b> 補完処理</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげ図の基本形"><i class="fa fa-check"></i>箱ひげ図の基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#箱ひげ図に個別サンプルを追加"><i class="fa fa-check"></i>箱ひげ図に個別サンプルを追加</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ヴァイオリングラフの基本形"><i class="fa fa-check"></i>ヴァイオリングラフの基本形</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ヴァイオリングラフに個別サンプルを追加"><i class="fa fa-check"></i>ヴァイオリングラフに個別サンプルを追加</a></li>
+<li class="chapter" data-level="3.16.1" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#組み合わせ候補の補完"><i class="fa fa-check"></i><b>3.16.1</b> 組み合わせ候補の補完</a></li>
+<li class="chapter" data-level="3.16.2" data-path="tidyverseによるデータ操作-1.html"><a href="tidyverseによるデータ操作-1.html#時系列データの補完"><i class="fa fa-check"></i><b>3.16.2</b> 時系列データの補完</a></li>
 </ul></li>
-<li class="chapter" data-level="4.19" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロット"><i class="fa fa-check"></i><b>4.19</b> ドットプロット</a>
-<ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ドットプロットの基本形"><i class="fa fa-check"></i>ドットプロットの基本形</a></li>
 </ul></li>
-<li class="chapter" data-level="4.20" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフファセット"><i class="fa fa-check"></i><b>4.20</b> 複合グラフ（ファセット）</a>
+<li class="chapter" data-level="4" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html"><i class="fa fa-check"></i><b>4</b> ggplot2によるグラフ作成</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行方向の複合グラフ"><i class="fa fa-check"></i>行方向の複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#列方向の複合グラフ"><i class="fa fa-check"></i>列方向の複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行列方向の複合グラフ"><i class="fa fa-check"></i>行・列方向の複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#行数列数を指定した複合グラフ"><i class="fa fa-check"></i>行数・列数を指定した複合グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#複合グラフの設定"><i class="fa fa-check"></i>複合グラフの設定</a></li>
+<li class="chapter" data-level="4.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#第4章の準備"><i class="fa fa-check"></i><b>4.1</b> 第4章の準備</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#パッケージのインポート-2"><i class="fa fa-check"></i><b>4.1.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="4.1.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#外部データセットの取得-1"><i class="fa fa-check"></i><b>4.1.2</b> 外部データセットの取得</a></li>
 </ul></li>
-<li class="chapter" data-level="4.21" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#地図ファセット"><i class="fa fa-check"></i><b>4.21</b> 地図ファセット</a></li>
-<li class="chapter" data-level="4.22" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#補助線"><i class="fa fa-check"></i><b>4.22</b> 補助線</a></li>
-<li class="chapter" data-level="4.23" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定色"><i class="fa fa-check"></i><b>4.23</b> 設定：色</a>
+<li class="chapter" data-level="4.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#ggplot2とは"><i class="fa fa-check"></i><b>4.2</b> ggplot2とは</a></li>
+<li class="chapter" data-level="4.3" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#ggplot2の設定"><i class="fa fa-check"></i><b>4.3</b> ggplot2の設定</a></li>
+<li class="chapter" data-level="4.4" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#gui形式の直感的なグラフ作成"><i class="fa fa-check"></i><b>4.4</b> GUI形式の直感的なグラフ作成</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#色の手動指定離散型変数"><i class="fa fa-check"></i>色の手動指定（離散型変数）</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#brewerカラーパレット離散型変数"><i class="fa fa-check"></i>Brewerカラーパレット（離散型変数）</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#viridisカラーパレット離散型変数"><i class="fa fa-check"></i>Viridisカラーパレット（離散型変数）</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#ggsciカラーパレット離散型変数"><i class="fa fa-check"></i>ggsciカラーパレット（離散型変数）</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#distillerカラーパレット連続型変数"><i class="fa fa-check"></i>distillerカラーパレット（連続型変数）</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#viridisカラーパレット連続型変数"><i class="fa fa-check"></i>Viridisカラーパレット（連続型変数）</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#gradientカラーパレット連続型変数"><i class="fa fa-check"></i>gradientカラーパレット（連続型変数）</a></li>
+<li class="chapter" data-level="4.4.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#esquisseパッケージ"><i class="fa fa-check"></i><b>4.4.1</b> esquisseパッケージ</a></li>
+<li class="chapter" data-level="4.4.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#ggplotguiパッケージ"><i class="fa fa-check"></i><b>4.4.2</b> ggplotguiパッケージ</a></li>
 </ul></li>
-<li class="chapter" data-level="4.24" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定軸"><i class="fa fa-check"></i><b>4.24</b> 設定：軸</a>
+<li class="chapter" data-level="4.5" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#次元の度数分布離散型"><i class="fa fa-check"></i><b>4.5</b> 1次元の度数分布（離散型）</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#x軸連続型y軸連続型"><i class="fa fa-check"></i>X軸：連続型、Y軸：連続型</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#対数目盛"><i class="fa fa-check"></i>対数目盛</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#x軸日付型y軸連続型"><i class="fa fa-check"></i>X軸：日付型、Y軸：連続型</a></li>
+<li class="chapter" data-level="4.5.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#度数棒グラフの基本形"><i class="fa fa-check"></i><b>4.5.1</b> 度数棒グラフの基本形</a></li>
 </ul></li>
-<li class="chapter" data-level="4.25" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定パネル目盛線"><i class="fa fa-check"></i><b>4.25</b> 設定：パネル目盛線</a></li>
-<li class="chapter" data-level="4.26" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定凡例"><i class="fa fa-check"></i><b>4.26</b> 設定：凡例</a></li>
-<li class="chapter" data-level="4.27" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定タイトルキャプション"><i class="fa fa-check"></i><b>4.27</b> 設定：タイトル・キャプション</a></li>
-<li class="chapter" data-level="4.28" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#設定フォントマージン"><i class="fa fa-check"></i><b>4.28</b> 設定：フォント・マージン</a></li>
-<li class="chapter" data-level="4.29" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#グラフの保存"><i class="fa fa-check"></i><b>4.29</b> グラフの保存</a></li>
-<li class="chapter" data-level="4.30" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例"><i class="fa fa-check"></i><b>4.30</b> 実例</a>
+<li class="chapter" data-level="4.6" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#次元の度数分布連続型"><i class="fa fa-check"></i><b>4.6</b> 1次元の度数分布（連続型）</a>
 <ul>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例1折れ線グラフ"><i class="fa fa-check"></i>実例1：折れ線グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例2積み上げ棒グラフ"><i class="fa fa-check"></i>実例2：積み上げ棒グラフ</a></li>
-<li class="chapter" data-level="" data-path="ggplot2によるグラフ作成.html"><a href="ggplot2によるグラフ作成.html#実例3箱ひげ図"><i class="fa fa-check"></i>実例3：箱ひげ図</a></li>
+<li class="chapter" data-level="4.6.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#ヒストグラムの基本形"><i class="fa fa-check"></i><b>4.6.1</b> ヒストグラムの基本形</a></li>
+<li class="chapter" data-level="4.6.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#横並びヒストグラム"><i class="fa fa-check"></i><b>4.6.2</b> 横並びヒストグラム</a></li>
+<li class="chapter" data-level="4.6.3" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#積み上げヒストグラム"><i class="fa fa-check"></i><b>4.6.3</b> 積み上げヒストグラム</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#次元の密度グラフ"><i class="fa fa-check"></i><b>4.7</b> 1次元の密度グラフ</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#密度グラフの基本形"><i class="fa fa-check"></i><b>4.7.1</b> 密度グラフの基本形</a></li>
+<li class="chapter" data-level="4.7.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#横並び密度グラフ"><i class="fa fa-check"></i><b>4.7.2</b> 横並び密度グラフ</a></li>
+<li class="chapter" data-level="4.7.3" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#積み上げ密度グラフ"><i class="fa fa-check"></i><b>4.7.3</b> 積み上げ密度グラフ</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#次元の度数分布離散型-1"><i class="fa fa-check"></i><b>4.8</b> 2次元の度数分布（離散型）</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#度数バブルチャートの基本形"><i class="fa fa-check"></i><b>4.8.1</b> 度数バブルチャートの基本形</a></li>
+<li class="chapter" data-level="4.8.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#度数ヒートマップの基本形"><i class="fa fa-check"></i><b>4.8.2</b> 度数ヒートマップの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#次元の度数分布連続型-1"><i class="fa fa-check"></i><b>4.9</b> 2次元の度数分布（連続型）</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#度数ヒートマップの基本形-1"><i class="fa fa-check"></i><b>4.9.1</b> 度数ヒートマップの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#次元の密度グラフ-1"><i class="fa fa-check"></i><b>4.10</b> 2次元の密度グラフ</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#次元密度グラフの基本形"><i class="fa fa-check"></i><b>4.10.1</b> 2次元密度グラフの基本形</a></li>
+<li class="chapter" data-level="4.10.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#次元密度グラフの塗りつぶし版"><i class="fa fa-check"></i><b>4.10.2</b> 2次元密度グラフの塗りつぶし版</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#qqプロット"><i class="fa fa-check"></i><b>4.11</b> QQプロット</a></li>
+<li class="chapter" data-level="4.12" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#散布図バブルチャート"><i class="fa fa-check"></i><b>4.12</b> 散布図・バブルチャート</a>
+<ul>
+<li class="chapter" data-level="4.12.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#散布図の基本形"><i class="fa fa-check"></i><b>4.12.1</b> 散布図の基本形</a></li>
+<li class="chapter" data-level="4.12.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#バブルチャートの基本形"><i class="fa fa-check"></i><b>4.12.2</b> バブルチャートの基本形</a></li>
+<li class="chapter" data-level="4.12.3" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#散布図にコネクタ線を追加"><i class="fa fa-check"></i><b>4.12.3</b> 散布図にコネクタ線を追加</a></li>
+<li class="chapter" data-level="4.12.4" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#散布図に近似曲線を追加"><i class="fa fa-check"></i><b>4.12.4</b> 散布図に近似曲線を追加</a></li>
+<li class="chapter" data-level="4.12.5" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#散布図にラベルを追加"><i class="fa fa-check"></i><b>4.12.5</b> 散布図にラベルを追加</a></li>
+<li class="chapter" data-level="4.12.6" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#バブルチャートにラベルを追加"><i class="fa fa-check"></i><b>4.12.6</b> バブルチャートにラベルを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="4.13" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#棒グラフ"><i class="fa fa-check"></i><b>4.13</b> 棒グラフ</a>
+<ul>
+<li class="chapter" data-level="4.13.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#縦棒グラフの基本形"><i class="fa fa-check"></i><b>4.13.1</b> 縦棒グラフの基本形</a></li>
+<li class="chapter" data-level="4.13.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#横棒グラフ"><i class="fa fa-check"></i><b>4.13.2</b> 横棒グラフ</a></li>
+<li class="chapter" data-level="4.13.3" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#縦棒グラフの順序並べ替え"><i class="fa fa-check"></i><b>4.13.3</b> 縦棒グラフの順序並べ替え</a></li>
+<li class="chapter" data-level="4.13.4" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#縦棒グラフにラベルを追加"><i class="fa fa-check"></i><b>4.13.4</b> 縦棒グラフにラベルを追加</a></li>
+<li class="chapter" data-level="4.13.5" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#集合縦棒グラフ"><i class="fa fa-check"></i><b>4.13.5</b> 集合縦棒グラフ</a></li>
+<li class="chapter" data-level="4.13.6" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#積み上げ縦棒グラフ"><i class="fa fa-check"></i><b>4.13.6</b> 積み上げ縦棒グラフ</a></li>
+<li class="chapter" data-level="4.13.7" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#積み上げ縦棒グラフにラベルを追加"><i class="fa fa-check"></i><b>4.13.7</b> 積み上げ縦棒グラフにラベルを追加</a></li>
+<li class="chapter" data-level="4.13.8" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#積み上げ縦棒グラフ-1"><i class="fa fa-check"></i><b>4.13.8</b> 100％積み上げ縦棒グラフ</a></li>
+<li class="chapter" data-level="4.13.9" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#積み上げ縦棒グラフにラベルを追加-1"><i class="fa fa-check"></i><b>4.13.9</b> 100％積み上げ縦棒グラフにラベルを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="4.14" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#円グラフ"><i class="fa fa-check"></i><b>4.14</b> 円グラフ</a>
+<ul>
+<li class="chapter" data-level="4.14.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#円グラフの基本形"><i class="fa fa-check"></i><b>4.14.1</b> 円グラフの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="4.15" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#折れ線グラフ"><i class="fa fa-check"></i><b>4.15</b> 折れ線グラフ</a>
+<ul>
+<li class="chapter" data-level="4.15.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#折れ線グラフの基本形"><i class="fa fa-check"></i><b>4.15.1</b> 折れ線グラフの基本形</a></li>
+<li class="chapter" data-level="4.15.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#折れ線グラフにマーカーを追加"><i class="fa fa-check"></i><b>4.15.2</b> 折れ線グラフにマーカーを追加</a></li>
+<li class="chapter" data-level="4.15.3" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#折れ線グラフに系列ラベルを追加"><i class="fa fa-check"></i><b>4.15.3</b> 折れ線グラフに系列ラベルを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="4.16" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#ステップグラフ"><i class="fa fa-check"></i><b>4.16</b> ステップグラフ</a>
+<ul>
+<li class="chapter" data-level="4.16.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#ステップグラフの基本形"><i class="fa fa-check"></i><b>4.16.1</b> ステップグラフの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="4.17" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#面グラフ"><i class="fa fa-check"></i><b>4.17</b> 面グラフ</a>
+<ul>
+<li class="chapter" data-level="4.17.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#面グラフの基本形"><i class="fa fa-check"></i><b>4.17.1</b> 面グラフの基本形</a></li>
+<li class="chapter" data-level="4.17.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#積み上げ面グラフ"><i class="fa fa-check"></i><b>4.17.2</b> 積み上げ面グラフ</a></li>
+<li class="chapter" data-level="4.17.3" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#リボングラフの基本形"><i class="fa fa-check"></i><b>4.17.3</b> リボングラフの基本形</a></li>
+<li class="chapter" data-level="4.17.4" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#リボングラフに折れ線グラフを追加"><i class="fa fa-check"></i><b>4.17.4</b> リボングラフに折れ線グラフを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="4.18" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#箱ひげ図ヴァイオリングラフ"><i class="fa fa-check"></i><b>4.18</b> 箱ひげ図・ヴァイオリングラフ</a>
+<ul>
+<li class="chapter" data-level="4.18.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#箱ひげ図の基本形"><i class="fa fa-check"></i><b>4.18.1</b> 箱ひげ図の基本形</a></li>
+<li class="chapter" data-level="4.18.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#箱ひげ図に個別サンプルを追加"><i class="fa fa-check"></i><b>4.18.2</b> 箱ひげ図に個別サンプルを追加</a></li>
+<li class="chapter" data-level="4.18.3" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#ヴァイオリングラフの基本形"><i class="fa fa-check"></i><b>4.18.3</b> ヴァイオリングラフの基本形</a></li>
+<li class="chapter" data-level="4.18.4" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#ヴァイオリングラフに個別サンプルを追加"><i class="fa fa-check"></i><b>4.18.4</b> ヴァイオリングラフに個別サンプルを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="4.19" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#ドットプロット"><i class="fa fa-check"></i><b>4.19</b> ドットプロット</a>
+<ul>
+<li class="chapter" data-level="4.19.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#ドットプロットの基本形"><i class="fa fa-check"></i><b>4.19.1</b> ドットプロットの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="4.20" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#複合グラフファセット"><i class="fa fa-check"></i><b>4.20</b> 複合グラフ（ファセット）</a>
+<ul>
+<li class="chapter" data-level="4.20.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#行方向の複合グラフ"><i class="fa fa-check"></i><b>4.20.1</b> 行方向の複合グラフ</a></li>
+<li class="chapter" data-level="4.20.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#列方向の複合グラフ"><i class="fa fa-check"></i><b>4.20.2</b> 列方向の複合グラフ</a></li>
+<li class="chapter" data-level="4.20.3" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#行列方向の複合グラフ"><i class="fa fa-check"></i><b>4.20.3</b> 行・列方向の複合グラフ</a></li>
+<li class="chapter" data-level="4.20.4" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#行数列数を指定した複合グラフ"><i class="fa fa-check"></i><b>4.20.4</b> 行数・列数を指定した複合グラフ</a></li>
+<li class="chapter" data-level="4.20.5" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#複合グラフの設定"><i class="fa fa-check"></i><b>4.20.5</b> 複合グラフの設定</a></li>
+</ul></li>
+<li class="chapter" data-level="4.21" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#地図ファセット"><i class="fa fa-check"></i><b>4.21</b> 地図ファセット</a></li>
+<li class="chapter" data-level="4.22" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#補助線"><i class="fa fa-check"></i><b>4.22</b> 補助線</a></li>
+<li class="chapter" data-level="4.23" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#設定色"><i class="fa fa-check"></i><b>4.23</b> 設定：色</a>
+<ul>
+<li class="chapter" data-level="4.23.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#色の手動指定離散型変数"><i class="fa fa-check"></i><b>4.23.1</b> 色の手動指定（離散型変数）</a></li>
+<li class="chapter" data-level="4.23.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#brewerカラーパレット離散型変数"><i class="fa fa-check"></i><b>4.23.2</b> Brewerカラーパレット（離散型変数）</a></li>
+<li class="chapter" data-level="4.23.3" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#viridisカラーパレット離散型変数"><i class="fa fa-check"></i><b>4.23.3</b> Viridisカラーパレット（離散型変数）</a></li>
+<li class="chapter" data-level="4.23.4" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#ggsciカラーパレット離散型変数"><i class="fa fa-check"></i><b>4.23.4</b> ggsciカラーパレット（離散型変数）</a></li>
+<li class="chapter" data-level="4.23.5" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#distillerカラーパレット連続型変数"><i class="fa fa-check"></i><b>4.23.5</b> distillerカラーパレット（連続型変数）</a></li>
+<li class="chapter" data-level="4.23.6" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#viridisカラーパレット連続型変数"><i class="fa fa-check"></i><b>4.23.6</b> Viridisカラーパレット（連続型変数）</a></li>
+<li class="chapter" data-level="4.23.7" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#gradientカラーパレット連続型変数"><i class="fa fa-check"></i><b>4.23.7</b> gradientカラーパレット（連続型変数）</a></li>
+</ul></li>
+<li class="chapter" data-level="4.24" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#設定軸"><i class="fa fa-check"></i><b>4.24</b> 設定：軸</a>
+<ul>
+<li class="chapter" data-level="4.24.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#x軸連続型y軸連続型"><i class="fa fa-check"></i><b>4.24.1</b> X軸：連続型、Y軸：連続型</a></li>
+<li class="chapter" data-level="4.24.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#対数目盛"><i class="fa fa-check"></i><b>4.24.2</b> 対数目盛</a></li>
+<li class="chapter" data-level="4.24.3" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#x軸日付型y軸連続型"><i class="fa fa-check"></i><b>4.24.3</b> X軸：日付型、Y軸：連続型</a></li>
+</ul></li>
+<li class="chapter" data-level="4.25" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#設定パネル目盛線"><i class="fa fa-check"></i><b>4.25</b> 設定：パネル目盛線</a></li>
+<li class="chapter" data-level="4.26" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#設定凡例"><i class="fa fa-check"></i><b>4.26</b> 設定：凡例</a></li>
+<li class="chapter" data-level="4.27" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#設定タイトルキャプション"><i class="fa fa-check"></i><b>4.27</b> 設定：タイトル・キャプション</a></li>
+<li class="chapter" data-level="4.28" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#設定フォントマージン"><i class="fa fa-check"></i><b>4.28</b> 設定：フォント・マージン</a></li>
+<li class="chapter" data-level="4.29" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#グラフの保存"><i class="fa fa-check"></i><b>4.29</b> グラフの保存</a></li>
+<li class="chapter" data-level="4.30" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#実例"><i class="fa fa-check"></i><b>4.30</b> 実例</a>
+<ul>
+<li class="chapter" data-level="4.30.1" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#実例1折れ線グラフ"><i class="fa fa-check"></i><b>4.30.1</b> 実例1：折れ線グラフ</a></li>
+<li class="chapter" data-level="4.30.2" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#実例2積み上げ棒グラフ"><i class="fa fa-check"></i><b>4.30.2</b> 実例2：積み上げ棒グラフ</a></li>
+<li class="chapter" data-level="4.30.3" data-path="ggplot2によるグラフ作成-1.html"><a href="ggplot2によるグラフ作成-1.html#実例3箱ひげ図"><i class="fa fa-check"></i><b>4.30.3</b> 実例3：箱ひげ図</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="探索的データ分析.html"><a href="探索的データ分析.html"><i class="fa fa-check"></i><b>5</b> 探索的データ分析</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="探索的データ分析.html"><a href="探索的データ分析.html#第5章の準備"><i class="fa fa-check"></i><b>5.1</b> 第5章の準備</a>
 <ul>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#パッケージのインポート-3"><i class="fa fa-check"></i>パッケージのインポート</a></li>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#ggplot2の設定-1"><i class="fa fa-check"></i>ggplot2の設定</a></li>
+<li class="chapter" data-level="5.1.1" data-path="探索的データ分析.html"><a href="探索的データ分析.html#パッケージのインポート-3"><i class="fa fa-check"></i><b>5.1.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="5.1.2" data-path="探索的データ分析.html"><a href="探索的データ分析.html#ggplot2の設定-1"><i class="fa fa-check"></i><b>5.1.2</b> ggplot2の設定</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの中身記述統計量"><i class="fa fa-check"></i><b>5.2</b> データの中身（記述統計量）</a></li>
 <li class="chapter" data-level="5.3" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの分布"><i class="fa fa-check"></i><b>5.3</b> データの分布</a>
 <ul>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#離散型変数の度数分布"><i class="fa fa-check"></i>離散型変数の度数分布</a></li>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#連続型変数の度数分布"><i class="fa fa-check"></i>連続型変数の度数分布</a></li>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#外れ値"><i class="fa fa-check"></i>外れ値</a></li>
+<li class="chapter" data-level="5.3.1" data-path="探索的データ分析.html"><a href="探索的データ分析.html#離散型変数の度数分布"><i class="fa fa-check"></i><b>5.3.1</b> 離散型変数の度数分布</a></li>
+<li class="chapter" data-level="5.3.2" data-path="探索的データ分析.html"><a href="探索的データ分析.html#連続型変数の度数分布"><i class="fa fa-check"></i><b>5.3.2</b> 連続型変数の度数分布</a></li>
+<li class="chapter" data-level="5.3.3" data-path="探索的データ分析.html"><a href="探索的データ分析.html#外れ値"><i class="fa fa-check"></i><b>5.3.3</b> 外れ値</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="探索的データ分析.html"><a href="探索的データ分析.html#データの関係性"><i class="fa fa-check"></i><b>5.4</b> データの関係性</a>
 <ul>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#離散型変数の関係性"><i class="fa fa-check"></i>離散型変数の関係性</a></li>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#連続型変数の関係性"><i class="fa fa-check"></i>連続型変数の関係性</a></li>
+<li class="chapter" data-level="5.4.1" data-path="探索的データ分析.html"><a href="探索的データ分析.html#離散型変数の関係性"><i class="fa fa-check"></i><b>5.4.1</b> 離散型変数の関係性</a></li>
+<li class="chapter" data-level="5.4.2" data-path="探索的データ分析.html"><a href="探索的データ分析.html#連続型変数の関係性"><i class="fa fa-check"></i><b>5.4.2</b> 連続型変数の関係性</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="探索的データ分析.html"><a href="探索的データ分析.html#相関関係ペアプロット"><i class="fa fa-check"></i><b>5.5</b> 相関関係・ペアプロット</a>
 <ul>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#相関係数行列"><i class="fa fa-check"></i>相関係数行列</a></li>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#corrplotパッケージ"><i class="fa fa-check"></i>corrplotパッケージ</a></li>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#corrrパッケージ"><i class="fa fa-check"></i>corrrパッケージ</a></li>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#ggallyパッケージ"><i class="fa fa-check"></i>GGallyパッケージ</a></li>
+<li class="chapter" data-level="5.5.1" data-path="探索的データ分析.html"><a href="探索的データ分析.html#相関係数行列"><i class="fa fa-check"></i><b>5.5.1</b> 相関係数行列</a></li>
+<li class="chapter" data-level="5.5.2" data-path="探索的データ分析.html"><a href="探索的データ分析.html#corrplotパッケージ"><i class="fa fa-check"></i><b>5.5.2</b> corrplotパッケージ</a></li>
+<li class="chapter" data-level="5.5.3" data-path="探索的データ分析.html"><a href="探索的データ分析.html#corrrパッケージ"><i class="fa fa-check"></i><b>5.5.3</b> corrrパッケージ</a></li>
+<li class="chapter" data-level="5.5.4" data-path="探索的データ分析.html"><a href="探索的データ分析.html#ggallyパッケージ"><i class="fa fa-check"></i><b>5.5.4</b> GGallyパッケージ</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="探索的データ分析.html"><a href="探索的データ分析.html#探索的データ分析の一括実行"><i class="fa fa-check"></i><b>5.6</b> 探索的データ分析の一括実行</a>
 <ul>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#dataexplorerパッケージ"><i class="fa fa-check"></i>DataExplorerパッケージ</a></li>
-<li class="chapter" data-level="" data-path="探索的データ分析.html"><a href="探索的データ分析.html#smartedaパッケージ"><i class="fa fa-check"></i>SmartEDAパッケージ</a></li>
+<li class="chapter" data-level="5.6.1" data-path="探索的データ分析.html"><a href="探索的データ分析.html#dataexplorerパッケージ"><i class="fa fa-check"></i><b>5.6.1</b> DataExplorerパッケージ</a></li>
+<li class="chapter" data-level="5.6.2" data-path="探索的データ分析.html"><a href="探索的データ分析.html#smartedaパッケージ"><i class="fa fa-check"></i><b>5.6.2</b> SmartEDAパッケージ</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="線形回帰.html"><a href="線形回帰.html"><i class="fa fa-check"></i><b>6</b> 線形回帰</a>
+<li class="chapter" data-level="6" data-path="線形回帰-1.html"><a href="線形回帰-1.html"><i class="fa fa-check"></i><b>6</b> 線形回帰</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="線形回帰.html"><a href="線形回帰.html#第6章の準備"><i class="fa fa-check"></i><b>6.1</b> 第6章の準備</a>
+<li class="chapter" data-level="6.1" data-path="線形回帰-1.html"><a href="線形回帰-1.html#第6章の準備"><i class="fa fa-check"></i><b>6.1</b> 第6章の準備</a>
 <ul>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#パッケージのインポート-4"><i class="fa fa-check"></i>パッケージのインポート</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#外部データセットの取得-2"><i class="fa fa-check"></i>外部データセットの取得</a></li>
+<li class="chapter" data-level="6.1.1" data-path="線形回帰-1.html"><a href="線形回帰-1.html#パッケージのインポート-4"><i class="fa fa-check"></i><b>6.1.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="6.1.2" data-path="線形回帰-1.html"><a href="線形回帰-1.html#外部データセットの取得-2"><i class="fa fa-check"></i><b>6.1.2</b> 外部データセットの取得</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="線形回帰.html"><a href="線形回帰.html#用語の説明"><i class="fa fa-check"></i><b>6.2</b> 用語の説明</a>
+<li class="chapter" data-level="6.2" data-path="線形回帰-1.html"><a href="線形回帰-1.html#用語の説明"><i class="fa fa-check"></i><b>6.2</b> 用語の説明</a>
 <ul>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#標本と推定"><i class="fa fa-check"></i>標本と推定</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#推定量の望ましい性質"><i class="fa fa-check"></i>推定量の望ましい性質</a></li>
+<li class="chapter" data-level="6.2.1" data-path="線形回帰-1.html"><a href="線形回帰-1.html#標本と推定"><i class="fa fa-check"></i><b>6.2.1</b> 標本と推定</a></li>
+<li class="chapter" data-level="6.2.2" data-path="線形回帰-1.html"><a href="線形回帰-1.html#推定量の望ましい性質"><i class="fa fa-check"></i><b>6.2.2</b> 推定量の望ましい性質</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="線形回帰.html"><a href="線形回帰.html#最小2乗法ols"><i class="fa fa-check"></i><b>6.3</b> 最小2乗法（OLS）</a>
+<li class="chapter" data-level="6.3" data-path="線形回帰-1.html"><a href="線形回帰-1.html#最小2乗法ols"><i class="fa fa-check"></i><b>6.3</b> 最小2乗法（OLS）</a>
 <ul>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#最小2乗法の仮定"><i class="fa fa-check"></i>最小2乗法の仮定</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#検定と信頼区間"><i class="fa fa-check"></i>検定と信頼区間</a></li>
+<li class="chapter" data-level="6.3.1" data-path="線形回帰-1.html"><a href="線形回帰-1.html#最小2乗法の仮定"><i class="fa fa-check"></i><b>6.3.1</b> 最小2乗法の仮定</a></li>
+<li class="chapter" data-level="6.3.2" data-path="線形回帰-1.html"><a href="線形回帰-1.html#検定と信頼区間"><i class="fa fa-check"></i><b>6.3.2</b> 検定と信頼区間</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="線形回帰.html"><a href="線形回帰.html#モデルの種類と係数の解釈"><i class="fa fa-check"></i><b>6.4</b> モデルの種類と係数の解釈</a>
+<li class="chapter" data-level="6.4" data-path="線形回帰-1.html"><a href="線形回帰-1.html#モデルの種類と係数の解釈"><i class="fa fa-check"></i><b>6.4</b> モデルの種類と係数の解釈</a>
 <ul>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#水準モデル"><i class="fa fa-check"></i>水準モデル</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#対数モデル"><i class="fa fa-check"></i>対数モデル</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#変化率モデル"><i class="fa fa-check"></i>変化率モデル</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#多項式モデル"><i class="fa fa-check"></i>多項式モデル</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#交互作用モデル"><i class="fa fa-check"></i>交互作用モデル</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#ダミー変数"><i class="fa fa-check"></i>ダミー変数</a></li>
+<li class="chapter" data-level="6.4.1" data-path="線形回帰-1.html"><a href="線形回帰-1.html#水準モデル"><i class="fa fa-check"></i><b>6.4.1</b> 水準モデル</a></li>
+<li class="chapter" data-level="6.4.2" data-path="線形回帰-1.html"><a href="線形回帰-1.html#対数モデル"><i class="fa fa-check"></i><b>6.4.2</b> 対数モデル</a></li>
+<li class="chapter" data-level="6.4.3" data-path="線形回帰-1.html"><a href="線形回帰-1.html#変化率モデル"><i class="fa fa-check"></i><b>6.4.3</b> 変化率モデル</a></li>
+<li class="chapter" data-level="6.4.4" data-path="線形回帰-1.html"><a href="線形回帰-1.html#多項式モデル"><i class="fa fa-check"></i><b>6.4.4</b> 多項式モデル</a></li>
+<li class="chapter" data-level="6.4.5" data-path="線形回帰-1.html"><a href="線形回帰-1.html#交互作用モデル"><i class="fa fa-check"></i><b>6.4.5</b> 交互作用モデル</a></li>
+<li class="chapter" data-level="6.4.6" data-path="線形回帰-1.html"><a href="線形回帰-1.html#ダミー変数"><i class="fa fa-check"></i><b>6.4.6</b> ダミー変数</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="線形回帰.html"><a href="線形回帰.html#重回帰モデルの役割と注意点"><i class="fa fa-check"></i><b>6.5</b> 重回帰モデルの役割と注意点</a>
+<li class="chapter" data-level="6.5" data-path="線形回帰-1.html"><a href="線形回帰-1.html#重回帰モデルの役割と注意点"><i class="fa fa-check"></i><b>6.5</b> 重回帰モデルの役割と注意点</a>
 <ul>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#欠落変数バイアス"><i class="fa fa-check"></i>欠落変数バイアス</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#多重共線性"><i class="fa fa-check"></i>多重共線性</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#変数選択の指針"><i class="fa fa-check"></i>変数選択の指針</a></li>
+<li class="chapter" data-level="6.5.1" data-path="線形回帰-1.html"><a href="線形回帰-1.html#欠落変数バイアス"><i class="fa fa-check"></i><b>6.5.1</b> 欠落変数バイアス</a></li>
+<li class="chapter" data-level="6.5.2" data-path="線形回帰-1.html"><a href="線形回帰-1.html#多重共線性"><i class="fa fa-check"></i><b>6.5.2</b> 多重共線性</a></li>
+<li class="chapter" data-level="6.5.3" data-path="線形回帰-1.html"><a href="線形回帰-1.html#変数選択の指針"><i class="fa fa-check"></i><b>6.5.3</b> 変数選択の指針</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="線形回帰.html"><a href="線形回帰.html#rの単回帰モデル推定"><i class="fa fa-check"></i><b>6.6</b> Rの単回帰モデル推定</a>
+<li class="chapter" data-level="6.6" data-path="線形回帰-1.html"><a href="線形回帰-1.html#rの単回帰モデル推定"><i class="fa fa-check"></i><b>6.6</b> Rの単回帰モデル推定</a>
 <ul>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例線形単回帰"><i class="fa fa-check"></i>実例：線形単回帰</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例回帰診断プロット"><i class="fa fa-check"></i>実例：回帰診断プロット</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例対数変化率モデルの推定"><i class="fa fa-check"></i>実例：対数・変化率モデルの推定</a></li>
+<li class="chapter" data-level="6.6.1" data-path="線形回帰-1.html"><a href="線形回帰-1.html#実例線形単回帰"><i class="fa fa-check"></i><b>6.6.1</b> 実例：線形単回帰</a></li>
+<li class="chapter" data-level="6.6.2" data-path="線形回帰-1.html"><a href="線形回帰-1.html#実例回帰診断プロット"><i class="fa fa-check"></i><b>6.6.2</b> 実例：回帰診断プロット</a></li>
+<li class="chapter" data-level="6.6.3" data-path="線形回帰-1.html"><a href="線形回帰-1.html#実例対数変化率モデルの推定"><i class="fa fa-check"></i><b>6.6.3</b> 実例：対数・変化率モデルの推定</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="線形回帰.html"><a href="線形回帰.html#rの重回帰モデル推定"><i class="fa fa-check"></i><b>6.7</b> Rの重回帰モデル推定</a>
+<li class="chapter" data-level="6.7" data-path="線形回帰-1.html"><a href="線形回帰-1.html#rの重回帰モデル推定"><i class="fa fa-check"></i><b>6.7</b> Rの重回帰モデル推定</a>
 <ul>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例線形重回帰"><i class="fa fa-check"></i>実例：線形重回帰</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例多項式モデル"><i class="fa fa-check"></i>実例：多項式モデル</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例ダミー交互作用モデル"><i class="fa fa-check"></i>実例：ダミー・交互作用モデル</a></li>
-<li class="chapter" data-level="" data-path="線形回帰.html"><a href="線形回帰.html#実例ダミー変数同士の交互作用モデル"><i class="fa fa-check"></i>実例：ダミー変数同士の交互作用モデル</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="時系列データ操作.html"><a href="時系列データ操作.html"><i class="fa fa-check"></i><b>7</b> 時系列データ操作</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="時系列データ操作.html"><a href="時系列データ操作.html#第7章の準備"><i class="fa fa-check"></i><b>7.1</b> 第7章の準備</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#パッケージのインポート-5"><i class="fa fa-check"></i>パッケージのインポート</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#外部データセットの取得-3"><i class="fa fa-check"></i>外部データセットの取得</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="時系列データ操作.html"><a href="時系列データ操作.html#時系列データとは"><i class="fa fa-check"></i><b>7.2</b> 時系列データとは</a></li>
-<li class="chapter" data-level="7.3" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データ"><i class="fa fa-check"></i><b>7.3</b> ts形式データ</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データの表示"><i class="fa fa-check"></i>ts形式データの表示</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データ情報の取得"><i class="fa fa-check"></i>ts形式データ情報の取得</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データのフィルタ"><i class="fa fa-check"></i>ts形式データのフィルタ</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データのプロット"><i class="fa fa-check"></i>ts形式データのプロット</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データの変換"><i class="fa fa-check"></i><b>7.4</b> ts形式データの変換</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式に変換ts"><i class="fa fa-check"></i>ts形式に変換：ts()</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式に変換as_tsibble"><i class="fa fa-check"></i>ts形式に変換：as_tsibble()</a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型データ関数"><i class="fa fa-check"></i><b>7.5</b> 日付型データ関数</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型データの生成"><i class="fa fa-check"></i>日付型データの生成</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型データの計算"><i class="fa fa-check"></i>日付型データの計算</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付型と文字列型の変換"><i class="fa fa-check"></i>日付型と文字列型の変換</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日付情報の抽出"><i class="fa fa-check"></i>日付情報の抽出</a></li>
-<li class="chapter" data-level="7.5.1" data-path="時系列データ操作.html"><a href="時系列データ操作.html#四半期ベースの時系列インデックス"><i class="fa fa-check"></i><b>7.5.1</b> 四半期ベースの時系列インデックス</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="時系列データ操作.html"><a href="時系列データ操作.html#様々な時系列データ系列の作成"><i class="fa fa-check"></i><b>7.6</b> 様々な時系列データ系列の作成</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ラグリード系列の作成"><i class="fa fa-check"></i>ラグ・リード系列の作成</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#変化率系列の作成"><i class="fa fa-check"></i>変化率系列の作成</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#移動平均系列の作成"><i class="fa fa-check"></i>移動平均系列の作成</a></li>
-</ul></li>
-<li class="chapter" data-level="7.7" data-path="時系列データ操作.html"><a href="時系列データ操作.html#時系列データの頻度変換"><i class="fa fa-check"></i><b>7.7</b> 時系列データの頻度変換</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データを週次データに変換"><i class="fa fa-check"></i>日次データを週次データに変換</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データを月次データに変換"><i class="fa fa-check"></i>日次データを月次データに変換</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データを四半期データに変換"><i class="fa fa-check"></i>日次データを四半期データに変換</a></li>
-</ul></li>
-<li class="chapter" data-level="7.8" data-path="時系列データ操作.html"><a href="時系列データ操作.html#季節調整x-13"><i class="fa fa-check"></i><b>7.8</b> 季節調整（X-13）</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#ts形式データの可視化"><i class="fa fa-check"></i>ts形式データの可視化</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#x-13arima-seatsの実施方法"><i class="fa fa-check"></i>X-13ARIMA-SEATSの実施方法</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#実例月次データの季節調整"><i class="fa fa-check"></i>実例：月次データの季節調整</a></li>
-</ul></li>
-<li class="chapter" data-level="7.9" data-path="時系列データ操作.html"><a href="時系列データ操作.html#季節調整stl分解"><i class="fa fa-check"></i><b>7.9</b> 季節調整（STL分解）</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#stl分解の実施方法"><i class="fa fa-check"></i>STL分解の実施方法</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#週次データのstl分解"><i class="fa fa-check"></i>週次データのSTL分解</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データのstl分解単一周期"><i class="fa fa-check"></i>日次データのSTL分解（単一周期）</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#日次データのstl分解複数周期"><i class="fa fa-check"></i>日次データのSTL分解（複数周期）</a></li>
-</ul></li>
-<li class="chapter" data-level="7.10" data-path="時系列データ操作.html"><a href="時系列データ操作.html#トレンド"><i class="fa fa-check"></i><b>7.10</b> トレンド</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#線形トレンド"><i class="fa fa-check"></i>線形トレンド</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#区分線形トレンド"><i class="fa fa-check"></i>区分線形トレンド</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#hpフィルタ"><i class="fa fa-check"></i>HPフィルタ</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#一般化加法モデルgam"><i class="fa fa-check"></i>一般化加法モデル（GAM）</a></li>
-</ul></li>
-<li class="chapter" data-level="7.11" data-path="時系列データ操作.html"><a href="時系列データ操作.html#構造変化"><i class="fa fa-check"></i><b>7.11</b> 構造変化</a>
-<ul>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#構造変化点が既知の場合"><i class="fa fa-check"></i>構造変化点が既知の場合</a></li>
-<li class="chapter" data-level="" data-path="時系列データ操作.html"><a href="時系列データ操作.html#構造変化点が未知の場合"><i class="fa fa-check"></i>構造変化点が未知の場合</a></li>
+<li class="chapter" data-level="6.7.1" data-path="線形回帰-1.html"><a href="線形回帰-1.html#実例線形重回帰"><i class="fa fa-check"></i><b>6.7.1</b> 実例：線形重回帰</a></li>
+<li class="chapter" data-level="6.7.2" data-path="線形回帰-1.html"><a href="線形回帰-1.html#実例多項式モデル"><i class="fa fa-check"></i><b>6.7.2</b> 実例：多項式モデル</a></li>
+<li class="chapter" data-level="6.7.3" data-path="線形回帰-1.html"><a href="線形回帰-1.html#実例ダミー交互作用モデル"><i class="fa fa-check"></i><b>6.7.3</b> 実例：ダミー・交互作用モデル</a></li>
+<li class="chapter" data-level="6.7.4" data-path="線形回帰-1.html"><a href="線形回帰-1.html#実例ダミー変数同士の交互作用モデル"><i class="fa fa-check"></i><b>6.7.4</b> 実例：ダミー変数同士の交互作用モデル</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="時系列分析.html"><a href="時系列分析.html"><i class="fa fa-check"></i><b>8</b> 時系列分析</a>
+<li class="chapter" data-level="7" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html"><i class="fa fa-check"></i><b>7</b> 時系列データ操作</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="時系列分析.html"><a href="時系列分析.html#第8章の準備"><i class="fa fa-check"></i><b>8.1</b> 第8章の準備</a>
+<li class="chapter" data-level="7.1" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#第7章の準備"><i class="fa fa-check"></i><b>7.1</b> 第7章の準備</a>
 <ul>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#パッケージのインポート-6"><i class="fa fa-check"></i>パッケージのインポート</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#外部データセットの取得-4"><i class="fa fa-check"></i>外部データセットの取得</a></li>
+<li class="chapter" data-level="7.1.1" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#パッケージのインポート-5"><i class="fa fa-check"></i><b>7.1.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="7.1.2" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#外部データセットの取得-3"><i class="fa fa-check"></i><b>7.1.2</b> 外部データセットの取得</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="時系列分析.html"><a href="時系列分析.html#定常性"><i class="fa fa-check"></i><b>8.2</b> 定常性</a>
+<li class="chapter" data-level="7.2" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#時系列データとは"><i class="fa fa-check"></i><b>7.2</b> 時系列データとは</a></li>
+<li class="chapter" data-level="7.3" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#ts形式データ"><i class="fa fa-check"></i><b>7.3</b> ts形式データ</a>
 <ul>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#定常性の定義"><i class="fa fa-check"></i>定常性の定義</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ホワイトノイズ"><i class="fa fa-check"></i>ホワイトノイズ</a></li>
+<li class="chapter" data-level="7.3.1" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#ts形式データの表示"><i class="fa fa-check"></i><b>7.3.1</b> ts形式データの表示</a></li>
+<li class="chapter" data-level="7.3.2" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#ts形式データ情報の取得"><i class="fa fa-check"></i><b>7.3.2</b> ts形式データ情報の取得</a></li>
+<li class="chapter" data-level="7.3.3" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#ts形式データのフィルタ"><i class="fa fa-check"></i><b>7.3.3</b> ts形式データのフィルタ</a></li>
+<li class="chapter" data-level="7.3.4" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#ts形式データのプロット"><i class="fa fa-check"></i><b>7.3.4</b> ts形式データのプロット</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="時系列分析.html"><a href="時系列分析.html#非定常過程"><i class="fa fa-check"></i><b>8.3</b> 非定常過程</a>
+<li class="chapter" data-level="7.4" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#ts形式データの変換"><i class="fa fa-check"></i><b>7.4</b> ts形式データの変換</a>
 <ul>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#単位根"><i class="fa fa-check"></i>単位根</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#階差定常過程和分過程"><i class="fa fa-check"></i>階差定常過程・和分過程</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ランダムウォーク"><i class="fa fa-check"></i>ランダムウォーク</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#トレンド定常過程"><i class="fa fa-check"></i>トレンド定常過程</a></li>
+<li class="chapter" data-level="7.4.1" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#ts形式に変換ts"><i class="fa fa-check"></i><b>7.4.1</b> ts形式に変換：ts()</a></li>
+<li class="chapter" data-level="7.4.2" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#ts形式に変換as_tsibble"><i class="fa fa-check"></i><b>7.4.2</b> ts形式に変換：as_tsibble()</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="時系列分析.html"><a href="時系列分析.html#単位根検定adf検定"><i class="fa fa-check"></i><b>8.4</b> 単位根検定（ADF検定）</a>
+<li class="chapter" data-level="7.5" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#日付型データ関数"><i class="fa fa-check"></i><b>7.5</b> 日付型データ関数</a>
 <ul>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#adf検定フロー自作関数"><i class="fa fa-check"></i>ADF検定フロー自作関数</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例adf検定フロー"><i class="fa fa-check"></i>実例：ADF検定フロー</a></li>
+<li class="chapter" data-level="7.5.1" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#日付型データの生成"><i class="fa fa-check"></i><b>7.5.1</b> 日付型データの生成</a></li>
+<li class="chapter" data-level="7.5.2" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#日付型データの計算"><i class="fa fa-check"></i><b>7.5.2</b> 日付型データの計算</a></li>
+<li class="chapter" data-level="7.5.3" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#日付型と文字列型の変換"><i class="fa fa-check"></i><b>7.5.3</b> 日付型と文字列型の変換</a></li>
+<li class="chapter" data-level="7.5.4" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#日付情報の抽出"><i class="fa fa-check"></i><b>7.5.4</b> 日付情報の抽出</a></li>
+<li class="chapter" data-level="7.5.5" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#四半期ベースの時系列インデックス"><i class="fa fa-check"></i><b>7.5.5</b> 四半期ベースの時系列インデックス</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="時系列分析.html"><a href="時系列分析.html#系列相関"><i class="fa fa-check"></i><b>8.5</b> 系列相関</a>
+<li class="chapter" data-level="7.6" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#様々な時系列データ系列の作成"><i class="fa fa-check"></i><b>7.6</b> 様々な時系列データ系列の作成</a>
 <ul>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#自己相関acf"><i class="fa fa-check"></i>自己相関（ACF）</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#偏自己相関pacf"><i class="fa fa-check"></i>偏自己相関（PACF）</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#リュンボックス検定"><i class="fa fa-check"></i>リュン＝ボックス検定</a></li>
+<li class="chapter" data-level="7.6.1" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#ラグリード系列の作成"><i class="fa fa-check"></i><b>7.6.1</b> ラグ・リード系列の作成</a></li>
+<li class="chapter" data-level="7.6.2" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#変化率系列の作成"><i class="fa fa-check"></i><b>7.6.2</b> 変化率系列の作成</a></li>
+<li class="chapter" data-level="7.6.3" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#移動平均系列の作成"><i class="fa fa-check"></i><b>7.6.3</b> 移動平均系列の作成</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="時系列分析.html"><a href="時系列分析.html#ボックスジェンキンス法"><i class="fa fa-check"></i><b>8.6</b> ボックス＝ジェンキンス法</a>
+<li class="chapter" data-level="7.7" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#時系列データの頻度変換"><i class="fa fa-check"></i><b>7.7</b> 時系列データの頻度変換</a>
 <ul>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#armaモデル"><i class="fa fa-check"></i>ARMAモデル</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#arimaモデル"><i class="fa fa-check"></i>ARIMAモデル</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ボックスジェンキンス法の分析フロー"><i class="fa fa-check"></i>ボックス＝ジェンキンス法の分析フロー</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例ボックスジェンキンス法"><i class="fa fa-check"></i>実例：ボックス＝ジェンキンス法</a></li>
+<li class="chapter" data-level="7.7.1" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#日次データを週次データに変換"><i class="fa fa-check"></i><b>7.7.1</b> 日次データを週次データに変換</a></li>
+<li class="chapter" data-level="7.7.2" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#日次データを月次データに変換"><i class="fa fa-check"></i><b>7.7.2</b> 日次データを月次データに変換</a></li>
+<li class="chapter" data-level="7.7.3" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#日次データを四半期データに変換"><i class="fa fa-check"></i><b>7.7.3</b> 日次データを四半期データに変換</a></li>
 </ul></li>
-<li class="chapter" data-level="8.7" data-path="時系列分析.html"><a href="時系列分析.html#共和分"><i class="fa fa-check"></i><b>8.7</b> 共和分</a>
+<li class="chapter" data-level="7.8" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#季節調整x-13"><i class="fa fa-check"></i><b>7.8</b> 季節調整（X-13）</a>
 <ul>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#見せかけの回帰"><i class="fa fa-check"></i>見せかけの回帰</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#共和分関係"><i class="fa fa-check"></i>共和分関係</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#エングルグレンジャー検定"><i class="fa fa-check"></i>エングル＝グレンジャー検定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例見せかけの回帰"><i class="fa fa-check"></i>実例：見せかけの回帰</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例共和分"><i class="fa fa-check"></i>実例：共和分</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ヨハンセン検定"><i class="fa fa-check"></i>ヨハンセン検定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ヨハンセン検定フロー自作関数"><i class="fa fa-check"></i>ヨハンセン検定フロー自作関数</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例ヨハンセン検定"><i class="fa fa-check"></i>実例：ヨハンセン検定</a></li>
+<li class="chapter" data-level="7.8.1" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#ts形式データの可視化"><i class="fa fa-check"></i><b>7.8.1</b> ts形式データの可視化</a></li>
+<li class="chapter" data-level="7.8.2" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#x-13arima-seatsの実施方法"><i class="fa fa-check"></i><b>7.8.2</b> X-13ARIMA-SEATSの実施方法</a></li>
+<li class="chapter" data-level="7.8.3" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#実例月次データの季節調整"><i class="fa fa-check"></i><b>7.8.3</b> 実例：月次データの季節調整</a></li>
 </ul></li>
-<li class="chapter" data-level="8.8" data-path="時系列分析.html"><a href="時系列分析.html#varモデル"><i class="fa fa-check"></i><b>8.8</b> VARモデル</a>
+<li class="chapter" data-level="7.9" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#季節調整stl分解"><i class="fa fa-check"></i><b>7.9</b> 季節調整（STL分解）</a>
 <ul>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#レベルvarモデル"><i class="fa fa-check"></i>レベルVARモデル</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#階差varモデル"><i class="fa fa-check"></i>階差VARモデル</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#vecモデル"><i class="fa fa-check"></i>VECモデル</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#構造varモデル"><i class="fa fa-check"></i>構造VARモデル</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#構造vecモデル"><i class="fa fa-check"></i>構造VECモデル</a></li>
+<li class="chapter" data-level="7.9.1" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#stl分解の実施方法"><i class="fa fa-check"></i><b>7.9.1</b> STL分解の実施方法</a></li>
+<li class="chapter" data-level="7.9.2" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#週次データのstl分解"><i class="fa fa-check"></i><b>7.9.2</b> 週次データのSTL分解</a></li>
+<li class="chapter" data-level="7.9.3" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#日次データのstl分解単一周期"><i class="fa fa-check"></i><b>7.9.3</b> 日次データのSTL分解（単一周期）</a></li>
+<li class="chapter" data-level="7.9.4" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#日次データのstl分解複数周期"><i class="fa fa-check"></i><b>7.9.4</b> 日次データのSTL分解（複数周期）</a></li>
 </ul></li>
-<li class="chapter" data-level="8.9" data-path="時系列分析.html"><a href="時系列分析.html#varモデルに関連する分析"><i class="fa fa-check"></i><b>8.9</b> VARモデルに関連する分析</a>
+<li class="chapter" data-level="7.10" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#トレンド"><i class="fa fa-check"></i><b>7.10</b> トレンド</a>
 <ul>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#グレンジャー因果性"><i class="fa fa-check"></i>グレンジャー因果性</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#インパルス応答"><i class="fa fa-check"></i>インパルス応答</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#予測誤差の分散分解"><i class="fa fa-check"></i>予測誤差の分散分解</a></li>
+<li class="chapter" data-level="7.10.1" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#線形トレンド"><i class="fa fa-check"></i><b>7.10.1</b> 線形トレンド</a></li>
+<li class="chapter" data-level="7.10.2" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#区分線形トレンド"><i class="fa fa-check"></i><b>7.10.2</b> 区分線形トレンド</a></li>
+<li class="chapter" data-level="7.10.3" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#hpフィルタ"><i class="fa fa-check"></i><b>7.10.3</b> HPフィルタ</a></li>
+<li class="chapter" data-level="7.10.4" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#一般化加法モデルgam"><i class="fa fa-check"></i><b>7.10.4</b> 一般化加法モデル（GAM）</a></li>
 </ul></li>
-<li class="chapter" data-level="8.10" data-path="時系列分析.html"><a href="時系列分析.html#varモデルの分析フロー"><i class="fa fa-check"></i><b>8.10</b> VARモデルの分析フロー</a>
+<li class="chapter" data-level="7.11" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#構造変化"><i class="fa fa-check"></i><b>7.11</b> 構造変化</a>
 <ul>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#探索的データ分析-2"><i class="fa fa-check"></i>1. 探索的データ分析</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#変数選択"><i class="fa fa-check"></i>2. 変数選択</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#ラグ次数の選択"><i class="fa fa-check"></i>3. ラグ次数の選択</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#単位根検定-1"><i class="fa fa-check"></i>4. 単位根検定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#共和分検定"><i class="fa fa-check"></i>5. 共和分検定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#データ分割-1"><i class="fa fa-check"></i>6. データ分割</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#誘導varvecモデルの推定"><i class="fa fa-check"></i>7. 誘導VAR・VECモデルの推定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#構造varvecモデルの識別"><i class="fa fa-check"></i>8. 構造VAR・VECモデルの識別</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#誤差項の検定"><i class="fa fa-check"></i>9. 誤差項の検定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#モデル推定後の分析"><i class="fa fa-check"></i>10. モデル推定後の分析</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#予測"><i class="fa fa-check"></i>11. 予測</a></li>
+<li class="chapter" data-level="7.11.1" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#構造変化点が既知の場合"><i class="fa fa-check"></i><b>7.11.1</b> 構造変化点が既知の場合</a></li>
+<li class="chapter" data-level="7.11.2" data-path="時系列データ操作-1.html"><a href="時系列データ操作-1.html#構造変化点が未知の場合"><i class="fa fa-check"></i><b>7.11.2</b> 構造変化点が未知の場合</a></li>
 </ul></li>
-<li class="chapter" data-level="8.11" data-path="時系列分析.html"><a href="時系列分析.html#varモデルの実例"><i class="fa fa-check"></i><b>8.11</b> VARモデルの実例</a>
+</ul></li>
+<li class="chapter" data-level="8" data-path="時系列分析-1.html"><a href="時系列分析-1.html"><i class="fa fa-check"></i><b>8</b> 時系列分析</a>
 <ul>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例探索的データ分析"><i class="fa fa-check"></i>実例：探索的データ分析</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例変数選択グレンジャー因果性検定"><i class="fa fa-check"></i>実例：変数選択（グレンジャー因果性検定）</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例ラグ次数選択"><i class="fa fa-check"></i>実例：ラグ次数選択</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例adf検定"><i class="fa fa-check"></i>実例：ADF検定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例ヨハンセン検定-1"><i class="fa fa-check"></i>実例：ヨハンセン検定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例varモデルの推定"><i class="fa fa-check"></i>実例：VARモデルの推定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例vecモデルの推定"><i class="fa fa-check"></i>実例：VECモデルの推定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例構造varモデルの推定"><i class="fa fa-check"></i>実例：構造VARモデルの推定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例構造vecモデルの推定"><i class="fa fa-check"></i>実例：構造VECモデルの推定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例誤差項の検定"><i class="fa fa-check"></i>実例：誤差項の検定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例インパルス応答"><i class="fa fa-check"></i>実例：インパルス応答</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例予測誤差の分散分解"><i class="fa fa-check"></i>実例：予測誤差の分散分解</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例グレンジャー因果性検定"><i class="fa fa-check"></i>実例：グレンジャー因果性検定</a></li>
-<li class="chapter" data-level="" data-path="時系列分析.html"><a href="時系列分析.html#実例予測"><i class="fa fa-check"></i>実例：予測</a></li>
+<li class="chapter" data-level="8.1" data-path="時系列分析-1.html"><a href="時系列分析-1.html#第8章の準備"><i class="fa fa-check"></i><b>8.1</b> 第8章の準備</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="時系列分析-1.html"><a href="時系列分析-1.html#パッケージのインポート-6"><i class="fa fa-check"></i><b>8.1.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="8.1.2" data-path="時系列分析-1.html"><a href="時系列分析-1.html#外部データセットの取得-4"><i class="fa fa-check"></i><b>8.1.2</b> 外部データセットの取得</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="時系列分析-1.html"><a href="時系列分析-1.html#定常性"><i class="fa fa-check"></i><b>8.2</b> 定常性</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="時系列分析-1.html"><a href="時系列分析-1.html#定常性の定義"><i class="fa fa-check"></i><b>8.2.1</b> 定常性の定義</a></li>
+<li class="chapter" data-level="8.2.2" data-path="時系列分析-1.html"><a href="時系列分析-1.html#ホワイトノイズ"><i class="fa fa-check"></i><b>8.2.2</b> ホワイトノイズ</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="時系列分析-1.html"><a href="時系列分析-1.html#非定常過程"><i class="fa fa-check"></i><b>8.3</b> 非定常過程</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="時系列分析-1.html"><a href="時系列分析-1.html#単位根"><i class="fa fa-check"></i><b>8.3.1</b> 単位根</a></li>
+<li class="chapter" data-level="8.3.2" data-path="時系列分析-1.html"><a href="時系列分析-1.html#階差定常過程和分過程"><i class="fa fa-check"></i><b>8.3.2</b> 階差定常過程・和分過程</a></li>
+<li class="chapter" data-level="8.3.3" data-path="時系列分析-1.html"><a href="時系列分析-1.html#ランダムウォーク"><i class="fa fa-check"></i><b>8.3.3</b> ランダムウォーク</a></li>
+<li class="chapter" data-level="8.3.4" data-path="時系列分析-1.html"><a href="時系列分析-1.html#トレンド定常過程"><i class="fa fa-check"></i><b>8.3.4</b> トレンド定常過程</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="時系列分析-1.html"><a href="時系列分析-1.html#単位根検定adf検定"><i class="fa fa-check"></i><b>8.4</b> 単位根検定（ADF検定）</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="時系列分析-1.html"><a href="時系列分析-1.html#adf検定フロー自作関数"><i class="fa fa-check"></i><b>8.4.1</b> ADF検定フロー自作関数</a></li>
+<li class="chapter" data-level="8.4.2" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例adf検定フロー"><i class="fa fa-check"></i><b>8.4.2</b> 実例：ADF検定フロー</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="時系列分析-1.html"><a href="時系列分析-1.html#系列相関自己相関"><i class="fa fa-check"></i><b>8.5</b> 系列相関・自己相関</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="時系列分析-1.html"><a href="時系列分析-1.html#自己相関acf"><i class="fa fa-check"></i><b>8.5.1</b> 自己相関（ACF）</a></li>
+<li class="chapter" data-level="8.5.2" data-path="時系列分析-1.html"><a href="時系列分析-1.html#偏自己相関pacf"><i class="fa fa-check"></i><b>8.5.2</b> 偏自己相関（PACF）</a></li>
+<li class="chapter" data-level="8.5.3" data-path="時系列分析-1.html"><a href="時系列分析-1.html#リュンボックス検定"><i class="fa fa-check"></i><b>8.5.3</b> リュン＝ボックス検定</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="時系列分析-1.html"><a href="時系列分析-1.html#ボックスジェンキンス法"><i class="fa fa-check"></i><b>8.6</b> ボックス＝ジェンキンス法</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="時系列分析-1.html"><a href="時系列分析-1.html#armaモデル"><i class="fa fa-check"></i><b>8.6.1</b> ARMAモデル</a></li>
+<li class="chapter" data-level="8.6.2" data-path="時系列分析-1.html"><a href="時系列分析-1.html#arimaモデル"><i class="fa fa-check"></i><b>8.6.2</b> ARIMAモデル</a></li>
+<li class="chapter" data-level="8.6.3" data-path="時系列分析-1.html"><a href="時系列分析-1.html#ボックスジェンキンス法の分析フロー"><i class="fa fa-check"></i><b>8.6.3</b> ボックス＝ジェンキンス法の分析フロー</a></li>
+<li class="chapter" data-level="8.6.4" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例ボックスジェンキンス法"><i class="fa fa-check"></i><b>8.6.4</b> 実例：ボックス＝ジェンキンス法</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="時系列分析-1.html"><a href="時系列分析-1.html#共和分"><i class="fa fa-check"></i><b>8.7</b> 共和分</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="時系列分析-1.html"><a href="時系列分析-1.html#見せかけの回帰"><i class="fa fa-check"></i><b>8.7.1</b> 見せかけの回帰</a></li>
+<li class="chapter" data-level="8.7.2" data-path="時系列分析-1.html"><a href="時系列分析-1.html#共和分関係"><i class="fa fa-check"></i><b>8.7.2</b> 共和分関係</a></li>
+<li class="chapter" data-level="8.7.3" data-path="時系列分析-1.html"><a href="時系列分析-1.html#エングルグレンジャー検定"><i class="fa fa-check"></i><b>8.7.3</b> エングル＝グレンジャー検定</a></li>
+<li class="chapter" data-level="8.7.4" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例見せかけの回帰"><i class="fa fa-check"></i><b>8.7.4</b> 実例：見せかけの回帰</a></li>
+<li class="chapter" data-level="8.7.5" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例共和分"><i class="fa fa-check"></i><b>8.7.5</b> 実例：共和分</a></li>
+<li class="chapter" data-level="8.7.6" data-path="時系列分析-1.html"><a href="時系列分析-1.html#ヨハンセン検定"><i class="fa fa-check"></i><b>8.7.6</b> ヨハンセン検定</a></li>
+<li class="chapter" data-level="8.7.7" data-path="時系列分析-1.html"><a href="時系列分析-1.html#ヨハンセン検定フロー自作関数"><i class="fa fa-check"></i><b>8.7.7</b> ヨハンセン検定フロー自作関数</a></li>
+<li class="chapter" data-level="8.7.8" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例ヨハンセン検定"><i class="fa fa-check"></i><b>8.7.8</b> 実例：ヨハンセン検定</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="時系列分析-1.html"><a href="時系列分析-1.html#varモデル"><i class="fa fa-check"></i><b>8.8</b> VARモデル</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="時系列分析-1.html"><a href="時系列分析-1.html#レベルvarモデル"><i class="fa fa-check"></i><b>8.8.1</b> レベルVARモデル</a></li>
+<li class="chapter" data-level="8.8.2" data-path="時系列分析-1.html"><a href="時系列分析-1.html#階差varモデル"><i class="fa fa-check"></i><b>8.8.2</b> 階差VARモデル</a></li>
+<li class="chapter" data-level="8.8.3" data-path="時系列分析-1.html"><a href="時系列分析-1.html#vecモデル"><i class="fa fa-check"></i><b>8.8.3</b> VECモデル</a></li>
+<li class="chapter" data-level="8.8.4" data-path="時系列分析-1.html"><a href="時系列分析-1.html#構造varモデル"><i class="fa fa-check"></i><b>8.8.4</b> 構造VARモデル</a></li>
+<li class="chapter" data-level="8.8.5" data-path="時系列分析-1.html"><a href="時系列分析-1.html#構造vecモデル"><i class="fa fa-check"></i><b>8.8.5</b> 構造VECモデル</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="時系列分析-1.html"><a href="時系列分析-1.html#varモデルに関連する分析"><i class="fa fa-check"></i><b>8.9</b> VARモデルに関連する分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析-1.html"><a href="時系列分析-1.html#グレンジャー因果性"><i class="fa fa-check"></i>グレンジャー因果性</a></li>
+<li class="chapter" data-level="8.9.1" data-path="時系列分析-1.html"><a href="時系列分析-1.html#インパルス応答"><i class="fa fa-check"></i><b>8.9.1</b> インパルス応答</a></li>
+<li class="chapter" data-level="8.9.2" data-path="時系列分析-1.html"><a href="時系列分析-1.html#予測誤差の分散分解"><i class="fa fa-check"></i><b>8.9.2</b> 予測誤差の分散分解</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="時系列分析-1.html"><a href="時系列分析-1.html#varモデルの分析フロー"><i class="fa fa-check"></i><b>8.10</b> VARモデルの分析フロー</a>
+<ul>
+<li class="chapter" data-level="" data-path="時系列分析-1.html"><a href="時系列分析-1.html#探索的データ分析-2"><i class="fa fa-check"></i>1. 探索的データ分析</a></li>
+<li class="chapter" data-level="" data-path="時系列分析-1.html"><a href="時系列分析-1.html#変数選択"><i class="fa fa-check"></i>2. 変数選択</a></li>
+<li class="chapter" data-level="" data-path="時系列分析-1.html"><a href="時系列分析-1.html#ラグ次数の選択"><i class="fa fa-check"></i>3. ラグ次数の選択</a></li>
+<li class="chapter" data-level="" data-path="時系列分析-1.html"><a href="時系列分析-1.html#単位根検定-1"><i class="fa fa-check"></i>4. 単位根検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析-1.html"><a href="時系列分析-1.html#共和分検定"><i class="fa fa-check"></i>5. 共和分検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析-1.html"><a href="時系列分析-1.html#データ分割-1"><i class="fa fa-check"></i>6. データ分割</a></li>
+<li class="chapter" data-level="" data-path="時系列分析-1.html"><a href="時系列分析-1.html#誘導varvecモデルの推定"><i class="fa fa-check"></i>7. 誘導VAR・VECモデルの推定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析-1.html"><a href="時系列分析-1.html#構造varvecモデルの識別"><i class="fa fa-check"></i>8. 構造VAR・VECモデルの識別</a></li>
+<li class="chapter" data-level="" data-path="時系列分析-1.html"><a href="時系列分析-1.html#誤差項の検定"><i class="fa fa-check"></i>9. 誤差項の検定</a></li>
+<li class="chapter" data-level="" data-path="時系列分析-1.html"><a href="時系列分析-1.html#モデル推定後の分析"><i class="fa fa-check"></i>10. モデル推定後の分析</a></li>
+<li class="chapter" data-level="" data-path="時系列分析-1.html"><a href="時系列分析-1.html#予測"><i class="fa fa-check"></i>11. 予測</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="時系列分析-1.html"><a href="時系列分析-1.html#varモデルの実例"><i class="fa fa-check"></i><b>8.11</b> VARモデルの実例</a>
+<ul>
+<li class="chapter" data-level="8.11.1" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例探索的データ分析"><i class="fa fa-check"></i><b>8.11.1</b> 実例：探索的データ分析</a></li>
+<li class="chapter" data-level="8.11.2" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例変数選択グレンジャー因果性検定"><i class="fa fa-check"></i><b>8.11.2</b> 実例：変数選択（グレンジャー因果性検定）</a></li>
+<li class="chapter" data-level="8.11.3" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例ラグ次数選択"><i class="fa fa-check"></i><b>8.11.3</b> 実例：ラグ次数選択</a></li>
+<li class="chapter" data-level="8.11.4" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例adf検定"><i class="fa fa-check"></i><b>8.11.4</b> 実例：ADF検定</a></li>
+<li class="chapter" data-level="8.11.5" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例ヨハンセン検定-1"><i class="fa fa-check"></i><b>8.11.5</b> 実例：ヨハンセン検定</a></li>
+<li class="chapter" data-level="8.11.6" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例varモデルの推定"><i class="fa fa-check"></i><b>8.11.6</b> 実例：VARモデルの推定</a></li>
+<li class="chapter" data-level="8.11.7" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例vecモデルの推定"><i class="fa fa-check"></i><b>8.11.7</b> 実例：VECモデルの推定</a></li>
+<li class="chapter" data-level="8.11.8" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例構造varモデルの推定"><i class="fa fa-check"></i><b>8.11.8</b> 実例：構造VARモデルの推定</a></li>
+<li class="chapter" data-level="8.11.9" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例構造vecモデルの推定"><i class="fa fa-check"></i><b>8.11.9</b> 実例：構造VECモデルの推定</a></li>
+<li class="chapter" data-level="8.11.10" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例誤差項の検定"><i class="fa fa-check"></i><b>8.11.10</b> 実例：誤差項の検定</a></li>
+<li class="chapter" data-level="8.11.11" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例インパルス応答"><i class="fa fa-check"></i><b>8.11.11</b> 実例：インパルス応答</a></li>
+<li class="chapter" data-level="8.11.12" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例予測誤差の分散分解"><i class="fa fa-check"></i><b>8.11.12</b> 実例：予測誤差の分散分解</a></li>
+<li class="chapter" data-level="8.11.13" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例グレンジャー因果性検定"><i class="fa fa-check"></i><b>8.11.13</b> 実例：グレンジャー因果性検定</a></li>
+<li class="chapter" data-level="8.11.14" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例予測"><i class="fa fa-check"></i><b>8.11.14</b> 実例：予測</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -784,15 +794,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">エコノミストのためのR</h1>
 <p class="author"><em>服部直樹</em></p>
-<p class="date"><em>2023-06-18</em></p>
+<p class="date"><em>2023-06-19</em></p>
 </div>
 <div id="はじめに" class="section level1 unnumbered hasAnchor">
 <h1>はじめに<a href="index.html#はじめに" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>本書は、エコノミストがRを使用して経済・金融データ分析を行うための方法をまとめたものです。</p>
 <p>Rによるプログラミング、データ分析、計量経済学について解説した書籍は、世の中に沢山あります。しかし、エコノミストがよく使用するコードや分析方法を体系的に整理し、いつでも・どこからでもコードにアクセスできるようにしたサービスはまだ無かったので、本書を作成しました。</p>
 <p>なお、本書のソースコードは<a href="https://github.com/naohat23/econ-code-bookdown">GitHubリポジトリ</a>で管理しています。改善点があれば、イシューやプルリクエストでお知らせいただければ幸いです。</p>
-<div id="なぜrを使うのか" class="section level3 unnumbered hasAnchor">
-<h3>なぜRを使うのか？<a href="index.html#なぜrを使うのか" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="なぜrを使うのか" class="section level2 unnumbered hasAnchor">
+<h2>なぜRを使うのか？<a href="index.html#なぜrを使うのか" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>データ分析を行うことができるソフトウェアは、R以外にも、EViews、Stata、Pythonといった選択肢があります。では、なぜRを使用するのでしょうか。</p>
 <p><strong>無料</strong>：　Rは無料で使用することができます。オフィスでも、自宅でも、所属組織が変わっても同じソフトウェアを使って作業することができるため、わざわざ違うソフトウェアの使用方法を新たに覚える必要がありません。また、無料で誰でも使えるということは、世界中に多くのユーザーがいて、書籍やオンラインに情報が沢山あるということでもあります。本書もその一つです。</p>
 <p><strong>豊富なパッケージ</strong>：　Rはデータ分析を行うための追加パッケージが大量に開発されており、用途に応じてパッケージをインストールすることで、様々なデータ分析手法を使用することが可能です。オーソドックスな計量経済分析はもちろん、機械学習、自然言語処理、地理データ分析など、Rで実施可能な分析は多岐にわたります。</p>
@@ -800,41 +810,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>直感的なデータ操作</strong>：　Rのパッケージの一つである<code>tidyverse</code>では、直感的かつ効率的なデータ操作（データハンドリング）を行うことができます。データセットを読み込んだ後、変数の選択、フィルタ、集計、結合、新たな変数の計算、異常値の処理といった前処理をシームレスに実施し、そのまま図表作成や分析に進むことができます。また、データセットの読み込みも、読み込み元がローカルかウェブかを問わず容易に行うことができます。</p>
 <p><strong>強力なグラフ作成機能</strong>：　Rの<code>ggplot2</code>パッケージは強力なグラフ作成機能をもち、折れ線グラフ、棒グラフ、散布図といったおなじみのグラフだけでなく、ヒートマップ、QQプロット、ステップグラフ、ドットプロット、箱ひげ図、ヴァイオリングラフ、ジッターグラフ、複合グラフ（ファセット）などの高度なグラフを作成することができます。グラフは日本語表記にも対応しており、フォーマットを設定すれば、そのままレポートにも使用可能です。</p>
 </div>
-<div id="本書で出来ること" class="section level3 unnumbered hasAnchor">
-<h3>本書で出来ること　<a href="index.html#本書で出来ること" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>エコノミストがRを使用してデータ分析を行う方法を、順序だてて学ぶことができます。</p>
-<p>Rの設定、Rの演算やオブジェクトの取り扱い方といった基本的な使用方法、<code>tidyverse</code>パッケージを使ってデータを自由に操作する方法、季節調整やトレンドなどの時系列データ特有の処理、<code>ggplot2</code>パッケージを使ったグラフ作成、データの分析方針を立てるための探索的データ分析（EDA）、計量経済学の基礎である線形単回帰・重回帰について解説しています。</p>
-<p>すべてRのコードを記載していますので、自分の環境で結果を再現することが可能です。</p>
-<p>今後、マクロ計量経済学ではベクトル自己回帰（VAR）モデル、ミクロ計量経済学ではパネルデータ分析、操作変数法、統計的因果推論のトピックについて追加する予定です。</p>
-</div>
-<div id="本書で出来ないこと" class="section level3 unnumbered hasAnchor">
-<h3>本書で出来ないこと<a href="index.html#本書で出来ないこと" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>本書はデータ分析の手法とコードの解説を主な目的にしており、その背景にある数学的な解説は行っていません。数学的な解説が必要な場合は、参考文献を参照してください。また、データ分析の手法について、エコノミストが日常業務で使用することが比較的少ない機械学習、深層学習、自然言語処理の手法は、現時点では取り上げていません。</p>
+<div id="本書でできることできないこと" class="section level2 unnumbered hasAnchor">
+<h2>本書でできること・できないこと<a href="index.html#本書でできることできないこと" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>本書では、エコノミストがRを使用してデータ分析を行う方法を順序だてて学ぶことができます。</p>
+<p>Rの設定、Rの演算やオブジェクトの取り扱い方といった基本的な使用方法、<code>tidyverse</code>パッケージを使ってデータを自由に操作する方法、季節調整やトレンドなどの時系列データ特有の処理、<code>ggplot2</code>パッケージを使ったグラフ作成、データの分析方針を立てるための探索的データ分析（EDA）、計量経済学の基礎である線形単回帰・重回帰について解説しています。すべてRのコードを記載していますので、自分の環境で結果を再現することが可能です。</p>
+<p>一方、本書はデータ分析の手法とコードの解説を主な目的にしているため、厳密な数学的解説は行っていません。手法の背景にある数学的解説が必要な場合は、参考文献を参照してください。また、データ分析の手法について、エコノミストが日常業務で使用することが比較的少ない機械学習、深層学習、自然言語処理の手法は、現時点では取り上げていません。</p>
 </div>
 <div id="目次" class="section level2 unnumbered hasAnchor">
 <h2>目次<a href="index.html#目次" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol style="list-style-type: decimal">
-<li><p>Rの設定</p>
-<p>Rを使用するにあたり、まず必要な環境構築を行います。RとRStudioのインストール、バージョン確認、Rの機能を拡張するパッケージのインストールとインポート、グラフ作成の事前設定に加え、本書で使用するサンプルデータセットを紹介します。また、オフィスや大学などのプロキシ環境下でRを使用する際に必要なプロキシ設定についても解説します。</p></li>
-<li><p>Rの基本的な使用方法</p>
-<p>Rで作業を始める前に、プログラミング言語としてのRの基本的な使用方法を簡単に紹介します。プログラムの実行方法、ショートカットキー、演算方法、ベクトル・行列・データフレーム・リストなど各種データの取り扱い方法、if文やforループなどの制御構文、データの読み込み・書き出し方法、オブジェクトのセーブ・ロード方法について解説します。この章をまず一読したうえで次章以降へ進み、後から必要に応じてリファレンス的に使用するのが良いでしょう。</p></li>
-<li><p>tidyverseによるデータ操作</p>
-<p>Rで直感的なデータ操作用を行うパッケージである<code>tidyverse</code>の使用方法を紹介します。変数選択や各種条件によるフィルタ、並べ替えなどの基本的な操作に加え、新たな変数の作成、集計、重複処理、欠損地処理、補完処理、サンプリング、縦型・横型の変換といったデータ前処理の手法についても解説します。読み込んだデータを分析に「使える」ようにするために必須の内容です。</p></li>
-<li><p>ggplot2によるグラフ作成</p>
-<p><code>ggplot2</code>パッケージを主に使用したグラフ作成方法について記載しています。最初に、GUI形式でどのようなグラフを作成するか検討する方法を紹介したうえで、<code>ggplot2</code>によるコード記述形式のグラフ作成方法を解説します。取り上げるグラフは、1次元・2次元の度数分布、密度グラフ、ヒストグラム、QQプロット、散布図、バブルチャート、棒グラフ、円グラフ、折れ線グラフ、ステップグラフ、面グラフ、箱ひげ図（ボックスプロット）、ヴァイオリングラフ、ジッターグラフ、ドットプロット、複合グラフ（ファセット）など、多岐にわたります。また、散布図や折れ線グラフに系列名などのテキストアノテーションを行う方法、グラフの見栄えを整える上で欠かせない色、軸、凡例、フォントなどの設定方法についても紹介しています。、</p></li>
-<li><p>探索的データ分析（EDA）</p>
-<p>本格的なデータ分析の方針を立てるために必要な、探索的データ分析（EDA）の方法を紹介します。具体的には、データの中身や分布、変数間の関係性・相関を一括して確認する方法について解説します。EDAは軽視されがちですが、極めて重要なプロセスであり、データ分析の成否はEDAが決めるといっても過言ではありません。</p></li>
-<li><p>線形回帰</p>
-<p>計量経済分析の最も基本的な手法である線形回帰の内容と、Rによる実行方法を紹介します。まず、前提として、統計学・計量経済学で使用される基本的な用語を説明します。次に、線形回帰の推定方法である最小2乗法と、統計的仮説検定について解説したうえで、実務で頻繁に用いる水準モデル、対数モデル、変化率モデル、多項式モデル、交互作用モデル、ダミー変数モデルについて、それぞれの内容と係数の解釈方法を説明します。この部分は、なるべく直感的に理解できるような説明を心がけました。最後に、それらのモデルをRで推定する方法を、西山 他（2019）の実証例を解く形で紹介します。</p></li>
-<li><p>時系列データ操作</p>
-<p>経済・金融分析に欠かせない時系列データの操作方法を紹介します。時系列データ用のts形式に特有の操作、日付型データ関数、ラグ・リード系列や変化率系列の計算方法、頻度変換、季節調整（X13、STL分解）、トレンド（線形トレンド、区分線形トレンド、HPフィルタ、一般化加法モデル）、構造変化などのトピックを取り上げています。</p></li>
-<li><p>ベクトル自己回帰モデル</p>
-<p>現在作成中です。</p></li>
-<li><p>パネルデータ分析</p>
-<p>現在作成中です。</p></li>
-<li><p>統計的因果推論</p>
-<p>現在作成中です。</p></li>
-</ol>
+<div id="rの設定" class="section level3 unnumbered hasAnchor">
+<h3>1. Rの設定<a href="index.html#rの設定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rを使用するにあたり、まず必要な環境構築を行います。</p>
+<p>RとRStudioのインストール、バージョン確認、Rの機能を拡張するパッケージのインストールとインポート、グラフ作成の事前設定に加え、本書で使用するサンプルデータセットを紹介します。</p>
+<p>また、オフィスや大学などのプロキシ環境下でRを使用する際に必要な通信設定についても解説します。</p>
+</div>
+<div id="rの基本的な使用方法" class="section level3 unnumbered hasAnchor">
+<h3>2. Rの基本的な使用方法<a href="index.html#rの基本的な使用方法" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rで作業を始める前に、プログラミング言語としてのRの基本的な使用方法を簡単に紹介します。</p>
+<p>プログラムの実行方法、ショートカットキー、演算方法、ベクトル・行列・データフレーム・リスト、文字列といった各種データの取り扱い方法、<code>if</code>文や<code>for</code>ループなどの制御構文、データの読み込み・書き出し方法、オブジェクトのセーブ・ロード方法について解説します。</p>
+<p>この章をまず一読したうえで次章以降へ進み、後から必要に応じてリファレンス的に使用するのが良いでしょう。</p>
+</div>
+<div id="tidyverseによるデータ操作" class="section level3 unnumbered hasAnchor">
+<h3>3. tidyverseによるデータ操作<a href="index.html#tidyverseによるデータ操作" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rで直感的なデータ操作用を行うパッケージである<code>tidyverse</code>の使用方法を紹介します。</p>
+<p>変数選択や各種条件によるフィルタ、並べ替えなどの基本的な操作に加え、新たな変数の作成、集計、重複処理、欠損値処理、補完処理、サンプリング、縦型・横型の変換といったデータ前処理の手法についても解説します。</p>
+<p>読み込んだデータを分析に「使える」ようにするために必須の内容です。</p>
+</div>
+<div id="ggplot2によるグラフ作成" class="section level3 unnumbered hasAnchor">
+<h3>4. ggplot2によるグラフ作成<a href="index.html#ggplot2によるグラフ作成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>ggplot2</code>パッケージを主に使用したグラフ作成方法を紹介します。</p>
+<p>最初に、GUI形式でどのようなグラフを作成するか検討する方法を紹介したうえで、<code>ggplot2</code>によるコード記述形式のグラフ作成方法を解説します。</p>
+<p>取り上げるグラフは、1次元・2次元の度数分布、密度グラフ、ヒストグラム、QQプロット、散布図、バブルチャート、棒グラフ、円グラフ、折れ線グラフ、ステップグラフ、面グラフ、箱ひげ図（ボックスプロット）、ヴァイオリングラフ、ジッターグラフ、ドットプロット、複合グラフ（ファセット）など、多岐にわたります。</p>
+<p>また、散布図や折れ線グラフに系列名などのテキストアノテーションを行う方法、グラフの見栄えを整える上で欠かせない色、軸、凡例、フォントなどの設定方法についても紹介しています。</p>
+</div>
+<div id="探索的データ分析eda" class="section level3 unnumbered hasAnchor">
+<h3>5. 探索的データ分析（EDA）<a href="index.html#探索的データ分析eda" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>本格的なデータ分析の方針を立てるために必要な、探索的データ分析（EDA）の方法を紹介します。</p>
+<p>具体的には、データの中身や分布、変数間の関係性・相関を一括して確認する方法について解説します。EDAは軽視されがちですが、極めて重要なプロセスであり、データ分析の成否はEDAが決めるといっても過言ではありません。</p>
+</div>
+<div id="線形回帰" class="section level3 unnumbered hasAnchor">
+<h3>6. 線形回帰<a href="index.html#線形回帰" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>計量経済分析の最も基本的な手法である線形回帰の内容と、Rによる実行方法を紹介します。</p>
+<p>まず、前提として、統計学・計量経済学で使用される基本的な用語を説明します。次に、線形回帰の推定方法である最小2乗法と、統計的仮説検定について解説したうえで、実務で頻繁に用いる水準モデル、対数モデル、変化率モデル、多項式モデル、交互作用モデル、ダミー変数モデルについて、それぞれの内容と係数の解釈方法を説明します。</p>
+<p>この部分は、なるべく直感的に理解できるような説明を心がけました。最後に、それらのモデルをRで推定する方法を、西山 他（2019）の実例を解く形で紹介します。</p>
+</div>
+<div id="時系列データ操作" class="section level3 unnumbered hasAnchor">
+<h3>7. 時系列データ操作<a href="index.html#時系列データ操作" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>経済・金融分析に欠かせない時系列データの操作方法を紹介します。</p>
+<p>時系列データ用のts形式に特有の操作、日付型データ関数、ラグ・リード系列や変化率系列の計算方法、頻度変換、季節調整（X13、STL分解）、トレンド（線形トレンド、区分線形トレンド、HPフィルタ、一般化加法モデル）、構造変化などのトピックを取り上げています。</p>
+</div>
+<div id="時系列分析" class="section level3 unnumbered hasAnchor">
+<h3>8. 時系列分析<a href="index.html#時系列分析" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>時系列データを用いた基本的な分析手法であるボックス＝ジェンキンス法とVARモデルを紹介します。</p>
+<p>時系列分析を行う上で必須の定常性、単位根、系列相関、共和分の概念と検定方法を解説し、それらを用いた分析手法として、ARMA・ARIMAモデルなどの1変数時系列モデルであるボックス＝ジェンキンス法と、多変数時系列モデルであるVARモデルを紹介します。</p>
+<p>時系列分析はエコノミストが経済・金融分析を行う上で欠かせないツールであり、本書では、単位根検定や共和分検定のシステマチックな検定フロー、構造VAR・VECモデル、一般化インパルス応答など、入門・中級のテキストが十分カバーしていないテーマを取り扱っています。</p>
+</div>
+<div id="パネルデータ分析" class="section level3 unnumbered hasAnchor">
+<h3>9. パネルデータ分析<a href="index.html#パネルデータ分析" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>現在作成中です。</p>
+</div>
 </div>
 <div id="参考文献ウェブサイト" class="section level2 unnumbered hasAnchor">
 <h2>参考文献・ウェブサイト<a href="index.html#参考文献ウェブサイト" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1023,7 +1057,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-<a href="rの設定.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rの設定-1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1068,7 +1102,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection",
+"collapse": "section",
 "scroll_highlights": true
 },
 "toolbar": {

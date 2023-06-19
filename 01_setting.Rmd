@@ -8,7 +8,7 @@
 
 ## 設定全般
 
-### Rのインストール {.unnumbered}
+### Rのインストール
 
 Rは[The Comprehensive R Archive Network](https://cran.r-project.org/)からダウンロードしてインストールしてください。2020年にバージョン4へメジャーアップデートが行われており、本書でもバージョン4を使用しています。
 
@@ -16,7 +16,7 @@ Rの統合開発環境であるRStudioは、開発元の[rstudio.com](https://ww
 
 Windows環境でRの一部のパッケージを使用する際、Rtoolsというツールが必要な場合がありますので、[こちらのウェブサイト](https://cran.r-project.org/bin/windows/Rtools/)からRのバージョンに合ったものをダウンロードしてインストールします。
 
-### Rのバージョン確認 {.unnumbered}
+### Rのバージョン確認
 
 Rのバージョン情報を出力します。
 
@@ -24,7 +24,7 @@ Rのバージョン情報を出力します。
 version
 ```
 
-### セッション情報の確認 {.unnumbered}
+### セッション情報の確認
 
 Rのバージョンに加え、使用環境、パッケージ情報を出力します。
 
@@ -32,7 +32,7 @@ Rのバージョンに加え、使用環境、パッケージ情報を出力し�
 sessionInfo()
 ```
 
-### オブジェクトを全削除 {.unnumbered}
+### オブジェクトを全削除
 
 変数をすべて削除してワークスペースを初期化します。
 
@@ -40,7 +40,7 @@ sessionInfo()
 rm(list = ls())
 ```
 
-### 警告の非表示 {.unnumbered}
+### 警告の非表示
 
 Rが出力する警告（Warning）を非表示にします。
 
@@ -48,7 +48,7 @@ Rが出力する警告（Warning）を非表示にします。
 options(warn = -1)
 ```
 
-### 関数が出力する警告やメッセージの非表示 {.unnumbered}
+### 関数が出力する警告やメッセージの非表示
 
 関数が出力する警告やメッセージは`options(warn = -1)`で非表示にできないため、関数毎に、必要に応じて`suppressWarnings()`関数や`suppressMessages()`関数を使用します。
 
@@ -84,7 +84,7 @@ options(timeout = NA)
 Sys.getenv(c("http_proxy", "https_proxy"))
 ```
 
-### SSL設定 {-}
+### SSL設定
 
 Windows版のR 4.2以降のバージョンでは、ファイルのダウンロードにおける通信方法が変更されたことが影響し、主にプロキシ環境でSSLエラーが生じHTTPSサイトにアクセスできないことがあります。
 
@@ -96,7 +96,7 @@ Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
 
 ## パッケージ
 
-### 使用するパッケージ一覧 {.unnumbered}
+### 使用するパッケージ一覧
 
 -   tidyverse系
     -   [lubridate](https://lubridate.tidyverse.org/)：日付処理
@@ -146,7 +146,7 @@ Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
     -   [openxlsx](https://ycphs.github.io/openxlsx/)：Excelのxlsxファイルの読み込み・編集・書き出し
     -   [pblapply](https://www.rdocumentation.org/packages/pbapply/versions/1.4-3/topics/pbapply)：プログレスバーを表示する`apply()`関数ファミリー
 
-### インストールとインポート {.unnumbered}
+### インストールとインポート
 
 パッケージのインストールは`install.packages()`関数、インストールしたパッケージのインポート（呼び出し）は`library()`関数で実行します。一度インストールすれば、その後はインポートするだけでパッケージを使用することができます。
 
@@ -237,7 +237,7 @@ old.packages()
 install.packages("tidyverse")
 ```
 
-### インストール時のエラー {-}
+### インストール時のエラー
 
 パッケージをインストールする際に、`unable to access`や`cannot open URL`といったエラーメッセージが表示され、パッケージがインストールできないことがあります（特に、プロキシ環境下でこうしたエラーが生じやすいようです）。こうしたエラーが発生する場合、パッケージのインストールに関する通信設定を変更すると、エラーが解消する可能性があります。
 
@@ -249,7 +249,7 @@ RStudioのファイルメニュー > Tools > Global Options を選択し、Optio
 
 レポートやスライドに掲載するためのグラフは、主にRの`ggplot2`パッケージで作成します。
 
-### グラフのテーマ設定 {.unnumbered}
+### グラフのテーマ設定
 
 本書では、実務上Excelと併用することを想定しているため、Excelで出力されるグラフに似たテーマである`theme_light()`を設定します。`ggplot2`パッケージにデフォルトで用意されている様々なテーマについては、[公式ウェブサイト](https://ggplot2.tidyverse.org/reference/ggtheme.html)を参照してください。
 
@@ -257,7 +257,7 @@ RStudioのファイルメニュー > Tools > Global Options を選択し、Optio
 theme_set(theme_light())
 ```
 
-### グラフのフォント設定 {.unnumbered}
+### グラフのフォント設定
 
 Windows上でRを使用する場合は、日本語フォントをグラフ上で表示するために以下の設定が必要です。ここでは代表的なフォントとしてMeiryo UIとYu Gothic UIを設定します。それぞれのフォントに`MEIRYO`、`YUGO`というキーを割り当て、`ggplot2`パッケージでグラフを作成する際にキーを指定します。
 
@@ -279,7 +279,7 @@ theme_set(theme_light(base_family = "HiraKakuProN-W3"))
 
 本書で使用するサンプルデータセットの一覧です。Rの本体もしくはパッケージから呼び出せるデータセットと、ウェブから取得する外部データセットがあります。
 
-### Rのサンプルデータセット {.unnumbered}
+### Rのサンプルデータセット
 
 Rのサンプルデータセットは、`help(データセット名)`を実行するとヘルプ画面で詳細を確認できます。
 
@@ -386,7 +386,7 @@ head(Canada)
 head(Seatbelts)
 ```
 
-### 外部データセット {-}
+### 外部データセット
 
 ウェブから外部データセットを読み込みます。オフィスや大学などのプロキシ環境では、次のプロキシサーバーの設定を実行してください。
 

@@ -13,7 +13,7 @@ Wickham & Grolemund（2017）は、探索的データ分析について次のよ
 
 ## 第5章の準備
 
-### パッケージのインポート {.unnumbered}
+### パッケージのインポート
 
 ```{r, results='hide', warning=FALSE, message=FALSE, paged.print=FALSE}
 library(corrplot)
@@ -26,7 +26,7 @@ library(tidyverse)
 library(psych)
 ```
 
-### ggplot2の設定 {.unnumbered}
+### ggplot2の設定
 
 第1章で紹介した`ggplot2`の設定です。筆者の実行環境はMacのため、Windowsの設定はコメントアウトしています。
 
@@ -78,7 +78,7 @@ psych::describe(diamonds)
 
 次に、データに含まれる変数がどのように分布しているかを、第4章で解説した`ggplot2`パッケージの関数を使用して可視化します。
 
-### 離散型変数の度数分布 {-}
+### 離散型変数の度数分布
 
 離散型変数の度数分布を出力するには`dplyr::count()`関数を使用します。
 
@@ -95,7 +95,7 @@ diamonds %>%
   geom_bar()
 ```
 
-### 連続型変数の度数分布 {.unnumbered}
+### 連続型変数の度数分布
 
 連続型変数の度数分布を出力するには、`dplyr::count()`関数と`ggplot2::cut_width()`関数を使用します。
 
@@ -128,7 +128,7 @@ diamonds %>%
   geom_freqpoly(binwidth = 500)
 ```
 
-### 外れ値 {.unnumbered}
+### 外れ値
 
 外れ値や異常値をグラフで確認するには、ヒストグラムを使用し、`coord_cartesian()`関数の`ylim`引数にY軸の下限・上限値を指定して、Y軸方向に図表を拡大します。
 
@@ -153,7 +153,7 @@ diamonds %>%
 
 データに含まれる変数が互いにどのような関係にあるかを、`ggplot2`パッケージの関数を使用して可視化します。
 
-### 離散型変数の関係性 {.unnumbered}
+### 離散型変数の関係性
 
 離散型変数の観測値の組み合わせの分布を可視化するには、`geom_count()`関数の度数バブルチャートや、`geom_tile()`関数のヒートマップを使用します。
 
@@ -170,7 +170,7 @@ diamonds %>%
   geom_tile()
 ```
 
-### 連続型変数の関係性 {.unnumbered}
+### 連続型変数の関係性
 
 連続型変数の観測値の組み合わせの分布を可視化するには、`geom_point()`関数の散布図や、`geom_bin2d()`関数、`geom_hex()`関数のヒートマップを使用します。
 
@@ -196,7 +196,7 @@ diamonds %>%
 
 ## 相関関係・ペアプロット
 
-### 相関係数行列 {.unnumbered}
+### 相関係数行列
 
 `cor()`関数で相関係数行列を出力します。ここではサンプルデータセットとして`mtcars`データセットを使用しています。
 
@@ -204,7 +204,7 @@ diamonds %>%
 cor(mtcars)
 ```
 
-### corrplotパッケージ {.unnumbered}
+### corrplotパッケージ
 
 R標準の`cor()`関数の出力結果では見にくいため、`corrplot`パッケージを使用して相関係数行列を可視化します。
 
@@ -241,7 +241,7 @@ mtcars %>%
                      )
 ```
 
-### corrrパッケージ {.unnumbered}
+### corrrパッケージ
 
 次に、`corrr`パッケージを使用して相関係数を可視化します。
 
@@ -276,7 +276,7 @@ mtcars_cor %>%
   corrr::network_plot(min_cor = 0.6) # 表示する最小の相関係数の値
 ```
 
-### GGallyパッケージ {.unnumbered}
+### GGallyパッケージ
 
 `GGally`パッケージの`GGally::ggpairs()`関数を使用すると、変数のペアプロット（pairwise plot）を簡単に出力することができます。なお、`GGally`パッケージにはペアプロット以外にも様々な機能があります。詳細は[公式ウェブサイト](https://ggobi.github.io/ggally/index.html)を参照してください。
 
@@ -299,7 +299,7 @@ iris %>%
 
 これまで一つずつ実施してきた探索的データ分析を一括して実行するパッケージを紹介します。
 
-### DataExplorerパッケージ {.unnumbered}
+### DataExplorerパッケージ
 
 `DataExplorer`パッケージの`create_report()`関数を使用すると、データセットに含まれる変数、データ構造、欠損値、ヒストグラム、QQプロット、相関係数行列、主成分分析（PCA）などを自動で作成して、HTML形式のレポートをブラウザに出力します。ウェブサイト上では実行できないため、各自で試してみてください。
 
@@ -315,7 +315,7 @@ DataExplorer::create_report(data = diamonds,
                             )
 ```
 
-### SmartEDAパッケージ {.unnumbered}
+### SmartEDAパッケージ
 
 `SmartEDA`パッケージの`ExpReport()`関数を使用すると、データセットに含まれる変数、ヒストグラム、QQプロット、相関係数行列などを自動で作成して、HTML形式のレポートファイルを作成します。ウェブサイト上では実行できないため、各自で試してみてください。
 
