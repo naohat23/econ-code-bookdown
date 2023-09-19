@@ -42,5 +42,6 @@ vignettes/*.pdf
 data_nishiyama/
 
 # others
+files_gitignore/
 _memo.R
 _archive.Rmd
