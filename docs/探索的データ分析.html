@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-06-19" />
+<meta name="date" content="2023-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -771,6 +771,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.11.14" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例予測"><i class="fa fa-check"></i><b>8.11.14</b> 実例：予測</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html"><i class="fa fa-check"></i>付録1 寄与度の計算方法</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#記号法"><i class="fa fa-check"></i>記号法</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#和差の指標"><i class="fa fa-check"></i>和・差の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例gdp"><i class="fa fa-check"></i>実例：GDP</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#積の指標"><i class="fa fa-check"></i>積の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式-1"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例貿易指数金額指数"><i class="fa fa-check"></i>実例：貿易指数（金額指数）</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例経常利益"><i class="fa fa-check"></i>実例：経常利益</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#商の指標"><i class="fa fa-check"></i>商の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式-2"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例貿易指数数量指数"><i class="fa fa-check"></i>実例：貿易指数（数量指数）</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例失業率"><i class="fa fa-check"></i>実例：失業率</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#固定加重平均の指標"><i class="fa fa-check"></i>固定加重平均の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式-3"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例ラスパイレス指数"><i class="fa fa-check"></i>実例：ラスパイレス指数</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#可変加重平均の指標"><i class="fa fa-check"></i>可変加重平均の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式-4"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例現金給与総額"><i class="fa fa-check"></i>実例：現金給与総額</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
 
@@ -1212,16 +1243,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb602-5"><a href="探索的データ分析.html#cb602-5" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-284-1.png" width="672" /></p>
 <pre><code>##    Variable Target Unique Chi-squared p-value df IV Value Cramers V
-## 1       cyl     am      3       8.741   0.007 NA     1.32      0.52
-## 2        vs     am      2       0.907   0.473 NA     0.11      0.17
+## 1       cyl     am      3       8.741   0.005 NA     1.32      0.52
+## 2        vs     am      2       0.907   0.479 NA     0.11      0.17
 ## 3      gear     am      3      20.945   0.000 NA     0.44      0.81
-## 4      carb     am      6       6.237   0.249 NA     0.17      0.44
-## 5       mpg     am     10      20.945   0.004 NA     0.14      0.81
-## 6      disp     am     10      21.636   0.002 NA     0.35      0.82
-## 7        hp     am     10      17.490   0.021 NA     0.47      0.74
-## 8      drat     am     10      21.497   0.002 NA     0.12      0.82
-## 9        wt     am     10      20.254   0.004 NA     0.46      0.80
-## 10     qsec     am     10      11.824   0.251 NA     0.54      0.61
+## 4      carb     am      6       6.237   0.257 NA     0.17      0.44
+## 5       mpg     am     10      20.945   0.002 NA     0.14      0.81
+## 6      disp     am     10      21.636   0.003 NA     0.35      0.82
+## 7        hp     am     10      17.490   0.020 NA     0.47      0.74
+## 8      drat     am     10      21.497   0.001 NA     0.12      0.82
+## 9        wt     am     10      20.254   0.006 NA     0.46      0.80
+## 10     qsec     am     10      11.824   0.248 NA     0.54      0.61
 ##    Degree of Association    Predictive Power
 ## 1                 Strong   Highly Predictive
 ## 2                   Weak Somewhat Predictive

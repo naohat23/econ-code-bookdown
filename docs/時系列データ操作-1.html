@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-06-19" />
+<meta name="date" content="2023-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -771,6 +771,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.11.14" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例予測"><i class="fa fa-check"></i><b>8.11.14</b> 実例：予測</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html"><i class="fa fa-check"></i>付録1 寄与度の計算方法</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#記号法"><i class="fa fa-check"></i>記号法</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#和差の指標"><i class="fa fa-check"></i>和・差の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例gdp"><i class="fa fa-check"></i>実例：GDP</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#積の指標"><i class="fa fa-check"></i>積の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式-1"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例貿易指数金額指数"><i class="fa fa-check"></i>実例：貿易指数（金額指数）</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例経常利益"><i class="fa fa-check"></i>実例：経常利益</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#商の指標"><i class="fa fa-check"></i>商の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式-2"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例貿易指数数量指数"><i class="fa fa-check"></i>実例：貿易指数（数量指数）</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例失業率"><i class="fa fa-check"></i>実例：失業率</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#固定加重平均の指標"><i class="fa fa-check"></i>固定加重平均の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式-3"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例ラスパイレス指数"><i class="fa fa-check"></i>実例：ラスパイレス指数</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#可変加重平均の指標"><i class="fa fa-check"></i>可変加重平均の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式-4"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例現金給与総額"><i class="fa fa-check"></i>実例：現金給与総額</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
 
@@ -1264,7 +1295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb717-8"><a href="時系列データ操作-1.html#cb717-8" aria-hidden="true" tabindex="-1"></a>  tsibble<span class="sc">::</span><span class="fu">as_tsibble</span>(<span class="at">index =</span> date)</span>
 <span id="cb717-9"><a href="時系列データ操作-1.html#cb717-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb717-10"><a href="時系列データ操作-1.html#cb717-10" aria-hidden="true" tabindex="-1"></a>data_tsibble</span></code></pre></div>
-<pre><code>## # A tsibble: 256 x 18 [1M]
+<pre><code>## # A tsibble: 259 x 18 [1M]
 ##        date  総数  農林  建設  製造 情報通信 運輸・郵…¹ 卸・小…² 金融…³ 不動産…⁴
 ##       &lt;mth&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
 ##  1 2002 Jan  6267   224   589  1210      153        331     1131    165       95
@@ -1277,7 +1308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 2002 Aug  6371   288   620  1207      164        326     1085    176      103
 ##  9 2002 Sep  6353   286   621  1183      171        333     1081    174      100
 ## 10 2002 Oct  6355   271   642  1176      160        333     1116    172      102
-## # … with 246 more rows, 8 more variables: `学術・専門・技術` &lt;dbl&gt;,
+## # … with 249 more rows, 8 more variables: `学術・専門・技術` &lt;dbl&gt;,
 ## #   `宿泊・飲食` &lt;dbl&gt;, `生活関連・娯楽` &lt;dbl&gt;, 教育 &lt;dbl&gt;, `医療・福祉` &lt;dbl&gt;,
 ## #   複合サービス &lt;dbl&gt;, その他サービス &lt;dbl&gt;, 公務 &lt;dbl&gt;, and abbreviated
 ## #   variable names ¹​`運輸・郵便`, ²​`卸・小売`, ³​`金融・保険`,
@@ -1301,7 +1332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb721-11"><a href="時系列データ操作-1.html#cb721-11" aria-hidden="true" tabindex="-1"></a>  tsibble<span class="sc">::</span><span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> location)</span>
 <span id="cb721-12"><a href="時系列データ操作-1.html#cb721-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb721-13"><a href="時系列データ操作-1.html#cb721-13" aria-hidden="true" tabindex="-1"></a>data_tsibble</span></code></pre></div>
-<pre><code>## # A tsibble: 45,516 x 14 [1W]
+<pre><code>## # A tsibble: 48,790 x 14 [1W]
 ## # Key:       location [255]
 ##    continent location       date total…¹ new_c…² new_c…³ total…⁴ new_d…⁵ total…⁶
 ##    &lt;chr&gt;     &lt;chr&gt;        &lt;week&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -1315,7 +1346,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghanist… 2020 W09       1       1   0.143      NA       0   0.024
 ##  9 Asia      Afghanist… 2020 W10       1       0   0          NA       0   0.024
 ## 10 Asia      Afghanist… 2020 W11       4       0   0.429      NA       0   0.097
-## # … with 45,506 more rows, 5 more variables: new_cases_per_million &lt;dbl&gt;,
+## # … with 48,780 more rows, 5 more variables: new_cases_per_million &lt;dbl&gt;,
 ## #   total_deaths_per_million &lt;dbl&gt;, new_deaths_per_million &lt;dbl&gt;,
 ## #   people_fully_vaccinated &lt;dbl&gt;, stringency_index &lt;dbl&gt;, and abbreviated
 ## #   variable names ¹​total_cases, ²​new_cases, ³​new_cases_smoothed,
@@ -1335,7 +1366,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb725-7"><a href="時系列データ操作-1.html#cb725-7" aria-hidden="true" tabindex="-1"></a>  tsibble<span class="sc">::</span><span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> location)</span>
 <span id="cb725-8"><a href="時系列データ操作-1.html#cb725-8" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb725-9"><a href="時系列データ操作-1.html#cb725-9" aria-hidden="true" tabindex="-1"></a>data_tsibble</span></code></pre></div>
-<pre><code>## # A tsibble: 318,441 x 14 [1D]
+<pre><code>## # A tsibble: 341,376 x 14 [1D]
 ## # Key:       location [255]
 ##    continent location date       total…¹ new_c…² new_c…³ total…⁴ new_d…⁵ total…⁶
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -1349,7 +1380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghani… 2020-01-10      NA       0       0      NA       0      NA
 ##  9 Asia      Afghani… 2020-01-11      NA       0       0      NA       0      NA
 ## 10 Asia      Afghani… 2020-01-12      NA       0       0      NA       0      NA
-## # … with 318,431 more rows, 5 more variables: new_cases_per_million &lt;dbl&gt;,
+## # … with 341,366 more rows, 5 more variables: new_cases_per_million &lt;dbl&gt;,
 ## #   total_deaths_per_million &lt;dbl&gt;, new_deaths_per_million &lt;dbl&gt;,
 ## #   people_fully_vaccinated &lt;dbl&gt;, stringency_index &lt;dbl&gt;, and abbreviated
 ## #   variable names ¹​total_cases, ²​new_cases, ³​new_cases_smoothed,
@@ -1499,7 +1530,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb782"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb782-1"><a href="時系列データ操作-1.html#cb782-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1期ラグの系列を追加</span></span>
 <span id="cb782-2"><a href="時系列データ操作-1.html#cb782-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
 <span id="cb782-3"><a href="時系列データ操作-1.html#cb782-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">new_cases_lag =</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(new_cases, <span class="at">n =</span> <span class="dv">1</span>)) </span></code></pre></div>
-<pre><code>## # A tibble: 530 × 5
+<pre><code>## # A tibble: 621 × 5
 ##    location date       new_cases new_deaths new_cases_lag
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
 ##  1 Japan    2022-01-01       504          0            NA
@@ -1512,7 +1543,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Japan    2022-01-08      7930          2          5983
 ##  9 Japan    2022-01-09      8144          1          7930
 ## 10 Japan    2022-01-10      6394          2          8144
-## # … with 520 more rows</code></pre>
+## # … with 611 more rows</code></pre>
 </div>
 <div id="変化率系列の作成" class="section level3 hasAnchor" number="7.6.2">
 <h3><span class="header-section-number">7.6.2</span> 変化率系列の作成<a href="時系列データ操作-1.html#変化率系列の作成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1520,7 +1551,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb784"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb784-1"><a href="時系列データ操作-1.html#cb784-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 前期比変化率（％表示）の系列を追加</span></span>
 <span id="cb784-2"><a href="時系列データ操作-1.html#cb784-2" aria-hidden="true" tabindex="-1"></a>data_owid_jp <span class="sc">%&gt;%</span> </span>
 <span id="cb784-3"><a href="時系列データ操作-1.html#cb784-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">new_cases_chg =</span> <span class="dv">100</span> <span class="sc">*</span> (new_cases <span class="sc">/</span> dplyr<span class="sc">::</span><span class="fu">lag</span>(new_cases, <span class="at">n =</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="dv">1</span>)) </span></code></pre></div>
-<pre><code>## # A tibble: 530 × 5
+<pre><code>## # A tibble: 621 × 5
 ##    location date       new_cases new_deaths new_cases_chg
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
 ##  1 Japan    2022-01-01       504          0         NA   
@@ -1533,7 +1564,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Japan    2022-01-08      7930          2         32.5 
 ##  9 Japan    2022-01-09      8144          1          2.70
 ## 10 Japan    2022-01-10      6394          2        -21.5 
-## # … with 520 more rows</code></pre>
+## # … with 611 more rows</code></pre>
 </div>
 <div id="移動平均系列の作成" class="section level3 hasAnchor" number="7.6.3">
 <h3><span class="header-section-number">7.6.3</span> 移動平均系列の作成<a href="時系列データ操作-1.html#移動平均系列の作成" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1545,7 +1576,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb786-5"><a href="時系列データ操作-1.html#cb786-5" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">na.pad =</span> <span class="cn">TRUE</span>, <span class="co"># 系列の先端部分で移動平均を計算できない箇所をNAで埋めるか</span></span>
 <span id="cb786-6"><a href="時系列データ操作-1.html#cb786-6" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">align =</span> <span class="st">&quot;right&quot;</span>) <span class="co"># left：前方移動平均、center：中央移動平均、right：後方移動平均</span></span>
 <span id="cb786-7"><a href="時系列データ操作-1.html#cb786-7" aria-hidden="true" tabindex="-1"></a>                )</span></code></pre></div>
-<pre><code>## # A tibble: 530 × 5
+<pre><code>## # A tibble: 621 × 5
 ##    location date       new_cases new_deaths new_cases_7dma
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;
 ##  1 Japan    2022-01-01       504          0            NA 
@@ -1558,7 +1589,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Japan    2022-01-08      7930          2          3310.
 ##  9 Japan    2022-01-09      8144          1          4399.
 ## 10 Japan    2022-01-10      6394          2          5201 
-## # … with 520 more rows</code></pre>
+## # … with 611 more rows</code></pre>
 </div>
 </div>
 <div id="時系列データの頻度変換" class="section level2 hasAnchor" number="7.7">
@@ -1577,7 +1608,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>tidyquant::tq_transmute()</code>関数を使用して日次データを週次データに変換すると、月曜～日曜のデータが<code>FUN</code>に指定した関数で集計され、日曜の日付で記録されます。</p>
 <div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="時系列データ操作-1.html#cb789-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span> </span>
 <span id="cb789-2"><a href="時系列データ操作-1.html#cb789-2" aria-hidden="true" tabindex="-1"></a>  tidyquant<span class="sc">::</span><span class="fu">tq_transmute</span>(<span class="at">select =</span> <span class="sc">-</span>date, <span class="at">mutate_fun =</span> apply.weekly, <span class="at">FUN =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 129 × 256
+<pre><code>## # A tibble: 143 × 256
 ##    date       Afghanistan Africa Albania Algeria Americ…¹ Andorra Angola Angui…²
 ##    &lt;date&gt;           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
 ##  1 2021-01-03       126.  26506.    526.    283.        0    61     58.3   0.667
@@ -1590,7 +1621,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 2021-02-21        16   11044.   1011.    179.        0    29.9   24.3   0    
 ##  9 2021-02-28        15.7 10580.   1046.    171.        0    25.3   40.4   0    
 ## 10 2021-03-07        19   10119     867.    163.        0    24.3   39     0    
-## # … with 119 more rows, 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
+## # … with 133 more rows, 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
 ## #   Argentina &lt;dbl&gt;, Armenia &lt;dbl&gt;, Aruba &lt;dbl&gt;, Asia &lt;dbl&gt;, Australia &lt;dbl&gt;,
 ## #   Austria &lt;dbl&gt;, Azerbaijan &lt;dbl&gt;, Bahamas &lt;dbl&gt;, Bahrain &lt;dbl&gt;,
 ## #   Bangladesh &lt;dbl&gt;, Barbados &lt;dbl&gt;, Belarus &lt;dbl&gt;, Belgium &lt;dbl&gt;,
@@ -1601,7 +1632,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb791"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb791-1"><a href="時系列データ操作-1.html#cb791-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span></span>
 <span id="cb791-2"><a href="時系列データ操作-1.html#cb791-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>date, rollmean, <span class="at">k =</span> <span class="dv">7</span>, <span class="at">na.pad =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="st">&quot;left&quot;</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb791-3"><a href="時系列データ操作-1.html#cb791-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(lubridate<span class="sc">::</span><span class="fu">wday</span>(date) <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 129 × 256
+<pre><code>## # A tibble: 142 × 256
 ##    date       Afghanistan Africa Albania Algeria Americ…¹ Andorra Angola Angui…²
 ##    &lt;date&gt;           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
 ##  1 2021-01-03       116.  29316.    484.    251.        0    53.1   71.1   0.143
@@ -1614,7 +1645,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 2021-02-21        18.1 10772.   1068.    172.        0    25.3   40.1   0    
 ##  9 2021-02-28        19   10064.    887.    163.        0    25.1   38.1   0    
 ## 10 2021-03-07        17    9576.    703     151.        0    32.9   34.1   0.143
-## # … with 119 more rows, 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
+## # … with 132 more rows, 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
 ## #   Argentina &lt;dbl&gt;, Armenia &lt;dbl&gt;, Aruba &lt;dbl&gt;, Asia &lt;dbl&gt;, Australia &lt;dbl&gt;,
 ## #   Austria &lt;dbl&gt;, Azerbaijan &lt;dbl&gt;, Bahamas &lt;dbl&gt;, Bahrain &lt;dbl&gt;,
 ## #   Bangladesh &lt;dbl&gt;, Barbados &lt;dbl&gt;, Belarus &lt;dbl&gt;, Belgium &lt;dbl&gt;,
@@ -1627,7 +1658,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>tidyquant::tq_transmute()</code>関数を使用して日次データを月次データに変換すると、月初～月末のデータが<code>FUN</code>に指定した関数で集計され、月末の日付で記録されます。</p>
 <div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="時系列データ操作-1.html#cb793-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span> </span>
 <span id="cb793-2"><a href="時系列データ操作-1.html#cb793-2" aria-hidden="true" tabindex="-1"></a>  tidyquant<span class="sc">::</span><span class="fu">tq_transmute</span>(<span class="at">select =</span> <span class="sc">-</span>date, <span class="at">mutate_fun =</span> apply.monthly, <span class="at">FUN =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 30 × 256
+<pre><code>## # A tibble: 33 × 256
 ##    date       Afghanistan Africa Albania Algeria Americ…¹ Andorra Angola Angui…²
 ##    &lt;date&gt;           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
 ##  1 2021-01-31        86.9 26770.   619.     252.   0        61.4    75.8  0.129 
@@ -1640,7 +1671,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 2021-08-31       196.  36218.   382.     819.   0        11.4   151.   3.32  
 ##  9 2021-09-30        61.1 17490.   798.     254.   0.0333    5.9   308.   5.73  
 ## 10 2021-10-31        33.4  6606.   502.     102.   0.0968    9.90  251.  16.2   
-## # … with 20 more rows, 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
+## # … with 23 more rows, 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
 ## #   Argentina &lt;dbl&gt;, Armenia &lt;dbl&gt;, Aruba &lt;dbl&gt;, Asia &lt;dbl&gt;, Australia &lt;dbl&gt;,
 ## #   Austria &lt;dbl&gt;, Azerbaijan &lt;dbl&gt;, Bahamas &lt;dbl&gt;, Bahrain &lt;dbl&gt;,
 ## #   Bangladesh &lt;dbl&gt;, Barbados &lt;dbl&gt;, Belarus &lt;dbl&gt;, Belgium &lt;dbl&gt;,
@@ -1653,19 +1684,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>tidyquant::tq_transmute()</code>関数を使用して日次データを四半期データに変換すると、期初～期末のデータが<code>FUN</code>に指定した関数で集計され、期末の日付で記録されます。</p>
 <div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb795-1"><a href="時系列データ操作-1.html#cb795-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span> </span>
 <span id="cb795-2"><a href="時系列データ操作-1.html#cb795-2" aria-hidden="true" tabindex="-1"></a>  tidyquant<span class="sc">::</span><span class="fu">tq_transmute</span>(<span class="at">select =</span> <span class="sc">-</span>date, <span class="at">mutate_fun =</span> apply.quarterly, <span class="at">FUN =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 10 × 256
+<pre><code>## # A tibble: 11 × 256
 ##    date       Afghanistan Africa Albania Algeria Ameri…¹ Andorra  Angola Angui…²
 ##    &lt;date&gt;           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 2021-03-31        45.8 16701.  747.    197.    0        44.0   52.8     0.133
-##  2 2021-06-30       684.  14055.   88.9   244.    0        21.5  181.      0.923
-##  3 2021-09-30       396.  31175.  394.    695.    0.0109   14.2  195.      3.04 
-##  4 2021-12-31        32.7 15796.  436.    161.    0.109    86.0  220.     14.0  
-##  5 2022-03-31       218.  23134.  718.    529.   42.3     188.   248.     11.4  
-##  6 2022-06-30        52.0  6424.   62.0     4.52 29.5      41.2   24.0     8.31 
-##  7 2022-09-30       181.   3893.  563.     50.0  19.0      26.7   20.8     4.45 
-##  8 2022-12-31        92.2  1360.   19.4     5.90  0.380    16.6   20.3     0.424
-##  9 2023-03-31        32.5   812.   12.1     4.04  0.456     1.99   2.53    0    
-## 10 2023-06-18       162.    281.    3.13    3.47  0.0667    1.13   0.813   0    
+##  1 2021-03-31        45.8 1.67e4  747.    197.    0       44.0    52.8     0.133
+##  2 2021-06-30       684.  1.41e4   88.9   244.    0       21.5   181.      0.923
+##  3 2021-09-30       396.  3.12e4  394.    695.    0.0109  14.2   195.      3.04 
+##  4 2021-12-31        32.7 1.58e4  436.    161.    0.109   86.0   220.     14.0  
+##  5 2022-03-31       218.  2.31e4  718.    529.   42.3    188.    248.     11.4  
+##  6 2022-06-30        52.0 6.42e3   62.0     4.52 29.5     41.2    24.0     8.31 
+##  7 2022-09-30       181.  3.89e3  563.     50.0  19.0     26.7    20.8     4.45 
+##  8 2022-12-31        92.2 1.36e3   19.4     5.90  0.380   16.6    20.3     0.424
+##  9 2023-03-31        32.5 8.12e2   12.1     4.04  0.456    1.99    2.53    0    
+## 10 2023-06-30       141.  3.15e2    2.58    2.98  0.0659   0.934   0.670   0    
+## 11 2023-09-18        30.5 7.68e1    0       0     0.12     0       0       0    
 ## # … with 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;, Argentina &lt;dbl&gt;,
 ## #   Armenia &lt;dbl&gt;, Aruba &lt;dbl&gt;, Asia &lt;dbl&gt;, Australia &lt;dbl&gt;, Austria &lt;dbl&gt;,
 ## #   Azerbaijan &lt;dbl&gt;, Bahamas &lt;dbl&gt;, Bahrain &lt;dbl&gt;, Bangladesh &lt;dbl&gt;,

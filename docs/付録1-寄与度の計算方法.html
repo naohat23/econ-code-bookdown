@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | エコノミストのためのR</title>
-  <meta name="description" content="Page not found | エコノミストのためのR" />
+  <title>付録1 寄与度の計算方法 | エコノミストのためのR</title>
+  <meta name="description" content="付録1 寄与度の計算方法 | エコノミストのためのR" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | エコノミストのためのR" />
+  <meta property="og:title" content="付録1 寄与度の計算方法 | エコノミストのためのR" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="naohat23/econ-code-bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | エコノミストのためのR" />
+  <meta name="twitter:title" content="付録1 寄与度の計算方法 | エコノミストのためのR" />
   
   
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="時系列分析-1.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -822,18 +822,322 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="付録1-寄与度の計算方法" class="section level1 unnumbered hasAnchor">
+<h1>付録1 寄与度の計算方法<a href="付録1-寄与度の計算方法.html#付録1-寄与度の計算方法" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>寄与度分解とは、経済・金融指標の変動をその構成項目別に要因分解し、指標全体の動きにどの構成項目がどれくらい影響したかを明らかにする分析手法です。ここでは、様々なタイプの指標の変動（変化率、階差）を構成項目の寄与度に分解する計算方法を紹介します。</p>
+<div id="記号法" class="section level2 unnumbered hasAnchor">
+<h2>記号法<a href="付録1-寄与度の計算方法.html#記号法" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>変数<span class="math inline">\(X_t\)</span>の添え字<span class="math inline">\(t\)</span>は、時系列インデックスを表します。</p>
+<p><span class="math inline">\(\Delta\)</span>記号は変数の階差を表します。例えば、変数<span class="math inline">\(X_t\)</span>について<span class="math inline">\(\Delta{X_t}\)</span>と表記した場合、<span class="math inline">\(\Delta{X_t} = X_t - X_{t-1}\)</span>を意味します。したがって、<span class="math inline">\(t\)</span>期の変数<span class="math inline">\(X_t\)</span>は前期の値<span class="math inline">\(X_{t-1}\)</span>と階差<span class="math inline">\(\Delta{X_t}\)</span>を使って<span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>に変形することができます。なお、ここでは<span class="math inline">\(t-1\)</span>を「前期」としていますが、「前年」や「前年同期」でも計算方法は変わらないため、適宜読み替えてください。</p>
+<p><span class="math inline">\(\Delta{X_t}\)</span>を前期の値<span class="math inline">\(X_{t-1}\)</span>で割った<span class="math inline">\(\Delta{X_t}/X_{t-1}\)</span>は、変数<span class="math inline">\(X_t\)</span>の変化率を表します。変化率をパーセント表示する場合は<span class="math inline">\(100 \times \Delta{X_t}/X_{t-1}\)</span>とします。</p>
+<p>また、等号<span class="math inline">\(=\)</span>の代わりに<span class="math inline">\(\approx\)</span>を使用することがあります。<span class="math inline">\(\approx\)</span>は左辺の値が右辺の値で近似できることを示しています。</p>
+</div>
+<div id="和差の指標" class="section level2 unnumbered hasAnchor">
+<h2>和・差の指標<a href="付録1-寄与度の計算方法.html#和差の指標" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>複数の構成項目の足し算・引き算で作成する指標の寄与度分解です。</p>
+<div id="公式" class="section level3 unnumbered hasAnchor">
+<h3>公式<a href="付録1-寄与度の計算方法.html#公式" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\begin{aligned}
+元の式：　&amp;Y_t = X_{1,t} + X_{2,t} \\
+\\
+寄与度分解：　&amp;\frac{\Delta{Y_t}}{Y_{t-1}} = \frac{\Delta{X_{1,t}}}{Y_{t-1}} + \frac{\Delta{X_{2,t}}}{Y_{t-1}}
+\end{aligned}
+\]</span></p>
+<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>によって次の式で作成されているとします。</p>
+<p><span class="math display">\[
+Y_t = X_{1,t} + X_{2,t}
+\]</span></p>
+<p>両辺の階差をとると、</p>
+<p><span class="math display">\[
+Y_t - Y_{t-1} = (X_{1,t} - X_{1,t-1}) + (X_{2,t} - X_{2,t-1})
+\]</span></p>
+<p>となり、これは次の式に書き換えられます。</p>
+<p><span class="math display">\[
+\Delta{Y_t} = \Delta{X_{1,t}} + \Delta{X_{2,t}}
+\]</span></p>
+<p>ここで、両辺を<span class="math inline">\(Y_{t-1}\)</span>で割ると、</p>
+<p><span class="math display">\[
+\frac{\Delta{Y_t}}{Y_{t-1}} = \frac{\Delta{X_{1,t}}}{Y_{t-1}} + \frac{\Delta{X_{2,t}}}{Y_{t-1}}
+\]</span></p>
+<p>となります。これは、変数<span class="math inline">\(Y_t\)</span>の変化率<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>が、<span class="math inline">\(X_{1,t}\)</span>の寄与度<span class="math inline">\(\Delta{X_{1,t}}/Y_{t-1}\)</span>と、<span class="math inline">\(X_{2,t}\)</span>の寄与度<span class="math inline">\(\Delta{X_{2,t}}/Y_{t-1}\)</span>に分解できることを示しています。</p>
+</div>
+<div id="実例gdp" class="section level3 unnumbered hasAnchor">
+<h3>実例：GDP<a href="付録1-寄与度の計算方法.html#実例gdp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>「GDP＝消費<span class="math inline">\(C_t\)</span>＋投資<span class="math inline">\(I_t\)</span>＋政府支出<span class="math inline">\(G_t\)</span>＋輸出<span class="math inline">\(\mathit{EX}_t\)</span>−輸入<span class="math inline">\(\mathit{IM}_t\)</span>」であることを利用して、GDPの変化率を構成項目の寄与度に分解します。</p>
+<p>両辺の階差をとってGDPの前期の値<span class="math inline">\(\mathit{GDP}_{t-1}\)</span>で割ると、寄与度分解の式は、</p>
+<p><span class="math display">\[
+\frac{\Delta{\mathit{GDP}_t}}{\mathit{GDP}_{t-1}} = \frac{C_t}{\mathit{GDP}_{t-1}} + \frac{I_t}{\mathit{GDP}_{t-1}} + \frac{G_t}{\mathit{GDP}_{t-1}} + \frac{\mathit{EX}_t}{\mathit{GDP}_{t-1}} - \frac{\mathit{IM}_t}{\mathit{GDP}_{t-1}}
+\]</span></p>
+<p>となります。輸入は控除項目のため、寄与度の符号がマイナスになっている点に注意してください。</p>
+<p>なお、GDPには名目原数値、名目季節調整値、実質原数値、実質季節調整値がありますが、上の寄与度分解の式を用いた場合に誤差が発生しないのは名目原数値のみです。季節調整値や実質値では構成項目の合計がGDPに一致しないため、必ず誤差が発生します。</p>
+<p>実質GDP変化率の寄与度について、内閣府の公表値では特殊な計算方法が採用されていますので、<a href="https://www.esri.cao.go.jp/jp/sna/data/data_list/sokuhou/files/2016/qe163_2/pdf/kiyo3.pdf">こちらのページ</a>を参照してください。</p>
+</div>
+</div>
+<div id="積の指標" class="section level2 unnumbered hasAnchor">
+<h2>積の指標<a href="付録1-寄与度の計算方法.html#積の指標" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>複数の構成項目の掛け算で作成する指標の寄与度分解です。</p>
+<div id="公式-1" class="section level3 unnumbered hasAnchor">
+<h3>公式<a href="付録1-寄与度の計算方法.html#公式-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\begin{aligned}
+元の式：　&amp;Y_t = X_{1,t} X_{2,t} \\
+\\
+寄与度分解：　&amp;\frac{\Delta{Y_t}}{Y_{t-1}} \approx \frac{\Delta{X_{1,t}}}{X_{1,t-1}} + \frac{\Delta{X_{2,t}}}{X_{2,t-1}}
+\end{aligned}
+\]</span></p>
+<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>によって次の式で作成されているとします。</p>
+<p><span class="math display">\[
+Y_t = X_{1,t} X_{2,t}
+\]</span></p>
+<p><span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>を利用すると、上の式は次のように書き換えることができます。</p>
+<p><span class="math display">\[
+\begin{aligned}
+Y_{t-1} + \Delta{Y_t} &amp;= (X_{1,t-1} + \Delta{X_{1,t}}) (X_{2,t-1} + \Delta{X_{2,t}}) \\
+\\
+&amp;= X_{1,t-1} X_{2,t-1} + X_{2,t-1} \Delta{X_{1,t}} + X_{1,t-1} \Delta{X_{2,t}} + \Delta{X_{1,t}} \Delta{X_{2,t}}
+\end{aligned}
+\]</span></p>
+<p>両辺を<span class="math inline">\(Y_{t-1}\)</span>で割り、<span class="math inline">\(Y_{t-1} = X_{1,t-1} X_{2,t-1}\)</span>を使って整理すると、</p>
+<p><span class="math display">\[
+\frac{\Delta{Y_t}}{Y_{t-1}} = \frac{\Delta{X_{1,t}}}{X_{1,t-1}} + \frac{\Delta{X_{2,t}}}{X_{2,t-1}} + \frac{\Delta{X_{1,t}} \Delta{X_{2,t}}}{X_{1,t-1} X_{2,t-1}}
+\]</span></p>
+<p>となります。これは、変数<span class="math inline">\(Y_t\)</span>の変化率<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>が、<span class="math inline">\(X_{1,t}\)</span>の寄与度<span class="math inline">\(\Delta{X_{1,t}}/X_{1,t-1}\)</span>と、<span class="math inline">\(X_{2,t}\)</span>の寄与度<span class="math inline">\(\Delta{X_{2,t}}/X_{2,t-1}\)</span>に分解できることを示しています。</p>
+<p>右辺第3項は<span class="math inline">\(X_{1,t}\)</span>と<span class="math inline">\(X_{2,t}\)</span>どちらの階差にも帰属させることができない交差項ですが、通常は小さな値になるため、誤差として処理します。右辺第3項を省略すると、</p>
+<p><span class="math display">\[
+\frac{\Delta{Y_t}}{Y_{t-1}} \approx \frac{\Delta{X_{1,t}}}{X_{1,t-1}} + \frac{\Delta{X_{2,t}}}{X_{2,t-1}}
+\]</span></p>
+<p>になり、変数<span class="math inline">\(Y_t\)</span>の変化率<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>が、構成項目の変化率の足し算で近似できることが確認できます。</p>
+</div>
+<div id="実例貿易指数金額指数" class="section level3 unnumbered hasAnchor">
+<h3>実例：貿易指数（金額指数）<a href="付録1-寄与度の計算方法.html#実例貿易指数金額指数" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>貿易統計の貿易指数において、金額指数が「金額指数<span class="math inline">\(V_t\)</span>＝価格指数<span class="math inline">\(U_t\)</span>×数量指数<span class="math inline">\(Q_t\)</span>÷100」で計算できることを利用して、金額指数の変化率を構成項目の寄与度に分解します。</p>
+<p><span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>を利用すると、定義式は、</p>
+<p><span class="math display">\[
+V_{t-1} + \Delta{V_t} = \frac{(U_{t-1} + \Delta{U_{t}}) (Q_{t-1} + \Delta{Q_{t}})}{100}
+\]</span></p>
+<p>と書き換えることができます。次に、両辺を<span class="math inline">\(V_{t-1}\)</span>で割り、<span class="math inline">\(V_{t-1} = U_{t-1}Q_{t-1}/100\)</span>を利用して整理すると、</p>
+<p><span class="math display">\[
+\frac{\Delta{V_t}}{V_{t-1}} = \frac{\Delta{U_{t}}}{U_{t-1}} + \frac{\Delta{Q_{t}}}{Q_{t-1}} + \frac{\Delta{U_{t}} \Delta{Q_{t}}}{U_{t-1}Q_{t-1}}
+\]</span></p>
+<p>と寄与度分解できます。右辺第3項は価格指数<span class="math inline">\(U_t\)</span>と数量指数<span class="math inline">\(Q_t\)</span>の交差項であり、誤差として処理します。</p>
+</div>
+<div id="実例経常利益" class="section level3 unnumbered hasAnchor">
+<h3>実例：経常利益<a href="付録1-寄与度の計算方法.html#実例経常利益" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>法人企業統計の経常利益が、「経常利益<span class="math inline">\(\mathit{CP}_t\)</span>＝売上高<span class="math inline">\(\mathit{SL}_t\)</span>×限界利益率<span class="math inline">\(\alpha_t\)</span>−人件費<span class="math inline">\(\mathit{HC}_t\)</span>＋営業外損益<span class="math inline">\(\mathit{NO}_t\)</span>」で計算できることを利用して、経常利益の変化率を構成項目の寄与度に分解します。なお、「限界利益＝売上高−変動費」、「変動費＝売上原価＋販管費−人件費」です。</p>
+<p>まず、和・差の指標の公式を利用すると、経常利益の定義式は、</p>
+<p><span class="math display">\[
+\frac{\Delta{\mathit{CP}_t}}{\mathit{CP}_{t-1}} = \frac{\Delta{(\mathit{SL}_t \times \alpha_t})}{\mathit{CP}_{t-1}} - \frac{\Delta{\mathit{HC}_t}}{\mathit{CP}_{t-1}} + \frac{\Delta{\mathit{NO}_t}}{\mathit{CP}_{t-1}}
+\]</span></p>
+<p>となります。ここで、積の指標の公式から、</p>
+<p><span class="math display">\[
+\frac{\Delta{(\mathit{SL}_t \times \alpha_t})}{\mathit{SL}_{t-1} \times \alpha_{t-1}} = \frac{\Delta{\mathit{SL}_t}}{\mathit{SL}_{t-1}} + \frac{\Delta{\alpha_t}}{\alpha_{t-1}} + \frac{\Delta{\mathit{SL}_t} \times \Delta{\alpha_t}}{\mathit{SL}_{t-1} \times \alpha_{t-1}}
+\]</span></p>
+<p>であることを利用し、上の式に代入して整理すると、</p>
+<p><span class="math display">\[
+\frac{\Delta{\mathit{CP}_t}}{\mathit{CP}_{t-1}} = \frac{\alpha_{t-1}}{\mathit{CP}_{t-1}}\Delta{\mathit{SL}_t} + \frac{\mathit{SL}_{t-1}}{\mathit{CP}_{t-1}}\Delta{\alpha_t}  - \frac{\Delta{\mathit{HC}_t}}{\mathit{CP}_{t-1}} + \frac{\Delta{\mathit{NO}_t}}{\mathit{CP}_{t-1}} + \frac{\Delta{\mathit{SL}_t} \times \Delta{\alpha_t}}{\mathit{CP}_{t-1}}
+\]</span></p>
+<p>と寄与度分解できます。右辺第5項は売上高<span class="math inline">\(\mathit{SL}_t\)</span>と限界利益率<span class="math inline">\(\alpha_t\)</span>の交差項であり、誤差として処理します。</p>
+</div>
+</div>
+<div id="商の指標" class="section level2 unnumbered hasAnchor">
+<h2>商の指標<a href="付録1-寄与度の計算方法.html#商の指標" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>複数の構成項目の割り算で作成する指標の寄与度分解です。</p>
+<div id="公式-2" class="section level3 unnumbered hasAnchor">
+<h3>公式<a href="付録1-寄与度の計算方法.html#公式-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\begin{aligned}
+元の式：　&amp;Y_t = \frac{X_{1,t}}{X_{2,t}} \\
+\\
+寄与度分解：　&amp;\frac{\Delta{Y_t}}{Y_{t-1}} \approx \frac{\Delta{X_{1,t}}}{X_{1,t-1}} - \frac{\Delta{X_{2,t}}}{X_{2,t-1}}
+\end{aligned}
+\]</span></p>
+<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>によって次の式で作成されているとします。</p>
+<p><span class="math display">\[
+Y_t = \frac{X_{1,t}}{X_{2,t}}
+\]</span></p>
+<p><span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>を利用すると、上の式は次のように書き換えることができます。</p>
+<p><span class="math display">\[
+Y_{t-1} + \Delta{Y_t} = \frac{X_{1,t-1} + \Delta{X_{1,t}}}{X_{2,t-1} + \Delta{X_{2,t}}}
+\]</span></p>
+<p>両辺を<span class="math inline">\(Y_{t-1}\)</span>で割り、<span class="math inline">\(Y_{t-1} = X_{1,t-1} X_{2,t-1}\)</span>を使って整理すると、</p>
+<p><span class="math display">\[
+\begin{aligned}
+1 + \frac{\Delta{Y_t}}{Y_{t-1}} &amp;= \frac{X_{1,t-1} + \Delta{X_{1,t}}}{X_{2,t-1} + \Delta{X_{2,t}}} \times \frac{X_{2,t-1}}{X_{1,t-1}} \\
+\\
+&amp;= \frac{1 + \Delta{X_{1,t}}/X_{1,t-1}}{1 + \Delta{X_{2,t}}/X_{2,t-1}}
+\end{aligned}
+\]</span></p>
+<p>となります。ここで、</p>
+<p><span class="math display">\[
+\Bigl( 1 + \frac{\Delta{X_{1,t}}}{X_{1,t-1}} - \frac{\Delta{X_{2,t}}}{X_{2,t-1}} \Bigr) \Bigl( 1 + \frac{\Delta{X_{2,t}}}{X_{2,t-1}} \Bigr) = 1 + \frac{\Delta{X_{1,t}}}{X_{1,t-1}} + \frac{\Delta{X_{1,t}}}{X_{1,t-1}}\frac{\Delta{X_{2,t}}}{X_{2,t-1}} - \Bigl( \frac{\Delta{X_{2,t}}}{X_{2,t-1}} \Bigr)^2
+\]</span></p>
+<p>の両辺を<span class="math inline">\(1+\Delta{X_{2,t}}/X_{2,t-1}\)</span>で割って整理すると、</p>
+<p><span class="math display">\[
+\frac{1 + \Delta{X_{1,t}}/X_{1,t-1}}{1 + \Delta{X_{2,t}}/X_{2,t-1}} = 1 + \frac{\Delta{X_{1,t}}}{X_{1,t-1}} - \frac{\Delta{X_{2,t}}}{X_{2,t-1}} - \frac{X_{2,t-1}\Delta{X_{1,t}}\Delta{X_{2,t}} - X_{1,t-1} (\Delta{X_{2,t}})^2}{X_{1,t-1}X_{2,t-1}X_{2,t}}
+\]</span></p>
+<p>となることから、この結果を前の式に代入すると、<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>は、</p>
+<p><span class="math display">\[
+\frac{\Delta{Y_t}}{Y_{t-1}} = \frac{\Delta{X_{1,t}}}{X_{1,t-1}} - \frac{\Delta{X_{2,t}}}{X_{2,t-1}} - \frac{X_{2,t-1}\Delta{X_{1,t}}\Delta{X_{2,t}} - X_{1,t-1} (\Delta{X_{2,t}})^2}{X_{1,t-1}X_{2,t-1}X_{2,t}}
+\]</span></p>
+<p>となります。これは、変数<span class="math inline">\(Y_t\)</span>の変化率<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>が、<span class="math inline">\(X_{1,t}\)</span>の寄与度<span class="math inline">\(\Delta{X_{1,t}}/X_{1,t-1}\)</span>と、<span class="math inline">\(X_{2,t}\)</span>の寄与度<span class="math inline">\(-\Delta{X_{2,t}}/X_{2,t-1}\)</span>に分解できることを示しています。</p>
+<p>右辺第3項は<span class="math inline">\(X_{1,t}\)</span>と<span class="math inline">\(X_{2,t}\)</span>どちらの階差にも帰属させることができない交差項ですが、通常は小さな値になるため、誤差として処理します。右辺第3項を省略すると、</p>
+<p><span class="math display">\[
+\frac{\Delta{Y_t}}{Y_{t-1}} \approx \frac{\Delta{X_{1,t}}}{X_{1,t-1}} - \frac{\Delta{X_{2,t}}}{X_{2,t-1}}
+\]</span></p>
+<p>になり、変数<span class="math inline">\(Y_t\)</span>の変化率<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>が、構成項目の変化率の引き算で近似できることが確認できます。</p>
+</div>
+<div id="実例貿易指数数量指数" class="section level3 unnumbered hasAnchor">
+<h3>実例：貿易指数（数量指数）<a href="付録1-寄与度の計算方法.html#実例貿易指数数量指数" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>貿易統計の貿易指数において、数量指数が「数量指数<span class="math inline">\(Q_t\)</span>＝100×金額指数<span class="math inline">\(V_t\)</span>÷価格指数<span class="math inline">\(U_t\)</span>」で計算できることを利用して、数量指数の変化率を構成項目の寄与度に分解します。</p>
+<p><span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>を利用すると、定義式は、</p>
+<p><span class="math display">\[
+Q_{t-1} + \Delta{Q_t} = 100 \times \frac{V_{t-1} + \Delta{V_{t}}}{U_{t-1} + \Delta{U_{t}}}
+\]</span></p>
+<p>と書き換えることができます。次に、両辺を<span class="math inline">\(Q_{t-1}\)</span>で割り、<span class="math inline">\(Q_{t-1} = 100 \times V_{t-1}/U_{t-1}\)</span>を利用して整理すると、</p>
+<p><span class="math display">\[
+\frac{\Delta{Q_t}}{Q_{t-1}} = \frac{\Delta{V_{t}}}{V_{t-1}} - \frac{\Delta{U_{t}}}{U_{t-1}} - \frac{U_{t-1}\Delta{V_{t}}\Delta{U_{t}} - V_{t-1} (\Delta{U_{t}})^2}{V_{t-1}U_{t-1}U_{t}}
+\]</span></p>
+<p>と寄与度分解できます。右辺第3項は金額指数<span class="math inline">\(V_t\)</span>と価格指数<span class="math inline">\(U_t\)</span>の交差項であり、誤差として処理します。</p>
+</div>
+<div id="実例失業率" class="section level3 unnumbered hasAnchor">
+<h3>実例：失業率<a href="付録1-寄与度の計算方法.html#実例失業率" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>労働力調査の失業率が、「失業率<span class="math inline">\(u_t\)</span>＝1−就業者数<span class="math inline">\(E_t\)</span>÷(15歳以上人口<span class="math inline">\(N_t\)</span>×労働力率<span class="math inline">\(\alpha_t\)</span>)」で計算できることを利用して、失業率の階差を構成項目の寄与度に分解します。一般的な指標では変化率を寄与度分解しますが、失業率は割合のため変化率ではなく階差を寄与度分解します。</p>
+<p>なお、失業率には様々な寄与度分解の方法がありますが、この分解方法は<a href="https://www.mhlw.go.jp/stf/wp/hakusyo/roudou/19/backdata/column1-1.html">厚生労働省の『令和元年版 労働経済の分析』のコラム１－１図</a>に基づいています。</p>
+<p><span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>を利用すると、定義式は、</p>
+<p><span class="math display">\[
+\begin{aligned}
+u_{t-1} + \Delta{u_t} &amp;= 1 - \frac{E_{t-1} + \Delta{E_{t}}}{\alpha_{t-1}N_{t-1} + \Delta{(\alpha_{t}N_t)}} \\
+\\
+&amp;= 1 - \frac{E_{t-1}}{\alpha_{t-1}N_{t-1}} \times \frac{1 + \Delta{E_t}/E_{t-1}}{1 + \alpha_{t-1}N_{t-1}/\Delta{(\alpha_{t}N_t)}}
+\end{aligned}
+\]</span></p>
+<p>と書き換えることができます。ここで商の指標の公式を利用すると、</p>
+<p><span class="math display">\[
+u_{t-1} + \Delta{u_t} = 1 - \frac{E_{t-1}}{\alpha_{t-1}N_{t-1}} \times \Bigl( 1 + \frac{\Delta{E_t}}{E_{t-1}} - \frac{\Delta{(\alpha_{t}N_t)}}{\alpha_{t-1}N_{t-1}} - \frac{\alpha_{t-1}N_{t-1}\Delta{E_t}\Delta{(\alpha_tN_t)}-E_{t-1}(\Delta{(\alpha_tN_t)})^2}{E_{t-1}\alpha_{t-1}N_{t-1}\alpha_{t}N_{t}} \Bigr)
+\]</span></p>
+<p>となり、さらに<span class="math inline">\(\Delta{(\alpha_tN_t)}\)</span>に対して積の公式を利用して、右辺の括弧内の第3項を分割すると、</p>
+<p><span class="math display">\[
+u_{t-1} + \Delta{u_t} = 1 - \frac{E_{t-1}}{\alpha_{t-1}N_{t-1}} \times \Bigl( 1 + \frac{\Delta{E_t}}{E_{t-1}} - \frac{\Delta{\alpha_t}}{\alpha_{t-1}} - \frac{\Delta{N_t}}{N_{t-1}} - \frac{\Delta{\alpha_{t}}\Delta{N_t}}{\alpha_{t-1}N_{t-1}} - \frac{\alpha_{t-1}N_{t-1}\Delta{E_t}\Delta{(\alpha_tN_t)}-E_{t-1}(\Delta{(\alpha_tN_t)})^2}{E_{t-1}\alpha_{t-1}N_{t-1}\alpha_{t}N_{t}} \Bigr)
+\]</span></p>
+<p>となります。定義式<span class="math inline">\(u_{t-1} = 1 - E_{t-1}/(\alpha_{t-1}N_{t-1})\)</span>を用いて整理すると、</p>
+<p><span class="math display">\[
+\Delta{u_t} = - \frac{1}{\alpha_{t-1}N_{t-1}}\Delta{E_t} + \frac{E_{t-1}}{\alpha^2_{t-1}N_{t-1}}\Delta{\alpha_t} + \frac{E_{t-1}}{\alpha_{t-1}N^2_{t-1}}\Delta{N_t} + \frac{E_{t-1}}{\alpha_{t-1}N_{t-1}} \times \Bigl( \frac{\Delta{\alpha_{t}}\Delta{N_t}}{\alpha_{t-1}N_{t-1}} - \frac{\alpha_{t-1}N_{t-1}\Delta{E_t}\Delta{(\alpha_tN_t)}-E_{t-1}(\Delta{(\alpha_tN_t)})^2}{E_{t-1}\alpha_{t-1}N_{t-1}\alpha_{t}N_{t}} \Bigr)
+\]</span></p>
+<p>と寄与度分解できます。右辺第1・2・3項がそれぞれ就業者数<span class="math inline">\(E_t\)</span>、労働力率<span class="math inline">\(\alpha_t\)</span>、15歳以上人口<span class="math inline">\(N_t\)</span>の寄与度であり、就業者数が失業率に対しマイナス要因であること、労働力率と15歳以上人口が失業率に対しプラス要因であることを示しています。</p>
+<p>また、右辺第4項は3つの構成項目の交差項であり、誤差として処理します。</p>
+</div>
+</div>
+<div id="固定加重平均の指標" class="section level2 unnumbered hasAnchor">
+<h2>固定加重平均の指標<a href="付録1-寄与度の計算方法.html#固定加重平均の指標" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>複数の構成項目を、時間で変化しない固定ウェイトで加重平均して作成する指標の寄与度分解です。</p>
+<div id="公式-3" class="section level3 unnumbered hasAnchor">
+<h3>公式<a href="付録1-寄与度の計算方法.html#公式-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\begin{aligned}
+元の式：　&amp;Y_t = w_1 X_{1,t} + w_2 X_{2,t} \\
+\\
+寄与度分解：　&amp;\frac{\Delta{Y_t}}{Y_{t-1}} = w_1 \frac{\Delta{X_{1,t}}}{Y_{t-1}} + w_2 \frac{\Delta{X_{2,t}}}{Y_{t-1}}
+\end{aligned}
+\]</span></p>
+<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>と、時間によって変化しない固定ウェイト<span class="math inline">\(w_1\)</span>、<span class="math inline">\(w_2\)</span>によって、次の式で作成されているとします。なお、ウェイトの合計は1とします（<span class="math inline">\(w_1 + w_2 = 1\)</span>）。</p>
+<p><span class="math display">\[
+Y_t = w_1 X_{1,t} + w_2 X_{2,t}
+\]</span></p>
+<p>両辺で階差をとると、</p>
+<p><span class="math display">\[
+Y_t - Y_{t-1} = w_1 (X_{1,t} - X_{1,t-1}) + w_2 (X_{2,t} - X_{2,t-1})
+\]</span></p>
+<p>となり、これは次の式に書き換えられます。</p>
+<p><span class="math display">\[
+\Delta{Y_t} = w_1 \Delta{X_{1,t}} + w_2 \Delta{X_{2,t}}
+\]</span></p>
+<p>ここで、両辺を<span class="math inline">\(Y_{t-1}\)</span>で割ると、</p>
+<p><span class="math display">\[
+\frac{\Delta{Y_t}}{Y_{t-1}} = w_1 \frac{\Delta{X_{1,t}}}{Y_{t-1}} + w_2 \frac{\Delta{X_{2,t}}}{Y_{t-1}}
+\]</span></p>
+<p>となります。これは、変数<span class="math inline">\(Y_t\)</span>の変化率<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>が、<span class="math inline">\(X_{1,t}\)</span>の寄与度<span class="math inline">\(w_1\Delta{X_{1,t}}/Y_{t-1}\)</span>と、<span class="math inline">\(X_{2,t}\)</span>の寄与度<span class="math inline">\(w_2\Delta{X_{2,t}}/Y_{t-1}\)</span>に分解できることを示しています。</p>
+</div>
+<div id="実例ラスパイレス指数" class="section level3 unnumbered hasAnchor">
+<h3>実例：ラスパイレス指数<a href="付録1-寄与度の計算方法.html#実例ラスパイレス指数" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>消費者物価指数や企業物価指数のように、ウェイトを基準年で固定して計算するラスパイレス方式の指標について、変化率を構成項目の寄与度に分解します。</p>
+<p>定義式を、</p>
+<p>$$
+I_t = </p>
+<p>$$</p>
+<p>とします。<span class="math inline">\(I_t\)</span>は物価総合指数、<span class="math inline">\(P_{i,t}\)</span>と<span class="math inline">\(P_{0,t}\)</span>はそれぞれ比較年と基準年における個別品目<span class="math inline">\(i\)</span>の物価指数（例えば生鮮食品、エネルギー、コア物価指数など）、<span class="math inline">\(w_i\)</span>は個別品目<span class="math inline">\(i\)</span>のウェイトです。</p>
+<p>ここで、全ての品目<span class="math inline">\(i\)</span>について基準年の物価指数<span class="math inline">\(P_{i,0}\)</span>が1であるとすると、定義式は、</p>
+<p><span class="math display">\[
+wI_t = \sum_{i=1}{w_iP_{i,t}} \times 100
+\]</span></p>
+<p>と書き換えられます。<span class="math inline">\(w\)</span>は個別品目のウェイトの合計<span class="math inline">\(\sum_{i=1}{w_i}\)</span>を表します。</p>
+<p>固定加重平均の指標の公式を利用すると、</p>
+<p><span class="math display">\[
+\frac{\Delta{I_t}}{I_{t-1}} = \sum_{i=1}{\frac{w_i}{w}\frac{\Delta{P_{i,t}}}{I_{t-1}}} \times 100
+\]</span></p>
+<p>と寄与度分解できます。なお、<a href="https://www.stat.go.jp/data/cpi/2020/kaisetsu/index.html">消費者物価指数（2020年基準）の詳細な作成方法はこちら</a>を、<a href="https://www.boj.or.jp/statistics/outline/exp/pi/cgpi_2020/index.htm">企業物価指数（2020年基準）の詳細な作成方法はこちら</a>のリンク先を参照してください。</p>
+</div>
+</div>
+<div id="可変加重平均の指標" class="section level2 unnumbered hasAnchor">
+<h2>可変加重平均の指標<a href="付録1-寄与度の計算方法.html#可変加重平均の指標" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>複数の構成項目を、時間で変化する可変ウェイトで加重平均して作成する指標の寄与度分解です。</p>
+<div id="公式-4" class="section level3 unnumbered hasAnchor">
+<h3>公式<a href="付録1-寄与度の計算方法.html#公式-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+\begin{aligned}
+元の式：　&amp;Y_t = w_{1,t} X_{1,t} + w_{2,t} X_{2,t} \\
+\\
+寄与度分解：　&amp;\frac{\Delta{Y_t}}{Y_{t-1}} \approx w_{1,t-1}\frac{\Delta{X_{1,t}}}{Y_{t-1}} + w_{2,t-1}\frac{\Delta{X_{2,t}}}{Y_{t-1}} + (X_{1,t-1} - X_{2,t-1})\frac{\Delta{w_{1,t}}}{Y_{t-1}}
+\end{aligned}
+\]</span></p>
+<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>と、時間によって変化する可変ウェイト<span class="math inline">\(w_{1,t}\)</span>、<span class="math inline">\(w_{2,t}\)</span>によって、次の式で作成されているとします。なお、ウェイトの合計は常に1とします（<span class="math inline">\(w_{1,t} + w_{2,t} = 1\)</span>）。</p>
+<p><span class="math display">\[
+Y_t = w_{1,t} X_{1,t} + w_{2,t} X_{2,t}
+\]</span></p>
+<p><span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>、<span class="math inline">\(w_{2,t} = 1 - w_{1,t}\)</span>、<span class="math inline">\(\Delta{w_{2,t}} = -\Delta{w_{1,t}}\)</span>を利用すると、上の式は次のように書き換えることができます。</p>
+<p><span class="math display">\[
+\begin{aligned}
+Y_{t-1} + \Delta{Y_t} &amp;= (w_{1,t-1} + \Delta{w_{1,t}}) (X_{1,t-1} + \Delta{X_{1,t}}) + (w_{2,t-1} + \Delta{w_{2,t}}) (X_{2,t-1} + \Delta{X_{2,t}}) \\
+\\
+&amp;= w_{1,t-1}X_{1,t-1} + w_{2,t-1}X_{2,t-1} + w_{1,t-1}\Delta{X_{1,t}} + w_{2,t-1}\Delta{X_{2,t}} \\
+&amp;+ X_{1,t-1}\Delta{w_{1,t}} + X_{2,t-1}\Delta{w_{2,t}} + \Delta{w_{1,t}}\Delta{X_{1,t}} + \Delta{w_{2,t}}\Delta{X_{2,t}} \\
+\\
+&amp;= Y_{t-1} + w_{1,t-1}\Delta{X_{1,t}} + (1-w_{1,t-1})\Delta{X_{2,t}} + (X_{1,t-1} - X_{2,t-1})\Delta{w_{1,t}} + \Delta{w_{1,t}}(\Delta{X_{1,t}} - \Delta{X_{2,t}})
+\end{aligned}
+\]</span></p>
+<p>両辺を<span class="math inline">\(Y_{t-1}\)</span>で割り、<span class="math inline">\(Y_{t-1} = X_{1,t-1} X_{2,t-1}\)</span>を使って整理すると、</p>
+<p><span class="math display">\[
+\frac{\Delta{Y_t}}{Y_{t-1}} = w_{1,t-1}\frac{\Delta{X_{1,t}}}{Y_{t-1}} + (1-w_{1,t-1})\frac{\Delta{X_{2,t}}}{Y_{t-1}} + (X_{1,t-1} - X_{2,t-1})\frac{\Delta{w_{1,t}}}{Y_{t-1}} + \frac{\Delta{w_{1,t}}(\Delta{X_{1,t}} - \Delta{X_{2,t}})}{Y_{t-1}}
+\]</span></p>
+<p>となります。これは、変数<span class="math inline">\(Y_t\)</span>の変化率<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>が、<span class="math inline">\(X_{1,t}\)</span>の寄与度<span class="math inline">\(w_1\Delta{X_{1,t}}/Y_{t-1}\)</span>と、<span class="math inline">\(X_{2,t}\)</span>の寄与度<span class="math inline">\((1-w_{1,t-1})\Delta{X_{2,t}}/Y_{t-1}\)</span>、可変ウェイト<span class="math inline">\(w_{1,t}\)</span>の寄与度<span class="math inline">\((X_{1,t-1} - X_{2,t-1})/\Delta{w_{1,t}}{Y_{t-1}}\)</span>に分解できることを示しています。右辺第1・2項にかかるウェイト<span class="math inline">\(w_{t-1}\)</span>が<span class="math inline">\(t\)</span>時点ではなく<span class="math inline">\(t-1\)</span>時点であることに注意してください。</p>
+<p>右辺第4項は<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>、<span class="math inline">\(w_{1,t}\)</span>のどの階差にも帰属させることができない交差項ですが、通常は小さな値になるため、誤差として処理します。右辺第4項を省略すると、次の近似式が成立します。</p>
+<p><span class="math display">\[
+\frac{\Delta{Y_t}}{Y_{t-1}} \approx w_{1,t-1}\frac{\Delta{X_{1,t}}}{Y_{t-1}} + (1-w_{1,t-1})\frac{\Delta{X_{2,t}}}{Y_{t-1}} + (X_{1,t-1} - X_{2,t-1})\frac{\Delta{w_{1,t}}}{Y_{t-1}}
+\]</span></p>
+</div>
+<div id="実例現金給与総額" class="section level3 unnumbered hasAnchor">
+<h3>実例：現金給与総額<a href="付録1-寄与度の計算方法.html#実例現金給与総額" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>毎月勤労統計の現金給与総額<span class="math inline">\(W_t\)</span>の変化率を、一般労働者の現金給与総額<span class="math inline">\(FT_t\)</span>、パートタイム労働者の現金給与総額<span class="math inline">\(PT_t\)</span>、パートタイム比率<span class="math inline">\(p_t\)</span>、の3つの構成項目の寄与度に分解します。</p>
+<p>定義式を、</p>
+<p><span class="math display">\[
+W_t = (1-p_t)FT_t + p_tPT_t
+\]</span></p>
+<p>とすると、可変加重平均の指標の公式より、</p>
+<p><span class="math display">\[
+\frac{\Delta{W_t}}{W_{t-1}} = (1-p_{t-1})\frac{\Delta{FT_{t}}}{W_{t-1}} + p_{t-1}\frac{\Delta{PT_{t}}}{W_{t-1}} + (PT_{t-1} - FT_{t-1})\frac{\Delta{p_{t}}}{W_{t-1}} + \frac{\Delta{p_{t}}(\Delta{PT_{t}} - \Delta{FT_{t}})}{W_{t-1}}
+\]</span>
+と寄与度分解できます。右辺第1・2・3項がそれぞれ一般労働者の現金給与総額<span class="math inline">\(FT_t\)</span>、パートタイム労働者の現金給与総額<span class="math inline">\(PT_t\)</span>、パートタイム比率<span class="math inline">\(p_t\)</span>の寄与度です。</p>
+<p>右辺第4項は3つの構成項目の交差項であり、誤差として処理します。</p>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
+<a href="時系列分析-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

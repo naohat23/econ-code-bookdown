@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-06-19" />
+<meta name="date" content="2023-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -771,6 +771,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.11.14" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例予測"><i class="fa fa-check"></i><b>8.11.14</b> 実例：予測</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html"><i class="fa fa-check"></i>付録1 寄与度の計算方法</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#記号法"><i class="fa fa-check"></i>記号法</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#和差の指標"><i class="fa fa-check"></i>和・差の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例gdp"><i class="fa fa-check"></i>実例：GDP</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#積の指標"><i class="fa fa-check"></i>積の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式-1"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例貿易指数金額指数"><i class="fa fa-check"></i>実例：貿易指数（金額指数）</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例経常利益"><i class="fa fa-check"></i>実例：経常利益</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#商の指標"><i class="fa fa-check"></i>商の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式-2"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例貿易指数数量指数"><i class="fa fa-check"></i>実例：貿易指数（数量指数）</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例失業率"><i class="fa fa-check"></i>実例：失業率</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#固定加重平均の指標"><i class="fa fa-check"></i>固定加重平均の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式-3"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例ラスパイレス指数"><i class="fa fa-check"></i>実例：ラスパイレス指数</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#可変加重平均の指標"><i class="fa fa-check"></i>可変加重平均の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#公式-4"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="付録1-寄与度の計算方法.html"><a href="付録1-寄与度の計算方法.html#実例現金給与総額"><i class="fa fa-check"></i>実例：現金給与総額</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
 
@@ -1325,26 +1356,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # Groups:   location [5]
 ##    location       year   new_cases
 ##    &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;
-##  1 France         2020年   2564972
-##  2 France         2021年   6917610
-##  3 France         2022年  28717231
-##  4 France         2023年    868661
-##  5 Germany        2020年   1734469
-##  6 Germany        2021年   5430525
-##  7 Germany        2022年  30220165
-##  8 Germany        2023年   1047089
+##  1 France         2020年   2338258
+##  2 France         2021年   6371668
+##  3 France         2022年  29279621
+##  4 France         2023年   1007943
+##  5 Germany        2020年   1660178
+##  6 Germany        2021年   5353865
+##  7 Germany        2022年  30227893
+##  8 Germany        2023年   1195820
 ##  9 Italy          2020年   2083689
 ## 10 Italy          2021年   3897739
 ## 11 Italy          2022年  19187010
-## 12 Italy          2023年    711546
+## 12 Italy          2023年    808574
 ## 13 Japan          2020年    230304
 ## 14 Japan          2021年   1503484
 ## 15 Japan          2022年  27371282
 ## 16 Japan          2023年   4698502
-## 17 United Kingdom 2020年   2468794
-## 18 United Kingdom 2021年  10816363
-## 19 United Kingdom 2022年  10752343
-## 20 United Kingdom 2023年    432762</code></pre>
+## 17 United Kingdom 2020年   2563561
+## 18 United Kingdom 2021年  10878143
+## 19 United Kingdom 2022年  10752834
+## 20 United Kingdom 2023年    509575</code></pre>
 <div id="縦棒グラフの基本形" class="section level3 hasAnchor" number="4.13.1">
 <h3><span class="header-section-number">4.13.1</span> 縦棒グラフの基本形<a href="ggplot2によるグラフ作成-1.html#縦棒グラフの基本形" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="ggplot2によるグラフ作成-1.html#cb481-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_mpg_col,</span>
@@ -1563,16 +1594,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 1,825 × 3
 ##    location date       new_cases_smoothed
 ##    &lt;chr&gt;    &lt;date&gt;                  &lt;dbl&gt;
-##  1 France   2022-01-01            139792.
-##  2 France   2022-01-02            156166 
-##  3 France   2022-01-03            160557.
-##  4 France   2022-01-04            165276.
-##  5 France   2022-01-05            177740.
-##  6 France   2022-01-06            195149.
-##  7 France   2022-01-07            202808.
-##  8 France   2022-01-08            216005.
-##  9 France   2022-01-09            228082.
-## 10 France   2022-01-10            261172.
+##  1 France   2022-01-01             74249.
+##  2 France   2022-01-02            162961.
+##  3 France   2022-01-03            162961.
+##  4 France   2022-01-04            162961.
+##  5 France   2022-01-05            162961.
+##  6 France   2022-01-06            162961.
+##  7 France   2022-01-07            162961.
+##  8 France   2022-01-08            162961.
+##  9 France   2022-01-09            246602.
+## 10 France   2022-01-10            246602.
 ## # … with 1,815 more rows</code></pre>
 <div id="折れ線グラフの基本形" class="section level3 hasAnchor" number="4.15.1">
 <h3><span class="header-section-number">4.15.1</span> 折れ線グラフの基本形<a href="ggplot2によるグラフ作成-1.html#折れ線グラフの基本形" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1657,7 +1688,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb498-3"><a href="ggplot2によるグラフ作成-1.html#cb498-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Japan&quot;</span>, <span class="st">&quot;United Kingdom&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Italy&quot;</span>))</span>
 <span id="cb498-4"><a href="ggplot2によるグラフ作成-1.html#cb498-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb498-5"><a href="ggplot2によるグラフ作成-1.html#cb498-5" aria-hidden="true" tabindex="-1"></a>data_owid_step</span></code></pre></div>
-<pre><code>## # A tibble: 6,302 × 3
+<pre><code>## # A tibble: 6,750 × 3
 ##    location date       stringency_index
 ##    &lt;chr&gt;    &lt;date&gt;                &lt;dbl&gt;
 ##  1 France   2020-01-03                0
@@ -1670,7 +1701,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 France   2020-01-10                0
 ##  9 France   2020-01-11                0
 ## 10 France   2020-01-12                0
-## # … with 6,292 more rows</code></pre>
+## # … with 6,740 more rows</code></pre>
 <div id="ステップグラフの基本形" class="section level3 hasAnchor" number="4.16.1">
 <h3><span class="header-section-number">4.16.1</span> ステップグラフの基本形<a href="ggplot2によるグラフ作成-1.html#ステップグラフの基本形" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="ggplot2によるグラフ作成-1.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_owid_step,</span>
@@ -1699,20 +1730,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb501-6"><a href="ggplot2によるグラフ作成-1.html#cb501-6" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>(<span class="fu">everything</span>())</span>
 <span id="cb501-7"><a href="ggplot2によるグラフ作成-1.html#cb501-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb501-8"><a href="ggplot2によるグラフ作成-1.html#cb501-8" aria-hidden="true" tabindex="-1"></a>data_owid_line</span></code></pre></div>
-<pre><code>## # A tibble: 2,643 × 3
+<pre><code>## # A tibble: 3,094 × 3
 ##    location date       new_cases_smoothed
 ##    &lt;chr&gt;    &lt;date&gt;                  &lt;dbl&gt;
-##  1 France   2022-01-01            139792.
-##  2 France   2022-01-02            156166 
-##  3 France   2022-01-03            160557.
-##  4 France   2022-01-04            165276.
-##  5 France   2022-01-05            177740.
-##  6 France   2022-01-06            195149.
-##  7 France   2022-01-07            202808.
-##  8 France   2022-01-08            216005.
-##  9 France   2022-01-09            228082.
-## 10 France   2022-01-10            261172.
-## # … with 2,633 more rows</code></pre>
+##  1 France   2022-01-01             74249.
+##  2 France   2022-01-02            162961.
+##  3 France   2022-01-03            162961.
+##  4 France   2022-01-04            162961.
+##  5 France   2022-01-05            162961.
+##  6 France   2022-01-06            162961.
+##  7 France   2022-01-07            162961.
+##  8 France   2022-01-08            162961.
+##  9 France   2022-01-09            246602.
+## 10 France   2022-01-10            246602.
+## # … with 3,084 more rows</code></pre>
 <div id="面グラフの基本形" class="section level3 hasAnchor" number="4.17.1">
 <h3><span class="header-section-number">4.17.1</span> 面グラフの基本形<a href="ggplot2によるグラフ作成-1.html#面グラフの基本形" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="ggplot2によるグラフ作成-1.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> economics,</span>
@@ -2236,11 +2267,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb535-5"><a href="ggplot2によるグラフ作成-1.html#cb535-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_owid_scale)</span></code></pre></div>
 <pre><code>##    location           new_cases          new_deaths      
 ##  Length:255         Min.   :     0.0   Min.   :   0.000  
-##  Class :character   1st Qu.:    21.2   1st Qu.:   0.142  
-##  Mode  :character   Median :   184.0   Median :   1.824  
-##                     Mean   : 10512.3   Mean   :  93.757  
-##                     3rd Qu.:  1334.3   3rd Qu.:  15.400  
-##                     Max.   :610007.9   Max.   :5520.181  
+##  Class :character   1st Qu.:    19.8   1st Qu.:   0.132  
+##  Mode  :character   Median :   168.9   Median :   1.677  
+##                     Mean   :  9862.7   Mean   :  87.935  
+##                     3rd Qu.:  1247.7   3rd Qu.:  14.362  
+##                     Max.   :570847.5   Max.   :5158.296  
 ##                     NA&#39;s   :9          NA&#39;s   :9</code></pre>
 <div id="x軸連続型y軸連続型" class="section level3 hasAnchor" number="4.24.1">
 <h3><span class="header-section-number">4.24.1</span> X軸：連続型、Y軸：連続型<a href="ggplot2によるグラフ作成-1.html#x軸連続型y軸連続型" class="anchor-section" aria-label="Anchor link to header"></a></h3>
