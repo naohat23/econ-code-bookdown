@@ -1,6 +1,8 @@
-# 付録1 寄与度の計算方法 {.unnumbered}
+# 付録 寄与度の計算方法
 
 寄与度分解とは、経済・金融指標の変動をその構成項目別に要因分解し、指標全体の動きにどの構成項目がどれくらい影響したかを明らかにする分析手法です。ここでは、様々なタイプの指標の変動（変化率、階差）を構成項目の寄与度に分解する計算方法を紹介します。
+
+なお、積の指標と商の指標の公式の求め方は、[Blanchard, O. (2006) "Macroeconomics, Fourth Edition", Pearson Prentice Hall](https://www.pearson.com/nl/en_NL/higher-education/subject-catalogue/economics/Macroeconomics-8e-Blanchard.html) の Appendix 2: A Math Refresher を参考にしています。同書には寄与度分解以外にも、マクロ経済分析でよく使用する数式展開が多数収録されていますので、適宜参照してください。
 
 ## 記号法 {.unnumbered}
 
@@ -257,19 +259,28 @@ $$
 と書き換えることができます。ここで商の指標の公式を利用すると、
 
 $$
-u_{t-1} + \Delta{u_t} = 1 - \frac{E_{t-1}}{\alpha_{t-1}N_{t-1}} \times \Bigl( 1 + \frac{\Delta{E_t}}{E_{t-1}} - \frac{\Delta{(\alpha_{t}N_t)}}{\alpha_{t-1}N_{t-1}} - \frac{\alpha_{t-1}N_{t-1}\Delta{E_t}\Delta{(\alpha_tN_t)}-E_{t-1}(\Delta{(\alpha_tN_t)})^2}{E_{t-1}\alpha_{t-1}N_{t-1}\alpha_{t}N_{t}} \Bigr)
+\begin{align}
+u_{t-1} + \Delta{u_t} = 1 - \frac{E_{t-1}}{\alpha_{t-1}N_{t-1}} \times \Bigl( &1 + \frac{\Delta{E_t}}{E_{t-1}} - \frac{\Delta{(\alpha_{t}N_t)}}{\alpha_{t-1}N_{t-1}} \\
+&- \frac{\alpha_{t-1}N_{t-1}\Delta{E_t}\Delta{(\alpha_tN_t)}-E_{t-1}(\Delta{(\alpha_tN_t)})^2}{E_{t-1}\alpha_{t-1}N_{t-1}\alpha_{t}N_{t}} \Bigr)
+\end{align}
 $$
 
 となり、さらに$\Delta{(\alpha_tN_t)}$に対して積の公式を利用して、右辺の括弧内の第3項を分割すると、
 
 $$
-u_{t-1} + \Delta{u_t} = 1 - \frac{E_{t-1}}{\alpha_{t-1}N_{t-1}} \times \Bigl( 1 + \frac{\Delta{E_t}}{E_{t-1}} - \frac{\Delta{\alpha_t}}{\alpha_{t-1}} - \frac{\Delta{N_t}}{N_{t-1}} - \frac{\Delta{\alpha_{t}}\Delta{N_t}}{\alpha_{t-1}N_{t-1}} - \frac{\alpha_{t-1}N_{t-1}\Delta{E_t}\Delta{(\alpha_tN_t)}-E_{t-1}(\Delta{(\alpha_tN_t)})^2}{E_{t-1}\alpha_{t-1}N_{t-1}\alpha_{t}N_{t}} \Bigr)
+\begin{align}
+u_{t-1} + \Delta{u_t} = 1 - \frac{E_{t-1}}{\alpha_{t-1}N_{t-1}} \times \Bigl( &1 + \frac{\Delta{E_t}}{E_{t-1}} - \frac{\Delta{\alpha_t}}{\alpha_{t-1}} - \frac{\Delta{N_t}}{N_{t-1}} - \frac{\Delta{\alpha_{t}}\Delta{N_t}}{\alpha_{t-1}N_{t-1}} \\
+&- \frac{\alpha_{t-1}N_{t-1}\Delta{E_t}\Delta{(\alpha_tN_t)}-E_{t-1}(\Delta{(\alpha_tN_t)})^2}{E_{t-1}\alpha_{t-1}N_{t-1}\alpha_{t}N_{t}} \Bigr)
+\end{align}
 $$
 
 となります。定義式$u_{t-1} = 1 - E_{t-1}/(\alpha_{t-1}N_{t-1})$を用いて整理すると、
 
 $$
-\Delta{u_t} = - \frac{1}{\alpha_{t-1}N_{t-1}}\Delta{E_t} + \frac{E_{t-1}}{\alpha^2_{t-1}N_{t-1}}\Delta{\alpha_t} + \frac{E_{t-1}}{\alpha_{t-1}N^2_{t-1}}\Delta{N_t} + \frac{E_{t-1}}{\alpha_{t-1}N_{t-1}} \times \Bigl( \frac{\Delta{\alpha_{t}}\Delta{N_t}}{\alpha_{t-1}N_{t-1}} - \frac{\alpha_{t-1}N_{t-1}\Delta{E_t}\Delta{(\alpha_tN_t)}-E_{t-1}(\Delta{(\alpha_tN_t)})^2}{E_{t-1}\alpha_{t-1}N_{t-1}\alpha_{t}N_{t}} \Bigr)
+\begin{align}
+\Delta{u_t} = &- \frac{1}{\alpha_{t-1}N_{t-1}}\Delta{E_t} + \frac{E_{t-1}}{\alpha^2_{t-1}N_{t-1}}\Delta{\alpha_t} + \frac{E_{t-1}}{\alpha_{t-1}N^2_{t-1}}\Delta{N_t} \\
+&+ \frac{E_{t-1}}{\alpha_{t-1}N_{t-1}} \times \Bigl( \frac{\Delta{\alpha_{t}}\Delta{N_t}}{\alpha_{t-1}N_{t-1}} - \frac{\alpha_{t-1}N_{t-1}\Delta{E_t}\Delta{(\alpha_tN_t)}-E_{t-1}(\Delta{(\alpha_tN_t)})^2}{E_{t-1}\alpha_{t-1}N_{t-1}\alpha_{t}N_{t}} \Bigr)
+\end{align}
 $$
 
 と寄与度分解できます。右辺第1・2・3項がそれぞれ就業者数$E_t$、労働力率$\alpha_t$、15歳以上人口$N_t$の寄与度であり、就業者数が失業率に対しマイナス要因であること、労働力率と15歳以上人口が失業率に対しプラス要因であることを示しています。
@@ -374,14 +385,18 @@ Y_{t-1} + \Delta{Y_t} &= (w_{1,t-1} + \Delta{w_{1,t}}) (X_{1,t-1} + \Delta{X_{1,
 &= w_{1,t-1}X_{1,t-1} + w_{2,t-1}X_{2,t-1} + w_{1,t-1}\Delta{X_{1,t}} + w_{2,t-1}\Delta{X_{2,t}} \\
 &+ X_{1,t-1}\Delta{w_{1,t}} + X_{2,t-1}\Delta{w_{2,t}} + \Delta{w_{1,t}}\Delta{X_{1,t}} + \Delta{w_{2,t}}\Delta{X_{2,t}} \\
 \\
-&= Y_{t-1} + w_{1,t-1}\Delta{X_{1,t}} + (1-w_{1,t-1})\Delta{X_{2,t}} + (X_{1,t-1} - X_{2,t-1})\Delta{w_{1,t}} + \Delta{w_{1,t}}(\Delta{X_{1,t}} - \Delta{X_{2,t}})
+&= Y_{t-1} + w_{1,t-1}\Delta{X_{1,t}} + (1-w_{1,t-1})\Delta{X_{2,t}} + (X_{1,t-1} - X_{2,t-1})\Delta{w_{1,t}} \\
+&+ \Delta{w_{1,t}}(\Delta{X_{1,t}} - \Delta{X_{2,t}})
 \end{aligned}
 $$
 
 両辺を$Y_{t-1}$で割り、$Y_{t-1} = X_{1,t-1} X_{2,t-1}$を使って整理すると、
 
 $$
-\frac{\Delta{Y_t}}{Y_{t-1}} = w_{1,t-1}\frac{\Delta{X_{1,t}}}{Y_{t-1}} + (1-w_{1,t-1})\frac{\Delta{X_{2,t}}}{Y_{t-1}} + (X_{1,t-1} - X_{2,t-1})\frac{\Delta{w_{1,t}}}{Y_{t-1}} + \frac{\Delta{w_{1,t}}(\Delta{X_{1,t}} - \Delta{X_{2,t}})}{Y_{t-1}}
+\begin{align}
+\frac{\Delta{Y_t}}{Y_{t-1}} &= w_{1,t-1}\frac{\Delta{X_{1,t}}}{Y_{t-1}} + (1-w_{1,t-1})\frac{\Delta{X_{2,t}}}{Y_{t-1}} + (X_{1,t-1} - X_{2,t-1})\frac{\Delta{w_{1,t}}}{Y_{t-1}} \\
+&+ \frac{\Delta{w_{1,t}}(\Delta{X_{1,t}} - \Delta{X_{2,t}})}{Y_{t-1}}
+\end{align}
 $$
 
 となります。これは、変数$Y_t$の変化率$\Delta{Y_t}/Y_{t-1}$が、$X_{1,t}$の寄与度$w_1\Delta{X_{1,t}}/Y_{t-1}$と、$X_{2,t}$の寄与度$(1-w_{1,t-1})\Delta{X_{2,t}}/Y_{t-1}$、可変ウェイト$w_{1,t}$の寄与度$(X_{1,t-1} - X_{2,t-1})/\Delta{w_{1,t}}{Y_{t-1}}$に分解できることを示しています。右辺第1・2項にかかるウェイト$w_{t-1}$が$t$時点ではなく$t-1$時点であることに注意してください。
@@ -405,7 +420,10 @@ $$
 とすると、可変加重平均の指標の公式より、
 
 $$
-\frac{\Delta{W_t}}{W_{t-1}} = (1-p_{t-1})\frac{\Delta{FT_{t}}}{W_{t-1}} + p_{t-1}\frac{\Delta{PT_{t}}}{W_{t-1}} + (PT_{t-1} - FT_{t-1})\frac{\Delta{p_{t}}}{W_{t-1}} + \frac{\Delta{p_{t}}(\Delta{PT_{t}} - \Delta{FT_{t}})}{W_{t-1}}
+\begin{align}
+\frac{\Delta{W_t}}{W_{t-1}} &= (1-p_{t-1})\frac{\Delta{FT_{t}}}{W_{t-1}} + p_{t-1}\frac{\Delta{PT_{t}}}{W_{t-1}} + (PT_{t-1} - FT_{t-1})\frac{\Delta{p_{t}}}{W_{t-1}} \\
+&+ \frac{\Delta{p_{t}}(\Delta{PT_{t}} - \Delta{FT_{t}})}{W_{t-1}}
+\end{align}
 $$
 と寄与度分解できます。右辺第1・2・3項がそれぞれ一般労働者の現金給与総額$FT_t$、パートタイム労働者の現金給与総額$PT_t$、パートタイム比率$p_t$の寄与度です。
 
