@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>9 付録 寄与度の計算方法 | エコノミストのためのR</title>
-  <meta name="description" content="9 付録 寄与度の計算方法 | エコノミストのためのR" />
+  <title>付録 寄与度の計算方法 | エコノミストのためのR</title>
+  <meta name="description" content="付録 寄与度の計算方法 | エコノミストのためのR" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="9 付録 寄与度の計算方法 | エコノミストのためのR" />
+  <meta property="og:title" content="付録 寄与度の計算方法 | エコノミストのためのR" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="naohat23/econ-code-bookdown" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="9 付録 寄与度の計算方法 | エコノミストのためのR" />
+  <meta name="twitter:title" content="付録 寄与度の計算方法 | エコノミストのためのR" />
   
   
   
@@ -772,7 +772,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.11.14" data-path="時系列分析-1.html"><a href="時系列分析-1.html#実例予測"><i class="fa fa-check"></i><b>8.11.14</b> 実例：予測</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="付録-寄与度の計算方法.html"><a href="付録-寄与度の計算方法.html"><i class="fa fa-check"></i><b>9</b> 付録 寄与度の計算方法</a>
+<li class="chapter" data-level="" data-path="付録-寄与度の計算方法.html"><a href="付録-寄与度の計算方法.html"><i class="fa fa-check"></i>付録 寄与度の計算方法</a>
 <ul>
 <li class="chapter" data-level="" data-path="付録-寄与度の計算方法.html"><a href="付録-寄与度の計算方法.html#記号法"><i class="fa fa-check"></i>記号法</a></li>
 <li class="chapter" data-level="" data-path="付録-寄与度の計算方法.html"><a href="付録-寄与度の計算方法.html#和差の指標"><i class="fa fa-check"></i>和・差の指標</a>
@@ -823,8 +823,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="付録-寄与度の計算方法" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">9</span> 付録 寄与度の計算方法<a href="付録-寄与度の計算方法.html#付録-寄与度の計算方法" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="付録-寄与度の計算方法" class="section level1 unnumbered hasAnchor">
+<h1>付録 寄与度の計算方法<a href="付録-寄与度の計算方法.html#付録-寄与度の計算方法" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>寄与度分解とは、経済・金融指標の変動をその構成項目別に要因分解し、指標全体の動きにどの構成項目がどれくらい影響したかを明らかにする分析手法です。ここでは、様々なタイプの指標の変動（変化率、階差）を構成項目の寄与度に分解する計算方法を紹介します。</p>
 <p>なお、積の指標と商の指標の公式の求め方は、<a href="https://www.pearson.com/nl/en_NL/higher-education/subject-catalogue/economics/Macroeconomics-8e-Blanchard.html">Blanchard, O. (2006) “Macroeconomics, Fourth Edition”, Pearson Prentice Hall</a> の Appendix 2: A Math Refresher を参考にしています。同書には寄与度分解以外にも、マクロ経済分析でよく使用する数式展開が多数収録されていますので、適宜参照してください。</p>
 <div id="記号法" class="section level2 unnumbered hasAnchor">
@@ -1073,9 +1073,9 @@ Y_t - Y_{t-1} = w_1 (X_{1,t} - X_{1,t-1}) + w_2 (X_{2,t} - X_{2,t-1})
 <h3>実例：ラスパイレス指数<a href="付録-寄与度の計算方法.html#実例ラスパイレス指数" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>消費者物価指数や企業物価指数のように、ウェイトを基準年で固定して計算するラスパイレス方式の指標について、変化率を構成項目の寄与度に分解します。</p>
 <p>定義式を、</p>
-<p>$$
-I_t = </p>
-<p>$$</p>
+<p><span class="math display">\[
+I_t = \frac{\sum_{i=1}\frac{P_{i,t}}{P_{i,0}}w_i}{\sum_{i=1}{w_i}} \times 100
+\]</span></p>
 <p>とします。<span class="math inline">\(I_t\)</span>は物価総合指数、<span class="math inline">\(P_{i,t}\)</span>と<span class="math inline">\(P_{0,t}\)</span>はそれぞれ比較年と基準年における個別品目<span class="math inline">\(i\)</span>の物価指数（例えば生鮮食品、エネルギー、コア物価指数など）、<span class="math inline">\(w_i\)</span>は個別品目<span class="math inline">\(i\)</span>のウェイトです。</p>
 <p>ここで、全ての品目<span class="math inline">\(i\)</span>について基準年の物価指数<span class="math inline">\(P_{i,0}\)</span>が1であるとすると、定義式は、</p>
 <p><span class="math display">\[
@@ -1105,7 +1105,7 @@ wI_t = \sum_{i=1}{w_iP_{i,t}} \times 100
 <p><span class="math display">\[
 Y_t = w_{1,t} X_{1,t} + w_{2,t} X_{2,t}
 \]</span></p>
-<p><span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>、<span class="math inline">\(w_{2,t} = 1 - w_{1,t}\)</span>、<span class="math inline">\(\Delta{w_{2,t}} = -\Delta{w_{1,t}}\)</span>を利用すると、上の式は次のように書き換えることができます。</p>
+<p>ここで、<span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>、<span class="math inline">\(w_{2,t} = 1 - w_{1,t}\)</span>、<span class="math inline">\(\Delta{w_{2,t}} = -\Delta{w_{1,t}}\)</span>を利用すると、上の式は次のように書き換えることができます。</p>
 <p><span class="math display">\[
 \begin{aligned}
 Y_{t-1} + \Delta{Y_t} &amp;= (w_{1,t-1} + \Delta{w_{1,t}}) (X_{1,t-1} + \Delta{X_{1,t}}) + (w_{2,t-1} + \Delta{w_{2,t}}) (X_{2,t-1} + \Delta{X_{2,t}}) \\
