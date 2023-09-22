@@ -1,1 +1,14 @@
 output_dir: docs
+
+rmd_files: [
+  "index.Rmd",
+  "setting.Rmd",
+  "introduction.Rmd",
+  "tidyverse.Rmd",
+  "plot.Rmd",
+  "eda.Rmd",
+  "ols.Rmd",
+  "ts.Rmd",
+  "var.Rmd",
+  "appendix_cont.Rmd"
+]
