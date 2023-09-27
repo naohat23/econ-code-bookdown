@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-09-22" />
+<meta name="date" content="2023-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,6 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i><b>1.5</b> 変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月27日-マイナーアップデート"><i class="fa fa-check"></i>2023年9月27日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月22日-メジャーアップデート"><i class="fa fa-check"></i>2023年9月22日 メジャーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-メジャーアップデート"><i class="fa fa-check"></i>2023年6月18日 メジャーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-マイナーアップデート"><i class="fa fa-check"></i>2023年6月18日 マイナーアップデート</a></li>
@@ -841,14 +842,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>複数の構成項目の足し算・引き算で作成する指標の寄与度分解です。</p>
 <div id="公式" class="section level3 unnumbered hasAnchor">
 <h3>公式<a href="appendix_cont.html#公式" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div style="border: 3px solid #ddd;">
 <p><span class="math display">\[
 \begin{aligned}
-元の式：　&amp;Y_t = X_{1,t} + X_{2,t} \\
+指標定義式：　&amp;Y_t = X_{1,t} + X_{2,t} \\
 \\
 寄与度分解：　&amp;\frac{\Delta{Y_t}}{Y_{t-1}} = \frac{\Delta{X_{1,t}}}{Y_{t-1}} + \frac{\Delta{X_{2,t}}}{Y_{t-1}}
 \end{aligned}
 \]</span></p>
-<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>によって次の式で作成されているとします。</p>
+</div>
+<p><br />
+</p>
+<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>によって次の定義式で作成されているとします。</p>
 <p><span class="math display">\[
 Y_t = X_{1,t} + X_{2,t}
 \]</span></p>
@@ -883,18 +888,22 @@ Y_t - Y_{t-1} = (X_{1,t} - X_{1,t-1}) + (X_{2,t} - X_{2,t-1})
 <p>複数の構成項目の掛け算で作成する指標の寄与度分解です。</p>
 <div id="公式-1" class="section level3 unnumbered hasAnchor">
 <h3>公式<a href="appendix_cont.html#公式-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div style="border: 3px solid #ddd;">
 <p><span class="math display">\[
 \begin{aligned}
-元の式：　&amp;Y_t = X_{1,t} X_{2,t} \\
+指標定義式：　&amp;Y_t = X_{1,t} X_{2,t} \\
 \\
 寄与度分解：　&amp;\frac{\Delta{Y_t}}{Y_{t-1}} \approx \frac{\Delta{X_{1,t}}}{X_{1,t-1}} + \frac{\Delta{X_{2,t}}}{X_{2,t-1}}
 \end{aligned}
 \]</span></p>
-<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>によって次の式で作成されているとします。</p>
+</div>
+<p><br />
+</p>
+<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>によって次の定義式で作成されているとします。</p>
 <p><span class="math display">\[
 Y_t = X_{1,t} X_{2,t}
 \]</span></p>
-<p><span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>を利用すると、上の式は次のように書き換えることができます。</p>
+<p><span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>を利用すると、定義式は次のように書き換えることができます。</p>
 <p><span class="math display">\[
 \begin{aligned}
 Y_{t-1} + \Delta{Y_t} &amp;= (X_{1,t-1} + \Delta{X_{1,t}}) (X_{2,t-1} + \Delta{X_{2,t}}) \\
@@ -907,7 +916,8 @@ Y_{t-1} + \Delta{Y_t} &amp;= (X_{1,t-1} + \Delta{X_{1,t}}) (X_{2,t-1} + \Delta{X
 \frac{\Delta{Y_t}}{Y_{t-1}} = \frac{\Delta{X_{1,t}}}{X_{1,t-1}} + \frac{\Delta{X_{2,t}}}{X_{2,t-1}} + \frac{\Delta{X_{1,t}} \Delta{X_{2,t}}}{X_{1,t-1} X_{2,t-1}}
 \]</span></p>
 <p>となります。これは、変数<span class="math inline">\(Y_t\)</span>の変化率<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>が、<span class="math inline">\(X_{1,t}\)</span>の寄与度<span class="math inline">\(\Delta{X_{1,t}}/X_{1,t-1}\)</span>と、<span class="math inline">\(X_{2,t}\)</span>の寄与度<span class="math inline">\(\Delta{X_{2,t}}/X_{2,t-1}\)</span>に分解できることを示しています。</p>
-<p>右辺第3項は<span class="math inline">\(X_{1,t}\)</span>と<span class="math inline">\(X_{2,t}\)</span>どちらの階差にも帰属させることができない交差項ですが、通常は小さな値になるため、誤差として処理します。右辺第3項を省略すると、</p>
+<p>右辺第3項は<span class="math inline">\(X_{1,t}\)</span>と<span class="math inline">\(X_{2,t}\)</span>どちらの階差にも帰属させることができない交差項ですが、通常は小さな値になるため、誤差として処理します（構成項目<span class="math inline">\(X\)</span>が増えると交差項の形も変化する点に注意してください）。</p>
+<p>右辺第3項を省略すると、</p>
 <p><span class="math display">\[
 \frac{\Delta{Y_t}}{Y_{t-1}} \approx \frac{\Delta{X_{1,t}}}{X_{1,t-1}} + \frac{\Delta{X_{2,t}}}{X_{2,t-1}}
 \]</span></p>
@@ -949,18 +959,22 @@ V_{t-1} + \Delta{V_t} = \frac{(U_{t-1} + \Delta{U_{t}}) (Q_{t-1} + \Delta{Q_{t}}
 <p>複数の構成項目の割り算で作成する指標の寄与度分解です。</p>
 <div id="公式-2" class="section level3 unnumbered hasAnchor">
 <h3>公式<a href="appendix_cont.html#公式-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div style="border: 3px solid #ddd;">
 <p><span class="math display">\[
 \begin{aligned}
-元の式：　&amp;Y_t = \frac{X_{1,t}}{X_{2,t}} \\
+指標定義式：　&amp;Y_t = \frac{X_{1,t}}{X_{2,t}} \\
 \\
 寄与度分解：　&amp;\frac{\Delta{Y_t}}{Y_{t-1}} \approx \frac{\Delta{X_{1,t}}}{X_{1,t-1}} - \frac{\Delta{X_{2,t}}}{X_{2,t-1}}
 \end{aligned}
 \]</span></p>
-<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>によって次の式で作成されているとします。</p>
+</div>
+<p><br />
+</p>
+<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>によって次の定義式で作成されているとします。</p>
 <p><span class="math display">\[
 Y_t = \frac{X_{1,t}}{X_{2,t}}
 \]</span></p>
-<p><span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>を利用すると、上の式は次のように書き換えることができます。</p>
+<p><span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>を利用すると、定義式は次のように書き換えることができます。</p>
 <p><span class="math display">\[
 Y_{t-1} + \Delta{Y_t} = \frac{X_{1,t-1} + \Delta{X_{1,t}}}{X_{2,t-1} + \Delta{X_{2,t}}}
 \]</span></p>
@@ -985,7 +999,8 @@ Y_{t-1} + \Delta{Y_t} = \frac{X_{1,t-1} + \Delta{X_{1,t}}}{X_{2,t-1} + \Delta{X_
 \frac{\Delta{Y_t}}{Y_{t-1}} = \frac{\Delta{X_{1,t}}}{X_{1,t-1}} - \frac{\Delta{X_{2,t}}}{X_{2,t-1}} - \frac{X_{2,t-1}\Delta{X_{1,t}}\Delta{X_{2,t}} - X_{1,t-1} (\Delta{X_{2,t}})^2}{X_{1,t-1}X_{2,t-1}X_{2,t}}
 \]</span></p>
 <p>となります。これは、変数<span class="math inline">\(Y_t\)</span>の変化率<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>が、<span class="math inline">\(X_{1,t}\)</span>の寄与度<span class="math inline">\(\Delta{X_{1,t}}/X_{1,t-1}\)</span>と、<span class="math inline">\(X_{2,t}\)</span>の寄与度<span class="math inline">\(-\Delta{X_{2,t}}/X_{2,t-1}\)</span>に分解できることを示しています。</p>
-<p>右辺第3項は<span class="math inline">\(X_{1,t}\)</span>と<span class="math inline">\(X_{2,t}\)</span>どちらの階差にも帰属させることができない交差項ですが、通常は小さな値になるため、誤差として処理します。右辺第3項を省略すると、</p>
+<p>右辺第3項は<span class="math inline">\(X_{1,t}\)</span>と<span class="math inline">\(X_{2,t}\)</span>どちらの階差にも帰属させることができない交差項ですが、通常は小さな値になるため、誤差として処理します（構成項目<span class="math inline">\(X\)</span>が増えると交差項の形も変化する点に注意してください）。</p>
+<p>右辺第3項を省略すると、</p>
 <p><span class="math display">\[
 \frac{\Delta{Y_t}}{Y_{t-1}} \approx \frac{\Delta{X_{1,t}}}{X_{1,t-1}} - \frac{\Delta{X_{2,t}}}{X_{2,t-1}}
 \]</span></p>
@@ -1046,14 +1061,18 @@ u_{t-1} + \Delta{u_t} = 1 - \frac{E_{t-1}}{\alpha_{t-1}N_{t-1}} \times \Bigl( &a
 <p>複数の構成項目を、時間で変化しない固定ウェイトで加重平均して作成する指標の寄与度分解です。</p>
 <div id="公式-3" class="section level3 unnumbered hasAnchor">
 <h3>公式<a href="appendix_cont.html#公式-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div style="border: 3px solid #ddd;">
 <p><span class="math display">\[
 \begin{aligned}
-元の式：　&amp;Y_t = w_1 X_{1,t} + w_2 X_{2,t} \\
+指標定義式：　&amp;Y_t = w_1 X_{1,t} + w_2 X_{2,t} \\
 \\
 寄与度分解：　&amp;\frac{\Delta{Y_t}}{Y_{t-1}} = w_1 \frac{\Delta{X_{1,t}}}{Y_{t-1}} + w_2 \frac{\Delta{X_{2,t}}}{Y_{t-1}}
 \end{aligned}
 \]</span></p>
-<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>と、時間によって変化しない固定ウェイト<span class="math inline">\(w_1\)</span>、<span class="math inline">\(w_2\)</span>によって、次の式で作成されているとします。なお、ウェイトの合計は1とします（<span class="math inline">\(w_1 + w_2 = 1\)</span>）。</p>
+</div>
+<p><br />
+</p>
+<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>と、時間によって変化しない固定ウェイト<span class="math inline">\(w_1\)</span>、<span class="math inline">\(w_2\)</span>によって、次の定義式で作成されているとします。なお、ウェイトの合計は1とします（<span class="math inline">\(w_1 + w_2 = 1\)</span>）。</p>
 <p><span class="math display">\[
 Y_t = w_1 X_{1,t} + w_2 X_{2,t}
 \]</span></p>
@@ -1096,18 +1115,22 @@ wI_t = \sum_{i=1}{w_iP_{i,t}} \times 100
 <p>複数の構成項目を、時間で変化する可変ウェイトで加重平均して作成する指標の寄与度分解です。</p>
 <div id="公式-4" class="section level3 unnumbered hasAnchor">
 <h3>公式<a href="appendix_cont.html#公式-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div style="border: 3px solid #ddd;">
 <p><span class="math display">\[
 \begin{aligned}
-元の式：　&amp;Y_t = w_{1,t} X_{1,t} + w_{2,t} X_{2,t} \\
+指標定義式：　&amp;Y_t = w_{1,t} X_{1,t} + w_{2,t} X_{2,t} \\
 \\
 寄与度分解：　&amp;\frac{\Delta{Y_t}}{Y_{t-1}} \approx w_{1,t-1}\frac{\Delta{X_{1,t}}}{Y_{t-1}} + w_{2,t-1}\frac{\Delta{X_{2,t}}}{Y_{t-1}} + (X_{1,t-1} - X_{2,t-1})\frac{\Delta{w_{1,t}}}{Y_{t-1}}
 \end{aligned}
 \]</span></p>
-<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>と、時間によって変化する可変ウェイト<span class="math inline">\(w_{1,t}\)</span>、<span class="math inline">\(w_{2,t}\)</span>によって、次の式で作成されているとします。なお、ウェイトの合計は常に1とします（<span class="math inline">\(w_{1,t} + w_{2,t} = 1\)</span>）。</p>
+</div>
+<p><br />
+</p>
+<p>ある指標<span class="math inline">\(Y_t\)</span>が、構成項目<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>と、時間によって変化する可変ウェイト<span class="math inline">\(w_{1,t}\)</span>、<span class="math inline">\(w_{2,t}\)</span>によって、次の定義式で作成されているとします。なお、ウェイトの合計は常に1とします（<span class="math inline">\(w_{1,t} + w_{2,t} = 1\)</span>）。</p>
 <p><span class="math display">\[
 Y_t = w_{1,t} X_{1,t} + w_{2,t} X_{2,t}
 \]</span></p>
-<p>ここで、<span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>、<span class="math inline">\(w_{2,t} = 1 - w_{1,t}\)</span>、<span class="math inline">\(\Delta{w_{2,t}} = -\Delta{w_{1,t}}\)</span>を利用すると、上の式は次のように書き換えることができます。</p>
+<p>ここで、<span class="math inline">\(X_t = X_{t-1} + \Delta{X_t}\)</span>、<span class="math inline">\(w_{2,t} = 1 - w_{1,t}\)</span>、<span class="math inline">\(\Delta{w_{2,t}} = -\Delta{w_{1,t}}\)</span>を利用すると、定義式は次のように書き換えることができます。</p>
 <p><span class="math display">\[
 \begin{aligned}
 Y_{t-1} + \Delta{Y_t} &amp;= (w_{1,t-1} + \Delta{w_{1,t}}) (X_{1,t-1} + \Delta{X_{1,t}}) + (w_{2,t-1} + \Delta{w_{2,t}}) (X_{2,t-1} + \Delta{X_{2,t}}) \\
@@ -1127,7 +1150,8 @@ Y_{t-1} + \Delta{Y_t} &amp;= (w_{1,t-1} + \Delta{w_{1,t}}) (X_{1,t-1} + \Delta{X
 \end{align}
 \]</span></p>
 <p>となります。これは、変数<span class="math inline">\(Y_t\)</span>の変化率<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>が、<span class="math inline">\(X_{1,t}\)</span>の寄与度<span class="math inline">\(w_1\Delta{X_{1,t}}/Y_{t-1}\)</span>と、<span class="math inline">\(X_{2,t}\)</span>の寄与度<span class="math inline">\((1-w_{1,t-1})\Delta{X_{2,t}}/Y_{t-1}\)</span>、可変ウェイト<span class="math inline">\(w_{1,t}\)</span>の寄与度<span class="math inline">\((X_{1,t-1} - X_{2,t-1})/\Delta{w_{1,t}}{Y_{t-1}}\)</span>に分解できることを示しています。右辺第1・2項にかかるウェイト<span class="math inline">\(w_{t-1}\)</span>が<span class="math inline">\(t\)</span>時点ではなく<span class="math inline">\(t-1\)</span>時点であることに注意してください。</p>
-<p>右辺第4項は<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>、<span class="math inline">\(w_{1,t}\)</span>のどの階差にも帰属させることができない交差項ですが、通常は小さな値になるため、誤差として処理します。右辺第4項を省略すると、次の近似式が成立します。</p>
+<p>右辺第4項は<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>、<span class="math inline">\(w_{1,t}\)</span>のどの階差にも帰属させることができない交差項ですが、通常は小さな値になるため、誤差として処理します（構成項目<span class="math inline">\(X\)</span>、<span class="math inline">\(w\)</span>が増えると交差項の形も変化する点に注意してください）。</p>
+<p>右辺第4項を省略すると、次の近似式が成立します。</p>
 <p><span class="math display">\[
 \frac{\Delta{Y_t}}{Y_{t-1}} \approx w_{1,t-1}\frac{\Delta{X_{1,t}}}{Y_{t-1}} + (1-w_{1,t-1})\frac{\Delta{X_{2,t}}}{Y_{t-1}} + (X_{1,t-1} - X_{2,t-1})\frac{\Delta{w_{1,t}}}{Y_{t-1}}
 \]</span></p>
@@ -1145,8 +1169,7 @@ W_t = (1-p_t)FT_t + p_tPT_t
 \frac{\Delta{W_t}}{W_{t-1}} &amp;= (1-p_{t-1})\frac{\Delta{FT_{t}}}{W_{t-1}} + p_{t-1}\frac{\Delta{PT_{t}}}{W_{t-1}} + (PT_{t-1} - FT_{t-1})\frac{\Delta{p_{t}}}{W_{t-1}} \\
 &amp;+ \frac{\Delta{p_{t}}(\Delta{PT_{t}} - \Delta{FT_{t}})}{W_{t-1}}
 \end{align}
-\]</span>
-と寄与度分解できます。右辺第1・2・3項がそれぞれ一般労働者の現金給与総額<span class="math inline">\(FT_t\)</span>、パートタイム労働者の現金給与総額<span class="math inline">\(PT_t\)</span>、パートタイム比率<span class="math inline">\(p_t\)</span>の寄与度です。</p>
+\]</span> と寄与度分解できます。右辺第1・2・3項がそれぞれ一般労働者の現金給与総額<span class="math inline">\(FT_t\)</span>、パートタイム労働者の現金給与総額<span class="math inline">\(PT_t\)</span>、パートタイム比率<span class="math inline">\(p_t\)</span>の寄与度です。</p>
 <p>右辺第4項は3つの構成項目の交差項であり、誤差として処理します。</p>
 
 </div>

@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-09-22" />
+<meta name="date" content="2023-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,6 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i><b>1.5</b> 変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月27日-マイナーアップデート"><i class="fa fa-check"></i>2023年9月27日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月22日-メジャーアップデート"><i class="fa fa-check"></i>2023年9月22日 メジャーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-メジャーアップデート"><i class="fa fa-check"></i>2023年6月18日 メジャーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-マイナーアップデート"><i class="fa fa-check"></i>2023年6月18日 マイナーアップデート</a></li>
@@ -828,7 +829,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">エコノミストのためのR</h1>
 <p class="author"><em>服部直樹</em></p>
-<p class="date"><em>2023-09-22</em></p>
+<p class="date"><em>2023-09-27</em></p>
 </div>
 <div id="はじめに" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">1</span> はじめに<a href="index.html#はじめに" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -993,12 +994,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="変更履歴" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> 変更履歴<a href="index.html#変更履歴" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="年9月22日-メジャーアップデート" class="section level3 unnumbered hasAnchor">
-<h3>2023年9月22日 メジャーアップデート<a href="index.html#年9月22日-メジャーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="年9月27日-マイナーアップデート" class="section level3 unnumbered hasAnchor">
+<h3>2023年9月27日 マイナーアップデート<a href="index.html#年9月27日-マイナーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>「はじめに」を第1章とし、もとの第1〜8章の章番号を第2〜9章へ1つづつ繰り上げ。</li>
 <li>第9章「時系列分析」で、数式の右端が表示されていなかった部分を修正。</li>
-<li>第10章「付録 寄与度の計算方法」を追加。</li>
+<li>第9章「時系列分析」の「単位根検定（ADF検定）」で、ADF検定フロー自作関数<code>adf_test_flow()</code>のプログラムの誤りを修正。フロー6とフロー7の結果が「階差変換し再検定」の場合に<code>flow_vec</code>に代入すべき<code>&lt;- TRUE</code>が抜けており、その結果、階差変換後のフロー1に判断経路のアスタリスクが記入されないエラーが生じていた。プログラム修正後に第9章の<code>adf_test_flow()</code>自作関数使用箇所を再度実行し、判断結果が変化した場合（主に、1次の階差系列で単位根なしと判断する根拠がtrend第2検定からtrend第1検定に変化）、当該箇所を修正。</li>
+</ul>
+</div>
+<div id="年9月22日-メジャーアップデート" class="section level3 unnumbered hasAnchor">
+<h3>2023年9月22日 メジャーアップデート<a href="index.html#年9月22日-メジャーアップデート" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>付録「寄与度の計算方法」を追加。</li>
 </ul>
 </div>
 <div id="年6月18日-メジャーアップデート" class="section level3 unnumbered hasAnchor">

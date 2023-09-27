@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-09-22" />
+<meta name="date" content="2023-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,6 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i><b>1.5</b> 変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月27日-マイナーアップデート"><i class="fa fa-check"></i>2023年9月27日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月22日-メジャーアップデート"><i class="fa fa-check"></i>2023年9月22日 メジャーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-メジャーアップデート"><i class="fa fa-check"></i>2023年6月18日 メジャーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-マイナーアップデート"><i class="fa fa-check"></i>2023年6月18日 マイナーアップデート</a></li>
@@ -1326,7 +1327,7 @@ Y_t = \rho Y_{t-1} + u_t
 <span id="cb864-204"><a href="var.html#cb864-204" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
 <span id="cb864-205"><a href="var.html#cb864-205" aria-hidden="true" tabindex="-1"></a>      res<span class="sc">$</span>結果[i] <span class="ot">&lt;-</span> <span class="st">&quot;帰無仮説を棄却できない&quot;</span></span>
 <span id="cb864-206"><a href="var.html#cb864-206" aria-hidden="true" tabindex="-1"></a>      res<span class="sc">$</span>判断[i] <span class="ot">&lt;-</span> <span class="st">&quot;階差変換し再検定&quot;</span></span>
-<span id="cb864-207"><a href="var.html#cb864-207" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (flow_cont_flag <span class="sc">&amp;</span> (d <span class="sc">&lt;=</span> <span class="dv">1</span>)) {flow_vec[(d <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">7</span> <span class="sc">+</span> <span class="dv">1</span>]}</span>
+<span id="cb864-207"><a href="var.html#cb864-207" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (flow_cont_flag <span class="sc">&amp;</span> (d <span class="sc">&lt;=</span> <span class="dv">1</span>)) {flow_vec[(d <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">7</span> <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">TRUE</span>}</span>
 <span id="cb864-208"><a href="var.html#cb864-208" aria-hidden="true" tabindex="-1"></a>      continue_vec[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
 <span id="cb864-209"><a href="var.html#cb864-209" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb864-210"><a href="var.html#cb864-210" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -1350,7 +1351,7 @@ Y_t = \rho Y_{t-1} + u_t
 <span id="cb864-228"><a href="var.html#cb864-228" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
 <span id="cb864-229"><a href="var.html#cb864-229" aria-hidden="true" tabindex="-1"></a>      res<span class="sc">$</span>結果[i] <span class="ot">&lt;-</span> <span class="st">&quot;帰無仮説を棄却できない&quot;</span></span>
 <span id="cb864-230"><a href="var.html#cb864-230" aria-hidden="true" tabindex="-1"></a>      res<span class="sc">$</span>判断[i] <span class="ot">&lt;-</span> <span class="st">&quot;階差変換し再検定&quot;</span></span>
-<span id="cb864-231"><a href="var.html#cb864-231" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (flow_cont_flag <span class="sc">&amp;</span> (d <span class="sc">&lt;=</span> <span class="dv">1</span>)) {flow_vec[(d <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">7</span> <span class="sc">+</span> <span class="dv">1</span>]}</span>
+<span id="cb864-231"><a href="var.html#cb864-231" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (flow_cont_flag <span class="sc">&amp;</span> (d <span class="sc">&lt;=</span> <span class="dv">1</span>)) {flow_vec[(d <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">7</span> <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="cn">TRUE</span>}</span>
 <span id="cb864-232"><a href="var.html#cb864-232" aria-hidden="true" tabindex="-1"></a>      continue_vec[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
 <span id="cb864-233"><a href="var.html#cb864-233" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb864-234"><a href="var.html#cb864-234" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -1370,8 +1371,6 @@ Y_t = \rho Y_{t-1} + u_t
 <h3><span class="header-section-number">9.4.2</span> 実例：ADF検定フロー<a href="var.html#実例adf検定フロー" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>定義した自作関数<code>adf_test_flow()</code>を用い、村尾（2019）「6.7 拡張ディッキー＝フラー検定の例」（P.141）及び、「6.10 Rによる拡張ディッキー＝フラー検定」（P.147）の例を再現します。</p>
 <p>村尾（2019）6.7及び6.10では、<code>vars</code>パッケージの<code>Canada</code>データセットに含まれるカナダの実質労働生産性（<code>prod</code>）データに対してADF検定フローを適用しています。データ頻度は四半期、期間は1980年1-3月期〜2000年10-12月期です。</p>
-<p>ここでは、ラグ次数選択基準の<code>lag_criterion</code>に、赤池情報量規準を意味する<code>"AIC"</code>を指定します。</p>
-<p><code>adf_test_flow()</code>自作関数を実行した結果、実質労働生産性の原系列（階差次数＝0）では単位根の存在が示唆され、1次の階差系列では単位根がないことが確認できました。したがって実質労働生産性は<span class="math inline">\(I(1)\)</span>過程であると判断できます。</p>
 <div class="sourceCode" id="cb865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb865-1"><a href="var.html#cb865-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Canadaデータセットを呼び出し</span></span>
 <span id="cb865-2"><a href="var.html#cb865-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Canada)</span>
 <span id="cb865-3"><a href="var.html#cb865-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1379,6 +1378,8 @@ Y_t = \rho Y_{t-1} + u_t
 <span id="cb865-5"><a href="var.html#cb865-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> Canada[, <span class="st">&quot;prod&quot;</span>]</span>
 <span id="cb865-6"><a href="var.html#cb865-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-385-1.png" width="672" /></p>
+<p>ここでは、ラグ次数選択基準の<code>lag_criterion</code>に、赤池情報量規準を意味する<code>"AIC"</code>を指定します。</p>
+<p><code>adf_test_flow()</code>自作関数を実行した結果、実質労働生産性の原系列（階差次数＝0）では単位根の存在が示唆され、1次の階差系列では単位根がないことが確認できました。したがって実質労働生産性は<span class="math inline">\(I(1)\)</span>過程であると判断できます。</p>
 <div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb866-1"><a href="var.html#cb866-1" aria-hidden="true" tabindex="-1"></a><span class="co"># yにadf_test_flow()関数を適用</span></span>
 <span id="cb866-2"><a href="var.html#cb866-2" aria-hidden="true" tabindex="-1"></a>adf_prod <span class="ot">&lt;-</span> <span class="fu">adf_test_flow</span>(<span class="at">y =</span> y, <span class="co"># 検定対象の時系列データ</span></span>
 <span id="cb866-3"><a href="var.html#cb866-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">lag_criterion =</span> <span class="st">&quot;AIC&quot;</span>, <span class="co"># ラグ次数選択基準</span></span>
@@ -1391,7 +1392,7 @@ Y_t = \rho Y_{t-1} + u_t
 <span id="cb866-10"><a href="var.html#cb866-10" aria-hidden="true" tabindex="-1"></a>adf_prod</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["フロー"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["階差次数"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["モデル"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ラグ次数"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["帰無仮説"],"name":[5],"type":["chr"],"align":["left"]},{"label":["棄却点"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["検定値"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["結果"],"name":[8],"type":["chr"],"align":["left"]},{"label":["判断"],"name":[9],"type":["chr"],"align":["left"]},{"label":["判断経路"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0","3":"trend 第1検定","4":"1","5":"単位根あり","6":"-3.450000","7":"-1.6557361","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー2へ","10":"＊"},{"1":"2","2":"0","3":"trend 複合検定","4":"1","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"1.4544699","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー4へ","10":"＊"},{"1":"3","2":"0","3":"trend 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-1.6557361","8":"帰無仮説を棄却","9":"単位根なし：I(0)過程","10":""},{"1":"4","2":"0","3":"drift 第1検定","4":"1","5":"単位根あり","6":"-2.890000","7":"-0.5159142","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー5へ","10":"＊"},{"1":"5","2":"0","3":"drift 複合検定","4":"1","5":"定数項なし＆単位根あり","6":"4.710000","7":"1.8177585","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー7へ","10":"＊"},{"1":"6","2":"0","3":"drift 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-0.5159142","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"7","2":"0","3":"none","4":"1","5":"単位根あり","6":"-1.950000","7":"1.8395366","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":"＊"},{"1":"8","2":"1","3":"trend 第1検定","4":"1","5":"単位根あり","6":"-3.450000","7":"-4.5297574","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"9","2":"1","3":"trend 複合検定","4":"1","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"10.3162386","8":"複合帰無仮説を棄却","9":"トレンド項あり：フロー10へ","10":""},{"1":"10","2":"1","3":"trend 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-4.5297574","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":"＊"},{"1":"11","2":"1","3":"drift 第1検定","4":"1","5":"単位根あり","6":"-2.890000","7":"-4.5655763","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"12","2":"1","3":"drift 複合検定","4":"1","5":"定数項なし＆単位根あり","6":"4.710000","7":"10.4283436","8":"複合帰無仮説を棄却","9":"定数項あり：フロー13へ","10":""},{"1":"13","2":"1","3":"drift 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-4.5655763","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"14","2":"1","3":"none","4":"1","5":"単位根あり","6":"-1.950000","7":"-4.2078822","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["フロー"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["階差次数"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["モデル"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ラグ次数"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["帰無仮説"],"name":[5],"type":["chr"],"align":["left"]},{"label":["棄却点"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["検定値"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["結果"],"name":[8],"type":["chr"],"align":["left"]},{"label":["判断"],"name":[9],"type":["chr"],"align":["left"]},{"label":["判断経路"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0","3":"trend 第1検定","4":"1","5":"単位根あり","6":"-3.450000","7":"-1.6557361","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー2へ","10":"＊"},{"1":"2","2":"0","3":"trend 複合検定","4":"1","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"1.4544699","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー4へ","10":"＊"},{"1":"3","2":"0","3":"trend 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-1.6557361","8":"帰無仮説を棄却","9":"単位根なし：I(0)過程","10":""},{"1":"4","2":"0","3":"drift 第1検定","4":"1","5":"単位根あり","6":"-2.890000","7":"-0.5159142","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー5へ","10":"＊"},{"1":"5","2":"0","3":"drift 複合検定","4":"1","5":"定数項なし＆単位根あり","6":"4.710000","7":"1.8177585","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー7へ","10":"＊"},{"1":"6","2":"0","3":"drift 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-0.5159142","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"7","2":"0","3":"none","4":"1","5":"単位根あり","6":"-1.950000","7":"1.8395366","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":"＊"},{"1":"8","2":"1","3":"trend 第1検定","4":"1","5":"単位根あり","6":"-3.450000","7":"-4.5297574","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":"＊"},{"1":"9","2":"1","3":"trend 複合検定","4":"1","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"10.3162386","8":"複合帰無仮説を棄却","9":"トレンド項あり：フロー10へ","10":""},{"1":"10","2":"1","3":"trend 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-4.5297574","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"11","2":"1","3":"drift 第1検定","4":"1","5":"単位根あり","6":"-2.890000","7":"-4.5655763","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"12","2":"1","3":"drift 複合検定","4":"1","5":"定数項なし＆単位根あり","6":"4.710000","7":"10.4283436","8":"複合帰無仮説を棄却","9":"定数項あり：フロー13へ","10":""},{"1":"13","2":"1","3":"drift 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-4.5655763","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"14","2":"1","3":"none","4":"1","5":"単位根あり","6":"-1.950000","7":"-4.2078822","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1425,14 +1426,14 @@ Y_t = \rho Y_{t-1} + u_t
 <p><code>stats::acf()</code>関数でコレログラムを作成すると、ラグ次数が5次以下の低次の自己相関係数が有意であることが確認できます。このように、低次ラグの自己相関係数が正であり、ラグ次数1次をピークに単調に減少する性質は、正の系列相関がある典型的なマクロ経済変数のコレログラムの例です。</p>
 <p>しかし、これをもって、5四半期前までのGDPギャップが全て当該四半期のGDPギャップに関係しているとは判断できません。自己相関係数の計算では、ラグの積み重ねによる間接的な関係が含まれているためです。そうした間接的な影響を排除して、過去のデータと当月のデータの直接的な関係を調べる方法が、次の偏自己相関です。</p>
 <div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb868-1"><a href="var.html#cb868-1" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">acf</span>(data<span class="sc">$</span>cao, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-387-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-388-1.png" width="672" /></p>
 </div>
 <div id="偏自己相関pacf" class="section level3 hasAnchor" number="9.5.2">
 <h3><span class="header-section-number">9.5.2</span> 偏自己相関（PACF）<a href="var.html#偏自己相関pacf" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>偏自己相関プロットを作成するには、<code>stats::pacf()</code>関数を使用します。PACFは<strong>Partial Auto Correlation Function（偏自己相関関数）</strong>を意味します。</p>
 <p>自己相関プロットと同様に、日本のGDPギャップ（内閣府、1980〜2016年）のデータで偏自己相関プロットを作成すると、ラグ次数1次の偏自己相関係数が有意である一方、2〜5次の偏自己相関係数は有意ではなくなりました。この結果は、当該四半期のGDPギャップと関係しているのは1四半期前のGDPギャップのみであることを示しています。</p>
 <div class="sourceCode" id="cb869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb869-1"><a href="var.html#cb869-1" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">pacf</span>(data<span class="sc">$</span>cao, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-388-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-389-1.png" width="672" /></p>
 </div>
 <div id="リュンボックス検定" class="section level3 hasAnchor" number="9.5.3">
 <h3><span class="header-section-number">9.5.3</span> リュン＝ボックス検定<a href="var.html#リュンボックス検定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1513,11 +1514,11 @@ Y_t &amp;= c + \phi_1Y_{t-1} + \phi_2Y_{t-2} + \phi_3Y_{t-3} + \cdots + \phi_pY_
 <span id="cb874-4"><a href="var.html#cb874-4" aria-hidden="true" tabindex="-1"></a>y_arma <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">ar =</span> <span class="fu">c</span>(<span class="fl">0.7</span>), <span class="at">ma =</span> <span class="fu">c</span>(<span class="fl">0.7</span>)), <span class="at">n =</span> <span class="dv">100</span>)</span>
 <span id="cb874-5"><a href="var.html#cb874-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb874-6"><a href="var.html#cb874-6" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(y_ar, <span class="at">main =</span> <span class="st">&quot;AR(1)過程&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-391-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-392-1.png" width="672" /></p>
 <div class="sourceCode" id="cb875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb875-1"><a href="var.html#cb875-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(y_ma, <span class="at">main =</span> <span class="st">&quot;MA(1)過程&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-391-2.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-392-2.png" width="672" /></p>
 <div class="sourceCode" id="cb876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb876-1"><a href="var.html#cb876-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(y_arma, <span class="at">main =</span> <span class="st">&quot;ARMA(1)過程&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-391-3.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-392-3.png" width="672" /></p>
 </div>
 </div>
 <div id="arimaモデル" class="section level3 hasAnchor" number="9.6.2">
@@ -1593,34 +1594,34 @@ Y_t = c + \sum^p_{i=1}(\phi_iY_{t-i}) + \sum^q_{j=1}(\theta_iu_{t-j}) + \sum^r_{
 <div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb877-1"><a href="var.html#cb877-1" aria-hidden="true" tabindex="-1"></a>front <span class="ot">&lt;-</span> Seatbelts[, <span class="st">&quot;front&quot;</span>]</span>
 <span id="cb877-2"><a href="var.html#cb877-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb877-3"><a href="var.html#cb877-3" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(front, <span class="at">main =</span> <span class="st">&quot;原系列&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-392-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-393-1.png" width="672" /></p>
 </div>
 <div id="データ変換" class="section level4 unnumbered hasAnchor">
 <h4>2. データ変換<a href="var.html#データ変換" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>個数や人数といったデータは対数変換するとうまくモデル化できる傾向があることから、<code>front</code>を<code>log()</code>関数で対数変換したデータについても同様に<code>ggtsdisplay()</code>関数でプロットします。</p>
 <div class="sourceCode" id="cb878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb878-1"><a href="var.html#cb878-1" aria-hidden="true" tabindex="-1"></a>front_log <span class="ot">&lt;-</span> <span class="fu">log</span>(front)</span>
 <span id="cb878-2"><a href="var.html#cb878-2" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(front_log, <span class="at">main =</span> <span class="st">&quot;対数系列&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-393-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-394-1.png" width="672" /></p>
 <p>原系列（対数変換した系列も含む）は単位根を持っている可能性があるため、対数系列を<code>diff()</code>関数で差分をとって対数差分系列に変換し、定常化できるか確認します。</p>
 <p>対数差分系列は長期にわたって平均値が変化せず、単位根が無くなっている可能性が示唆されます。短期の自己相関（ACF）は減りましたが、12・24・36カ月ラグではプラスの、6・18・30カ月ラグではマイナスの自己相関が残っており、対数差分系列にも周期性があることが確認できます。</p>
 <div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb879-1"><a href="var.html#cb879-1" aria-hidden="true" tabindex="-1"></a>front_log_diff <span class="ot">&lt;-</span> <span class="fu">diff</span>(front_log)</span>
 <span id="cb879-2"><a href="var.html#cb879-2" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(front_log_diff, <span class="at">main =</span> <span class="st">&quot;対数差分系列&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-394-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-395-1.png" width="672" /></p>
 <p>12カ月単位の自己相関があるため、季節成分をもっていると判断できます。そこで、<code>forecast</code>パッケージの<code>ggsubseriesplot()</code>関数を用いて、原系列を月ごとに分けたグラフを作成します。</p>
 <p>12月が最も交通事故死亡者数が多く、2月が最も少ない傾向があることが確認できます。</p>
 <div class="sourceCode" id="cb880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb880-1"><a href="var.html#cb880-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsubseriesplot</span>(front)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-395-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-396-1.png" width="672" /></p>
 <p>季節成分の影響を除去するため、先ほど作成した対数差分系列にさらに季節差分（ここでは12カ月前差）をとり、プロットします。季節階差は<code>diff()</code>関数の<code>lag</code>引数に周期（ここでは12）を指定して計算します。</p>
 <p>自己相関プロット（ACF）、偏自己相関プロット（PACF）ともに12カ月単位の自己相関が残っており、季節階差をとっても季節成分の影響を全て除去することはできませんでした。</p>
 <div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb881-1"><a href="var.html#cb881-1" aria-hidden="true" tabindex="-1"></a>front_log_diff_seasdiff <span class="ot">&lt;-</span> <span class="fu">diff</span>(front_log_diff, <span class="at">lag =</span> <span class="dv">12</span>)</span>
 <span id="cb881-2"><a href="var.html#cb881-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb881-3"><a href="var.html#cb881-3" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(front_log_diff_seasdiff, <span class="at">main =</span> <span class="st">&quot;対数差分系列の季節階差系列&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-396-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-397-1.png" width="672" /></p>
 </div>
 <div id="単位根検定" class="section level4 unnumbered hasAnchor">
 <h4>3. 単位根検定<a href="var.html#単位根検定" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>折れ線グラフのプロットから原系列が単位根を持っていることはほぼ明らかですが、念のため<code>adf_test_flow()</code>自作関数で<code>front</code>単位根検定と和分次数の確認を行います。</p>
-<p>原系列（階差次数0）に対しADF検定を適用したフロー1〜7では「単位根あり」の帰無仮説を棄却できず、最終的に1階の階差系列に対しtrend第2検定を行ったフロー10で<span class="math inline">\(I(1)\)</span>過程であると判断されました。これは折れ線グラフのプロットと整合的な結果です。</p>
+<p>原系列（階差次数0）に対しADF検定を適用したフロー1〜7では「単位根あり」の帰無仮説を棄却できず、最終的に1階の階差系列に対しtrend第1検定を行ったフロー8で<span class="math inline">\(I(1)\)</span>過程であると判断されました。これは折れ線グラフのプロットと整合的な結果です。</p>
 <div class="sourceCode" id="cb882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb882-1"><a href="var.html#cb882-1" aria-hidden="true" tabindex="-1"></a><span class="fu">adf_test_flow</span>(<span class="at">y =</span> front, <span class="co"># 検定対象の時系列データ</span></span>
 <span id="cb882-2"><a href="var.html#cb882-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">lag_criterion =</span> <span class="st">&quot;AIC&quot;</span>, <span class="co"># ラグ次数選択基準</span></span>
 <span id="cb882-3"><a href="var.html#cb882-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">lags_max =</span> <span class="dv">12</span>, <span class="co"># AICで自動選択する最大ラグ次数</span></span>
@@ -1628,7 +1629,7 @@ Y_t = c + \sum^p_{i=1}(\phi_iY_{t-i}) + \sum^q_{j=1}(\theta_iu_{t-j}) + \sum^r_{
 <span id="cb882-5"><a href="var.html#cb882-5" aria-hidden="true" tabindex="-1"></a>              )</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["フロー"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["階差次数"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["モデル"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ラグ次数"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["帰無仮説"],"name":[5],"type":["chr"],"align":["left"]},{"label":["棄却点"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["検定値"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["結果"],"name":[8],"type":["chr"],"align":["left"]},{"label":["判断"],"name":[9],"type":["chr"],"align":["left"]},{"label":["判断経路"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0","3":"trend 第1検定","4":"12","5":"単位根あり","6":"-3.430000","7":"-2.0697261","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー2へ","10":"＊"},{"1":"2","2":"0","3":"trend 複合検定","4":"12","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"2.3860373","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー4へ","10":"＊"},{"1":"3","2":"0","3":"trend 第2検定","4":"12","5":"単位根あり","6":"-1.644854","7":"-2.0697261","8":"帰無仮説を棄却","9":"単位根なし：I(0)過程","10":""},{"1":"4","2":"0","3":"drift 第1検定","4":"12","5":"単位根あり","6":"-2.880000","7":"-0.4025301","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー5へ","10":"＊"},{"1":"5","2":"0","3":"drift 複合検定","4":"12","5":"定数項なし＆単位根あり","6":"4.630000","7":"0.9236715","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー7へ","10":"＊"},{"1":"6","2":"0","3":"drift 第2検定","4":"12","5":"単位根あり","6":"-1.644854","7":"-0.4025301","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"7","2":"0","3":"none","4":"12","5":"単位根あり","6":"-1.950000","7":"-1.3488053","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":"＊"},{"1":"8","2":"1","3":"trend 第1検定","4":"12","5":"単位根あり","6":"-3.430000","7":"-4.6485276","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"9","2":"1","3":"trend 複合検定","4":"12","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"10.9694522","8":"複合帰無仮説を棄却","9":"トレンド項あり：フロー10へ","10":""},{"1":"10","2":"1","3":"trend 第2検定","4":"12","5":"単位根あり","6":"-1.644854","7":"-4.6485276","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":"＊"},{"1":"11","2":"1","3":"drift 第1検定","4":"12","5":"単位根あり","6":"-2.880000","7":"-4.6803032","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"12","2":"1","3":"drift 複合検定","4":"12","5":"定数項なし＆単位根あり","6":"4.630000","7":"10.9596028","8":"複合帰無仮説を棄却","9":"定数項あり：フロー13へ","10":""},{"1":"13","2":"1","3":"drift 第2検定","4":"12","5":"単位根あり","6":"-1.644854","7":"-4.6803032","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"14","2":"1","3":"none","4":"12","5":"単位根あり","6":"-1.950000","7":"-4.5522748","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["フロー"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["階差次数"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["モデル"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ラグ次数"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["帰無仮説"],"name":[5],"type":["chr"],"align":["left"]},{"label":["棄却点"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["検定値"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["結果"],"name":[8],"type":["chr"],"align":["left"]},{"label":["判断"],"name":[9],"type":["chr"],"align":["left"]},{"label":["判断経路"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0","3":"trend 第1検定","4":"12","5":"単位根あり","6":"-3.430000","7":"-2.0697261","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー2へ","10":"＊"},{"1":"2","2":"0","3":"trend 複合検定","4":"12","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"2.3860373","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー4へ","10":"＊"},{"1":"3","2":"0","3":"trend 第2検定","4":"12","5":"単位根あり","6":"-1.644854","7":"-2.0697261","8":"帰無仮説を棄却","9":"単位根なし：I(0)過程","10":""},{"1":"4","2":"0","3":"drift 第1検定","4":"12","5":"単位根あり","6":"-2.880000","7":"-0.4025301","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー5へ","10":"＊"},{"1":"5","2":"0","3":"drift 複合検定","4":"12","5":"定数項なし＆単位根あり","6":"4.630000","7":"0.9236715","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー7へ","10":"＊"},{"1":"6","2":"0","3":"drift 第2検定","4":"12","5":"単位根あり","6":"-1.644854","7":"-0.4025301","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"7","2":"0","3":"none","4":"12","5":"単位根あり","6":"-1.950000","7":"-1.3488053","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":"＊"},{"1":"8","2":"1","3":"trend 第1検定","4":"12","5":"単位根あり","6":"-3.430000","7":"-4.6485276","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":"＊"},{"1":"9","2":"1","3":"trend 複合検定","4":"12","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"10.9694522","8":"複合帰無仮説を棄却","9":"トレンド項あり：フロー10へ","10":""},{"1":"10","2":"1","3":"trend 第2検定","4":"12","5":"単位根あり","6":"-1.644854","7":"-4.6485276","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"11","2":"1","3":"drift 第1検定","4":"12","5":"単位根あり","6":"-2.880000","7":"-4.6803032","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"12","2":"1","3":"drift 複合検定","4":"12","5":"定数項なし＆単位根あり","6":"4.630000","7":"10.9596028","8":"複合帰無仮説を棄却","9":"定数項あり：フロー13へ","10":""},{"1":"13","2":"1","3":"drift 第2検定","4":"12","5":"単位根あり","6":"-1.644854","7":"-4.6803032","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"14","2":"1","3":"none","4":"12","5":"単位根あり","6":"-1.950000","7":"-4.5522748","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1709,7 +1710,7 @@ Y_t = c + \sum^p_{i=1}(\phi_iY_{t-i}) + \sum^q_{j=1}(\theta_iu_{t-j}) + \sum^r_{
 <p>まず、リュン＝ボックス検定で残差に有意な自己相関がないことを確認します。リュン＝ボックス検定を行うには<code>forecast</code>パッケージの<code>checkresiduals()</code>関数や<code>stats</code>パッケージの<code>Box.test()</code>関数を使用します。<code>checkresiduals()</code>関数はリュン＝ボックス検定の結果に加えて残差の折れ線グラフ、自己相関プロット（ACF）、ヒストグラムが出力されるので便利です。</p>
 <p>どちらの結果もp値が有意水準の0.05を上回っており、残差に有意な自己相関が見られないことが確認できます。</p>
 <div class="sourceCode" id="cb889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb889-1"><a href="var.html#cb889-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">checkresiduals</span>(model_sarimax_auto)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-402-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-403-1.png" width="672" /></p>
 <pre><code>## 
 ##  Ljung-Box test
 ## 
@@ -1763,7 +1764,7 @@ Y_t = c + \sum^p_{i=1}(\phi_iY_{t-i}) + \sum^q_{j=1}(\theta_iu_{t-j}) + \sum^r_{
 ## Dec 1984       6.392778 6.195893 6.589662</code></pre>
 <p>予測結果をプロットするには、<code>ggplot2</code>パッケージの<code>autoplot()</code>関数に予測オブジェクトを指定して実行します。テストデータを使った予測期間は、予測値に加えて<code>forecast()</code>関数で出力した信頼区間（ここでは95％）も図示されています。</p>
 <div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="var.html#cb897-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">autoplot</span>(forecast_sarimax_auto)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-406-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-407-1.png" width="672" /></p>
 <p>予測値のRMSE（Root Mean Squared Error）は、<code>forecast</code>パッケージの<code>accuracy()</code>関数で計算できます。訓練データ（Training set）のRMSEは0.088、テストデータ（Test set）のRMSEは0.104と、テストデータの予測精度（テストスコア）が訓練データの予測精度（訓練スコア）に比べやや悪いことが確認できます。</p>
 <div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb898-1"><a href="var.html#cb898-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">accuracy</span>(forecast_sarimax_auto, <span class="co"># 予測オブジェクト</span></span>
 <span id="cb898-2"><a href="var.html#cb898-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">x =</span> data_test[, <span class="st">&quot;front&quot;</span>] <span class="co"># テストデータの目的変数</span></span>
@@ -1791,7 +1792,7 @@ Y_t = c + \sum^p_{i=1}(\phi_iY_{t-i}) + \sum^q_{j=1}(\theta_iu_{t-j}) + \sum^r_{
 <span id="cb900-12"><a href="var.html#cb900-12" aria-hidden="true" tabindex="-1"></a>                                         )</span>
 <span id="cb900-13"><a href="var.html#cb900-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb900-14"><a href="var.html#cb900-14" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">autoplot</span>(forecast_sarimax_auto_exmean)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-408-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-409-1.png" width="672" /></p>
 <div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="var.html#cb901-1" aria-hidden="true" tabindex="-1"></a><span class="co"># RMSEを計算</span></span>
 <span id="cb901-2"><a href="var.html#cb901-2" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">accuracy</span>(forecast_sarimax_auto_exmean, <span class="co"># 予測オブジェクト</span></span>
 <span id="cb901-3"><a href="var.html#cb901-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">x =</span> data_test[, <span class="st">&quot;front&quot;</span>] <span class="co"># テストデータの目的変数</span></span>
@@ -1817,7 +1818,7 @@ Y_t = c + \sum^p_{i=1}(\phi_iY_{t-i}) + \sum^q_{j=1}(\theta_iu_{t-j}) + \sum^r_{
 <span id="cb903-12"><a href="var.html#cb903-12" aria-hidden="true" tabindex="-1"></a>                                           )</span>
 <span id="cb903-13"><a href="var.html#cb903-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb903-14"><a href="var.html#cb903-14" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">autoplot</span>(forecast_sarimax_auto_exlatest)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-409-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-410-1.png" width="672" /></p>
 <div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb904-1"><a href="var.html#cb904-1" aria-hidden="true" tabindex="-1"></a><span class="co"># RMSEを計算</span></span>
 <span id="cb904-2"><a href="var.html#cb904-2" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">accuracy</span>(forecast_sarimax_auto_exlatest, <span class="co"># 予測オブジェクト</span></span>
 <span id="cb904-3"><a href="var.html#cb904-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">x =</span> data_test[, <span class="st">&quot;front&quot;</span>] <span class="co"># テストデータの目的変数</span></span>
@@ -1838,7 +1839,7 @@ Y_t = c + \sum^p_{i=1}(\phi_iY_{t-i}) + \sum^q_{j=1}(\theta_iu_{t-j}) + \sum^r_{
 <span id="cb906-5"><a href="var.html#cb906-5" aria-hidden="true" tabindex="-1"></a>                                 )</span>
 <span id="cb906-6"><a href="var.html#cb906-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb906-7"><a href="var.html#cb906-7" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">autoplot</span>(forecast_mean)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-410-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-411-1.png" width="672" /></p>
 <div class="sourceCode" id="cb907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb907-1"><a href="var.html#cb907-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">accuracy</span>(forecast_mean, <span class="co"># 予測オブジェクト</span></span>
 <span id="cb907-2"><a href="var.html#cb907-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">x =</span> data_test[, <span class="st">&quot;front&quot;</span>] <span class="co"># テストデータの目的変数</span></span>
 <span id="cb907-3"><a href="var.html#cb907-3" aria-hidden="true" tabindex="-1"></a>                   )</span></code></pre></div>
@@ -1855,7 +1856,7 @@ Y_t = c + \sum^p_{i=1}(\phi_iY_{t-i}) + \sum^q_{j=1}(\theta_iu_{t-j}) + \sum^r_{
 <span id="cb909-5"><a href="var.html#cb909-5" aria-hidden="true" tabindex="-1"></a>                                 )</span>
 <span id="cb909-6"><a href="var.html#cb909-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb909-7"><a href="var.html#cb909-7" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">autoplot</span>(forecast_latest)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-411-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-412-1.png" width="672" /></p>
 <div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb910-1"><a href="var.html#cb910-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">accuracy</span>(forecast_latest, <span class="co"># 予測オブジェクト</span></span>
 <span id="cb910-2"><a href="var.html#cb910-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">x =</span> data_test[, <span class="st">&quot;front&quot;</span>] <span class="co"># テストデータの目的変数</span></span>
 <span id="cb910-3"><a href="var.html#cb910-3" aria-hidden="true" tabindex="-1"></a>                   )</span></code></pre></div>
@@ -1914,9 +1915,9 @@ Y_t = \mu + \theta X_t + u_t
 <span id="cb912-14"><a href="var.html#cb912-14" aria-hidden="true" tabindex="-1"></a>              )</span></code></pre></div>
 <p><code>forecast::ggtsdisplay()</code>関数で折れ線グラフと自己相関・偏自己相関プロットを図示します。</p>
 <div class="sourceCode" id="cb913"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb913-1"><a href="var.html#cb913-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(data_ts[, <span class="st">&quot;gdp&quot;</span>], <span class="at">main =</span> <span class="st">&quot;日本の実質GDP&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-413-1.png" width="672" /></p>
-<div class="sourceCode" id="cb914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb914-1"><a href="var.html#cb914-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(data_ts[, <span class="st">&quot;penguin&quot;</span>], <span class="at">main =</span> <span class="st">&quot;南極のペンギン数&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-414-1.png" width="672" /></p>
+<div class="sourceCode" id="cb914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb914-1"><a href="var.html#cb914-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(data_ts[, <span class="st">&quot;penguin&quot;</span>], <span class="at">main =</span> <span class="st">&quot;南極のペンギン数&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-415-1.png" width="672" /></p>
 <p>まず、実質GDPデータとペンギン数データそれぞれについて<code>adf_test_flow()</code>自作関数で単位根検定を行うと、どちらも<span class="math inline">\(I(1)\)</span>過程と判断できます。</p>
 <div class="sourceCode" id="cb915"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb915-1"><a href="var.html#cb915-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 日本の実質GDPデータのの単位根検定</span></span>
 <span id="cb915-2"><a href="var.html#cb915-2" aria-hidden="true" tabindex="-1"></a>adf_gdp <span class="ot">&lt;-</span> <span class="fu">adf_test_flow</span>(<span class="at">y =</span> data<span class="sc">$</span>gdp, <span class="co"># 検定対象の時系列データ</span></span>
@@ -1928,7 +1929,7 @@ Y_t = \mu + \theta X_t + u_t
 <span id="cb915-8"><a href="var.html#cb915-8" aria-hidden="true" tabindex="-1"></a>adf_gdp</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["フロー"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["階差次数"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["モデル"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ラグ次数"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["帰無仮説"],"name":[5],"type":["chr"],"align":["left"]},{"label":["棄却点"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["検定値"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["結果"],"name":[8],"type":["chr"],"align":["left"]},{"label":["判断"],"name":[9],"type":["chr"],"align":["left"]},{"label":["判断経路"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0","3":"trend 第1検定","4":"1","5":"単位根あり","6":"-3.500000","7":"-2.541326","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー2へ","10":"＊"},{"1":"2","2":"0","3":"trend 複合検定","4":"1","5":"トレンド項なし＆単位根あり","6":"6.730000","7":"3.320588","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー4へ","10":"＊"},{"1":"3","2":"0","3":"trend 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-2.541326","8":"帰無仮説を棄却","9":"単位根なし：I(0)過程","10":""},{"1":"4","2":"0","3":"drift 第1検定","4":"1","5":"単位根あり","6":"-2.930000","7":"-1.064565","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー5へ","10":"＊"},{"1":"5","2":"0","3":"drift 複合検定","4":"1","5":"定数項なし＆単位根あり","6":"4.860000","7":"2.610712","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー7へ","10":"＊"},{"1":"6","2":"0","3":"drift 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-1.064565","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"7","2":"0","3":"none","4":"1","5":"単位根あり","6":"-1.950000","7":"1.931645","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":"＊"},{"1":"8","2":"1","3":"trend 第1検定","4":"1","5":"単位根あり","6":"-3.500000","7":"-3.865291","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"9","2":"1","3":"trend 複合検定","4":"1","5":"トレンド項なし＆単位根あり","6":"6.730000","7":"7.477586","8":"複合帰無仮説を棄却","9":"トレンド項あり：フロー10へ","10":""},{"1":"10","2":"1","3":"trend 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-3.865291","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":"＊"},{"1":"11","2":"1","3":"drift 第1検定","4":"1","5":"単位根あり","6":"-2.930000","7":"-3.879543","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"12","2":"1","3":"drift 複合検定","4":"1","5":"定数項なし＆単位根あり","6":"4.860000","7":"7.529052","8":"複合帰無仮説を棄却","9":"定数項あり：フロー13へ","10":""},{"1":"13","2":"1","3":"drift 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-3.879543","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"14","2":"1","3":"none","4":"1","5":"単位根あり","6":"-1.950000","7":"-2.940815","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["フロー"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["階差次数"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["モデル"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ラグ次数"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["帰無仮説"],"name":[5],"type":["chr"],"align":["left"]},{"label":["棄却点"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["検定値"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["結果"],"name":[8],"type":["chr"],"align":["left"]},{"label":["判断"],"name":[9],"type":["chr"],"align":["left"]},{"label":["判断経路"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0","3":"trend 第1検定","4":"1","5":"単位根あり","6":"-3.500000","7":"-2.541326","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー2へ","10":"＊"},{"1":"2","2":"0","3":"trend 複合検定","4":"1","5":"トレンド項なし＆単位根あり","6":"6.730000","7":"3.320588","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー4へ","10":"＊"},{"1":"3","2":"0","3":"trend 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-2.541326","8":"帰無仮説を棄却","9":"単位根なし：I(0)過程","10":""},{"1":"4","2":"0","3":"drift 第1検定","4":"1","5":"単位根あり","6":"-2.930000","7":"-1.064565","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー5へ","10":"＊"},{"1":"5","2":"0","3":"drift 複合検定","4":"1","5":"定数項なし＆単位根あり","6":"4.860000","7":"2.610712","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー7へ","10":"＊"},{"1":"6","2":"0","3":"drift 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-1.064565","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"7","2":"0","3":"none","4":"1","5":"単位根あり","6":"-1.950000","7":"1.931645","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":"＊"},{"1":"8","2":"1","3":"trend 第1検定","4":"1","5":"単位根あり","6":"-3.500000","7":"-3.865291","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":"＊"},{"1":"9","2":"1","3":"trend 複合検定","4":"1","5":"トレンド項なし＆単位根あり","6":"6.730000","7":"7.477586","8":"複合帰無仮説を棄却","9":"トレンド項あり：フロー10へ","10":""},{"1":"10","2":"1","3":"trend 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-3.865291","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"11","2":"1","3":"drift 第1検定","4":"1","5":"単位根あり","6":"-2.930000","7":"-3.879543","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"12","2":"1","3":"drift 複合検定","4":"1","5":"定数項なし＆単位根あり","6":"4.860000","7":"7.529052","8":"複合帰無仮説を棄却","9":"定数項あり：フロー13へ","10":""},{"1":"13","2":"1","3":"drift 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-3.879543","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"14","2":"1","3":"none","4":"1","5":"単位根あり","6":"-1.950000","7":"-2.940815","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb916-1"><a href="var.html#cb916-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ペンギン数データの単位根検定</span></span>
@@ -1941,7 +1942,7 @@ Y_t = \mu + \theta X_t + u_t
 <span id="cb916-8"><a href="var.html#cb916-8" aria-hidden="true" tabindex="-1"></a>adf_penguin</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["フロー"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["階差次数"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["モデル"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ラグ次数"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["帰無仮説"],"name":[5],"type":["chr"],"align":["left"]},{"label":["棄却点"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["検定値"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["結果"],"name":[8],"type":["chr"],"align":["left"]},{"label":["判断"],"name":[9],"type":["chr"],"align":["left"]},{"label":["判断経路"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0","3":"trend 第1検定","4":"1","5":"単位根あり","6":"-3.500000","7":"-1.5842538","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー2へ","10":"＊"},{"1":"2","2":"0","3":"trend 複合検定","4":"1","5":"トレンド項なし＆単位根あり","6":"6.730000","7":"2.0388546","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー4へ","10":"＊"},{"1":"3","2":"0","3":"trend 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-1.5842538","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"4","2":"0","3":"drift 第1検定","4":"10","5":"単位根あり","6":"-2.930000","7":"1.6925081","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー5へ","10":"＊"},{"1":"5","2":"0","3":"drift 複合検定","4":"10","5":"定数項なし＆単位根あり","6":"4.860000","7":"3.0951039","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー7へ","10":"＊"},{"1":"6","2":"0","3":"drift 第2検定","4":"10","5":"単位根あり","6":"-1.644854","7":"1.6925081","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"7","2":"0","3":"none","4":"1","5":"単位根あり","6":"-1.950000","7":"1.8788504","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":"＊"},{"1":"8","2":"1","3":"trend 第1検定","4":"9","5":"単位根あり","6":"-3.500000","7":"-2.0541416","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー9へ","10":""},{"1":"9","2":"1","3":"trend 複合検定","4":"9","5":"トレンド項なし＆単位根あり","6":"6.730000","7":"2.2199392","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー11へ","10":"＊"},{"1":"10","2":"1","3":"trend 第2検定","4":"9","5":"単位根あり","6":"-1.644854","7":"-2.0541416","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"11","2":"1","3":"drift 第1検定","4":"1","5":"単位根あり","6":"-2.930000","7":"-3.9640143","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":"＊"},{"1":"12","2":"1","3":"drift 複合検定","4":"1","5":"定数項なし＆単位根あり","6":"4.860000","7":"7.9043602","8":"複合帰無仮説を棄却","9":"定数項あり：フロー13へ","10":""},{"1":"13","2":"1","3":"drift 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-3.9640143","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"14","2":"1","3":"none","4":"6","5":"単位根あり","6":"-1.950000","7":"0.5149527","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"15","2":"2","3":"trend 第1検定","4":"5","5":"単位根あり","6":"-3.500000","7":"-4.0251641","8":"帰無仮説を棄却","9":"単位根なし：I(2)過程","10":""},{"1":"16","2":"2","3":"trend 複合検定","4":"5","5":"トレンド項なし＆単位根あり","6":"6.730000","7":"8.1029189","8":"複合帰無仮説を棄却","9":"トレンド項あり：フロー17へ","10":""},{"1":"17","2":"2","3":"trend 第2検定","4":"5","5":"単位根あり","6":"-1.644854","7":"-4.0251641","8":"帰無仮説を棄却","9":"単位根なし：I(2)過程","10":""},{"1":"18","2":"2","3":"drift 第1検定","4":"5","5":"単位根あり","6":"-2.930000","7":"-4.1056584","8":"帰無仮説を棄却","9":"単位根なし：I(2)過程","10":""},{"1":"19","2":"2","3":"drift 複合検定","4":"5","5":"定数項なし＆単位根あり","6":"4.860000","7":"8.4419386","8":"複合帰無仮説を棄却","9":"定数項あり：フロー20へ","10":""},{"1":"20","2":"2","3":"drift 第2検定","4":"5","5":"単位根あり","6":"-1.644854","7":"-4.1056584","8":"帰無仮説を棄却","9":"単位根なし：I(2)過程","10":""},{"1":"21","2":"2","3":"none","4":"5","5":"単位根あり","6":"-1.950000","7":"-3.8741376","8":"帰無仮説を棄却","9":"単位根なし：I(2)過程","10":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["フロー"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["階差次数"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["モデル"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ラグ次数"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["帰無仮説"],"name":[5],"type":["chr"],"align":["left"]},{"label":["棄却点"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["検定値"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["結果"],"name":[8],"type":["chr"],"align":["left"]},{"label":["判断"],"name":[9],"type":["chr"],"align":["left"]},{"label":["判断経路"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0","3":"trend 第1検定","4":"1","5":"単位根あり","6":"-3.500000","7":"-1.5842538","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー2へ","10":"＊"},{"1":"2","2":"0","3":"trend 複合検定","4":"1","5":"トレンド項なし＆単位根あり","6":"6.730000","7":"2.0388546","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー4へ","10":"＊"},{"1":"3","2":"0","3":"trend 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-1.5842538","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"4","2":"0","3":"drift 第1検定","4":"10","5":"単位根あり","6":"-2.930000","7":"1.6925081","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー5へ","10":"＊"},{"1":"5","2":"0","3":"drift 複合検定","4":"10","5":"定数項なし＆単位根あり","6":"4.860000","7":"3.0951039","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー7へ","10":"＊"},{"1":"6","2":"0","3":"drift 第2検定","4":"10","5":"単位根あり","6":"-1.644854","7":"1.6925081","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"7","2":"0","3":"none","4":"1","5":"単位根あり","6":"-1.950000","7":"1.8788504","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":"＊"},{"1":"8","2":"1","3":"trend 第1検定","4":"9","5":"単位根あり","6":"-3.500000","7":"-2.0541416","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー9へ","10":"＊"},{"1":"9","2":"1","3":"trend 複合検定","4":"9","5":"トレンド項なし＆単位根あり","6":"6.730000","7":"2.2199392","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー11へ","10":"＊"},{"1":"10","2":"1","3":"trend 第2検定","4":"9","5":"単位根あり","6":"-1.644854","7":"-2.0541416","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"11","2":"1","3":"drift 第1検定","4":"1","5":"単位根あり","6":"-2.930000","7":"-3.9640143","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":"＊"},{"1":"12","2":"1","3":"drift 複合検定","4":"1","5":"定数項なし＆単位根あり","6":"4.860000","7":"7.9043602","8":"複合帰無仮説を棄却","9":"定数項あり：フロー13へ","10":""},{"1":"13","2":"1","3":"drift 第2検定","4":"1","5":"単位根あり","6":"-1.644854","7":"-3.9640143","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"14","2":"1","3":"none","4":"6","5":"単位根あり","6":"-1.950000","7":"0.5149527","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"15","2":"2","3":"trend 第1検定","4":"5","5":"単位根あり","6":"-3.500000","7":"-4.0251641","8":"帰無仮説を棄却","9":"単位根なし：I(2)過程","10":""},{"1":"16","2":"2","3":"trend 複合検定","4":"5","5":"トレンド項なし＆単位根あり","6":"6.730000","7":"8.1029189","8":"複合帰無仮説を棄却","9":"トレンド項あり：フロー17へ","10":""},{"1":"17","2":"2","3":"trend 第2検定","4":"5","5":"単位根あり","6":"-1.644854","7":"-4.0251641","8":"帰無仮説を棄却","9":"単位根なし：I(2)過程","10":""},{"1":"18","2":"2","3":"drift 第1検定","4":"5","5":"単位根あり","6":"-2.930000","7":"-4.1056584","8":"帰無仮説を棄却","9":"単位根なし：I(2)過程","10":""},{"1":"19","2":"2","3":"drift 複合検定","4":"5","5":"定数項なし＆単位根あり","6":"4.860000","7":"8.4419386","8":"複合帰無仮説を棄却","9":"定数項あり：フロー20へ","10":""},{"1":"20","2":"2","3":"drift 第2検定","4":"5","5":"単位根あり","6":"-1.644854","7":"-4.1056584","8":"帰無仮説を棄却","9":"単位根なし：I(2)過程","10":""},{"1":"21","2":"2","3":"none","4":"5","5":"単位根あり","6":"-1.950000","7":"-3.8741376","8":"帰無仮説を棄却","9":"単位根なし：I(2)過程","10":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>次に、実質GDPをペンギン数に回帰すると、両者には関係がないと考えられるにも関わらず、ペンギン数の回帰係数は5％の有意水準で有意に正であり、自由度修正済み決定係数は0.50とまずまずの大きさになっています。</p>
@@ -1985,14 +1986,14 @@ Y_t = \mu + \theta X_t + u_t
 <div class="sourceCode" id="cb921"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb921-1"><a href="var.html#cb921-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 回帰診断プロット</span></span>
 <span id="cb921-2"><a href="var.html#cb921-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
 <span id="cb921-3"><a href="var.html#cb921-3" aria-hidden="true" tabindex="-1"></a>model_lm <span class="sc">%&gt;%</span> <span class="fu">plot</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-418-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-419-1.png" width="672" /></p>
 <p>確認のために残差系列の偏自己相関プロット（PACF）を作成すると、ラグ次数1次の偏自己相関係数が有意に正であり、正の系列相関があることがわかります。</p>
 <p>また、リュン＝ボックス検定（ラグ次数1次）の結果を見るとp値が0.05を下回り、5％の有意水準で残差が系列相関をもつと判断できます。これらの残差に関する診断は、日本の実質GDPと南極のペンギン数の関係が見せかけの回帰であることを支持しています。</p>
 <div class="sourceCode" id="cb922"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb922-1"><a href="var.html#cb922-1" aria-hidden="true" tabindex="-1"></a>resid <span class="ot">&lt;-</span> model_lm<span class="sc">$</span>residuals</span>
 <span id="cb922-2"><a href="var.html#cb922-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb922-3"><a href="var.html#cb922-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 残差の偏自己相関プロット</span></span>
 <span id="cb922-4"><a href="var.html#cb922-4" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">pacf</span>(resid, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-419-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-420-1.png" width="672" /></p>
 <div class="sourceCode" id="cb923"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb923-1"><a href="var.html#cb923-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 残差のリュン＝ボックス検定</span></span>
 <span id="cb923-2"><a href="var.html#cb923-2" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">Box.test</span>(resid, <span class="co"># 帰無仮説「自己相関なし」を検定する系列</span></span>
 <span id="cb923-3"><a href="var.html#cb923-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">lag =</span> <span class="dv">1</span>, <span class="co"># ラグ次数</span></span>
@@ -2073,9 +2074,9 @@ Y_t = \mu + \theta X_t + u_t
 <span id="cb927-14"><a href="var.html#cb927-14" aria-hidden="true" tabindex="-1"></a>              )</span></code></pre></div>
 <p><code>forecast::ggtsdisplay()</code>関数で折れ線グラフと自己相関・偏自己相関プロットを図示します。</p>
 <div class="sourceCode" id="cb928"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb928-1"><a href="var.html#cb928-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(data_ts[, <span class="st">&quot;call&quot;</span>], <span class="at">main =</span> <span class="st">&quot;短期金利（コールレート）&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-422-1.png" width="672" /></p>
-<div class="sourceCode" id="cb929"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb929-1"><a href="var.html#cb929-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(data_ts[, <span class="st">&quot;yield10&quot;</span>], <span class="at">main =</span> <span class="st">&quot;長期金利（10年物国債利回り）&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-423-1.png" width="672" /></p>
+<div class="sourceCode" id="cb929"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb929-1"><a href="var.html#cb929-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(data_ts[, <span class="st">&quot;yield10&quot;</span>], <span class="at">main =</span> <span class="st">&quot;長期金利（10年物国債利回り）&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-424-1.png" width="672" /></p>
 <p>短期金利データと長期金利データそれぞれについて<code>adf_test_flow()</code>自作関数で単位根検定を行うと、どちらも<span class="math inline">\(I(1)\)</span>過程と判断できます。</p>
 <div class="sourceCode" id="cb930"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb930-1"><a href="var.html#cb930-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 短期金利データのの単位根検定</span></span>
 <span id="cb930-2"><a href="var.html#cb930-2" aria-hidden="true" tabindex="-1"></a>adf_call <span class="ot">&lt;-</span> <span class="fu">adf_test_flow</span>(<span class="at">y =</span> data_ts[, <span class="st">&quot;call&quot;</span>], <span class="co"># 検定対象の時系列データ</span></span>
@@ -2087,7 +2088,7 @@ Y_t = \mu + \theta X_t + u_t
 <span id="cb930-8"><a href="var.html#cb930-8" aria-hidden="true" tabindex="-1"></a>adf_call</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["フロー"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["階差次数"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["モデル"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ラグ次数"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["帰無仮説"],"name":[5],"type":["chr"],"align":["left"]},{"label":["棄却点"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["検定値"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["結果"],"name":[8],"type":["chr"],"align":["left"]},{"label":["判断"],"name":[9],"type":["chr"],"align":["left"]},{"label":["判断経路"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0","3":"trend 第1検定","4":"4","5":"単位根あり","6":"-3.430000","7":"-1.7913549","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー2へ","10":"＊"},{"1":"2","2":"0","3":"trend 複合検定","4":"4","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"3.7302486","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー4へ","10":"＊"},{"1":"3","2":"0","3":"trend 第2検定","4":"4","5":"単位根あり","6":"-1.644854","7":"-1.7913549","8":"帰無仮説を棄却","9":"単位根なし：I(0)過程","10":""},{"1":"4","2":"0","3":"drift 第1検定","4":"4","5":"単位根あり","6":"-2.880000","7":"-0.9082529","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー5へ","10":"＊"},{"1":"5","2":"0","3":"drift 複合検定","4":"4","5":"定数項なし＆単位根あり","6":"4.630000","7":"0.5149077","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー7へ","10":"＊"},{"1":"6","2":"0","3":"drift 第2検定","4":"4","5":"単位根あり","6":"-1.644854","7":"-0.9082529","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"7","2":"0","3":"none","4":"4","5":"単位根あり","6":"-1.950000","7":"-0.7743167","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":"＊"},{"1":"8","2":"1","3":"trend 第1検定","4":"3","5":"単位根あり","6":"-3.430000","7":"-2.7183046","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー9へ","10":""},{"1":"9","2":"1","3":"trend 複合検定","4":"3","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"3.8097707","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー11へ","10":"＊"},{"1":"10","2":"1","3":"trend 第2検定","4":"3","5":"単位根あり","6":"-1.644854","7":"-2.7183046","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"11","2":"1","3":"drift 第1検定","4":"3","5":"単位根あり","6":"-2.880000","7":"-2.0532843","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー12へ","10":"＊"},{"1":"12","2":"1","3":"drift 複合検定","4":"3","5":"定数項なし＆単位根あり","6":"4.630000","7":"2.1385647","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー14へ","10":"＊"},{"1":"13","2":"1","3":"drift 第2検定","4":"3","5":"単位根あり","6":"-1.644854","7":"-2.0532843","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"14","2":"1","3":"none","4":"3","5":"単位根あり","6":"-1.950000","7":"-2.0025373","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":"＊"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["フロー"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["階差次数"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["モデル"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ラグ次数"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["帰無仮説"],"name":[5],"type":["chr"],"align":["left"]},{"label":["棄却点"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["検定値"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["結果"],"name":[8],"type":["chr"],"align":["left"]},{"label":["判断"],"name":[9],"type":["chr"],"align":["left"]},{"label":["判断経路"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0","3":"trend 第1検定","4":"4","5":"単位根あり","6":"-3.430000","7":"-1.7913549","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー2へ","10":"＊"},{"1":"2","2":"0","3":"trend 複合検定","4":"4","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"3.7302486","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー4へ","10":"＊"},{"1":"3","2":"0","3":"trend 第2検定","4":"4","5":"単位根あり","6":"-1.644854","7":"-1.7913549","8":"帰無仮説を棄却","9":"単位根なし：I(0)過程","10":""},{"1":"4","2":"0","3":"drift 第1検定","4":"4","5":"単位根あり","6":"-2.880000","7":"-0.9082529","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー5へ","10":"＊"},{"1":"5","2":"0","3":"drift 複合検定","4":"4","5":"定数項なし＆単位根あり","6":"4.630000","7":"0.5149077","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー7へ","10":"＊"},{"1":"6","2":"0","3":"drift 第2検定","4":"4","5":"単位根あり","6":"-1.644854","7":"-0.9082529","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"7","2":"0","3":"none","4":"4","5":"単位根あり","6":"-1.950000","7":"-0.7743167","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":"＊"},{"1":"8","2":"1","3":"trend 第1検定","4":"3","5":"単位根あり","6":"-3.430000","7":"-2.7183046","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー9へ","10":"＊"},{"1":"9","2":"1","3":"trend 複合検定","4":"3","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"3.8097707","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー11へ","10":"＊"},{"1":"10","2":"1","3":"trend 第2検定","4":"3","5":"単位根あり","6":"-1.644854","7":"-2.7183046","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"11","2":"1","3":"drift 第1検定","4":"3","5":"単位根あり","6":"-2.880000","7":"-2.0532843","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー12へ","10":"＊"},{"1":"12","2":"1","3":"drift 複合検定","4":"3","5":"定数項なし＆単位根あり","6":"4.630000","7":"2.1385647","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー14へ","10":"＊"},{"1":"13","2":"1","3":"drift 第2検定","4":"3","5":"単位根あり","6":"-1.644854","7":"-2.0532843","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"14","2":"1","3":"none","4":"3","5":"単位根あり","6":"-1.950000","7":"-2.0025373","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":"＊"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <div class="sourceCode" id="cb931"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb931-1"><a href="var.html#cb931-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 長期金利データのの単位根検定</span></span>
@@ -2100,7 +2101,7 @@ Y_t = \mu + \theta X_t + u_t
 <span id="cb931-8"><a href="var.html#cb931-8" aria-hidden="true" tabindex="-1"></a>adf_yield10</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["フロー"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["階差次数"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["モデル"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ラグ次数"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["帰無仮説"],"name":[5],"type":["chr"],"align":["left"]},{"label":["棄却点"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["検定値"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["結果"],"name":[8],"type":["chr"],"align":["left"]},{"label":["判断"],"name":[9],"type":["chr"],"align":["left"]},{"label":["判断経路"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0","3":"trend 第1検定","4":"5","5":"単位根あり","6":"-3.430000","7":"-1.1533901","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー2へ","10":"＊"},{"1":"2","2":"0","3":"trend 複合検定","4":"5","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"1.6311767","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー4へ","10":"＊"},{"1":"3","2":"0","3":"trend 第2検定","4":"5","5":"単位根あり","6":"-1.644854","7":"-1.1533901","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"4","2":"0","3":"drift 第1検定","4":"5","5":"単位根あり","6":"-2.880000","7":"-0.5266411","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー5へ","10":"＊"},{"1":"5","2":"0","3":"drift 複合検定","4":"5","5":"定数項なし＆単位根あり","6":"4.630000","7":"0.4738156","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー7へ","10":"＊"},{"1":"6","2":"0","3":"drift 第2検定","4":"5","5":"単位根あり","6":"-1.644854","7":"-0.5266411","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"7","2":"0","3":"none","4":"5","5":"単位根あり","6":"-1.950000","7":"-0.8997603","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":"＊"},{"1":"8","2":"1","3":"trend 第1検定","4":"4","5":"単位根あり","6":"-3.430000","7":"-4.7715720","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"9","2":"1","3":"trend 複合検定","4":"4","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"11.4220113","8":"複合帰無仮説を棄却","9":"トレンド項あり：フロー10へ","10":""},{"1":"10","2":"1","3":"trend 第2検定","4":"4","5":"単位根あり","6":"-1.644854","7":"-4.7715720","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":"＊"},{"1":"11","2":"1","3":"drift 第1検定","4":"4","5":"単位根あり","6":"-2.880000","7":"-4.5699942","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"12","2":"1","3":"drift 複合検定","4":"4","5":"定数項なし＆単位根あり","6":"4.630000","7":"10.5343249","8":"複合帰無仮説を棄却","9":"定数項あり：フロー13へ","10":""},{"1":"13","2":"1","3":"drift 第2検定","4":"4","5":"単位根あり","6":"-1.644854","7":"-4.5699942","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"14","2":"1","3":"none","4":"4","5":"単位根あり","6":"-1.950000","7":"-4.5155886","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["フロー"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["階差次数"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["モデル"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ラグ次数"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["帰無仮説"],"name":[5],"type":["chr"],"align":["left"]},{"label":["棄却点"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["検定値"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["結果"],"name":[8],"type":["chr"],"align":["left"]},{"label":["判断"],"name":[9],"type":["chr"],"align":["left"]},{"label":["判断経路"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0","3":"trend 第1検定","4":"5","5":"単位根あり","6":"-3.430000","7":"-1.1533901","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー2へ","10":"＊"},{"1":"2","2":"0","3":"trend 複合検定","4":"5","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"1.6311767","8":"複合帰無仮説を棄却できない","9":"トレンド項なし：フロー4へ","10":"＊"},{"1":"3","2":"0","3":"trend 第2検定","4":"5","5":"単位根あり","6":"-1.644854","7":"-1.1533901","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"4","2":"0","3":"drift 第1検定","4":"5","5":"単位根あり","6":"-2.880000","7":"-0.5266411","8":"帰無仮説を棄却できない","9":"単位根の判断保留：フロー5へ","10":"＊"},{"1":"5","2":"0","3":"drift 複合検定","4":"5","5":"定数項なし＆単位根あり","6":"4.630000","7":"0.4738156","8":"複合帰無仮説を棄却できない","9":"定数項なし：フロー7へ","10":"＊"},{"1":"6","2":"0","3":"drift 第2検定","4":"5","5":"単位根あり","6":"-1.644854","7":"-0.5266411","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":""},{"1":"7","2":"0","3":"none","4":"5","5":"単位根あり","6":"-1.950000","7":"-0.8997603","8":"帰無仮説を棄却できない","9":"階差変換し再検定","10":"＊"},{"1":"8","2":"1","3":"trend 第1検定","4":"4","5":"単位根あり","6":"-3.430000","7":"-4.7715720","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":"＊"},{"1":"9","2":"1","3":"trend 複合検定","4":"4","5":"トレンド項なし＆単位根あり","6":"6.490000","7":"11.4220113","8":"複合帰無仮説を棄却","9":"トレンド項あり：フロー10へ","10":""},{"1":"10","2":"1","3":"trend 第2検定","4":"4","5":"単位根あり","6":"-1.644854","7":"-4.7715720","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"11","2":"1","3":"drift 第1検定","4":"4","5":"単位根あり","6":"-2.880000","7":"-4.5699942","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"12","2":"1","3":"drift 複合検定","4":"4","5":"定数項なし＆単位根あり","6":"4.630000","7":"10.5343249","8":"複合帰無仮説を棄却","9":"定数項あり：フロー13へ","10":""},{"1":"13","2":"1","3":"drift 第2検定","4":"4","5":"単位根あり","6":"-1.644854","7":"-4.5699942","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""},{"1":"14","2":"1","3":"none","4":"4","5":"単位根あり","6":"-1.950000","7":"-4.5155886","8":"帰無仮説を棄却","9":"単位根なし：I(1)過程","10":""}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>次に、長期金利を短期金利に回帰すると、短期金利の回帰係数は5％の有意水準で有意に正であり、自由度修正済み決定係数は0.82と高い水準です。</p>
@@ -2145,7 +2146,7 @@ Y_t = \mu + \theta X_t + u_t
 <span id="cb936-2"><a href="var.html#cb936-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb936-3"><a href="var.html#cb936-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 残差の偏自己相関プロット</span></span>
 <span id="cb936-4"><a href="var.html#cb936-4" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">pacf</span>(resid, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-427-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-428-1.png" width="672" /></p>
 <div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb937-1"><a href="var.html#cb937-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 残差のリュン＝ボックス検定</span></span>
 <span id="cb937-2"><a href="var.html#cb937-2" aria-hidden="true" tabindex="-1"></a>stats<span class="sc">::</span><span class="fu">Box.test</span>(resid, <span class="co"># 帰無仮説「自己相関なし」を検定する系列</span></span>
 <span id="cb937-3"><a href="var.html#cb937-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">lag =</span> <span class="dv">3</span>, <span class="co"># ラグ次数</span></span>
@@ -3326,26 +3327,26 @@ a_{31,0} + a_{21,0}a_{32,0} &amp; a_{32,0} &amp; 1
 <span id="cb947-3"><a href="var.html#cb947-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb947-4"><a href="var.html#cb947-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 変数をプロット</span></span>
 <span id="cb947-5"><a href="var.html#cb947-5" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(Canada[, <span class="st">&quot;e&quot;</span>], <span class="at">main =</span> <span class="st">&quot;雇用者数 e&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-432-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-433-1.png" width="672" /></p>
 <div class="sourceCode" id="cb948"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb948-1"><a href="var.html#cb948-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(Canada[, <span class="st">&quot;prod&quot;</span>], <span class="at">main =</span> <span class="st">&quot;実質労働生産性 prod&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-432-2.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-433-2.png" width="672" /></p>
 <div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb949-1"><a href="var.html#cb949-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(Canada[, <span class="st">&quot;rw&quot;</span>], <span class="at">main =</span> <span class="st">&quot;実質賃金 rw&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-432-3.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-433-3.png" width="672" /></p>
 <div class="sourceCode" id="cb950"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb950-1"><a href="var.html#cb950-1" aria-hidden="true" tabindex="-1"></a>forecast<span class="sc">::</span><span class="fu">ggtsdisplay</span>(Canada[, <span class="st">&quot;U&quot;</span>], <span class="at">main =</span> <span class="st">&quot;失業率 U&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-432-4.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-433-4.png" width="672" /></p>
 <p>VARモデルでは変数間の関係性も重要なので、<code>GGally</code>パッケージの<code>ggpairs()</code>関数でペアプロットを作成します。<code>ggpairs()</code>関数で作成したペアプロットは、対角部分が各変数の折れ線グラフ、上三角部分が2変数間の相関係数、下三角部分が2変数の散布図になります。</p>
 <p>ここでは、レベルVARモデル、階差VARモデル双方に対応できるよう、変数のレベル系列と階差系列それぞれについてペアプロットを作成します。階差系列を作成するには<code>diff()</code>関数を使用し、階差次数を<code>lag</code>引数に指定します。</p>
 <div class="sourceCode" id="cb951"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb951-1"><a href="var.html#cb951-1" aria-hidden="true" tabindex="-1"></a><span class="co"># レベル系列のペアプロット</span></span>
 <span id="cb951-2"><a href="var.html#cb951-2" aria-hidden="true" tabindex="-1"></a>Canada <span class="sc">%&gt;%</span> </span>
 <span id="cb951-3"><a href="var.html#cb951-3" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb951-4"><a href="var.html#cb951-4" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">progress =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-433-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-434-1.png" width="672" /></p>
 <div class="sourceCode" id="cb952"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb952-1"><a href="var.html#cb952-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 階差系列のペアプロット</span></span>
 <span id="cb952-2"><a href="var.html#cb952-2" aria-hidden="true" tabindex="-1"></a>Canada <span class="sc">%&gt;%</span> </span>
 <span id="cb952-3"><a href="var.html#cb952-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diff</span>(<span class="at">lag =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb952-4"><a href="var.html#cb952-4" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb952-5"><a href="var.html#cb952-5" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">progress =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-433-2.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-434-2.png" width="672" /></p>
 <div class="sourceCode" id="cb953"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb953-1"><a href="var.html#cb953-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dplyrを使って階差系列のペアプロットを作成する場合</span></span>
 <span id="cb953-2"><a href="var.html#cb953-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Canada %&gt;% </span></span>
 <span id="cb953-3"><a href="var.html#cb953-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   tibble::as_tibble() %&gt;% </span></span>
@@ -3567,10 +3568,10 @@ a_{31,0} + a_{21,0}a_{32,0} &amp; a_{32,0} &amp; 1
 <p>定義した自作関数<code>adf_test_flow()</code>を用い、村尾（2019）「6.7 拡張ディッキー＝フラー検定の例」（P.141）及び、「6.10 Rによる拡張ディッキー＝フラー検定」（P.147）の例を再現します。村尾（2019）6.7、6.10では、<code>vars</code>パッケージの<code>Canada</code>データセットのうち実質労働生産性（<code>prod</code>、自然対数×100）だけがADF検定の対象になっていますが、ここでは雇用者数（<code>e</code>、自然対数×100）、実質賃金（<code>rw</code>、自然対数×100）、失業率（<code>U</code>、％）に対してもADF検定を行います。</p>
 <p>自作関数<code>adf_test_flow()</code>で4変数に対しADF検定を行った結果、次の結果が得られました。なお、ラグ次数選択基準はAIC（Akaike Information Criterion）とし、最大ラグ次数は「実例：ラグ次数選択」で選択した2に設定しています。</p>
 <ul>
-<li>雇用者数<code>e</code>：1次の階差系列に対するtrend第2検定で「単位根あり」の帰無仮説を棄却。<code>I(1)</code>過程と判断。</li>
-<li>実質労働生産性<code>prod</code>：1次の階差系列に対するtrend第2検定で「単位根あり」の帰無仮説を棄却。<code>I(1)</code>過程と判断。</li>
+<li>雇用者数<code>e</code>：1次の階差系列に対するtrend第1検定で「単位根あり」の帰無仮説を棄却。<code>I(1)</code>過程と判断。</li>
+<li>実質労働生産性<code>prod</code>：1次の階差系列に対するtrend第1検定で「単位根あり」の帰無仮説を棄却。<code>I(1)</code>過程と判断。</li>
 <li>実質賃金<code>rw</code>：レベル系列に対するtrend第2検定で「単位根あり」の帰無仮説を棄却。<code>I(0)</code>過程と判断。</li>
-<li>失業率<code>U</code>：1次の階差系列に対するtrend第2検定で「単位根あり」の帰無仮説を棄却。<code>I(1)</code>過程と判断。</li>
+<li>失業率<code>U</code>：1次の階差系列に対するtrend第1検定で「単位根あり」の帰無仮説を棄却。<code>I(1)</code>過程と判断。</li>
 </ul>
 <p>4変数のうち3変数が非定常な<code>I(1)</code>過程、1変数が定常な<code>I(0)</code>過程と判断できました。<code>I(1)</code>過程の変数が2つ以上あるため、分析フローに基けば、この後に共和分検定を実施して、<code>I(1)</code>変数間に共和分の関係があるか確認するのが適切です。</p>
 <div class="sourceCode" id="cb964"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb964-1"><a href="var.html#cb964-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Canadaデータセットを呼び出し</span></span>
@@ -3587,81 +3588,81 @@ a_{31,0} + a_{21,0}a_{32,0} &amp; a_{32,0} &amp; 1
 <span id="cb964-12"><a href="var.html#cb964-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 結果をコンソールに出力</span></span>
 <span id="cb964-13"><a href="var.html#cb964-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(y)</span>
 <span id="cb964-14"><a href="var.html#cb964-14" aria-hidden="true" tabindex="-1"></a>  test_adf <span class="sc">%&gt;%</span> </span>
-<span id="cb964-15"><a href="var.html#cb964-15" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="st">`</span><span class="at">フロー</span><span class="st">`</span>, <span class="st">`</span><span class="at">階差次数</span><span class="st">`</span>, <span class="st">`</span><span class="at">判断</span><span class="st">`</span>, <span class="st">`</span><span class="at">判断経路</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb964-15"><a href="var.html#cb964-15" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="st">`</span><span class="at">フロー</span><span class="st">`</span>, <span class="st">`</span><span class="at">階差次数</span><span class="st">`</span>, <span class="st">`</span><span class="at">モデル</span><span class="st">`</span>, <span class="st">`</span><span class="at">判断</span><span class="st">`</span>, <span class="st">`</span><span class="at">判断経路</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb964-16"><a href="var.html#cb964-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>()</span>
 <span id="cb964-17"><a href="var.html#cb964-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;e&quot;
-## # A tibble: 14 × 4
-##    フロー 階差次数 判断                        判断経路
-##     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                       &lt;chr&gt;   
-##  1      1        0 単位根の判断保留：フロー2へ &quot;＊&quot;    
-##  2      2        0 トレンド項なし：フロー4へ   &quot;＊&quot;    
-##  3      3        0 単位根なし：I(0)過程        &quot;&quot;      
-##  4      4        0 単位根の判断保留：フロー5へ &quot;＊&quot;    
-##  5      5        0 定数項なし：フロー7へ       &quot;＊&quot;    
-##  6      6        0 階差変換し再検定            &quot;&quot;      
-##  7      7        0 階差変換し再検定            &quot;＊&quot;    
-##  8      8        1 単位根なし：I(1)過程        &quot;&quot;      
-##  9      9        1 トレンド項あり：フロー10へ  &quot;&quot;      
-## 10     10        1 単位根なし：I(1)過程        &quot;＊&quot;    
-## 11     11        1 単位根なし：I(1)過程        &quot;&quot;      
-## 12     12        1 定数項あり：フロー13へ      &quot;&quot;      
-## 13     13        1 単位根なし：I(1)過程        &quot;&quot;      
-## 14     14        1 単位根なし：I(1)過程        &quot;&quot;      
+## # A tibble: 14 × 5
+##    フロー 階差次数 モデル         判断                        判断経路
+##     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;                       &lt;chr&gt;   
+##  1      1        0 trend 第1検定  単位根の判断保留：フロー2へ &quot;＊&quot;    
+##  2      2        0 trend 複合検定 トレンド項なし：フロー4へ   &quot;＊&quot;    
+##  3      3        0 trend 第2検定  単位根なし：I(0)過程        &quot;&quot;      
+##  4      4        0 drift 第1検定  単位根の判断保留：フロー5へ &quot;＊&quot;    
+##  5      5        0 drift 複合検定 定数項なし：フロー7へ       &quot;＊&quot;    
+##  6      6        0 drift 第2検定  階差変換し再検定            &quot;&quot;      
+##  7      7        0 none           階差変換し再検定            &quot;＊&quot;    
+##  8      8        1 trend 第1検定  単位根なし：I(1)過程        &quot;＊&quot;    
+##  9      9        1 trend 複合検定 トレンド項あり：フロー10へ  &quot;&quot;      
+## 10     10        1 trend 第2検定  単位根なし：I(1)過程        &quot;&quot;      
+## 11     11        1 drift 第1検定  単位根なし：I(1)過程        &quot;&quot;      
+## 12     12        1 drift 複合検定 定数項あり：フロー13へ      &quot;&quot;      
+## 13     13        1 drift 第2検定  単位根なし：I(1)過程        &quot;&quot;      
+## 14     14        1 none           単位根なし：I(1)過程        &quot;&quot;      
 ## [1] &quot;prod&quot;
-## # A tibble: 14 × 4
-##    フロー 階差次数 判断                        判断経路
-##     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                       &lt;chr&gt;   
-##  1      1        0 単位根の判断保留：フロー2へ &quot;＊&quot;    
-##  2      2        0 トレンド項なし：フロー4へ   &quot;＊&quot;    
-##  3      3        0 単位根なし：I(0)過程        &quot;&quot;      
-##  4      4        0 単位根の判断保留：フロー5へ &quot;＊&quot;    
-##  5      5        0 定数項なし：フロー7へ       &quot;＊&quot;    
-##  6      6        0 階差変換し再検定            &quot;&quot;      
-##  7      7        0 階差変換し再検定            &quot;＊&quot;    
-##  8      8        1 単位根なし：I(1)過程        &quot;&quot;      
-##  9      9        1 トレンド項あり：フロー10へ  &quot;&quot;      
-## 10     10        1 単位根なし：I(1)過程        &quot;＊&quot;    
-## 11     11        1 単位根なし：I(1)過程        &quot;&quot;      
-## 12     12        1 定数項あり：フロー13へ      &quot;&quot;      
-## 13     13        1 単位根なし：I(1)過程        &quot;&quot;      
-## 14     14        1 単位根なし：I(1)過程        &quot;&quot;      
+## # A tibble: 14 × 5
+##    フロー 階差次数 モデル         判断                        判断経路
+##     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;                       &lt;chr&gt;   
+##  1      1        0 trend 第1検定  単位根の判断保留：フロー2へ &quot;＊&quot;    
+##  2      2        0 trend 複合検定 トレンド項なし：フロー4へ   &quot;＊&quot;    
+##  3      3        0 trend 第2検定  単位根なし：I(0)過程        &quot;&quot;      
+##  4      4        0 drift 第1検定  単位根の判断保留：フロー5へ &quot;＊&quot;    
+##  5      5        0 drift 複合検定 定数項なし：フロー7へ       &quot;＊&quot;    
+##  6      6        0 drift 第2検定  階差変換し再検定            &quot;&quot;      
+##  7      7        0 none           階差変換し再検定            &quot;＊&quot;    
+##  8      8        1 trend 第1検定  単位根なし：I(1)過程        &quot;＊&quot;    
+##  9      9        1 trend 複合検定 トレンド項あり：フロー10へ  &quot;&quot;      
+## 10     10        1 trend 第2検定  単位根なし：I(1)過程        &quot;&quot;      
+## 11     11        1 drift 第1検定  単位根なし：I(1)過程        &quot;&quot;      
+## 12     12        1 drift 複合検定 定数項あり：フロー13へ      &quot;&quot;      
+## 13     13        1 drift 第2検定  単位根なし：I(1)過程        &quot;&quot;      
+## 14     14        1 none           単位根なし：I(1)過程        &quot;&quot;      
 ## [1] &quot;rw&quot;
-## # A tibble: 14 × 4
-##    フロー 階差次数 判断                        判断経路
-##     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                       &lt;chr&gt;   
-##  1      1        0 単位根の判断保留：フロー2へ &quot;＊&quot;    
-##  2      2        0 トレンド項あり：フロー3へ   &quot;＊&quot;    
-##  3      3        0 単位根なし：I(0)過程        &quot;＊&quot;    
-##  4      4        0 単位根なし：I(0)過程        &quot;&quot;      
-##  5      5        0 定数項あり：フロー6へ       &quot;&quot;      
-##  6      6        0 単位根なし：I(0)過程        &quot;&quot;      
-##  7      7        0 階差変換し再検定            &quot;&quot;      
-##  8      8        1 単位根なし：I(1)過程        &quot;&quot;      
-##  9      9        1 トレンド項あり：フロー10へ  &quot;&quot;      
-## 10     10        1 単位根なし：I(1)過程        &quot;&quot;      
-## 11     11        1 単位根なし：I(1)過程        &quot;&quot;      
-## 12     12        1 定数項あり：フロー13へ      &quot;&quot;      
-## 13     13        1 単位根なし：I(1)過程        &quot;&quot;      
-## 14     14        1 単位根なし：I(1)過程        &quot;&quot;      
+## # A tibble: 14 × 5
+##    フロー 階差次数 モデル         判断                        判断経路
+##     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;                       &lt;chr&gt;   
+##  1      1        0 trend 第1検定  単位根の判断保留：フロー2へ &quot;＊&quot;    
+##  2      2        0 trend 複合検定 トレンド項あり：フロー3へ   &quot;＊&quot;    
+##  3      3        0 trend 第2検定  単位根なし：I(0)過程        &quot;＊&quot;    
+##  4      4        0 drift 第1検定  単位根なし：I(0)過程        &quot;&quot;      
+##  5      5        0 drift 複合検定 定数項あり：フロー6へ       &quot;&quot;      
+##  6      6        0 drift 第2検定  単位根なし：I(0)過程        &quot;&quot;      
+##  7      7        0 none           階差変換し再検定            &quot;&quot;      
+##  8      8        1 trend 第1検定  単位根なし：I(1)過程        &quot;&quot;      
+##  9      9        1 trend 複合検定 トレンド項あり：フロー10へ  &quot;&quot;      
+## 10     10        1 trend 第2検定  単位根なし：I(1)過程        &quot;&quot;      
+## 11     11        1 drift 第1検定  単位根なし：I(1)過程        &quot;&quot;      
+## 12     12        1 drift 複合検定 定数項あり：フロー13へ      &quot;&quot;      
+## 13     13        1 drift 第2検定  単位根なし：I(1)過程        &quot;&quot;      
+## 14     14        1 none           単位根なし：I(1)過程        &quot;&quot;      
 ## [1] &quot;U&quot;
-## # A tibble: 14 × 4
-##    フロー 階差次数 判断                        判断経路
-##     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;                       &lt;chr&gt;   
-##  1      1        0 単位根の判断保留：フロー2へ &quot;＊&quot;    
-##  2      2        0 トレンド項なし：フロー4へ   &quot;＊&quot;    
-##  3      3        0 単位根なし：I(0)過程        &quot;&quot;      
-##  4      4        0 単位根の判断保留：フロー5へ &quot;＊&quot;    
-##  5      5        0 定数項なし：フロー7へ       &quot;＊&quot;    
-##  6      6        0 単位根なし：I(0)過程        &quot;&quot;      
-##  7      7        0 階差変換し再検定            &quot;＊&quot;    
-##  8      8        1 単位根なし：I(1)過程        &quot;&quot;      
-##  9      9        1 トレンド項あり：フロー10へ  &quot;&quot;      
-## 10     10        1 単位根なし：I(1)過程        &quot;＊&quot;    
-## 11     11        1 単位根なし：I(1)過程        &quot;&quot;      
-## 12     12        1 定数項あり：フロー13へ      &quot;&quot;      
-## 13     13        1 単位根なし：I(1)過程        &quot;&quot;      
-## 14     14        1 単位根なし：I(1)過程        &quot;&quot;</code></pre>
+## # A tibble: 14 × 5
+##    フロー 階差次数 モデル         判断                        判断経路
+##     &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;                       &lt;chr&gt;   
+##  1      1        0 trend 第1検定  単位根の判断保留：フロー2へ &quot;＊&quot;    
+##  2      2        0 trend 複合検定 トレンド項なし：フロー4へ   &quot;＊&quot;    
+##  3      3        0 trend 第2検定  単位根なし：I(0)過程        &quot;&quot;      
+##  4      4        0 drift 第1検定  単位根の判断保留：フロー5へ &quot;＊&quot;    
+##  5      5        0 drift 複合検定 定数項なし：フロー7へ       &quot;＊&quot;    
+##  6      6        0 drift 第2検定  単位根なし：I(0)過程        &quot;&quot;      
+##  7      7        0 none           階差変換し再検定            &quot;＊&quot;    
+##  8      8        1 trend 第1検定  単位根なし：I(1)過程        &quot;＊&quot;    
+##  9      9        1 trend 複合検定 トレンド項あり：フロー10へ  &quot;&quot;      
+## 10     10        1 trend 第2検定  単位根なし：I(1)過程        &quot;&quot;      
+## 11     11        1 drift 第1検定  単位根なし：I(1)過程        &quot;&quot;      
+## 12     12        1 drift 複合検定 定数項あり：フロー13へ      &quot;&quot;      
+## 13     13        1 drift 第2検定  単位根なし：I(1)過程        &quot;&quot;      
+## 14     14        1 none           単位根なし：I(1)過程        &quot;&quot;</code></pre>
 </div>
 <div id="実例ヨハンセン検定-1" class="section level3 hasAnchor" number="9.11.5">
 <h3><span class="header-section-number">9.11.5</span> 実例：ヨハンセン検定<a href="var.html#実例ヨハンセン検定-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -4793,7 +4794,7 @@ rw_t &amp;= a_{41} prod_t + a_{43} U_t + \epsilon_{rw,t} \\
 <span id="cb1013-18"><a href="var.html#cb1013-18" aria-hidden="true" tabindex="-1"></a>                             )</span>
 <span id="cb1013-19"><a href="var.html#cb1013-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1013-20"><a href="var.html#cb1013-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(irf_consumption)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-450-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-451-1.png" width="672" /></p>
 <div class="sourceCode" id="cb1014"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1014-1"><a href="var.html#cb1014-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 所得のショックに対するインパルス応答</span></span>
 <span id="cb1014-2"><a href="var.html#cb1014-2" aria-hidden="true" tabindex="-1"></a>irf_income <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">irf</span>(<span class="at">x =</span> model_var_usconsumption, <span class="co"># インパルス応答を計算するモデルオブジェクト</span></span>
 <span id="cb1014-3"><a href="var.html#cb1014-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">impulse =</span> <span class="st">&quot;income&quot;</span>, <span class="co"># ショックを発生させる変数（デフォルトは全ての変数）</span></span>
@@ -4804,7 +4805,7 @@ rw_t &amp;= a_{41} prod_t + a_{43} U_t + \epsilon_{rw,t} \\
 <span id="cb1014-8"><a href="var.html#cb1014-8" aria-hidden="true" tabindex="-1"></a>                        )</span>
 <span id="cb1014-9"><a href="var.html#cb1014-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1014-10"><a href="var.html#cb1014-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(irf_income)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-450-2.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-451-2.png" width="672" /></p>
 <p>VARモデルを推定する際に変数の順序を実質可処分所得、実質個人消費支出の順番に逆転させると、インパルス応答（直交化インパルス応答）の結果が変化します。この場合は、消費のショックが0期目の所得に影響しなくなる一方、所得のショックが0期目の消費に影響するようになります。</p>
 <div class="sourceCode" id="cb1015"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1015-1"><a href="var.html#cb1015-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usconsumptionデータを格納</span></span>
 <span id="cb1015-2"><a href="var.html#cb1015-2" aria-hidden="true" tabindex="-1"></a>data_usconsumption <span class="ot">&lt;-</span> fpp<span class="sc">::</span>usconsumption</span>
@@ -4826,7 +4827,7 @@ rw_t &amp;= a_{41} prod_t + a_{43} U_t + \epsilon_{rw,t} \\
 <span id="cb1015-18"><a href="var.html#cb1015-18" aria-hidden="true" tabindex="-1"></a>                             )</span>
 <span id="cb1015-19"><a href="var.html#cb1015-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1015-20"><a href="var.html#cb1015-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(irf_consumption)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-451-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-452-1.png" width="672" /></p>
 <div class="sourceCode" id="cb1016"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1016-1"><a href="var.html#cb1016-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 所得のショックに対するインパルス応答</span></span>
 <span id="cb1016-2"><a href="var.html#cb1016-2" aria-hidden="true" tabindex="-1"></a>irf_income <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">irf</span>(<span class="at">x =</span> model_var_usconsumption, <span class="co"># インパルス応答を計算するモデルオブジェクト</span></span>
 <span id="cb1016-3"><a href="var.html#cb1016-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">impulse =</span> <span class="st">&quot;income&quot;</span>, <span class="co"># ショックを発生させる変数（デフォルトは全ての変数）</span></span>
@@ -4837,7 +4838,7 @@ rw_t &amp;= a_{41} prod_t + a_{43} U_t + \epsilon_{rw,t} \\
 <span id="cb1016-8"><a href="var.html#cb1016-8" aria-hidden="true" tabindex="-1"></a>                        )</span>
 <span id="cb1016-9"><a href="var.html#cb1016-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1016-10"><a href="var.html#cb1016-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(irf_income)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-451-2.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-452-2.png" width="672" /></p>
 </div>
 <div id="実例予測誤差の分散分解" class="section level3 hasAnchor" number="9.11.12">
 <h3><span class="header-section-number">9.11.12</span> 実例：予測誤差の分散分解<a href="var.html#実例予測誤差の分散分解" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -4859,7 +4860,7 @@ rw_t &amp;= a_{41} prod_t + a_{43} U_t + \epsilon_{rw,t} \\
 <span id="cb1017-14"><a href="var.html#cb1017-14" aria-hidden="true" tabindex="-1"></a>                                 )</span>
 <span id="cb1017-15"><a href="var.html#cb1017-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1017-16"><a href="var.html#cb1017-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fevd_usconsumption)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-452-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-453-1.png" width="672" /></p>
 <p>次に、VARモデルの推定における変数の順序を所得、消費に変更し、分散分解を求め直します。すると、消費に対して所得が10％程度の影響度をもつようになりました。このように、分散分解もインパルス応答（直交化インパルス応答）と同様に変数の順序によって結果が変わりうる点に注意が必要です。</p>
 <div class="sourceCode" id="cb1018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1018-1"><a href="var.html#cb1018-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usconsumptionデータを格納</span></span>
 <span id="cb1018-2"><a href="var.html#cb1018-2" aria-hidden="true" tabindex="-1"></a>data_usconsumption <span class="ot">&lt;-</span> fpp<span class="sc">::</span>usconsumption</span>
@@ -4877,7 +4878,7 @@ rw_t &amp;= a_{41} prod_t + a_{43} U_t + \epsilon_{rw,t} \\
 <span id="cb1018-14"><a href="var.html#cb1018-14" aria-hidden="true" tabindex="-1"></a>                                 )</span>
 <span id="cb1018-15"><a href="var.html#cb1018-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1018-16"><a href="var.html#cb1018-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fevd_usconsumption)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-453-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-454-1.png" width="672" /></p>
 </div>
 <div id="実例グレンジャー因果性検定" class="section level3 hasAnchor" number="9.11.13">
 <h3><span class="header-section-number">9.11.13</span> 実例：グレンジャー因果性検定<a href="var.html#実例グレンジャー因果性検定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -5006,7 +5007,7 @@ rw_t &amp;= a_{41} prod_t + a_{43} U_t + \epsilon_{rw,t} \\
 <span id="cb1030-14"><a href="var.html#cb1030-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1030-15"><a href="var.html#cb1030-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 予測値を図示</span></span>
 <span id="cb1030-16"><a href="var.html#cb1030-16" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(pred_train)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-459-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-460-1.png" width="672" /></p>
 <p>最後に、<code>forecast</code>パッケージの<code>accuracy()</code>関数で予測精度を評価します。</p>
 <p>消費の予測精度をRMSEで評価すると、VARモデル予測は0.849、ナイーブ予測（過去の平均値）は0.847、ナイーブ予測（最後の値）は0.620と、残念ながらナイーブ予測の精度より悪い結果になりました。</p>
 <div class="sourceCode" id="cb1031"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1031-1"><a href="var.html#cb1031-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 消費のVARモデル予測値の精度</span></span>

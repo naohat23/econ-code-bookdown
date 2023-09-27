@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-09-22" />
+<meta name="date" content="2023-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,6 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i><b>1.5</b> 変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月27日-マイナーアップデート"><i class="fa fa-check"></i>2023年9月27日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月22日-メジャーアップデート"><i class="fa fa-check"></i>2023年9月22日 メジャーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-メジャーアップデート"><i class="fa fa-check"></i>2023年6月18日 メジャーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-マイナーアップデート"><i class="fa fa-check"></i>2023年6月18日 マイナーアップデート</a></li>
@@ -1335,7 +1336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb721-11"><a href="ts.html#cb721-11" aria-hidden="true" tabindex="-1"></a>  tsibble<span class="sc">::</span><span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> location)</span>
 <span id="cb721-12"><a href="ts.html#cb721-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb721-13"><a href="ts.html#cb721-13" aria-hidden="true" tabindex="-1"></a>data_tsibble</span></code></pre></div>
-<pre><code>## # A tsibble: 49,039 x 14 [1W]
+<pre><code>## # A tsibble: 49,040 x 14 [1W]
 ## # Key:       location [255]
 ##    continent location       date total…¹ new_c…² new_c…³ total…⁴ new_d…⁵ total…⁶
 ##    &lt;chr&gt;     &lt;chr&gt;        &lt;week&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -1349,7 +1350,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghanist… 2020 W09       1       1   0.143      NA       0   0.024
 ##  9 Asia      Afghanist… 2020 W10       1       0   0          NA       0   0.024
 ## 10 Asia      Afghanist… 2020 W11       4       0   0.429      NA       0   0.097
-## # … with 49,029 more rows, 5 more variables: new_cases_per_million &lt;dbl&gt;,
+## # … with 49,030 more rows, 5 more variables: new_cases_per_million &lt;dbl&gt;,
 ## #   total_deaths_per_million &lt;dbl&gt;, new_deaths_per_million &lt;dbl&gt;,
 ## #   people_fully_vaccinated &lt;dbl&gt;, stringency_index &lt;dbl&gt;, and abbreviated
 ## #   variable names ¹​total_cases, ²​new_cases, ³​new_cases_smoothed,
@@ -1369,7 +1370,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb725-7"><a href="ts.html#cb725-7" aria-hidden="true" tabindex="-1"></a>  tsibble<span class="sc">::</span><span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> location)</span>
 <span id="cb725-8"><a href="ts.html#cb725-8" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb725-9"><a href="ts.html#cb725-9" aria-hidden="true" tabindex="-1"></a>data_tsibble</span></code></pre></div>
-<pre><code>## # A tsibble: 343,261 x 14 [1D]
+<pre><code>## # A tsibble: 343,385 x 14 [1D]
 ## # Key:       location [255]
 ##    continent location date       total…¹ new_c…² new_c…³ total…⁴ new_d…⁵ total…⁶
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -1383,7 +1384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Asia      Afghani… 2020-01-10      NA       0       0      NA       0      NA
 ##  9 Asia      Afghani… 2020-01-11      NA       0       0      NA       0      NA
 ## 10 Asia      Afghani… 2020-01-12      NA       0       0      NA       0      NA
-## # … with 343,251 more rows, 5 more variables: new_cases_per_million &lt;dbl&gt;,
+## # … with 343,375 more rows, 5 more variables: new_cases_per_million &lt;dbl&gt;,
 ## #   total_deaths_per_million &lt;dbl&gt;, new_deaths_per_million &lt;dbl&gt;,
 ## #   people_fully_vaccinated &lt;dbl&gt;, stringency_index &lt;dbl&gt;, and abbreviated
 ## #   variable names ¹​total_cases, ²​new_cases, ³​new_cases_smoothed,
@@ -1611,7 +1612,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>tidyquant::tq_transmute()</code>関数を使用して日次データを週次データに変換すると、月曜～日曜のデータが<code>FUN</code>に指定した関数で集計され、日曜の日付で記録されます。</p>
 <div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="ts.html#cb789-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span> </span>
 <span id="cb789-2"><a href="ts.html#cb789-2" aria-hidden="true" tabindex="-1"></a>  tidyquant<span class="sc">::</span><span class="fu">tq_transmute</span>(<span class="at">select =</span> <span class="sc">-</span>date, <span class="at">mutate_fun =</span> apply.weekly, <span class="at">FUN =</span> mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 143 × 256
+<pre><code>## # A tibble: 144 × 256
 ##    date       Afghanistan Africa Albania Algeria Americ…¹ Andorra Angola Angui…²
 ##    &lt;date&gt;           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
 ##  1 2021-01-03       126.  26506.    526.    283.        0    61     58.3   0.667
@@ -1624,7 +1625,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 2021-02-21        16   11044.   1011.    179.        0    29.9   24.3   0    
 ##  9 2021-02-28        15.7 10580.   1046.    171.        0    25.3   40.4   0    
 ## 10 2021-03-07        19   10119     867.    163.        0    24.3   39     0    
-## # … with 133 more rows, 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
+## # … with 134 more rows, 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
 ## #   Argentina &lt;dbl&gt;, Armenia &lt;dbl&gt;, Aruba &lt;dbl&gt;, Asia &lt;dbl&gt;, Australia &lt;dbl&gt;,
 ## #   Austria &lt;dbl&gt;, Azerbaijan &lt;dbl&gt;, Bahamas &lt;dbl&gt;, Bahrain &lt;dbl&gt;,
 ## #   Bangladesh &lt;dbl&gt;, Barbados &lt;dbl&gt;, Belarus &lt;dbl&gt;, Belgium &lt;dbl&gt;,
@@ -1635,7 +1636,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb791"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb791-1"><a href="ts.html#cb791-1" aria-hidden="true" tabindex="-1"></a>data_owid_cases_wide <span class="sc">%&gt;%</span></span>
 <span id="cb791-2"><a href="ts.html#cb791-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">-</span>date, rollmean, <span class="at">k =</span> <span class="dv">7</span>, <span class="at">na.pad =</span> <span class="cn">TRUE</span>, <span class="at">align =</span> <span class="st">&quot;left&quot;</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb791-3"><a href="ts.html#cb791-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(lubridate<span class="sc">::</span><span class="fu">wday</span>(date) <span class="sc">==</span> <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 142 × 256
+<pre><code>## # A tibble: 143 × 256
 ##    date       Afghanistan Africa Albania Algeria Americ…¹ Andorra Angola Angui…²
 ##    &lt;date&gt;           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
 ##  1 2021-01-03       116.  29316.    484.    251.        0    53.1   71.1   0.143
@@ -1648,7 +1649,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 2021-02-21        18.1 10772.   1068.    172.        0    25.3   40.1   0    
 ##  9 2021-02-28        19   10064.    887.    163.        0    25.1   38.1   0    
 ## 10 2021-03-07        17    9576.    703     151.        0    32.9   34.1   0.143
-## # … with 132 more rows, 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
+## # … with 133 more rows, 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
 ## #   Argentina &lt;dbl&gt;, Armenia &lt;dbl&gt;, Aruba &lt;dbl&gt;, Asia &lt;dbl&gt;, Australia &lt;dbl&gt;,
 ## #   Austria &lt;dbl&gt;, Azerbaijan &lt;dbl&gt;, Bahamas &lt;dbl&gt;, Bahrain &lt;dbl&gt;,
 ## #   Bangladesh &lt;dbl&gt;, Barbados &lt;dbl&gt;, Belarus &lt;dbl&gt;, Belgium &lt;dbl&gt;,
@@ -1700,7 +1701,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 2022-12-31        92.2 1.36e3   19.4     5.90  0.380   16.6    20.3     0.424
 ##  9 2023-03-31        32.5 8.11e2   12.1     4.04  0.456    1.99    2.53    0    
 ## 10 2023-06-30       141.  3.15e2    2.58    2.98  0.0659   0.934   0.670   0    
-## 11 2023-09-21        30.2 7.28e1    0       0     0.108    0       0       0    
+## 11 2023-09-26        30.2 7.28e1    0       0     0.108    0       0       0    
 ## # … with 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;, Argentina &lt;dbl&gt;,
 ## #   Armenia &lt;dbl&gt;, Aruba &lt;dbl&gt;, Asia &lt;dbl&gt;, Australia &lt;dbl&gt;, Austria &lt;dbl&gt;,
 ## #   Azerbaijan &lt;dbl&gt;, Bahamas &lt;dbl&gt;, Bahrain &lt;dbl&gt;, Bangladesh &lt;dbl&gt;,
