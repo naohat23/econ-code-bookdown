@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-09-27" />
+<meta name="date" content="2023-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1149,7 +1149,7 @@ Y_{t-1} + \Delta{Y_t} &amp;= (w_{1,t-1} + \Delta{w_{1,t}}) (X_{1,t-1} + \Delta{X
 &amp;+ \frac{\Delta{w_{1,t}}(\Delta{X_{1,t}} - \Delta{X_{2,t}})}{Y_{t-1}}
 \end{align}
 \]</span></p>
-<p>となります。これは、変数<span class="math inline">\(Y_t\)</span>の変化率<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>が、<span class="math inline">\(X_{1,t}\)</span>の寄与度<span class="math inline">\(w_1\Delta{X_{1,t}}/Y_{t-1}\)</span>と、<span class="math inline">\(X_{2,t}\)</span>の寄与度<span class="math inline">\((1-w_{1,t-1})\Delta{X_{2,t}}/Y_{t-1}\)</span>、可変ウェイト<span class="math inline">\(w_{1,t}\)</span>の寄与度<span class="math inline">\((X_{1,t-1} - X_{2,t-1})/\Delta{w_{1,t}}{Y_{t-1}}\)</span>に分解できることを示しています。右辺第1・2項にかかるウェイト<span class="math inline">\(w_{t-1}\)</span>が<span class="math inline">\(t\)</span>時点ではなく<span class="math inline">\(t-1\)</span>時点であることに注意してください。</p>
+<p>となります。これは、変数<span class="math inline">\(Y_t\)</span>の変化率<span class="math inline">\(\Delta{Y_t}/Y_{t-1}\)</span>が、<span class="math inline">\(X_{1,t}\)</span>の寄与度<span class="math inline">\(w_{1,t-1}\Delta{X_{1,t}}/Y_{t-1}\)</span>と、<span class="math inline">\(X_{2,t}\)</span>の寄与度<span class="math inline">\((1-w_{1,t-1})\Delta{X_{2,t}}/Y_{t-1}\)</span>、可変ウェイト<span class="math inline">\(w_{1,t}\)</span>の寄与度<span class="math inline">\((X_{1,t-1} - X_{2,t-1})\Delta{w_{1,t}}/{Y_{t-1}}\)</span>に分解できることを示しています。右辺第1・2項にかかるウェイト<span class="math inline">\(w_{t-1}\)</span>が<span class="math inline">\(t\)</span>時点ではなく<span class="math inline">\(t-1\)</span>時点であることに注意してください。</p>
 <p>右辺第4項は<span class="math inline">\(X_{1,t}\)</span>、<span class="math inline">\(X_{2,t}\)</span>、<span class="math inline">\(w_{1,t}\)</span>のどの階差にも帰属させることができない交差項ですが、通常は小さな値になるため、誤差として処理します（構成項目<span class="math inline">\(X\)</span>、<span class="math inline">\(w\)</span>が増えると交差項の形も変化する点に注意してください）。</p>
 <p>右辺第4項を省略すると、次の近似式が成立します。</p>
 <p><span class="math display">\[
