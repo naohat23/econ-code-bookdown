@@ -1367,25 +1367,24 @@ ggplot(data = mpg,
 
 変数の値や属性に応じて色を自動で変化させるには、`geom`関数ファミリーでグラフを作成したあとに、`+`演算子で`scale_color_*()`関数ファミリー（線の色）や`scale_fill_*()`関数ファミリー（塗りつぶしの色）をつなぎます。色の変化に対応する変数が離散型か連続型かによって、どの`scale_color_*()`・`scale_fill_*()`関数を用いるかが変わります。
 
-まず、プロット用のデータを作成します。
+まず、プロット用のデータを作成します。`x`が離散型変数、`y`が連続型変数です。
 
 ```{r, paged.print=FALSE}
-data_mpg_color <- mpg %>% 
-  dplyr::group_by(class) %>% 
-  dplyr::summarise(across(c(cty, hwy), mean, na.rm = TRUE))
+data_color <- tibble(x = 1:20 %>% factor(), y = 1:20)
 
-data_mpg_color
+data_color
 ```
 
-### 色の手動指定（離散型変数）
+### 離散型：手動指定
 
 自分で色の割り当てを決める方法です。Rで使用できる色の種類については、[こちら](http://www.okadajp.org/RWiki/?%E8%89%B2%E8%A6%8B%E6%9C%AC)を参照してください。
 
 ```{r, paged.print=FALSE}
-ggplot(data = mpg,
-       mapping = aes(x = fl, color = fl, fill = fl)
+ggplot(data = data_color %>% 
+         dplyr::slice(1:5),
+       mapping = aes(x = x, y = y, color = x, fill = x)
        ) +
-  geom_bar() +
+  geom_col() +
   # 色
   scale_color_manual(values = c("Red", "Salmon", "Gold", "Forestgreen", "Darkblue") # colorで指定した変数の離散値と同数の色を指定
                      ) +
@@ -1393,7 +1392,7 @@ ggplot(data = mpg,
                     )
 ```
 
-### Brewerカラーパレット（離散型変数）
+### 離散型：Brewer
 
 `RColorBrewer`パッケージでは、様々な種類の美麗なプリセットカラーパレットが利用できます。
 
@@ -1403,10 +1402,11 @@ RColorBrewer::display.brewer.all()
 ```
 
 ```{r, paged.print=FALSE}
-ggplot(data = mpg,
-       mapping = aes(x = fl, color = fl, fill = fl)
+ggplot(data = data_color %>% 
+         dplyr::slice(1:12),
+       mapping = aes(x = x, y = y, color = x, fill = x)
        ) +
-  geom_bar() +
+  geom_col() +
   # 色
   scale_color_brewer(palette = "Paired", # カラーパレット名
                      direction = 1 # 色の順序（-1で逆順）
@@ -1416,15 +1416,16 @@ ggplot(data = mpg,
                     )
 ```
 
-### Viridisカラーパレット（離散型変数）
+### 離散型：Viridis
 
 色覚障害に対応したカラーパレットです。パレットの種類などの詳細は[こちら](https://ggplot2.tidyverse.org/reference/scale_viridis.html)を参照してください。
 
 ```{r, paged.print=FALSE}
-ggplot(data = mpg,
-       mapping = aes(x = fl, color = fl, fill = fl)
+ggplot(data = data_color %>% 
+         dplyr::slice(1:10),
+       mapping = aes(x = x, y = y, color = x, fill = x)
        ) +
-  geom_bar() +
+  geom_col() +
   # 色
   scale_color_viridis_d(option = "viridis", # パレットの種類（magma / inferno / plasma / viridis / cividis）
                         direction = 1 # 色の順序（-1で逆順）
@@ -1434,21 +1435,22 @@ ggplot(data = mpg,
                        )
 ```
 
-### ggsciカラーパレット（離散型変数）
+### 離散型：ggsci
 
 様々な科学ジャーナルで使用されるカラーパレットです。パレットの種類などの詳細は[こちら](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html)をご覧ください。
 
 ```{r, paged.print=FALSE}
-ggplot(data = mpg,
-       mapping = aes(x = fl, color = fl, fill = fl)
+ggplot(data = data_color %>% 
+         dplyr::slice(1:10),
+       mapping = aes(x = x, y = y, color = x, fill = x)
        ) +
-  geom_bar() +
+  geom_col() +
   # 色
   scale_color_npg() + 
   scale_fill_npg()
 ```
 
-### distillerカラーパレット（連続型変数）
+### 連続型：distiller
 
 こちらは、`RColorBrewer`パッケージの連続型変数用の関数です。様々な種類の美麗なプリセットカラーパレットが利用できます。
 
@@ -1458,41 +1460,41 @@ RColorBrewer::display.brewer.all()
 ```
 
 ```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
-ggplot(data = mpg,
-       mapping = aes(x = hwy, fill = ..x..)
+ggplot(data = data_color,
+       mapping = aes(x = x, y = y, fill = y)
        ) +
-  geom_dotplot() +
+  geom_col() +
   # 色
   scale_fill_distiller(palette = "Blues", # カラーパレット名
                        direction = 1 # 色の順序（-1で逆順）
                        )
 ```
 
-### Viridisカラーパレット（連続型変数）
+### 連続型：Viridis
 
 色覚障害に対応したカラーパレットです。パレットの種類などの詳細は[こちら](https://ggplot2.tidyverse.org/reference/scale_viridis.html)を参照してください。
 
 ```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
-ggplot(data = mpg,
-       mapping = aes(x = hwy, fill = ..x..)
+ggplot(data = data_color,
+       mapping = aes(x = x, y = y, fill = y)
        ) +
-  geom_dotplot() +
+  geom_col() +
   # 色
   scale_fill_viridis_c(option = "viridis", # パレットの種類（magma / inferno / plasma / viridis / cividis）
                        direction = 1 # 色の順序（-1で逆順）
                        )
 ```
 
-### gradientカラーパレット（連続型変数）
+### 連続型：gradient
 
 自分で色を指定してグラデーションを作成するカラーパレットです。2色グラデーション、3色グラデーション、n色グラデーションの3種類の関数があります。n色グラデーションでは、事前にベースとなるカラーパレットを`RColorBrewer::display.brewer.all()`関数などで確認して使用します。
 
 ```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
 # 2色グラデーション
-ggplot(data = mpg,
-       mapping = aes(x = hwy, fill = ..x..)
+ggplot(data = data_color,
+       mapping = aes(x = x, y = y, fill = y)
        ) +
-  geom_dotplot() +
+  geom_col() +
   # 色
   scale_fill_gradient(low = "Red", # 最小値の色
                       high = "Forestgreen" # 最大値の色
@@ -1501,24 +1503,24 @@ ggplot(data = mpg,
 
 ```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
 # 3色グラデーション
-ggplot(data = mpg,
-       mapping = aes(x = hwy, fill = ..x..)
+ggplot(data = data_color,
+       mapping = aes(x = x, y = y, fill = y)
        ) +
-  geom_dotplot() +
+  geom_col() +
   # 色
   scale_fill_gradient2(low = "Red", # 最小値の色
                        mid = "Gold", # 中間値の色
                        high = "Forestgreen", # 最大値の色
-                       midpoint = 30 # 中間値
+                       midpoint = median(data_color$y) # 中間値
                        )
 ```
 
 ```{r, warning=FALSE, message=FALSE, paged.print=FALSE}
 # パレットを指定したn色グラデーション
-ggplot(data = mpg,
-       mapping = aes(x = hwy, fill = ..x..)
+ggplot(data = data_color,
+       mapping = aes(x = x, y = y, fill = y)
        ) +
-  geom_dotplot() +
+  geom_col() +
   # 色
   scale_fill_gradientn(colors = brewer.pal(name = "RdYlGn",
                                            n = 9)
@@ -1842,7 +1844,7 @@ ggplot(data = data_plot,
   scale_color_npg() + 
   # 軸
   coord_cartesian(xlim = c(as.Date("2022-01-01"), as.Date("2022-12-31")), # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
-                  ylim = c(0, NA), # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  ylim = c(0, max(data_plot$new_cases_smoothed / 1000) * 1.05), # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
                   expand = FALSE # 表示範囲を下限・上限値から小幅に拡大（拡大しない場合はFALSE)
                   ) +
   scale_x_date(breaks = breaks_x <- seq(as.Date("1900-01-01"), as.Date("2099-12-31"), by = "3 months"), # 日付目盛ベクトル
@@ -1976,7 +1978,7 @@ ggplot() +
   # グラフ
   geom_col(data = data_plot_cont,
            mapping = aes(x = `日付`, y = `寄与度`, fill = `需要項目`, group = rev(`需要項目`)),
-           stat = "identity",
+           #stat = "identity",
            position = position_stack(), # 積上ポジション
            alpha = 1.0, # 塗りつぶしの透明度
            size = 0.5, # 線の太さ
@@ -2012,7 +2014,7 @@ ggplot() +
                   ylim = NULL, # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
                   expand = TRUE # 表示範囲を下限・上限値から小幅に拡大（拡大しない場合はFALSE)
                   ) +
-  scale_x_date(breaks = breaks_x <- data_plot_gdp$日付, # 日付目盛ベクトル
+  scale_x_date(breaks = breaks_x <- data_plot_gdp$日付[seq(1, length(data_plot_gdp$日付), 2)], # 日付目盛ベクトル
                date_labels = str_c(str_sub(lubridate::year(breaks_x), 1, 4), "/", lubridate::month(breaks_x)), # 日付目盛ベクトルをラベル用に加工
                ) +
   scale_y_continuous(breaks = breaks_y <- seq(-20, 20, 1), # 目盛
