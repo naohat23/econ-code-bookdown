@@ -162,16 +162,16 @@ ggplot(data = mpg,
                 )
 ```
 
-### 積み上げヒストグラム
+### 積上ヒストグラム
 
-グループ別のヒストグラムを積み上げ形式で作成するには、`position`引数に`"stack"`を指定します。
+グループ別のヒストグラムを積上形式で作成するには、`position`引数に`"stack"`を指定します。
 
 ```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = hwy, fill = class)
        ) +
   geom_histogram(binwidth = 5, # 階級幅
-                 position = "stack", # 積み上げポジション
+                 position = "stack", # 積上ポジション
                  color = "black", # 線の色
                  size = 0.5 # 線の太さ
                  )
@@ -223,16 +223,16 @@ ggplot(data = mpg,
                 )
 ```
 
-### 積み上げ密度グラフ
+### 積上密度グラフ
 
-グループ別の密度グラフを積み上げ形式で作成するには、`position`引数に`"stack"`を指定します。
+グループ別の密度グラフを積上形式で作成するには、`position`引数に`"stack"`を指定します。
 
 ```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = hwy, fill = class)
        ) +
   geom_density(kernel = "gaussian", # カーネル関数の種類
-               position = "stack", # 積み上げポジション
+               position = "stack", # 積上ポジション
                color = "black", # 線の色
                linetype = "solid", # 線の種類（solid / dashed / dotted / dotdash / twodash / longdash）
                size = 0.5 # 線の太さ
@@ -633,9 +633,24 @@ ggplot(data = data_mpg_col,
   theme(axis.text.x = element_text(angle = 45, hjust = 1.0))
 ```
 
-### 集合縦棒グラフ
+### 横並び縦棒グラフ
 
-複数の縦棒グラフを横並び形式で作成するには、`position`引数に`position_dodge()`関数を指定します。
+複数の縦棒グラフを横並び形式で作成するには、`position`引数に`position_dodge2()`関数や`position_dodge()`関数を指定します。
+
+`position_dodge2()`関数を指定すると、縦棒の間が適度に離れたグラフが作成されます。縦棒の間隔を`padding`引数で指定します。
+
+```{r, paged.print=FALSE}
+ggplot(data = data_owid_col,
+       mapping = aes(x = location, y = new_cases, fill = year, group = rev(year))
+       ) + 
+  geom_col(position = position_dodge2(padding = 0.1), # 横並びポジション
+           alpha = 1.0, # 塗りつぶしの透明度
+           size = 0.5, # 線の太さ
+           width = 0.9 # 棒の幅 (0-1)
+           )
+```
+
+`position_dodge()`関数を指定すると、縦棒が重なったグラフが作成されます。縦棒の重なり度合いを`width`引数で指定します。
 
 ```{r, paged.print=FALSE}
 ggplot(data = data_owid_col,
@@ -648,15 +663,15 @@ ggplot(data = data_owid_col,
            )
 ```
 
-### 積み上げ縦棒グラフ
+### 積上縦棒グラフ
 
-複数の縦棒グラフを積み上げ形式で作成するには、`position`引数に`position_stack()`関数を指定します。
+複数の縦棒グラフを積上形式で作成するには、`position`引数に`position_stack()`関数を指定します。
 
 ```{r, paged.print=FALSE}
 ggplot(data = data_owid_col,
        mapping = aes(x = location, y = new_cases, fill = year, group = rev(year))
        ) + 
-  geom_col(position = position_stack(), # 積み上げポジション
+  geom_col(position = position_stack(), # 積上ポジション
            alpha = 1.0, # 塗りつぶしの透明度
            size = 0.5, # 線の太さ
            width = 0.9 # 棒の幅 (0-1)
@@ -664,19 +679,19 @@ ggplot(data = data_owid_col,
   guides(fill = guide_legend(reverse = TRUE))
 ```
 
-### 積み上げ縦棒グラフにラベルを追加
+### 積上縦棒グラフにラベルを追加
 
 ```{r, paged.print=FALSE}
 ggplot(data = data_owid_col,
        mapping = aes(x = location, y = new_cases, fill = year, group = rev(year))
        ) + 
-  geom_col(position = position_stack(), # 積み上げポジション
+  geom_col(position = position_stack(), # 積上ポジション
            alpha = 1.0, # 塗りつぶしの透明度
            size = 0.5, # 線の太さ
            width = 0.9 # 棒の幅 (0-1)
            ) +
   geom_text(mapping = aes(label = new_cases %>% sprintf(fmt = "%0.1f")), # sprintf() 関数で数値の表示形式を指定
-            position = position_stack(vjust = 0.5), # position_stack() 関数で積み上げ棒グラフ上のラベル位置を指定
+            position = position_stack(vjust = 0.5), # position_stack() 関数で積上棒グラフ上のラベル位置を指定
             color = "white", # テキストの色
             fontface = "plain", # テキストの書体 (plain / bold / italic / bold.italic)
             size = 4.0 # テキストのサイズ
@@ -684,15 +699,15 @@ ggplot(data = data_owid_col,
   guides(fill = guide_legend(reverse = TRUE))
 ```
 
-### 100％積み上げ縦棒グラフ
+### 100％積上縦棒グラフ
 
-複数の縦棒グラフを合計が100％になる積み上げ形式で作成するには、`position`引数に`position_fill()`関数を指定します。
+複数の縦棒グラフを合計が100％になる積上形式で作成するには、`position`引数に`position_fill()`関数を指定します。
 
 ```{r, paged.print=FALSE}
 ggplot(data = data_owid_col,
        mapping = aes(x = location, y = new_cases, fill = year, group = rev(year))
        ) + 
-  geom_col(position = position_fill(), # 割合積み上げポジション
+  geom_col(position = position_fill(), # 割合積上ポジション
            alpha = 1.0, # 塗りつぶしの透明度
            size = 0.5, # 線の太さ
            width = 0.9 # 棒の幅 (0-1)
@@ -700,7 +715,7 @@ ggplot(data = data_owid_col,
   guides(fill = guide_legend(reverse = TRUE))
 ```
 
-### 100％積み上げ縦棒グラフにラベルを追加
+### 100％積上縦棒グラフにラベルを追加
 
 ```{r, paged.print=FALSE}
 data_owid_col %>% 
@@ -726,7 +741,7 @@ data_owid_col %>%
 -   X軸：単一の値
 -   Y軸：連続型変数
 
-円グラフを作成するには、`geom_col()`関数で積み上げ棒グラフを作成した後に、`coord_polar()`関数で円グラフに転換します。
+円グラフを作成するには、`geom_col()`関数で積上棒グラフを作成した後に、`coord_polar()`関数で円グラフに転換します。
 
 まず、プロット用のデータを作成します。
 
@@ -744,13 +759,13 @@ data_mpg_circle
 ggplot(data = data_mpg_circle,
        mapping = aes(x = 1, y = hwy, fill = class, group = rev(class))
        ) + 
-  geom_col(position = position_stack(), # 積み上げポジション
+  geom_col(position = position_stack(), # 積上ポジション
            alpha = 1.0, # 塗りつぶしの透明度
            color = "grey", # 線の色
            size = 0.5 # 線の太さ
            ) +
   geom_text(mapping = aes(label = hwy %>% sprintf(fmt = "%0.1f")), # sprintf() 関数で数値の表示形式を指定
-            position = position_stack(vjust = 0.5), # position_stack() 関数で積み上げ棒グラフ上のラベル位置を指定
+            position = position_stack(vjust = 0.5), # position_stack() 関数で積上棒グラフ上のラベル位置を指定
             color = "white", # テキストの色
             fontface = "plain", # テキストの書体 (plain / bold / italic / bold.italic)
             size = 4.0 # テキストのサイズ
@@ -854,10 +869,13 @@ ggplot(data = data_owid_line,
                   fontface = "plain", # テキストの書体 (plain / bold / italic / bold.italic)
                   size = 3.0 # テキストのサイズ
                   ) +
-  scale_x_date(date_breaks = "1 month",　# 日付目盛の周期
-               date_labels = "%y/%m", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%d：日）
-               limits = c(as.Date("2022-01-01"), NA), # 始期・終期（指定しない場合はNA）
-               expand = expansion(mult = c(0.00, 0.2), add = c(0, 0)) # 始期・終期からの余白（multは余白率、addは余白幅）
+  # 軸
+  coord_cartesian(xlim = as.Date(c("2022-01-01", "2023-03-31")), # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  ylim = c(0, max(data_owid_line$new_cases_smoothed) * 1.05), # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  expand = FALSE # 表示範囲を下限・上限値から小幅に拡大（拡大しない場合はFALSE)
+                  ) +
+  scale_x_date(breaks = breaks_x <- seq(as.Date("1900-01-01"), as.Date("2099-12-31"), by = "3 months"), # 日付目盛ベクトル
+               date_labels = str_c(str_sub(lubridate::year(breaks_x), 1, 4), "/", lubridate::month(breaks_x)), # 日付目盛ベクトルをラベル用に加工
                ) +
   theme(legend.position = "none")
 ```
@@ -925,9 +943,9 @@ ggplot(data = economics,
             )
 ```
 
-### 積み上げ面グラフ
+### 積上面グラフ
 
-複数の面グラフを積み上げ形式で作成するには、`position`引数に`position_stack()`関数を指定します。
+複数の面グラフを積上形式で作成するには、`position`引数に`position_stack()`関数を指定します。
 
 ```{r, paged.print=FALSE}
 data_owid_line %>% 
@@ -1041,6 +1059,51 @@ ggplot(data = mpg,
               shape = 21, # マーカーの種類
               size = 1.0, # マーカーの大きさ
               stroke = 0.5 # マーカーの線の太さ
+              )
+```
+
+### 横並び箱ひげ図
+
+`aes()`関数内の`color`引数や`fill`引数に属性を表す変数を指定すると、横並び形式の箱ひげ図を作成することができます。
+
+ここでは、`mpg`データセットにおいて自動車モデル年数のデータを格納している`year`変数を`fill`引数に指定しています。属性には離散型変数を指定しますが、`year`変数は数値型（連続型変数）のため、事前に`factor()`関数で因子型（離散型変数）に変換しています。
+
+なお、塗りつぶしの色は`fill`引数に指定した`year`変数の値に基づいて自動的に決まるため、`geom_boxplot()`関数内で塗りつぶしの色を決める`outlier.fill`引数と`fill`引数は削除しておきます。
+
+```{r, paged.print=FALSE}
+ggplot(data = mpg %>% 
+         dplyr::mutate(year = factor(year)),
+         mapping = aes(x = class, y = hwy, fill = year)
+       ) +
+  geom_boxplot(outlier.alpha = 1.0, # 外れ値マーカーの塗りつぶしの透明度
+               outlier.color = "black", # 外れ値マーカーの線の色
+               outlier.shape = 21, # 外れ値マーカーの種類（外れ値を表示しない場合はNA）
+               outlier.size = 2.0, # 外れ値マーカーの大きさ
+               outlier.stroke = 0.5, # 外れ値マーカーの線の太さ
+               alpha = 0.5, # 箱の塗りつぶしの透明度
+               color = "black", # 箱ひげの線の色
+               size = 0.5 # 箱ひげの線の太さ
+               )
+```
+
+横並び箱ひげ図にジッターグラフで個別サンプルを追加する場合は、`geom_jitter()`関数の`height`引数と`width`引数を削除し、`position`引数に`position_jitterdodge()`関数を指定します。
+
+```{r, paged.print=FALSE}
+ggplot(data = mpg %>% 
+         dplyr::mutate(year = factor(year)),
+         mapping = aes(x = class, y = hwy, fill = year)
+       ) +
+  geom_boxplot(outlier.shape = NA, # 外れ値マーカーの種類（外れ値を表示しない場合はNA）
+               alpha = 0.5, # 箱の塗りつぶしの透明度
+               color = "black", # 箱ひげの線の色
+               size = 0.5 # 箱ひげの線の太さ
+               ) +
+  geom_jitter(alpha = 1.0, # マーカーの塗りつぶしの透明度
+              color = "black", # マーカーの線の色
+              shape = 21, # マーカーの種類
+              size = 1.0, # マーカーの大きさ
+              stroke = 0.5, # マーカーの線の太さ
+              position = position_jitterdodge()
               )
 ```
 
@@ -1464,7 +1527,9 @@ ggplot(data = mpg,
 
 ## 設定：軸
 
-X軸、Y軸の設定を行うには、`scale_x_*()`・`scale_y_*()`関数ファミリーを使用します。X軸、Y軸に指定する変数の型によって、使用する関数が異なります。
+X軸、Y軸の設定を行うには、グラフの表示範囲を設定する`coord_cartesian()`関数や、目盛・ラベルを設定する `scale_x_*()`・`scale_y_*()`関数ファミリーを使用します。X軸、Y軸に指定する変数の型によって、使用する関数が一部異なります。
+
+なお、`scale_x_*()`・`scale_y_*()`関数ファミリーにも範囲指定を行う`limits`引数がありますが、`coord_cartesian()`関数による範囲指定とは動作が異なる点に注意してください。`coord_cartesian()`関数は単に表示範囲を変えるだけですが、`scale_x_*()`・`scale_y_*()`関数ファミリーの`limits`引数は範囲外のデータを全て除去します。したがって、`ggplot()`関数内で表示内容を計算するグラフ（例えば散布図の近似曲線や、箱ひげ図の箱・ひげ・中央値など）では、`coord_cartesian()`関数と`scale_x_*()`・`scale_y_*()`関数ファミリーの`limits`引数で異なるグラフになる可能性があります。無用なトラブルを避けるため、表示範囲の設定には`coord_cartesian()`関数を使用することを推奨します。
 
 まず、プロット用のデータを作成します。
 
@@ -1478,6 +1543,8 @@ summary(data_owid_scale)
 
 ### X軸：連続型、Y軸：連続型
 
+連続型変数の目盛・ラベル設定には`scale_*_continuous()`関数を使用します。
+
 ```{r, paged.print=FALSE}
 ggplot(data = data_owid_scale,
        mapping = aes(x = new_cases, y = new_deaths)
@@ -1485,15 +1552,15 @@ ggplot(data = data_owid_scale,
   geom_point() +
   geom_smooth() +
   # 軸
+  coord_cartesian(xlim = NULL, # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  ylim = NULL, # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  expand = TRUE # 表示範囲を下限・上限値から小幅に拡大（拡大しない場合はFALSE)
+                  ) +
   scale_x_continuous(breaks = breaks_x <- seq(0, 1e+06, 100000), # 目盛
                      labels = breaks_x, # 目盛ラベル
-                     limits = c(0, 7e+05), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0)) # 下限・上限値からの余白（multは余白率、addは余白幅）
                      ) +
   scale_y_continuous(breaks = breaks_y <- seq(0, 10000, 1000), # 目盛
                      labels = breaks_y, # 目盛ラベル
-                     limits = c(0, 8000), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0)) # 下限・上限値からの余白（multは余白率、addは余白幅）
                      ) +
   labs(x = "新規感染者数（1日当たり平均、人）", # X軸のタイトル
        y = "新規死亡者数（1日当たり平均、人）" # Y軸のタイトル
@@ -1501,14 +1568,24 @@ ggplot(data = data_owid_scale,
   theme(axis.title = element_text(size = 8), # 軸タイトルの文字サイズ
         axis.text.x = element_text(angle = 0, # X軸ラベルの角度
                                    hjust = 0.5, # X軸ラベルの横整列位置（0-1）
-                                   vjust = 0.5), # X軸ラベルの縦整列位置（0-1）
+                                   vjust = 0.5 # X軸ラベルの縦整列位置（0-1）
+                                   ), 
         axis.text.y = element_text(angle = 0, # Y軸ラベルの角度
                                    hjust = 0.5, # Y軸ラベルの横整列位置（0-1）
-                                   vjust = 0.5) # Y軸ラベルの縦整列位置（0-1）
+                                   vjust = 0.5 # Y軸ラベルの縦整列位置（0-1）
+                                   ),
+        plot.margin = margin(t = 1, # 図表の上マージン
+                             b = 1, # 図表の下マージン
+                             r = 6, # 図表の右マージン
+                             l = 1, # 図表の左マージン
+                             unit = "mm" # 図表マージンの単位
+                             )
         )
 ```
 
 ### 対数目盛
+
+連続型変数を対数目盛表示にする場合、目盛・ラベル設定には`scale_*_log10()`関数を使用します。
 
 ```{r, paged.print=FALSE}
 ggplot(data = data_owid_scale,
@@ -1517,15 +1594,15 @@ ggplot(data = data_owid_scale,
   geom_point() +
   geom_smooth() +
   # 軸
-  scale_x_log10(breaks = breaks_x <- 10 ** seq(0, 6, 1), # 目盛
-                labels = c(breaks_x[1:4], "1万", "10万", "100万"), # 目盛ラベル
-                limits = c(1, 7e+05), # 下限・上限値（指定しない場合はNA）
-                expand = expansion(mult = c(0.05, 0.05), add = c(0, 0)) # 下限・上限値からの余白（multは余白率、addは余白幅）
+  coord_cartesian(xlim = NULL, # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  ylim = NULL, # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  expand = TRUE # 表示範囲を下限・上限値から小幅に拡大（拡大しない場合はFALSE)
+                  ) +
+  scale_x_log10(breaks = breaks_x <- 10 ** seq(-2, 6, 1), # 目盛
+                labels = c(breaks_x[1:6], "1万", "10万", "100万"), # 目盛ラベル
                 ) +
-  scale_y_log10(breaks = breaks_y <- 10 ** seq(0, 4, 1), # 目盛
-                labels = c(breaks_y[1:4], "1万"), # 目盛ラベル
-                limits = c(1, 8000), # 下限・上限値（指定しない場合はNA）
-                expand = expansion(mult = c(0.05, 0.05), add = c(0, 0)) # 下限・上限値からの余白（multは余白率、addは余白幅）
+  scale_y_log10(breaks = breaks_y <- 10 ** seq(-2, 4, 1), # 目盛
+                labels = c(breaks_y[1:6], "1万"), # 目盛ラベル
                 ) +
   labs(x = "新規感染者数（1日当たり平均、人）", # X軸のタイトル
        y = "新規死亡者数（1日当たり平均、人）" # Y軸のタイトル
@@ -1544,22 +1621,23 @@ ggplot(data = data_owid_scale,
 
 ### X軸：日付型、Y軸：連続型
 
+日付型変数の目盛・ラベル設定には`scale_*_date()`関数を使用します。ここでは、サンプルデータセット`economics`を使用します。
+
 ```{r, paged.print=FALSE}
-# date_breaks引数を使用する場合
 ggplot(data = economics,
        mapping = aes(x = date, y = unemploy)
        ) + 
   geom_line() +
   # 軸
-  scale_x_date(date_breaks = "3 month",　# 日付目盛の周期
-               date_labels = "%y/%m", # %Y：4桁年、%y：2桁年、%m：2桁月、%d：日
-               limits = c(as.Date("2000-01-01"), as.Date("2002-12-31")), # 始期・終期（指定しない場合はNA）
-               expand = expansion(mult = c(0.00, 0.00), add = c(0, 0)) # 始期・終期からの余白（multは余白率、addは余白幅）
+  coord_cartesian(xlim = as.Date(c("2000-01-01", "2002-12-31")), # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  ylim = c(5000, 9000), # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  expand = TRUE # 表示範囲を下限・上限値から小幅に拡大（拡大しない場合はFALSE)
+                  ) +
+  scale_x_date(breaks = breaks_x <- seq(as.Date("1900-01-01"), as.Date("2099-12-31"), by = "6 months"), # 日付目盛ベクトル
+               date_labels = str_c(str_sub(lubridate::year(breaks_x), 1, 4), "/", lubridate::month(breaks_x)), # 日付目盛ベクトルをラベル用に加工
                ) +
   scale_y_continuous(breaks = breaks_y <- seq(0, 50000, 1000), # 目盛
                      labels = breaks_y, # 目盛ラベル
-                     limits = c(5000, 10000), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0)) # 下限・上限値からの余白（multは余白率、addは余白幅）
                      ) +
   labs(x = "日付（年/月）", # X軸のタイトル
        y = "失業者数（千人）" # Y軸のタイトル
@@ -1576,21 +1654,24 @@ ggplot(data = economics,
         )
 ```
 
+`scale_*_date()`関数では、一般的な目盛を指定する`breaks`引数の代わりに、日付型目盛を指定する`date_breaks`引数を利用することができます。その場合は、グラフの表示範囲を指定する`coord_cartesian()`関数の`expand`引数に`FALSE`を指定し、日付軸の目盛が端から表示されるようにします。
+
 ```{r, paged.print=FALSE}
-# date_breaks引数を使用しない場合（結果は同じ）
+# date_breaks引数を使用する場合
 ggplot(data = economics,
        mapping = aes(x = date, y = unemploy)
        ) + 
   geom_line() +
-  scale_x_date(breaks = breaks_x <- seq(as.Date("1967-01-01"), max(economics$date), by = "3 months"), # 日付目盛ベクトル
-               date_labels = str_c(str_sub(lubridate::year(breaks_x), 3, 4), "/", lubridate::month(breaks_x)), # 日付目盛ベクトルをラベル用に加工
-               limits = c(as.Date("2000-01-01"), as.Date("2002-12-31")), # 始期・終期（指定しない場合はNA）
-               expand = expansion(mult = c(0.00, 0.00), add = c(0, 0)) # 始期・終期からの余白（multは余白率、addは余白幅）
+  # 軸
+  coord_cartesian(xlim = c(as.Date("2000-01-01"), as.Date("2002-12-31")), # 下限・上限値（指定しない場合はNULL）
+                  ylim = c(5000, 9000), # 下限・上限値（指定しない場合はNULL）
+                  expand = FALSE # 表示範囲を下限・上限値から小幅に拡大（拡大しない場合はFALSE)
+                  ) +
+  scale_x_date(date_breaks = "6 month",　# 日付目盛の周期
+               date_labels = "%Y/%m", # %Y：4桁年、%y：2桁年、%m：2桁月、%d：日
                ) +
   scale_y_continuous(breaks = breaks_y <- seq(0, 50000, 1000), # 目盛
                      labels = breaks_y, # 目盛ラベル
-                     limits = c(5000, 10000), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0)) # 下限・上限値からの余白（multは余白率、addは余白幅）
                      ) +
   labs(x = "日付（年/月）", # X軸のタイトル
        y = "失業者数（千人）" # Y軸のタイトル
@@ -1652,7 +1733,7 @@ ggplot(data = mpg,
         legend.justification = c(1.0, 0.0), # 凡例の横整列位置・縦整列位置
         legend.position = c(0.95, 0.05) # 凡例の横位置・縦位置
         ) +
-  labs(fill = "車体クラス", # 凡例に使用するscaleのタイトル
+  labs(fill = "車体クラス", # 凡例に使用するscaleのタイトル（表示しない場合はNULL）
        ) +
   guides(fill = guide_legend(keywidth = unit(5, units = "mm"), # 凡例キーの幅
                              keyheight = unit(5, units = "mm"), # 凡例キーの高さ
@@ -1749,7 +1830,7 @@ data_plot %<>%
 `ggplot()`関数でプロットを作成します。グラフを画像として保存するには、別途`ggsave()`関数を実行してください。
 
 ```{r, paged.print=FALSE}
-ggplot(data = data_owid_line,
+ggplot(data = data_plot,
        mapping = aes(x = date, y = new_cases_smoothed / 1000, color = location)
        ) +
   # グラフ
@@ -1760,15 +1841,15 @@ ggplot(data = data_owid_line,
   # 色
   scale_color_npg() + 
   # 軸
-  scale_x_date(date_breaks = "1 month",　# 日付目盛の周期
-               date_labels = "%y/%m", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%d：日）
-               limits = c(as.Date("2022-01-01"), NA), # 始期・終期（指定しない場合はNA）
-               expand = expansion(mult = c(0.01, 0.01), add = c(0, 0)) # 始期・終期からの余白（multは余白率、addは余白幅）
+  coord_cartesian(xlim = c(as.Date("2022-01-01"), as.Date("2022-12-31")), # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  ylim = c(0, NA), # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  expand = FALSE # 表示範囲を下限・上限値から小幅に拡大（拡大しない場合はFALSE)
+                  ) +
+  scale_x_date(breaks = breaks_x <- seq(as.Date("1900-01-01"), as.Date("2099-12-31"), by = "3 months"), # 日付目盛ベクトル
+               date_labels = str_c(str_sub(lubridate::year(breaks_x), 1, 4), "/", lubridate::month(breaks_x)), # 日付目盛ベクトルをラベル用に加工
                ) +
   scale_y_continuous(breaks = breaks_y <- seq(0, 1000, 50), # 目盛
                      labels = breaks_y, # 目盛ラベル
-                     limits = c(0, NA), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.00, 0.05), add = c(0, 0)) # 下限・上限値からの余白（multは余白率、addは余白幅）
                      ) +
   labs(x = "日付（年/月）", # X軸のタイトル
        y = "新規感染者数（千人/日）" # Y軸のタイトル
@@ -1842,9 +1923,9 @@ ggplot(data = data_owid_line,
         )
 ```
 
-### 実例2：積み上げ棒グラフ
+### 実例2：積上棒グラフ
 
-日本の実質GDP変化率をマーカー付き折れ線グラフに、内訳の需要項目別寄与度を積み上げ棒グラフにした、時系列グラフを作成します。
+日本の実質GDP変化率をマーカー付き折れ線グラフに、内訳の需要項目別寄与度を積上棒グラフにした、時系列グラフを作成します。
 
 まず、外部データセット`data_gdp_jp`を用い、プロット用のデータを作成します。外部データセットの取得方法については、第2章「Rの設定」を参照してください。
 
@@ -1896,7 +1977,7 @@ ggplot() +
   geom_col(data = data_plot_cont,
            mapping = aes(x = `日付`, y = `寄与度`, fill = `需要項目`, group = rev(`需要項目`)),
            stat = "identity",
-           position = position_stack(), # 積み上げポジション
+           position = position_stack(), # 積上ポジション
            alpha = 1.0, # 塗りつぶしの透明度
            size = 0.5, # 線の太さ
            width = NULL # 棒の幅 (0-1)
@@ -1927,14 +2008,15 @@ ggplot() +
                     direction = 1 # 色の順序（-1で逆順）
                     ) +
   # 軸
-  scale_x_date(breaks = data_plot_gdp$日付,　# 日付目盛の周期
-               date_labels = "%y/%m", # 日付フォーマット（%Y：4桁年、%y：2桁年、%m：2桁月、%d：日）
-               expand = expansion(mult = c(0.01, 0.01), add = c(0, 0)) # 始期・終期からの余白（multは余白率、addは余白幅）
+  coord_cartesian(xlim = NULL, # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  ylim = NULL, # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  expand = TRUE # 表示範囲を下限・上限値から小幅に拡大（拡大しない場合はFALSE)
+                  ) +
+  scale_x_date(breaks = breaks_x <- data_plot_gdp$日付, # 日付目盛ベクトル
+               date_labels = str_c(str_sub(lubridate::year(breaks_x), 1, 4), "/", lubridate::month(breaks_x)), # 日付目盛ベクトルをラベル用に加工
                ) +
   scale_y_continuous(breaks = breaks_y <- seq(-20, 20, 1), # 目盛
                      labels = breaks_y %>% stringr::str_replace_all("-", "▲"), # 目盛ラベル
-                     limits = c(NA, NA), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0)) # 下限・上限値からの余白（multは余白率、addは余白幅）
                      ) +
   labs(x = "日付（年/月）", # X軸のタイトル
        y = "実質GDP変化率（前期比、％）" # Y軸のタイトル
@@ -2020,10 +2102,6 @@ ggplot() +
 data_plot <- data_owid %>% 
   dplyr::select(location, date, new_cases, new_deaths)
 
-# 直近データを除外
-data_plot %<>% 
-  dplyr::filter(date <= max(date) - 28) 
-
 # 年の列を追加し年別の平均を集計
 data_plot %<>% 
   dplyr::mutate(year = lubridate::year(date)) %>% 
@@ -2052,10 +2130,12 @@ ggplot(data = data_plot,
              size = 0.5 # 水平線の太さ
              ) +
   # 軸
+  coord_cartesian(xlim = NULL, # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  ylim = c(0, 5), # 下限・上限値（両方指定しない場合はNULL、片側のみ指定しない場合はNA）
+                  expand = TRUE # 表示範囲を下限・上限値から小幅に拡大（拡大しない場合はFALSE)
+                  ) +
   scale_y_continuous(breaks = breaks_y <- seq(0, 100, 0.5), # 目盛
                      labels = breaks_y %>% sprintf(fmt = "%0.1f"), # 目盛ラベル
-                     limits = c(0, 5), # 下限・上限値（指定しない場合はNA）
-                     expand = expansion(mult = c(0.05, 0.05), add = c(0, 0)) # 下限・上限値からの余白（multは余白率、addは余白幅）
                      ) +
   labs(x = element_blank(), # X軸のタイトル
        y = "新型コロナ感染者の致死率（％）" # Y軸のタイトル
@@ -2074,7 +2154,7 @@ ggplot(data = data_plot,
         ) +
   # タイトル・キャプション
   labs(title = "世界各国の新型コロナ感染者の致死率（年別）", # 図表タイトル
-       caption = "（注）箱の中の横線は中央値を示す。2022年は直近4週間のサンプルを除外。\n（出所）Our World in Data、@naohat23" # キャプション
+       caption = "（注）箱の中の横線は中央値を示す。\n（出所）Our World in Data、@naohat23" # キャプション
        ) +
   theme(plot.title = element_text(size = 10, # 図表タイトルの文字サイズ
                                   face = "bold", # 図表タイトルの書体

@@ -523,35 +523,60 @@ data_owid %>%
 
 ## 縦型・横型の変換
 
-`tidyr`パッケージの`pivot_longer()`関数と`pivot_wider()`関数を使用して、縦型データ（tidy data）と横型データの変換を行います。なお、縦型データは、`ggplot2`パッケージによるグラフ作成で多用します。
+`tidyr`パッケージの`pivot_longer()`関数と`pivot_wider()`関数を使用して、縦型データ（tidy data）と横型データの変換を行います。
 
-まず、使用するサンプルデータを作成します。
+一般的にExcelなどで配布されているデータは視認性が高い横型データであることが多いですが、Rの`dplyr`パッケージでデータを扱う時や、 `ggplot2`パッケージでグラフを作成する時には縦型データを使用するため、Rでは縦型・横型のデータ変換を多用します。
+
+### 横型データを縦型データに変換
+
+データを横型から縦型に変換するには、`tidyr::pivot_longer()`関数を使用します。ここでは、サンプルデータセットの`iris`を縦型データに変換し、`Sepal.Length`、`Sepal.Width`、`Petal.Length`、`Petal.Width`の4つの列を集約します。
+
+データ変換の前に、縦型・横型データ変換において必要になる個体識別番号を`iris`データセットに追加します。
 
 ```{r, paged.print=FALSE}
-data_owid_cases <- data_owid %>% 
-  dplyr::select(location, date, new_cases) %>% 
-  dplyr::filter(date >= "2021-01-01") %>% 
-  dplyr::arrange(date)
+iris_id <- iris %>% 
+  dplyr::mutate(id = row_number(),
+                .before = "Species")
 
-data_owid_cases
+head(iris_id)
+```
+
+`tidyr::pivot_longer()`関数を実行すると、`cols`引数に指定した4つの列の名前が`variable`列に、値が`value`列に集約されていることが確認できます。
+
+```{r, paged.print=FALSE}
+iris_id_longer <- iris_id %>% 
+  tidyr::pivot_longer(cols = c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width"), # 縦型データに集約する列の名前
+                      names_to = "variable", # 集約した列の名前を格納する新しい列名
+                      values_to = "value" # 集約した列の値を格納する新しい列名
+                      )
+
+head(iris_id_longer)
+```
+
+`tidyr::pivot_longer()`関数の`cols`引数に指定する列の数が多い場合は、コードが煩雑になるため、縦型データに集約しない列の名前を`cols`引数に`-`で指定します。
+
+```{r, paged.print=FALSE}
+iris_id %>% 
+  tidyr::pivot_longer(cols = -c("id", "Species"), # 縦型データに集約する列の名前
+                      names_to = "variable", # 集約した列の名前を格納する新しい列名
+                      values_to = "value" # 集約した列の値を格納する新しい列名
+                      ) %>% 
+  head()
 ```
 
 ### 縦型データを横型データに変換
 
-```{r, paged.print=FALSE}
-data_owid_cases_wide <- data_owid_cases %>% 
-  tidyr::pivot_wider(id_cols = "date", names_from = "location", values_from = "new_cases") 
+データを横型データに変換するには、`tidyr::pivot_wider()`関数を使用します。ここでは、上の例で`iris`データセットを縦型に変換した`iris_longer`オブジェクトを横型データに戻します。
 
-data_owid_cases_wide
-```
-
-### 横型データを縦型データに変換
+`id_cols`引数には、変換後の横型データにおいて各レコード（行）に一対一で対応する縦型データ列を含む必要がある点に注意してください。この例では`id`列が横型データの各レコード（行）に一対一で対応しています。
 
 ```{r, paged.print=FALSE}
-data_owid_cases_long <- data_owid_cases_wide %>% 
-  tidyr::pivot_longer(cols = -"date", names_to = "location", values_to = "new_cases") 
-
-data_owid_cases_long
+iris_id_longer %>% 
+  tidyr::pivot_wider(id_cols = c("id", "Species"), # 変換後の横型データで列として残す縦型データ列の名前
+                     names_from = "variable", # 変換後の横型データで各列の列名にする縦型データ列の名前
+                     values_from = "value" # 変換後の横型データで各例の値にする縦型データ列の名前
+                     ) %>% 
+  head()
 ```
 
 ## データの結合
