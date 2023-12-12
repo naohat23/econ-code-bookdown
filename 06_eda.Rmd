@@ -40,11 +40,13 @@ library(psych)
 theme_set(theme_light(base_family = "HiraKakuProN-W3"))
 ```
 
-## データの中身（記述統計量）
+## データの中身
+
+### str関数
 
 まず、データが何を含んでいるか確認します。
 
-`summary()`関数は、各変数の記述統計量を出力する関数です。数値型の変数は、平均、中央値、最大値、最小値、四分位数が出力されます。離散型変数のうち、因子型（factor型）の変数は要素毎のサンプル数が出力されます。
+データをコンソールに出力するには、オブジェクト名を入力し、そのまま実行します。データフレームの変数一覧を出力するには、`str()`関数を使用します。
 
 ```{r, paged.print=FALSE}
 # データをコンソールに出力
@@ -52,21 +54,56 @@ diamonds
 
 # データの変数名を出力
 colnames(diamonds)
+```
 
+### summary関数
+
+各変数の記述統計量を出力するには、`summary()`関数を使用します。
+
+数値型の変数は、平均、中央値、最大値、最小値、四分位数が出力されます。離散型変数のうち、因子型（factor型）の変数は各要素のデータ数が出力されます。
+
+```{r, paged.print=FALSE}
 # データの記述統計量を出力
 summary(diamonds)
 ```
 
-因子型でない離散型変数（文字列型など）について要素毎のサンプル数を出力する場合は、あらかじめ因子型に変換し、`summary()`関数を適用します。
+因子型でない離散型変数（文字列型など）について各要素のデータ数を出力する場合は、あらかじめ因子型に変換し、`summary()`関数を適用します。
+
+結果が全て出力されない場合は、`summary()`関数の`maxsum`引数で出力する最大行数を指定します。
 
 ```{r, paged.print=FALSE}
 mpg %>% 
   dplyr::mutate(across(.cols = where(is.character), .fns = as.factor)) %>% 
-  summary()
+  summary(maxsum = 100)
+```
+
+変数名や要素名がアルファベットの場合は上の例のようにレイアウトが崩れずに表示されますが、列名や変数名が日本語の場合はコンソールに出力した列が崩れて見にくくなることがあります。次の例のように、`summary()`関数の結果をウィンドウに表示すると見やすくなります（ウェブサイト上では実行しません）。
+
+```{r, paged.print=FALSE, eval=FALSE}
+mpg %>% 
+  dplyr::mutate(across(.cols = where(is.character), .fns = as.factor)) %>% 
+  summary(maxsum = 100) %>% 
+  as.data.frame.matrix() %>% 
+  View()
+```
+
+### summmarytoolsパッケージ
+
+`summarytools`パッケージの`dfSummary()`関数は、データフレームの各変数の記述統計量や分布に関する情報・グラフを出力する関数です。
+
+コンソールに出力するとグラフが簡略化されるため、結果を`view()`関数に渡してウィンドウに表示すると見やすくなります（ウェブサイト上では実行しません）。
+
+```{r, , paged.print=FALSE}
+summarytools::dfSummary(mpg)
+
+# summarytools::dfSummary(mpg) %>% 
+#   view()
 ```
 
 
-`psych::describe()`関数は、各変数の記述統計量や分布に関する情報を出力する関数です。平均、中央値、標準偏差に加え、刈り込み平均（trimmed）、中央絶対偏差（mad）、レンジ（最大値と最小値の差）、歪度（skew）、尖度（kurtosis）、標準誤差（se）が出力されます。
+### psychパッケージ
+
+`psych`パッケージの`describe()`関数は、データフレームの各変数の記述統計量や分布に関する情報を出力する関数です。平均、中央値、標準偏差に加え、刈り込み平均（trimmed）、中央絶対偏差（mad）、レンジ（最大値と最小値の差）、歪度（skew）、尖度（kurtosis）、標準誤差（se）が出力されます。
 
 ```{r, paged.print=FALSE}
 # データの記述統計量や分布に関する情報を出力

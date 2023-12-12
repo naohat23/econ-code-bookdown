@@ -2,13 +2,13 @@ output_dir: docs
 
 rmd_files: [
   "index.Rmd",
-  "setting.Rmd",
-  "introduction.Rmd",
-  "tidyverse.Rmd",
-  "plot.Rmd",
-  "eda.Rmd",
-  "ols.Rmd",
-  "ts.Rmd",
-  "var.Rmd",
+  "02_setting.Rmd",
+  "03_introduction.Rmd",
+  "04_tidyverse.Rmd",
+  "05_plot.Rmd",
+  "06_eda.Rmd",
+  "07_ols.Rmd",
+  "08_ts.Rmd",
+  "09_var.Rmd",
   "appendix_cont.Rmd"
 ]

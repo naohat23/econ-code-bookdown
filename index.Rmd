@@ -176,7 +176,11 @@ Rで直感的なデータ操作用を行うパッケージである`tidyverse`�
 
     西山 他（2019）の実証例のRコードは、[北川梨津（2020）「西山 他『計量経済学』のためのR」](https://ritsu1997.github.io/r-for-nlas-econometrics/)が提供しています。
 
+-   [星野匡郎、田中久稔、北川梨津（2023）『Rによる実証分析（第2版）ー回帰分析から因果関係へー』オーム社](https://www.ohmsha.co.jp/book/9784274230028/)
+
 -   [マクリン謙一郎（2022）「再現性問題における統計学の役割と責任」日本評論社『経済セミナー』2022年6・7月号　通巻 726号](https://www.nippyo.co.jp/shop/magazine/8801.html)
+
+-   [山澤成康（2004）『実戦 計量経済学入門』日本評論社](https://www.nippyo.co.jp/shop/book/2297.html)
 
 #### 上級 {.unnumbered}
 

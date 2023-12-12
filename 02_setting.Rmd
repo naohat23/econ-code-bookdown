@@ -88,7 +88,7 @@ Sys.getenv(c("http_proxy", "https_proxy"))
 
 Windows版のR 4.2以降のバージョンでは、ファイルのダウンロードにおける通信方法が変更されたことが影響し、主にプロキシ環境でSSLエラーが生じHTTPSサイトにアクセスできないことがあります。
 
-そうしたSSLエラーが生じた場合は、次のコマンドを実行することでエラーが解消する可能性があります。詳細は[Rのディベロッパー用ウェブサイトにおける2022年8月6日のニュース](https://developer.r-project.org/blosxom.cgi/R-4-2-branch/NEWS/2022/08/06#n2022-08-06)を参照してください。
+SSLエラーが生じた場合は、次のコマンドを実行することでエラーが解消する可能性があります。詳細は[Rのディベロッパー用ウェブサイトにおける2022年8月6日のニュース](https://developer.r-project.org/blosxom.cgi/R-4-2-branch/NEWS/2022/08/06#n2022-08-06)を参照してください。
 
 ```{r, eval=FALSE, paged.print=FALSE}
 Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
@@ -98,53 +98,56 @@ Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
 
 ### 使用するパッケージ一覧
 
--   tidyverse系
+-   tidyverse
+    -   [broom](https://broom.tidymodels.org/)：推計結果の整理
     -   [lubridate](https://lubridate.tidyverse.org/)：日付処理
     -   [magrittr](https://magrittr.tidyverse.org/)：パイプ処理
     -   [stringi](https://stringi.gagolewski.com/)：文字列操作
-    -   [tidyverse](https://www.tidyverse.org/)：モダンなデータ分析用パッケージセット
+    -   [tidyverse](https://tidyverse.tidyverse.org/)：モダンなデータ分析用パッケージセット
     -   [tsibble](https://tsibble.tidyverts.org/)：ts形式の時系列データをデータフレーム形式で処理
     -   [readxl](https://readxl.tidyverse.org/)：Excelファイルの読み込み
--   図表系
-    -   [esquisse](https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html)：shinyを使用したGUI形式の直感的な図表作成
-    -   [geofacet](https://cran.r-project.org/web/packages/geofacet/vignettes/geofacet.html)：地図形式の複合グラフ（ファセット）配置
-    -   [ggfortify](https://cran.r-project.org/web/packages/ggfortify/index.html)：統計解析結果の可視化
-    -   [ggplotgui](https://cran.r-project.org/web/packages/ggplotgui/README.html)：shinyを使用したGUI形式の直感的な図表作成
+-   図表
+    -   [esquisse](https://dreamrs.github.io/esquisse/)：shinyを使用したGUI形式の直感的な図表作成
+    -   [geofacet](https://github.com/hafen/geofacet)：地図形式の複合グラフ（ファセット）配置
+    -   [ggfortify](https://github.com/sinhrks/ggfortify)：統計解析結果の可視化
+    -   [ggplotgui](https://github.com/gertstulp/ggplotgui/)：shinyを使用したGUI形式の直感的な図表作成
     -   [ggpubr](https://rpkgs.datanovia.com/ggpubr/)：論文形式の図表作成
-    -   [ggsci](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html)：科学系論文の雑誌別カラーパレット
-    -   [ggrepel](https://ggrepel.slowkow.com/index.html)：散布図のラベル付与
-    -   hexbin：`geom_hex()`関数を使用するために必要なパッケージ
+    -   [ggsci](https://nanx.me/ggsci/)：科学系論文の雑誌別カラーパレット
+    -   [ggrepel](https://github.com/slowkow/ggrepel)：散布図のラベル付与
+    -   [hexbin](https://github.com/edzer/hexbin)：`geom_hex()`関数を使用するために必要なパッケージ
     -   [lemon](https://github.com/stefanedwards/lemon)：複合グラフ（ファセット）の軸・目盛り表示
     -   [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/index.html)：カラーパレット
--   統計系
-    -   [corrplot](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)：相関係数行列の計算・可視化
-    -   [corrr](https://corrr.tidymodels.org/)：相関係数行列の計算・可視化
-    -   [DataExplorer](https://cran.r-project.org/web/packages/DataExplorer/vignettes/dataexplorer-intro.html)：探索的データ分析の一括実行
+-   統計
+    -   [corrplot](https://github.com/taiyun/corrplot)：相関係数行列の計算・可視化
+    -   [corrr](https://github.com/tidymodels/corrr)：相関係数行列の計算・可視化
+    -   [DataExplorer](https://boxuancui.github.io/DataExplorer/)：探索的データ分析
     -   [estimatr](https://declaredesign.org/r/estimatr/)：線形回帰モデルの推定
+    -   [fixest](https://lrberge.github.io/fixest/)：パネルデータ分析の固定効果モデル
     -   [forecast](https://pkg.robjhyndman.com/forecast/)：単変量時系列データ分析
-    -   [GGally](https://ggobi.github.io/ggally/index.html)：ペアプロットなどのデータ可視化
+    -   [GGally](https://ggobi.github.io/ggally/)：ペアプロットなどのデータ可視化
     -   [lmtest](https://cran.r-project.org/web/packages/lmtest/index.html)：線型回帰モデルの検定や診断
-    -   [mFilter](https://www.rdocumentation.org/packages/mFilter/versions/0.1-5/topics/hpfilter)：HPフィルタ
+    -   [mFilter](https://mbalcilar.github.io/)：HPフィルタ
     -   [mgcv](https://cran.r-project.org/web/packages/mgcv/mgcv.pdf)：一般化加法モデル（GAM）
-    -   plm：パネルデータモデル
-    -   [psych](https://personality-project.org/r/psych/)：心理統計パッケージ
-    -   [sandwich](https://cran.r-project.org/web/packages/sandwich/index.html)：線型回帰モデルの標準誤差
+    -   [plm](https://cran.r-project.org/web/packages/plm/index.html)：パネルデータ分析
+    -   [psych](https://cran.r-project.org/web/packages/psych/index.html)：心理統計パッケージ
+    -   [sandwich](https://sandwich.r-forge.r-project.org/)：線型回帰モデルの標準誤差
     -   [seasonal](https://cran.r-project.org/web/packages/seasonal/readme/README.html)：コマンド形式の季節調整
-    -   sigmoid：シグモイド関数
-    -   [SmartEDA](https://daya6489.github.io/SmartEDA/)：探索的データ分析の一括実行
+    -   [sigmoid](https://cran.rstudio.com/web/packages/sigmoid/index.html)：シグモイド関数
+    -   [SmartEDA](https://daya6489.github.io/SmartEDA/)：探索的データ分析
     -   [strucchange](https://cran.r-project.org/web/packages/strucchange/index.html)：構造変化の検定
+    -   [summarytools](https://github.com/dcomtois/summarytools)：探索的データ分析
     -   [tidyquant](https://business-science.github.io/tidyquant/index.html)：金融時系列データ分析
     -   [tseries](https://cran.r-project.org/web/packages/tseries/index.html)：時系列分析用の関数
-    -   [vars](https://cran.r-project.org/web/packages/vars/index.html)：VARモデル
-    -   [urca](https://cran.r-project.org/web/packages/urca/index.html)：単位根検定・共和分検定
+    -   [vars](https://www.pfaffikus.de/rpacks/vars/)：VARモデル
+    -   [urca](https://www.pfaffikus.de/rpacks/urca/)：単位根検定・共和分検定
 -   データパッケージ
-    -   [fpp](https://cran.r-project.org/web/packages/fpp/index.html)：様々なサンプルデータセットを格納したパッケージ
+    -   [fpp](https://otexts.com/fpp2/)：様々なサンプルデータセットを格納したパッケージ
     -   [fpp2](https://otexts.com/fpp2/)：様々なサンプルデータセットを格納したパッケージ
-    -   [nycflights13](https://cran.r-project.org/web/packages/nycflights13/index.html)：航空便情報サンプルデータセット
+    -   [nycflights13](https://github.com/tidyverse/nycflights13)：航空便情報サンプルデータセット
 -   その他
-    -   [docstring](https://cran.r-project.org/web/packages/docstring/index.html)：関数の説明文を作成
+    -   [docstring](https://github.com/dasonk/docstring)：関数の説明文を作成
     -   [openxlsx](https://ycphs.github.io/openxlsx/)：Excelのxlsxファイルの読み込み・編集・書き出し
-    -   [pblapply](https://www.rdocumentation.org/packages/pbapply/versions/1.4-3/topics/pbapply)：プログレスバーを表示する`apply()`関数ファミリー
+    -   [pbapply](https://github.com/psolymos/pbapply)：プログレスバーを表示する`apply()`関数ファミリー
 
 ### インストールとインポート
 
@@ -155,41 +158,44 @@ Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
 ```{r, results='hide', warning=FALSE, message=FALSE, paged.print=FALSE}
 # パッケージ一覧
 packages <- c(
-  # tidyverse系
+  # tidyverse
+  "broom",
   "lubridate", 
   "magrittr", 
   "stringi",
   "tidyverse", 
   "tsibble", 
   "readxl",
-  # 図表系
-  "esquisse", # Rバージョン3系では実行不可のためコメントアウトする
+  # 図表
+  "esquisse", # Rバージョン3系では実行不可のためコメントアウトすること
   "geofacet", 
   "ggfortify", 
-  "ggplotgui", # Rバージョン3系では実行不可のためコメントアウトする
+  "ggplotgui", # Rバージョン3系では実行不可のためコメントアウトすること
   "ggpubr", 
   "ggsci", 
   "ggrepel", 
   "hexbin", 
   "lemon", 
   "RColorBrewer",
-  # 統計系
+  # 統計
   "corrplot", 
   "corrr", 
   "DataExplorer", 
   "estimatr", 
+  "fixest",
   "forecast", 
   "GGally", 
   "lmtest", 
   "mFilter", 
   "mgcv", 
   "plm", 
-  "psych", # Rバージョン3系では実行不可のためコメントアウトする
+  "psych", # Rバージョン3系では実行不可のためコメントアウトすること
   "sandwich", 
   "seasonal", 
   "sigmoid", 
   "SmartEDA", 
   "strucchange", 
+  "summarytools",
   "tidyquant", 
   "tseries", 
   "vars", 
@@ -207,7 +213,7 @@ packages <- c(
 # インストールしていないパッケージがあればインストール
 new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
 
-if(length(new_packages)) {
+if (length(new_packages)) {
   install.packages(new_packages)
 }
 
@@ -239,11 +245,19 @@ install.packages("tidyverse")
 
 ### インストール時のエラー
 
+#### 一般的なエラー
+
 パッケージをインストールする際に、`unable to access`や`cannot open URL`といったエラーメッセージが表示され、パッケージがインストールできないことがあります（特に、プロキシ環境下でこうしたエラーが生じやすいようです）。こうしたエラーが発生する場合、パッケージのインストールに関する通信設定を変更すると、エラーが解消する可能性があります。
 
 RStudioのファイルメニュー > Tools > Global Options を選択し、Options画面でPackagesをクリックし、Managementタブの下の方にある「Use secure download method for HTTP」のチェックボックスを外してください。
 
 詳細は、[RStudioコミュニティのイシュー](https://community.rstudio.com/t/issues-with-package-installation-and-cran-mirrors-unable-to-access-repository-and-ssl-error/59121)を参照してください。
+
+#### summarytoolsパッケージのエラー
+
+MacのRで`summarytools`パッケージをインストールすると、`X11 library is missing: install XQuartz from xquartz.macosforge.org`というエラーメッセージが出ることがあります。
+
+その場合は、[XQuartsのウェブサイト](https://www.xquartz.org/)からインストーラをダウンロードして、MacにXQuartsをインストールした上で、Rに`summarytools`パッケージをインストールしてください。
 
 ## グラフの設定
 
@@ -580,43 +594,51 @@ options(warn = -1)
 # options(download.file.method = "libcurl")
 # options(timeout = NA)
 
+# Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
+
+# SSL設定（筆者の実行環境では不要のためコメントアウト）
+# Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
+
 # パッケージのインストールとインポート
 packages <- c(
-  # tidyverse系
+  # tidyverse
+  "broom",
   "lubridate", 
   "magrittr", 
   "stringi",
   "tidyverse", 
   "tsibble", 
   "readxl",
-  # 図表系
-  "esquisse", # Rバージョン3系では実行不可のためコメントアウトする
+  # 図表
+  "esquisse", # Rバージョン3系では実行不可のためコメントアウトすること
   "geofacet", 
   "ggfortify", 
-  "ggplotgui", # Rバージョン3系では実行不可のためコメントアウトする
+  "ggplotgui", # Rバージョン3系では実行不可のためコメントアウトすること
   "ggpubr", 
   "ggsci", 
   "ggrepel", 
   "hexbin", 
   "lemon", 
   "RColorBrewer",
-  # 統計系
+  # 統計
   "corrplot", 
   "corrr", 
   "DataExplorer", 
   "estimatr", 
+  "fixest",
   "forecast", 
   "GGally", 
   "lmtest", 
   "mFilter", 
   "mgcv", 
   "plm", 
-  "psych", # Rバージョン3系では実行不可のためコメントアウトする
+  "psych", # Rバージョン3系では実行不可のためコメントアウトすること
   "sandwich", 
   "seasonal", 
   "sigmoid", 
   "SmartEDA", 
   "strucchange", 
+  "summarytools",
   "tidyquant", 
   "tseries", 
   "vars", 
@@ -633,7 +655,7 @@ packages <- c(
 
 new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
 
-if(length(new_packages)) {
+if (length(new_packages)) {
   install.packages(new_packages)
 }
 

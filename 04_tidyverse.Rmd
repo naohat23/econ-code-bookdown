@@ -69,7 +69,7 @@ data_owid %>%
   dplyr::select(location, date, new_cases)
 ```
 
-### 列名を格納したベクトルで選択
+### 列名ベクトルで選択
 
 ```{r, paged.print=FALSE}
 cols <- c("location", "date", "new_cases")
@@ -84,25 +84,25 @@ data_owid %>%
   dplyr::select(-location) 
 ```
 
-### 列名に特定の文字列を含む列を選択
-
-```{r, paged.print=FALSE}
-data_owid %>% 
-  dplyr::select(location, date, contains("cases"))
-```
-
-### 列名が特定の文字列から始まる列を選択
+### 特定文字列で始まる列を選択
 
 ```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::select(location, date, starts_with("new_cases")) 
 ```
 
-### 列名が特定の文字列で終わる列を選択
+### 特定文字列で終わる列を選択
 
 ```{r, paged.print=FALSE}
 data_owid %>% 
   dplyr::select(location, date, ends_with(c("cases", "deaths"))) 
+```
+
+### 特定文字列を含む列を選択
+
+```{r, paged.print=FALSE}
+data_owid %>% 
+  dplyr::select(location, date, contains("cases"))
 ```
 
 ### 特定の型の列を選択
@@ -114,11 +114,78 @@ data_owid %>%
 
 ## 列名の変更
 
-データセットの列名（変数名）を変更するときは、`dplyr::rename()`関数を使用します。
+### 列名の変更
+
+データセットの列名（変数名）を変更するときは、`dplyr::rename()`関数を使用し、`rename()`関数の中で`変更後の変数名 = 変更前の変数名`とします。
 
 ```{r, paged.print=FALSE}
-data_owid %>% 
-  dplyr::rename(country = location)
+iris %>% 
+  dplyr::rename(種類 = Species) %>% 
+  head()
+```
+
+### 複数列名の一括変更
+
+複数の列名（変数名）を一括して変更するときは、`dplyr::rename_with()`関数を使用します。`rename_with()`関数の中で、`.cols`引数に変更対象の列を指定し、`.fn`引数に変更方法の関数を`~`で指定します。`.fn`引数に指定した関数の中の`.`は`.cols`引数から引き継いだ列名を意味します。
+
+全ての列を変更対象にする場合は、`.cols`引数に`everything()`関数を指定します。
+
+```{r, paged.print=FALSE}
+iris %>% 
+  dplyr::rename_with(.cols = everything(), 
+                     .fn = ~ str_c(., "_1")
+                     ) %>% 
+  head()
+```
+
+特定の列を変更対象にする場合は、`.cols`引数に`c()`関数で列名を指定します。
+
+```{r, paged.print=FALSE}
+iris %>% 
+  dplyr::rename_with(.cols = c(Sepal.Length, Petal.Length), 
+                     .fn = ~ str_replace_all(., pattern = "Length", replacement = "長さ")
+                     ) %>% 
+  head()
+```
+
+特定の範囲の列を変更対象にする場合は、`.cols`引数に初めと終わりの列名を`:`でつなげて指定します。`str_replace_all()`関数の`pattern`引数に記載している`\\.`は、正規表現のエスケープ文字`\`を用い、列名に含まれる`.`を検出しています。詳細はウィッカム、グロールマンド（2017）P.174を参照してください。
+
+```{r, paged.print=FALSE}
+iris %>% 
+  dplyr::rename_with(.cols = Sepal.Length:Petal.Width, 
+                     .fn = ~ str_replace_all(., pattern = c("Sepal" = "ガク", "Petal" = "花弁", "\\." = "_"))
+                     ) %>% 
+  head()
+```
+
+列名が特定の文字列で始まる列を変更対象にする場合は、`.cols`引数に`starts_with()`関数で文字列を指定します。
+
+```{r, paged.print=FALSE}
+iris %>% 
+  dplyr::rename_with(.cols = starts_with("Sepal"), 
+                     .fn = ~ str_c(seq(1, 2), "_", .)
+                     ) %>% 
+  head()
+```
+
+列名が特定の文字列で終わる列を変更対象にする場合は、`.cols`引数に`ends_with()`関数で文字列を指定します。
+
+```{r, paged.print=FALSE}
+iris %>% 
+  dplyr::rename_with(.cols = ends_with("Width"), 
+                     .fn = ~ str_c(., "_", seq(1, 2))
+                     ) %>% 
+  head()
+```
+
+列名が特定の文字列を含む列を変更対象にする場合は、`.cols`引数に`contains()`関数で文字列を指定します。`str_replace_all()`関数の`pattern`引数に記載している`\\.`は、正規表現のエスケープ文字`\`を用い、列名に含まれる`.`を検出しています。詳細はウィッカム、グロールマンド（2017）P.174を参照してください。
+
+```{r, paged.print=FALSE}
+iris %>% 
+  dplyr::rename_with(.cols = contains("."), 
+                     .fn = ~ str_replace_all(., pattern = "\\.", replacement = "_")
+                     ) %>% 
+  head()
 ```
 
 ## 行のスライスとサンプリング
@@ -146,24 +213,24 @@ df_2 %>%
 
 ### サンプリング
 
-`dplyr::slice()`関数ファミリーである`dplyr::slice_sample()`関数を使用すると、データセットからデータをランダムサンプリングすることができます。ここでは、53940サンプルあるdiamondsデータセットからサンプリングを行います。
+`dplyr::slice()`関数ファミリーである`dplyr::slice_sample()`関数を使用すると、データセットからデータをランダムサンプリングすることができます。ここでは、サンプルサイズが53940のdiamondsデータセットからサンプリングを行います。
 
 ```{r, paged.print=FALSE}
 diamonds
 ```
 
-抽出するサンプル数は、`dplyr::slice_sample()`関数の`n`引数で指定します。
+抽出するサンプルサイズは、`dplyr::slice_sample()`関数の`n`引数で指定します。
 
 ```{r, paged.print=FALSE}
 diamonds %>% 
-  dplyr::slice_sample(n = 1000) # サンプル数
+  dplyr::slice_sample(n = 1000) # サンプルサイズ
 ```
 
-抽出するサンプル数を、データの個数ではなく、元データセットの何割、といった形で決める場合は、`dplyr::slice_sample()`関数の`porp`引数に割合を指定します。
+抽出するサンプルサイズを、データの個数ではなく、元データセットの何割、といった形で決める場合は、`dplyr::slice_sample()`関数の`porp`引数に割合を指定します。
 
 ```{r, paged.print=FALSE}
 diamonds %>% 
-  dplyr::slice_sample(prop = 0.1) # サンプル割合
+  dplyr::slice_sample(prop = 0.1) # サンプルサイズの割合
 ```
 
 ## 行のフィルタ
@@ -519,7 +586,6 @@ data_owid %>%
   dplyr::distinct() %>% 
   dplyr::count(name)
 ```
-
 
 ## 縦型・横型の変換
 

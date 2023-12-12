@@ -1018,7 +1018,7 @@ data_owid_line %>%
 
 箱ひげ図は一般的に、ひげの下端が最小値、箱の下端が第1四分位数、箱内部の横線が中央値、箱の上端が第3四分位数、ひげの上端が最大値を表します。
 
-しかし、`ggplot2`パッケージの`geom_boxplot()`で作成すると、ひげの下端・上端は箱の下端・上端から1.5×IQRの範囲内にある最小・最大のサンプルの位置を表すことに注意が必要です。その範囲外にあるサンプルは外れ値として扱われます。なお、IQRは四分位範囲（第3四分位数-第1四分位数）を意味します。
+しかし、`ggplot2`パッケージの`geom_boxplot()`で作成すると、ひげの下端・上端は箱の下端・上端から1.5×IQRの範囲内にある最小・最大のデータの位置を表すことに注意が必要です。その範囲外にあるデータは外れ値として扱われます。なお、IQRは四分位範囲（第3四分位数-第1四分位数）を意味します。
 
 ```{r, paged.print=FALSE}
 ggplot(data = mpg,
@@ -1037,9 +1037,9 @@ ggplot(data = mpg,
                )
 ```
 
-### 箱ひげ図に個別サンプルを追加
+### 箱ひげ図に個別データを追加
 
-箱ひげ図にジッターグラフで個別サンプルを追加する場合は、データの重複表示を避けるため、`geom_boxplot()`関数の`outlier.shape`引数に`NA`を指定して、箱ひげ図による外れ値のマーカーを非表示にします。
+箱ひげ図にジッターグラフで個別データを追加する場合は、データの重複表示を避けるため、`geom_boxplot()`関数の`outlier.shape`引数に`NA`を指定して、箱ひげ図による外れ値のマーカーを非表示にします。
 
 ```{r, paged.print=FALSE}
 ggplot(data = mpg,
@@ -1086,7 +1086,7 @@ ggplot(data = mpg %>%
                )
 ```
 
-横並び箱ひげ図にジッターグラフで個別サンプルを追加する場合は、`geom_jitter()`関数の`height`引数と`width`引数を削除し、`position`引数に`position_jitterdodge()`関数を指定します。
+横並び箱ひげ図にジッターグラフで個別データを追加する場合は、`geom_jitter()`関数の`height`引数と`width`引数を削除し、`position`引数に`position_jitterdodge()`関数を指定します。
 
 ```{r, paged.print=FALSE}
 ggplot(data = mpg %>% 
@@ -1113,7 +1113,7 @@ ggplot(data = mpg %>%
 ggplot(data = mpg,
        mapping = aes(x = class, y = hwy)
        ) +
-  geom_violin(scale = "area", # ヴァイオリンの大きさ（area：すべての面積が同じ、count：サンプル個数に比例、width：すべての幅が同じ）
+  geom_violin(scale = "area", # ヴァイオリンの大きさ（area：すべての面積が同じ、count：データ数に比例、width：すべての幅が同じ）
               alpha = 0.5, # ヴァイオリンの塗りつぶしの透明度
               color = "darkblue", # ヴァイオリンの線の色
               fill = "lightblue", # ヴァイオリンの塗りつぶしの色
@@ -1122,13 +1122,13 @@ ggplot(data = mpg,
               )
 ```
 
-### ヴァイオリングラフに個別サンプルを追加
+### ヴァイオリングラフに個別データを追加
 
 ```{r, paged.print=FALSE}
 ggplot(data = mpg,
        mapping = aes(x = class, y = hwy)
        ) +
-  geom_violin(scale = "area", # ヴァイオリンの大きさ（area：すべての面積が同じ、count：サンプル個数に比例、width：すべての幅が同じ）
+  geom_violin(scale = "area", # ヴァイオリンの大きさ（area：すべての面積が同じ、count：データ数に比例、width：すべての幅が同じ）
               alpha = 0.5, # ヴァイオリンの塗りつぶしの透明度
               color = "darkblue", # ヴァイオリンの線の色
               fill = "lightblue", # ヴァイオリンの塗りつぶしの色
@@ -1182,7 +1182,8 @@ ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
        ) +
   geom_point() +
-  facet_rep_grid(rows = vars(class), # 変数class別にグラフを作成
+  # ファセット
+  facet_rep_grid(rows = vars(class), # 行方向にグラフを分ける変数名を指定
                  scales = "fixed", # 目盛設定（fixed：全グラフ共通、free：全グラフ独立、free_x：X軸のみ独立、free_y：Y軸のみ独立）
                  repeat.tick.labels = FALSE # 目盛表示（TRUE：すべてのグラフに表示、FALSE：端のグラフのみ表示
                  )
@@ -1197,7 +1198,8 @@ ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
        ) +
   geom_point() +
-  facet_rep_grid(cols = vars(class), # 変数class別にグラフを作成
+  # ファセット
+  facet_rep_grid(cols = vars(class), # 列方向にグラフを分ける変数名を指定
                  scales = "fixed", # 目盛設定（fixed：全グラフ共通、free：全グラフ独立、free_x：X軸のみ独立、free_y：Y軸のみ独立）
                  repeat.tick.labels = FALSE # 目盛表示（TRUE：すべてのグラフに表示、FALSE：端のグラフのみ表示
                  )
@@ -1212,8 +1214,9 @@ ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
        ) +
   geom_point() +
-  facet_rep_grid(rows = vars(year), # 変数year別に行方向のグラフを作成
-                 cols = vars(class), # 変数class別に列方向のグラフを作成
+  # ファセット
+  facet_rep_grid(rows = vars(year), # 行方向にグラフを分ける変数名を指定
+                 cols = vars(class), # 列方向にグラフを分ける変数名を指定
                  scales = "fixed", # 目盛設定（fixed：全グラフ共通、free：全グラフ独立、free_x：X軸のみ独立、free_y：Y軸のみ独立）
                  repeat.tick.labels = TRUE # 目盛表示（TRUE：すべてのグラフに表示、FALSE：端のグラフのみ表示
                  )
@@ -1228,7 +1231,8 @@ ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
        ) +
   geom_point() +
-  facet_rep_wrap(facets = ~ manufacturer, # 変数manufacturer別にグラフを作成
+  # ファセット
+  facet_rep_wrap(facets = ~ manufacturer, # グラフを分ける変数名を指定
                  nrow = 3, # 行方向のグラフ数
                  ncol = 5, # 列方向のグラフ数
                  scales = "fixed", # 目盛設定（fixed：全グラフ共通、free：全グラフ独立、free_x：X軸のみ独立、free_y：Y軸のみ独立）
@@ -1246,7 +1250,8 @@ ggplot(data = mpg,
        mapping = aes(x = cty, y = hwy)
        ) +
   geom_point() +
-  facet_rep_wrap(facets = ~ manufacturer # 変数manufacturer別にグラフを作成
+  # ファセット
+  facet_rep_wrap(facets = ~ manufacturer # グラフを分ける変数名を指定
                  ) + 
   theme(strip.background = element_rect(color = NA, # ファセットタイトル領域の枠の色
                                         fill = "White" # ファセットタイトル領域の塗りつぶしの色（NAで無色）

@@ -65,7 +65,7 @@ $$
 両辺の階差をとってGDPの前期の値$\mathit{GDP}_{t-1}$で割ると、寄与度分解の式は、
 
 $$
-\frac{\Delta{\mathit{GDP}_t}}{\mathit{GDP}_{t-1}} = \frac{C_t}{\mathit{GDP}_{t-1}} + \frac{I_t}{\mathit{GDP}_{t-1}} + \frac{G_t}{\mathit{GDP}_{t-1}} + \frac{\mathit{EX}_t}{\mathit{GDP}_{t-1}} - \frac{\mathit{IM}_t}{\mathit{GDP}_{t-1}}
+\frac{\Delta{\mathit{GDP}_t}}{\mathit{GDP}_{t-1}} = \frac{\Delta{C_t}}{\mathit{GDP}_{t-1}} + \frac{\Delta{I_t}}{\mathit{GDP}_{t-1}} + \frac{\Delta{G_t}}{\mathit{GDP}_{t-1}} + \frac{\Delta{\mathit{EX}_t}}{\mathit{GDP}_{t-1}} - \frac{\Delta{\mathit{IM}_t}}{\mathit{GDP}_{t-1}}
 $$
 
 となります。輸入は控除項目のため、寄与度の符号がマイナスになっている点に注意してください。
@@ -146,12 +146,12 @@ $$
 
 ### 実例：経常利益 {.unnumbered}
 
-法人企業統計の経常利益が、「経常利益$\mathit{CP}_t$＝売上高$\mathit{SL}_t$×限界利益率$\alpha_t$−人件費$\mathit{HC}_t$＋営業外損益$\mathit{NO}_t$」で計算できることを利用して、経常利益の変化率を構成項目の寄与度に分解します。なお、「限界利益＝売上高−変動費」、「変動費＝売上原価＋販管費−人件費」です。
+法人企業統計調査の経常利益が、「経常利益$\mathit{CP}_t$＝売上高$\mathit{SL}_t$×限界利益率$\alpha_t$−人件費$\mathit{HC}_t$−減価償却費$\mathit{DC}_t$＋営業外損益$\mathit{NO}_t$」で計算できることを利用して、経常利益の変化率を構成項目の寄与度に分解します。なお、ここでは「限界利益＝売上高−変動費」、「変動費＝売上原価＋販管費−人件費−減価償却費」と定義しています。
 
 まず、和・差の指標の公式を利用すると、経常利益の定義式は、
 
 $$
-\frac{\Delta{\mathit{CP}_t}}{\mathit{CP}_{t-1}} = \frac{\Delta{(\mathit{SL}_t \times \alpha_t})}{\mathit{CP}_{t-1}} - \frac{\Delta{\mathit{HC}_t}}{\mathit{CP}_{t-1}} + \frac{\Delta{\mathit{NO}_t}}{\mathit{CP}_{t-1}}
+\frac{\Delta{\mathit{CP}_t}}{\mathit{CP}_{t-1}} = \frac{\Delta{(\mathit{SL}_t \times \alpha_t})}{\mathit{CP}_{t-1}} - \frac{\Delta{\mathit{HC}_t}}{\mathit{CP}_{t-1}} - \frac{\Delta{\mathit{DC}_t}}{\mathit{CP}_{t-1}} + \frac{\Delta{\mathit{NO}_t}}{\mathit{CP}_{t-1}}
 $$
 
 となります。ここで、積の指標の公式から、
@@ -163,10 +163,10 @@ $$
 であることを利用し、上の式に代入して整理すると、
 
 $$
-\frac{\Delta{\mathit{CP}_t}}{\mathit{CP}_{t-1}} = \frac{\alpha_{t-1}}{\mathit{CP}_{t-1}}\Delta{\mathit{SL}_t} + \frac{\mathit{SL}_{t-1}}{\mathit{CP}_{t-1}}\Delta{\alpha_t}  - \frac{\Delta{\mathit{HC}_t}}{\mathit{CP}_{t-1}} + \frac{\Delta{\mathit{NO}_t}}{\mathit{CP}_{t-1}} + \frac{\Delta{\mathit{SL}_t} \times \Delta{\alpha_t}}{\mathit{CP}_{t-1}}
+\frac{\Delta{\mathit{CP}_t}}{\mathit{CP}_{t-1}} = \frac{\alpha_{t-1}}{\mathit{CP}_{t-1}}\Delta{\mathit{SL}_t} + \frac{\mathit{SL}_{t-1}}{\mathit{CP}_{t-1}}\Delta{\alpha_t}  - \frac{\Delta{\mathit{HC}_t}}{\mathit{CP}_{t-1}} - \frac{\Delta{\mathit{DC}_t}}{\mathit{CP}_{t-1}} + \frac{\Delta{\mathit{NO}_t}}{\mathit{CP}_{t-1}} + \frac{\Delta{\mathit{SL}_t} \times \Delta{\alpha_t}}{\mathit{CP}_{t-1}}
 $$
 
-と寄与度分解できます。右辺第5項は売上高$\mathit{SL}_t$と限界利益率$\alpha_t$の交差項であり、誤差として処理します。
+と寄与度分解できます。右辺第6項は売上高$\mathit{SL}_t$と限界利益率$\alpha_t$の交差項であり、誤差として処理します。
 
 ## 商の指標 {.unnumbered}
 
@@ -258,7 +258,7 @@ $$
 
 ### 実例：失業率 {.unnumbered}
 
-労働力調査の失業率が、「失業率$u_t$＝1−就業者数$E_t$÷(15歳以上人口$N_t$×労働力率$\alpha_t$)」で計算できることを利用して、失業率の階差を構成項目の寄与度に分解します。一般的な指標では変化率を寄与度分解しますが、失業率は割合のため変化率ではなく階差を寄与度分解します。
+労働力調査の失業率が、「失業率$u_t$＝1−就業者数$E_t$÷(15歳以上人口$N_t$×労働力率$\alpha_t$)」で計算できることを利用して、失業率の階差を構成項目の寄与度に分解します。一般的な指標では変化率を寄与度分解しますが、失業率は割合のため、変化率$\Delta{u_t}/u_{t-1}$ではなく階差$\Delta{u_t}$を寄与度分解します。
 
 なお、失業率には様々な寄与度分解の方法がありますが、この分解方法は[厚生労働省の『令和元年版 労働経済の分析』のコラム１－１図](https://www.mhlw.go.jp/stf/wp/hakusyo/roudou/19/backdata/column1-1.html)に基づいています。
 

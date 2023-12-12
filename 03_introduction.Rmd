@@ -139,7 +139,7 @@ setdiff(seq(0, 20, 2), seq(0, 20, 3))
 
 ベクトルは複数の要素を一つにまとめたデータ構造で、`c()`関数で作成します。一つのベクトルには単一のデータ型のみ格納でき、数値型や文字列型のデータを混在させることはできません。
 
-なお、Rではベクトルのことを**アトミックベクトル（atomic vector）**とも言います。一つのベクトルに単一のデータ型のみ格納できる点が、アトミック（原子）と呼ばれる理由です。特に、Rのエラーメッセージではよく「$ operator is invalid for atomic vectors」（＄演算子は原子ベクトルに対して無効です）といった形でアトミックベクトルという言葉が出てきますので、注意してください。
+なお、Rではベクトルのことを**アトミックベクトル（atomic vector）**とも言います。一つのベクトルに単一のデータ型のみ格納できる点が、アトミック（原子）と呼ばれる理由です。特に、Rのエラーメッセージではよく`$ operator is invalid for atomic vectors`（$演算子は原子ベクトルに対して無効です）といった形でアトミックベクトルという言葉が出てきますので、注意してください。
 
 ```{r, paged.print=FALSE}
 # 数値型ベクトルの作成
@@ -374,7 +374,6 @@ colnames(df_2)
 str(df_2)
 ```
 
-
 ## リスト
 
 リストは、単一の数値、文字列、ベクトル、データフレームなど、様々な種類のデータを格納することができる容器のようなものです。リストそのものをリストに格納することもできます。リストは`list()`関数で作成します。リストに格納する各要素には、それぞれ名前を付けることができます。
@@ -450,7 +449,7 @@ str_sub(string = c("日本の成長率", "米国の成長率", "欧州の成長�
         )
 ```
 
-### 文字列の検出・置換
+### 文字列の検出
 
 ある文字列を含んでいるかを検出するには、`str_detect()`関数を使用し、`pattern`引数に検出条件を指定します。`str_detect()`関数は検出結果に応じて`TRUE`か`FALSE`を出力します。
 
@@ -487,6 +486,8 @@ data_pref_names %>%
 data_pref_names %>% 
   dplyr::filter(str_detect(string = pref_name, pattern = "都") & str_detect(string = pref_name, pattern = "府"))
 ```
+
+### 文字列の置換
 
 文字列の置換は`str_replace()`関数で行います。置換の該当箇所が複数ある場合、最初の該当箇所のみ置換する場合は`str_replace()`関数を、すべての該当箇所を置換する場合は`str_replace_all()`関数を使用します。どちらの関数も、`pattern`引数に置換元の文字列を、`replacement`引数に置換先の文字列を指定します。
 
@@ -547,7 +548,6 @@ stri_trans_general(sentence_jp, id = "Halfwidth-Fullwidth")
 stri_trans_general(sentence_jp, id = "Fullwidth-Halfwidth")
 ```
 
-
 ### 文字列のパディング
 
 パディングとは、固定長の文字列を扱う際に、文字数（桁数）が足りない部分を埋めることです。主に、ファイルやオブジェクトの名称に数字で連番をつける時に用います。パディングには`str_pad()`関数を使用します。
@@ -583,7 +583,6 @@ for (letter in c("a", "b", "c")) {
 
 list_str
 ```
-
 
 ```{r, paged.print=FALSE}
 # 文字列のプログラム文：変数に格納されている値がリストの要素名になる
@@ -936,6 +935,7 @@ CSVデータを書き出す（CSVファイルとして保存する）には、`w
 write.csv(..., # 書き出すオブジェクト名（クオーテーションは不要）
           file = "directory/file.csv", # 書き出し先のファイルパス（拡張子が必要）
           row.names = FALSE, # 行番号を付与するか
+          na = "NA", # NAデータの表記方法
           fileEncoding = "CP932" # Windows標準（Shift JIS）は"CP932"、utf-8は"UTF-8"
           )
 ```
@@ -959,6 +959,3 @@ save(..., # セーブするオブジェクト名（クオーテーションは�
 ```{r, eval=FALSE, paged.print=FALSE}
 load(file = "directory/file.RData") # ロード元ファイルパス（拡張子が必要）
 ```
-
-
-
