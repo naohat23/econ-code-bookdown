@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 探索的データ分析 | エコノミストのためのR</title>
+  <meta name="description" content="6 探索的データ分析 | エコノミストのためのR" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 探索的データ分析 | エコノミストのためのR" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="naohat23/econ-code-bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 探索的データ分析 | エコノミストのためのR" />
+  
+  
+  
+
+<meta name="author" content="服部直樹" />
+
+
+<meta name="date" content="2023-12-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="05_plot.html"/>
+<link rel="next" href="07_ols.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://econ-code.verse.jp/index.html">エコノミストのためのR</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#なぜrを使うのか"><i class="fa fa-check"></i><b>1.1</b> なぜRを使うのか？</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#本書でできること"><i class="fa fa-check"></i><b>1.2</b> 本書でできること</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#目次"><i class="fa fa-check"></i><b>1.3</b> 目次</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#第1章-はじめに"><i class="fa fa-check"></i>第1章 はじめに</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#第2章-rの設定"><i class="fa fa-check"></i>第2章 Rの設定</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#第3章-rの基本的な使用方法"><i class="fa fa-check"></i>第3章 Rの基本的な使用方法</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#第4章-tidyverseによるデータ操作"><i class="fa fa-check"></i>第4章 tidyverseによるデータ操作</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#第5章-ggplot2によるグラフ作成"><i class="fa fa-check"></i>第5章 ggplot2によるグラフ作成</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#第6章-探索的データ分析eda"><i class="fa fa-check"></i>第6章 探索的データ分析（EDA）</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#第7章-線形回帰"><i class="fa fa-check"></i>第7章 線形回帰</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#第8章-時系列データ操作"><i class="fa fa-check"></i>第8章 時系列データ操作</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#第9章-時系列分析"><i class="fa fa-check"></i>第9章 時系列分析</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#付録-寄与度の計算方法"><i class="fa fa-check"></i>付録 寄与度の計算方法</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#パネルデータ分析"><i class="fa fa-check"></i>パネルデータ分析</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#参考文献ウェブサイト"><i class="fa fa-check"></i><b>1.4</b> 参考文献・ウェブサイト</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rプログラミング"><i class="fa fa-check"></i>Rプログラミング</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#統計学計量経済学"><i class="fa fa-check"></i>統計学・計量経済学</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#時系列データ分析"><i class="fa fa-check"></i>時系列データ分析</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i><b>1.5</b> 変更履歴</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年12月13日-マイナーアップデート"><i class="fa fa-check"></i>2023年12月13日 マイナーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年10月9日-マイナーアップデート"><i class="fa fa-check"></i>2023年10月9日 マイナーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月27日-マイナーアップデート"><i class="fa fa-check"></i>2023年9月27日 マイナーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月22日-メジャーアップデート"><i class="fa fa-check"></i>2023年9月22日 メジャーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-メジャーアップデート"><i class="fa fa-check"></i>2023年6月18日 メジャーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月18日-マイナーアップデート"><i class="fa fa-check"></i>2023年6月18日 マイナーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年4月6日-マイナーアップデート"><i class="fa fa-check"></i>2023年4月6日 マイナーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年3月18日-マイナーアップデート"><i class="fa fa-check"></i>2023年3月18日 マイナーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年2月6日-マイナーアップデート"><i class="fa fa-check"></i>2023年2月6日 マイナーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年10月22日-マイナーアップデート"><i class="fa fa-check"></i>2022年10月22日 マイナーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月7日-マイナーアップデート"><i class="fa fa-check"></i>2022年9月7日 マイナーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年7月17日-マイナーアップデート"><i class="fa fa-check"></i>2022年7月17日 マイナーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年7月9日-マイナーアップデート"><i class="fa fa-check"></i>2022年7月9日 マイナーアップデート</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年6月26日-ローンチ"><i class="fa fa-check"></i>2022年6月26日 ローンチ</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="02_setting.html"><a href="02_setting.html"><i class="fa fa-check"></i><b>2</b> Rの設定</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="02_setting.html"><a href="02_setting.html#設定全般"><i class="fa fa-check"></i><b>2.1</b> 設定全般</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="02_setting.html"><a href="02_setting.html#rのインストール"><i class="fa fa-check"></i><b>2.1.1</b> Rのインストール</a></li>
+<li class="chapter" data-level="2.1.2" data-path="02_setting.html"><a href="02_setting.html#rのバージョン確認"><i class="fa fa-check"></i><b>2.1.2</b> Rのバージョン確認</a></li>
+<li class="chapter" data-level="2.1.3" data-path="02_setting.html"><a href="02_setting.html#セッション情報の確認"><i class="fa fa-check"></i><b>2.1.3</b> セッション情報の確認</a></li>
+<li class="chapter" data-level="2.1.4" data-path="02_setting.html"><a href="02_setting.html#オブジェクトを全削除"><i class="fa fa-check"></i><b>2.1.4</b> オブジェクトを全削除</a></li>
+<li class="chapter" data-level="2.1.5" data-path="02_setting.html"><a href="02_setting.html#警告の非表示"><i class="fa fa-check"></i><b>2.1.5</b> 警告の非表示</a></li>
+<li class="chapter" data-level="2.1.6" data-path="02_setting.html"><a href="02_setting.html#関数が出力する警告やメッセージの非表示"><i class="fa fa-check"></i><b>2.1.6</b> 関数が出力する警告やメッセージの非表示</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="02_setting.html"><a href="02_setting.html#通信関連の設定"><i class="fa fa-check"></i><b>2.2</b> 通信関連の設定</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="02_setting.html"><a href="02_setting.html#プロキシ設定"><i class="fa fa-check"></i><b>2.2.1</b> プロキシ設定</a></li>
+<li class="chapter" data-level="2.2.2" data-path="02_setting.html"><a href="02_setting.html#ssl設定"><i class="fa fa-check"></i><b>2.2.2</b> SSL設定</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="02_setting.html"><a href="02_setting.html#パッケージ"><i class="fa fa-check"></i><b>2.3</b> パッケージ</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="02_setting.html"><a href="02_setting.html#使用するパッケージ一覧"><i class="fa fa-check"></i><b>2.3.1</b> 使用するパッケージ一覧</a></li>
+<li class="chapter" data-level="2.3.2" data-path="02_setting.html"><a href="02_setting.html#インストールとインポート"><i class="fa fa-check"></i><b>2.3.2</b> インストールとインポート</a></li>
+<li class="chapter" data-level="2.3.3" data-path="02_setting.html"><a href="02_setting.html#インストール時のエラー"><i class="fa fa-check"></i><b>2.3.3</b> インストール時のエラー</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="02_setting.html"><a href="02_setting.html#グラフの設定"><i class="fa fa-check"></i><b>2.4</b> グラフの設定</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="02_setting.html"><a href="02_setting.html#グラフのテーマ設定"><i class="fa fa-check"></i><b>2.4.1</b> グラフのテーマ設定</a></li>
+<li class="chapter" data-level="2.4.2" data-path="02_setting.html"><a href="02_setting.html#グラフのフォント設定"><i class="fa fa-check"></i><b>2.4.2</b> グラフのフォント設定</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="02_setting.html"><a href="02_setting.html#サンプルデータセット"><i class="fa fa-check"></i><b>2.5</b> サンプルデータセット</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="02_setting.html"><a href="02_setting.html#rのサンプルデータセット"><i class="fa fa-check"></i><b>2.5.1</b> Rのサンプルデータセット</a></li>
+<li class="chapter" data-level="2.5.2" data-path="02_setting.html"><a href="02_setting.html#外部データセット"><i class="fa fa-check"></i><b>2.5.2</b> 外部データセット</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="02_setting.html"><a href="02_setting.html#r起動時に実行する設定"><i class="fa fa-check"></i><b>2.6</b> R起動時に実行する設定</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="03_introduction.html"><a href="03_introduction.html"><i class="fa fa-check"></i><b>3</b> Rの基本的な使用方法</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="03_introduction.html"><a href="03_introduction.html#第3章の準備"><i class="fa fa-check"></i><b>3.1</b> 第3章の準備</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="03_introduction.html"><a href="03_introduction.html#パッケージのインポート"><i class="fa fa-check"></i><b>3.1.1</b> パッケージのインポート</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="03_introduction.html"><a href="03_introduction.html#主要ショートカットキー"><i class="fa fa-check"></i><b>3.2</b> 主要ショートカットキー</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="03_introduction.html"><a href="03_introduction.html#編集"><i class="fa fa-check"></i><b>3.2.1</b> 編集</a></li>
+<li class="chapter" data-level="3.2.2" data-path="03_introduction.html"><a href="03_introduction.html#実行"><i class="fa fa-check"></i><b>3.2.2</b> 実行</a></li>
+<li class="chapter" data-level="3.2.3" data-path="03_introduction.html"><a href="03_introduction.html#その他"><i class="fa fa-check"></i><b>3.2.3</b> その他</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="03_introduction.html"><a href="03_introduction.html#基本操作"><i class="fa fa-check"></i><b>3.3</b> 基本操作</a></li>
+<li class="chapter" data-level="3.4" data-path="03_introduction.html"><a href="03_introduction.html#演算"><i class="fa fa-check"></i><b>3.4</b> 演算</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="03_introduction.html"><a href="03_introduction.html#四則計算"><i class="fa fa-check"></i><b>3.4.1</b> 四則計算</a></li>
+<li class="chapter" data-level="3.4.2" data-path="03_introduction.html"><a href="03_introduction.html#数値計算"><i class="fa fa-check"></i><b>3.4.2</b> 数値計算</a></li>
+<li class="chapter" data-level="3.4.3" data-path="03_introduction.html"><a href="03_introduction.html#一致大小関係"><i class="fa fa-check"></i><b>3.4.3</b> 一致・大小関係</a></li>
+<li class="chapter" data-level="3.4.4" data-path="03_introduction.html"><a href="03_introduction.html#包含集合関係"><i class="fa fa-check"></i><b>3.4.4</b> 包含・集合関係</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="03_introduction.html"><a href="03_introduction.html#ベクトル"><i class="fa fa-check"></i><b>3.5</b> ベクトル</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="03_introduction.html"><a href="03_introduction.html#ベクトルの作成"><i class="fa fa-check"></i><b>3.5.1</b> ベクトルの作成</a></li>
+<li class="chapter" data-level="3.5.2" data-path="03_introduction.html"><a href="03_introduction.html#ベクトル要素へのアクセス"><i class="fa fa-check"></i><b>3.5.2</b> ベクトル要素へのアクセス</a></li>
+<li class="chapter" data-level="3.5.3" data-path="03_introduction.html"><a href="03_introduction.html#規則性があるベクトルの作成"><i class="fa fa-check"></i><b>3.5.3</b> 規則性があるベクトルの作成</a></li>
+<li class="chapter" data-level="3.5.4" data-path="03_introduction.html"><a href="03_introduction.html#ベクトルの演算"><i class="fa fa-check"></i><b>3.5.4</b> ベクトルの演算</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="03_introduction.html"><a href="03_introduction.html#行列"><i class="fa fa-check"></i><b>3.6</b> 行列</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="03_introduction.html"><a href="03_introduction.html#行列の作成"><i class="fa fa-check"></i><b>3.6.1</b> 行列の作成</a></li>
+<li class="chapter" data-level="3.6.2" data-path="03_introduction.html"><a href="03_introduction.html#行列の要素へのアクセス"><i class="fa fa-check"></i><b>3.6.2</b> 行列の要素へのアクセス</a></li>
+<li class="chapter" data-level="3.6.3" data-path="03_introduction.html"><a href="03_introduction.html#行列の演算"><i class="fa fa-check"></i><b>3.6.3</b> 行列の演算</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="03_introduction.html"><a href="03_introduction.html#データフレーム"><i class="fa fa-check"></i><b>3.7</b> データフレーム</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="03_introduction.html"><a href="03_introduction.html#データフレームの作成"><i class="fa fa-check"></i><b>3.7.1</b> データフレームの作成</a></li>
+<li class="chapter" data-level="3.7.2" data-path="03_introduction.html"><a href="03_introduction.html#データフレームの要素へのアクセス"><i class="fa fa-check"></i><b>3.7.2</b> データフレームの要素へのアクセス</a></li>
+<li class="chapter" data-level="3.7.3" data-path="03_introduction.html"><a href="03_introduction.html#その他のデータフレームの機能"><i class="fa fa-check"></i><b>3.7.3</b> その他のデータフレームの機能</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="03_introduction.html"><a href="03_introduction.html#リスト"><i class="fa fa-check"></i><b>3.8</b> リスト</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="03_introduction.html"><a href="03_introduction.html#リストの作成"><i class="fa fa-check"></i><b>3.8.1</b> リストの作成</a></li>
+<li class="chapter" data-level="3.8.2" data-path="03_introduction.html"><a href="03_introduction.html#リストの要素へのアクセス"><i class="fa fa-check"></i><b>3.8.2</b> リストの要素へのアクセス</a></li>
+<li class="chapter" data-level="3.8.3" data-path="03_introduction.html"><a href="03_introduction.html#リストに要素を追加"><i class="fa fa-check"></i><b>3.8.3</b> リストに要素を追加</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="03_introduction.html"><a href="03_introduction.html#文字列操作"><i class="fa fa-check"></i><b>3.9</b> 文字列操作</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="03_introduction.html"><a href="03_introduction.html#文字列の連結"><i class="fa fa-check"></i><b>3.9.1</b> 文字列の連結</a></li>
+<li class="chapter" data-level="3.9.2" data-path="03_introduction.html"><a href="03_introduction.html#文字列の切り出し"><i class="fa fa-check"></i><b>3.9.2</b> 文字列の切り出し</a></li>
+<li class="chapter" data-level="3.9.3" data-path="03_introduction.html"><a href="03_introduction.html#文字列の検出"><i class="fa fa-check"></i><b>3.9.3</b> 文字列の検出</a></li>
+<li class="chapter" data-level="3.9.4" data-path="03_introduction.html"><a href="03_introduction.html#文字列の置換"><i class="fa fa-check"></i><b>3.9.4</b> 文字列の置換</a></li>
+<li class="chapter" data-level="3.9.5" data-path="03_introduction.html"><a href="03_introduction.html#文字列の変換"><i class="fa fa-check"></i><b>3.9.5</b> 文字列の変換</a></li>
+<li class="chapter" data-level="3.9.6" data-path="03_introduction.html"><a href="03_introduction.html#文字列のパディング"><i class="fa fa-check"></i><b>3.9.6</b> 文字列のパディング</a></li>
+<li class="chapter" data-level="3.9.7" data-path="03_introduction.html"><a href="03_introduction.html#文字列によるプログラム実行"><i class="fa fa-check"></i><b>3.9.7</b> 文字列によるプログラム実行</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="03_introduction.html"><a href="03_introduction.html#制御構文"><i class="fa fa-check"></i><b>3.10</b> 制御構文</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="03_introduction.html"><a href="03_introduction.html#ifelse文"><i class="fa fa-check"></i><b>3.10.1</b> if/else文</a></li>
+<li class="chapter" data-level="3.10.2" data-path="03_introduction.html"><a href="03_introduction.html#forループ"><i class="fa fa-check"></i><b>3.10.2</b> forループ</a></li>
+<li class="chapter" data-level="3.10.3" data-path="03_introduction.html"><a href="03_introduction.html#whileループ"><i class="fa fa-check"></i><b>3.10.3</b> whileループ</a></li>
+<li class="chapter" data-level="3.10.4" data-path="03_introduction.html"><a href="03_introduction.html#breakによる繰り返しの終了"><i class="fa fa-check"></i><b>3.10.4</b> breakによる繰り返しの終了</a></li>
+<li class="chapter" data-level="3.10.5" data-path="03_introduction.html"><a href="03_introduction.html#nextによる処理のスキップ"><i class="fa fa-check"></i><b>3.10.5</b> nextによる処理のスキップ</a></li>
+<li class="chapter" data-level="3.10.6" data-path="03_introduction.html"><a href="03_introduction.html#tryによるエラー処理"><i class="fa fa-check"></i><b>3.10.6</b> tryによるエラー処理</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="03_introduction.html"><a href="03_introduction.html#ファイル操作"><i class="fa fa-check"></i><b>3.11</b> ファイル操作</a>
+<ul>
+<li class="chapter" data-level="3.11.1" data-path="03_introduction.html"><a href="03_introduction.html#ディレクトリ関連"><i class="fa fa-check"></i><b>3.11.1</b> ディレクトリ関連</a></li>
+<li class="chapter" data-level="3.11.2" data-path="03_introduction.html"><a href="03_introduction.html#ファイル関連"><i class="fa fa-check"></i><b>3.11.2</b> ファイル関連</a></li>
+<li class="chapter" data-level="3.11.3" data-path="03_introduction.html"><a href="03_introduction.html#ファイルのダウンロード"><i class="fa fa-check"></i><b>3.11.3</b> ファイルのダウンロード</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="03_introduction.html"><a href="03_introduction.html#データの読み込み"><i class="fa fa-check"></i><b>3.12</b> データの読み込み</a>
+<ul>
+<li class="chapter" data-level="3.12.1" data-path="03_introduction.html"><a href="03_introduction.html#csvデータ"><i class="fa fa-check"></i><b>3.12.1</b> CSVデータ</a></li>
+<li class="chapter" data-level="3.12.2" data-path="03_introduction.html"><a href="03_introduction.html#xlsxlsx形式データ"><i class="fa fa-check"></i><b>3.12.2</b> xls・xlsx形式データ</a></li>
+<li class="chapter" data-level="3.12.3" data-path="03_introduction.html"><a href="03_introduction.html#xlsx形式データ"><i class="fa fa-check"></i><b>3.12.3</b> xlsx形式データ</a></li>
+<li class="chapter" data-level="3.12.4" data-path="03_introduction.html"><a href="03_introduction.html#複数データの読み込み"><i class="fa fa-check"></i><b>3.12.4</b> 複数データの読み込み</a></li>
+<li class="chapter" data-level="3.12.5" data-path="03_introduction.html"><a href="03_introduction.html#excelの日付値の修正"><i class="fa fa-check"></i><b>3.12.5</b> Excelの日付値の修正</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="03_introduction.html"><a href="03_introduction.html#データの書き出し"><i class="fa fa-check"></i><b>3.13</b> データの書き出し</a>
+<ul>
+<li class="chapter" data-level="3.13.1" data-path="03_introduction.html"><a href="03_introduction.html#csvデータの書き出し"><i class="fa fa-check"></i><b>3.13.1</b> CSVデータの書き出し</a></li>
+</ul></li>
+<li class="chapter" data-level="3.14" data-path="03_introduction.html"><a href="03_introduction.html#オブジェクトのセーブロード"><i class="fa fa-check"></i><b>3.14</b> オブジェクトのセーブ・ロード</a>
+<ul>
+<li class="chapter" data-level="3.14.1" data-path="03_introduction.html"><a href="03_introduction.html#セーブ"><i class="fa fa-check"></i><b>3.14.1</b> セーブ</a></li>
+<li class="chapter" data-level="3.14.2" data-path="03_introduction.html"><a href="03_introduction.html#ロード"><i class="fa fa-check"></i><b>3.14.2</b> ロード</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="04_tidyverse.html"><a href="04_tidyverse.html"><i class="fa fa-check"></i><b>4</b> tidyverseによるデータ操作</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#第4章の準備"><i class="fa fa-check"></i><b>4.1</b> 第4章の準備</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#パッケージのインポート-1"><i class="fa fa-check"></i><b>4.1.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="4.1.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#外部データセットの取得"><i class="fa fa-check"></i><b>4.1.2</b> 外部データセットの取得</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#tidyverseとは"><i class="fa fa-check"></i><b>4.2</b> tidyverseとは</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#tidy-data縦型横型データ"><i class="fa fa-check"></i><b>4.2.1</b> tidy data（縦型・横型データ）</a></li>
+<li class="chapter" data-level="4.2.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#tidyverseの特徴"><i class="fa fa-check"></i><b>4.2.2</b> tidyverseの特徴</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="04_tidyverse.html"><a href="04_tidyverse.html#列の選択"><i class="fa fa-check"></i><b>4.3</b> 列の選択</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#列名で選択"><i class="fa fa-check"></i><b>4.3.1</b> 列名で選択</a></li>
+<li class="chapter" data-level="4.3.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#列名ベクトルで選択"><i class="fa fa-check"></i><b>4.3.2</b> 列名ベクトルで選択</a></li>
+<li class="chapter" data-level="4.3.3" data-path="04_tidyverse.html"><a href="04_tidyverse.html#列を非選択削除"><i class="fa fa-check"></i><b>4.3.3</b> 列を非選択（削除）</a></li>
+<li class="chapter" data-level="4.3.4" data-path="04_tidyverse.html"><a href="04_tidyverse.html#特定文字列で始まる列を選択"><i class="fa fa-check"></i><b>4.3.4</b> 特定文字列で始まる列を選択</a></li>
+<li class="chapter" data-level="4.3.5" data-path="04_tidyverse.html"><a href="04_tidyverse.html#特定文字列で終わる列を選択"><i class="fa fa-check"></i><b>4.3.5</b> 特定文字列で終わる列を選択</a></li>
+<li class="chapter" data-level="4.3.6" data-path="04_tidyverse.html"><a href="04_tidyverse.html#特定文字列を含む列を選択"><i class="fa fa-check"></i><b>4.3.6</b> 特定文字列を含む列を選択</a></li>
+<li class="chapter" data-level="4.3.7" data-path="04_tidyverse.html"><a href="04_tidyverse.html#特定の型の列を選択"><i class="fa fa-check"></i><b>4.3.7</b> 特定の型の列を選択</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="04_tidyverse.html"><a href="04_tidyverse.html#列名の変更"><i class="fa fa-check"></i><b>4.4</b> 列名の変更</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#列名の変更-1"><i class="fa fa-check"></i><b>4.4.1</b> 列名の変更</a></li>
+<li class="chapter" data-level="4.4.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#複数列名の一括変更"><i class="fa fa-check"></i><b>4.4.2</b> 複数列名の一括変更</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="04_tidyverse.html"><a href="04_tidyverse.html#行のスライスとサンプリング"><i class="fa fa-check"></i><b>4.5</b> 行のスライスとサンプリング</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#行のスライス"><i class="fa fa-check"></i><b>4.5.1</b> 行のスライス</a></li>
+<li class="chapter" data-level="4.5.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#サンプリング"><i class="fa fa-check"></i><b>4.5.2</b> サンプリング</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="04_tidyverse.html"><a href="04_tidyverse.html#行のフィルタ"><i class="fa fa-check"></i><b>4.6</b> 行のフィルタ</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#条件に一致する行"><i class="fa fa-check"></i><b>4.6.1</b> 条件に一致する行</a></li>
+<li class="chapter" data-level="4.6.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#条件に一致しない行not条件"><i class="fa fa-check"></i><b>4.6.2</b> 条件に一致しない行（NOT条件）</a></li>
+<li class="chapter" data-level="4.6.3" data-path="04_tidyverse.html"><a href="04_tidyverse.html#複数条件"><i class="fa fa-check"></i><b>4.6.3</b> 複数条件</a></li>
+<li class="chapter" data-level="4.6.4" data-path="04_tidyverse.html"><a href="04_tidyverse.html#andor条件を明示的に指定した複数条件"><i class="fa fa-check"></i><b>4.6.4</b> AND・OR条件を明示的に指定した複数条件</a></li>
+<li class="chapter" data-level="4.6.5" data-path="04_tidyverse.html"><a href="04_tidyverse.html#in演算子によるor条件"><i class="fa fa-check"></i><b>4.6.5</b> <code>%in%</code>演算子によるOR条件</a></li>
+<li class="chapter" data-level="4.6.6" data-path="04_tidyverse.html"><a href="04_tidyverse.html#or条件の否定"><i class="fa fa-check"></i><b>4.6.6</b> OR条件の否定</a></li>
+<li class="chapter" data-level="4.6.7" data-path="04_tidyverse.html"><a href="04_tidyverse.html#関数による条件指定"><i class="fa fa-check"></i><b>4.6.7</b> 関数による条件指定</a></li>
+<li class="chapter" data-level="4.6.8" data-path="04_tidyverse.html"><a href="04_tidyverse.html#論理値を返す関数による条件指定"><i class="fa fa-check"></i><b>4.6.8</b> 論理値を返す関数による条件指定</a></li>
+<li class="chapter" data-level="4.6.9" data-path="04_tidyverse.html"><a href="04_tidyverse.html#複数列の一括条件指定"><i class="fa fa-check"></i><b>4.6.9</b> 複数列の一括条件指定</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="04_tidyverse.html"><a href="04_tidyverse.html#行の並べ替え"><i class="fa fa-check"></i><b>4.7</b> 行の並べ替え</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#昇順ソート"><i class="fa fa-check"></i><b>4.7.1</b> 昇順ソート</a></li>
+<li class="chapter" data-level="4.7.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#降順ソート"><i class="fa fa-check"></i><b>4.7.2</b> 降順ソート</a></li>
+<li class="chapter" data-level="4.7.3" data-path="04_tidyverse.html"><a href="04_tidyverse.html#降順ソート日付型"><i class="fa fa-check"></i><b>4.7.3</b> 降順ソート（日付型）</a></li>
+<li class="chapter" data-level="4.7.4" data-path="04_tidyverse.html"><a href="04_tidyverse.html#複数条件によるソート"><i class="fa fa-check"></i><b>4.7.4</b> 複数条件によるソート</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="04_tidyverse.html"><a href="04_tidyverse.html#列の作成修正"><i class="fa fa-check"></i><b>4.8</b> 列の作成・修正</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#新たな列の作成"><i class="fa fa-check"></i><b>4.8.1</b> 新たな列の作成</a></li>
+<li class="chapter" data-level="4.8.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#既存の列の修正"><i class="fa fa-check"></i><b>4.8.2</b> 既存の列の修正</a></li>
+<li class="chapter" data-level="4.8.3" data-path="04_tidyverse.html"><a href="04_tidyverse.html#条件付き系列の作成"><i class="fa fa-check"></i><b>4.8.3</b> 条件付き系列の作成</a></li>
+<li class="chapter" data-level="4.8.4" data-path="04_tidyverse.html"><a href="04_tidyverse.html#複数列の一括処理"><i class="fa fa-check"></i><b>4.8.4</b> 複数列の一括処理</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="04_tidyverse.html"><a href="04_tidyverse.html#グループ化"><i class="fa fa-check"></i><b>4.9</b> グループ化</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#単一の列でグループ化"><i class="fa fa-check"></i><b>4.9.1</b> 単一の列でグループ化</a></li>
+<li class="chapter" data-level="4.9.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#複数の列でグループ化"><i class="fa fa-check"></i><b>4.9.2</b> 複数の列でグループ化</a></li>
+<li class="chapter" data-level="4.9.3" data-path="04_tidyverse.html"><a href="04_tidyverse.html#グループ化フィルタ"><i class="fa fa-check"></i><b>4.9.3</b> グループ化＆フィルタ</a></li>
+<li class="chapter" data-level="4.9.4" data-path="04_tidyverse.html"><a href="04_tidyverse.html#グループ化の解除"><i class="fa fa-check"></i><b>4.9.4</b> グループ化の解除</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="04_tidyverse.html"><a href="04_tidyverse.html#集計"><i class="fa fa-check"></i><b>4.10</b> 集計</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#グループ別の集計"><i class="fa fa-check"></i><b>4.10.1</b> グループ別の集計</a></li>
+<li class="chapter" data-level="4.10.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#クロス集計"><i class="fa fa-check"></i><b>4.10.2</b> クロス集計</a></li>
+<li class="chapter" data-level="4.10.3" data-path="04_tidyverse.html"><a href="04_tidyverse.html#複数列の一括処理-1"><i class="fa fa-check"></i><b>4.10.3</b> 複数列の一括処理</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="04_tidyverse.html"><a href="04_tidyverse.html#カウント"><i class="fa fa-check"></i><b>4.11</b> カウント</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#変数のカウント"><i class="fa fa-check"></i><b>4.11.1</b> 1変数のカウント</a></li>
+<li class="chapter" data-level="4.11.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#多変数のカウント"><i class="fa fa-check"></i><b>4.11.2</b> 多変数のカウント</a></li>
+<li class="chapter" data-level="4.11.3" data-path="04_tidyverse.html"><a href="04_tidyverse.html#条件付きカウント"><i class="fa fa-check"></i><b>4.11.3</b> 条件付きカウント</a></li>
+<li class="chapter" data-level="4.11.4" data-path="04_tidyverse.html"><a href="04_tidyverse.html#要素の種類をカウント"><i class="fa fa-check"></i><b>4.11.4</b> 要素の種類をカウント</a></li>
+</ul></li>
+<li class="chapter" data-level="4.12" data-path="04_tidyverse.html"><a href="04_tidyverse.html#縦型横型の変換"><i class="fa fa-check"></i><b>4.12</b> 縦型・横型の変換</a>
+<ul>
+<li class="chapter" data-level="4.12.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#横型データを縦型データに変換"><i class="fa fa-check"></i><b>4.12.1</b> 横型データを縦型データに変換</a></li>
+<li class="chapter" data-level="4.12.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#縦型データを横型データに変換"><i class="fa fa-check"></i><b>4.12.2</b> 縦型データを横型データに変換</a></li>
+</ul></li>
+<li class="chapter" data-level="4.13" data-path="04_tidyverse.html"><a href="04_tidyverse.html#データの結合"><i class="fa fa-check"></i><b>4.13</b> データの結合</a>
+<ul>
+<li class="chapter" data-level="4.13.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#内部結合"><i class="fa fa-check"></i><b>4.13.1</b> 内部結合</a></li>
+<li class="chapter" data-level="4.13.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#左外部結合"><i class="fa fa-check"></i><b>4.13.2</b> 左外部結合</a></li>
+<li class="chapter" data-level="4.13.3" data-path="04_tidyverse.html"><a href="04_tidyverse.html#右外部結合"><i class="fa fa-check"></i><b>4.13.3</b> 右外部結合</a></li>
+<li class="chapter" data-level="4.13.4" data-path="04_tidyverse.html"><a href="04_tidyverse.html#完全外部結合"><i class="fa fa-check"></i><b>4.13.4</b> 完全外部結合</a></li>
+</ul></li>
+<li class="chapter" data-level="4.14" data-path="04_tidyverse.html"><a href="04_tidyverse.html#重複処理"><i class="fa fa-check"></i><b>4.14</b> 重複処理</a>
+<ul>
+<li class="chapter" data-level="4.14.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#重複行の削除"><i class="fa fa-check"></i><b>4.14.1</b> 重複行の削除</a></li>
+<li class="chapter" data-level="4.14.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#重複行の抽出"><i class="fa fa-check"></i><b>4.14.2</b> 重複行の抽出</a></li>
+</ul></li>
+<li class="chapter" data-level="4.15" data-path="04_tidyverse.html"><a href="04_tidyverse.html#欠損値処理"><i class="fa fa-check"></i><b>4.15</b> 欠損値処理</a>
+<ul>
+<li class="chapter" data-level="4.15.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#naの削除"><i class="fa fa-check"></i><b>4.15.1</b> NAの削除</a></li>
+<li class="chapter" data-level="4.15.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#naの置換"><i class="fa fa-check"></i><b>4.15.2</b> NAの置換</a></li>
+<li class="chapter" data-level="4.15.3" data-path="04_tidyverse.html"><a href="04_tidyverse.html#naのフィル"><i class="fa fa-check"></i><b>4.15.3</b> NAのフィル</a></li>
+</ul></li>
+<li class="chapter" data-level="4.16" data-path="04_tidyverse.html"><a href="04_tidyverse.html#補完処理"><i class="fa fa-check"></i><b>4.16</b> 補完処理</a>
+<ul>
+<li class="chapter" data-level="4.16.1" data-path="04_tidyverse.html"><a href="04_tidyverse.html#組み合わせ候補の補完"><i class="fa fa-check"></i><b>4.16.1</b> 組み合わせ候補の補完</a></li>
+<li class="chapter" data-level="4.16.2" data-path="04_tidyverse.html"><a href="04_tidyverse.html#時系列データの補完"><i class="fa fa-check"></i><b>4.16.2</b> 時系列データの補完</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="05_plot.html"><a href="05_plot.html"><i class="fa fa-check"></i><b>5</b> ggplot2によるグラフ作成</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="05_plot.html"><a href="05_plot.html#第5章の準備"><i class="fa fa-check"></i><b>5.1</b> 第5章の準備</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="05_plot.html"><a href="05_plot.html#パッケージのインポート-2"><i class="fa fa-check"></i><b>5.1.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="5.1.2" data-path="05_plot.html"><a href="05_plot.html#外部データセットの取得-1"><i class="fa fa-check"></i><b>5.1.2</b> 外部データセットの取得</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="05_plot.html"><a href="05_plot.html#ggplot2とは"><i class="fa fa-check"></i><b>5.2</b> ggplot2とは</a></li>
+<li class="chapter" data-level="5.3" data-path="05_plot.html"><a href="05_plot.html#ggplot2の設定"><i class="fa fa-check"></i><b>5.3</b> ggplot2の設定</a></li>
+<li class="chapter" data-level="5.4" data-path="05_plot.html"><a href="05_plot.html#gui形式の直感的なグラフ作成"><i class="fa fa-check"></i><b>5.4</b> GUI形式の直感的なグラフ作成</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="05_plot.html"><a href="05_plot.html#esquisseパッケージ"><i class="fa fa-check"></i><b>5.4.1</b> esquisseパッケージ</a></li>
+<li class="chapter" data-level="5.4.2" data-path="05_plot.html"><a href="05_plot.html#ggplotguiパッケージ"><i class="fa fa-check"></i><b>5.4.2</b> ggplotguiパッケージ</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="05_plot.html"><a href="05_plot.html#次元の度数分布離散型"><i class="fa fa-check"></i><b>5.5</b> 1次元の度数分布（離散型）</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="05_plot.html"><a href="05_plot.html#度数棒グラフの基本形"><i class="fa fa-check"></i><b>5.5.1</b> 度数棒グラフの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="05_plot.html"><a href="05_plot.html#次元の度数分布連続型"><i class="fa fa-check"></i><b>5.6</b> 1次元の度数分布（連続型）</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="05_plot.html"><a href="05_plot.html#ヒストグラムの基本形"><i class="fa fa-check"></i><b>5.6.1</b> ヒストグラムの基本形</a></li>
+<li class="chapter" data-level="5.6.2" data-path="05_plot.html"><a href="05_plot.html#横並びヒストグラム"><i class="fa fa-check"></i><b>5.6.2</b> 横並びヒストグラム</a></li>
+<li class="chapter" data-level="5.6.3" data-path="05_plot.html"><a href="05_plot.html#積上ヒストグラム"><i class="fa fa-check"></i><b>5.6.3</b> 積上ヒストグラム</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="05_plot.html"><a href="05_plot.html#次元の密度グラフ"><i class="fa fa-check"></i><b>5.7</b> 1次元の密度グラフ</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="05_plot.html"><a href="05_plot.html#密度グラフの基本形"><i class="fa fa-check"></i><b>5.7.1</b> 密度グラフの基本形</a></li>
+<li class="chapter" data-level="5.7.2" data-path="05_plot.html"><a href="05_plot.html#横並び密度グラフ"><i class="fa fa-check"></i><b>5.7.2</b> 横並び密度グラフ</a></li>
+<li class="chapter" data-level="5.7.3" data-path="05_plot.html"><a href="05_plot.html#積上密度グラフ"><i class="fa fa-check"></i><b>5.7.3</b> 積上密度グラフ</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="05_plot.html"><a href="05_plot.html#次元の度数分布離散型-1"><i class="fa fa-check"></i><b>5.8</b> 2次元の度数分布（離散型）</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="05_plot.html"><a href="05_plot.html#度数バブルチャートの基本形"><i class="fa fa-check"></i><b>5.8.1</b> 度数バブルチャートの基本形</a></li>
+<li class="chapter" data-level="5.8.2" data-path="05_plot.html"><a href="05_plot.html#度数ヒートマップの基本形"><i class="fa fa-check"></i><b>5.8.2</b> 度数ヒートマップの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="05_plot.html"><a href="05_plot.html#次元の度数分布連続型-1"><i class="fa fa-check"></i><b>5.9</b> 2次元の度数分布（連続型）</a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="05_plot.html"><a href="05_plot.html#度数ヒートマップの基本形-1"><i class="fa fa-check"></i><b>5.9.1</b> 度数ヒートマップの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="05_plot.html"><a href="05_plot.html#次元の密度グラフ-1"><i class="fa fa-check"></i><b>5.10</b> 2次元の密度グラフ</a>
+<ul>
+<li class="chapter" data-level="5.10.1" data-path="05_plot.html"><a href="05_plot.html#次元密度グラフの基本形"><i class="fa fa-check"></i><b>5.10.1</b> 2次元密度グラフの基本形</a></li>
+<li class="chapter" data-level="5.10.2" data-path="05_plot.html"><a href="05_plot.html#次元密度グラフの塗りつぶし版"><i class="fa fa-check"></i><b>5.10.2</b> 2次元密度グラフの塗りつぶし版</a></li>
+</ul></li>
+<li class="chapter" data-level="5.11" data-path="05_plot.html"><a href="05_plot.html#qqプロット"><i class="fa fa-check"></i><b>5.11</b> QQプロット</a></li>
+<li class="chapter" data-level="5.12" data-path="05_plot.html"><a href="05_plot.html#散布図バブルチャート"><i class="fa fa-check"></i><b>5.12</b> 散布図・バブルチャート</a>
+<ul>
+<li class="chapter" data-level="5.12.1" data-path="05_plot.html"><a href="05_plot.html#散布図の基本形"><i class="fa fa-check"></i><b>5.12.1</b> 散布図の基本形</a></li>
+<li class="chapter" data-level="5.12.2" data-path="05_plot.html"><a href="05_plot.html#バブルチャートの基本形"><i class="fa fa-check"></i><b>5.12.2</b> バブルチャートの基本形</a></li>
+<li class="chapter" data-level="5.12.3" data-path="05_plot.html"><a href="05_plot.html#散布図にコネクタ線を追加"><i class="fa fa-check"></i><b>5.12.3</b> 散布図にコネクタ線を追加</a></li>
+<li class="chapter" data-level="5.12.4" data-path="05_plot.html"><a href="05_plot.html#散布図に近似曲線を追加"><i class="fa fa-check"></i><b>5.12.4</b> 散布図に近似曲線を追加</a></li>
+<li class="chapter" data-level="5.12.5" data-path="05_plot.html"><a href="05_plot.html#散布図にラベルを追加"><i class="fa fa-check"></i><b>5.12.5</b> 散布図にラベルを追加</a></li>
+<li class="chapter" data-level="5.12.6" data-path="05_plot.html"><a href="05_plot.html#バブルチャートにラベルを追加"><i class="fa fa-check"></i><b>5.12.6</b> バブルチャートにラベルを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="5.13" data-path="05_plot.html"><a href="05_plot.html#棒グラフ"><i class="fa fa-check"></i><b>5.13</b> 棒グラフ</a>
+<ul>
+<li class="chapter" data-level="5.13.1" data-path="05_plot.html"><a href="05_plot.html#縦棒グラフの基本形"><i class="fa fa-check"></i><b>5.13.1</b> 縦棒グラフの基本形</a></li>
+<li class="chapter" data-level="5.13.2" data-path="05_plot.html"><a href="05_plot.html#横棒グラフ"><i class="fa fa-check"></i><b>5.13.2</b> 横棒グラフ</a></li>
+<li class="chapter" data-level="5.13.3" data-path="05_plot.html"><a href="05_plot.html#縦棒グラフの順序並べ替え"><i class="fa fa-check"></i><b>5.13.3</b> 縦棒グラフの順序並べ替え</a></li>
+<li class="chapter" data-level="5.13.4" data-path="05_plot.html"><a href="05_plot.html#縦棒グラフにラベルを追加"><i class="fa fa-check"></i><b>5.13.4</b> 縦棒グラフにラベルを追加</a></li>
+<li class="chapter" data-level="5.13.5" data-path="05_plot.html"><a href="05_plot.html#横並び縦棒グラフ"><i class="fa fa-check"></i><b>5.13.5</b> 横並び縦棒グラフ</a></li>
+<li class="chapter" data-level="5.13.6" data-path="05_plot.html"><a href="05_plot.html#積上縦棒グラフ"><i class="fa fa-check"></i><b>5.13.6</b> 積上縦棒グラフ</a></li>
+<li class="chapter" data-level="5.13.7" data-path="05_plot.html"><a href="05_plot.html#積上縦棒グラフにラベルを追加"><i class="fa fa-check"></i><b>5.13.7</b> 積上縦棒グラフにラベルを追加</a></li>
+<li class="chapter" data-level="5.13.8" data-path="05_plot.html"><a href="05_plot.html#積上縦棒グラフ-1"><i class="fa fa-check"></i><b>5.13.8</b> 100％積上縦棒グラフ</a></li>
+<li class="chapter" data-level="5.13.9" data-path="05_plot.html"><a href="05_plot.html#積上縦棒グラフにラベルを追加-1"><i class="fa fa-check"></i><b>5.13.9</b> 100％積上縦棒グラフにラベルを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="5.14" data-path="05_plot.html"><a href="05_plot.html#円グラフ"><i class="fa fa-check"></i><b>5.14</b> 円グラフ</a>
+<ul>
+<li class="chapter" data-level="5.14.1" data-path="05_plot.html"><a href="05_plot.html#円グラフの基本形"><i class="fa fa-check"></i><b>5.14.1</b> 円グラフの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="5.15" data-path="05_plot.html"><a href="05_plot.html#折れ線グラフ"><i class="fa fa-check"></i><b>5.15</b> 折れ線グラフ</a>
+<ul>
+<li class="chapter" data-level="5.15.1" data-path="05_plot.html"><a href="05_plot.html#折れ線グラフの基本形"><i class="fa fa-check"></i><b>5.15.1</b> 折れ線グラフの基本形</a></li>
+<li class="chapter" data-level="5.15.2" data-path="05_plot.html"><a href="05_plot.html#折れ線グラフにマーカーを追加"><i class="fa fa-check"></i><b>5.15.2</b> 折れ線グラフにマーカーを追加</a></li>
+<li class="chapter" data-level="5.15.3" data-path="05_plot.html"><a href="05_plot.html#折れ線グラフに系列ラベルを追加"><i class="fa fa-check"></i><b>5.15.3</b> 折れ線グラフに系列ラベルを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="5.16" data-path="05_plot.html"><a href="05_plot.html#ステップグラフ"><i class="fa fa-check"></i><b>5.16</b> ステップグラフ</a>
+<ul>
+<li class="chapter" data-level="5.16.1" data-path="05_plot.html"><a href="05_plot.html#ステップグラフの基本形"><i class="fa fa-check"></i><b>5.16.1</b> ステップグラフの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="5.17" data-path="05_plot.html"><a href="05_plot.html#面グラフ"><i class="fa fa-check"></i><b>5.17</b> 面グラフ</a>
+<ul>
+<li class="chapter" data-level="5.17.1" data-path="05_plot.html"><a href="05_plot.html#面グラフの基本形"><i class="fa fa-check"></i><b>5.17.1</b> 面グラフの基本形</a></li>
+<li class="chapter" data-level="5.17.2" data-path="05_plot.html"><a href="05_plot.html#積上面グラフ"><i class="fa fa-check"></i><b>5.17.2</b> 積上面グラフ</a></li>
+<li class="chapter" data-level="5.17.3" data-path="05_plot.html"><a href="05_plot.html#リボングラフの基本形"><i class="fa fa-check"></i><b>5.17.3</b> リボングラフの基本形</a></li>
+<li class="chapter" data-level="5.17.4" data-path="05_plot.html"><a href="05_plot.html#リボングラフに折れ線グラフを追加"><i class="fa fa-check"></i><b>5.17.4</b> リボングラフに折れ線グラフを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="5.18" data-path="05_plot.html"><a href="05_plot.html#箱ひげ図ヴァイオリングラフ"><i class="fa fa-check"></i><b>5.18</b> 箱ひげ図・ヴァイオリングラフ</a>
+<ul>
+<li class="chapter" data-level="5.18.1" data-path="05_plot.html"><a href="05_plot.html#箱ひげ図の基本形"><i class="fa fa-check"></i><b>5.18.1</b> 箱ひげ図の基本形</a></li>
+<li class="chapter" data-level="5.18.2" data-path="05_plot.html"><a href="05_plot.html#箱ひげ図に個別データを追加"><i class="fa fa-check"></i><b>5.18.2</b> 箱ひげ図に個別データを追加</a></li>
+<li class="chapter" data-level="5.18.3" data-path="05_plot.html"><a href="05_plot.html#横並び箱ひげ図"><i class="fa fa-check"></i><b>5.18.3</b> 横並び箱ひげ図</a></li>
+<li class="chapter" data-level="5.18.4" data-path="05_plot.html"><a href="05_plot.html#ヴァイオリングラフの基本形"><i class="fa fa-check"></i><b>5.18.4</b> ヴァイオリングラフの基本形</a></li>
+<li class="chapter" data-level="5.18.5" data-path="05_plot.html"><a href="05_plot.html#ヴァイオリングラフに個別データを追加"><i class="fa fa-check"></i><b>5.18.5</b> ヴァイオリングラフに個別データを追加</a></li>
+</ul></li>
+<li class="chapter" data-level="5.19" data-path="05_plot.html"><a href="05_plot.html#ドットプロット"><i class="fa fa-check"></i><b>5.19</b> ドットプロット</a>
+<ul>
+<li class="chapter" data-level="5.19.1" data-path="05_plot.html"><a href="05_plot.html#ドットプロットの基本形"><i class="fa fa-check"></i><b>5.19.1</b> ドットプロットの基本形</a></li>
+</ul></li>
+<li class="chapter" data-level="5.20" data-path="05_plot.html"><a href="05_plot.html#複合グラフファセット"><i class="fa fa-check"></i><b>5.20</b> 複合グラフ（ファセット）</a>
+<ul>
+<li class="chapter" data-level="5.20.1" data-path="05_plot.html"><a href="05_plot.html#行方向の複合グラフ"><i class="fa fa-check"></i><b>5.20.1</b> 行方向の複合グラフ</a></li>
+<li class="chapter" data-level="5.20.2" data-path="05_plot.html"><a href="05_plot.html#列方向の複合グラフ"><i class="fa fa-check"></i><b>5.20.2</b> 列方向の複合グラフ</a></li>
+<li class="chapter" data-level="5.20.3" data-path="05_plot.html"><a href="05_plot.html#行列方向の複合グラフ"><i class="fa fa-check"></i><b>5.20.3</b> 行・列方向の複合グラフ</a></li>
+<li class="chapter" data-level="5.20.4" data-path="05_plot.html"><a href="05_plot.html#行数列数を指定した複合グラフ"><i class="fa fa-check"></i><b>5.20.4</b> 行数・列数を指定した複合グラフ</a></li>
+<li class="chapter" data-level="5.20.5" data-path="05_plot.html"><a href="05_plot.html#複合グラフの設定"><i class="fa fa-check"></i><b>5.20.5</b> 複合グラフの設定</a></li>
+</ul></li>
+<li class="chapter" data-level="5.21" data-path="05_plot.html"><a href="05_plot.html#地図ファセット"><i class="fa fa-check"></i><b>5.21</b> 地図ファセット</a></li>
+<li class="chapter" data-level="5.22" data-path="05_plot.html"><a href="05_plot.html#補助線"><i class="fa fa-check"></i><b>5.22</b> 補助線</a></li>
+<li class="chapter" data-level="5.23" data-path="05_plot.html"><a href="05_plot.html#設定色"><i class="fa fa-check"></i><b>5.23</b> 設定：色</a>
+<ul>
+<li class="chapter" data-level="5.23.1" data-path="05_plot.html"><a href="05_plot.html#離散型手動指定"><i class="fa fa-check"></i><b>5.23.1</b> 離散型：手動指定</a></li>
+<li class="chapter" data-level="5.23.2" data-path="05_plot.html"><a href="05_plot.html#離散型brewer"><i class="fa fa-check"></i><b>5.23.2</b> 離散型：Brewer</a></li>
+<li class="chapter" data-level="5.23.3" data-path="05_plot.html"><a href="05_plot.html#離散型viridis"><i class="fa fa-check"></i><b>5.23.3</b> 離散型：Viridis</a></li>
+<li class="chapter" data-level="5.23.4" data-path="05_plot.html"><a href="05_plot.html#離散型ggsci"><i class="fa fa-check"></i><b>5.23.4</b> 離散型：ggsci</a></li>
+<li class="chapter" data-level="5.23.5" data-path="05_plot.html"><a href="05_plot.html#連続型distiller"><i class="fa fa-check"></i><b>5.23.5</b> 連続型：distiller</a></li>
+<li class="chapter" data-level="5.23.6" data-path="05_plot.html"><a href="05_plot.html#連続型viridis"><i class="fa fa-check"></i><b>5.23.6</b> 連続型：Viridis</a></li>
+<li class="chapter" data-level="5.23.7" data-path="05_plot.html"><a href="05_plot.html#連続型gradient"><i class="fa fa-check"></i><b>5.23.7</b> 連続型：gradient</a></li>
+</ul></li>
+<li class="chapter" data-level="5.24" data-path="05_plot.html"><a href="05_plot.html#設定軸"><i class="fa fa-check"></i><b>5.24</b> 設定：軸</a>
+<ul>
+<li class="chapter" data-level="5.24.1" data-path="05_plot.html"><a href="05_plot.html#x軸連続型y軸連続型"><i class="fa fa-check"></i><b>5.24.1</b> X軸：連続型、Y軸：連続型</a></li>
+<li class="chapter" data-level="5.24.2" data-path="05_plot.html"><a href="05_plot.html#対数目盛"><i class="fa fa-check"></i><b>5.24.2</b> 対数目盛</a></li>
+<li class="chapter" data-level="5.24.3" data-path="05_plot.html"><a href="05_plot.html#x軸日付型y軸連続型"><i class="fa fa-check"></i><b>5.24.3</b> X軸：日付型、Y軸：連続型</a></li>
+</ul></li>
+<li class="chapter" data-level="5.25" data-path="05_plot.html"><a href="05_plot.html#設定パネル目盛線"><i class="fa fa-check"></i><b>5.25</b> 設定：パネル目盛線</a></li>
+<li class="chapter" data-level="5.26" data-path="05_plot.html"><a href="05_plot.html#設定凡例"><i class="fa fa-check"></i><b>5.26</b> 設定：凡例</a></li>
+<li class="chapter" data-level="5.27" data-path="05_plot.html"><a href="05_plot.html#設定タイトルキャプション"><i class="fa fa-check"></i><b>5.27</b> 設定：タイトル・キャプション</a></li>
+<li class="chapter" data-level="5.28" data-path="05_plot.html"><a href="05_plot.html#設定フォントマージン"><i class="fa fa-check"></i><b>5.28</b> 設定：フォント・マージン</a></li>
+<li class="chapter" data-level="5.29" data-path="05_plot.html"><a href="05_plot.html#グラフの保存"><i class="fa fa-check"></i><b>5.29</b> グラフの保存</a></li>
+<li class="chapter" data-level="5.30" data-path="05_plot.html"><a href="05_plot.html#実例"><i class="fa fa-check"></i><b>5.30</b> 実例</a>
+<ul>
+<li class="chapter" data-level="5.30.1" data-path="05_plot.html"><a href="05_plot.html#実例1折れ線グラフ"><i class="fa fa-check"></i><b>5.30.1</b> 実例1：折れ線グラフ</a></li>
+<li class="chapter" data-level="5.30.2" data-path="05_plot.html"><a href="05_plot.html#実例2積上棒グラフ"><i class="fa fa-check"></i><b>5.30.2</b> 実例2：積上棒グラフ</a></li>
+<li class="chapter" data-level="5.30.3" data-path="05_plot.html"><a href="05_plot.html#実例3箱ひげ図"><i class="fa fa-check"></i><b>5.30.3</b> 実例3：箱ひげ図</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="06_eda.html"><a href="06_eda.html"><i class="fa fa-check"></i><b>6</b> 探索的データ分析</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="06_eda.html"><a href="06_eda.html#第6章の準備"><i class="fa fa-check"></i><b>6.1</b> 第6章の準備</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="06_eda.html"><a href="06_eda.html#パッケージのインポート-3"><i class="fa fa-check"></i><b>6.1.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="6.1.2" data-path="06_eda.html"><a href="06_eda.html#ggplot2の設定-1"><i class="fa fa-check"></i><b>6.1.2</b> ggplot2の設定</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="06_eda.html"><a href="06_eda.html#データの中身"><i class="fa fa-check"></i><b>6.2</b> データの中身</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="06_eda.html"><a href="06_eda.html#str関数"><i class="fa fa-check"></i><b>6.2.1</b> str関数</a></li>
+<li class="chapter" data-level="6.2.2" data-path="06_eda.html"><a href="06_eda.html#summary関数"><i class="fa fa-check"></i><b>6.2.2</b> summary関数</a></li>
+<li class="chapter" data-level="6.2.3" data-path="06_eda.html"><a href="06_eda.html#summmarytoolsパッケージ"><i class="fa fa-check"></i><b>6.2.3</b> summmarytoolsパッケージ</a></li>
+<li class="chapter" data-level="6.2.4" data-path="06_eda.html"><a href="06_eda.html#psychパッケージ"><i class="fa fa-check"></i><b>6.2.4</b> psychパッケージ</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="06_eda.html"><a href="06_eda.html#データの分布"><i class="fa fa-check"></i><b>6.3</b> データの分布</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="06_eda.html"><a href="06_eda.html#離散型変数の度数分布"><i class="fa fa-check"></i><b>6.3.1</b> 離散型変数の度数分布</a></li>
+<li class="chapter" data-level="6.3.2" data-path="06_eda.html"><a href="06_eda.html#連続型変数の度数分布"><i class="fa fa-check"></i><b>6.3.2</b> 連続型変数の度数分布</a></li>
+<li class="chapter" data-level="6.3.3" data-path="06_eda.html"><a href="06_eda.html#外れ値"><i class="fa fa-check"></i><b>6.3.3</b> 外れ値</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="06_eda.html"><a href="06_eda.html#データの関係性"><i class="fa fa-check"></i><b>6.4</b> データの関係性</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="06_eda.html"><a href="06_eda.html#離散型変数の関係性"><i class="fa fa-check"></i><b>6.4.1</b> 離散型変数の関係性</a></li>
+<li class="chapter" data-level="6.4.2" data-path="06_eda.html"><a href="06_eda.html#連続型変数の関係性"><i class="fa fa-check"></i><b>6.4.2</b> 連続型変数の関係性</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="06_eda.html"><a href="06_eda.html#相関関係ペアプロット"><i class="fa fa-check"></i><b>6.5</b> 相関関係・ペアプロット</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="06_eda.html"><a href="06_eda.html#相関係数行列"><i class="fa fa-check"></i><b>6.5.1</b> 相関係数行列</a></li>
+<li class="chapter" data-level="6.5.2" data-path="06_eda.html"><a href="06_eda.html#corrplotパッケージ"><i class="fa fa-check"></i><b>6.5.2</b> corrplotパッケージ</a></li>
+<li class="chapter" data-level="6.5.3" data-path="06_eda.html"><a href="06_eda.html#corrrパッケージ"><i class="fa fa-check"></i><b>6.5.3</b> corrrパッケージ</a></li>
+<li class="chapter" data-level="6.5.4" data-path="06_eda.html"><a href="06_eda.html#ggallyパッケージ"><i class="fa fa-check"></i><b>6.5.4</b> GGallyパッケージ</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="06_eda.html"><a href="06_eda.html#探索的データ分析の一括実行"><i class="fa fa-check"></i><b>6.6</b> 探索的データ分析の一括実行</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="06_eda.html"><a href="06_eda.html#dataexplorerパッケージ"><i class="fa fa-check"></i><b>6.6.1</b> DataExplorerパッケージ</a></li>
+<li class="chapter" data-level="6.6.2" data-path="06_eda.html"><a href="06_eda.html#smartedaパッケージ"><i class="fa fa-check"></i><b>6.6.2</b> SmartEDAパッケージ</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="07_ols.html"><a href="07_ols.html"><i class="fa fa-check"></i><b>7</b> 線形回帰</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="07_ols.html"><a href="07_ols.html#第7章の準備"><i class="fa fa-check"></i><b>7.1</b> 第7章の準備</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="07_ols.html"><a href="07_ols.html#パッケージのインポート-4"><i class="fa fa-check"></i><b>7.1.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="7.1.2" data-path="07_ols.html"><a href="07_ols.html#外部データセットの取得-2"><i class="fa fa-check"></i><b>7.1.2</b> 外部データセットの取得</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="07_ols.html"><a href="07_ols.html#用語の説明"><i class="fa fa-check"></i><b>7.2</b> 用語の説明</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="07_ols.html"><a href="07_ols.html#標本と推定"><i class="fa fa-check"></i><b>7.2.1</b> 標本と推定</a></li>
+<li class="chapter" data-level="7.2.2" data-path="07_ols.html"><a href="07_ols.html#推定量の望ましい性質"><i class="fa fa-check"></i><b>7.2.2</b> 推定量の望ましい性質</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="07_ols.html"><a href="07_ols.html#最小2乗法ols"><i class="fa fa-check"></i><b>7.3</b> 最小2乗法（OLS）</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="07_ols.html"><a href="07_ols.html#最小2乗法の仮定"><i class="fa fa-check"></i><b>7.3.1</b> 最小2乗法の仮定</a></li>
+<li class="chapter" data-level="7.3.2" data-path="07_ols.html"><a href="07_ols.html#検定と信頼区間"><i class="fa fa-check"></i><b>7.3.2</b> 検定と信頼区間</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="07_ols.html"><a href="07_ols.html#モデルの種類と係数の解釈"><i class="fa fa-check"></i><b>7.4</b> モデルの種類と係数の解釈</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="07_ols.html"><a href="07_ols.html#水準モデル"><i class="fa fa-check"></i><b>7.4.1</b> 水準モデル</a></li>
+<li class="chapter" data-level="7.4.2" data-path="07_ols.html"><a href="07_ols.html#対数モデル"><i class="fa fa-check"></i><b>7.4.2</b> 対数モデル</a></li>
+<li class="chapter" data-level="7.4.3" data-path="07_ols.html"><a href="07_ols.html#変化率モデル"><i class="fa fa-check"></i><b>7.4.3</b> 変化率モデル</a></li>
+<li class="chapter" data-level="7.4.4" data-path="07_ols.html"><a href="07_ols.html#多項式モデル"><i class="fa fa-check"></i><b>7.4.4</b> 多項式モデル</a></li>
+<li class="chapter" data-level="7.4.5" data-path="07_ols.html"><a href="07_ols.html#交互作用モデル"><i class="fa fa-check"></i><b>7.4.5</b> 交互作用モデル</a></li>
+<li class="chapter" data-level="7.4.6" data-path="07_ols.html"><a href="07_ols.html#ダミー変数"><i class="fa fa-check"></i><b>7.4.6</b> ダミー変数</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="07_ols.html"><a href="07_ols.html#重回帰モデルの役割と注意点"><i class="fa fa-check"></i><b>7.5</b> 重回帰モデルの役割と注意点</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="07_ols.html"><a href="07_ols.html#欠落変数バイアス"><i class="fa fa-check"></i><b>7.5.1</b> 欠落変数バイアス</a></li>
+<li class="chapter" data-level="7.5.2" data-path="07_ols.html"><a href="07_ols.html#多重共線性"><i class="fa fa-check"></i><b>7.5.2</b> 多重共線性</a></li>
+<li class="chapter" data-level="7.5.3" data-path="07_ols.html"><a href="07_ols.html#変数選択の指針"><i class="fa fa-check"></i><b>7.5.3</b> 変数選択の指針</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="07_ols.html"><a href="07_ols.html#rの単回帰モデル推定"><i class="fa fa-check"></i><b>7.6</b> Rの単回帰モデル推定</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="07_ols.html"><a href="07_ols.html#実例線形単回帰"><i class="fa fa-check"></i><b>7.6.1</b> 実例：線形単回帰</a></li>
+<li class="chapter" data-level="7.6.2" data-path="07_ols.html"><a href="07_ols.html#実例回帰診断プロット"><i class="fa fa-check"></i><b>7.6.2</b> 実例：回帰診断プロット</a></li>
+<li class="chapter" data-level="7.6.3" data-path="07_ols.html"><a href="07_ols.html#実例対数変化率モデルの推定"><i class="fa fa-check"></i><b>7.6.3</b> 実例：対数・変化率モデルの推定</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="07_ols.html"><a href="07_ols.html#rの重回帰モデル推定"><i class="fa fa-check"></i><b>7.7</b> Rの重回帰モデル推定</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="07_ols.html"><a href="07_ols.html#実例線形重回帰"><i class="fa fa-check"></i><b>7.7.1</b> 実例：線形重回帰</a></li>
+<li class="chapter" data-level="7.7.2" data-path="07_ols.html"><a href="07_ols.html#実例多項式モデル"><i class="fa fa-check"></i><b>7.7.2</b> 実例：多項式モデル</a></li>
+<li class="chapter" data-level="7.7.3" data-path="07_ols.html"><a href="07_ols.html#実例ダミー交互作用モデル"><i class="fa fa-check"></i><b>7.7.3</b> 実例：ダミー・交互作用モデル</a></li>
+<li class="chapter" data-level="7.7.4" data-path="07_ols.html"><a href="07_ols.html#実例ダミー変数同士の交互作用モデル"><i class="fa fa-check"></i><b>7.7.4</b> 実例：ダミー変数同士の交互作用モデル</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="08_ts.html"><a href="08_ts.html"><i class="fa fa-check"></i><b>8</b> 時系列データ操作</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="08_ts.html"><a href="08_ts.html#第8章の準備"><i class="fa fa-check"></i><b>8.1</b> 第8章の準備</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="08_ts.html"><a href="08_ts.html#パッケージのインポート-5"><i class="fa fa-check"></i><b>8.1.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="8.1.2" data-path="08_ts.html"><a href="08_ts.html#外部データセットの取得-3"><i class="fa fa-check"></i><b>8.1.2</b> 外部データセットの取得</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="08_ts.html"><a href="08_ts.html#時系列データとは"><i class="fa fa-check"></i><b>8.2</b> 時系列データとは</a></li>
+<li class="chapter" data-level="8.3" data-path="08_ts.html"><a href="08_ts.html#ts形式データ"><i class="fa fa-check"></i><b>8.3</b> ts形式データ</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="08_ts.html"><a href="08_ts.html#ts形式データの表示"><i class="fa fa-check"></i><b>8.3.1</b> ts形式データの表示</a></li>
+<li class="chapter" data-level="8.3.2" data-path="08_ts.html"><a href="08_ts.html#ts形式データ情報の取得"><i class="fa fa-check"></i><b>8.3.2</b> ts形式データ情報の取得</a></li>
+<li class="chapter" data-level="8.3.3" data-path="08_ts.html"><a href="08_ts.html#ts形式データのフィルタ"><i class="fa fa-check"></i><b>8.3.3</b> ts形式データのフィルタ</a></li>
+<li class="chapter" data-level="8.3.4" data-path="08_ts.html"><a href="08_ts.html#ts形式データのプロット"><i class="fa fa-check"></i><b>8.3.4</b> ts形式データのプロット</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="08_ts.html"><a href="08_ts.html#ts形式データの変換"><i class="fa fa-check"></i><b>8.4</b> ts形式データの変換</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="08_ts.html"><a href="08_ts.html#ts形式に変換ts"><i class="fa fa-check"></i><b>8.4.1</b> ts形式に変換：ts()</a></li>
+<li class="chapter" data-level="8.4.2" data-path="08_ts.html"><a href="08_ts.html#ts形式に変換as_tsibble"><i class="fa fa-check"></i><b>8.4.2</b> ts形式に変換：as_tsibble()</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="08_ts.html"><a href="08_ts.html#日付型データ関数"><i class="fa fa-check"></i><b>8.5</b> 日付型データ関数</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="08_ts.html"><a href="08_ts.html#日付型データの生成"><i class="fa fa-check"></i><b>8.5.1</b> 日付型データの生成</a></li>
+<li class="chapter" data-level="8.5.2" data-path="08_ts.html"><a href="08_ts.html#日付型データの計算"><i class="fa fa-check"></i><b>8.5.2</b> 日付型データの計算</a></li>
+<li class="chapter" data-level="8.5.3" data-path="08_ts.html"><a href="08_ts.html#日付型と文字列型の変換"><i class="fa fa-check"></i><b>8.5.3</b> 日付型と文字列型の変換</a></li>
+<li class="chapter" data-level="8.5.4" data-path="08_ts.html"><a href="08_ts.html#日付情報の抽出"><i class="fa fa-check"></i><b>8.5.4</b> 日付情報の抽出</a></li>
+<li class="chapter" data-level="8.5.5" data-path="08_ts.html"><a href="08_ts.html#四半期ベースの時系列インデックス"><i class="fa fa-check"></i><b>8.5.5</b> 四半期ベースの時系列インデックス</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="08_ts.html"><a href="08_ts.html#様々な時系列データ系列の作成"><i class="fa fa-check"></i><b>8.6</b> 様々な時系列データ系列の作成</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="08_ts.html"><a href="08_ts.html#ラグリード系列の作成"><i class="fa fa-check"></i><b>8.6.1</b> ラグ・リード系列の作成</a></li>
+<li class="chapter" data-level="8.6.2" data-path="08_ts.html"><a href="08_ts.html#変化率系列の作成"><i class="fa fa-check"></i><b>8.6.2</b> 変化率系列の作成</a></li>
+<li class="chapter" data-level="8.6.3" data-path="08_ts.html"><a href="08_ts.html#移動平均系列の作成"><i class="fa fa-check"></i><b>8.6.3</b> 移動平均系列の作成</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="08_ts.html"><a href="08_ts.html#時系列データの頻度変換"><i class="fa fa-check"></i><b>8.7</b> 時系列データの頻度変換</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="08_ts.html"><a href="08_ts.html#日次データを週次データに変換"><i class="fa fa-check"></i><b>8.7.1</b> 日次データを週次データに変換</a></li>
+<li class="chapter" data-level="8.7.2" data-path="08_ts.html"><a href="08_ts.html#日次データを月次データに変換"><i class="fa fa-check"></i><b>8.7.2</b> 日次データを月次データに変換</a></li>
+<li class="chapter" data-level="8.7.3" data-path="08_ts.html"><a href="08_ts.html#日次データを四半期データに変換"><i class="fa fa-check"></i><b>8.7.3</b> 日次データを四半期データに変換</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="08_ts.html"><a href="08_ts.html#季節調整x-13"><i class="fa fa-check"></i><b>8.8</b> 季節調整（X-13）</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="08_ts.html"><a href="08_ts.html#ts形式データの可視化"><i class="fa fa-check"></i><b>8.8.1</b> ts形式データの可視化</a></li>
+<li class="chapter" data-level="8.8.2" data-path="08_ts.html"><a href="08_ts.html#x-13arima-seatsの実施方法"><i class="fa fa-check"></i><b>8.8.2</b> X-13ARIMA-SEATSの実施方法</a></li>
+<li class="chapter" data-level="8.8.3" data-path="08_ts.html"><a href="08_ts.html#実例月次データの季節調整"><i class="fa fa-check"></i><b>8.8.3</b> 実例：月次データの季節調整</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="08_ts.html"><a href="08_ts.html#季節調整stl分解"><i class="fa fa-check"></i><b>8.9</b> 季節調整（STL分解）</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="08_ts.html"><a href="08_ts.html#stl分解の実施方法"><i class="fa fa-check"></i><b>8.9.1</b> STL分解の実施方法</a></li>
+<li class="chapter" data-level="8.9.2" data-path="08_ts.html"><a href="08_ts.html#週次データのstl分解"><i class="fa fa-check"></i><b>8.9.2</b> 週次データのSTL分解</a></li>
+<li class="chapter" data-level="8.9.3" data-path="08_ts.html"><a href="08_ts.html#日次データのstl分解単一周期"><i class="fa fa-check"></i><b>8.9.3</b> 日次データのSTL分解（単一周期）</a></li>
+<li class="chapter" data-level="8.9.4" data-path="08_ts.html"><a href="08_ts.html#日次データのstl分解複数周期"><i class="fa fa-check"></i><b>8.9.4</b> 日次データのSTL分解（複数周期）</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="08_ts.html"><a href="08_ts.html#トレンド"><i class="fa fa-check"></i><b>8.10</b> トレンド</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="08_ts.html"><a href="08_ts.html#線形トレンド"><i class="fa fa-check"></i><b>8.10.1</b> 線形トレンド</a></li>
+<li class="chapter" data-level="8.10.2" data-path="08_ts.html"><a href="08_ts.html#区分線形トレンド"><i class="fa fa-check"></i><b>8.10.2</b> 区分線形トレンド</a></li>
+<li class="chapter" data-level="8.10.3" data-path="08_ts.html"><a href="08_ts.html#hpフィルタ"><i class="fa fa-check"></i><b>8.10.3</b> HPフィルタ</a></li>
+<li class="chapter" data-level="8.10.4" data-path="08_ts.html"><a href="08_ts.html#一般化加法モデルgam"><i class="fa fa-check"></i><b>8.10.4</b> 一般化加法モデル（GAM）</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="08_ts.html"><a href="08_ts.html#構造変化"><i class="fa fa-check"></i><b>8.11</b> 構造変化</a>
+<ul>
+<li class="chapter" data-level="8.11.1" data-path="08_ts.html"><a href="08_ts.html#構造変化点が既知の場合"><i class="fa fa-check"></i><b>8.11.1</b> 構造変化点が既知の場合</a></li>
+<li class="chapter" data-level="8.11.2" data-path="08_ts.html"><a href="08_ts.html#構造変化点が未知の場合"><i class="fa fa-check"></i><b>8.11.2</b> 構造変化点が未知の場合</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="09_var.html"><a href="09_var.html"><i class="fa fa-check"></i><b>9</b> 時系列分析</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="09_var.html"><a href="09_var.html#第9章の準備"><i class="fa fa-check"></i><b>9.1</b> 第9章の準備</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="09_var.html"><a href="09_var.html#パッケージのインポート-6"><i class="fa fa-check"></i><b>9.1.1</b> パッケージのインポート</a></li>
+<li class="chapter" data-level="9.1.2" data-path="09_var.html"><a href="09_var.html#外部データセットの取得-4"><i class="fa fa-check"></i><b>9.1.2</b> 外部データセットの取得</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="09_var.html"><a href="09_var.html#定常性"><i class="fa fa-check"></i><b>9.2</b> 定常性</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="09_var.html"><a href="09_var.html#定常性の定義"><i class="fa fa-check"></i><b>9.2.1</b> 定常性の定義</a></li>
+<li class="chapter" data-level="9.2.2" data-path="09_var.html"><a href="09_var.html#ホワイトノイズ"><i class="fa fa-check"></i><b>9.2.2</b> ホワイトノイズ</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="09_var.html"><a href="09_var.html#非定常過程"><i class="fa fa-check"></i><b>9.3</b> 非定常過程</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="09_var.html"><a href="09_var.html#単位根"><i class="fa fa-check"></i><b>9.3.1</b> 単位根</a></li>
+<li class="chapter" data-level="9.3.2" data-path="09_var.html"><a href="09_var.html#階差定常過程和分過程"><i class="fa fa-check"></i><b>9.3.2</b> 階差定常過程・和分過程</a></li>
+<li class="chapter" data-level="9.3.3" data-path="09_var.html"><a href="09_var.html#ランダムウォーク"><i class="fa fa-check"></i><b>9.3.3</b> ランダムウォーク</a></li>
+<li class="chapter" data-level="9.3.4" data-path="09_var.html"><a href="09_var.html#トレンド定常過程"><i class="fa fa-check"></i><b>9.3.4</b> トレンド定常過程</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="09_var.html"><a href="09_var.html#単位根検定adf検定"><i class="fa fa-check"></i><b>9.4</b> 単位根検定（ADF検定）</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="09_var.html"><a href="09_var.html#adf検定フロー自作関数"><i class="fa fa-check"></i><b>9.4.1</b> ADF検定フロー自作関数</a></li>
+<li class="chapter" data-level="9.4.2" data-path="09_var.html"><a href="09_var.html#実例adf検定フロー"><i class="fa fa-check"></i><b>9.4.2</b> 実例：ADF検定フロー</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="09_var.html"><a href="09_var.html#系列相関自己相関"><i class="fa fa-check"></i><b>9.5</b> 系列相関・自己相関</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="09_var.html"><a href="09_var.html#自己相関acf"><i class="fa fa-check"></i><b>9.5.1</b> 自己相関（ACF）</a></li>
+<li class="chapter" data-level="9.5.2" data-path="09_var.html"><a href="09_var.html#偏自己相関pacf"><i class="fa fa-check"></i><b>9.5.2</b> 偏自己相関（PACF）</a></li>
+<li class="chapter" data-level="9.5.3" data-path="09_var.html"><a href="09_var.html#リュンボックス検定"><i class="fa fa-check"></i><b>9.5.3</b> リュン＝ボックス検定</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="09_var.html"><a href="09_var.html#ボックスジェンキンス法"><i class="fa fa-check"></i><b>9.6</b> ボックス＝ジェンキンス法</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="09_var.html"><a href="09_var.html#armaモデル"><i class="fa fa-check"></i><b>9.6.1</b> ARMAモデル</a></li>
+<li class="chapter" data-level="9.6.2" data-path="09_var.html"><a href="09_var.html#arimaモデル"><i class="fa fa-check"></i><b>9.6.2</b> ARIMAモデル</a></li>
+<li class="chapter" data-level="9.6.3" data-path="09_var.html"><a href="09_var.html#ボックスジェンキンス法の分析フロー"><i class="fa fa-check"></i><b>9.6.3</b> ボックス＝ジェンキンス法の分析フロー</a></li>
+<li class="chapter" data-level="9.6.4" data-path="09_var.html"><a href="09_var.html#実例ボックスジェンキンス法"><i class="fa fa-check"></i><b>9.6.4</b> 実例：ボックス＝ジェンキンス法</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="09_var.html"><a href="09_var.html#共和分"><i class="fa fa-check"></i><b>9.7</b> 共和分</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="09_var.html"><a href="09_var.html#見せかけの回帰"><i class="fa fa-check"></i><b>9.7.1</b> 見せかけの回帰</a></li>
+<li class="chapter" data-level="9.7.2" data-path="09_var.html"><a href="09_var.html#共和分関係"><i class="fa fa-check"></i><b>9.7.2</b> 共和分関係</a></li>
+<li class="chapter" data-level="9.7.3" data-path="09_var.html"><a href="09_var.html#エングルグレンジャー検定"><i class="fa fa-check"></i><b>9.7.3</b> エングル＝グレンジャー検定</a></li>
+<li class="chapter" data-level="9.7.4" data-path="09_var.html"><a href="09_var.html#実例見せかけの回帰"><i class="fa fa-check"></i><b>9.7.4</b> 実例：見せかけの回帰</a></li>
+<li class="chapter" data-level="9.7.5" data-path="09_var.html"><a href="09_var.html#実例共和分"><i class="fa fa-check"></i><b>9.7.5</b> 実例：共和分</a></li>
+<li class="chapter" data-level="9.7.6" data-path="09_var.html"><a href="09_var.html#ヨハンセン検定"><i class="fa fa-check"></i><b>9.7.6</b> ヨハンセン検定</a></li>
+<li class="chapter" data-level="9.7.7" data-path="09_var.html"><a href="09_var.html#ヨハンセン検定フロー自作関数"><i class="fa fa-check"></i><b>9.7.7</b> ヨハンセン検定フロー自作関数</a></li>
+<li class="chapter" data-level="9.7.8" data-path="09_var.html"><a href="09_var.html#実例ヨハンセン検定"><i class="fa fa-check"></i><b>9.7.8</b> 実例：ヨハンセン検定</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="09_var.html"><a href="09_var.html#varモデル"><i class="fa fa-check"></i><b>9.8</b> VARモデル</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="09_var.html"><a href="09_var.html#レベルvarモデル"><i class="fa fa-check"></i><b>9.8.1</b> レベルVARモデル</a></li>
+<li class="chapter" data-level="9.8.2" data-path="09_var.html"><a href="09_var.html#階差varモデル"><i class="fa fa-check"></i><b>9.8.2</b> 階差VARモデル</a></li>
+<li class="chapter" data-level="9.8.3" data-path="09_var.html"><a href="09_var.html#vecモデル"><i class="fa fa-check"></i><b>9.8.3</b> VECモデル</a></li>
+<li class="chapter" data-level="9.8.4" data-path="09_var.html"><a href="09_var.html#構造varモデル"><i class="fa fa-check"></i><b>9.8.4</b> 構造VARモデル</a></li>
+<li class="chapter" data-level="9.8.5" data-path="09_var.html"><a href="09_var.html#構造vecモデル"><i class="fa fa-check"></i><b>9.8.5</b> 構造VECモデル</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="09_var.html"><a href="09_var.html#varモデルに関連する分析"><i class="fa fa-check"></i><b>9.9</b> VARモデルに関連する分析</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="09_var.html"><a href="09_var.html#グレンジャー因果性"><i class="fa fa-check"></i><b>9.9.1</b> グレンジャー因果性</a></li>
+<li class="chapter" data-level="9.9.2" data-path="09_var.html"><a href="09_var.html#インパルス応答"><i class="fa fa-check"></i><b>9.9.2</b> インパルス応答</a></li>
+<li class="chapter" data-level="9.9.3" data-path="09_var.html"><a href="09_var.html#予測誤差の分散分解"><i class="fa fa-check"></i><b>9.9.3</b> 予測誤差の分散分解</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="09_var.html"><a href="09_var.html#varモデルの分析フロー"><i class="fa fa-check"></i><b>9.10</b> VARモデルの分析フロー</a>
+<ul>
+<li class="chapter" data-level="" data-path="09_var.html"><a href="09_var.html#探索的データ分析-2"><i class="fa fa-check"></i>1. 探索的データ分析</a></li>
+<li class="chapter" data-level="" data-path="09_var.html"><a href="09_var.html#変数選択"><i class="fa fa-check"></i>2. 変数選択</a></li>
+<li class="chapter" data-level="" data-path="09_var.html"><a href="09_var.html#ラグ次数の選択"><i class="fa fa-check"></i>3. ラグ次数の選択</a></li>
+<li class="chapter" data-level="" data-path="09_var.html"><a href="09_var.html#単位根検定-1"><i class="fa fa-check"></i>4. 単位根検定</a></li>
+<li class="chapter" data-level="" data-path="09_var.html"><a href="09_var.html#共和分検定"><i class="fa fa-check"></i>5. 共和分検定</a></li>
+<li class="chapter" data-level="" data-path="09_var.html"><a href="09_var.html#データ分割-1"><i class="fa fa-check"></i>6. データ分割</a></li>
+<li class="chapter" data-level="" data-path="09_var.html"><a href="09_var.html#誘導varvecモデルの推定"><i class="fa fa-check"></i>7. 誘導VAR・VECモデルの推定</a></li>
+<li class="chapter" data-level="" data-path="09_var.html"><a href="09_var.html#構造varvecモデルの識別"><i class="fa fa-check"></i>8. 構造VAR・VECモデルの識別</a></li>
+<li class="chapter" data-level="" data-path="09_var.html"><a href="09_var.html#誤差項の検定"><i class="fa fa-check"></i>9. 誤差項の検定</a></li>
+<li class="chapter" data-level="" data-path="09_var.html"><a href="09_var.html#モデル推定後の分析"><i class="fa fa-check"></i>10. モデル推定後の分析</a></li>
+<li class="chapter" data-level="" data-path="09_var.html"><a href="09_var.html#予測"><i class="fa fa-check"></i>11. 予測</a></li>
+</ul></li>
+<li class="chapter" data-level="9.11" data-path="09_var.html"><a href="09_var.html#varモデルの実例"><i class="fa fa-check"></i><b>9.11</b> VARモデルの実例</a>
+<ul>
+<li class="chapter" data-level="9.11.1" data-path="09_var.html"><a href="09_var.html#実例探索的データ分析"><i class="fa fa-check"></i><b>9.11.1</b> 実例：探索的データ分析</a></li>
+<li class="chapter" data-level="9.11.2" data-path="09_var.html"><a href="09_var.html#実例変数選択グレンジャー因果性検定"><i class="fa fa-check"></i><b>9.11.2</b> 実例：変数選択（グレンジャー因果性検定）</a></li>
+<li class="chapter" data-level="9.11.3" data-path="09_var.html"><a href="09_var.html#実例ラグ次数選択"><i class="fa fa-check"></i><b>9.11.3</b> 実例：ラグ次数選択</a></li>
+<li class="chapter" data-level="9.11.4" data-path="09_var.html"><a href="09_var.html#実例adf検定"><i class="fa fa-check"></i><b>9.11.4</b> 実例：ADF検定</a></li>
+<li class="chapter" data-level="9.11.5" data-path="09_var.html"><a href="09_var.html#実例ヨハンセン検定-1"><i class="fa fa-check"></i><b>9.11.5</b> 実例：ヨハンセン検定</a></li>
+<li class="chapter" data-level="9.11.6" data-path="09_var.html"><a href="09_var.html#実例varモデルの推定"><i class="fa fa-check"></i><b>9.11.6</b> 実例：VARモデルの推定</a></li>
+<li class="chapter" data-level="9.11.7" data-path="09_var.html"><a href="09_var.html#実例vecモデルの推定"><i class="fa fa-check"></i><b>9.11.7</b> 実例：VECモデルの推定</a></li>
+<li class="chapter" data-level="9.11.8" data-path="09_var.html"><a href="09_var.html#実例構造varモデルの推定"><i class="fa fa-check"></i><b>9.11.8</b> 実例：構造VARモデルの推定</a></li>
+<li class="chapter" data-level="9.11.9" data-path="09_var.html"><a href="09_var.html#実例構造vecモデルの推定"><i class="fa fa-check"></i><b>9.11.9</b> 実例：構造VECモデルの推定</a></li>
+<li class="chapter" data-level="9.11.10" data-path="09_var.html"><a href="09_var.html#実例誤差項の検定"><i class="fa fa-check"></i><b>9.11.10</b> 実例：誤差項の検定</a></li>
+<li class="chapter" data-level="9.11.11" data-path="09_var.html"><a href="09_var.html#実例インパルス応答"><i class="fa fa-check"></i><b>9.11.11</b> 実例：インパルス応答</a></li>
+<li class="chapter" data-level="9.11.12" data-path="09_var.html"><a href="09_var.html#実例予測誤差の分散分解"><i class="fa fa-check"></i><b>9.11.12</b> 実例：予測誤差の分散分解</a></li>
+<li class="chapter" data-level="9.11.13" data-path="09_var.html"><a href="09_var.html#実例グレンジャー因果性検定"><i class="fa fa-check"></i><b>9.11.13</b> 実例：グレンジャー因果性検定</a></li>
+<li class="chapter" data-level="9.11.14" data-path="09_var.html"><a href="09_var.html#実例予測"><i class="fa fa-check"></i><b>9.11.14</b> 実例：予測</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html"><i class="fa fa-check"></i>付録 寄与度の計算方法</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#記号法"><i class="fa fa-check"></i>記号法</a></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#和差の指標"><i class="fa fa-check"></i>和・差の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#公式"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#実例gdp"><i class="fa fa-check"></i>実例：GDP</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#積の指標"><i class="fa fa-check"></i>積の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#公式-1"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#実例貿易指数金額指数"><i class="fa fa-check"></i>実例：貿易指数（金額指数）</a></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#実例経常利益"><i class="fa fa-check"></i>実例：経常利益</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#商の指標"><i class="fa fa-check"></i>商の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#公式-2"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#実例貿易指数数量指数"><i class="fa fa-check"></i>実例：貿易指数（数量指数）</a></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#実例失業率"><i class="fa fa-check"></i>実例：失業率</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#固定加重平均の指標"><i class="fa fa-check"></i>固定加重平均の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#公式-3"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#実例ラスパイレス指数"><i class="fa fa-check"></i>実例：ラスパイレス指数</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#可変加重平均の指標"><i class="fa fa-check"></i>可変加重平均の指標</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#公式-4"><i class="fa fa-check"></i>公式</a></li>
+<li class="chapter" data-level="" data-path="appendix_cont.html"><a href="appendix_cont.html#実例現金給与総額"><i class="fa fa-check"></i>実例：現金給与総額</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">エコノミストのためのR</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="探索的データ分析" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> 探索的データ分析<a href="06_eda.html#探索的データ分析" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>第6章「探索的データ分析（Exploratory Data Analysis）」では、データの内容を理解するための方法を解説します。これは、本格的な統計モデルを構築する方針を立てるための重要なプロセスです。</p>
+<p>Wickham &amp; Grolemund（2017）は、探索的データ分析について次のように説明しています。</p>
+<ol style="list-style-type: decimal">
+<li>分析対象のデータについて問いを立てる。</li>
+<li>可視化、変換、モデル化により、問いに対する解を探る。</li>
+<li>得られた解をもとに、新たな問いを立てる。</li>
+<li>このサイクルを繰り返す。</li>
+</ol>
+<p>このように、探索的データ分析には本来決まったやり方が存在するわけではありません。とはいえ、「問いの立て方」や「解の探り方」には一般的によく利用される手法があるため、この章ではそうした手法について解説します。</p>
+<div id="第6章の準備" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> 第6章の準備<a href="06_eda.html#第6章の準備" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="パッケージのインポート-3" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> パッケージのインポート<a href="06_eda.html#パッケージのインポート-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="06_eda.html#cb571-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb571-2"><a href="06_eda.html#cb571-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)</span>
+<span id="cb571-3"><a href="06_eda.html#cb571-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DataExplorer)</span>
+<span id="cb571-4"><a href="06_eda.html#cb571-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
+<span id="cb571-5"><a href="06_eda.html#cb571-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb571-6"><a href="06_eda.html#cb571-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SmartEDA)</span>
+<span id="cb571-7"><a href="06_eda.html#cb571-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb571-8"><a href="06_eda.html#cb571-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code></pre></div>
+</div>
+<div id="ggplot2の設定-1" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> ggplot2の設定<a href="06_eda.html#ggplot2の設定-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>第2章で紹介した<code>ggplot2</code>の設定です。筆者の実行環境はMacのため、Windowsの設定はコメントアウトしています。</p>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="06_eda.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windowsのグラフ設定（筆者の実行環境では不要のためコメントアウト）</span></span>
+<span id="cb572-2"><a href="06_eda.html#cb572-2" aria-hidden="true" tabindex="-1"></a><span class="co"># windowsFonts(&quot;MEIRYO&quot; = windowsFont(&quot;Meiryo UI&quot;))</span></span>
+<span id="cb572-3"><a href="06_eda.html#cb572-3" aria-hidden="true" tabindex="-1"></a><span class="co"># windowsFonts(&quot;YUGO&quot; = windowsFont(&quot;Yu Gothic UI&quot;))</span></span>
+<span id="cb572-4"><a href="06_eda.html#cb572-4" aria-hidden="true" tabindex="-1"></a><span class="co"># theme_set(theme_light(base_family = &quot;YUGO&quot;))</span></span>
+<span id="cb572-5"><a href="06_eda.html#cb572-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb572-6"><a href="06_eda.html#cb572-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Macのグラフ設定</span></span>
+<span id="cb572-7"><a href="06_eda.html#cb572-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuProN-W3&quot;</span>))</span></code></pre></div>
+</div>
+</div>
+<div id="データの中身" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> データの中身<a href="06_eda.html#データの中身" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="str関数" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> str関数<a href="06_eda.html#str関数" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>まず、データが何を含んでいるか確認します。</p>
+<p>データをコンソールに出力するには、オブジェクト名を入力し、そのまま実行します。データフレームの変数一覧を出力するには、<code>str()</code>関数を使用します。</p>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="06_eda.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
+<span id="cb573-2"><a href="06_eda.html#cb573-2" aria-hidden="true" tabindex="-1"></a>diamonds</span></code></pre></div>
+<pre><code>## # A tibble: 53,940 × 10
+##    carat cut       color clarity depth table price     x     y     z
+##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43
+##  2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31
+##  3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31
+##  4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63
+##  5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75
+##  6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48
+##  7  0.24 Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47
+##  8  0.26 Very Good H     SI1      61.9    55   337  4.07  4.11  2.53
+##  9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49
+## 10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39
+## # … with 53,930 more rows</code></pre>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="06_eda.html#cb575-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの変数名を出力</span></span>
+<span id="cb575-2"><a href="06_eda.html#cb575-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(diamonds)</span></code></pre></div>
+<pre><code>##  [1] &quot;carat&quot;   &quot;cut&quot;     &quot;color&quot;   &quot;clarity&quot; &quot;depth&quot;   &quot;table&quot;   &quot;price&quot;  
+##  [8] &quot;x&quot;       &quot;y&quot;       &quot;z&quot;</code></pre>
+</div>
+<div id="summary関数" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> summary関数<a href="06_eda.html#summary関数" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>各変数の記述統計量を出力するには、<code>summary()</code>関数を使用します。</p>
+<p>数値型の変数は、平均、中央値、最大値、最小値、四分位数が出力されます。離散型変数のうち、因子型（factor型）の変数は各要素のデータ数が出力されます。</p>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="06_eda.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの記述統計量を出力</span></span>
+<span id="cb577-2"><a href="06_eda.html#cb577-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(diamonds)</span></code></pre></div>
+<pre><code>##      carat               cut        color        clarity          depth      
+##  Min.   :0.2000   Fair     : 1610   D: 6775   SI1    :13065   Min.   :43.00  
+##  1st Qu.:0.4000   Good     : 4906   E: 9797   VS2    :12258   1st Qu.:61.00  
+##  Median :0.7000   Very Good:12082   F: 9542   SI2    : 9194   Median :61.80  
+##  Mean   :0.7979   Premium  :13791   G:11292   VS1    : 8171   Mean   :61.75  
+##  3rd Qu.:1.0400   Ideal    :21551   H: 8304   VVS2   : 5066   3rd Qu.:62.50  
+##  Max.   :5.0100                     I: 5422   VVS1   : 3655   Max.   :79.00  
+##                                     J: 2808   (Other): 2531                  
+##      table           price             x                y         
+##  Min.   :43.00   Min.   :  326   Min.   : 0.000   Min.   : 0.000  
+##  1st Qu.:56.00   1st Qu.:  950   1st Qu.: 4.710   1st Qu.: 4.720  
+##  Median :57.00   Median : 2401   Median : 5.700   Median : 5.710  
+##  Mean   :57.46   Mean   : 3933   Mean   : 5.731   Mean   : 5.735  
+##  3rd Qu.:59.00   3rd Qu.: 5324   3rd Qu.: 6.540   3rd Qu.: 6.540  
+##  Max.   :95.00   Max.   :18823   Max.   :10.740   Max.   :58.900  
+##                                                                   
+##        z         
+##  Min.   : 0.000  
+##  1st Qu.: 2.910  
+##  Median : 3.530  
+##  Mean   : 3.539  
+##  3rd Qu.: 4.040  
+##  Max.   :31.800  
+## </code></pre>
+<p>因子型でない離散型変数（文字列型など）について各要素のデータ数を出力する場合は、あらかじめ因子型に変換し、<code>summary()</code>関数を適用します。</p>
+<p>結果が全て出力されない場合は、<code>summary()</code>関数の<code>maxsum</code>引数で出力する最大行数を指定します。</p>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="06_eda.html#cb579-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb579-2"><a href="06_eda.html#cb579-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.character), <span class="at">.fns =</span> as.factor)) <span class="sc">%&gt;%</span> </span>
+<span id="cb579-3"><a href="06_eda.html#cb579-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(<span class="at">maxsum =</span> <span class="dv">100</span>)</span></code></pre></div>
+<pre><code>##      manufacturer                    model        displ            year     
+##  audi      :18    4runner 4wd           : 6   Min.   :1.600   Min.   :1999  
+##  chevrolet :19    a4                    : 7   1st Qu.:2.400   1st Qu.:1999  
+##  dodge     :37    a4 quattro            : 8   Median :3.300   Median :2004  
+##  ford      :25    a6 quattro            : 3   Mean   :3.472   Mean   :2004  
+##  honda     : 9    altima                : 6   3rd Qu.:4.600   3rd Qu.:2008  
+##  hyundai   :14    c1500 suburban 2wd    : 5   Max.   :7.000   Max.   :2008  
+##  jeep      : 8    camry                 : 7                                 
+##  land rover: 4    camry solara          : 7                                 
+##  lincoln   : 3    caravan 2wd           :11                                 
+##  mercury   : 4    civic                 : 9                                 
+##  nissan    :13    corolla               : 5                                 
+##  pontiac   : 5    corvette              : 5                                 
+##  subaru    :14    dakota pickup 4wd     : 9                                 
+##  toyota    :34    durango 4wd           : 7                                 
+##  volkswagen:27    expedition 2wd        : 3                                 
+##                   explorer 4wd          : 6                                 
+##                   f150 pickup 4wd       : 7                                 
+##                   forester awd          : 6                                 
+##                   grand cherokee 4wd    : 8                                 
+##                   grand prix            : 5                                 
+##                   gti                   : 5                                 
+##                   impreza awd           : 8                                 
+##                   jetta                 : 9                                 
+##                   k1500 tahoe 4wd       : 4                                 
+##                   land cruiser wagon 4wd: 2                                 
+##                   malibu                : 5                                 
+##                   maxima                : 3                                 
+##                   mountaineer 4wd       : 4                                 
+##                   mustang               : 9                                 
+##                   navigator 2wd         : 3                                 
+##                   new beetle            : 6                                 
+##                   passat                : 7                                 
+##                   pathfinder 4wd        : 4                                 
+##                   ram 1500 pickup 4wd   :10                                 
+##                   range rover           : 4                                 
+##                   sonata                : 7                                 
+##                   tiburon               : 7                                 
+##                   toyota tacoma 4wd     : 7                                 
+##       cyl               trans    drv          cty             hwy       
+##  Min.   :4.000   auto(av)  : 5   4:103   Min.   : 9.00   Min.   :12.00  
+##  1st Qu.:4.000   auto(l3)  : 2   f:106   1st Qu.:14.00   1st Qu.:18.00  
+##  Median :6.000   auto(l4)  :83   r: 25   Median :17.00   Median :24.00  
+##  Mean   :5.889   auto(l5)  :39           Mean   :16.86   Mean   :23.44  
+##  3rd Qu.:8.000   auto(l6)  : 6           3rd Qu.:19.00   3rd Qu.:27.00  
+##  Max.   :8.000   auto(s4)  : 3           Max.   :35.00   Max.   :44.00  
+##                  auto(s5)  : 3                                          
+##                  auto(s6)  :16                                          
+##                  manual(m5):58                                          
+##                  manual(m6):19                                          
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##                                                                         
+##  fl             class   
+##  c:  1   2seater   : 5  
+##  d:  5   compact   :47  
+##  e:  8   midsize   :41  
+##  p: 52   minivan   :11  
+##  r:168   pickup    :33  
+##          subcompact:35  
+##          suv       :62  
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+##                         
+## </code></pre>
+<p>変数名や要素名がアルファベットの場合は上の例のようにレイアウトが崩れずに表示されますが、列名や変数名が日本語の場合はコンソールに出力した列が崩れて見にくくなることがあります。次の例のように、<code>summary()</code>関数の結果をウィンドウに表示すると見やすくなります（ウェブサイト上では実行しません）。</p>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="06_eda.html#cb581-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb581-2"><a href="06_eda.html#cb581-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.character), <span class="at">.fns =</span> as.factor)) <span class="sc">%&gt;%</span> </span>
+<span id="cb581-3"><a href="06_eda.html#cb581-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(<span class="at">maxsum =</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb581-4"><a href="06_eda.html#cb581-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame.matrix</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb581-5"><a href="06_eda.html#cb581-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">View</span>()</span></code></pre></div>
+</div>
+<div id="summmarytoolsパッケージ" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> summmarytoolsパッケージ<a href="06_eda.html#summmarytoolsパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>summarytools</code>パッケージの<code>dfSummary()</code>関数は、データフレームの各変数の記述統計量や分布に関する情報・グラフを出力する関数です。</p>
+<p>コンソールに出力するとグラフが簡略化されるため、結果を<code>view()</code>関数に渡してウィンドウに表示すると見やすくなります（ウェブサイト上では実行しません）。</p>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="06_eda.html#cb582-1" aria-hidden="true" tabindex="-1"></a>summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(mpg)</span></code></pre></div>
+<pre><code>## Data Frame Summary  
+## mpg  
+## Dimensions: 234 x 11  
+## Duplicates: 9  
+## 
+## ----------------------------------------------------------------------------------------------------------
+## No   Variable       Stats / Values           Freqs (% of Valid)   Graph               Valid      Missing  
+## ---- -------------- ------------------------ -------------------- ------------------- ---------- ---------
+## 1    manufacturer   1. dodge                 37 (15.8%)           III                 234        0        
+##      [character]    2. toyota                34 (14.5%)           II                  (100.0%)   (0.0%)   
+##                     3. volkswagen            27 (11.5%)           II                                      
+##                     4. ford                  25 (10.7%)           II                                      
+##                     5. chevrolet             19 ( 8.1%)           I                                       
+##                     6. audi                  18 ( 7.7%)           I                                       
+##                     7. hyundai               14 ( 6.0%)           I                                       
+##                     8. subaru                14 ( 6.0%)           I                                       
+##                     9. nissan                13 ( 5.6%)           I                                       
+##                     10. honda                 9 ( 3.8%)                                                   
+##                     [ 5 others ]             24 (10.3%)           II                                      
+## 
+## 2    model          1. caravan 2wd            11 ( 4.7%)                              234        0        
+##      [character]    2. ram 1500 pickup 4wd    10 ( 4.3%)                              (100.0%)   (0.0%)   
+##                     3. civic                   9 ( 3.8%)                                                  
+##                     4. dakota pickup 4wd       9 ( 3.8%)                                                  
+##                     5. jetta                   9 ( 3.8%)                                                  
+##                     6. mustang                 9 ( 3.8%)                                                  
+##                     7. a4 quattro              8 ( 3.4%)                                                  
+##                     8. grand cherokee 4wd      8 ( 3.4%)                                                  
+##                     9. impreza awd             8 ( 3.4%)                                                  
+##                     10. a4                     7 ( 3.0%)                                                  
+##                     [ 28 others ]            146 (62.4%)          IIIIIIIIIIII                            
+## 
+## 3    displ          Mean (sd) : 3.5 (1.3)    35 distinct values   : .                 234        0        
+##      [numeric]      min &lt; med &lt; max:                              : : .   . .         (100.0%)   (0.0%)   
+##                     1.6 &lt; 3.3 &lt; 7                                 : : : . : :                             
+##                     IQR (CV) : 2.2 (0.4)                          : : : : : : . :                         
+##                                                                   : : : : : : : : .                       
+## 
+## 4    year           Min  : 1999              1999 : 117 (50.0%)   IIIIIIIIII          234        0        
+##      [integer]      Mean : 2003.5            2008 : 117 (50.0%)   IIIIIIIIII          (100.0%)   (0.0%)   
+##                     Max  : 2008                                                                           
+## 
+## 5    cyl            Mean (sd) : 5.9 (1.6)    4 : 81 (34.6%)       IIIIII              234        0        
+##      [integer]      min &lt; med &lt; max:         5 :  4 ( 1.7%)                           (100.0%)   (0.0%)   
+##                     4 &lt; 6 &lt; 8                6 : 79 (33.8%)       IIIIII                                  
+##                     IQR (CV) : 4 (0.3)       8 : 70 (29.9%)       IIIII                                   
+## 
+## 6    trans          1. auto(av)               5 ( 2.1%)                               234        0        
+##      [character]    2. auto(l3)               2 ( 0.9%)                               (100.0%)   (0.0%)   
+##                     3. auto(l4)              83 (35.5%)           IIIIIII                                 
+##                     4. auto(l5)              39 (16.7%)           III                                     
+##                     5. auto(l6)               6 ( 2.6%)                                                   
+##                     6. auto(s4)               3 ( 1.3%)                                                   
+##                     7. auto(s5)               3 ( 1.3%)                                                   
+##                     8. auto(s6)              16 ( 6.8%)           I                                       
+##                     9. manual(m5)            58 (24.8%)           IIII                                    
+##                     10. manual(m6)           19 ( 8.1%)           I                                       
+## 
+## 7    drv            1. 4                     103 (44.0%)          IIIIIIII            234        0        
+##      [character]    2. f                     106 (45.3%)          IIIIIIIII           (100.0%)   (0.0%)   
+##                     3. r                      25 (10.7%)          II                                      
+## 
+## 8    cty            Mean (sd) : 16.9 (4.3)   21 distinct values     : :               234        0        
+##      [integer]      min &lt; med &lt; max:                                : :               (100.0%)   (0.0%)   
+##                     9 &lt; 17 &lt; 35                                     : :                                   
+##                     IQR (CV) : 5 (0.3)                              : : :                                 
+##                                                                   . : : : .                               
+## 
+## 9    hwy            Mean (sd) : 23.4 (6)     27 distinct values     .   :             234        0        
+##      [integer]      min &lt; med &lt; max:                                :   :             (100.0%)   (0.0%)   
+##                     12 &lt; 24 &lt; 44                                    : : :                                 
+##                     IQR (CV) : 9 (0.3)                              : : :                                 
+##                                                                   : : : : :                               
+## 
+## 10   fl             1. c                       1 ( 0.4%)                              234        0        
+##      [character]    2. d                       5 ( 2.1%)                              (100.0%)   (0.0%)   
+##                     3. e                       8 ( 3.4%)                                                  
+##                     4. p                      52 (22.2%)          IIII                                    
+##                     5. r                     168 (71.8%)          IIIIIIIIIIIIII                          
+## 
+## 11   class          1. 2seater                5 ( 2.1%)                               234        0        
+##      [character]    2. compact               47 (20.1%)           IIII                (100.0%)   (0.0%)   
+##                     3. midsize               41 (17.5%)           III                                     
+##                     4. minivan               11 ( 4.7%)                                                   
+##                     5. pickup                33 (14.1%)           II                                      
+##                     6. subcompact            35 (15.0%)           II                                      
+##                     7. suv                   62 (26.5%)           IIIII                                   
+## ----------------------------------------------------------------------------------------------------------</code></pre>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="06_eda.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarytools::dfSummary(mpg) %&gt;% </span></span>
+<span id="cb584-2"><a href="06_eda.html#cb584-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   view()</span></span></code></pre></div>
+</div>
+<div id="psychパッケージ" class="section level3 hasAnchor" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> psychパッケージ<a href="06_eda.html#psychパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>psych</code>パッケージの<code>describe()</code>関数は、データフレームの各変数の記述統計量や分布に関する情報を出力する関数です。平均、中央値、標準偏差に加え、刈り込み平均（trimmed）、中央絶対偏差（mad）、レンジ（最大値と最小値の差）、歪度（skew）、尖度（kurtosis）、標準誤差（se）が出力されます。</p>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="06_eda.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの記述統計量や分布に関する情報を出力</span></span>
+<span id="cb585-2"><a href="06_eda.html#cb585-2" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(diamonds)</span></code></pre></div>
+<pre><code>##          vars     n    mean      sd  median trimmed     mad   min      max
+## carat       1 53940    0.80    0.47    0.70    0.73    0.47   0.2     5.01
+## cut*        2 53940    3.90    1.12    4.00    4.04    1.48   1.0     5.00
+## color*      3 53940    3.59    1.70    4.00    3.55    1.48   1.0     7.00
+## clarity*    4 53940    4.05    1.65    4.00    3.91    1.48   1.0     8.00
+## depth       5 53940   61.75    1.43   61.80   61.78    1.04  43.0    79.00
+## table       6 53940   57.46    2.23   57.00   57.32    1.48  43.0    95.00
+## price       7 53940 3932.80 3989.44 2401.00 3158.99 2475.94 326.0 18823.00
+## x           8 53940    5.73    1.12    5.70    5.66    1.38   0.0    10.74
+## y           9 53940    5.73    1.14    5.71    5.66    1.36   0.0    58.90
+## z          10 53940    3.54    0.71    3.53    3.49    0.85   0.0    31.80
+##             range  skew kurtosis    se
+## carat        4.81  1.12     1.26  0.00
+## cut*         4.00 -0.72    -0.40  0.00
+## color*       6.00  0.19    -0.87  0.01
+## clarity*     7.00  0.55    -0.39  0.01
+## depth       36.00 -0.08     5.74  0.01
+## table       52.00  0.80     2.80  0.01
+## price    18497.00  1.62     2.18 17.18
+## x           10.74  0.38    -0.62  0.00
+## y           58.90  2.43    91.20  0.00
+## z           31.80  1.52    47.08  0.00</code></pre>
+</div>
+</div>
+<div id="データの分布" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> データの分布<a href="06_eda.html#データの分布" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>次に、データに含まれる変数がどのように分布しているかを、第4章で解説した<code>ggplot2</code>パッケージの関数を使用して可視化します。</p>
+<div id="離散型変数の度数分布" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> 離散型変数の度数分布<a href="06_eda.html#離散型変数の度数分布" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>離散型変数の度数分布を出力するには<code>dplyr::count()</code>関数を使用します。</p>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="06_eda.html#cb587-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb587-2"><a href="06_eda.html#cb587-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(cut)</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##   cut           n
+##   &lt;ord&gt;     &lt;int&gt;
+## 1 Fair       1610
+## 2 Good       4906
+## 3 Very Good 12082
+## 4 Premium   13791
+## 5 Ideal     21551</code></pre>
+<p>離散型変数の度数分布を可視化するには、度数棒グラフを使用します。</p>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="06_eda.html#cb589-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb589-2"><a href="06_eda.html#cb589-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut)) <span class="sc">+</span></span>
+<span id="cb589-3"><a href="06_eda.html#cb589-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
+</div>
+<div id="連続型変数の度数分布" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> 連続型変数の度数分布<a href="06_eda.html#連続型変数の度数分布" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>連続型変数の度数分布を出力するには、<code>dplyr::count()</code>関数と<code>ggplot2::cut_width()</code>関数を使用します。</p>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="06_eda.html#cb590-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb590-2"><a href="06_eda.html#cb590-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(ggplot2<span class="sc">::</span><span class="fu">cut_width</span>(carat, <span class="fl">0.5</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 11 × 2
+##    `ggplot2::cut_width(carat, 0.5)`     n
+##    &lt;fct&gt;                            &lt;int&gt;
+##  1 [-0.25,0.25]                       785
+##  2 (0.25,0.75]                      29498
+##  3 (0.75,1.25]                      15977
+##  4 (1.25,1.75]                       5313
+##  5 (1.75,2.25]                       2002
+##  6 (2.25,2.75]                        322
+##  7 (2.75,3.25]                         32
+##  8 (3.25,3.75]                          5
+##  9 (3.75,4.25]                          4
+## 10 (4.25,4.75]                          1
+## 11 (4.75,5.25]                          1</code></pre>
+<p>連続型変数の度数分布を可視化するには、ヒストグラムを使用します。</p>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="06_eda.html#cb592-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb592-2"><a href="06_eda.html#cb592-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span></span>
+<span id="cb592-3"><a href="06_eda.html#cb592-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-274-1.png" width="672" /></p>
+<p>連続型変数の度数分布をグループ別に可視化するには、<code>geom_freqpoly()</code>関数を使用します。</p>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="06_eda.html#cb593-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb593-2"><a href="06_eda.html#cb593-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb593-3"><a href="06_eda.html#cb593-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
+<p>連続型変数の度数を標準化して密度をグループ別に可視化するには、<code>mapping = aes(y = ..density..)</code>を指定して、<code>geom_fredpoly()</code>関数を使用します。</p>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="06_eda.html#cb594-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb594-2"><a href="06_eda.html#cb594-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> ..density.., <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb594-3"><a href="06_eda.html#cb594-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">500</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
+</div>
+<div id="外れ値" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> 外れ値<a href="06_eda.html#外れ値" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>外れ値や異常値をグラフで確認するには、ヒストグラムを使用し、<code>coord_cartesian()</code>関数の<code>ylim</code>引数にY軸の下限・上限値を指定して、Y軸方向に図表を拡大します。</p>
+<p>なお、<code>scale_y_continuous()</code>関数の<code>limits</code>引数に下限・上限を指定する方法でもY軸の表示範囲を変えることができますが、下限・上限の範囲外にあるデータが表示されなくなるため、単に拡大するだけであれば<code>coord_cartesian()</code>関数を用いるほうが良いでしょう。</p>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="06_eda.html#cb595-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb595-2"><a href="06_eda.html#cb595-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span></span>
+<span id="cb595-3"><a href="06_eda.html#cb595-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb595-4"><a href="06_eda.html#cb595-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
+<p>グループ別に外れ値を可視化する場合は、箱ひげ図を使用します。</p>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="06_eda.html#cb597-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb597-2"><a href="06_eda.html#cb597-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> carat)) <span class="sc">+</span></span>
+<span id="cb597-3"><a href="06_eda.html#cb597-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-278-1.png" width="672" /></p>
+</div>
+</div>
+<div id="データの関係性" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> データの関係性<a href="06_eda.html#データの関係性" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>データに含まれる変数が互いにどのような関係にあるかを、<code>ggplot2</code>パッケージの関数を使用して可視化します。</p>
+<div id="離散型変数の関係性" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> 離散型変数の関係性<a href="06_eda.html#離散型変数の関係性" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>離散型変数の観測値の組み合わせの分布を可視化するには、<code>geom_count()</code>関数の度数バブルチャートや、<code>geom_tile()</code>関数のヒートマップを使用します。</p>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="06_eda.html#cb598-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb598-2"><a href="06_eda.html#cb598-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> color)) <span class="sc">+</span></span>
+<span id="cb598-3"><a href="06_eda.html#cb598-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_count</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="06_eda.html#cb599-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb599-2"><a href="06_eda.html#cb599-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(cut, color) <span class="sc">%&gt;%</span> </span>
+<span id="cb599-3"><a href="06_eda.html#cb599-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> color, <span class="at">fill =</span> n)) <span class="sc">+</span></span>
+<span id="cb599-4"><a href="06_eda.html#cb599-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
+</div>
+<div id="連続型変数の関係性" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> 連続型変数の関係性<a href="06_eda.html#連続型変数の関係性" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>連続型変数の観測値の組み合わせの分布を可視化するには、<code>geom_point()</code>関数の散布図や、<code>geom_bin2d()</code>関数、<code>geom_hex()</code>関数のヒートマップを使用します。</p>
+<p>データサイズが大きい場合は、<code>geom_point()</code>関数の実行に時間がかかるため、<code>geom_bin2d()</code>関数や<code>geom_hex()</code>関数を用いるのが効果的です。</p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="06_eda.html#cb600-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb600-2"><a href="06_eda.html#cb600-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb600-3"><a href="06_eda.html#cb600-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-281-1.png" width="672" /></p>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="06_eda.html#cb601-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb601-2"><a href="06_eda.html#cb601-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb601-3"><a href="06_eda.html#cb601-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bin2d</span>(<span class="at">bins =</span> <span class="dv">100</span>) <span class="co"># X軸・Y軸の階級数（デフォルトは30）</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="06_eda.html#cb602-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb602-2"><a href="06_eda.html#cb602-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb602-3"><a href="06_eda.html#cb602-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="co"># X軸・Y軸の階級数（デフォルトは30）</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-283-1.png" width="672" /></p>
+</div>
+</div>
+<div id="相関関係ペアプロット" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> 相関関係・ペアプロット<a href="06_eda.html#相関関係ペアプロット" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="相関係数行列" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> 相関係数行列<a href="06_eda.html#相関係数行列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>cor()</code>関数で相関係数行列を出力します。ここではサンプルデータセットとして<code>mtcars</code>データセットを使用しています。</p>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="06_eda.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(mtcars)</span></code></pre></div>
+<pre><code>##             mpg        cyl       disp         hp        drat         wt
+## mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
+## cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958
+## disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799
+## hp   -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479
+## drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406
+## wt   -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000
+## qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159
+## vs    0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157
+## am    0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953
+## gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870
+## carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059
+##             qsec         vs          am       gear        carb
+## mpg   0.41868403  0.6640389  0.59983243  0.4802848 -0.55092507
+## cyl  -0.59124207 -0.8108118 -0.52260705 -0.4926866  0.52698829
+## disp -0.43369788 -0.7104159 -0.59122704 -0.5555692  0.39497686
+## hp   -0.70822339 -0.7230967 -0.24320426 -0.1257043  0.74981247
+## drat  0.09120476  0.4402785  0.71271113  0.6996101 -0.09078980
+## wt   -0.17471588 -0.5549157 -0.69249526 -0.5832870  0.42760594
+## qsec  1.00000000  0.7445354 -0.22986086 -0.2126822 -0.65624923
+## vs    0.74453544  1.0000000  0.16834512  0.2060233 -0.56960714
+## am   -0.22986086  0.1683451  1.00000000  0.7940588  0.05753435
+## gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284
+## carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</code></pre>
+</div>
+<div id="corrplotパッケージ" class="section level3 hasAnchor" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> corrplotパッケージ<a href="06_eda.html#corrplotパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R標準の<code>cor()</code>関数の出力結果では見にくいため、<code>corrplot</code>パッケージを使用して相関係数行列を可視化します。</p>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="06_eda.html#cb605-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cor()関数で相関係数行列を計算し、その結果をcorrplot::corrplot()関数に渡す</span></span>
+<span id="cb605-2"><a href="06_eda.html#cb605-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb605-3"><a href="06_eda.html#cb605-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb605-4"><a href="06_eda.html#cb605-4" aria-hidden="true" tabindex="-1"></a>  corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="at">method =</span> <span class="st">&quot;square&quot;</span>, <span class="co"># 可視化方法（&quot;circle&quot;, &quot;square&quot;, &quot;ellipse&quot;, &quot;number&quot;, &quot;shade&quot;, &quot;color&quot;, &quot;pie&quot;）</span></span>
+<span id="cb605-5"><a href="06_eda.html#cb605-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;full&quot;</span>, <span class="co"># 表示形式（&quot;full&quot;, &quot;upper&quot;, &quot;lower&quot;）</span></span>
+<span id="cb605-6"><a href="06_eda.html#cb605-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="co"># 相関係数の値の色</span></span>
+<span id="cb605-7"><a href="06_eda.html#cb605-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="co"># 対角要素を表示するか</span></span>
+<span id="cb605-8"><a href="06_eda.html#cb605-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.cex =</span> <span class="fl">0.8</span>, <span class="co"># 相関係数の値のフォントサイズ</span></span>
+<span id="cb605-9"><a href="06_eda.html#cb605-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.digits =</span> <span class="dv">2</span> <span class="co"># 相関係数の値の小数点以下桁数</span></span>
+<span id="cb605-10"><a href="06_eda.html#cb605-10" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-285-1.png" width="672" /></p>
+<p><code>corrplot::cor.mtest()</code>関数を使用すると、「相関係数が0である」との帰無仮説に対するp値を計算し、その結果を可視化することができます。</p>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="06_eda.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 相関係数の検定を行いp値を計算</span></span>
+<span id="cb606-2"><a href="06_eda.html#cb606-2" aria-hidden="true" tabindex="-1"></a>mtcars_p <span class="ot">&lt;-</span> corrplot<span class="sc">::</span><span class="fu">cor.mtest</span>(mtcars)</span>
+<span id="cb606-3"><a href="06_eda.html#cb606-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb606-4"><a href="06_eda.html#cb606-4" aria-hidden="true" tabindex="-1"></a><span class="co"># p値の計算結果を指定して検定結果を可視化</span></span>
+<span id="cb606-5"><a href="06_eda.html#cb606-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb606-6"><a href="06_eda.html#cb606-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb606-7"><a href="06_eda.html#cb606-7" aria-hidden="true" tabindex="-1"></a>  corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="at">method =</span> <span class="st">&quot;square&quot;</span>, <span class="co"># 可視化方法（&quot;circle&quot;, &quot;square&quot;, &quot;ellipse&quot;, &quot;number&quot;, &quot;shade&quot;, &quot;color&quot;, &quot;pie&quot;）</span></span>
+<span id="cb606-8"><a href="06_eda.html#cb606-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;full&quot;</span>, <span class="co"># 表示形式（&quot;full&quot;, &quot;upper&quot;, &quot;lower&quot;）</span></span>
+<span id="cb606-9"><a href="06_eda.html#cb606-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">p.mat =</span> mtcars_p<span class="sc">$</span>p, <span class="co"># p値の計算結果</span></span>
+<span id="cb606-10"><a href="06_eda.html#cb606-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="co"># 有意水準</span></span>
+<span id="cb606-11"><a href="06_eda.html#cb606-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="co"># 相関係数の値の色</span></span>
+<span id="cb606-12"><a href="06_eda.html#cb606-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="co"># 対角要素を表示するか</span></span>
+<span id="cb606-13"><a href="06_eda.html#cb606-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.cex =</span> <span class="fl">0.8</span>, <span class="co"># 相関係数の値のフォントサイズ</span></span>
+<span id="cb606-14"><a href="06_eda.html#cb606-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.digits =</span> <span class="dv">2</span> <span class="co"># 相関係数の値の小数点以下桁数</span></span>
+<span id="cb606-15"><a href="06_eda.html#cb606-15" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-286-1.png" width="672" /></p>
+</div>
+<div id="corrrパッケージ" class="section level3 hasAnchor" number="6.5.3">
+<h3><span class="header-section-number">6.5.3</span> corrrパッケージ<a href="06_eda.html#corrrパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>次に、<code>corrr</code>パッケージを使用して相関係数を可視化します。</p>
+<p><code>corrr::correlate()</code>関数で相関係数行列を格納した<code>cor_df</code>オブジェクトを作成します。</p>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="06_eda.html#cb607-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="ot">&lt;-</span> corrr<span class="sc">::</span><span class="fu">correlate</span>(mtcars, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="co"># 相関係数の算出法（&quot;pearson&quot;, &quot;kendall&quot;, &quot;spearman&quot;）</span></span></code></pre></div>
+<pre><code>## Correlation computed with
+## • Method: &#39;pearson&#39;
+## • Missing treated using: &#39;pairwise.complete.obs&#39;</code></pre>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="06_eda.html#cb609-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor</span></code></pre></div>
+<pre><code>## # A tibble: 11 × 12
+##    term     mpg    cyl   disp     hp    drat     wt    qsec     vs      am
+##    &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+##  1 mpg   NA     -0.852 -0.848 -0.776  0.681  -0.868  0.419   0.664  0.600 
+##  2 cyl   -0.852 NA      0.902  0.832 -0.700   0.782 -0.591  -0.811 -0.523 
+##  3 disp  -0.848  0.902 NA      0.791 -0.710   0.888 -0.434  -0.710 -0.591 
+##  4 hp    -0.776  0.832  0.791 NA     -0.449   0.659 -0.708  -0.723 -0.243 
+##  5 drat   0.681 -0.700 -0.710 -0.449 NA      -0.712  0.0912  0.440  0.713 
+##  6 wt    -0.868  0.782  0.888  0.659 -0.712  NA     -0.175  -0.555 -0.692 
+##  7 qsec   0.419 -0.591 -0.434 -0.708  0.0912 -0.175 NA       0.745 -0.230 
+##  8 vs     0.664 -0.811 -0.710 -0.723  0.440  -0.555  0.745  NA      0.168 
+##  9 am     0.600 -0.523 -0.591 -0.243  0.713  -0.692 -0.230   0.168 NA     
+## 10 gear   0.480 -0.493 -0.556 -0.126  0.700  -0.583 -0.213   0.206  0.794 
+## 11 carb  -0.551  0.527  0.395  0.750 -0.0908  0.428 -0.656  -0.570  0.0575
+## # … with 2 more variables: gear &lt;dbl&gt;, carb &lt;dbl&gt;</code></pre>
+<p><code>corrr::rearrange()</code>関数を使用すると、高い相関を持つ変数を近くに配置するよう、変数の順序を自動で変更します。</p>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="06_eda.html#cb611-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb611-2"><a href="06_eda.html#cb611-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>()</span></code></pre></div>
+<pre><code>## Registered S3 methods overwritten by &#39;registry&#39;:
+##   method               from 
+##   print.registry_field proxy
+##   print.registry_entry proxy</code></pre>
+<pre><code>## # A tibble: 11 × 12
+##    term     mpg     vs    drat      am   gear    qsec    carb     hp     wt
+##    &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1 mpg   NA      0.664  0.681   0.600   0.480  0.419  -0.551  -0.776 -0.868
+##  2 vs     0.664 NA      0.440   0.168   0.206  0.745  -0.570  -0.723 -0.555
+##  3 drat   0.681  0.440 NA       0.713   0.700  0.0912 -0.0908 -0.449 -0.712
+##  4 am     0.600  0.168  0.713  NA       0.794 -0.230   0.0575 -0.243 -0.692
+##  5 gear   0.480  0.206  0.700   0.794  NA     -0.213   0.274  -0.126 -0.583
+##  6 qsec   0.419  0.745  0.0912 -0.230  -0.213 NA      -0.656  -0.708 -0.175
+##  7 carb  -0.551 -0.570 -0.0908  0.0575  0.274 -0.656  NA       0.750  0.428
+##  8 hp    -0.776 -0.723 -0.449  -0.243  -0.126 -0.708   0.750  NA      0.659
+##  9 wt    -0.868 -0.555 -0.712  -0.692  -0.583 -0.175   0.428   0.659 NA    
+## 10 disp  -0.848 -0.710 -0.710  -0.591  -0.556 -0.434   0.395   0.791  0.888
+## 11 cyl   -0.852 -0.811 -0.700  -0.523  -0.493 -0.591   0.527   0.832  0.782
+## # … with 2 more variables: disp &lt;dbl&gt;, cyl &lt;dbl&gt;</code></pre>
+<p><code>corrr::rplot()</code>関数を使用して、相関係数行列を散布図で可視化します。<code>corrr::shave()</code>関数は、相関係数行列の左下半分のみを抽出する関数です。</p>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="06_eda.html#cb614-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb614-2"><a href="06_eda.html#cb614-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb614-3"><a href="06_eda.html#cb614-3" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">shave</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb614-4"><a href="06_eda.html#cb614-4" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rplot</span>(<span class="at">print_cor =</span> <span class="cn">TRUE</span>) <span class="co"># 散布図上に相関係数の値を表示する</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-289-1.png" width="672" /></p>
+<p><code>corrr::network_plot()</code>関数を使用すると、変数の相関関係をネットワーク図で可視化することができます。ネットワーク図では相関が強い変数が近くに配置されます。</p>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="06_eda.html#cb615-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb615-2"><a href="06_eda.html#cb615-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">network_plot</span>(<span class="at">min_cor =</span> <span class="fl">0.6</span>) <span class="co"># 表示する最小の相関係数の値</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-290-1.png" width="672" /></p>
+</div>
+<div id="ggallyパッケージ" class="section level3 hasAnchor" number="6.5.4">
+<h3><span class="header-section-number">6.5.4</span> GGallyパッケージ<a href="06_eda.html#ggallyパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>GGally</code>パッケージの<code>GGally::ggpairs()</code>関数を使用すると、変数のペアプロット（pairwise plot）を簡単に出力することができます。なお、<code>GGally</code>パッケージにはペアプロット以外にも様々な機能があります。詳細は<a href="https://ggobi.github.io/ggally/index.html">公式ウェブサイト</a>を参照してください。</p>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="06_eda.html#cb616-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb616-2"><a href="06_eda.html#cb616-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(mpg, cyl, disp, hp, gear) <span class="sc">%&gt;%</span> </span>
+<span id="cb616-3"><a href="06_eda.html#cb616-3" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">progress =</span> <span class="cn">FALSE</span>) <span class="co"># コンソールにプログラスバーを表示するか</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
+<p>また、<code>mapping = aes()</code>内の引数にグループ化する変数を指定することで、グループ別のペアプロットを出力できます。ここではサンプルデータセットとして<code>iris</code>データセットを用いています。</p>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="06_eda.html#cb617-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb617-2"><a href="06_eda.html#cb617-2" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> Species, <span class="at">alpha =</span> <span class="fl">0.5</span>),</span>
+<span id="cb617-3"><a href="06_eda.html#cb617-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">progress =</span> <span class="cn">FALSE</span> <span class="co"># コンソールにプログラスバーを表示するか</span></span>
+<span id="cb617-4"><a href="06_eda.html#cb617-4" aria-hidden="true" tabindex="-1"></a>                  )</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-292-1.png" width="672" /></p>
+</div>
+</div>
+<div id="探索的データ分析の一括実行" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> 探索的データ分析の一括実行<a href="06_eda.html#探索的データ分析の一括実行" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>これまで一つずつ実施してきた探索的データ分析を一括して実行するパッケージを紹介します。</p>
+<div id="dataexplorerパッケージ" class="section level3 hasAnchor" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> DataExplorerパッケージ<a href="06_eda.html#dataexplorerパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>DataExplorer</code>パッケージの<code>create_report()</code>関数を使用すると、データセットに含まれる変数、データ構造、欠損値、ヒストグラム、QQプロット、相関係数行列、主成分分析（PCA）などを自動で作成して、HTML形式のレポートをブラウザに出力します。ウェブサイト上では実行できないため、各自で試してみてください。</p>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="06_eda.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="co"># irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施</span></span>
+<span id="cb619-2"><a href="06_eda.html#cb619-2" aria-hidden="true" tabindex="-1"></a>DataExplorer<span class="sc">::</span><span class="fu">create_report</span>(<span class="at">data =</span> iris)</span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="06_eda.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施</span></span>
+<span id="cb620-2"><a href="06_eda.html#cb620-2" aria-hidden="true" tabindex="-1"></a>DataExplorer<span class="sc">::</span><span class="fu">create_report</span>(<span class="at">data =</span> diamonds,</span>
+<span id="cb620-3"><a href="06_eda.html#cb620-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">y =</span> <span class="st">&quot;price&quot;</span></span>
+<span id="cb620-4"><a href="06_eda.html#cb620-4" aria-hidden="true" tabindex="-1"></a>                            )</span></code></pre></div>
+</div>
+<div id="smartedaパッケージ" class="section level3 hasAnchor" number="6.6.2">
+<h3><span class="header-section-number">6.6.2</span> SmartEDAパッケージ<a href="06_eda.html#smartedaパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>SmartEDA</code>パッケージの<code>ExpReport()</code>関数を使用すると、データセットに含まれる変数、ヒストグラム、QQプロット、相関係数行列などを自動で作成して、HTML形式のレポートファイルを作成します。ウェブサイト上では実行できないため、各自で試してみてください。</p>
+<p>なお、データセットのサイズが大きい場合は処理に時間がかかるため、注意が必要です。</p>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="06_eda.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="co"># irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施</span></span>
+<span id="cb621-2"><a href="06_eda.html#cb621-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpReport</span>(<span class="at">data =</span> iris,</span>
+<span id="cb621-3"><a href="06_eda.html#cb621-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">op_file =</span> <span class="st">&quot;report.html&quot;</span></span>
+<span id="cb621-4"><a href="06_eda.html#cb621-4" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="06_eda.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施</span></span>
+<span id="cb622-2"><a href="06_eda.html#cb622-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpReport</span>(<span class="at">data =</span> diamonds,</span>
+<span id="cb622-3"><a href="06_eda.html#cb622-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Target =</span> <span class="st">&quot;price&quot;</span>,</span>
+<span id="cb622-4"><a href="06_eda.html#cb622-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">op_file =</span> <span class="st">&quot;report.html&quot;</span></span>
+<span id="cb622-5"><a href="06_eda.html#cb622-5" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
+<p>また、<code>SmartEDA::ExpCatStat()</code>では、<code>Target</code>引数で指定した被説明変数に対する各変数の予測力を計算することができます。</p>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="06_eda.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mtcarsデータセットに対し被説明変数をamに指定して各変数の予測力を計算</span></span>
+<span id="cb623-2"><a href="06_eda.html#cb623-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpCatStat</span>(<span class="at">data =</span> mtcars,</span>
+<span id="cb623-3"><a href="06_eda.html#cb623-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Target =</span> <span class="st">&quot;am&quot;</span>,</span>
+<span id="cb623-4"><a href="06_eda.html#cb623-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">plot =</span> <span class="cn">TRUE</span></span>
+<span id="cb623-5"><a href="06_eda.html#cb623-5" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-297-1.png" width="672" /></p>
+<pre><code>##    Variable Target Unique Chi-squared p-value df IV Value Cramers V
+## 1       cyl     am      3       8.741   0.008 NA     1.32      0.52
+## 2        vs     am      2       0.907   0.484 NA     0.11      0.17
+## 3      gear     am      3      20.945   0.000 NA     0.44      0.81
+## 4      carb     am      6       6.237   0.253 NA     0.17      0.44
+## 5       mpg     am     10      20.945   0.001 NA     0.14      0.81
+## 6      disp     am     10      21.636   0.002 NA     0.35      0.82
+## 7        hp     am     10      17.490   0.022 NA     0.47      0.74
+## 8      drat     am     10      21.497   0.001 NA     0.12      0.82
+## 9        wt     am     10      20.254   0.007 NA     0.46      0.80
+## 10     qsec     am     10      11.824   0.233 NA     0.54      0.61
+##    Degree of Association    Predictive Power
+## 1                 Strong   Highly Predictive
+## 2                   Weak Somewhat Predictive
+## 3                 Strong   Highly Predictive
+## 4                 Strong Somewhat Predictive
+## 5                 Strong Somewhat Predictive
+## 6                 Strong   Highly Predictive
+## 7                 Strong   Highly Predictive
+## 8                 Strong Somewhat Predictive
+## 9                 Strong   Highly Predictive
+## 10                Strong   Highly Predictive</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="05_plot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="07_ols.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlights": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
