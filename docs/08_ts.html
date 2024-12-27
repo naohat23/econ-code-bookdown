@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-12-13" />
+<meta name="date" content="2024-12-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,6 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i><b>1.5</b> 変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年12月28日-マイナーアップデート"><i class="fa fa-check"></i>2024年12月28日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年12月13日-マイナーアップデート"><i class="fa fa-check"></i>2023年12月13日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年10月9日-マイナーアップデート"><i class="fa fa-check"></i>2023年10月9日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月27日-マイナーアップデート"><i class="fa fa-check"></i>2023年9月27日 マイナーアップデート</a></li>
@@ -1151,26 +1152,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## End = 2020.11498973306 
 ## Frequency = 52.1785714285714 
 ##          continent location  date total_cases new_cases new_cases_smoothed
-## 2020.019         1        1 18269          NA         0              0.000
-## 2020.038         1        1 18276           1         0              0.143
-## 2020.057         1        1 18283           1         0              0.000
-## 2020.077         1        1 18290           7         3              0.857
-## 2020.096         1        1 18297          23         3              2.286
-## 2020.115         1        1 18304          28         2              0.714
+## 2020.019         1        1 18269           0         0                 NA
+## 2020.038         1        1 18276           0         0              0.000
+## 2020.057         1        1 18283           1         0              0.143
+## 2020.077         1        1 18290           3         0              0.286
+## 2020.096         1        1 18297          15         0              1.714
+## 2020.115         1        1 18304          25         0              1.429
 ##          total_deaths new_deaths total_cases_per_million new_cases_per_million
-## 2020.019           NA          0                      NA                 0.000
-## 2020.038           NA          0                   0.008                 0.000
-## 2020.057           NA          0                   0.008                 0.000
-## 2020.077           NA          0                   0.056                 0.024
-## 2020.096           NA          0                   0.186                 0.024
-## 2020.115           NA          0                   0.226                 0.016
+## 2020.019            0          0                   0.000                     0
+## 2020.038            0          0                   0.000                     0
+## 2020.057            0          0                   0.008                     0
+## 2020.077            0          0                   0.024                     0
+## 2020.096            0          0                   0.120                     0
+## 2020.115            0          0                   0.200                     0
 ##          total_deaths_per_million new_deaths_per_million
-## 2020.019                       NA                      0
-## 2020.038                       NA                      0
-## 2020.057                       NA                      0
-## 2020.077                       NA                      0
-## 2020.096                       NA                      0
-## 2020.115                       NA                      0
+## 2020.019                        0                      0
+## 2020.038                        0                      0
+## 2020.057                        0                      0
+## 2020.077                        0                      0
+## 2020.096                        0                      0
+## 2020.115                        0                      0
 ##          people_fully_vaccinated stringency_index
 ## 2020.019                      NA             2.78
 ## 2020.038                      NA             2.78
@@ -1200,37 +1201,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb726-14"><a href="08_ts.html#cb726-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb726-15"><a href="08_ts.html#cb726-15" aria-hidden="true" tabindex="-1"></a>data_ts <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## Time Series:
-## Start = 2020.00273785079 
-## End = 2020.01642710472 
+## Start = 2020.00821355236 
+## End = 2020.0219028063 
 ## Frequency = 365.25 
 ##          continent location  date total_cases new_cases new_cases_smoothed
-## 2020.003         1        1 18264          NA         0                 NA
-## 2020.005         1        1 18265          NA         0                 NA
-## 2020.008         1        1 18266          NA         0                 NA
-## 2020.011         1        1 18267          NA         0                 NA
-## 2020.014         1        1 18268          NA         0                 NA
-## 2020.016         1        1 18269          NA         0                  0
+## 2020.008         1        1 18266           0         0                 NA
+## 2020.011         1        1 18267           0         0                 NA
+## 2020.014         1        1 18268           0         0                 NA
+## 2020.016         1        1 18269           0         0                 NA
+## 2020.019         1        1 18270           0         0                 NA
+## 2020.022         1        1 18271           0         0                  0
 ##          total_deaths new_deaths total_cases_per_million new_cases_per_million
-## 2020.003           NA          0                      NA                     0
-## 2020.005           NA          0                      NA                     0
-## 2020.008           NA          0                      NA                     0
-## 2020.011           NA          0                      NA                     0
-## 2020.014           NA          0                      NA                     0
-## 2020.016           NA          0                      NA                     0
+## 2020.008            0          0                       0                     0
+## 2020.011            0          0                       0                     0
+## 2020.014            0          0                       0                     0
+## 2020.016            0          0                       0                     0
+## 2020.019            0          0                       0                     0
+## 2020.022            0          0                       0                     0
 ##          total_deaths_per_million new_deaths_per_million
-## 2020.003                       NA                      0
-## 2020.005                       NA                      0
-## 2020.008                       NA                      0
-## 2020.011                       NA                      0
-## 2020.014                       NA                      0
-## 2020.016                       NA                      0
+## 2020.008                        0                      0
+## 2020.011                        0                      0
+## 2020.014                        0                      0
+## 2020.016                        0                      0
+## 2020.019                        0                      0
+## 2020.022                        0                      0
 ##          people_fully_vaccinated stringency_index
-## 2020.003                      NA             0.00
-## 2020.005                      NA             0.00
 ## 2020.008                      NA             0.00
 ## 2020.011                      NA             0.00
 ## 2020.014                      NA             2.78
-## 2020.016                      NA             2.78</code></pre>
+## 2020.016                      NA             2.78
+## 2020.019                      NA             2.78
+## 2020.022                      NA             2.78</code></pre>
 <div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="08_ts.html#cb728-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frequency</span>(data_ts)</span></code></pre></div>
 <pre><code>## [1] 365.25</code></pre>
 </div>
@@ -1315,7 +1316,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb738-8"><a href="08_ts.html#cb738-8" aria-hidden="true" tabindex="-1"></a>  tsibble<span class="sc">::</span><span class="fu">as_tsibble</span>(<span class="at">index =</span> date)</span>
 <span id="cb738-9"><a href="08_ts.html#cb738-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb738-10"><a href="08_ts.html#cb738-10" aria-hidden="true" tabindex="-1"></a>data_tsibble</span></code></pre></div>
-<pre><code>## # A tsibble: 262 x 18 [1M]
+<pre><code>## # A tsibble: 275 x 18 [1M]
 ##        date  総数  農林  建設  製造 情報通信 運輸・郵…¹ 卸・小…² 金融…³ 不動産…⁴
 ##       &lt;mth&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
 ##  1 2002 Jan  6267   224   589  1210      153        331     1131    165       95
@@ -1328,7 +1329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 2002 Aug  6371   288   620  1207      164        326     1085    176      103
 ##  9 2002 Sep  6353   286   621  1183      171        333     1081    174      100
 ## 10 2002 Oct  6355   271   642  1176      160        333     1116    172      102
-## # … with 252 more rows, 8 more variables: `学術・専門・技術` &lt;dbl&gt;,
+## # … with 265 more rows, 8 more variables: `学術・専門・技術` &lt;dbl&gt;,
 ## #   `宿泊・飲食` &lt;dbl&gt;, `生活関連・娯楽` &lt;dbl&gt;, 教育 &lt;dbl&gt;, `医療・福祉` &lt;dbl&gt;,
 ## #   複合サービス &lt;dbl&gt;, その他サービス &lt;dbl&gt;, 公務 &lt;dbl&gt;, and abbreviated
 ## #   variable names ¹​`運輸・郵便`, ²​`卸・小売`, ³​`金融・保険`,
@@ -1347,30 +1348,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb742-6"><a href="08_ts.html#cb742-6" aria-hidden="true" tabindex="-1"></a>data_tsibble <span class="sc">%&lt;&gt;%</span> </span>
 <span id="cb742-7"><a href="08_ts.html#cb742-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(date)</span>
 <span id="cb742-8"><a href="08_ts.html#cb742-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb742-9"><a href="08_ts.html#cb742-9" aria-hidden="true" tabindex="-1"></a>data_tsibble <span class="sc">%&lt;&gt;%</span> </span>
-<span id="cb742-10"><a href="08_ts.html#cb742-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">date =</span> date <span class="sc">%&gt;%</span> tsibble<span class="sc">::</span><span class="fu">yearweek</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb742-11"><a href="08_ts.html#cb742-11" aria-hidden="true" tabindex="-1"></a>  tsibble<span class="sc">::</span><span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> location)</span>
-<span id="cb742-12"><a href="08_ts.html#cb742-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb742-13"><a href="08_ts.html#cb742-13" aria-hidden="true" tabindex="-1"></a>data_tsibble</span></code></pre></div>
-<pre><code>## # A tsibble: 39,465 x 14 [1W]
+<span id="cb742-9"><a href="08_ts.html#cb742-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 重複行を削除してtsibble形式に変換</span></span>
+<span id="cb742-10"><a href="08_ts.html#cb742-10" aria-hidden="true" tabindex="-1"></a>data_tsibble <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb742-11"><a href="08_ts.html#cb742-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">date =</span> date <span class="sc">%&gt;%</span> tsibble<span class="sc">::</span><span class="fu">yearweek</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb742-12"><a href="08_ts.html#cb742-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(location, date) <span class="sc">%&gt;%</span> </span>
+<span id="cb742-13"><a href="08_ts.html#cb742-13" aria-hidden="true" tabindex="-1"></a>  tsibble<span class="sc">::</span><span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> location)</span>
+<span id="cb742-14"><a href="08_ts.html#cb742-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb742-15"><a href="08_ts.html#cb742-15" aria-hidden="true" tabindex="-1"></a>data_tsibble</span></code></pre></div>
+<pre><code>## # A tsibble: 39,465 x 2 [1W]
 ## # Key:       location [255]
-##    continent location       date total…¹ new_c…² new_c…³ total…⁴ new_d…⁵ total…⁶
-##    &lt;chr&gt;     &lt;chr&gt;        &lt;week&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Asia      Afghanist… 2020 W02      NA       0   0          NA       0  NA    
-##  2 Asia      Afghanist… 2020 W03      NA       0   0          NA       0  NA    
-##  3 Asia      Afghanist… 2020 W04      NA       0   0          NA       0  NA    
-##  4 Asia      Afghanist… 2020 W05      NA       0   0          NA       0  NA    
-##  5 Asia      Afghanist… 2020 W06      NA       0   0          NA       0  NA    
-##  6 Asia      Afghanist… 2020 W07      NA       0   0          NA       0  NA    
-##  7 Asia      Afghanist… 2020 W08      NA       0   0          NA       0  NA    
-##  8 Asia      Afghanist… 2020 W09       1       1   0.143      NA       0   0.024
-##  9 Asia      Afghanist… 2020 W10       1       0   0          NA       0   0.024
-## 10 Asia      Afghanist… 2020 W11       4       0   0.429      NA       0   0.097
-## # … with 39,455 more rows, 5 more variables: new_cases_per_million &lt;dbl&gt;,
-## #   total_deaths_per_million &lt;dbl&gt;, new_deaths_per_million &lt;dbl&gt;,
-## #   people_fully_vaccinated &lt;dbl&gt;, stringency_index &lt;dbl&gt;, and abbreviated
-## #   variable names ¹​total_cases, ²​new_cases, ³​new_cases_smoothed,
-## #   ⁴​total_deaths, ⁵​new_deaths, ⁶​total_cases_per_million</code></pre>
+##    location        date
+##    &lt;chr&gt;         &lt;week&gt;
+##  1 Afghanistan 2020 W02
+##  2 Afghanistan 2020 W03
+##  3 Afghanistan 2020 W04
+##  4 Afghanistan 2020 W05
+##  5 Afghanistan 2020 W06
+##  6 Afghanistan 2020 W07
+##  7 Afghanistan 2020 W08
+##  8 Afghanistan 2020 W09
+##  9 Afghanistan 2020 W10
+## 10 Afghanistan 2020 W11
+## # … with 39,455 more rows</code></pre>
 <div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="08_ts.html#cb744-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frequency</span>(data_tsibble)</span></code></pre></div>
 <pre><code>## [1] 52.18</code></pre>
 </div>
@@ -1381,30 +1380,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb746-2"><a href="08_ts.html#cb746-2" aria-hidden="true" tabindex="-1"></a>data_tsibble <span class="ot">&lt;-</span> data_owid <span class="sc">%&gt;%</span> </span>
 <span id="cb746-3"><a href="08_ts.html#cb746-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(date)</span>
 <span id="cb746-4"><a href="08_ts.html#cb746-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb746-5"><a href="08_ts.html#cb746-5" aria-hidden="true" tabindex="-1"></a><span class="co"># tsibble形式に変換</span></span>
+<span id="cb746-5"><a href="08_ts.html#cb746-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 重複行を削除してtsibble形式に変換</span></span>
 <span id="cb746-6"><a href="08_ts.html#cb746-6" aria-hidden="true" tabindex="-1"></a>data_tsibble <span class="sc">%&lt;&gt;%</span> </span>
-<span id="cb746-7"><a href="08_ts.html#cb746-7" aria-hidden="true" tabindex="-1"></a>  tsibble<span class="sc">::</span><span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> location)</span>
-<span id="cb746-8"><a href="08_ts.html#cb746-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb746-9"><a href="08_ts.html#cb746-9" aria-hidden="true" tabindex="-1"></a>data_tsibble</span></code></pre></div>
-<pre><code>## # A tsibble: 276,738 x 14 [1D]
+<span id="cb746-7"><a href="08_ts.html#cb746-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(location, date) <span class="sc">%&gt;%</span> </span>
+<span id="cb746-8"><a href="08_ts.html#cb746-8" aria-hidden="true" tabindex="-1"></a>  tsibble<span class="sc">::</span><span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> location)</span>
+<span id="cb746-9"><a href="08_ts.html#cb746-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb746-10"><a href="08_ts.html#cb746-10" aria-hidden="true" tabindex="-1"></a>data_tsibble</span></code></pre></div>
+<pre><code>## # A tsibble: 276,251 x 2 [1D]
 ## # Key:       location [255]
-##    continent location date       total…¹ new_c…² new_c…³ total…⁴ new_d…⁵ total…⁶
-##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Asia      Afghani… 2020-01-03      NA       0      NA      NA       0      NA
-##  2 Asia      Afghani… 2020-01-04      NA       0      NA      NA       0      NA
-##  3 Asia      Afghani… 2020-01-05      NA       0      NA      NA       0      NA
-##  4 Asia      Afghani… 2020-01-06      NA       0      NA      NA       0      NA
-##  5 Asia      Afghani… 2020-01-07      NA       0      NA      NA       0      NA
-##  6 Asia      Afghani… 2020-01-08      NA       0       0      NA       0      NA
-##  7 Asia      Afghani… 2020-01-09      NA       0       0      NA       0      NA
-##  8 Asia      Afghani… 2020-01-10      NA       0       0      NA       0      NA
-##  9 Asia      Afghani… 2020-01-11      NA       0       0      NA       0      NA
-## 10 Asia      Afghani… 2020-01-12      NA       0       0      NA       0      NA
-## # … with 276,728 more rows, 5 more variables: new_cases_per_million &lt;dbl&gt;,
-## #   total_deaths_per_million &lt;dbl&gt;, new_deaths_per_million &lt;dbl&gt;,
-## #   people_fully_vaccinated &lt;dbl&gt;, stringency_index &lt;dbl&gt;, and abbreviated
-## #   variable names ¹​total_cases, ²​new_cases, ³​new_cases_smoothed,
-## #   ⁴​total_deaths, ⁵​new_deaths, ⁶​total_cases_per_million</code></pre>
+##    location    date      
+##    &lt;chr&gt;       &lt;date&gt;    
+##  1 Afghanistan 2020-01-05
+##  2 Afghanistan 2020-01-06
+##  3 Afghanistan 2020-01-07
+##  4 Afghanistan 2020-01-08
+##  5 Afghanistan 2020-01-09
+##  6 Afghanistan 2020-01-10
+##  7 Afghanistan 2020-01-11
+##  8 Afghanistan 2020-01-12
+##  9 Afghanistan 2020-01-13
+## 10 Afghanistan 2020-01-14
+## # … with 276,241 more rows</code></pre>
 <div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="08_ts.html#cb748-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frequency</span>(data_tsibble)</span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
 </div>
@@ -1553,16 +1549,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 365 × 5
 ##    location date       new_cases new_deaths new_cases_lag
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
-##  1 Japan    2022-01-01       504          0            NA
-##  2 Japan    2022-01-02       516          2           504
-##  3 Japan    2022-01-03       783          1           516
-##  4 Japan    2022-01-04      1256          1           783
-##  5 Japan    2022-01-05      2506          1          1256
-##  6 Japan    2022-01-06      4194          0          2506
-##  7 Japan    2022-01-07      5983          2          4194
-##  8 Japan    2022-01-08      7930          2          5983
-##  9 Japan    2022-01-09      8144          1          7930
-## 10 Japan    2022-01-10      6394          2          8144
+##  1 Japan    2022-01-01         0          0            NA
+##  2 Japan    2022-01-02      3019          8             0
+##  3 Japan    2022-01-03         0          0          3019
+##  4 Japan    2022-01-04         0          0             0
+##  5 Japan    2022-01-05         0          0             0
+##  6 Japan    2022-01-06         0          0             0
+##  7 Japan    2022-01-07         0          0             0
+##  8 Japan    2022-01-08         0          0             0
+##  9 Japan    2022-01-09     30796          8             0
+## 10 Japan    2022-01-10         0          0         30796
 ## # … with 355 more rows</code></pre>
 </div>
 <div id="変化率系列の作成" class="section level3 hasAnchor" number="8.6.2">
@@ -1574,16 +1570,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 365 × 5
 ##    location date       new_cases new_deaths new_cases_chg
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
-##  1 Japan    2022-01-01       504          0         NA   
-##  2 Japan    2022-01-02       516          2          2.38
-##  3 Japan    2022-01-03       783          1         51.7 
-##  4 Japan    2022-01-04      1256          1         60.4 
-##  5 Japan    2022-01-05      2506          1         99.5 
-##  6 Japan    2022-01-06      4194          0         67.4 
-##  7 Japan    2022-01-07      5983          2         42.7 
-##  8 Japan    2022-01-08      7930          2         32.5 
-##  9 Japan    2022-01-09      8144          1          2.70
-## 10 Japan    2022-01-10      6394          2        -21.5 
+##  1 Japan    2022-01-01         0          0            NA
+##  2 Japan    2022-01-02      3019          8           Inf
+##  3 Japan    2022-01-03         0          0          -100
+##  4 Japan    2022-01-04         0          0           NaN
+##  5 Japan    2022-01-05         0          0           NaN
+##  6 Japan    2022-01-06         0          0           NaN
+##  7 Japan    2022-01-07         0          0           NaN
+##  8 Japan    2022-01-08         0          0           NaN
+##  9 Japan    2022-01-09     30796          8           Inf
+## 10 Japan    2022-01-10         0          0          -100
 ## # … with 355 more rows</code></pre>
 </div>
 <div id="移動平均系列の作成" class="section level3 hasAnchor" number="8.6.3">
@@ -1599,16 +1595,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 365 × 5
 ##    location date       new_cases new_deaths new_cases_7dma
 ##    &lt;chr&gt;    &lt;date&gt;         &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;
-##  1 Japan    2022-01-01       504          0            NA 
-##  2 Japan    2022-01-02       516          2            NA 
-##  3 Japan    2022-01-03       783          1            NA 
-##  4 Japan    2022-01-04      1256          1            NA 
-##  5 Japan    2022-01-05      2506          1            NA 
-##  6 Japan    2022-01-06      4194          0            NA 
-##  7 Japan    2022-01-07      5983          2          2249.
-##  8 Japan    2022-01-08      7930          2          3310.
-##  9 Japan    2022-01-09      8144          1          4399.
-## 10 Japan    2022-01-10      6394          2          5201 
+##  1 Japan    2022-01-01         0          0            NA 
+##  2 Japan    2022-01-02      3019          8            NA 
+##  3 Japan    2022-01-03         0          0            NA 
+##  4 Japan    2022-01-04         0          0            NA 
+##  5 Japan    2022-01-05         0          0            NA 
+##  6 Japan    2022-01-06         0          0            NA 
+##  7 Japan    2022-01-07         0          0           431.
+##  8 Japan    2022-01-08         0          0           431.
+##  9 Japan    2022-01-09     30796          8          4399.
+## 10 Japan    2022-01-10         0          0          4399.
 ## # … with 355 more rows</code></pre>
 </div>
 </div>
@@ -1622,7 +1618,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb809-3"><a href="08_ts.html#cb809-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(location, date, new_cases) <span class="sc">%&gt;%</span> </span>
 <span id="cb809-4"><a href="08_ts.html#cb809-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="st">&quot;2021-01-01&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb809-5"><a href="08_ts.html#cb809-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span> </span>
-<span id="cb809-6"><a href="08_ts.html#cb809-6" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">&quot;date&quot;</span>, <span class="at">names_from =</span> <span class="st">&quot;location&quot;</span>, <span class="at">values_from =</span> <span class="st">&quot;new_cases&quot;</span>)</span></code></pre></div>
+<span id="cb809-6"><a href="08_ts.html#cb809-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(location, date, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb809-7"><a href="08_ts.html#cb809-7" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">&quot;date&quot;</span>, <span class="at">names_from =</span> <span class="st">&quot;location&quot;</span>, <span class="at">values_from =</span> <span class="st">&quot;new_cases&quot;</span>)</span></code></pre></div>
 <div id="日次データを週次データに変換" class="section level3 hasAnchor" number="8.7.1">
 <h3><span class="header-section-number">8.7.1</span> 日次データを週次データに変換<a href="08_ts.html#日次データを週次データに変換" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>tidyquant::tq_transmute()</code>関数を使用して日次データを週次データに変換すると、月曜～日曜のデータが<code>FUN</code>に指定した関数で集計され、日曜の日付で記録されます。</p>
@@ -1631,7 +1628,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 105 × 256
 ##    date       Afghanistan Africa Albania Algeria Americ…¹ Andorra Angola Angui…²
 ##    &lt;date&gt;           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-##  1 2021-01-03       126.  26506.    526.    283.        0    61     58.3   0.667
+##  1 2021-01-03       287   54972.   1114.    767.        0   120    153     1    
 ##  2 2021-01-10       111.  31139.    522.    251.        0    60     78.3   0    
 ##  3 2021-01-17        70.7 30384.    608.    243.        0    64.6   87     0    
 ##  4 2021-01-24        87.3 26347.    574.    251.        0    65.9   86     0    
@@ -1655,16 +1652,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 104 × 256
 ##    date       Afghanistan Africa Albania Algeria Americ…¹ Andorra Angola Angui…²
 ##    &lt;date&gt;           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-##  1 2021-01-03       116.  29316.    484.    251.        0    53.1   71.1   0.143
-##  2 2021-01-10        76.9 31496.    613.    246.        0    65.3   87.6   0    
-##  3 2021-01-17        88.7 26499.    560.    249         0    67.1   84.3   0    
-##  4 2021-01-24        64.1 20790.    791.    252.        0    60.1   64.9   0.143
-##  5 2021-01-31        46   15983.    934.    249.        0    47.9   43.9   0.143
-##  6 2021-02-07        20.4 12665.   1112.    239.        0    36.4   37.7   0.143
-##  7 2021-02-14        15.3 11295.   1009.    185.        0    31.1   26.3   0    
-##  8 2021-02-21        18.1 10772.   1068.    172.        0    25.3   40.1   0    
-##  9 2021-02-28        19   10064.    887.    163.        0    25.1   38.1   0    
-## 10 2021-03-07        17    9576.    703     151.        0    32.9   34.1   0.143
+##  1 2021-01-03       123   23560.    478.    329.        0    51.4   65.6   0.429
+##  2 2021-01-10       111.  31139.    522.    251.        0    60     78.3   0    
+##  3 2021-01-17        70.7 30384.    608.    243.        0    64.6   87     0    
+##  4 2021-01-24        87.3 26347.    574.    251.        0    65.9   86     0    
+##  5 2021-01-31        61.1 19323.    814.    250.        0    55.1   59.3   0.286
+##  6 2021-02-07        44.6 15378.    962.    247.        0    45.9   40     0    
+##  7 2021-02-14        22.4 12412.   1108.    237.        0    36.7   38.1   0.143
+##  8 2021-02-21        16   11044.   1011.    179.        0    29.9   24.3   0    
+##  9 2021-02-28        15.7 10580.   1046.    171.        0    25.3   40.4   0    
+## 10 2021-03-07        19   10119     867.    163.        0    24.3   39     0    
 ## # … with 94 more rows, 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
 ## #   Argentina &lt;dbl&gt;, Armenia &lt;dbl&gt;, Aruba &lt;dbl&gt;, Asia &lt;dbl&gt;, Australia &lt;dbl&gt;,
 ## #   Austria &lt;dbl&gt;, Azerbaijan &lt;dbl&gt;, Bahamas &lt;dbl&gt;, Bahrain &lt;dbl&gt;,
@@ -1681,16 +1678,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 24 × 256
 ##    date       Afghanistan Africa Albania Algeria Americ…¹ Andorra Angola Angui…²
 ##    &lt;date&gt;           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-##  1 2021-01-31        86.9 26770.   619.     252.   0        61.4    75.8  0.129 
-##  2 2021-02-28        24.7 12354.  1031.     208.   0        34.4    35.7  0.0357
-##  3 2021-03-31        23.9 10559.   619.     132.   0        35.3    45.2  0.226 
-##  4 2021-04-30       110.  11586.   215.     160.   0        41.8   142.   2.2   
-##  5 2021-05-31       390.   9274.    46.4    221.   0        16.0   256.   0.581 
-##  6 2021-06-30      1561.  21463.     7.2    350.   0         6.9   144.   0     
-##  7 2021-07-31       919.  39375.    15.7    999.   0        25.1   128.   0.161 
-##  8 2021-08-31       196.  36218.   382.     819.   0        11.4   151.   3.32  
-##  9 2021-09-30        61.1 17490.   798.     254.   0.0333    5.9   308.   5.73  
-## 10 2021-10-31        33.4  6606.   502.     102.   0.0968    9.90  251.  16.2   
+##  1 2021-01-31       102.  29525.  676.      299.   0        67.1    84.9  0.161 
+##  2 2021-02-28        24.7 12354. 1031.      208.   0        34.4    35.7  0.0357
+##  3 2021-03-31        18.7  9583.  580.      122.   0        31.0    40.3  0.161 
+##  4 2021-04-30        85.0 10951.  235.      133.   0        40.5   115.   1.17  
+##  5 2021-05-31       384.  10557.   65       249.   0        21.6   280.   1.65  
+##  6 2021-06-30      1449.  19019.    7.37    322.   0         6.3   145.   0     
+##  7 2021-07-31       956.  34373.   10.4     734.   0        19.9   103.   0.129 
+##  8 2021-08-31       296.  42434.  334.     1090.   0        17     172.   2.61  
+##  9 2021-09-30        62.2 17623.  784.      263.   0.0333    4.73  257.   5.67  
+## 10 2021-10-31        38.4  7935.  569.      122.   0.0968   11.3   309   17.0   
 ## # … with 14 more rows, 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;,
 ## #   Argentina &lt;dbl&gt;, Armenia &lt;dbl&gt;, Aruba &lt;dbl&gt;, Asia &lt;dbl&gt;, Australia &lt;dbl&gt;,
 ## #   Austria &lt;dbl&gt;, Azerbaijan &lt;dbl&gt;, Bahamas &lt;dbl&gt;, Bahrain &lt;dbl&gt;,
@@ -1707,14 +1704,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 8 × 256
 ##   date       Afghanistan Africa Albania Algeria America…¹ Andorra Angola Angui…²
 ##   &lt;date&gt;           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-## 1 2021-03-31        45.8 16701.   747.   197.      0         44.0   52.8   0.133
-## 2 2021-06-30       684.  14055.    88.9  244.      0         21.5  181.    0.923
-## 3 2021-09-30       396.  31175.   394.   695.      0.0109    14.2  195.    3.04 
-## 4 2021-12-31        32.7 15796.   436.   161.      0.109     86.0  220.   14.0  
-## 5 2022-03-31       218.  23134.   718.   529.     42.3      188.   248.   11.4  
-## 6 2022-06-30        52.0  6424.    62.0    4.52   29.5       41.2   24.0   8.31 
-## 7 2022-09-30       181.   3893.   563.    50.0    19.0       26.7   20.8   4.45 
-## 8 2022-12-31        92.2  1360.    19.4    5.90    0.380     16.6   20.3   0.424
+## 1 2021-03-31        49.4 17314.   754.   210.      0         44.5   54.2   0.122
+## 2 2021-06-30       637.  13477.   102.   235.      0         22.8  181.    0.945
+## 3 2021-09-30       442.  31627.   372.   701.      0.0109    14.0  177.    2.77 
+## 4 2021-12-31        32.6 13897.   441.   150.      0.109     71.3  178.   13.9  
+## 5 2022-03-31       217.  25283.   734.   547.     36.3      200.   311.   11.0  
+## 6 2022-06-30        50.5  6353.    53.8    4.49   35.5       44.6   23.6   8.55 
+## 7 2022-09-30       176.   4139.   571.    50.1    18.9       25.8   20.4   4.86 
+## 8 2022-12-31        98.2  1368.    20.7    5.99    0.207     16.7   21.1   0.5  
 ## # … with 247 more variables: `Antigua and Barbuda` &lt;dbl&gt;, Argentina &lt;dbl&gt;,
 ## #   Armenia &lt;dbl&gt;, Aruba &lt;dbl&gt;, Asia &lt;dbl&gt;, Australia &lt;dbl&gt;, Austria &lt;dbl&gt;,
 ## #   Azerbaijan &lt;dbl&gt;, Bahamas &lt;dbl&gt;, Bahrain &lt;dbl&gt;, Bangladesh &lt;dbl&gt;,

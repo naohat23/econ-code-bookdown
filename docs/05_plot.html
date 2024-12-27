@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-12-13" />
+<meta name="date" content="2024-12-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,6 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i><b>1.5</b> 変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年12月28日-マイナーアップデート"><i class="fa fa-check"></i>2024年12月28日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年12月13日-マイナーアップデート"><i class="fa fa-check"></i>2023年12月13日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年10月9日-マイナーアップデート"><i class="fa fa-check"></i>2023年10月9日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月27日-マイナーアップデート"><i class="fa fa-check"></i>2023年9月27日 マイナーアップデート</a></li>
@@ -1380,15 +1381,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  4 Germany        2020年   1660178
 ##  5 Germany        2021年   5353865
 ##  6 Germany        2022年  30227893
-##  7 Italy          2020年   2083689
-##  8 Italy          2021年   3897739
-##  9 Italy          2022年  19187010
-## 10 Japan          2020年    230304
-## 11 Japan          2021年   1503484
-## 12 Japan          2022年  27371282
-## 13 United Kingdom 2020年   2563561
-## 14 United Kingdom 2021年  10878146
-## 15 United Kingdom 2022年  10752848</code></pre>
+##  7 Italy          2020年   2039182
+##  8 Italy          2021年   3583249
+##  9 Italy          2022年  19438072
+## 10 Japan          2020年    217312
+## 11 Japan          2021年   1514477
+## 12 Japan          2022年  26534616
+## 13 United Kingdom 2020年   2344433
+## 14 United Kingdom 2021年  10230346
+## 15 United Kingdom 2022年  11584258</code></pre>
 <div id="縦棒グラフの基本形" class="section level3 hasAnchor" number="5.13.1">
 <h3><span class="header-section-number">5.13.1</span> 縦棒グラフの基本形<a href="05_plot.html#縦棒グラフの基本形" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="05_plot.html#cb495-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_mpg_col,</span>
@@ -1715,20 +1716,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb513-3"><a href="05_plot.html#cb513-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(location <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Japan&quot;</span>, <span class="st">&quot;United Kingdom&quot;</span>, <span class="st">&quot;Germany&quot;</span>, <span class="st">&quot;France&quot;</span>, <span class="st">&quot;Italy&quot;</span>))</span>
 <span id="cb513-4"><a href="05_plot.html#cb513-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb513-5"><a href="05_plot.html#cb513-5" aria-hidden="true" tabindex="-1"></a>data_owid_step</span></code></pre></div>
-<pre><code>## # A tibble: 5,470 × 3
+<pre><code>## # A tibble: 5,460 × 3
 ##    location date       stringency_index
 ##    &lt;chr&gt;    &lt;date&gt;                &lt;dbl&gt;
-##  1 France   2020-01-03                0
-##  2 France   2020-01-04                0
-##  3 France   2020-01-05                0
-##  4 France   2020-01-06                0
-##  5 France   2020-01-07                0
-##  6 France   2020-01-08                0
-##  7 France   2020-01-09                0
-##  8 France   2020-01-10                0
-##  9 France   2020-01-11                0
-## 10 France   2020-01-12                0
-## # … with 5,460 more rows</code></pre>
+##  1 France   2020-01-05                0
+##  2 France   2020-01-06                0
+##  3 France   2020-01-07                0
+##  4 France   2020-01-08                0
+##  5 France   2020-01-09                0
+##  6 France   2020-01-10                0
+##  7 France   2020-01-11                0
+##  8 France   2020-01-12                0
+##  9 France   2020-01-13                0
+## 10 France   2020-01-14                0
+## # … with 5,450 more rows</code></pre>
 <div id="ステップグラフの基本形" class="section level3 hasAnchor" number="5.16.1">
 <h3><span class="header-section-number">5.16.1</span> ステップグラフの基本形<a href="05_plot.html#ステップグラフの基本形" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="05_plot.html#cb515-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_owid_step,</span>
@@ -2353,11 +2354,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb552-5"><a href="05_plot.html#cb552-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_owid_scale)</span></code></pre></div>
 <pre><code>##    location           new_cases          new_deaths      
 ##  Length:255         Min.   :     0.0   Min.   :   0.000  
-##  Class :character   1st Qu.:    23.5   1st Qu.:   0.162  
-##  Mode  :character   Median :   203.6   Median :   2.007  
-##                     Mean   : 11504.0   Mean   : 104.379  
-##                     3rd Qu.:  1520.1   3rd Qu.:  17.387  
-##                     Max.   :666810.8   Max.   :6145.449  
+##  Class :character   1st Qu.:    23.5   1st Qu.:   0.163  
+##  Mode  :character   Median :   203.8   Median :   2.010  
+##                     Mean   : 11153.6   Mean   : 104.159  
+##                     3rd Qu.:  1521.3   3rd Qu.:  17.167  
+##                     Max.   :645268.8   Max.   :6131.941  
 ##                     NA&#39;s   :9          NA&#39;s   :9</code></pre>
 <div id="x軸連続型y軸連続型" class="section level3 hasAnchor" number="5.24.1">
 <h3><span class="header-section-number">5.24.1</span> X軸：連続型、Y軸：連続型<a href="05_plot.html#x軸連続型y軸連続型" class="anchor-section" aria-label="Anchor link to header"></a></h3>

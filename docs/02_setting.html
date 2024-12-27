@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2023-12-13" />
+<meta name="date" content="2024-12-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,6 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i><b>1.5</b> 変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年12月28日-マイナーアップデート"><i class="fa fa-check"></i>2024年12月28日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年12月13日-マイナーアップデート"><i class="fa fa-check"></i>2023年12月13日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年10月9日-マイナーアップデート"><i class="fa fa-check"></i>2023年10月9日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年9月27日-マイナーアップデート"><i class="fa fa-check"></i>2023年9月27日 マイナーアップデート</a></li>
@@ -879,7 +880,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="02_setting.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.2.2 (2022-10-31)
 ## Platform: aarch64-apple-darwin20 (64-bit)
-## Running under: macOS Ventura 13.4.1
+## Running under: macOS 15.1.1
 ## 
 ## Matrix products: default
 ## BLAS:   /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRblas.0.dylib
@@ -1332,20 +1333,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-16"><a href="02_setting.html#cb38-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-17"><a href="02_setting.html#cb38-17" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
 <span id="cb38-18"><a href="02_setting.html#cb38-18" aria-hidden="true" tabindex="-1"></a>data_owid</span></code></pre></div>
-<pre><code>## # A tibble: 276,738 × 14
+<pre><code>## # A tibble: 281,002 × 14
 ##    continent location date       total…¹ new_c…² new_c…³ total…⁴ new_d…⁵ total…⁶
 ##    &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Asia      Afghani… 2020-01-03      NA       0      NA      NA       0      NA
-##  2 Asia      Afghani… 2020-01-04      NA       0      NA      NA       0      NA
-##  3 Asia      Afghani… 2020-01-05      NA       0      NA      NA       0      NA
-##  4 Asia      Afghani… 2020-01-06      NA       0      NA      NA       0      NA
-##  5 Asia      Afghani… 2020-01-07      NA       0      NA      NA       0      NA
-##  6 Asia      Afghani… 2020-01-08      NA       0       0      NA       0      NA
-##  7 Asia      Afghani… 2020-01-09      NA       0       0      NA       0      NA
-##  8 Asia      Afghani… 2020-01-10      NA       0       0      NA       0      NA
-##  9 Asia      Afghani… 2020-01-11      NA       0       0      NA       0      NA
-## 10 Asia      Afghani… 2020-01-12      NA       0       0      NA       0      NA
-## # … with 276,728 more rows, 5 more variables: new_cases_per_million &lt;dbl&gt;,
+##  1 Asia      Afghani… 2020-01-05       0       0      NA       0       0       0
+##  2 Asia      Afghani… 2020-01-06       0       0      NA       0       0       0
+##  3 Asia      Afghani… 2020-01-07       0       0      NA       0       0       0
+##  4 Asia      Afghani… 2020-01-08       0       0      NA       0       0       0
+##  5 Asia      Afghani… 2020-01-09       0       0      NA       0       0       0
+##  6 Asia      Afghani… 2020-01-10       0       0       0       0       0       0
+##  7 Asia      Afghani… 2020-01-11       0       0       0       0       0       0
+##  8 Asia      Afghani… 2020-01-12       0       0       0       0       0       0
+##  9 Asia      Afghani… 2020-01-13       0       0       0       0       0       0
+## 10 Asia      Afghani… 2020-01-14       0       0       0       0       0       0
+## # … with 280,992 more rows, 5 more variables: new_cases_per_million &lt;dbl&gt;,
 ## #   total_deaths_per_million &lt;dbl&gt;, new_deaths_per_million &lt;dbl&gt;,
 ## #   people_fully_vaccinated &lt;dbl&gt;, stringency_index &lt;dbl&gt;, and abbreviated
 ## #   variable names ¹​total_cases, ²​new_cases, ³​new_cases_smoothed,
@@ -1404,7 +1405,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb40-48"><a href="02_setting.html#cb40-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-49"><a href="02_setting.html#cb40-49" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
 <span id="cb40-50"><a href="02_setting.html#cb40-50" aria-hidden="true" tabindex="-1"></a>data_labor</span></code></pre></div>
-<pre><code>## # A tibble: 262 × 18
+<pre><code>## # A tibble: 275 × 18
 ##    date        総数  農林  建設  製造 情報通信 運輸・…¹ 卸・小…² 金融…³ 不動産…⁴
 ##    &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
 ##  1 2002-01-01  6267   224   589  1210      153      331     1131    165       95
@@ -1417,7 +1418,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 2002-08-01  6371   288   620  1207      164      326     1085    176      103
 ##  9 2002-09-01  6353   286   621  1183      171      333     1081    174      100
 ## 10 2002-10-01  6355   271   642  1176      160      333     1116    172      102
-## # … with 252 more rows, 8 more variables: `学術・専門・技術` &lt;dbl&gt;,
+## # … with 265 more rows, 8 more variables: `学術・専門・技術` &lt;dbl&gt;,
 ## #   `宿泊・飲食` &lt;dbl&gt;, `生活関連・娯楽` &lt;dbl&gt;, 教育 &lt;dbl&gt;, `医療・福祉` &lt;dbl&gt;,
 ## #   複合サービス &lt;dbl&gt;, その他サービス &lt;dbl&gt;, 公務 &lt;dbl&gt;, and abbreviated
 ## #   variable names ¹​`運輸・郵便`, ²​`卸・小売`, ³​`金融・保険`,
