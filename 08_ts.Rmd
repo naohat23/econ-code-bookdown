@@ -337,8 +337,10 @@ data_tsibble <- data_owid %>%
 data_tsibble %<>% 
   dplyr::arrange(date)
 
+# 重複行を削除してtsibble形式に変換
 data_tsibble %<>% 
   dplyr::mutate(date = date %>% tsibble::yearweek()) %>% 
+  dplyr::distinct(location, date) %>% 
   tsibble::as_tsibble(index = date, key = location)
 
 data_tsibble
@@ -355,8 +357,9 @@ frequency(data_tsibble)
 data_tsibble <- data_owid %>% 
   dplyr::arrange(date)
 
-# tsibble形式に変換
+# 重複行を削除してtsibble形式に変換
 data_tsibble %<>% 
+  dplyr::distinct(location, date) %>% 
   tsibble::as_tsibble(index = date, key = location)
   
 data_tsibble
@@ -552,6 +555,7 @@ data_owid_cases_wide <- data_owid %>%
   dplyr::select(location, date, new_cases) %>% 
   dplyr::filter(date >= "2021-01-01") %>% 
   dplyr::arrange(date) %>% 
+  dplyr::distinct(location, date, .keep_all = TRUE) %>% 
   tidyr::pivot_wider(id_cols = "date", names_from = "location", values_from = "new_cases")
 ```
 
