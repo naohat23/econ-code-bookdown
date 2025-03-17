@@ -23,7 +23,7 @@
 <meta name="author" content="服部直樹" />
 
 
-<meta name="date" content="2024-12-28" />
+<meta name="date" content="2025-03-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,6 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#変更履歴"><i class="fa fa-check"></i><b>1.5</b> 変更履歴</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#年3月17日-マイナーアップデート"><i class="fa fa-check"></i>2025年3月17日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年12月28日-マイナーアップデート"><i class="fa fa-check"></i>2024年12月28日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年12月13日-マイナーアップデート"><i class="fa fa-check"></i>2023年12月13日 マイナーアップデート</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#年10月9日-マイナーアップデート"><i class="fa fa-check"></i>2023年10月9日 マイナーアップデート</a></li>
@@ -195,6 +196,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="02_setting.html"><a href="02_setting.html#プロキシ設定"><i class="fa fa-check"></i><b>2.2.1</b> プロキシ設定</a></li>
 <li class="chapter" data-level="2.2.2" data-path="02_setting.html"><a href="02_setting.html#ssl設定"><i class="fa fa-check"></i><b>2.2.2</b> SSL設定</a></li>
+<li class="chapter" data-level="2.2.3" data-path="02_setting.html"><a href="02_setting.html#外部通信の確認"><i class="fa fa-check"></i><b>2.2.3</b> 外部通信の確認</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="02_setting.html"><a href="02_setting.html#パッケージ"><i class="fa fa-check"></i><b>2.3</b> パッケージ</a>
 <ul>
@@ -856,25 +858,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.1</span> 第6章の準備<a href="06_eda.html#第6章の準備" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="パッケージのインポート-3" class="section level3 hasAnchor" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> パッケージのインポート<a href="06_eda.html#パッケージのインポート-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="06_eda.html#cb571-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
-<span id="cb571-2"><a href="06_eda.html#cb571-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)</span>
-<span id="cb571-3"><a href="06_eda.html#cb571-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DataExplorer)</span>
-<span id="cb571-4"><a href="06_eda.html#cb571-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
-<span id="cb571-5"><a href="06_eda.html#cb571-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
-<span id="cb571-6"><a href="06_eda.html#cb571-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SmartEDA)</span>
-<span id="cb571-7"><a href="06_eda.html#cb571-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb571-8"><a href="06_eda.html#cb571-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="06_eda.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb573-2"><a href="06_eda.html#cb573-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)</span>
+<span id="cb573-3"><a href="06_eda.html#cb573-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DataExplorer)</span>
+<span id="cb573-4"><a href="06_eda.html#cb573-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
+<span id="cb573-5"><a href="06_eda.html#cb573-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb573-6"><a href="06_eda.html#cb573-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SmartEDA)</span>
+<span id="cb573-7"><a href="06_eda.html#cb573-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb573-8"><a href="06_eda.html#cb573-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code></pre></div>
 </div>
 <div id="ggplot2の設定-1" class="section level3 hasAnchor" number="6.1.2">
 <h3><span class="header-section-number">6.1.2</span> ggplot2の設定<a href="06_eda.html#ggplot2の設定-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>第2章で紹介した<code>ggplot2</code>の設定です。筆者の実行環境はMacのため、Windowsの設定はコメントアウトしています。</p>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="06_eda.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windowsのグラフ設定（筆者の実行環境では不要のためコメントアウト）</span></span>
-<span id="cb572-2"><a href="06_eda.html#cb572-2" aria-hidden="true" tabindex="-1"></a><span class="co"># windowsFonts(&quot;MEIRYO&quot; = windowsFont(&quot;Meiryo UI&quot;))</span></span>
-<span id="cb572-3"><a href="06_eda.html#cb572-3" aria-hidden="true" tabindex="-1"></a><span class="co"># windowsFonts(&quot;YUGO&quot; = windowsFont(&quot;Yu Gothic UI&quot;))</span></span>
-<span id="cb572-4"><a href="06_eda.html#cb572-4" aria-hidden="true" tabindex="-1"></a><span class="co"># theme_set(theme_light(base_family = &quot;YUGO&quot;))</span></span>
-<span id="cb572-5"><a href="06_eda.html#cb572-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb572-6"><a href="06_eda.html#cb572-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Macのグラフ設定</span></span>
-<span id="cb572-7"><a href="06_eda.html#cb572-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuProN-W3&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="06_eda.html#cb574-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windowsのグラフ設定（筆者の実行環境では不要のためコメントアウト）</span></span>
+<span id="cb574-2"><a href="06_eda.html#cb574-2" aria-hidden="true" tabindex="-1"></a><span class="co"># windowsFonts(&quot;MEIRYO&quot; = windowsFont(&quot;Meiryo UI&quot;))</span></span>
+<span id="cb574-3"><a href="06_eda.html#cb574-3" aria-hidden="true" tabindex="-1"></a><span class="co"># windowsFonts(&quot;YUGO&quot; = windowsFont(&quot;Yu Gothic UI&quot;))</span></span>
+<span id="cb574-4"><a href="06_eda.html#cb574-4" aria-hidden="true" tabindex="-1"></a><span class="co"># theme_set(theme_light(base_family = &quot;YUGO&quot;))</span></span>
+<span id="cb574-5"><a href="06_eda.html#cb574-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb574-6"><a href="06_eda.html#cb574-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Macのグラフ設定</span></span>
+<span id="cb574-7"><a href="06_eda.html#cb574-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">&quot;HiraKakuProN-W3&quot;</span>))</span></code></pre></div>
 </div>
 </div>
 <div id="データの中身" class="section level2 hasAnchor" number="6.2">
@@ -883,8 +885,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.2.1</span> str関数<a href="06_eda.html#str関数" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>まず、データが何を含んでいるか確認します。</p>
 <p>データをコンソールに出力するには、オブジェクト名を入力し、そのまま実行します。データフレームの変数一覧を出力するには、<code>str()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="06_eda.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
-<span id="cb573-2"><a href="06_eda.html#cb573-2" aria-hidden="true" tabindex="-1"></a>diamonds</span></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="06_eda.html#cb575-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データをコンソールに出力</span></span>
+<span id="cb575-2"><a href="06_eda.html#cb575-2" aria-hidden="true" tabindex="-1"></a>diamonds</span></code></pre></div>
 <pre><code>## # A tibble: 53,940 × 10
 ##    carat cut       color clarity depth table price     x     y     z
 ##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -899,8 +901,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9  0.22 Fair      E     VS2      65.1    61   337  3.87  3.78  2.49
 ## 10  0.23 Very Good H     VS1      59.4    61   338  4     4.05  2.39
 ## # … with 53,930 more rows</code></pre>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="06_eda.html#cb575-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの変数名を出力</span></span>
-<span id="cb575-2"><a href="06_eda.html#cb575-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(diamonds)</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="06_eda.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの変数名を出力</span></span>
+<span id="cb577-2"><a href="06_eda.html#cb577-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(diamonds)</span></code></pre></div>
 <pre><code>##  [1] &quot;carat&quot;   &quot;cut&quot;     &quot;color&quot;   &quot;clarity&quot; &quot;depth&quot;   &quot;table&quot;   &quot;price&quot;  
 ##  [8] &quot;x&quot;       &quot;y&quot;       &quot;z&quot;</code></pre>
 </div>
@@ -908,8 +910,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.2.2</span> summary関数<a href="06_eda.html#summary関数" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>各変数の記述統計量を出力するには、<code>summary()</code>関数を使用します。</p>
 <p>数値型の変数は、平均、中央値、最大値、最小値、四分位数が出力されます。離散型変数のうち、因子型（factor型）の変数は各要素のデータ数が出力されます。</p>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="06_eda.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの記述統計量を出力</span></span>
-<span id="cb577-2"><a href="06_eda.html#cb577-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(diamonds)</span></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="06_eda.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの記述統計量を出力</span></span>
+<span id="cb579-2"><a href="06_eda.html#cb579-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(diamonds)</span></code></pre></div>
 <pre><code>##      carat               cut        color        clarity          depth      
 ##  Min.   :0.2000   Fair     : 1610   D: 6775   SI1    :13065   Min.   :43.00  
 ##  1st Qu.:0.4000   Good     : 4906   E: 9797   VS2    :12258   1st Qu.:61.00  
@@ -936,9 +938,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## </code></pre>
 <p>因子型でない離散型変数（文字列型など）について各要素のデータ数を出力する場合は、あらかじめ因子型に変換し、<code>summary()</code>関数を適用します。</p>
 <p>結果が全て出力されない場合は、<code>summary()</code>関数の<code>maxsum</code>引数で出力する最大行数を指定します。</p>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="06_eda.html#cb579-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
-<span id="cb579-2"><a href="06_eda.html#cb579-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.character), <span class="at">.fns =</span> as.factor)) <span class="sc">%&gt;%</span> </span>
-<span id="cb579-3"><a href="06_eda.html#cb579-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(<span class="at">maxsum =</span> <span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="06_eda.html#cb581-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb581-2"><a href="06_eda.html#cb581-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.character), <span class="at">.fns =</span> as.factor)) <span class="sc">%&gt;%</span> </span>
+<span id="cb581-3"><a href="06_eda.html#cb581-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(<span class="at">maxsum =</span> <span class="dv">100</span>)</span></code></pre></div>
 <pre><code>##      manufacturer                    model        displ            year     
 ##  audi      :18    4runner 4wd           : 6   Min.   :1.600   Min.   :1999  
 ##  chevrolet :19    a4                    : 7   1st Qu.:2.400   1st Qu.:1999  
@@ -1057,17 +1059,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                         
 ## </code></pre>
 <p>変数名や要素名がアルファベットの場合は上の例のようにレイアウトが崩れずに表示されますが、列名や変数名が日本語の場合はコンソールに出力した列が崩れて見にくくなることがあります。次の例のように、<code>summary()</code>関数の結果をウィンドウに表示すると見やすくなります（ウェブサイト上では実行しません）。</p>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="06_eda.html#cb581-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
-<span id="cb581-2"><a href="06_eda.html#cb581-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.character), <span class="at">.fns =</span> as.factor)) <span class="sc">%&gt;%</span> </span>
-<span id="cb581-3"><a href="06_eda.html#cb581-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(<span class="at">maxsum =</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb581-4"><a href="06_eda.html#cb581-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame.matrix</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb581-5"><a href="06_eda.html#cb581-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">View</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="06_eda.html#cb583-1" aria-hidden="true" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb583-2"><a href="06_eda.html#cb583-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.character), <span class="at">.fns =</span> as.factor)) <span class="sc">%&gt;%</span> </span>
+<span id="cb583-3"><a href="06_eda.html#cb583-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(<span class="at">maxsum =</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb583-4"><a href="06_eda.html#cb583-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame.matrix</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb583-5"><a href="06_eda.html#cb583-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">View</span>()</span></code></pre></div>
 </div>
 <div id="summmarytoolsパッケージ" class="section level3 hasAnchor" number="6.2.3">
 <h3><span class="header-section-number">6.2.3</span> summmarytoolsパッケージ<a href="06_eda.html#summmarytoolsパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>summarytools</code>パッケージの<code>dfSummary()</code>関数は、データフレームの各変数の記述統計量や分布に関する情報・グラフを出力する関数です。</p>
 <p>コンソールに出力するとグラフが簡略化されるため、結果を<code>view()</code>関数に渡してウィンドウに表示すると見やすくなります（ウェブサイト上では実行しません）。</p>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="06_eda.html#cb582-1" aria-hidden="true" tabindex="-1"></a>summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(mpg)</span></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="06_eda.html#cb584-1" aria-hidden="true" tabindex="-1"></a>summarytools<span class="sc">::</span><span class="fu">dfSummary</span>(mpg)</span></code></pre></div>
 <pre><code>## Data Frame Summary  
 ## mpg  
 ## Dimensions: 234 x 11  
@@ -1156,14 +1158,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                     6. subcompact            35 (15.0%)           II                                      
 ##                     7. suv                   62 (26.5%)           IIIII                                   
 ## ----------------------------------------------------------------------------------------------------------</code></pre>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="06_eda.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarytools::dfSummary(mpg) %&gt;% </span></span>
-<span id="cb584-2"><a href="06_eda.html#cb584-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   view()</span></span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="06_eda.html#cb586-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarytools::dfSummary(mpg) %&gt;% </span></span>
+<span id="cb586-2"><a href="06_eda.html#cb586-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   view()</span></span></code></pre></div>
 </div>
 <div id="psychパッケージ" class="section level3 hasAnchor" number="6.2.4">
 <h3><span class="header-section-number">6.2.4</span> psychパッケージ<a href="06_eda.html#psychパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>psych</code>パッケージの<code>describe()</code>関数は、データフレームの各変数の記述統計量や分布に関する情報を出力する関数です。平均、中央値、標準偏差に加え、刈り込み平均（trimmed）、中央絶対偏差（mad）、レンジ（最大値と最小値の差）、歪度（skew）、尖度（kurtosis）、標準誤差（se）が出力されます。</p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="06_eda.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの記述統計量や分布に関する情報を出力</span></span>
-<span id="cb585-2"><a href="06_eda.html#cb585-2" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(diamonds)</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="06_eda.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの記述統計量や分布に関する情報を出力</span></span>
+<span id="cb587-2"><a href="06_eda.html#cb587-2" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">describe</span>(diamonds)</span></code></pre></div>
 <pre><code>##          vars     n    mean      sd  median trimmed     mad   min      max
 ## carat       1 53940    0.80    0.47    0.70    0.73    0.47   0.2     5.01
 ## cut*        2 53940    3.90    1.12    4.00    4.04    1.48   1.0     5.00
@@ -1194,8 +1196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="離散型変数の度数分布" class="section level3 hasAnchor" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> 離散型変数の度数分布<a href="06_eda.html#離散型変数の度数分布" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>離散型変数の度数分布を出力するには<code>dplyr::count()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="06_eda.html#cb587-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb587-2"><a href="06_eda.html#cb587-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(cut)</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="06_eda.html#cb589-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb589-2"><a href="06_eda.html#cb589-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(cut)</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 2
 ##   cut           n
 ##   &lt;ord&gt;     &lt;int&gt;
@@ -1205,16 +1207,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 Premium   13791
 ## 5 Ideal     21551</code></pre>
 <p>離散型変数の度数分布を可視化するには、度数棒グラフを使用します。</p>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="06_eda.html#cb589-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb589-2"><a href="06_eda.html#cb589-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut)) <span class="sc">+</span></span>
-<span id="cb589-3"><a href="06_eda.html#cb589-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="06_eda.html#cb591-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb591-2"><a href="06_eda.html#cb591-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut)) <span class="sc">+</span></span>
+<span id="cb591-3"><a href="06_eda.html#cb591-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-273-1.png" width="672" /></p>
 </div>
 <div id="連続型変数の度数分布" class="section level3 hasAnchor" number="6.3.2">
 <h3><span class="header-section-number">6.3.2</span> 連続型変数の度数分布<a href="06_eda.html#連続型変数の度数分布" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>連続型変数の度数分布を出力するには、<code>dplyr::count()</code>関数と<code>ggplot2::cut_width()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="06_eda.html#cb590-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb590-2"><a href="06_eda.html#cb590-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(ggplot2<span class="sc">::</span><span class="fu">cut_width</span>(carat, <span class="fl">0.5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="06_eda.html#cb592-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb592-2"><a href="06_eda.html#cb592-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(ggplot2<span class="sc">::</span><span class="fu">cut_width</span>(carat, <span class="fl">0.5</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 11 × 2
 ##    `ggplot2::cut_width(carat, 0.5)`     n
 ##    &lt;fct&gt;                            &lt;int&gt;
@@ -1230,36 +1232,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 (4.25,4.75]                          1
 ## 11 (4.75,5.25]                          1</code></pre>
 <p>連続型変数の度数分布を可視化するには、ヒストグラムを使用します。</p>
-<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="06_eda.html#cb592-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb592-2"><a href="06_eda.html#cb592-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span></span>
-<span id="cb592-3"><a href="06_eda.html#cb592-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-274-1.png" width="672" /></p>
-<p>連続型変数の度数分布をグループ別に可視化するには、<code>geom_freqpoly()</code>関数を使用します。</p>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="06_eda.html#cb593-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb593-2"><a href="06_eda.html#cb593-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
-<span id="cb593-3"><a href="06_eda.html#cb593-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
-<p>連続型変数の度数を標準化して密度をグループ別に可視化するには、<code>mapping = aes(y = ..density..)</code>を指定して、<code>geom_fredpoly()</code>関数を使用します。</p>
 <div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="06_eda.html#cb594-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb594-2"><a href="06_eda.html#cb594-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> ..density.., <span class="at">color =</span> cut)) <span class="sc">+</span></span>
-<span id="cb594-3"><a href="06_eda.html#cb594-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">500</span>)</span></code></pre></div>
+<span id="cb594-2"><a href="06_eda.html#cb594-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span></span>
+<span id="cb594-3"><a href="06_eda.html#cb594-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
+<p>連続型変数の度数分布をグループ別に可視化するには、<code>geom_freqpoly()</code>関数を使用します。</p>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="06_eda.html#cb595-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb595-2"><a href="06_eda.html#cb595-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb595-3"><a href="06_eda.html#cb595-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
+<p>連続型変数の度数を標準化して密度をグループ別に可視化するには、<code>mapping = aes(y = ..density..)</code>を指定して、<code>geom_fredpoly()</code>関数を使用します。</p>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="06_eda.html#cb596-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb596-2"><a href="06_eda.html#cb596-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> ..density.., <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb596-3"><a href="06_eda.html#cb596-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="dv">500</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
 </div>
 <div id="外れ値" class="section level3 hasAnchor" number="6.3.3">
 <h3><span class="header-section-number">6.3.3</span> 外れ値<a href="06_eda.html#外れ値" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>外れ値や異常値をグラフで確認するには、ヒストグラムを使用し、<code>coord_cartesian()</code>関数の<code>ylim</code>引数にY軸の下限・上限値を指定して、Y軸方向に図表を拡大します。</p>
 <p>なお、<code>scale_y_continuous()</code>関数の<code>limits</code>引数に下限・上限を指定する方法でもY軸の表示範囲を変えることができますが、下限・上限の範囲外にあるデータが表示されなくなるため、単に拡大するだけであれば<code>coord_cartesian()</code>関数を用いるほうが良いでしょう。</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="06_eda.html#cb595-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb595-2"><a href="06_eda.html#cb595-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span></span>
-<span id="cb595-3"><a href="06_eda.html#cb595-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb595-4"><a href="06_eda.html#cb595-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
-<p>グループ別に外れ値を可視化する場合は、箱ひげ図を使用します。</p>
 <div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="06_eda.html#cb597-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb597-2"><a href="06_eda.html#cb597-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> carat)) <span class="sc">+</span></span>
-<span id="cb597-3"><a href="06_eda.html#cb597-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<span id="cb597-2"><a href="06_eda.html#cb597-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span></span>
+<span id="cb597-3"><a href="06_eda.html#cb597-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb597-4"><a href="06_eda.html#cb597-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-278-1.png" width="672" /></p>
+<p>グループ別に外れ値を可視化する場合は、箱ひげ図を使用します。</p>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="06_eda.html#cb599-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb599-2"><a href="06_eda.html#cb599-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> carat)) <span class="sc">+</span></span>
+<span id="cb599-3"><a href="06_eda.html#cb599-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
 </div>
 </div>
 <div id="データの関係性" class="section level2 hasAnchor" number="6.4">
@@ -1268,32 +1270,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="離散型変数の関係性" class="section level3 hasAnchor" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> 離散型変数の関係性<a href="06_eda.html#離散型変数の関係性" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>離散型変数の観測値の組み合わせの分布を可視化するには、<code>geom_count()</code>関数の度数バブルチャートや、<code>geom_tile()</code>関数のヒートマップを使用します。</p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="06_eda.html#cb598-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb598-2"><a href="06_eda.html#cb598-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> color)) <span class="sc">+</span></span>
-<span id="cb598-3"><a href="06_eda.html#cb598-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_count</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="06_eda.html#cb599-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb599-2"><a href="06_eda.html#cb599-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(cut, color) <span class="sc">%&gt;%</span> </span>
-<span id="cb599-3"><a href="06_eda.html#cb599-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> color, <span class="at">fill =</span> n)) <span class="sc">+</span></span>
-<span id="cb599-4"><a href="06_eda.html#cb599-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="06_eda.html#cb600-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb600-2"><a href="06_eda.html#cb600-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> color)) <span class="sc">+</span></span>
+<span id="cb600-3"><a href="06_eda.html#cb600-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_count</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="06_eda.html#cb601-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb601-2"><a href="06_eda.html#cb601-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(cut, color) <span class="sc">%&gt;%</span> </span>
+<span id="cb601-3"><a href="06_eda.html#cb601-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> color, <span class="at">fill =</span> n)) <span class="sc">+</span></span>
+<span id="cb601-4"><a href="06_eda.html#cb601-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-281-1.png" width="672" /></p>
 </div>
 <div id="連続型変数の関係性" class="section level3 hasAnchor" number="6.4.2">
 <h3><span class="header-section-number">6.4.2</span> 連続型変数の関係性<a href="06_eda.html#連続型変数の関係性" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>連続型変数の観測値の組み合わせの分布を可視化するには、<code>geom_point()</code>関数の散布図や、<code>geom_bin2d()</code>関数、<code>geom_hex()</code>関数のヒートマップを使用します。</p>
 <p>データサイズが大きい場合は、<code>geom_point()</code>関数の実行に時間がかかるため、<code>geom_bin2d()</code>関数や<code>geom_hex()</code>関数を用いるのが効果的です。</p>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="06_eda.html#cb600-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb600-2"><a href="06_eda.html#cb600-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb600-3"><a href="06_eda.html#cb600-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.05</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-281-1.png" width="672" /></p>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="06_eda.html#cb601-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb601-2"><a href="06_eda.html#cb601-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb601-3"><a href="06_eda.html#cb601-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bin2d</span>(<span class="at">bins =</span> <span class="dv">100</span>) <span class="co"># X軸・Y軸の階級数（デフォルトは30）</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
 <div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="06_eda.html#cb602-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
 <span id="cb602-2"><a href="06_eda.html#cb602-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb602-3"><a href="06_eda.html#cb602-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="co"># X軸・Y軸の階級数（デフォルトは30）</span></span></code></pre></div>
+<span id="cb602-3"><a href="06_eda.html#cb602-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="06_eda.html#cb603-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb603-2"><a href="06_eda.html#cb603-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb603-3"><a href="06_eda.html#cb603-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bin2d</span>(<span class="at">bins =</span> <span class="dv">100</span>) <span class="co"># X軸・Y軸の階級数（デフォルトは30）</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-283-1.png" width="672" /></p>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="06_eda.html#cb604-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb604-2"><a href="06_eda.html#cb604-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb604-3"><a href="06_eda.html#cb604-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="co"># X軸・Y軸の階級数（デフォルトは30）</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-284-1.png" width="672" /></p>
 </div>
 </div>
 <div id="相関関係ペアプロット" class="section level2 hasAnchor" number="6.5">
@@ -1301,7 +1303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="相関係数行列" class="section level3 hasAnchor" number="6.5.1">
 <h3><span class="header-section-number">6.5.1</span> 相関係数行列<a href="06_eda.html#相関係数行列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>cor()</code>関数で相関係数行列を出力します。ここではサンプルデータセットとして<code>mtcars</code>データセットを使用しています。</p>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="06_eda.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="06_eda.html#cb605-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(mtcars)</span></code></pre></div>
 <pre><code>##             mpg        cyl       disp         hp        drat         wt
 ## mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
 ## cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958
@@ -1330,44 +1332,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="corrplotパッケージ" class="section level3 hasAnchor" number="6.5.2">
 <h3><span class="header-section-number">6.5.2</span> corrplotパッケージ<a href="06_eda.html#corrplotパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R標準の<code>cor()</code>関数の出力結果では見にくいため、<code>corrplot</code>パッケージを使用して相関係数行列を可視化します。</p>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="06_eda.html#cb605-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cor()関数で相関係数行列を計算し、その結果をcorrplot::corrplot()関数に渡す</span></span>
-<span id="cb605-2"><a href="06_eda.html#cb605-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb605-3"><a href="06_eda.html#cb605-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb605-4"><a href="06_eda.html#cb605-4" aria-hidden="true" tabindex="-1"></a>  corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="at">method =</span> <span class="st">&quot;square&quot;</span>, <span class="co"># 可視化方法（&quot;circle&quot;, &quot;square&quot;, &quot;ellipse&quot;, &quot;number&quot;, &quot;shade&quot;, &quot;color&quot;, &quot;pie&quot;）</span></span>
-<span id="cb605-5"><a href="06_eda.html#cb605-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;full&quot;</span>, <span class="co"># 表示形式（&quot;full&quot;, &quot;upper&quot;, &quot;lower&quot;）</span></span>
-<span id="cb605-6"><a href="06_eda.html#cb605-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="co"># 相関係数の値の色</span></span>
-<span id="cb605-7"><a href="06_eda.html#cb605-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="co"># 対角要素を表示するか</span></span>
-<span id="cb605-8"><a href="06_eda.html#cb605-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.cex =</span> <span class="fl">0.8</span>, <span class="co"># 相関係数の値のフォントサイズ</span></span>
-<span id="cb605-9"><a href="06_eda.html#cb605-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.digits =</span> <span class="dv">2</span> <span class="co"># 相関係数の値の小数点以下桁数</span></span>
-<span id="cb605-10"><a href="06_eda.html#cb605-10" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-285-1.png" width="672" /></p>
-<p><code>corrplot::cor.mtest()</code>関数を使用すると、「相関係数が0である」との帰無仮説に対するp値を計算し、その結果を可視化することができます。</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="06_eda.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 相関係数の検定を行いp値を計算</span></span>
-<span id="cb606-2"><a href="06_eda.html#cb606-2" aria-hidden="true" tabindex="-1"></a>mtcars_p <span class="ot">&lt;-</span> corrplot<span class="sc">::</span><span class="fu">cor.mtest</span>(mtcars)</span>
-<span id="cb606-3"><a href="06_eda.html#cb606-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb606-4"><a href="06_eda.html#cb606-4" aria-hidden="true" tabindex="-1"></a><span class="co"># p値の計算結果を指定して検定結果を可視化</span></span>
-<span id="cb606-5"><a href="06_eda.html#cb606-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb606-6"><a href="06_eda.html#cb606-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb606-7"><a href="06_eda.html#cb606-7" aria-hidden="true" tabindex="-1"></a>  corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="at">method =</span> <span class="st">&quot;square&quot;</span>, <span class="co"># 可視化方法（&quot;circle&quot;, &quot;square&quot;, &quot;ellipse&quot;, &quot;number&quot;, &quot;shade&quot;, &quot;color&quot;, &quot;pie&quot;）</span></span>
-<span id="cb606-8"><a href="06_eda.html#cb606-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;full&quot;</span>, <span class="co"># 表示形式（&quot;full&quot;, &quot;upper&quot;, &quot;lower&quot;）</span></span>
-<span id="cb606-9"><a href="06_eda.html#cb606-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">p.mat =</span> mtcars_p<span class="sc">$</span>p, <span class="co"># p値の計算結果</span></span>
-<span id="cb606-10"><a href="06_eda.html#cb606-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="co"># 有意水準</span></span>
-<span id="cb606-11"><a href="06_eda.html#cb606-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="co"># 相関係数の値の色</span></span>
-<span id="cb606-12"><a href="06_eda.html#cb606-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="co"># 対角要素を表示するか</span></span>
-<span id="cb606-13"><a href="06_eda.html#cb606-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.cex =</span> <span class="fl">0.8</span>, <span class="co"># 相関係数の値のフォントサイズ</span></span>
-<span id="cb606-14"><a href="06_eda.html#cb606-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.digits =</span> <span class="dv">2</span> <span class="co"># 相関係数の値の小数点以下桁数</span></span>
-<span id="cb606-15"><a href="06_eda.html#cb606-15" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="06_eda.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cor()関数で相関係数行列を計算し、その結果をcorrplot::corrplot()関数に渡す</span></span>
+<span id="cb607-2"><a href="06_eda.html#cb607-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb607-3"><a href="06_eda.html#cb607-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb607-4"><a href="06_eda.html#cb607-4" aria-hidden="true" tabindex="-1"></a>  corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="at">method =</span> <span class="st">&quot;square&quot;</span>, <span class="co"># 可視化方法（&quot;circle&quot;, &quot;square&quot;, &quot;ellipse&quot;, &quot;number&quot;, &quot;shade&quot;, &quot;color&quot;, &quot;pie&quot;）</span></span>
+<span id="cb607-5"><a href="06_eda.html#cb607-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;full&quot;</span>, <span class="co"># 表示形式（&quot;full&quot;, &quot;upper&quot;, &quot;lower&quot;）</span></span>
+<span id="cb607-6"><a href="06_eda.html#cb607-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="co"># 相関係数の値の色</span></span>
+<span id="cb607-7"><a href="06_eda.html#cb607-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="co"># 対角要素を表示するか</span></span>
+<span id="cb607-8"><a href="06_eda.html#cb607-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.cex =</span> <span class="fl">0.8</span>, <span class="co"># 相関係数の値のフォントサイズ</span></span>
+<span id="cb607-9"><a href="06_eda.html#cb607-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.digits =</span> <span class="dv">2</span> <span class="co"># 相関係数の値の小数点以下桁数</span></span>
+<span id="cb607-10"><a href="06_eda.html#cb607-10" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-286-1.png" width="672" /></p>
+<p><code>corrplot::cor.mtest()</code>関数を使用すると、「相関係数が0である」との帰無仮説に対するp値を計算し、その結果を可視化することができます。</p>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="06_eda.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 相関係数の検定を行いp値を計算</span></span>
+<span id="cb608-2"><a href="06_eda.html#cb608-2" aria-hidden="true" tabindex="-1"></a>mtcars_p <span class="ot">&lt;-</span> corrplot<span class="sc">::</span><span class="fu">cor.mtest</span>(mtcars)</span>
+<span id="cb608-3"><a href="06_eda.html#cb608-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb608-4"><a href="06_eda.html#cb608-4" aria-hidden="true" tabindex="-1"></a><span class="co"># p値の計算結果を指定して検定結果を可視化</span></span>
+<span id="cb608-5"><a href="06_eda.html#cb608-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb608-6"><a href="06_eda.html#cb608-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb608-7"><a href="06_eda.html#cb608-7" aria-hidden="true" tabindex="-1"></a>  corrplot<span class="sc">::</span><span class="fu">corrplot</span>(<span class="at">method =</span> <span class="st">&quot;square&quot;</span>, <span class="co"># 可視化方法（&quot;circle&quot;, &quot;square&quot;, &quot;ellipse&quot;, &quot;number&quot;, &quot;shade&quot;, &quot;color&quot;, &quot;pie&quot;）</span></span>
+<span id="cb608-8"><a href="06_eda.html#cb608-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">type =</span> <span class="st">&quot;full&quot;</span>, <span class="co"># 表示形式（&quot;full&quot;, &quot;upper&quot;, &quot;lower&quot;）</span></span>
+<span id="cb608-9"><a href="06_eda.html#cb608-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">p.mat =</span> mtcars_p<span class="sc">$</span>p, <span class="co"># p値の計算結果</span></span>
+<span id="cb608-10"><a href="06_eda.html#cb608-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="co"># 有意水準</span></span>
+<span id="cb608-11"><a href="06_eda.html#cb608-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">addCoef.col =</span> <span class="st">&quot;black&quot;</span>, <span class="co"># 相関係数の値の色</span></span>
+<span id="cb608-12"><a href="06_eda.html#cb608-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">diag =</span> <span class="cn">FALSE</span>, <span class="co"># 対角要素を表示するか</span></span>
+<span id="cb608-13"><a href="06_eda.html#cb608-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.cex =</span> <span class="fl">0.8</span>, <span class="co"># 相関係数の値のフォントサイズ</span></span>
+<span id="cb608-14"><a href="06_eda.html#cb608-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">number.digits =</span> <span class="dv">2</span> <span class="co"># 相関係数の値の小数点以下桁数</span></span>
+<span id="cb608-15"><a href="06_eda.html#cb608-15" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-287-1.png" width="672" /></p>
 </div>
 <div id="corrrパッケージ" class="section level3 hasAnchor" number="6.5.3">
 <h3><span class="header-section-number">6.5.3</span> corrrパッケージ<a href="06_eda.html#corrrパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>次に、<code>corrr</code>パッケージを使用して相関係数を可視化します。</p>
 <p><code>corrr::correlate()</code>関数で相関係数行列を格納した<code>cor_df</code>オブジェクトを作成します。</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="06_eda.html#cb607-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="ot">&lt;-</span> corrr<span class="sc">::</span><span class="fu">correlate</span>(mtcars, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="co"># 相関係数の算出法（&quot;pearson&quot;, &quot;kendall&quot;, &quot;spearman&quot;）</span></span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="06_eda.html#cb609-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="ot">&lt;-</span> corrr<span class="sc">::</span><span class="fu">correlate</span>(mtcars, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="co"># 相関係数の算出法（&quot;pearson&quot;, &quot;kendall&quot;, &quot;spearman&quot;）</span></span></code></pre></div>
 <pre><code>## Correlation computed with
 ## • Method: &#39;pearson&#39;
 ## • Missing treated using: &#39;pairwise.complete.obs&#39;</code></pre>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="06_eda.html#cb609-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor</span></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="06_eda.html#cb611-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor</span></code></pre></div>
 <pre><code>## # A tibble: 11 × 12
 ##    term     mpg    cyl   disp     hp    drat     wt    qsec     vs      am
 ##    &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
@@ -1384,8 +1386,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11 carb  -0.551  0.527  0.395  0.750 -0.0908  0.428 -0.656  -0.570  0.0575
 ## # … with 2 more variables: gear &lt;dbl&gt;, carb &lt;dbl&gt;</code></pre>
 <p><code>corrr::rearrange()</code>関数を使用すると、高い相関を持つ変数を近くに配置するよう、変数の順序を自動で変更します。</p>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="06_eda.html#cb611-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
-<span id="cb611-2"><a href="06_eda.html#cb611-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="06_eda.html#cb613-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb613-2"><a href="06_eda.html#cb613-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>()</span></code></pre></div>
 <pre><code>## Registered S3 methods overwritten by &#39;registry&#39;:
 ##   method               from 
 ##   print.registry_field proxy
@@ -1406,33 +1408,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11 cyl   -0.852 -0.811 -0.700  -0.523  -0.493 -0.591   0.527   0.832  0.782
 ## # … with 2 more variables: disp &lt;dbl&gt;, cyl &lt;dbl&gt;</code></pre>
 <p><code>corrr::rplot()</code>関数を使用して、相関係数行列を散布図で可視化します。<code>corrr::shave()</code>関数は、相関係数行列の左下半分のみを抽出する関数です。</p>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="06_eda.html#cb614-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
-<span id="cb614-2"><a href="06_eda.html#cb614-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb614-3"><a href="06_eda.html#cb614-3" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">shave</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb614-4"><a href="06_eda.html#cb614-4" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rplot</span>(<span class="at">print_cor =</span> <span class="cn">TRUE</span>) <span class="co"># 散布図上に相関係数の値を表示する</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-289-1.png" width="672" /></p>
-<p><code>corrr::network_plot()</code>関数を使用すると、変数の相関関係をネットワーク図で可視化することができます。ネットワーク図では相関が強い変数が近くに配置されます。</p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="06_eda.html#cb615-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
-<span id="cb615-2"><a href="06_eda.html#cb615-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">network_plot</span>(<span class="at">min_cor =</span> <span class="fl">0.6</span>) <span class="co"># 表示する最小の相関係数の値</span></span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="06_eda.html#cb616-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb616-2"><a href="06_eda.html#cb616-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rearrange</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb616-3"><a href="06_eda.html#cb616-3" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">shave</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb616-4"><a href="06_eda.html#cb616-4" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">rplot</span>(<span class="at">print_cor =</span> <span class="cn">TRUE</span>) <span class="co"># 散布図上に相関係数の値を表示する</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-290-1.png" width="672" /></p>
+<p><code>corrr::network_plot()</code>関数を使用すると、変数の相関関係をネットワーク図で可視化することができます。ネットワーク図では相関が強い変数が近くに配置されます。</p>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="06_eda.html#cb617-1" aria-hidden="true" tabindex="-1"></a>mtcars_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb617-2"><a href="06_eda.html#cb617-2" aria-hidden="true" tabindex="-1"></a>  corrr<span class="sc">::</span><span class="fu">network_plot</span>(<span class="at">min_cor =</span> <span class="fl">0.6</span>) <span class="co"># 表示する最小の相関係数の値</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
 </div>
 <div id="ggallyパッケージ" class="section level3 hasAnchor" number="6.5.4">
 <h3><span class="header-section-number">6.5.4</span> GGallyパッケージ<a href="06_eda.html#ggallyパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>GGally</code>パッケージの<code>GGally::ggpairs()</code>関数を使用すると、変数のペアプロット（pairwise plot）を簡単に出力することができます。なお、<code>GGally</code>パッケージにはペアプロット以外にも様々な機能があります。詳細は<a href="https://ggobi.github.io/ggally/index.html">公式ウェブサイト</a>を参照してください。</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="06_eda.html#cb616-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb616-2"><a href="06_eda.html#cb616-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(mpg, cyl, disp, hp, gear) <span class="sc">%&gt;%</span> </span>
-<span id="cb616-3"><a href="06_eda.html#cb616-3" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">progress =</span> <span class="cn">FALSE</span>) <span class="co"># コンソールにプログラスバーを表示するか</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="06_eda.html#cb618-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb618-2"><a href="06_eda.html#cb618-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(mpg, cyl, disp, hp, gear) <span class="sc">%&gt;%</span> </span>
+<span id="cb618-3"><a href="06_eda.html#cb618-3" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">progress =</span> <span class="cn">FALSE</span>) <span class="co"># コンソールにプログラスバーを表示するか</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-292-1.png" width="672" /></p>
 <p>また、<code>mapping = aes()</code>内の引数にグループ化する変数を指定することで、グループ別のペアプロットを出力できます。ここではサンプルデータセットとして<code>iris</code>データセットを用いています。</p>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="06_eda.html#cb617-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb617-2"><a href="06_eda.html#cb617-2" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> Species, <span class="at">alpha =</span> <span class="fl">0.5</span>),</span>
-<span id="cb617-3"><a href="06_eda.html#cb617-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">progress =</span> <span class="cn">FALSE</span> <span class="co"># コンソールにプログラスバーを表示するか</span></span>
-<span id="cb617-4"><a href="06_eda.html#cb617-4" aria-hidden="true" tabindex="-1"></a>                  )</span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="06_eda.html#cb619-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb619-2"><a href="06_eda.html#cb619-2" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> Species, <span class="at">alpha =</span> <span class="fl">0.5</span>),</span>
+<span id="cb619-3"><a href="06_eda.html#cb619-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">progress =</span> <span class="cn">FALSE</span> <span class="co"># コンソールにプログラスバーを表示するか</span></span>
+<span id="cb619-4"><a href="06_eda.html#cb619-4" aria-hidden="true" tabindex="-1"></a>                  )</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-292-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-293-1.png" width="672" /></p>
 </div>
 </div>
 <div id="探索的データ分析の一括実行" class="section level2 hasAnchor" number="6.6">
@@ -1441,44 +1443,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="dataexplorerパッケージ" class="section level3 hasAnchor" number="6.6.1">
 <h3><span class="header-section-number">6.6.1</span> DataExplorerパッケージ<a href="06_eda.html#dataexplorerパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>DataExplorer</code>パッケージの<code>create_report()</code>関数を使用すると、データセットに含まれる変数、データ構造、欠損値、ヒストグラム、QQプロット、相関係数行列、主成分分析（PCA）などを自動で作成して、HTML形式のレポートをブラウザに出力します。ウェブサイト上では実行できないため、各自で試してみてください。</p>
-<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="06_eda.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="co"># irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施</span></span>
-<span id="cb619-2"><a href="06_eda.html#cb619-2" aria-hidden="true" tabindex="-1"></a>DataExplorer<span class="sc">::</span><span class="fu">create_report</span>(<span class="at">data =</span> iris)</span></code></pre></div>
-<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="06_eda.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施</span></span>
-<span id="cb620-2"><a href="06_eda.html#cb620-2" aria-hidden="true" tabindex="-1"></a>DataExplorer<span class="sc">::</span><span class="fu">create_report</span>(<span class="at">data =</span> diamonds,</span>
-<span id="cb620-3"><a href="06_eda.html#cb620-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">y =</span> <span class="st">&quot;price&quot;</span></span>
-<span id="cb620-4"><a href="06_eda.html#cb620-4" aria-hidden="true" tabindex="-1"></a>                            )</span></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="06_eda.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="co"># irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施</span></span>
+<span id="cb621-2"><a href="06_eda.html#cb621-2" aria-hidden="true" tabindex="-1"></a>DataExplorer<span class="sc">::</span><span class="fu">create_report</span>(<span class="at">data =</span> iris)</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="06_eda.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施</span></span>
+<span id="cb622-2"><a href="06_eda.html#cb622-2" aria-hidden="true" tabindex="-1"></a>DataExplorer<span class="sc">::</span><span class="fu">create_report</span>(<span class="at">data =</span> diamonds,</span>
+<span id="cb622-3"><a href="06_eda.html#cb622-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">y =</span> <span class="st">&quot;price&quot;</span></span>
+<span id="cb622-4"><a href="06_eda.html#cb622-4" aria-hidden="true" tabindex="-1"></a>                            )</span></code></pre></div>
 </div>
 <div id="smartedaパッケージ" class="section level3 hasAnchor" number="6.6.2">
 <h3><span class="header-section-number">6.6.2</span> SmartEDAパッケージ<a href="06_eda.html#smartedaパッケージ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>SmartEDA</code>パッケージの<code>ExpReport()</code>関数を使用すると、データセットに含まれる変数、ヒストグラム、QQプロット、相関係数行列などを自動で作成して、HTML形式のレポートファイルを作成します。ウェブサイト上では実行できないため、各自で試してみてください。</p>
 <p>なお、データセットのサイズが大きい場合は処理に時間がかかるため、注意が必要です。</p>
-<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="06_eda.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="co"># irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施</span></span>
-<span id="cb621-2"><a href="06_eda.html#cb621-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpReport</span>(<span class="at">data =</span> iris,</span>
-<span id="cb621-3"><a href="06_eda.html#cb621-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">op_file =</span> <span class="st">&quot;report.html&quot;</span></span>
-<span id="cb621-4"><a href="06_eda.html#cb621-4" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
-<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="06_eda.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施</span></span>
-<span id="cb622-2"><a href="06_eda.html#cb622-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpReport</span>(<span class="at">data =</span> diamonds,</span>
-<span id="cb622-3"><a href="06_eda.html#cb622-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Target =</span> <span class="st">&quot;price&quot;</span>,</span>
-<span id="cb622-4"><a href="06_eda.html#cb622-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">op_file =</span> <span class="st">&quot;report.html&quot;</span></span>
-<span id="cb622-5"><a href="06_eda.html#cb622-5" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="06_eda.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="co"># irisデータセットに対し被説明変数を指定せずに探索的データ分析を実施</span></span>
+<span id="cb623-2"><a href="06_eda.html#cb623-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpReport</span>(<span class="at">data =</span> iris,</span>
+<span id="cb623-3"><a href="06_eda.html#cb623-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">op_file =</span> <span class="st">&quot;report.html&quot;</span></span>
+<span id="cb623-4"><a href="06_eda.html#cb623-4" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="06_eda.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diamondsデータセットに対し被説明変数をpriceに指定して探索的データ分析を実施</span></span>
+<span id="cb624-2"><a href="06_eda.html#cb624-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpReport</span>(<span class="at">data =</span> diamonds,</span>
+<span id="cb624-3"><a href="06_eda.html#cb624-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Target =</span> <span class="st">&quot;price&quot;</span>,</span>
+<span id="cb624-4"><a href="06_eda.html#cb624-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">op_file =</span> <span class="st">&quot;report.html&quot;</span></span>
+<span id="cb624-5"><a href="06_eda.html#cb624-5" aria-hidden="true" tabindex="-1"></a>                    )</span></code></pre></div>
 <p>また、<code>SmartEDA::ExpCatStat()</code>では、<code>Target</code>引数で指定した被説明変数に対する各変数の予測力を計算することができます。</p>
-<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="06_eda.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mtcarsデータセットに対し被説明変数をamに指定して各変数の予測力を計算</span></span>
-<span id="cb623-2"><a href="06_eda.html#cb623-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpCatStat</span>(<span class="at">data =</span> mtcars,</span>
-<span id="cb623-3"><a href="06_eda.html#cb623-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Target =</span> <span class="st">&quot;am&quot;</span>,</span>
-<span id="cb623-4"><a href="06_eda.html#cb623-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">plot =</span> <span class="cn">TRUE</span></span>
-<span id="cb623-5"><a href="06_eda.html#cb623-5" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-297-1.png" width="672" /></p>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="06_eda.html#cb625-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mtcarsデータセットに対し被説明変数をamに指定して各変数の予測力を計算</span></span>
+<span id="cb625-2"><a href="06_eda.html#cb625-2" aria-hidden="true" tabindex="-1"></a>SmartEDA<span class="sc">::</span><span class="fu">ExpCatStat</span>(<span class="at">data =</span> mtcars,</span>
+<span id="cb625-3"><a href="06_eda.html#cb625-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Target =</span> <span class="st">&quot;am&quot;</span>,</span>
+<span id="cb625-4"><a href="06_eda.html#cb625-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">plot =</span> <span class="cn">TRUE</span></span>
+<span id="cb625-5"><a href="06_eda.html#cb625-5" aria-hidden="true" tabindex="-1"></a>                     )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-298-1.png" width="672" /></p>
 <pre><code>##    Variable Target Unique Chi-squared p-value df IV Value Cramers V
-## 1       cyl     am      3       8.741   0.008 NA     1.32      0.52
-## 2        vs     am      2       0.907   0.484 NA     0.11      0.17
+## 1       cyl     am      3       8.741   0.009 NA     1.32      0.52
+## 2        vs     am      2       0.907   0.478 NA     0.11      0.17
 ## 3      gear     am      3      20.945   0.000 NA     0.44      0.81
-## 4      carb     am      6       6.237   0.253 NA     0.17      0.44
-## 5       mpg     am     10      20.945   0.001 NA     0.14      0.81
+## 4      carb     am      6       6.237   0.275 NA     0.17      0.44
+## 5       mpg     am     10      20.945   0.003 NA     0.14      0.81
 ## 6      disp     am     10      21.636   0.002 NA     0.35      0.82
-## 7        hp     am     10      17.490   0.022 NA     0.47      0.74
-## 8      drat     am     10      21.497   0.001 NA     0.12      0.82
-## 9        wt     am     10      20.254   0.007 NA     0.46      0.80
-## 10     qsec     am     10      11.824   0.233 NA     0.54      0.61
+## 7        hp     am     10      17.490   0.021 NA     0.47      0.74
+## 8      drat     am     10      21.497   0.002 NA     0.12      0.82
+## 9        wt     am     10      20.254   0.005 NA     0.46      0.80
+## 10     qsec     am     10      11.824   0.232 NA     0.54      0.61
 ##    Degree of Association    Predictive Power
 ## 1                 Strong   Highly Predictive
 ## 2                   Weak Somewhat Predictive

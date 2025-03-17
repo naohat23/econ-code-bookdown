@@ -99,9 +99,8 @@ Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
 Rで外部との通信が可能であることをチェックするには、`httr`パッケージを使用して次のコードを実行します。ステータス200が表示されれば、外部通信が成功していることを意味します。
 
 ```{r, paged.print=FALSE}
-install.packages("httr")
 library(httr)
-GET("https://www.google.com") %>% status_code()
+status_code(GET("https://www.google.com"))
 ```
 
 ## パッケージ
