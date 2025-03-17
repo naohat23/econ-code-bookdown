@@ -295,7 +295,7 @@ $$
 $$
 \begin{align}
 \Delta{u_t} = &- \frac{1}{\alpha_{t-1}N_{t-1}}\Delta{E_t} + \frac{E_{t-1}}{\alpha^2_{t-1}N_{t-1}}\Delta{\alpha_t} + \frac{E_{t-1}}{\alpha_{t-1}N^2_{t-1}}\Delta{N_t} \\
-&+ \frac{E_{t-1}}{\alpha_{t-1}N_{t-1}} \times \Bigl( \frac{\Delta{\alpha_{t}}\Delta{N_t}}{\alpha_{t-1}N_{t-1}} + \frac{\alpha_{t-1}N_{t-1}\Delta{E_t}\Delta{(\alpha_tN_t)}-E_{t-1}(\Delta{(\alpha_tN_t)})^2}{E_{t-1}\alpha_{t-1}N_{t-1}\alpha_{t}N_{t}} \Bigr)
+&+ \frac{E_t\alpha_{t}N_{t}\Delta{\alpha_t}\Delta{N_t} + \alpha_{t-1}N_{t-1}\Delta{E_t}\Delta{(\alpha_tN_t)}-E_{t-1}(\Delta{(\alpha_tN_t)})^2}{\alpha^2_{t-1}N^2    _{t-1}\alpha_{t}N_{t}}
 \end{align}
 $$
 

@@ -94,6 +94,16 @@ SSLエラーが生じた場合は、次のコマンドを実行することで�
 Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
 ```
 
+### 外部通信の確認
+
+Rで外部との通信が可能であることをチェックするには、`httr`パッケージを使用して次のコードを実行します。ステータス200が表示されれば、外部通信が成功していることを意味します。
+
+```{r, paged.print=FALSE}
+install.packages("httr")
+library(httr)
+GET("https://www.google.com") %>% status_code()
+```
+
 ## パッケージ
 
 ### 使用するパッケージ一覧
@@ -146,6 +156,7 @@ Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
     -   [nycflights13](https://github.com/tidyverse/nycflights13)：航空便情報サンプルデータセット
 -   その他
     -   [docstring](https://github.com/dasonk/docstring)：関数の説明文を作成
+    -   [httr](https://httr.r-lib.org/)：HTTPリクエスト
     -   [openxlsx](https://ycphs.github.io/openxlsx/)：Excelのxlsxファイルの読み込み・編集・書き出し
     -   [pbapply](https://github.com/psolymos/pbapply)：プログレスバーを表示する`apply()`関数ファミリー
 
@@ -206,6 +217,7 @@ packages <- c(
   "nycflights13",
   # その他
   "docstring", 
+  "httr",
   "openxlsx", 
   "pbapply"
 )
@@ -585,7 +597,7 @@ rm(list = ls())
 # 警告の非表示
 options(warn = -1)
 
-# プロキシ設定（使用環境に応じproxyserverとportを記入。筆者の実行環境では不要のためコメントアウト）
+# # プロキシ設定（使用環境に応じproxyserverとportを記入。筆者の実行環境では不要のためコメントアウト）
 # proxy_url <- "http://proxyserver:port/"
 # 
 # Sys.setenv("http_proxy" = proxy_url)
@@ -594,9 +606,7 @@ options(warn = -1)
 # options(download.file.method = "libcurl")
 # options(timeout = NA)
 
-# Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
-
-# SSL設定（筆者の実行環境では不要のためコメントアウト）
+# # SSL設定（筆者の実行環境では不要のためコメントアウト）
 # Sys.setenv("R_LIBCURL_SSL_REVOKE_BEST_EFFORT" = TRUE)
 
 # パッケージのインストールとインポート
@@ -649,6 +659,7 @@ packages <- c(
   "nycflights13",
   # その他
   "docstring", 
+  "httr",
   "openxlsx", 
   "pbapply"
 )
